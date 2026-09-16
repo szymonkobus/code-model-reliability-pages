@@ -1,0 +1,551 @@
+{
+ "method_version": "capability-C v2026-09-01c (uniform difficulty marginal, full-axis estimator, monotone completion; ci80 bootstrap B=400)",
+ "marginal": "u",
+ "name": "Capability (uniform)",
+ "distribution": "uniform: even weight along the failure level on 0 to 1, Beta(1,1)",
+ "marginal_plain": "population weighted evenly along the failure level (uniform in u on [0, 1]; Voronoi cell mass in u; uncovered easy end credited solved)",
+ "frame": {
+  "keep_set_hash": "26b3d29962cb",
+  "runs_fingerprint": "counts:fail_counts_matrix.csv@26b3d29962cb",
+  "population_fingerprint": "7c54db44c611",
+  "fitted_arms": [
+   "Qwen/Qwen2.5-0.5B-Instruct",
+   "Qwen/Qwen2.5-1.5B-Instruct",
+   "Qwen/Qwen2.5-14B-Instruct",
+   "Qwen/Qwen2.5-32B-Instruct",
+   "Qwen/Qwen2.5-3B-Instruct",
+   "Qwen/Qwen2.5-7B-Instruct",
+   "Qwen/Qwen2.5-Coder-0.5B-Instruct",
+   "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+   "Qwen/Qwen2.5-Coder-14B-Instruct",
+   "Qwen/Qwen2.5-Coder-32B-Instruct",
+   "Qwen/Qwen2.5-Coder-3B-Instruct",
+   "Qwen/Qwen2.5-Coder-7B-Instruct",
+   "Qwen/Qwen3-0.6B",
+   "Qwen/Qwen3-0.6B-Thinking",
+   "Qwen/Qwen3-1.7B",
+   "Qwen/Qwen3-1.7B-Thinking",
+   "Qwen/Qwen3-14B",
+   "Qwen/Qwen3-14B-Thinking",
+   "Qwen/Qwen3-30B-A3B",
+   "Qwen/Qwen3-32B",
+   "Qwen/Qwen3-32B-Thinking",
+   "Qwen/Qwen3-4B",
+   "Qwen/Qwen3-4B-Instruct-2507",
+   "Qwen/Qwen3-4B-Thinking",
+   "Qwen/Qwen3-8B",
+   "Qwen/Qwen3-8B-Thinking",
+   "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+   "claude-haiku-4-5",
+   "claude-haiku-4-5-thinking",
+   "claude-opus-5",
+   "claude-opus-5-thinking",
+   "claude-sonnet-5",
+   "claude-sonnet-5-thinking",
+   "deepseek-ai/DeepSeek-Coder-V2-Instruct",
+   "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct",
+   "deepseek-ai/DeepSeek-R1-0528",
+   "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
+   "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+   "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+   "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+   "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+   "deepseek-ai/DeepSeek-V3-0324",
+   "deepseek-ai/DeepSeek-V3.2",
+   "deepseek-ai/DeepSeek-V3.2-Thinking",
+   "deepseek-ai/deepseek-coder-1.3b-instruct",
+   "deepseek-ai/deepseek-coder-33b-instruct",
+   "deepseek-ai/deepseek-coder-6.7b-instruct",
+   "google/gemini-3.5-flash-lite",
+   "google/gemini-3.6-flash",
+   "google/gemma-4-12B-it",
+   "google/gemma-4-31B-it",
+   "moonshotai/Kimi-Dev-72B",
+   "moonshotai/Kimi-K2-Instruct",
+   "moonshotai/Kimi-Linear-48B-A3B-Instruct",
+   "moonshotai/Moonlight-16B-A3B-Instruct",
+   "openai/gpt-5-mini",
+   "openai/gpt-5-nano",
+   "zai-org/GLM-4.7-Flash"
+  ],
+  "population_M": 58,
+  "build_date": "",
+  "population": "board (all complete arms)",
+  "restriction": null
+ },
+ "source": "analysis/battery/make_u_frame.py (formula: C_m = u_lo + sum_t w_t (1 - f_mt/n_t), Voronoi-in-u weights; uncovered easy end credited solved, hard end failed)",
+ "placement": "z omitted by design: apply the identity z = logit(C) — the dot sits at level u = C",
+ "uncertainty_semantics": "",
+ "exclusions": [
+  {
+   "cfg": "Qwen/Qwen3-30B-A3B-Thinking",
+   "reason": "partial coverage: other-benchmark run pending; excluded from the population until complete"
+  }
+ ],
+ "rows": [
+  {
+   "cfg": "Qwen/Qwen2.5-0.5B-Instruct",
+   "C": 0.137,
+   "ci80_C": [
+    0.1285,
+    0.1603
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen2.5-1.5B-Instruct",
+   "C": 0.2313,
+   "ci80_C": [
+    0.2259,
+    0.2629
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen2.5-14B-Instruct",
+   "C": 0.4186,
+   "ci80_C": [
+    0.3881,
+    0.4526
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen2.5-32B-Instruct",
+   "C": 0.5214,
+   "ci80_C": [
+    0.4907,
+    0.5324
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen2.5-3B-Instruct",
+   "C": 0.3039,
+   "ci80_C": [
+    0.2899,
+    0.3356
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen2.5-7B-Instruct",
+   "C": 0.3913,
+   "ci80_C": [
+    0.364,
+    0.4293
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen2.5-Coder-0.5B-Instruct",
+   "C": 0.1958,
+   "ci80_C": [
+    0.1836,
+    0.2342
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+   "C": 0.2727,
+   "ci80_C": [
+    0.2674,
+    0.3049
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen2.5-Coder-14B-Instruct",
+   "C": 0.4882,
+   "ci80_C": [
+    0.4542,
+    0.5394
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen2.5-Coder-32B-Instruct",
+   "C": 0.5175,
+   "ci80_C": [
+    0.4976,
+    0.586
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen2.5-Coder-3B-Instruct",
+   "C": 0.332,
+   "ci80_C": [
+    0.3343,
+    0.3738
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen2.5-Coder-7B-Instruct",
+   "C": 0.4429,
+   "ci80_C": [
+    0.4145,
+    0.4908
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-0.6B",
+   "C": 0.1731,
+   "ci80_C": [
+    0.1621,
+    0.2133
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-0.6B-Thinking",
+   "C": 0.1996,
+   "ci80_C": [
+    0.1857,
+    0.224
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-1.7B",
+   "C": 0.248,
+   "ci80_C": [
+    0.2234,
+    0.2722
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-1.7B-Thinking",
+   "C": 0.3904,
+   "ci80_C": [
+    0.3705,
+    0.4217
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-14B",
+   "C": 0.506,
+   "ci80_C": [
+    0.4758,
+    0.5325
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-14B-Thinking",
+   "C": 0.6758,
+   "ci80_C": [
+    0.6419,
+    0.7021
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-30B-A3B",
+   "C": 0.4688,
+   "ci80_C": [
+    0.4355,
+    0.4997
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-32B",
+   "C": 0.468,
+   "ci80_C": [
+    0.4458,
+    0.4956
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-32B-Thinking",
+   "C": 0.7396,
+   "ci80_C": [
+    0.699,
+    0.7635
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-4B",
+   "C": 0.3094,
+   "ci80_C": [
+    0.2917,
+    0.324
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-4B-Instruct-2507",
+   "C": 0.4077,
+   "ci80_C": [
+    0.3711,
+    0.4297
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-4B-Thinking",
+   "C": 0.584,
+   "ci80_C": [
+    0.5362,
+    0.6074
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-8B",
+   "C": 0.3539,
+   "ci80_C": [
+    0.3335,
+    0.3754
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-8B-Thinking",
+   "C": 0.5837,
+   "ci80_C": [
+    0.5418,
+    0.6274
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+   "C": 0.5746,
+   "ci80_C": [
+    0.4998,
+    0.5842
+   ]
+  },
+  {
+   "cfg": "claude-haiku-4-5",
+   "C": 0.6096,
+   "ci80_C": [
+    0.5537,
+    0.6474
+   ]
+  },
+  {
+   "cfg": "claude-haiku-4-5-thinking",
+   "C": 0.7858,
+   "ci80_C": [
+    0.7177,
+    0.8086
+   ]
+  },
+  {
+   "cfg": "claude-opus-5",
+   "C": 0.8875,
+   "ci80_C": [
+    0.8186,
+    0.8963
+   ]
+  },
+  {
+   "cfg": "claude-opus-5-thinking",
+   "C": 0.8937,
+   "ci80_C": [
+    0.8195,
+    0.902
+   ]
+  },
+  {
+   "cfg": "claude-sonnet-5",
+   "C": 0.7321,
+   "ci80_C": [
+    0.6626,
+    0.7532
+   ]
+  },
+  {
+   "cfg": "claude-sonnet-5-thinking",
+   "C": 0.8248,
+   "ci80_C": [
+    0.7382,
+    0.8205
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/DeepSeek-Coder-V2-Instruct",
+   "C": 0.5057,
+   "ci80_C": [
+    0.4627,
+    0.5419
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct",
+   "C": 0.3806,
+   "ci80_C": [
+    0.3584,
+    0.402
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/DeepSeek-R1-0528",
+   "C": 0.8045,
+   "ci80_C": [
+    0.7799,
+    0.8359
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
+   "C": 0.4278,
+   "ci80_C": [
+    0.3885,
+    0.4617
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+   "C": 0.2339,
+   "ci80_C": [
+    0.2295,
+    0.2703
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+   "C": 0.5658,
+   "ci80_C": [
+    0.516,
+    0.6002
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+   "C": 0.6652,
+   "ci80_C": [
+    0.6121,
+    0.6833
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+   "C": 0.434,
+   "ci80_C": [
+    0.4097,
+    0.4701
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/DeepSeek-V3-0324",
+   "C": 0.5831,
+   "ci80_C": [
+    0.5487,
+    0.6037
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/DeepSeek-V3.2",
+   "C": 0.6023,
+   "ci80_C": [
+    0.5634,
+    0.6213
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/DeepSeek-V3.2-Thinking",
+   "C": 0.6906,
+   "ci80_C": [
+    0.6563,
+    0.7194
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/deepseek-coder-1.3b-instruct",
+   "C": 0.2449,
+   "ci80_C": [
+    0.2364,
+    0.2931
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/deepseek-coder-33b-instruct",
+   "C": 0.3815,
+   "ci80_C": [
+    0.3623,
+    0.426
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/deepseek-coder-6.7b-instruct",
+   "C": 0.3519,
+   "ci80_C": [
+    0.3387,
+    0.3965
+   ]
+  },
+  {
+   "cfg": "google/gemini-3.5-flash-lite",
+   "C": 0.6417,
+   "ci80_C": [
+    0.5815,
+    0.6646
+   ]
+  },
+  {
+   "cfg": "google/gemini-3.6-flash",
+   "C": 0.8438,
+   "ci80_C": [
+    0.7936,
+    0.8687
+   ]
+  },
+  {
+   "cfg": "google/gemma-4-12B-it",
+   "C": 0.5503,
+   "ci80_C": [
+    0.498,
+    0.5879
+   ]
+  },
+  {
+   "cfg": "google/gemma-4-31B-it",
+   "C": 0.6919,
+   "ci80_C": [
+    0.6412,
+    0.7034
+   ]
+  },
+  {
+   "cfg": "moonshotai/Kimi-Dev-72B",
+   "C": 0.4462,
+   "ci80_C": [
+    0.421,
+    0.4668
+   ]
+  },
+  {
+   "cfg": "moonshotai/Kimi-K2-Instruct",
+   "C": 0.585,
+   "ci80_C": [
+    0.5366,
+    0.6177
+   ]
+  },
+  {
+   "cfg": "moonshotai/Kimi-Linear-48B-A3B-Instruct",
+   "C": 0.399,
+   "ci80_C": [
+    0.3829,
+    0.4225
+   ]
+  },
+  {
+   "cfg": "moonshotai/Moonlight-16B-A3B-Instruct",
+   "C": 0.2944,
+   "ci80_C": [
+    0.2726,
+    0.3146
+   ]
+  },
+  {
+   "cfg": "openai/gpt-5-mini",
+   "C": 0.8088,
+   "ci80_C": [
+    0.7952,
+    0.8461
+   ]
+  },
+  {
+   "cfg": "openai/gpt-5-nano",
+   "C": 0.7102,
+   "ci80_C": [
+    0.6812,
+    0.7623
+   ]
+  },
+  {
+   "cfg": "zai-org/GLM-4.7-Flash",
+   "C": 0.4052,
+   "ci80_C": [
+    0.3861,
+    0.424
+   ]
+  }
+ ]
+}

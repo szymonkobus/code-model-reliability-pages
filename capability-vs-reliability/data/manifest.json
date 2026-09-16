@@ -1,0 +1,508 @@
+{
+ "fingerprint": "615e97e01922",
+ "frame": {
+  "population_M": 58,
+  "tasks": 431,
+  "n_arms_sampled": 59,
+  "difficulty_population_M": 59,
+  "partial_arms_withheld": [
+   "Qwen/Qwen3-30B-A3B-Thinking"
+  ],
+  "withheld_reasons": {
+   "Qwen/Qwen3-30B-A3B-Thinking": ""
+  },
+  "keep_set_hash": "26b3d29962cb",
+  "axis_order_hash": "61defa798150",
+  "runs_fingerprint": "d7d8dd412983",
+  "inputs_content_sha": "19f613490151",
+  "scorer": "plus_status",
+  "build_date": "2026-09-15",
+  "build_ts": "",
+  "fitted_M": 58,
+  "axis_M": 59,
+  "fit_excluded": []
+ },
+ "files": {
+  "shared": "shared.615e97e01922.json",
+  "chain_average": "chain_average.615e97e01922.json",
+  "chain_median": "chain_median.615e97e01922.json",
+  "bayes": "bayes.615e97e01922-63db7d7176e6.json",
+  "bayes_prev": "bayes.d5fc7b013c92.json"
+ },
+ "datasets": {
+  "board": {
+   "files": {
+    "shared": "shared.615e97e01922.json",
+    "chain_average": "chain_average.615e97e01922.json",
+    "chain_median": "chain_median.615e97e01922.json",
+    "bayes": "bayes.615e97e01922-63db7d7176e6.json",
+    "bayes_prev": "bayes.d5fc7b013c92.json"
+   },
+   "label": "board (HumanEval+ & MBPP+)",
+   "fingerprint": "615e97e01922",
+   "frame": {
+    "population_M": 58,
+    "tasks": 431,
+    "n_arms_sampled": 59,
+    "difficulty_population_M": 59,
+    "partial_arms_withheld": [
+     "Qwen/Qwen3-30B-A3B-Thinking"
+    ],
+    "withheld_reasons": {
+     "Qwen/Qwen3-30B-A3B-Thinking": ""
+    },
+    "keep_set_hash": "26b3d29962cb",
+    "axis_order_hash": "61defa798150",
+    "runs_fingerprint": "d7d8dd412983",
+    "inputs_content_sha": "19f613490151",
+    "scorer": "plus_status",
+    "build_date": "2026-09-15",
+    "build_ts": "",
+    "fitted_M": 58,
+    "axis_M": 59,
+    "fit_excluded": []
+   },
+   "flip": {
+    "from_wave": "old-20260908T0037Z",
+    "to_wave": "old-20260910T2211Z",
+    "from_fit_set": "6cb3e853e614",
+    "to_fit_set": "63db7d7176e6",
+    "at": "",
+    "from_interim_n": 0,
+    "declared": true
+   }
+  },
+  "new": {
+   "files": {
+    "shared": "shared.new.0cefff956c67.json",
+    "chain_average": "chain_average.new.0cefff956c67.json"
+   },
+   "label": "new tasks (pool)",
+   "fingerprint": "0cefff956c67",
+   "frame": {
+    "population_M": 56,
+    "tasks": 1748,
+    "keep_set_hash": "ce4bac7bbb98",
+    "runs_fingerprint": "0cefff956c67",
+    "runs_window": "",
+    "build_date": "2026-09-16",
+    "build_ts": "",
+    "set": "new",
+    "set_label": "new tasks (pool)",
+    "tasks_used": "new tasks (pool) — 1748 tasks, axis wave combined-20260903T1502Z",
+    "source": "the maintainers build_pool_curves.py stamp 2026-09-16T03:07:48+00:00 · cross_rows on lev_grid f3d40b6fb872",
+    "skipped_no_rows": []
+   },
+   "source_stamp": "2026-09-16T03:07:48+00:00",
+   "missing": {
+    "chain_median": "the median-task chain needs the pool cell matrix, which the pool bundle does not carry",
+    "bayes": "no Bayesian fit for this set until a new pool wave is cut as adopted (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
+   },
+   "bayes_interim": null,
+   "updated_at": ""
+  },
+  "all": {
+   "files": {
+    "shared": "shared.all.c563627fa612.json",
+    "chain_average": "chain_average.all.c563627fa612.json",
+    "bayes": "bayes.all.c563627fa612-fcea34c566d7.json"
+   },
+   "label": "all tasks",
+   "arms": "all",
+   "fingerprint": "c563627fa612",
+   "frame": {
+    "population_M": 59,
+    "tasks": 2179,
+    "keep_set_hash": "7089a04ddd6a",
+    "runs_fingerprint": "d50b21fc385a",
+    "build_date": "2026-09-16",
+    "build_ts": "",
+    "set": "all",
+    "set_label": "all tasks",
+    "arms": "all",
+    "tasks_on_axis": 2179,
+    "tasks_kept": 2179,
+    "tasks_awaiting_axis": 0,
+    "axis_set_hash": "7089a04ddd6a",
+    "tasks_used": "all tasks — 2179 tasks, axis wave unified-live",
+    "source": "failure-vs-difficulty data-all fp d67f44e9e248 (read-only) · crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "bfb634a1f7fe",
+    "withheld_configs": [],
+    "withdrawn": {}
+   },
+   "source_stamp": "",
+   "source_fp": "d67f44e9e248",
+   "updated_at": "",
+   "bayes_interim": {
+    "wave": null,
+    "n": 0,
+    "unfitted": 4,
+    "served_wave": "combined-20260903T1502Z",
+    "served_arms": 55
+   },
+   "missing": {
+    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
+    "capC": "Capability C is computed for wave 1 (the original tasks) only",
+    "capC_z": "this Capability C variant is computed for wave 1 and wave 1+2 only",
+    "capC_j": "this Capability C variant is computed for wave 1 and wave 1+2 only"
+   }
+  },
+  "golden-board": {
+   "files": {
+    "shared": "shared.golden-board.c2b8f9644ce5.json",
+    "chain_average": "chain_average.golden-board.c2b8f9644ce5.json",
+    "bayes": "bayes.golden-board.c2b8f9644ce5-ffd6e0604cc9.json"
+   },
+   "label": "board (HumanEval+ & MBPP+)",
+   "arms": "golden",
+   "fingerprint": "c2b8f9644ce5",
+   "frame": {
+    "population_M": 12,
+    "tasks": 431,
+    "keep_set_hash": "26b3d29962cb",
+    "runs_fingerprint": "d50b21fc385a",
+    "build_date": "2026-09-16",
+    "build_ts": "",
+    "set": "board",
+    "set_label": "board (HumanEval+ & MBPP+)",
+    "arms": "golden",
+    "tasks_on_axis": 431,
+    "tasks_kept": 431,
+    "tasks_awaiting_axis": 0,
+    "axis_set_hash": "26b3d29962cb",
+    "tasks_used": "board (HumanEval+ & MBPP+) — 431 tasks, golden-set axis over the 12 arms",
+    "source": "failure-vs-difficulty data-golden-board fp c0843fce9243 (read-only) · crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "13059cf8b5a0",
+    "withheld_configs": [],
+    "withdrawn": {}
+   },
+   "source_stamp": "",
+   "source_fp": "c0843fce9243",
+   "updated_at": "",
+   "bayes_interim": {
+    "wave": null,
+    "n": 0,
+    "unfitted": 0,
+    "served_wave": "golden-board-20260904T1407Z",
+    "served_arms": 12
+   },
+   "missing": {
+    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
+    "capC": "Capability C is computed for wave 1 (the original tasks) only",
+    "capC_z": "this Capability C variant is computed for wave 1 and wave 1+2 only",
+    "capC_j": "this Capability C variant is computed for wave 1 and wave 1+2 only"
+   }
+  },
+  "golden-new": {
+   "files": {
+    "shared": "shared.golden-new.debce83db5d4.json",
+    "chain_average": "chain_average.golden-new.debce83db5d4.json",
+    "bayes": "bayes.golden-new.debce83db5d4-f397260cc9fb.json"
+   },
+   "label": "new tasks (pool)",
+   "arms": "golden",
+   "fingerprint": "debce83db5d4",
+   "frame": {
+    "population_M": 12,
+    "tasks": 1746,
+    "keep_set_hash": "c686ecb8ef40",
+    "runs_fingerprint": "d50b21fc385a",
+    "build_date": "2026-09-16",
+    "build_ts": "",
+    "set": "new",
+    "set_label": "new tasks (pool)",
+    "arms": "golden",
+    "tasks_on_axis": 1746,
+    "tasks_kept": 1748,
+    "tasks_awaiting_axis": 2,
+    "axis_set_hash": "c686ecb8ef40",
+    "tasks_used": "new tasks (pool) — 1746 tasks, golden-set axis over the 12 arms",
+    "source": "failure-vs-difficulty data-golden-new fp 69e399cc8997 (read-only) · crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "a9f4ce238a38",
+    "withheld_configs": [],
+    "withdrawn": {}
+   },
+   "source_stamp": "",
+   "source_fp": "69e399cc8997",
+   "updated_at": "",
+   "bayes_interim": {
+    "wave": null,
+    "n": 0,
+    "unfitted": 0,
+    "served_wave": "golden-pool-20260904T1407Z-m100",
+    "served_arms": 12
+   },
+   "missing": {
+    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
+    "capC": "Capability C is computed for wave 1 (the original tasks) only",
+    "capC_z": "this Capability C variant is computed for wave 1 and wave 1+2 only",
+    "capC_j": "this Capability C variant is computed for wave 1 and wave 1+2 only"
+   }
+  },
+  "golden-all": {
+   "files": {
+    "shared": "shared.golden-all.999541ea4357.json",
+    "chain_average": "chain_average.golden-all.999541ea4357.json",
+    "bayes": "bayes.golden-all.999541ea4357-df9662871186.json"
+   },
+   "label": "all tasks",
+   "arms": "golden",
+   "fingerprint": "999541ea4357",
+   "frame": {
+    "population_M": 12,
+    "tasks": 2179,
+    "keep_set_hash": "7089a04ddd6a",
+    "runs_fingerprint": "d50b21fc385a",
+    "build_date": "2026-09-16",
+    "build_ts": "",
+    "set": "all",
+    "set_label": "all tasks",
+    "arms": "golden",
+    "tasks_on_axis": 2179,
+    "tasks_kept": 2179,
+    "tasks_awaiting_axis": 0,
+    "axis_set_hash": "7089a04ddd6a",
+    "tasks_used": "all tasks — 2179 tasks, golden-set axis over the 12 arms",
+    "source": "failure-vs-difficulty data-golden-all fp e46d8867367b (read-only) · crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "aef0d8670f6e",
+    "withheld_configs": [],
+    "withdrawn": {}
+   },
+   "source_stamp": "",
+   "source_fp": "e46d8867367b",
+   "updated_at": "",
+   "bayes_interim": {
+    "wave": null,
+    "n": 0,
+    "unfitted": 0,
+    "served_wave": "golden-combined-20260909T1322Z",
+    "served_arms": 12
+   },
+   "missing": {
+    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
+    "capC": "Capability C is computed for wave 1 (the original tasks) only",
+    "capC_z": "this Capability C variant is computed for wave 1 and wave 1+2 only",
+    "capC_j": "this Capability C variant is computed for wave 1 and wave 1+2 only"
+   }
+  },
+  "board_top": {
+   "files": {
+    "shared": "shared.board_top.4233e301abbd.json",
+    "chain_average": "chain_average.board_top.4233e301abbd.json",
+    "bayes": "bayes.board_top.4233e301abbd-030de536de92.json",
+    "bayes_prev": "bayes.board_top.9a2975c9565d.json"
+   },
+   "label": "board + top half",
+   "arms": "all",
+   "fingerprint": "4233e301abbd",
+   "frame": {
+    "population_M": 59,
+    "tasks": 1292,
+    "keep_set_hash": "0beb6d3d6f42",
+    "runs_fingerprint": "d50b21fc385a",
+    "build_date": "2026-09-16",
+    "build_ts": "",
+    "set": "board_top",
+    "set_label": "board + top half",
+    "arms": "all",
+    "tasks_on_axis": 1292,
+    "tasks_kept": 1292,
+    "tasks_awaiting_axis": 0,
+    "axis_set_hash": "0beb6d3d6f42",
+    "tasks_used": "board + top half — 1292 tasks, axis wave combined-20260910T2209Z",
+    "source": "failure-vs-difficulty data-board_top fp 06e35349f6fc (read-only) · crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "4b2ca41093da",
+    "withheld_configs": [],
+    "withdrawn": {}
+   },
+   "source_stamp": "",
+   "source_fp": "06e35349f6fc",
+   "updated_at": "",
+   "bayes_interim": {
+    "wave": null,
+    "n": 0,
+    "unfitted": 0,
+    "served_wave": "board_top-20260910T2111Z",
+    "served_arms": 59
+   },
+   "flip": {
+    "from_wave": "board_top-20260908T1037Z",
+    "to_wave": "board_top-20260910T2111Z",
+    "from_fit_set": "422c7280f56b",
+    "to_fit_set": "030de536de92",
+    "at": "",
+    "from_interim_n": 0,
+    "declared": true
+   },
+   "missing": {
+    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry"
+   }
+  },
+  "top": {
+   "files": {
+    "shared": "shared.top.571b5561b71d.json",
+    "chain_average": "chain_average.top.571b5561b71d.json",
+    "bayes": "bayes.top.571b5561b71d-3fa1dd2406a1.json",
+    "bayes_prev": "bayes.top.143524be25b6.json"
+   },
+   "label": "top half",
+   "arms": "all",
+   "fingerprint": "571b5561b71d",
+   "frame": {
+    "population_M": 56,
+    "tasks": 861,
+    "keep_set_hash": "4ae2455177fa",
+    "runs_fingerprint": "d50b21fc385a",
+    "build_date": "2026-09-16",
+    "build_ts": "",
+    "set": "top",
+    "set_label": "top half",
+    "arms": "all",
+    "tasks_on_axis": 861,
+    "tasks_kept": 861,
+    "tasks_awaiting_axis": 0,
+    "axis_set_hash": "4ae2455177fa",
+    "tasks_used": "top half — 861 tasks, axis wave pool-20260910T2244Z",
+    "source": "failure-vs-difficulty data-top fp 7995646fdb7b (read-only) · crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "3d4a4b9961b3",
+    "withheld_configs": [],
+    "withdrawn": {}
+   },
+   "source_stamp": "",
+   "source_fp": "7995646fdb7b",
+   "updated_at": "",
+   "bayes_interim": {
+    "wave": null,
+    "n": 0,
+    "unfitted": 1,
+    "served_wave": "top-20260910T2211Z",
+    "served_arms": 55
+   },
+   "flip": {
+    "from_wave": "top-20260905T1420Z",
+    "to_wave": "top-20260910T2211Z",
+    "from_fit_set": "dd06b3bb4a47",
+    "to_fit_set": "3fa1dd2406a1",
+    "at": "",
+    "from_interim_n": 0
+   },
+   "missing": {
+    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
+    "capC": "Capability C is computed for wave 1 (the original tasks) only",
+    "capC_z": "this Capability C variant is computed for wave 1 and wave 1+2 only",
+    "capC_j": "this Capability C variant is computed for wave 1 and wave 1+2 only"
+   }
+  },
+  "golden-board_top": {
+   "files": {
+    "shared": "shared.golden-board_top.7e7bf4f80914.json",
+    "chain_average": "chain_average.golden-board_top.7e7bf4f80914.json",
+    "bayes": "bayes.golden-board_top.7e7bf4f80914-b8c1e660acdf.json",
+    "bayes_prev": "bayes.golden-board_top.5badbc132154-fa30c471bd62.json"
+   },
+   "label": "board + top half",
+   "arms": "golden",
+   "fingerprint": "7e7bf4f80914",
+   "frame": {
+    "population_M": 12,
+    "tasks": 1292,
+    "keep_set_hash": "0beb6d3d6f42",
+    "runs_fingerprint": "d50b21fc385a",
+    "build_date": "2026-09-16",
+    "build_ts": "",
+    "set": "board_top",
+    "set_label": "board + top half",
+    "arms": "golden",
+    "tasks_on_axis": 1292,
+    "tasks_kept": 1292,
+    "tasks_awaiting_axis": 0,
+    "axis_set_hash": "0beb6d3d6f42",
+    "tasks_used": "board + top half — 1292 tasks, golden-set axis over the 12 arms",
+    "source": "failure-vs-difficulty data-golden-board_top fp f79cd2323c73 (read-only) · crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "d4af4a60745d",
+    "withheld_configs": [],
+    "withdrawn": {}
+   },
+   "source_stamp": "",
+   "source_fp": "f79cd2323c73",
+   "updated_at": "",
+   "bayes_interim": {
+    "wave": null,
+    "n": 0,
+    "unfitted": 0,
+    "served_wave": "golden-board_top-20260913T1641Z",
+    "served_arms": 12
+   },
+   "flip": {
+    "from_wave": "golden-board_top-20260905T1507Z-m100",
+    "to_wave": "golden-board_top-20260913T1641Z",
+    "from_fit_set": "fa30c471bd62",
+    "to_fit_set": "b8c1e660acdf",
+    "at": "",
+    "from_interim_n": 0
+   },
+   "missing": {
+    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
+    "capC": "Capability C is computed for wave 1 (the original tasks) only",
+    "capC_z": "this Capability C variant is computed for wave 1 and wave 1+2 only",
+    "capC_j": "this Capability C variant is computed for wave 1 and wave 1+2 only"
+   }
+  },
+  "golden-top": {
+   "files": {
+    "shared": "shared.golden-top.241bddd2e2d5.json",
+    "chain_average": "chain_average.golden-top.241bddd2e2d5.json",
+    "bayes": "bayes.golden-top.241bddd2e2d5-ac86d9d75102.json"
+   },
+   "label": "top half",
+   "arms": "golden",
+   "fingerprint": "241bddd2e2d5",
+   "frame": {
+    "population_M": 12,
+    "tasks": 861,
+    "keep_set_hash": "4ae2455177fa",
+    "runs_fingerprint": "d50b21fc385a",
+    "build_date": "2026-09-16",
+    "build_ts": "",
+    "set": "top",
+    "set_label": "top half",
+    "arms": "golden",
+    "tasks_on_axis": 861,
+    "tasks_kept": 861,
+    "tasks_awaiting_axis": 0,
+    "axis_set_hash": "4ae2455177fa",
+    "tasks_used": "top half — 861 tasks, golden-set axis over the 12 arms",
+    "source": "failure-vs-difficulty data-golden-top fp 634140168768 (read-only) · crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "e5bcddfb2354",
+    "withheld_configs": [],
+    "withdrawn": {}
+   },
+   "source_stamp": "",
+   "source_fp": "634140168768",
+   "updated_at": "",
+   "bayes_interim": {
+    "wave": null,
+    "n": 0,
+    "unfitted": 0,
+    "served_wave": "golden-top-20260905T1420Z-m100",
+    "served_arms": 12
+   },
+   "missing": {
+    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
+    "capC": "Capability C is computed for wave 1 (the original tasks) only",
+    "capC_z": "this Capability C variant is computed for wave 1 and wave 1+2 only",
+    "capC_j": "this Capability C variant is computed for wave 1 and wave 1+2 only"
+   }
+  }
+ },
+ "counts_of_record": {
+  "stamp": "",
+  "wave1": 431,
+  "wave2": 869,
+  "wave2_parked": 893,
+  "wave12": 1300,
+  "new_total": 1762,
+  "all": 2193,
+  "source": "tasks/counts_of_record.json (original_kept, new_focused, new_parked, new_total)"
+ }
+}

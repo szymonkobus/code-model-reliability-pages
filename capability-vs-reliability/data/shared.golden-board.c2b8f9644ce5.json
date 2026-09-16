@@ -1,0 +1,257 @@
+{
+ "frame": {
+  "population_M": 12,
+  "tasks": 431,
+  "keep_set_hash": "26b3d29962cb",
+  "runs_fingerprint": "d50b21fc385a",
+  "build_date": "2026-09-16",
+  "build_ts": "",
+  "set": "board",
+  "set_label": "board (HumanEval+ & MBPP+)",
+  "arms": "golden",
+  "tasks_on_axis": 431,
+  "tasks_kept": 431,
+  "tasks_awaiting_axis": 0,
+  "axis_set_hash": "26b3d29962cb",
+  "tasks_used": "board (HumanEval+ & MBPP+) — 431 tasks, golden-set axis over the 12 arms",
+  "source": "failure-vs-difficulty data-golden-board fp c0843fce9243 (read-only) · crossing_rows on lev_grid f3d40b6fb872",
+  "inputs_content_sha": "13059cf8b5a0",
+  "withheld_configs": [],
+  "withdrawn": {}
+ },
+ "axis": {
+  "axis_id": "golden-board-axis",
+  "definition": "golden-set axis: the Jeffreys-mean recipe restricted to the 12 golden arms (failure-vs-difficulty's golden bundle; golden set: a data point, not the difficulty definition)"
+ },
+ "configs": [
+  {
+   "id": "claude-haiku-4-5",
+   "label": "haiku-4-5",
+   "fam": "Claude",
+   "color": "#199f6f",
+   "think": false,
+   "coverage": {
+    "tasks": 431,
+    "of": 431
+   },
+   "disclosure": null
+  },
+  {
+   "id": "claude-sonnet-5",
+   "label": "sonnet-5",
+   "fam": "Claude",
+   "color": "#148059",
+   "think": false,
+   "coverage": {
+    "tasks": 431,
+    "of": 431
+   },
+   "disclosure": null
+  },
+  {
+   "id": "claude-haiku-4-5-thinking",
+   "label": "haiku-4-5 (think)",
+   "fam": "Claude",
+   "color": "#199f6f",
+   "think": true,
+   "coverage": {
+    "tasks": 431,
+    "of": 431
+   },
+   "disclosure": null
+  },
+  {
+   "id": "claude-sonnet-5-thinking",
+   "label": "sonnet-5 (think)",
+   "fam": "Claude",
+   "color": "#148059",
+   "think": true,
+   "coverage": {
+    "tasks": 431,
+    "of": 431
+   },
+   "disclosure": null
+  },
+  {
+   "id": "Qwen/Qwen3-0.6B",
+   "label": "Qwen3 0.6B",
+   "fam": "Qwen3",
+   "color": "#5a5fe7",
+   "think": false,
+   "coverage": {
+    "tasks": 431,
+    "of": 431
+   },
+   "disclosure": null
+  },
+  {
+   "id": "Qwen/Qwen3-1.7B",
+   "label": "Qwen3 1.7B",
+   "fam": "Qwen3",
+   "color": "#363ce2",
+   "think": false,
+   "coverage": {
+    "tasks": 431,
+    "of": 431
+   },
+   "disclosure": null
+  },
+  {
+   "id": "Qwen/Qwen3-4B",
+   "label": "Qwen3 4B",
+   "fam": "Qwen3",
+   "color": "#1e24d1",
+   "think": false,
+   "coverage": {
+    "tasks": 431,
+    "of": 431
+   },
+   "disclosure": null
+  },
+  {
+   "id": "Qwen/Qwen3-8B",
+   "label": "Qwen3 8B",
+   "fam": "Qwen3",
+   "color": "#1a1fb2",
+   "think": false,
+   "coverage": {
+    "tasks": 431,
+    "of": 431
+   },
+   "disclosure": null
+  },
+  {
+   "id": "Qwen/Qwen3-0.6B-Thinking",
+   "label": "Qwen3 0.6B (think)",
+   "fam": "Qwen3",
+   "color": "#5a5fe7",
+   "think": true,
+   "coverage": {
+    "tasks": 431,
+    "of": 431
+   },
+   "disclosure": null
+  },
+  {
+   "id": "Qwen/Qwen3-1.7B-Thinking",
+   "label": "Qwen3 1.7B (think)",
+   "fam": "Qwen3",
+   "color": "#363ce2",
+   "think": true,
+   "coverage": {
+    "tasks": 431,
+    "of": 431
+   },
+   "disclosure": null
+  },
+  {
+   "id": "Qwen/Qwen3-4B-Thinking",
+   "label": "Qwen3 4B (think)",
+   "fam": "Qwen3",
+   "color": "#1e24d1",
+   "think": true,
+   "coverage": {
+    "tasks": 431,
+    "of": 431
+   },
+   "disclosure": null
+  },
+  {
+   "id": "Qwen/Qwen3-8B-Thinking",
+   "label": "Qwen3 8B (think)",
+   "fam": "Qwen3",
+   "color": "#1a1fb2",
+   "think": true,
+   "coverage": {
+    "tasks": 431,
+    "of": 431
+   },
+   "disclosure": null
+  }
+ ],
+ "vocab": {
+  "reserved": {
+   "reliability": "average-rate 1% crossing",
+   "capability": "average-rate 50% crossing"
+  },
+  "top_half": "the top half of the new pool = the focused tasks, cohorts 1 and 2 of the maintainers' frozen membership file (877 at the freeze; in-frame count in the unified stamp's task_tiers block); as adopted of 5 Sep it is plotted because generation is being finished there first, wave 1+2 before wave 2 on its own; a plotted set (dataset switch value top), not a change of the frame or of the fits of record (rule of 3 Sep: fit on all data; tiers are membership labels)",
+  "board_plus_top_half": "the board tasks (438) together with the top half of the new pool (the focused cohorts 1 and 2) on one axis, the first plotted set of 2026-09-05 (dataset switch value board_top); the parked half (cohorts 3 and 4) is excluded from this plot and from 'top half by itself', never from the frame; the board is already mostly fitted and offers less variety",
+  "task_tier": "",
+  "house_bandwidth": "",
+  "axis_smoothing": "",
+  "curve_of_record": "",
+  "curve_of_record_updated": "updated 9 Sep: the clause about fitting's pending export switch retired; axis_smoothing and every other key unchanged",
+  "qualified_use": "",
+  "enforced": {
+   "golden set": "",
+   "average-rate 1% crossing": "where the model's fitted average failure rate first reaches 1%",
+   "median-task 1% crossing": "where the median task's failure rate reaches 1%",
+   "average-rate 50% crossing": "where the fitted average failure rate reaches even odds",
+   "median-task 50% crossing": "where the median task reaches even odds",
+   "level pair (1%, 50%)": "two linked crossings of one trend, always written with concrete levels — never variables",
+   "cumulative 1% failure rate": "the hardest difficulty such that average failure over ALL easier tasks is still ≤ 1%",
+   "worst-stretch 1% failure rate": "the same, but EVERY trailing stretch of easier tasks must stay ≤ 1% — easy wins cannot bank budget for later failures",
+   "first task above 1% failure": "the last difficulty before the first single task failing more than 1%",
+   "cumulative X% failure rate": "the same machine at any other concrete anchor",
+   "99%-assured": "prefix: quoted at the value it holds with 99% posterior probability"
+  },
+  "soft": {
+   "success-mass balance point": "everything the model solves, added up and read as one position on the difficulty axis — mean pass rate expressed as a difficulty",
+   "contested mass": "how much of the difficulty axis the model SOMETIMES solves and sometimes fails — the width of its struggle zone",
+   "easy-success subsidy": ""
+  },
+  "formerly": {
+   "reliable range": "cumulative 1% failure rate",
+   "debt-free range": "worst-stretch 1% failure rate",
+   "isotonic 1% crossing": "worst-stretch 1% failure rate",
+   "per-task mastered prefix": "first task above 1% failure",
+   "Bayesian — typical task": "median-task (curve label)",
+   "typical": "median",
+   "fitted 50% crossing": "average-rate 50% crossing",
+   "balance point": "success-mass balance point",
+   "D_eq": "success-mass balance point",
+   "Z / contested-zone mass": "contested mass",
+   "subsidy mass": "easy-success subsidy",
+   "assured90/99": "99%-assured"
+  },
+  "dropped_no_unification": [
+   "crossing gap",
+   "transition width",
+   "transition asymmetry",
+   "skew",
+   "model/arm counting nouns",
+   "frontier reads (dark range, d2, dM, solved-mass edge, L)"
+  ],
+  "scope": {
+   "binds": "value labels — wherever a bare reserved word functions as the label of a displayed number (axis names, tooltip labels, table headers over numbers, stat-tile captions)",
+   "exempt_tool_names": "tool/site/page names denote subject matter, not measurements, and are exempt",
+   "litmus": "if deleting the word would leave a number unlabeled, the reservation applies; if it would merely rename a surface, it does not",
+   "gloss_pattern": ""
+  },
+  "counting_nouns": {
+   "authority": "store fragment 'counting-vocabulary'",
+   "file": "<REPO>/knowledge/counting-vocabulary.json",
+   "sampling": {
+    "attempt": "the counting noun: one generation of one arm on one task, judged as a unit; count = n_attempts, the store's field of record (n is read per cell, never assumed)",
+    "sample": "the text an attempt produced (the samples-file identity hashes are over sample strings)",
+    "rollout": "retired alias — not introduced in new prose; served titles change at their next content edit"
+   }
+  }
+ },
+ "reachable": {
+  "floor_z": -7.42,
+  "top_z": 3.112
+ },
+ "capC": null,
+ "capC_z": null,
+ "capC_j": null,
+ "artifact_flags": null,
+ "limits": {
+  "lo": -7.42,
+  "hi": 3.112,
+  "full_lo": -8.027,
+  "full_hi": 4.451
+ },
+ "withdrawn": [],
+ "fit_excluded": null
+}

@@ -1,0 +1,5 @@
+{
+ "task_id": "EasyTail/E4/string_tf/double_every_char",
+ "benchmark": "pool-build",
+ "text": "def double_every_char(s):\n    \"\"\"Return s with every character written twice, in order.\n    >>> double_every_char('')\n    ''\n    >>> double_every_char('a')\n    'aa'\n    \"\"\"\n"
+}

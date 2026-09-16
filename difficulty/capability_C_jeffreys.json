@@ -1,0 +1,551 @@
+{
+ "method_version": "capability-C v2026-09-14j (difficulty weighted by Beta(1/2,1/2) on the failure level — the Jeffreys prior of a pass/fail rate — Voronoi cell masses under it, full-axis estimator, monotone completion; ci80 bootstrap B=400)",
+ "marginal": "jeffreys",
+ "name": "Capability (Jeffreys)",
+ "distribution": "Jeffreys: the arcsine law Beta(1/2,1/2) on the failure level, heavier at both ends, no range cut",
+ "marginal_plain": "population weighted by the Jeffreys prior of a pass/fail rate (Beta(1/2,1/2) on the failure level; heavier at both ends; proper, no range cut; uncovered easy end credited solved)",
+ "frame": {
+  "keep_set_hash": "26b3d29962cb",
+  "runs_fingerprint": "counts:fail_counts_matrix.csv@26b3d29962cb",
+  "population_fingerprint": "7c54db44c611",
+  "fitted_arms": [
+   "Qwen/Qwen2.5-0.5B-Instruct",
+   "Qwen/Qwen2.5-1.5B-Instruct",
+   "Qwen/Qwen2.5-14B-Instruct",
+   "Qwen/Qwen2.5-32B-Instruct",
+   "Qwen/Qwen2.5-3B-Instruct",
+   "Qwen/Qwen2.5-7B-Instruct",
+   "Qwen/Qwen2.5-Coder-0.5B-Instruct",
+   "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+   "Qwen/Qwen2.5-Coder-14B-Instruct",
+   "Qwen/Qwen2.5-Coder-32B-Instruct",
+   "Qwen/Qwen2.5-Coder-3B-Instruct",
+   "Qwen/Qwen2.5-Coder-7B-Instruct",
+   "Qwen/Qwen3-0.6B",
+   "Qwen/Qwen3-0.6B-Thinking",
+   "Qwen/Qwen3-1.7B",
+   "Qwen/Qwen3-1.7B-Thinking",
+   "Qwen/Qwen3-14B",
+   "Qwen/Qwen3-14B-Thinking",
+   "Qwen/Qwen3-30B-A3B",
+   "Qwen/Qwen3-32B",
+   "Qwen/Qwen3-32B-Thinking",
+   "Qwen/Qwen3-4B",
+   "Qwen/Qwen3-4B-Instruct-2507",
+   "Qwen/Qwen3-4B-Thinking",
+   "Qwen/Qwen3-8B",
+   "Qwen/Qwen3-8B-Thinking",
+   "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+   "claude-haiku-4-5",
+   "claude-haiku-4-5-thinking",
+   "claude-opus-5",
+   "claude-opus-5-thinking",
+   "claude-sonnet-5",
+   "claude-sonnet-5-thinking",
+   "deepseek-ai/DeepSeek-Coder-V2-Instruct",
+   "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct",
+   "deepseek-ai/DeepSeek-R1-0528",
+   "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
+   "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+   "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+   "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+   "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+   "deepseek-ai/DeepSeek-V3-0324",
+   "deepseek-ai/DeepSeek-V3.2",
+   "deepseek-ai/DeepSeek-V3.2-Thinking",
+   "deepseek-ai/deepseek-coder-1.3b-instruct",
+   "deepseek-ai/deepseek-coder-33b-instruct",
+   "deepseek-ai/deepseek-coder-6.7b-instruct",
+   "google/gemini-3.5-flash-lite",
+   "google/gemini-3.6-flash",
+   "google/gemma-4-12B-it",
+   "google/gemma-4-31B-it",
+   "moonshotai/Kimi-Dev-72B",
+   "moonshotai/Kimi-K2-Instruct",
+   "moonshotai/Kimi-Linear-48B-A3B-Instruct",
+   "moonshotai/Moonlight-16B-A3B-Instruct",
+   "openai/gpt-5-mini",
+   "openai/gpt-5-nano",
+   "zai-org/GLM-4.7-Flash"
+  ],
+  "population_M": 58,
+  "build_date": "",
+  "population": "board (all complete arms)",
+  "restriction": null
+ },
+ "source": "analysis/battery/make_u_frame.py NU_MARGINAL=jeffreys (formula: C_m = G(u_lo) + sum_t w_t (1 - f_mt/n_t), w_t the Beta(1/2,1/2) mass of the task's Voronoi cell in u, G its cdf; proper, no range cut; uncovered easy end credited solved)",
+ "placement": "z omitted by design: apply the identity z = logit(C) — the dot sits at level u = C",
+ "uncertainty_semantics": "",
+ "exclusions": [
+  {
+   "cfg": "Qwen/Qwen3-30B-A3B-Thinking",
+   "reason": "partial coverage: other-benchmark run pending; excluded from the population until complete"
+  }
+ ],
+ "rows": [
+  {
+   "cfg": "Qwen/Qwen2.5-0.5B-Instruct",
+   "C": 0.2118,
+   "ci80_C": [
+    0.2052,
+    0.2271
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen2.5-1.5B-Instruct",
+   "C": 0.2979,
+   "ci80_C": [
+    0.2943,
+    0.3192
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen2.5-14B-Instruct",
+   "C": 0.4415,
+   "ci80_C": [
+    0.4209,
+    0.4636
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen2.5-32B-Instruct",
+   "C": 0.5132,
+   "ci80_C": [
+    0.4922,
+    0.5221
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen2.5-3B-Instruct",
+   "C": 0.3585,
+   "ci80_C": [
+    0.3491,
+    0.38
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen2.5-7B-Instruct",
+   "C": 0.4229,
+   "ci80_C": [
+    0.4058,
+    0.4479
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen2.5-Coder-0.5B-Instruct",
+   "C": 0.265,
+   "ci80_C": [
+    0.2565,
+    0.2904
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+   "C": 0.3334,
+   "ci80_C": [
+    0.3295,
+    0.3549
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen2.5-Coder-14B-Instruct",
+   "C": 0.4864,
+   "ci80_C": [
+    0.4642,
+    0.5235
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen2.5-Coder-32B-Instruct",
+   "C": 0.5061,
+   "ci80_C": [
+    0.4932,
+    0.554
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen2.5-Coder-3B-Instruct",
+   "C": 0.3799,
+   "ci80_C": [
+    0.381,
+    0.4082
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen2.5-Coder-7B-Instruct",
+   "C": 0.4562,
+   "ci80_C": [
+    0.4375,
+    0.4882
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-0.6B",
+   "C": 0.2414,
+   "ci80_C": [
+    0.2337,
+    0.2684
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-0.6B-Thinking",
+   "C": 0.262,
+   "ci80_C": [
+    0.2517,
+    0.2794
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-1.7B",
+   "C": 0.3153,
+   "ci80_C": [
+    0.2976,
+    0.3314
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-1.7B-Thinking",
+   "C": 0.4225,
+   "ci80_C": [
+    0.4096,
+    0.4439
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-14B",
+   "C": 0.5027,
+   "ci80_C": [
+    0.4821,
+    0.5199
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-14B-Thinking",
+   "C": 0.6244,
+   "ci80_C": [
+    0.6009,
+    0.6437
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-30B-A3B",
+   "C": 0.4772,
+   "ci80_C": [
+    0.4557,
+    0.4976
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-32B",
+   "C": 0.4776,
+   "ci80_C": [
+    0.4632,
+    0.4957
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-32B-Thinking",
+   "C": 0.6776,
+   "ci80_C": [
+    0.6418,
+    0.6939
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-4B",
+   "C": 0.3651,
+   "ci80_C": [
+    0.3524,
+    0.3755
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-4B-Instruct-2507",
+   "C": 0.4342,
+   "ci80_C": [
+    0.4097,
+    0.4492
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-4B-Thinking",
+   "C": 0.5588,
+   "ci80_C": [
+    0.5259,
+    0.5751
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-8B",
+   "C": 0.3966,
+   "ci80_C": [
+    0.3829,
+    0.4114
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-8B-Thinking",
+   "C": 0.5589,
+   "ci80_C": [
+    0.5306,
+    0.5888
+   ]
+  },
+  {
+   "cfg": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+   "C": 0.5492,
+   "ci80_C": [
+    0.4993,
+    0.5548
+   ]
+  },
+  {
+   "cfg": "claude-haiku-4-5",
+   "C": 0.5771,
+   "ci80_C": [
+    0.538,
+    0.6039
+   ]
+  },
+  {
+   "cfg": "claude-haiku-4-5-thinking",
+   "C": 0.7122,
+   "ci80_C": [
+    0.6614,
+    0.7281
+   ]
+  },
+  {
+   "cfg": "claude-opus-5",
+   "C": 0.7983,
+   "ci80_C": [
+    0.7305,
+    0.8032
+   ]
+  },
+  {
+   "cfg": "claude-opus-5-thinking",
+   "C": 0.8074,
+   "ci80_C": [
+    0.7327,
+    0.8119
+   ]
+  },
+  {
+   "cfg": "claude-sonnet-5",
+   "C": 0.6698,
+   "ci80_C": [
+    0.6151,
+    0.6812
+   ]
+  },
+  {
+   "cfg": "claude-sonnet-5-thinking",
+   "C": 0.7419,
+   "ci80_C": [
+    0.6731,
+    0.7372
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/DeepSeek-Coder-V2-Instruct",
+   "C": 0.5028,
+   "ci80_C": [
+    0.4734,
+    0.5279
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct",
+   "C": 0.4159,
+   "ci80_C": [
+    0.4003,
+    0.4302
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/DeepSeek-R1-0528",
+   "C": 0.7186,
+   "ci80_C": [
+    0.6969,
+    0.7458
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
+   "C": 0.4438,
+   "ci80_C": [
+    0.4157,
+    0.4668
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+   "C": 0.2953,
+   "ci80_C": [
+    0.293,
+    0.3213
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
+   "C": 0.553,
+   "ci80_C": [
+    0.5144,
+    0.5733
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+   "C": 0.623,
+   "ci80_C": [
+    0.5808,
+    0.6339
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+   "C": 0.4477,
+   "ci80_C": [
+    0.4317,
+    0.4728
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/DeepSeek-V3-0324",
+   "C": 0.5544,
+   "ci80_C": [
+    0.5304,
+    0.5702
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/DeepSeek-V3.2",
+   "C": 0.5723,
+   "ci80_C": [
+    0.5443,
+    0.5837
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/DeepSeek-V3.2-Thinking",
+   "C": 0.6342,
+   "ci80_C": [
+    0.6095,
+    0.6582
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/deepseek-coder-1.3b-instruct",
+   "C": 0.31,
+   "ci80_C": [
+    0.3032,
+    0.3423
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/deepseek-coder-33b-instruct",
+   "C": 0.4132,
+   "ci80_C": [
+    0.4014,
+    0.4437
+   ]
+  },
+  {
+   "cfg": "deepseek-ai/deepseek-coder-6.7b-instruct",
+   "C": 0.3906,
+   "ci80_C": [
+    0.3825,
+    0.4212
+   ]
+  },
+  {
+   "cfg": "google/gemini-3.5-flash-lite",
+   "C": 0.5964,
+   "ci80_C": [
+    0.5564,
+    0.6148
+   ]
+  },
+  {
+   "cfg": "google/gemini-3.6-flash",
+   "C": 0.7597,
+   "ci80_C": [
+    0.7142,
+    0.7777
+   ]
+  },
+  {
+   "cfg": "google/gemma-4-12B-it",
+   "C": 0.5334,
+   "ci80_C": [
+    0.4987,
+    0.5584
+   ]
+  },
+  {
+   "cfg": "google/gemma-4-31B-it",
+   "C": 0.6283,
+   "ci80_C": [
+    0.593,
+    0.6362
+   ]
+  },
+  {
+   "cfg": "moonshotai/Kimi-Dev-72B",
+   "C": 0.4625,
+   "ci80_C": [
+    0.4452,
+    0.4748
+   ]
+  },
+  {
+   "cfg": "moonshotai/Kimi-K2-Instruct",
+   "C": 0.5593,
+   "ci80_C": [
+    0.526,
+    0.5818
+   ]
+  },
+  {
+   "cfg": "moonshotai/Kimi-Linear-48B-A3B-Instruct",
+   "C": 0.4288,
+   "ci80_C": [
+    0.4168,
+    0.4443
+   ]
+  },
+  {
+   "cfg": "moonshotai/Moonlight-16B-A3B-Instruct",
+   "C": 0.3486,
+   "ci80_C": [
+    0.3334,
+    0.3618
+   ]
+  },
+  {
+   "cfg": "openai/gpt-5-mini",
+   "C": 0.7282,
+   "ci80_C": [
+    0.7187,
+    0.7607
+   ]
+  },
+  {
+   "cfg": "openai/gpt-5-nano",
+   "C": 0.6554,
+   "ci80_C": [
+    0.6318,
+    0.698
+   ]
+  },
+  {
+   "cfg": "zai-org/GLM-4.7-Flash",
+   "C": 0.4352,
+   "ci80_C": [
+    0.4213,
+    0.4466
+   ]
+  }
+ ]
+}

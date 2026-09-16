@@ -1,0 +1,5 @@
+{
+ "task_id": "Mbpp/421~twin1",
+ "benchmark": "pool-build",
+ "text": "\"\"\"\nHey, could you write a function that takes a tuple and joins each of its elements together using the delimiter?\nassert concatenate_tuple((\"ID\", \"is\", 4, \"UTS\") ) == 'ID-is-4-UTS'\n\"\"\""
+}

@@ -1,0 +1,510 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'><title>Capability, reliability, and the third axis: the framework</title><script>(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  .katex { font-size: 1.06em; }
+  .katex-display { overflow-x: auto; padding: .2rem 0; }
+  /* project palette (project SITES.md): page #faf6ec, panels #f2ecdf,
+     borders #e0d9c8: light mode only. */
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+         sans-serif; line-height: 1.55; color: #1a1a1a; background: #faf6ec;
+         max-width: 44rem; margin: 0 auto; padding: 1rem 1.1rem 4rem; }
+  h1 { font-size: 1.55rem; line-height: 1.25; }
+  h2 { font-size: 1.25rem; margin-top: 2.2rem;
+       border-bottom: 1px solid #e0d9c8; padding-bottom: .25rem; }
+  h3 { font-size: 1.05rem; margin-top: 1.6rem; }
+  code { background: #f2ecdf; padding: .1em .3em; border-radius: 4px;
+         font-size: .88em; }
+  img { max-width: 100%; height: auto; display: block;
+        margin: 1.2rem auto .4rem; border: 1px solid #e0d9c8;
+        border-radius: 6px; }
+  p:has(img) + p > em { display: block; font-size: .85rem;
+        color: #555; margin: .2rem 0 1.4rem; }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) p:has(img) + p > em { color: #b6b3aa; }
+  }
+  :root[data-theme="dark"] p:has(img) + p > em { color: #b6b3aa; }
+  /* position:relative is load-bearing:
+     KaTeX's hidden .katex-mathml span is absolutely positioned; a
+     scroll wrapper that is not a containing block lets it anchor to
+     the page and silently overflow the phone viewport. */
+  table { border-collapse: collapse; display: block; overflow-x: auto;
+          position: relative; font-size: .82rem; }
+  th, td { border: 1px solid #e0d9c8; padding: .35rem .5rem; text-align: left;
+           vertical-align: top; }
+  th { background: #f2ecdf; }
+  /* table-columns rule of 3 Sep: prose columns get the width their
+     text needs, number columns stay narrow, names never break; marked by the script below at load */
+  /* breakout scroll wrapper: the table takes its natural
+     width and scrolls sideways; names and numbers never break; sentences wrap only inside a generous measure */
+  /* breakout rule of 7 Sep. project rule: a table wider than the reading column breaks out to the full
+     viewport width on desktop; horizontal scroll only inside the table and only when the viewport is narrower than the table;
+     sticky header and sticky first column make that scroll readable; phones keep the inner scroller. Tables that fit the
+     column stay in it (the fit class is set by the small script below when the table is no wider than the column). */
+  .tblwrap { overflow-x: auto; width: 100vw; margin-left: calc(50% - 50vw); padding: 0 1rem; box-sizing: border-box; }
+  .tblwrap.fit { width: 100%; margin-left: 0; padding: 0; }
+  .tblwrap thead th, .tblwrap tr:first-child th { position: sticky; top: 0; background: #f2ecdf; z-index: 2; }
+  .tblwrap th:first-child { position: sticky; left: 0; background: #f2ecdf; z-index: 1; }
+  .tblwrap td:first-child { position: sticky; left: 0; background: #faf6ec; z-index: 1; }
+  .tblwrap tr:first-child th:first-child { z-index: 3; }
+  .tblwrap > table { width: max-content; min-width: 100%; display: table; }
+  .tblwrap th, .tblwrap td, .tblwrap td code, .tblwrap th code { white-space: nowrap; }
+  .tblwrap td.prose, .tblwrap th.prose { white-space: normal; min-width: 40ch; max-width: 64ch; }
+  td.num, th.num { text-align: right; width: 1%; }
+  @media (max-width: 52rem) { .tblwrap, .tblwrap.fit { width: 100%; margin-left: 0; padding: 0; } }
+  blockquote { border-left: 3px solid #e0d9c8; margin: 1rem 0;
+               padding: .1rem 1rem; color: #555; }
+  details { background: #f2ecdf; border: 1px solid #e0d9c8;
+            border-radius: 8px; padding: .55rem .9rem; margin: 1rem 0;
+            font-size: .9rem; }
+  details summary { cursor: pointer; color: #52514e; }
+  hr { border: none; border-top: 1px solid #e0d9c8; margin: 2rem 0; }
+  a { color: #0b57d0; }
+  nav.toc { background: #f2ecdf; border-radius: 8px; padding: .8rem 1rem;
+            font-size: .9rem; margin: 1rem 0; }
+  nav.toc a { display: inline-block; margin: .15rem .6rem .15rem 0; }
+  nav.site { position: sticky; display: flex; flex-wrap: wrap; align-items: baseline; row-gap: .15rem; white-space: normal; top: 0; z-index: 10; background: #f2ecdf;
+             border-bottom: 1px solid #e0d9c8; margin: 0 -1.1rem 1.2rem;
+             padding: .55rem 1.1rem; font-size: .92rem; }
+  nav.site a { margin-right: 1.1rem; text-decoration: none; }
+  nav.site a.here { font-weight: 700; color: inherit; pointer-events: none; }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) nav.site { background: #24262c; border-color: #3a3d45; }
+  }
+  :root[data-theme="dark"] nav.site { background: #24262c; border-color: #3a3d45; }
+  .themeBtn { float: right; background: none; font: inherit; font-size: .85rem;
+              border: 1px solid #cfc5ac; border-radius: 6px; color: #52514e;
+              padding: .1rem .6rem; cursor: pointer; }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) body { background: #16181c; color: #e6e4de; }
+    :root:where(:not([data-theme="light"])) code,
+    :root:where(:not([data-theme="light"])) th,
+    :root:where(:not([data-theme="light"])) nav.toc { background: #24262c; }
+    :root:where(:not([data-theme="light"])) th,
+    :root:where(:not([data-theme="light"])) td { border-color: #3a3d45; }
+    :root:where(:not([data-theme="light"])) h2 { border-color: #3a3d45; }
+    :root:where(:not([data-theme="light"])) blockquote { border-color: #4b4e58; color: #b6b3aa; }
+    :root:where(:not([data-theme="light"])) a { color: #8ab4f8; }
+    :root:where(:not([data-theme="light"])) .themeBtn { border-color: #4b4e58; color: #b6b3aa; }
+  }
+  :root[data-theme="dark"] body { background: #16181c; color: #e6e4de; }
+  :root[data-theme="dark"] code, :root[data-theme="dark"] th,
+  :root[data-theme="dark"] nav.toc { background: #24262c; }
+  :root[data-theme="dark"] th, :root[data-theme="dark"] td { border-color: #3a3d45; }
+  :root[data-theme="dark"] h2 { border-color: #3a3d45; }
+  :root[data-theme="dark"] blockquote { border-color: #4b4e58; color: #b6b3aa; }
+  :root[data-theme="dark"] a { color: #8ab4f8; }
+  :root[data-theme="dark"] .themeBtn { border-color: #4b4e58; color: #b6b3aa; }
+.byline { font-size: .8rem; color: #6b675e; margin: -.3rem 0 1rem; }
+  h1, h2, h3, h4, p, li, code { overflow-wrap: anywhere; }   /* phone rule: a long token never widens the page */
+</style>
+<script>(function(){function fit(){var col=document.body.clientWidth||736;document.querySelectorAll('.tblwrap').forEach(function(w){var t=w.querySelector('table');if(!t)return;w.classList.remove('fit');var m=t.style.minWidth;t.style.minWidth='0';var nat=t.scrollWidth;t.style.minWidth=m;if(nat<=col)w.classList.add('fit');});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',fit);}else{fit();}window.addEventListener('resize',fit);})();</script>
+<script>
+(function(){var num=/^[\s\u2212\-+]?[\d.,]+(\s*%|\s*\[.*\])?\s*$/;document.querySelectorAll('table').forEach(function(t){var rows=t.querySelectorAll('tr');if(!rows.length)return;var ncol=0;rows.forEach(function(r){ncol=Math.max(ncol,r.children.length)});for(var c=0;c<ncol;c++){var cells=[],nums=0,longest=0;rows.forEach(function(r){var el=r.children[c];if(!el)return;cells.push(el);var tx=(el.textContent||'').trim();if(el.tagName==='TD'){if(num.test(tx)&&tx.length)nums++;longest=Math.max(longest,tx.length)}});var tds=cells.filter(function(e){return e.tagName==='TD'}).length;var cls=null;if(tds&&nums>=0.8*tds)cls='num';else if(c===0&&longest<=40)cls='name';else if(longest>40)cls='prose';if(cls)cells.forEach(function(e){e.classList.add(cls)})}})})();
+</script>
+</head><body><nav class="site"><a href="index.html" class="">Start</a><a href="report.html" class="">Report</a><a href="names-proposal.html" class="">Name propositions</a><a href="synthesis.html" class="">Synthesis</a><a href="measures.html" class="">Measures</a><a href="atlas.html" class="">Atlas</a><a href="metrics-report.html" class="">Metrics</a><a href="difficulty-weighting.html" class="">Weighting</a><a href="vocab.html" class="">Names</a><button class="themeBtn" id="themeToggle" title="toggle light/dark">theme</button></nav><nav class="toc">Jump: <a href="#notation-every-symbol-used-below-defined-first">Notation: every symbol used below, defined first</a> <a href="#the-three-axis-geometry-the-framing-adopted">The three-axis geometry (the framing, adopted)</a> <a href="#the-axioms-each-with-its-literal-source-and-its-operational-test">The axioms: each with its literal source and its operational test</a> <a href="#estimator-honesty-constraints-inherited-from-the-estimator-roles">Estimator honesty (constraints inherited from the estimator roles)</a> <a href="#amendment-1-ownership-and-tail-weighting-added-after-the-phase-2">Amendment 1: ownership and tail-weighting (added after the Phase-2</a> <a href="#generators-launched-before-any-test-suite-run-recorded-for-pre-registration">generators launched, before any test-suite run; recorded for pre-registration</a> <a href="#integrity">integrity)</a> <a href="#amendment-2-twelve-loopholes-closed-from-the-adversarial-probe-with">Amendment 2: twelve loopholes closed (from the adversarial probe, with</a> <a href="#measured-demonstrations-added-before-any-test-suite-run">measured demonstrations; added before any test-suite run)</a> <a href="#amendment-3-shared-infrastructure-rules-added-after-the-test-suite-and">Amendment 3: shared-infrastructure rules (added AFTER the test suite and</a> <a href="#the-14-attack-adversarial-round-from-measured-results-the-first">the 14-attack adversarial round, from measured results; the first</a> <a href="#amendment-informed-by-outcomes-rather-than-anticipation-and-marked-so">amendment informed by outcomes rather than anticipation, and marked so)</a> <a href="#the-pre-registered-test-suite-identical-for-every-candidate">The pre-registered test suite (identical for every candidate)</a> <a href="#failure-modes-already-adopted-regression-tests-not-to-be-re-proposed">Failure modes already adopted (regression tests, not to be re-proposed)</a> <a href="#what-is-already-accepted-the-fixed-points-candidates-build-against">What is already accepted (the fixed points candidates build against)</a></nav><h1 id="a-framework-for-capability-reliability-and-the-third-axis">A framework for capability, reliability, and the third axis</h1><p class="byline" data-freshness data-chrome>Rebuilt 15 Sep 13:23 UK; data as of 15 Sep 13:23 UK; rebuilt with every new count landing for the original tasks and after any edit to the text.</p>
+<p><em>Frozen pre-registration record of the metrics request (Phase 1, late August). The notation table carries the values at freeze (m 46 configurations, t 442 tasks); it is not updated with the live frame.</em></p>
+<p><em>Phase 1 of maintainers metrics request (literal:
+<code>~/orchestrator/request-metrics-literal.md</code>). This document fixes the
+rules BEFORE any candidate is proposed: what a definition must be, the
+axioms it must clear, and the pre-registered test suite every candidate will
+face identically. Candidates come next and are evaluated against this text
+as written; changing the rules after seeing results requires saying so.
+Conceptual maintainers: difficulty session. Implementation: task-pool.
+Estimator machinery: the maintainers where fitted curves are needed.</em></p>
+<h2 id="notation-every-symbol-used-below-defined-first">Notation: every symbol used below, defined first</h2>
+<div class="tblwrap"><table>
+<thead>
+<tr>
+<th class="name">Symbol</th>
+<th class="prose">Meaning</th>
+<th class="name">Current value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="name">m</td>
+<td class="prose">a model configuration</td>
+<td class="name">46 on the board</td>
+</tr>
+<tr>
+<td class="name">t</td>
+<td class="prose">a task</td>
+<td class="name">442 kept (audited)</td>
+</tr>
+<tr>
+<td class="name">n</td>
+<td class="prose">attempts per task per model</td>
+<td class="name">128</td>
+</tr>
+<tr>
+<td class="name">f_mt</td>
+<td class="prose">failed attempts by model m on task t</td>
+<td class="name">observed</td>
+</tr>
+<tr>
+<td class="name">p̂_mt</td>
+<td class="prose">model m's failure rate on t, Jeffreys-smoothed: (f_mt+½)/(n+1)</td>
+<td class="name">computed</td>
+</tr>
+<tr>
+<td class="name">d_t</td>
+<td class="prose">task t's board difficulty: its pooled failure rate across all models, placed on the difficulty scale</td>
+<td class="name">from canonical counts</td>
+</tr>
+<tr>
+<td class="name">τ</td>
+<td class="prose">a failure-rate anchor</td>
+<td class="name">adopted anchors: 1% and 50%</td>
+</tr>
+<tr>
+<td class="name">w_t</td>
+<td class="prose">task t's vote (weight) when averaging along the difficulty axis</td>
+<td class="name">three forms; see W below</td>
+</tr>
+<tr>
+<td class="name">Φ_m</td>
+<td class="prose">the metric under evaluation: a functional of model m's outcomes over (d_t, f_mt)</td>
+<td class="name">the object of this document</td>
+</tr>
+</tbody>
+</table></div>
+<p>The underlying picture, in words: for each model, plot its per-task failure
+rates against task difficulty. Every candidate metric is one number read
+off that cloud. Capability, reliability, and the third axis are three
+different reads of the same cloud.</p>
+<h2 id="the-three-axis-geometry-the-framing-adopted">The three-axis geometry (the framing, adopted)</h2>
+<p>From the literal: <em>"capability and reliability are not opposite ends...
+capability is kind of like an average, mean, median... statistic.
+Reliability is on one hand. We could create a name for the third thing...
+the other extreme end."</em></p>
+<ul>
+<li>Reliability, the lower extreme: the difficulty up to which the model
+  essentially does not fail (anchor τ = 1%).</li>
+<li>Capability, the central statistic: where the model's failure
+  transitions through even odds (anchor τ = 50%; the adopted choice, made by
+  looking at the failure-trend plots: <em>"I just chose that and I think it
+  was kind of a good choice"</em>).</li>
+<li>The third axis (name to be earned; "brilliance is not a good name"),
+  the upper extreme: the difficulty beyond which the model essentially
+  never succeeds; the anti-fluke instinct: <em>"twice-solved tasks, at least
+  twice."</em></li>
+</ul>
+<p>All three are difficulty-valued level statistics of one curve. The gaps
+between them are then themselves meaningful (transition width below and
+above the center: a model that <em>"quickly transitions"</em> vs one <em>"struggling
+persistently"</em>, the record; note the two gaps need not be equal, and their
+asymmetry is a candidate diagnostic, not assumed away).</p>
+<h2 id="the-axioms-each-with-its-literal-source-and-its-operational-test">The axioms: each with its literal source and its operational test</h2>
+<p>A1: Equation first, counting preferred.
+<em>Source: "there should be some very simple math equation here: what are we
+calculating?" / "the former has this simple kind of counting way".</em>
+Statement: a candidate IS its defining equation over (f_mt, n, d_t, w_t);
+one display equation, notation from the table, no free prose terms. A
+preference ladder applies when candidates tie on other axioms: plain
+sum/count &gt; order statistic &gt; fitted-curve read-off.
+Test: the equation card exists and a reader can recompute the value from
+the CSV with no further choices.</p>
+<p>A2: Composition stability (task addition moves precision, not the estimand).
+<em>Source: "should be stable as you add more tasks... Adding more tests only
+changes how well we discriminate."</em>
+Statement: under enlargement of the pool by tasks drawn from the same
+difficulty distribution, the candidate's estimand is unchanged; under
+deliberate stocking attacks it must not be purchasable.
+Tests (identical for all candidates): (i) task bootstrap: resample tasks
+with replacement, report the estimand's spread; (ii) the duplication
+attack: duplicate the easiest quartile, report median shift across 46
+configs (the maintainers measured protocol; equal-vote forms fail it, axis-vote
+forms pass; inherited result); (iii) benchmark mix swap: HumanEval-only
+vs MBPP-only vs pooled, report rank agreement of the 46 configs.</p>
+<p>A3: Difficulty-space residence.
+<em>Source: "it should live in the difficulty space somehow... whatever score
+it is, it should still be difficulty-based", or else "some natural
+meaning".</em>
+Statement: the value is a difficulty (d-units, board failure on the difficulty scale)
+or carries a defended natural unit with a stated conversion story.
+Counts conditioned on pool size are out (<em>the verdict on the mastered
+count: "so conditioned on the number of tasks, and it's not in
+difficulty"</em>), unless re-expressed in difficulty or axis units.</p>
+<p>A4: No arbitrary constants.
+<em>Source: "why 44? It seems quite arbitrary." / "that 5 is trash".</em>
+Statement: the only free anchors are the adopted thresholds (1%, 50%) and
+declared protocol facts (n = 128, the verifier). Any other constant must
+be derived, or shown by sweep to not drive conclusions, or it kills the
+candidate.</p>
+<p>A5: New-coordinate requirement.
+<em>Source: the repeated objection that candidates "look quite linear in the
+mean pass rate... almost like a linear transformation of that."</em>
+Statement: a candidate must carry information beyond the incumbent mean
+pass rate and beyond the already-accepted pair (50%-crossing, reliable
+range).
+Test: Spearman rank correlation with mean pass rate across the 46 configs,
+and residual spread after conditioning on the accepted pair; report both.
+Near-monotone (|ρ| ≳ 0.98) fails unless the candidate's case is explicitly
+units/interpretation rather than new ordering, and then it must say so on
+its card (<em>the praise-with-suspicion of the surprisal metric is the
+template for honest labeling</em>).</p>
+<p>A6: Graceful saturation (the catastrophic case).
+<em>Source: "The catastrophic failure is if it's way too easy and the model
+doesn't fail, almost never."</em>
+Statement: for a model that never fails on the pool (and one that never
+succeeds), the candidate returns a defined, bounded, one-sidedly honest
+value ("≥ hardest measured difficulty", "no range"), never an infinity, an
+undefined expression, or a silently extrapolated number.
+Test: evaluate on synthetic all-pass and all-fail models plus the board's
+near-saturated configs; inspect values and intervals.</p>
+<p>A7: Protocol robustness (n-dependence and flukes).
+<em>Source: the twice-solved instinct; the candidates page's measured
+0.27-probability mastery miscount at n=128.</em>
+Statement: the candidate states how it changes when n changes; estimand
+drift under attempt-subsampling (n = 32) must be small or explicitly
+n-indexed; single-success flukes must not move upper-extreme candidates
+(anti-fluke condition stated on the card: ≥2 successes or a posterior
+form).
+Test: attempt-subsample at n = 32, report estimand shift per config.</p>
+<p>A8: Generalization promise.
+<em>Source: "somehow promising to generalize"; the worry: "whether any
+scaling trends could be picked up from it... could end up doing exactly
+the scaling thing."</em>
+Statement (soft axiom, reported not pass/fail): the candidate should show
+(i) cross-benchmark consistency (its HE-only and MBPP-only readings of the
+same model agree up to stated uncertainty); (ii) sane scaling-ladder
+behavior; (iii) no self-fulfillment: the capability-vs-reliability
+gradient across models must not be an artifact of task mix (test: recompute
+the gradient under reweighted pools; the stated comfort condition is a
+gradient near 1 that survives reweighting).</p>
+<h2 id="estimator-honesty-constraints-inherited-from-the-estimator-roles">Estimator honesty (constraints inherited from the estimator roles)</h2>
+<p>Two measured facts from the maintainers bind every candidate's uncertainty
+story: (1) interval calibration: fitted-crossing intervals computed
+under binomial noise cover the truth 17–26% of the time at a promised 95%,
+because within-task attempts are correlated; until then, no
+definitional conclusion in this program may rest on raw band widths;
+comparisons use task-level bootstrap spreads. (2) The fitted/counting
+division of labor: fitted trends pool evidence (precise at the center,
+defined at levels counting cannot see) but extrapolate shape below the
+pooled evidence floor (~0.01% failure) and carry measured end-window
+artifacts; counting constructions are granular but honest at deep levels
+(the pooled 1% boundary genuinely resolves where the fitted crossing partly
+extrapolates). Consequence for candidates: central-statistic candidates may
+use fitted reads; extreme-statistic candidates (both tails) should be
+counting-based or state their extrapolation dependence on the card. Two
+further inherited rules: fit counts by likelihood, never fitted rates by
+least squares; and at this board's effective information (~1.7 independent
+attempts per task after correlation) no estimator can certify structure a
+straight line does not already carry; a candidate whose case requires
+richer structure must say it needs a bigger board.</p>
+<p>Measured update: at the
+1% level, per-model fitted crossings carry ~3× the estimation noise of a
+pooled-shape implied crossing (mean |LOO error| 0.512 vs 0.167 on the difficulty scale; 5/46
+censored vs 0/46): most per-model scatter off the capability line at deep
+levels is estimator noise, not model idiosyncrasy. Replicated (preliminary)
+on both independent benchmarks: 5× on GSM8K-Platinum, 3.8× on CRUXEval-O,
+zero censoring for the pooled coordinate: a three-board constraint. Consequence: deep-level
+coordinates should be counting-based or pooled-shape-based, not
+per-model-fitted. Standing caution carried literal: predictivity rewards
+smooth-in-location coordinates, so a pooled coordinate HIDES real
+per-model idiosyncrasy by construction if it exists; that question stays
+open (their per-model scale detector is designed, unbuilt) and candidate
+cards must state both readings.</p>
+<p>Direct evidence for the axis geometry (reliability-why's matched-pairs
+measurement, cited not restated): at matched mean pass rate (within 1
+point), all-32-attempts-succeed probability differs by up to ~19 points
+across models; capability explains R²≈0.9 of it with residual spread
+≈0.09: reliability carries real information beyond capability, which is
+exactly the A5 bar the third axis must also clear against BOTH.</p>
+<h2 id="amendment-1-ownership-and-tail-weighting-added-after-the-phase-2">Amendment 1: ownership and tail-weighting (added after the Phase-2</h2>
+<h2 id="generators-launched-before-any-test-suite-run-recorded-for-pre-registration">generators launched, before any test-suite run; recorded for pre-registration</h2>
+<h2 id="integrity">integrity)</h2>
+<p>the maintainers's decomposition adds three
+binding facts. (1) A metric is owned by someone: at matched
+capability, the reliability residual on the 1%-crossing is only ~34% a
+stable model property (CI 0–69%); 44–51% is a reproducible
+model×benchmark interaction and 13–19% task lottery. A tail-anchored third
+axis defined as a pure model coordinate therefore has a measured ceiling.
+Test-suite addition: every candidate gets an ownership test: its
+cross-benchmark trait share (HE-reading vs MBPP-reading of the same model)
+is measured and printed on the card; candidates must declare whether they
+claim to be a model coordinate or a (model, pool) coordinate. (2)
+Tail-weighting must be declared: the trait-vs-pair split of a summary
+moves with how deeply it weights the tail (tail-weighted → pair-dominated;
+pool-averaged → trait-dominated), so each card states its tail weighting
+explicitly. (3) One measured candidate enters the pool from their lane:
+the excess count of failed easy tasks beyond what capability predicts,
+near-constant across benchmarks (0.89–0.91) and predictive out-of-pool,
+noting it points BELOW capability ("leakiness"), a different direction
+than the hard-end reach maintainers sketched; whether the third axis should be
+reach (the instinct) or leakiness (their portable quantity), or whether
+reach survives the ownership test at all, is now an explicit Phase-3/4
+question, not an assumption either way. adopted out as axis material by
+their leave-one-out work: family lineage, failure-fingerprint entropy
+alone, per-task failure depth, thinking flags, size; and (added with
+their clash-content result) failure-kind profiles at model level: a
+model's mix of failure kinds bears zero relation to its reliability
+residual (corr² = 0.00), even though individual clash cells lean
+interpretation-flavored (their /h/clash-content.html): flavor lives in
+cells, not in models.</p>
+<h2 id="amendment-2-twelve-loopholes-closed-from-the-adversarial-probe-with">Amendment 2: twelve loopholes closed (from the adversarial probe, with</h2>
+<h2 id="measured-demonstrations-added-before-any-test-suite-run">measured demonstrations; added before any test-suite run)</h2>
+<p>The cross-cutting generator's adversarial arm attacked the axioms as
+written and produced twelve exploits, several demonstrated numerically on
+the board. Each is closed as follows, and the demonstrations join the
+regression tests:</p>
+<ol>
+<li>A5 near-determinism kill: a candidate that is a near-deterministic
+   function of already-accepted coordinates FAILS regardless of its ρ vs
+   mean pass (demo: 2·c50 − range has ρ 0.478 yet residual sd 0.000 on the
+   pair). Kill bar: R² &gt; 0.99 against the accepted pair.</li>
+<li>A5 replication requirement: residual "new information" must
+   replicate across TASK split-halves (the generalization unit is tasks,
+   not attempts; demo: a singleton order statistic showed residual sd 0.70
+   with task-split replication r = 0.158: noise posing as signal).
+   Report r; below 0.5 the novelty claim fails.</li>
+<li>A3 laundering door closed: monotone re-expression into difficulty
+   units does not lift a ban: a difficulty-valued candidate that is
+   rank-identical to a banned quantity inherits the ban (demo: d-of-M at
+   Spearman 1.00 with the banned mastered count). Regression test: rank
+   correlation against the banned bank (pool counts, mastered counts).</li>
+<li>A4 necessity test: "derived from protocol facts" is not enough:
+   the constant bank is dense (⌈τT⌉=5, ⌈√T⌉=22, T/10=44 are all
+   "derivable" and materially different metrics). A derived constant must
+   be FORCED by the construction (unique, or invariant under the sweep);
+   otherwise it is a knob and kills.</li>
+<li>A2 reporting upgraded: median shift alone masks directional
+   purchase (demo: an ε-floored vote reads median 0.000 while 80% of
+   configs move deeper, p90 +0.13). The test suite reports signed fraction
+   moved, p75/p90/max, and adds NON-PUBLIC attacks chosen at test suite time
+   (mid-pool stocking; targeted stocking just above a rival's boundary)
+   plus the second composition axis: leave-one-family-out on the MODEL
+   roster (metrics may lean on the population beyond d_t).</li>
+<li>A6 censoring propagation: typed censored values never silently
+   enter downstream statistics; every A5/A8 number prints its
+   defined-subset (this pool upper-censors 12/46 configs for width/gap
+   candidates, a pool-ceiling fact that must stay visible).</li>
+<li>A7 tightened: "n-indexed" is admissible only with a stated n→∞
+   limit object or a posterior companion; the anti-fluke clause binds ANY
+   candidate that moves when singleton successes are zeroed (the δ
+   discount-twin audit runs on every card, not just self-declared
+   upper-extreme ones).</li>
+<li>A1 made literal: every card ships a ~10-line reference
+   implementation; an independent agent reimplements from the equation
+   alone and must match to stated tolerance; the preference-ladder class
+   is assigned by the reimplementer, not the proposer.</li>
+<li>A8 forking-paths guard: cards declare their FULL variant set
+   (gates, τ pairs, weight forms) up front; the test suite runs all declared
+   variants; presenting a post-hoc selected variant kills the card.</li>
+<li>Jeffreys-laundering ban: the ½ pseudocount is protocol, not a
+    scale-setting device (demo: mean smoothed failure on the difficulty scale = the mastered count laundered, r −0.97 with zero-failure count via the −5.55
+    pseudocount floor). Regression test added.</li>
+<li>Witness independence: anti-fluke conditions must be vote-mass
+    based, not task-count based: near-duplicate tasks echo one fluke
+    into "≥2 tasks" conditions (demo: dup-hard moves an anti-fluked upper
+    boundary up to 1.58 stepsog-odds). The near-duplicate echo attack joins
+    the attack set.</li>
+<li>Attack-set secrecy: the published attacks are the floor, not the
+    ceiling; the test suite includes attacks not named in this document,
+    authored fresh by an adversary agent against the specific finalists.</li>
+</ol>
+<h2 id="amendment-3-shared-infrastructure-rules-added-after-the-test-suite-and">Amendment 3: shared-infrastructure rules (added AFTER the test suite and</h2>
+<h2 id="the-14-attack-adversarial-round-from-measured-results-the-first">the 14-attack adversarial round, from measured results; the first</h2>
+<h2 id="amendment-informed-by-outcomes-rather-than-anticipation-and-marked-so">amendment informed by outcomes rather than anticipation, and marked so)</h2>
+<p>The adversarial round's structural finding: the exploitable surface is
+the shared difficulty-axis machinery, not candidate logic. Binding rules:</p>
+<ol>
+<li>Smeared-form requirement. Every difficulty-space metric ships in
+   definition-grade form: smeared votes / position draws over the axis's
+   own label-noise posterior (per-task se: median 0.026 d, max 0.156).
+   Point-vote plug-ins are display/exploration only. Measured basis: the
+   clean-twin sandwich moves the plug-in debt-free boundary median
+   +1.39 d / max 4.1; the smeared form under the identical attack moves
+   median 0.022 d (~60× reduction) because ε-precise placement is
+   unobservable at the measured label noise.</li>
+<li>Typed censoring extends to level-set measures. A gate still ON at
+   a pool edge makes the value a lower bound and must be flagged
+   (measured: 13/46 configs' Z was silently truncated; the flag carried
+   ~a third of its headline residual).</li>
+<li>LOO-axis audit column. d_t is computed from the scored models, so
+   every metric partially grades itself. The leave-one-model-out axis
+   delta prints on every card (measured p90 range across adopted
+   candidates: 0.08–0.60 d on the 47-board, 2026-08-27; a 1/roster
+   effect that shrinks as the project grows).</li>
+<li>Pool-edge policy. Frontier values are typed pool-capped;
+   truncation-debt diagnostics (closed form) accompany integral reads;
+   the strip between the pool max and the Jeffreys ceiling
+   (<code>logit((128+½)/129) = +5.55</code>) is simultaneously the ceiling-attack
+   surface and the hard-task acquisition target.</li>
+<li>EB-profile gating ban. Per-model empirical-Bayes profiles may
+   smooth estimates, never set guarantee thresholds: profile-coupled
+   bars invert dominance (measured: a strictly better model certified
+   NOTHING while its dominated twin certified a range).</li>
+<li>Promoted public attacks (now regression tests): split-task
+   threshold tipping; clean-twin sandwich; ceiling outpost/lever;
+   LOO-axis self-reference; single-label relabel within noise;
+   vote-siphon; endogenous flaky-frontier stocking.</li>
+</ol>
+<h2 id="the-pre-registered-test-suite-identical-for-every-candidate">The pre-registered test suite (identical for every candidate)</h2>
+<ol>
+<li>Equation card (A1 format), then prose, then pros/cons, in that order.</li>
+<li>Computed values for all 46 configs on the canonical 442-task matrix.</li>
+<li>A2 tests: bootstrap spread; duplication attack; mix swap.</li>
+<li>A5 tests: ρ vs mean pass; residual vs (crossing-50, reliable range).</li>
+<li>A6 saturation probes; A7 n=32 subsample.</li>
+<li>Budget-transfer witness where applicable (mean failure of the last-10
+   tasks inside any cumulative construction's range vs its τ; inherited
+   protocol; known result: severe at loose τ, mild at 1%).</li>
+<li>One model-point plot on the difficulty axis (project rules; the blessed
+   plot family).</li>
+<li>Verdict against A1–A8 + the preference ladder; kill or keep.</li>
+</ol>
+<p>Convergence target: at most two surviving candidates per axis, then the
+curated trio with the open choices (threshold anchors, third-axis name and
+final form) stated as decisions for maintainers, not made silently.</p>
+<h2 id="failure-modes-already-adopted-regression-tests-not-to-be-re-proposed">Failure modes already adopted (regression tests, not to be re-proposed)</h2>
+<p>From the review of the five-candidate round: arbitrary constants (44
+hardest, 1280-attempt budget, 5 candidates of anything); metrics discussed
+before defined; counts conditioned on pool size; near-monotone-in-mean-pass
+presented as new coordinates; and from the corpus: equal-vote composition
+dependence (the pool's stocking buys credit) and budget transfer at loose
+thresholds (measured: a 20%-budget cumulative range admits 80% failure on
+its last tasks: the loose-τ cumulative family is structurally suspect for
+CAPABILITY even though the 1% cumulative form is sound for RELIABILITY).
+Killed candidates from the prior round's adversarial process (majority
+count, hardest-of-four, attempts-to-first-solve, own-order range, Guttman
+rank, reach-area, self-normalized median depth) stay killed unless a
+candidate materially differs and says how.</p>
+<h2 id="what-is-already-accepted-the-fixed-points-candidates-build-against">What is already accepted (the fixed points candidates build against)</h2>
+<ul>
+<li>Board difficulty d_t: population-based, accepted as reasonable (<em>"I
+  think that's a reasonable assumption"</em>).</li>
+<li>The reliable range (cumulative ≤1%, smeared axis votes): <em>"a reasonable
+  way to measure reliability"</em>: reasonable-not-adopted; it anchors the
+  lower extreme and its machinery (votes, posteriors, boundary walls) is
+  inherited.</li>
+<li>The 50%-crossing as capability: the adopted anchor and current suspicion
+  (<em>"maybe the current definition of difficulty at a 50% failure rate IS a
+  robust definition of capabilities"</em>): the null hypothesis capability
+  candidates must beat or formalize, not a straw man.</li>
+<li>The averages mechanism (Jeffreys-flavored smoothing, models that
+  transition quickly showing reliability near capability): liked; keep
+  visible.</li>
+</ul>
+<p><em>Next: Phase 2 candidate generation against this framework; wide, by
+family (lower/central/upper extreme × {crossing, cumulative,
+order-statistic} construction), every card equation-first.</em></p><script>(function(){
+var b=document.getElementById('themeToggle'); if(!b) return;
+function dark(){var t=document.documentElement.dataset.theme;
+ if(t) return t==='dark';
+ return !!(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches);}
+function label(){b.textContent=dark()?'light mode':'dark mode';}
+b.addEventListener('click',function(){var n=dark()?'light':'dark';
+ document.documentElement.dataset.theme=n;
+ try{localStorage.setItem('theme',n);}catch(e){} label();});
+label();})();</script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '\\(', right: '\\)', display: false}
+    ],
+    throwOnError: false
+  });"></script></body></html>

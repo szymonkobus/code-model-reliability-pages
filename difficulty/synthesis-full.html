@@ -1,0 +1,465 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'><title>What is the difficulty of a task? (full)</title><script>(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  .katex { font-size: 1.06em; }
+  .katex-display { overflow-x: auto; padding: .2rem 0; }
+  /* project palette (project SITES.md): page #faf6ec, panels #f2ecdf,
+     borders #e0d9c8: light mode only. */
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+         sans-serif; line-height: 1.55; color: #1a1a1a; background: #faf6ec;
+         max-width: 44rem; margin: 0 auto; padding: 1rem 1.1rem 4rem; }
+  h1 { font-size: 1.55rem; line-height: 1.25; }
+  h2 { font-size: 1.25rem; margin-top: 2.2rem;
+       border-bottom: 1px solid #e0d9c8; padding-bottom: .25rem; }
+  h3 { font-size: 1.05rem; margin-top: 1.6rem; }
+  code { background: #f2ecdf; padding: .1em .3em; border-radius: 4px;
+         font-size: .88em; }
+  img { max-width: 100%; height: auto; display: block;
+        margin: 1.2rem auto .4rem; border: 1px solid #e0d9c8;
+        border-radius: 6px; }
+  p:has(img) + p > em { display: block; font-size: .85rem;
+        color: #555; margin: .2rem 0 1.4rem; }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) p:has(img) + p > em { color: #b6b3aa; }
+  }
+  :root[data-theme="dark"] p:has(img) + p > em { color: #b6b3aa; }
+  /* position:relative is load-bearing:
+     KaTeX's hidden .katex-mathml span is absolutely positioned; a
+     scroll wrapper that is not a containing block lets it anchor to
+     the page and silently overflow the phone viewport. */
+  table { border-collapse: collapse; display: block; overflow-x: auto;
+          position: relative; font-size: .82rem; }
+  th, td { border: 1px solid #e0d9c8; padding: .35rem .5rem; text-align: left;
+           vertical-align: top; }
+  th { background: #f2ecdf; }
+  /* table-columns rule of 3 Sep: prose columns get the width their
+     text needs, number columns stay narrow, names never break; marked by the script below at load */
+  /* breakout scroll wrapper: the table takes its natural
+     width and scrolls sideways; names and numbers never break; sentences wrap only inside a generous measure */
+  /* breakout rule of 7 Sep. project rule: a table wider than the reading column breaks out to the full
+     viewport width on desktop; horizontal scroll only inside the table and only when the viewport is narrower than the table;
+     sticky header and sticky first column make that scroll readable; phones keep the inner scroller. Tables that fit the
+     column stay in it (the fit class is set by the small script below when the table is no wider than the column). */
+  .tblwrap { overflow-x: auto; width: 100vw; margin-left: calc(50% - 50vw); padding: 0 1rem; box-sizing: border-box; }
+  .tblwrap.fit { width: 100%; margin-left: 0; padding: 0; }
+  .tblwrap thead th, .tblwrap tr:first-child th { position: sticky; top: 0; background: #f2ecdf; z-index: 2; }
+  .tblwrap th:first-child { position: sticky; left: 0; background: #f2ecdf; z-index: 1; }
+  .tblwrap td:first-child { position: sticky; left: 0; background: #faf6ec; z-index: 1; }
+  .tblwrap tr:first-child th:first-child { z-index: 3; }
+  .tblwrap > table { width: max-content; min-width: 100%; display: table; }
+  .tblwrap th, .tblwrap td, .tblwrap td code, .tblwrap th code { white-space: nowrap; }
+  .tblwrap td.prose, .tblwrap th.prose { white-space: normal; min-width: 40ch; max-width: 64ch; }
+  td.num, th.num { text-align: right; width: 1%; }
+  @media (max-width: 52rem) { .tblwrap, .tblwrap.fit { width: 100%; margin-left: 0; padding: 0; } }
+  blockquote { border-left: 3px solid #e0d9c8; margin: 1rem 0;
+               padding: .1rem 1rem; color: #555; }
+  details { background: #f2ecdf; border: 1px solid #e0d9c8;
+            border-radius: 8px; padding: .55rem .9rem; margin: 1rem 0;
+            font-size: .9rem; }
+  details summary { cursor: pointer; color: #52514e; }
+  hr { border: none; border-top: 1px solid #e0d9c8; margin: 2rem 0; }
+  a { color: #0b57d0; }
+  nav.toc { background: #f2ecdf; border-radius: 8px; padding: .8rem 1rem;
+            font-size: .9rem; margin: 1rem 0; }
+  nav.toc a { display: inline-block; margin: .15rem .6rem .15rem 0; }
+  nav.site { position: sticky; display: flex; flex-wrap: wrap; align-items: baseline; row-gap: .15rem; white-space: normal; top: 0; z-index: 10; background: #f2ecdf;
+             border-bottom: 1px solid #e0d9c8; margin: 0 -1.1rem 1.2rem;
+             padding: .55rem 1.1rem; font-size: .92rem; }
+  nav.site a { margin-right: 1.1rem; text-decoration: none; }
+  nav.site a.here { font-weight: 700; color: inherit; pointer-events: none; }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) nav.site { background: #24262c; border-color: #3a3d45; }
+  }
+  :root[data-theme="dark"] nav.site { background: #24262c; border-color: #3a3d45; }
+  .themeBtn { float: right; background: none; font: inherit; font-size: .85rem;
+              border: 1px solid #cfc5ac; border-radius: 6px; color: #52514e;
+              padding: .1rem .6rem; cursor: pointer; }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) body { background: #16181c; color: #e6e4de; }
+    :root:where(:not([data-theme="light"])) code,
+    :root:where(:not([data-theme="light"])) th,
+    :root:where(:not([data-theme="light"])) nav.toc { background: #24262c; }
+    :root:where(:not([data-theme="light"])) th,
+    :root:where(:not([data-theme="light"])) td { border-color: #3a3d45; }
+    :root:where(:not([data-theme="light"])) h2 { border-color: #3a3d45; }
+    :root:where(:not([data-theme="light"])) blockquote { border-color: #4b4e58; color: #b6b3aa; }
+    :root:where(:not([data-theme="light"])) a { color: #8ab4f8; }
+    :root:where(:not([data-theme="light"])) .themeBtn { border-color: #4b4e58; color: #b6b3aa; }
+  }
+  :root[data-theme="dark"] body { background: #16181c; color: #e6e4de; }
+  :root[data-theme="dark"] code, :root[data-theme="dark"] th,
+  :root[data-theme="dark"] nav.toc { background: #24262c; }
+  :root[data-theme="dark"] th, :root[data-theme="dark"] td { border-color: #3a3d45; }
+  :root[data-theme="dark"] h2 { border-color: #3a3d45; }
+  :root[data-theme="dark"] blockquote { border-color: #4b4e58; color: #b6b3aa; }
+  :root[data-theme="dark"] a { color: #8ab4f8; }
+  :root[data-theme="dark"] .themeBtn { border-color: #4b4e58; color: #b6b3aa; }
+.byline { font-size: .8rem; color: #6b675e; margin: -.3rem 0 1rem; }
+  h1, h2, h3, h4, p, li, code { overflow-wrap: anywhere; }   /* phone rule: a long token never widens the page */
+</style>
+<script>(function(){function fit(){var col=document.body.clientWidth||736;document.querySelectorAll('.tblwrap').forEach(function(w){var t=w.querySelector('table');if(!t)return;w.classList.remove('fit');var m=t.style.minWidth;t.style.minWidth='0';var nat=t.scrollWidth;t.style.minWidth=m;if(nat<=col)w.classList.add('fit');});}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',fit);}else{fit();}window.addEventListener('resize',fit);})();</script>
+<script>
+(function(){var num=/^[\s\u2212\-+]?[\d.,]+(\s*%|\s*\[.*\])?\s*$/;document.querySelectorAll('table').forEach(function(t){var rows=t.querySelectorAll('tr');if(!rows.length)return;var ncol=0;rows.forEach(function(r){ncol=Math.max(ncol,r.children.length)});for(var c=0;c<ncol;c++){var cells=[],nums=0,longest=0;rows.forEach(function(r){var el=r.children[c];if(!el)return;cells.push(el);var tx=(el.textContent||'').trim();if(el.tagName==='TD'){if(num.test(tx)&&tx.length)nums++;longest=Math.max(longest,tx.length)}});var tds=cells.filter(function(e){return e.tagName==='TD'}).length;var cls=null;if(tds&&nums>=0.8*tds)cls='num';else if(c===0&&longest<=40)cls='name';else if(longest>40)cls='prose';if(cls)cells.forEach(function(e){e.classList.add(cls)})}})})();
+</script>
+</head><body><nav class="site"><a href="index.html" class="">Start</a><a href="report.html" class="">Report</a><a href="names-proposal.html" class="">Name propositions</a><a href="synthesis.html" class="">Synthesis</a><a href="measures.html" class="">Measures</a><a href="atlas.html" class="">Atlas</a><a href="metrics-report.html" class="">Metrics</a><a href="difficulty-weighting.html" class="">Weighting</a><a href="vocab.html" class="">Names</a><button class="themeBtn" id="themeToggle" title="toggle light/dark">theme</button></nav><h1 id="what-is-the-difficulty-of-a-task">What is the difficulty of a task?</h1><p class="byline" data-freshness data-chrome>Rebuilt 15 Sep 13:23 UK; data as of 15 Sep 13:23 UK; rebuilt with every new count landing for the original tasks and after any edit to the text.</p>
+<p><em>Synthesis of an 18-field literature sweep, 11 measure-generation lenses with
+adversarial critique, and empirical checks on local eval data. Supporting material: <code>notes/lit/</code> (per-field notes), <code>MEASURES.md</code> (critiqued
+catalog), <code>notes/empirical-facts.md</code> (local data illustrations),
+<code>notes/deep-reads.md</code> (method extractions).</em></p>
+<hr />
+<blockquote>
+<p>Terms used here (plain language). IRT, item response theory, the
+psychometrics of standardized testing: solvers get ability numbers, tasks
+get difficulty numbers, estimated jointly from who-solved-what. 2PL:
+the standard IRT model; each task gets b (difficulty: the capability at
+which success reaches 50%) and a (discrimination: how sharply success
+flips as capability rises); low/negative a marks broken or lure tasks;
+θ is solver capability on the same scale. CTT p-value, classical
+test theory's difficulty: plain fraction-correct in a population.
+Elo / Glicko / WHR, chess-style rating systems: solvers and tasks
+rated on one scale from win/loss records. pass@k / pass^k: chance a
+task is solved at least once in k tries / all k times. GLAD: a
+crowdsourcing model where item difficulty multiplies (rather than adds to)
+solver ability, so truly ambiguous items drive everyone to chance. DIF,
+differential item functioning: two solver populations ordering the same
+tasks differently. the difficulty scale stretches fail rates at both ends so that very easy and very hard tasks stop bunching together (in symbols, <code>log(p/(1−p))</code>).</p>
+</blockquote>
+<h2 id="1-the-object-itself">1. The object itself</h2>
+<p>Across every field that has operationalized it (psychometrics, medicine,
+learning theory, search/planning, economics, forecasting, sport) the same
+answer recurs: difficulty is not a property of a task. It is a property of
+an encounter between</p>
+<ul>
+<li>a task <em>s</em> (a specification, including its inputs and latent state),</li>
+<li>a solver population <em>P</em> (with its abilities, priors, and architecture),</li>
+<li>a protocol <em>R</em> (resources, affordances, attempts, tools, help available),</li>
+<li>a verifier <em>V</em> (what counts as success, at what strictness).</li>
+</ul>
+<p>The primitive object is the success-probability surface p(s, P, R, V).
+Every difficulty measure in the catalog is a <em>functional</em> of this surface, and
+every fight about "the" difficulty of a task is a fight about which functional
+and which frame (P, R, V) got fixed silently. Fields that look like they
+define intrinsic difficulty are, on inspection, doing one of two things:
+defining a <em>predictor</em> of the encounter (structural complexity), or taking a
+limit/supremum over frames (worst-case complexity, instance complexity's
+machine-independence up to constants).</p>
+<p>Witnesses from opposite corners: IRT identifies item difficulty only jointly
+with solver ability, up to scale (Rasch 1960; De Boeck &amp; Wilson 2004).
+Learning theory makes the frame explicit as a triple: DFAs are
+cryptographically hard from random examples, polynomial with membership
+queries, trivial from a helpful teacher (Angluin; Goldman &amp; Kearns). Chess
+positions with shallow traps are hard for MCTS and trivial for minimax
+(Ramanujan et al. 2010). In our own data, per-task pass rates of <em>sizes of the
+same model family</em> rank-correlate at only ρ≈0.74–0.89; "the" ordering does
+not exist even inside Qwen2.5-Coder. And verifier strictness is part of the
+frame: EvalPlus base-vs-plus tests, or HumanEval's ~30% false-positive rate
+under weak tests (AlphaCode), move "difficulty" without touching the task.</p>
+<p>The definitional core, distilled from the philosophy literature (von
+Kriegstein 2019, against Bradford's effort account): difficulty of <em>succeeding</em>
+is low probability of success <em>given competent trying</em>; difficulty of <em>doing</em>
+is the effort/skill the attempt demands. These two families do not reduce to
+each other, and both are legitimate. Measurement practice mirrors this split:
+outcome statistics (pass rates, IRT, Elo) estimate the first; effort scales
+(RVU work = time × intensity, GOMS predicted time, reasoning-token counts)
+estimate the second.</p>
+<h2 id="2-five-functional-families">2. Five functional families</h2>
+<p>Nearly all 39 cataloged measures are one of five functionals of p:</p>
+<ol>
+<li>Location, where the task sits on an outcome scale at a fixed frame:
+   pass/failure rate (CTT p-value), IRT difficulty <em>b</em> estimated jointly with
+   ability, paired-comparison ratings (Elo, Glicko, Whole-History Rating,
+   Bradley-Terry). The gold-standard family; population-relative by
+   construction.</li>
+<li>Threshold / titration, the minimum resource at which success reaches a
+   criterion τ: psychophysical staircases (QUEST), pass@k inverted (k needed
+   for 50%), smallest model scale that solves, METR's 50%-time-horizon
+   inversion, age-of-acquisition norms (age by which 50% of children succeed,
+   the developmental time horizon). Converts difficulty into interpretable
+   resource units; requires a monotone resource axis and censors at the ends.</li>
+<li>Work / divergence, what the solver must expend or overcome: physician
+   work RVU (negotiated time × intensity), GOMS/KLM predicted execution time,
+   reasoning-token expenditure, and the theoretical form: steering work =
+   −log p₀(success set), the nats separating the solver's prior policy from
+   success (equivalently: description length of the needed correction). The
+   only scale on which independent conjunctive subtasks are <em>additive</em>.</li>
+<li>Order position, difficulty with no numeric scale at all: Turing
+   degrees (reducibility partial order; provably incomparable elements),
+   implicational acquisition hierarchies (Guttman scaling; stages instruction
+   cannot reorder), curriculum prerequisite structures. A reminder that
+   forcing a total order onto genuinely partial structure destroys
+   information.</li>
+<li>Demand profile, a vector, not a scalar: ADeLe's 18 rubric demand
+   scales, Wood's component/coordinative/dynamic complexity, cognitive load
+   theory's element interactivity, HRA's nominal error rate × performance
+   shaping factors, METR's 16 messiness factors. The decomposed, explanatory
+   family: the bridge from task content to predicted outcomes.</li>
+</ol>
+<p>Cross-cutting the families, three distinctions matter everywhere:</p>
+<ul>
+<li>Ex-post vs ex-ante. Outcome-derived estimates (families 1–3 as usually
+  computed) versus content-derived predictions (family 5, QDE, query
+  performance prediction). Every mature field runs both and <em>tracks their
+  divergence</em> as its own statistic: 93% of difficult intubations were
+  unanticipated (Nørskov); text-based item-difficulty prediction barely beats
+  predict-the-mean in homogeneous populations (BEA 2024 shared task). The
+  honest summary: ex-ante prediction of difficulty is genuinely hard, its
+  ceiling is real, and the residual (what outcomes show that content did not
+  predict) is often the most informative signal.</li>
+<li>Solving vs acquiring. Learning theory separates the cost of <em>executing</em>
+  a task from the cost of <em>learning</em> it from data: parity is trivial to
+  evaluate and brutal to acquire. For model evals this is the difference
+  between "can the model do it" (pass rate) and "how many
+  demonstrations/gradient steps until it can" (few-shot count,
+  fine-tuning-steps-to-criterion, teaching dimension).</li>
+<li>Coverage vs reliability. p vs p^k: solving at least once given many
+  tries versus succeeding dependably (pass@k vs pass^k; METR's 50% vs 80%
+  horizons, ~5× apart; medicine's O:E ratios are reliability objects). Tasks
+  and solvers re-rank between these two, so "hard" must declare which one it
+  means. Toby Ord's constant-hazard model connects them: if a task is a chain
+  of fail-any-one steps, log-success is additive in length: length-hazard
+  difficulty, distinct from per-step hardness (and much of the small-vs-large
+  model gap is execution length, not single-step ability; arXiv:2509.09677).</li>
+</ul>
+<h2 id="3-what-difficulty-is-not-the-conflation-table">3. What difficulty is NOT (the conflation table)</h2>
+<p>Each row is a documented failure mode of treating X as difficulty, with the
+strongest witness found.</p>
+<div class="tblwrap"><table>
+<thead>
+<tr>
+<th class="name">Conflation</th>
+<th class="prose">Why it's wrong</th>
+<th class="prose">Witness</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="name">Failure rate as such</td>
+<td class="prose">Confounds task demand with population choice, defects, contamination, verifier error. Medicine institutionally <em>refuses</em> raw failure rate; the entire risk-adjustment enterprise (POSSUM, O:E audit) exists to separate case-mix from skill.</td>
+<td class="prose">Our MBPP+ "hardest" tail: underspec/contradiction tasks pass 0.21–0.23 vs tricky 0.47: the bottom of the sort is broken, not hard. GSM1k: up to 13pp of "easiness" was memorization.</td>
+</tr>
+<tr>
+<td class="name">Complexity</td>
+<td class="prose">Structural complexity (parts and interdependencies) is a <em>predictor</em> of difficulty, not the thing; org-psych keeps the layers apart explicitly (complexity → performer-relative load → outcomes).</td>
+<td class="prose">Wood 1986; Campbell 1988; Liu &amp; Li 2012. Low-width planning problems are PSPACE-hard in theory, easy in practice (Lipovetzky &amp; Geffner).</td>
+</tr>
+<tr>
+<td class="name">Effort or time alone</td>
+<td class="prose">Equal-duration tasks differ in work density; equal-effort tasks differ in success odds.</td>
+<td class="prose">RVU explicitly rejected time-alone (Hsiao 1988); METR: each messiness factor costs ~8pp success <em>at fixed human time</em>; von Kriegstein vs Bradford.</td>
+</tr>
+<tr>
+<td class="name">Discrimination / informativeness</td>
+<td class="prose">An item everyone fails carries near-zero information about solvers; hard ≠ useful-for-measurement. "Tricky" items typically surface as <em>low or negative discrimination</em>, not high difficulty.</td>
+<td class="prose">IRT item information peaks at θ≈b (Fisher information); Rodriguez et al. 2021: negative-discrimination items are usually annotation errors.</td>
+</tr>
+<tr>
+<td class="name">Ambiguity / ill-posedness</td>
+<td class="prose">Hard drives competent solvers toward <em>chance</em>; ambiguous drives them toward <em>principled disagreement</em>. Different latent structure, different fix (solve harder vs re-specify).</td>
+<td class="prose">GLAD's 1/β vs annotator-disagreement models; ChaosNLI human label variation; our audit's underspecification tag.</td>
+</tr>
+<tr>
+<td class="name">Unsolvability</td>
+<td class="prose">Regret-based curricula explicitly separate "hard but attainable" (high regret) from "impossible" (zero regret: no learning value).</td>
+<td class="prose">UED literature; pass@128=0 tasks in our data are candidates for <em>defect screening</em>, not maximal difficulty.</td>
+</tr>
+<tr>
+<td class="name">One bad run</td>
+<td class="prose">Solver randomness gives heavy-tailed effort distributions on a <em>fixed</em> instance; difficulty is a distribution property.</td>
+<td class="prose">Gomes et al. 2000 (SAT restarts); our greedy-vs-sampled disagreements (MBPP+ 1.5B: 24 tasks greedy-fail but &gt;50% sampled-pass).</td>
+</tr>
+<tr>
+<td class="name">Human difficulty (for model evals)</td>
+<td class="prose">Orderings dissociate in both directions: crowdworker-easy ARC tasks stump frontier models; models do expert-hours math in seconds; anti-prior tasks <em>invert</em> scaling.</td>
+<td class="prose">H-ARC vs frontier models; our HumanEval/124 (Feb-29 rule punishes better calendar priors; 1.5B beats 7B).</td>
+</tr>
+<tr>
+<td class="name">Solver deficiency</td>
+<td class="prose">Observed shortfall = task's information scarcity + solver bias + solver noise; only the first is the task's difficulty.</td>
+<td class="prose">BIN model (Satopää et al. 2021) formally decomposes them; SDT separates d′ from criterion.</td>
+</tr>
+<tr>
+<td class="name">Emergence threshold</td>
+<td class="prose">"Task needs scale X" is largely a metric artifact; thresholds smooth out under continuous metrics and observational capability axes.</td>
+<td class="prose">Schaeffer et al. 2023 (mirage); Ruan et al. 2024.</td>
+</tr>
+<tr>
+<td class="name">Length</td>
+<td class="prose">Length is one demand among many; hazard-per-step × length is a <em>model</em>, not an identity.</td>
+<td class="prose">METR messiness; Ord's constant-hazard as an explicit (falsifiable) assumption.</td>
+</tr>
+<tr>
+<td class="name">Acquisition difficulty</td>
+<td class="prose">Hard-to-learn ≠ hard-to-do, in both directions.</td>
+<td class="prose">Kearns-Valiant (easy-to-run, crypto-hard-to-learn); parity.</td>
+</tr>
+<tr>
+<td class="name">Stakes / risk</td>
+<td class="prose">Medicine deliberately <em>prices</em> stakes into work (psychological-stress component), but as an explicit, separate decision, not a confusion.</td>
+<td class="prose">RVU intensity decomposition vs POSSUM risk: same field, two currencies, never merged silently.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Two meta-lessons ride on top:</p>
+<ul>
+<li>Goodhart applies to difficulty scales. When a difficulty measure carries
+  incentives (payment, leaderboards, curricula), it drifts: RVU time estimates
+  exceed logged operating-room times by ~31 min on average; DRG creep;
+  benchmark contamination is the eval-world version. Scheduled empirical
+  re-anchoring is the medicine-tested fix.</li>
+<li>Difficulty is largely invisible to the solver in-flight. Physician
+  confidence moved 7.2→6.4 while accuracy collapsed 55%→6% across easy→hard
+  vignettes; help-seeking didn't rise. The confidence–accuracy <em>gap</em>, not low
+  confidence, is the signature of a hard case, directly transferable to
+  LLM self-report and calibration-based measures.</li>
+</ul>
+<h2 id="4-the-measure-space-39-measures-full-critiqued-catalog-in-measuresmd">4. The measure space (39 measures; full critiqued catalog in MEASURES.md)</h2>
+<p>The catalog (M01–M39), grouped; every entry has a generic definition, an
+AI-eval and a non-AI instantiation, and an independent skeptical critique:</p>
+<ul>
+<li>Outcome statistics and their decompositions: M01 frame-relative
+  failure rate (with the instance-vs-attempt variance decomposition: "all
+  coin-flips" vs "half impossible"), M03 irreducible-failure ceiling
+  (reachable-at-all vs merely rare), M04 mode-distribution discordance
+  (does the solver's own selection find its correct solutions), M05
+  difficulty-measurement precision (the meta-uncertainty on every other
+  number).</li>
+<li>Latent-scale psychometrics: M06 IRT ability-location b (human
+  parameterizations: ratings, Angoff, curriculum position; folded in as
+  instantiations), M07 capability slope &amp; diagnosticity (discrimination,
+  transition width), M08 solver-dependence &amp; scalar validity (DIF,
+  dominance-order incomparability, general-factor residual: <em>how far one
+  number can be trusted at all</em>).</li>
+<li>Resource horizons (titration family): M02 search cost to first
+  success (k50, −log p in nats), M09 scale horizon (smallest capability that
+  reaches criterion), M11 serial deliberation demand, M12 acquisition horizon &amp; run-contingency, M18 adaptation &amp; retention
+  (fine-tuning steps-to-criterion, forgetting half-life), M27 human effort
+  horizon (time &amp; price), M32 hint/scaffold dose to criterion, M33 the
+  universal-solver (Levin) limit as the theoretical anchor.</li>
+<li>Scaling behavior: M10 inverse scaling &amp; error persistence (difficulty
+  that grows with capability: prior-misalignment).</li>
+<li>Structural / ex-ante content: M13 solution-object complexity, M14
+  serial/compositional depth, M15 solution codelength &amp; decision entropy,
+  M16 prompt informativeness &amp; example load, M24 specification &amp; input-domain
+  breadth, M25 knowledge/concept rarity.</li>
+<li>Error structure (the "tricky" family): M19 error-space multiplicity
+  (one wrong attractor vs scattered failures), M20 lure strength
+  (prior–task misalignment), M21 verifier-strictness / hidden-edge-case
+  share, M22 near-miss repair distance, M23 error deceptiveness &amp; detection
+  cost.</li>
+<li>Validity screens (gate everything else): M17 shortcut, memorization &amp;
+  surface robustness; M26 specification ambiguity (hard vs underspecified:
+  GLAD-style chance-collapse vs principled disagreement).</li>
+<li>Judgment &amp; self-knowledge: M29 appraised difficulty (judge &amp; self),
+  M30 confidence–outcome gap (deceptive difficulty; the medical
+  accuracy-confidence dissociation), M31 generation–verification asymmetry
+  (checkability; predicts when best-of-N, delegation, and oversight work).</li>
+<li>Ecological / agentic: M34 feedback economics &amp; iterative repair, M35
+  error recoverability, M36 observability gap, M37 environment drift &amp;
+  opposition, M38 coordination load, M39 slack/budget tightness.</li>
+</ul>
+<p>Critique outcome: 38/39 keep-with-caveats, 1 fold (M28 human-skill location →
+into M06). No measure survived <em>without</em> caveats: the modal critic finding is
+that each measure partly tracks its frame (population, verifier, elicitation
+protocol) rather than the task, and the modal kill-test is a frame-swap
+audit: recompute under a second population / verifier / elicitation; if
+ranks reshuffle, you were measuring the frame. Second cross-cutting finding:
+within one frame, all location-family numbers (pass rate, b, Elo, −log p) are
+near-monotone transforms of <em>one</em> measurement; real information gain comes
+only from adding discrimination, a second frame, an error-structure axis, or
+an ex-ante axis.</p>
+<h2 id="5-if-you-only-keep-a-handful-of-numbers-per-task">5. If you only keep a handful of numbers per task</h2>
+<p>Grounded in the per-measure critiques (scores 0–10 in MEASURES.md; top of the
+list: M01/M02 at 8; M03, M06/M07, M11, M14, M17, M20, M27, M31, M32 at 7):</p>
+<ol>
+<li>M01 frame-relative failure rate, with its variance decomposition and
+   an explicit frame card: the anchor scale. (M06/M07 IRT b + a is its
+   population-corrected upgrade once the solver population is wide enough to
+   identify it.)</li>
+<li>M02 search cost / −log p̂ per (task, reference solver): continuous,
+   distinguishes rarely- from never-solved, additive over independent
+   subtasks.</li>
+<li>One titration on a real resource axis: M27 human time, M09 scale
+   horizon, or M32 hint dose (the causal one; constrain the hint channel:
+   machine teaching's collusion lesson).</li>
+<li>One error-structure statistic, M20 lure strength or M19 error-space
+   multiplicity: separates tricky (one wrong attractor) from deep
+   (scattered search failure). M21's verifier-strictness share quantifies
+   the "looks right, fails hidden corners" axis.</li>
+<li>One ex-ante demand profile (M14 depth count or an ADeLe-style rubric):
+   the explanatory bridge, published <em>with</em> its measured predictive ceiling
+   against outcomes, which the QDE literature warns is modest.</li>
+</ol>
+<p>Gates, not numbers: M17 (contamination/paraphrase screen) and M26
+(ambiguity screen) applied <em>before</em> interpreting anything above: the tails
+of every outcome measure are where broken items pool. And one meta-rule from
+M05/M08: publish rank confidence and a two-frame rank-correlation audit with
+any difficulty release, separating identified ranks from prior-driven ones.</p>
+<h2 id="6-mapping-to-the-local-project-illustration-not-the-frame">6. Mapping to the local project (illustration, not the frame)</h2>
+<p>The current two measures are both family-1 objects in a narrow frame:</p>
+<ul>
+<li><em>Pooled pass rate</em> = the Reference-Frame Failure Rate with P = {Qwen2.5-Coder
+  1.5B, 3B, 7B}, R = 1 sample at T=0.8 (×384), V = EvalPlus plus-tests. Fine
+  as a workhorse; its known artifacts on this data: censoring (~20–25% of
+  tasks at the 0%/100% ends), defect pooling at the hard tail, equal-weight
+  pooling over models that disagree at ρ≈0.74–0.89.</li>
+<li><em>Regular/tricky tag</em> = a coarse ex-ante error-structure judgment. Empirically
+  it is ~89% predictable from pass rate (AUC 0.887/0.890), partly circular
+  (auditors saw pass-rate digests), so today the project effectively has ~1.1
+  measures, not 2. The tag's non-redundant content is real but thin: the
+  base-pass-plus-fail gap captures a "hidden edge case" axis at AUC ≈0.70
+  vs the tag, independent of overall rate.</li>
+</ul>
+<p>Cheapest high-value upgrades, in dependency order (all computable from
+existing rollouts except #4): (1) defect-screen-then-sort (already started via
+filtered plots); (2) per-model −log p̂ vectors + 2PL fit: needs widening the
+population beyond 3 same-family models to be identified (add other families /
+sizes; even 10–15 models transforms the fit); (3) failure-mode
+entropy / lure mass from the stored failing solutions and failing-test
+identities; (4) a 6–10 dimension ADeLe-style demand rubric scored by an LLM
+with outcome-validation, replacing the binary tricky tag with named axes
+(misdirection, hidden-edge-cases, efficiency-demand, knowledge-rarity, spec
+load, …).</p>
+<p>Update: #2 is now piloted. The the maintainers sweep produced a
+28-config × 454-task × 128-rollout matrix (Qwen2.5-Coder, Qwen3 ±thinking,
+Claude ±thinking, DeepSeek), enough to identify a 2PL. Results in
+<code>analysis/irt/</code> + <code>notes/irt-pilot.md</code>: Spearman(b, −pooled rate) = 0.87 (the
+population correction reorders real mass); tricky tasks are less
+discriminative (mean a 1.59 vs 2.08) <em>and</em> harder, confirming the
+tag-as-low-discrimination prediction; 18 tasks have a &lt; 0.3 (outcome nearly
+unrelated to ability: lure/defect audit candidates, unrankable by
+difficulty); one genuinely anti-ability task found (Mbpp/261, a = −0.9: a
+tuple-division task whose worked example shows only whole-number results, so
+weak models apply plain true division <code>/</code> and pass while strong reasoners
+infer that floor division <code>//</code> was intended and fail the non-exact hidden
+cases; the pooled rate files this inversion as mid-difficulty). Widening
+the population also dissolved the saturation problem (1 all-pass task vs
+~20% under 3 Qwens). Caveats in the pilot note (2PL misfit, shared-weight
+configs, protocol differences).</p>
+<hr />
+<p><em>Method note: 18 field sweeps (web-verified citations), 11 generation lenses
+producing 130 raw candidate measures → clustered into 39 canonical measures →
+one full entry + one independent skeptical critique per measure, 10 deep
+method reads, plus a gap-critic round that added 4 fields (medical case
+difficulty, human factors/HRA, learning theory/machine teaching, comparative
+cognition). ~120 subagent runs across ~20 sharded workflows (including two
+API-capacity reruns). All raw structured outputs preserved under <code>notes/raw/</code>;
+empirical checks in <code>analysis/</code>.</em></p><script>(function(){
+var b=document.getElementById('themeToggle'); if(!b) return;
+function dark(){var t=document.documentElement.dataset.theme;
+ if(t) return t==='dark';
+ return !!(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches);}
+function label(){b.textContent=dark()?'light mode':'dark mode';}
+b.addEventListener('click',function(){var n=dark()?'light':'dark';
+ document.documentElement.dataset.theme=n;
+ try{localStorage.setItem('theme',n);}catch(e){} label();});
+label();})();</script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '\\(', right: '\\)', display: false}
+    ],
+    throwOnError: false
+  });"></script></body></html>
