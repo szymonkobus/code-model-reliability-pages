@@ -23,7 +23,7 @@ h2 { font-size:1.05rem; margin:1.4rem 0 .3rem; }
   display:inline-block; margin:.12rem .18rem; font:inherit;
   font-size:inherit; color:inherit; }
 .chip.off { opacity:.35; }
-.chip.unfitted { color:#9a9890 !important; border-color:#cfcabd !important; background:#f1eee6; }   /* no posterior under the Bayesian source = grey at first sight */
+.chip.unfitted { color:#9a9890 !important; border-color:#cfcabd !important; background:#f1eee6; }   /* no posterior under the Bayesian source = grey at first sight (the project maintainers' word of 4 Sep 2026; treatment copied from /capability-vs-reliability/) */
 #awaitline, #linknote { margin:.1rem 0 .4rem; }
 .fam { font-weight:600; }
 svg { width:100%; height:auto; display:block; background:#fcfaf3;
@@ -159,7 +159,7 @@ function houseName() {
 
 function idOf(i) { var c = D.configs[i]; return c ? (c.arm_id || c.id) : String(i); }   // registry arm id (bundle configs[].arm_id), else the configuration identity
 var EXTRA_IDS = new Set(), REBOUND = null;
-function writeSel() {   // selection keyed by arm identity, never chip positions (positions differ between datasets)
+function writeSel() {   // the project maintainers' word of 4 Sep 2026: selection keyed by arm identity, never chip positions (positions differ between datasets)
   var ids = Array.from(sel).map(idOf); EXTRA_IDS.forEach(function (id) { ids.push(id); });
   var all = sel.size === D.configs.length && !EXTRA_IDS.size;
   Kit.state.set('sel', all ? null : ids.sort().join(','), null);
@@ -174,9 +174,7 @@ function boot() {
   var f = D.frame;
   var cn = D.coverage_note;
   // ONE status line; every number appears once. Detail lives behind
-  // the disclosure (the disclosure's source —
-  // the record: "so many words... The number 24 is 8 times... as if
-  // you don't want me to read it").
+  // the disclosure.
 
   // source stamps first: D.sources_state from flags/feed_hold.py —
   // "store: newest outcome … · project state … [‖] · page built … · rebuilds every …"; the glyph's hover names the stale/partial source.
@@ -223,7 +221,7 @@ function boot() {
     + '(free-tier queue / mid-generation): ' + cn.pending.join(', ')
     + ' <span class="attr" title="coverage counts from the loader read @' + esc21((D.loader_basis && D.loader_basis.read_at) || D.stamp || 'n/a') + '">[read @' + esc21((D.loader_basis && D.loader_basis.read_at) || D.stamp || 'n/a') + ']</span>' 
     + (cn.identity_caveat ? ' <a class="reflag" href="#identity-caveat" title="' + esc21(cn.identity_caveat) + '">§</a>' : '')
-    + ((cn.held && cn.held.length) ? '. Held: '
+    + ((cn.held && cn.held.length) ? '. Held by the project maintainers\'s decision: '
         + cn.held.map(function (h) { return h.label + ' \u2014 ' + h.text + ' (' + h.at + (h.status ? '; ' + h.status : '') + ')'; }).join('; ')
         + (cn.held_composition ? ' [' + cn.held_composition.drawn + ' drawn, ' + cn.held_composition.below_floor + ' below the fit floor, ' + cn.held_composition.no_cells + ' without cells]' : '') : '')
     + (cn.identity_caveat ? '.<br><span id="identity-caveat">§ ' + esc21(cn.identity_caveat) + '</span>' : '')
@@ -242,7 +240,7 @@ function boot() {
 
   // URL state BEFORE the first render (cold path == click path)
   state.est = Kit.state.get('est', 'avg');
-  state.src = Kit.state.get('src', 'bayes');   // Bayesian by default, the kernel one click away
+  state.src = Kit.state.get('src', 'bayes');   // the project maintainers' word of 4 Sep 2026: the Bayesian fit is the default for averages, the kernel one click away
   state.dots = Kit.state.get('dots', 'off');
   state.xs = Kit.state.get('xs', 'logit');
   state.ys = Kit.state.get('ys', 'logit');
@@ -375,7 +373,7 @@ function boot() {
     var cov21 = partial ? (c.n_cells.toLocaleString() + ' of ' + Number(c.frame_tasks).toLocaleString() + ' cells so far'
                  + (c.coarse ? ' \u00b7 coarse: below the ' + Number((D.frame && D.frame.fit_floor_cells) || 0).toLocaleString() + '-cell fit floor' : '')
                  + (c.band_gaps ? ' \u00b7 band missing at ' + c.band_gaps + ' of ' + (D.configs[i].trend || []).length + ' knots (kernel could not form one)' : '')) : '';
-    s.className = 'chip'; s.textContent = c.label;   // no tag signs on chips — one width; state = grey vs normal; flags in the hover and the fold-out list
+    s.className = 'chip'; s.textContent = c.label;   // the project maintainers' word of 4 Sep 2026: no tag signs on chips — one width; state = grey vs normal; flags in the hover and the fold-out list
     s.dataset.arm = idOf(i);
     var t21 = (cov21 ? cov21 + ' ' : '') + (c.flag ? c.label + ': ' + c.flag.cells.toLocaleString() + ' cells across all results: ' + c.flag.label : '') + windowsFor21(D.flags_meta, c.id);
     var bi = (D.bayes && D.bayes.arms) ? D.bayes.arms.filter(function (a) { return a.ident === c.id || a.id === c.id; })[0] : null;
@@ -442,7 +440,7 @@ function paintChips() {
   document.querySelectorAll('#chips .chip[data-i]').forEach(function (s) {
     var i = +s.dataset.i;
     var inWave = !bay || !!bayOf(D.configs[i]);
-    s.classList.toggle('unfitted', bay && !inWave);              // no posterior = grey at first sight; still selectable, not drawn until its fit lands
+    s.classList.toggle('unfitted', bay && !inWave);              // the project maintainers' word of 4 Sep 2026: no posterior = grey at first sight; still selectable, not drawn until its fit lands
     s.disabled = false;
     var base = s.dataset.baseTitle || '';                        // coverage / interim flag / sampler flag / disclosure text set at creation
     s.title = ((bay && !inWave) ? 'awaits its Bayesian fit (wave ' + awaitWave() + '): greyed, not drawn until it lands' : '') + (base ? (((bay && !inWave)) ? ' \u00b7 ' : '') + base : '');
@@ -644,7 +642,7 @@ function narrate(shown, cellsShown) {
   if (f21) { var cl21 = classLines21(D.flags_meta).concat(f2Lines21(D.flags_meta, true)); f21.innerHTML = (cl21.length ? cl21.join(' · ') : '') + windowsDetails21(D.flags_meta); }
 }
 
-function flagList21() {   // per-configuration flags and disclosures with their notes links — the fold-out list replaces the chip signs
+function flagList21() {   // per-configuration flags and disclosures with their notes links — the fold-out list replaces the chip signs (the project maintainers' word of 4 Sep 2026)
   var box = document.getElementById('flags21-box'); if (!box) return;
   var el = document.getElementById('flaglist');
   if (!el) { el = document.createElement('div'); el.id = 'flaglist'; el.className = 'note'; el.setAttribute('data-chain-inv', ''); box.appendChild(el); }
@@ -890,7 +888,7 @@ function render() {
       if (!sel.has(i)) return;
       var a = bayOf(c);
       var col = c.color;
-      if (!a) return;                 // no posterior = not drawn under the Bayesian source (the chip is greyed and the awaiting line names it); never a kernel stand-in
+      if (!a) return;                 // the project maintainers' word of 4 Sep 2026: no posterior = not drawn under the Bayesian source (the chip is greyed and the awaiting line names it); never a kernel stand-in
       shown++;
       if (state.band !== 'off') {
         var band = '';
@@ -1064,7 +1062,7 @@ function renderRelcap() {
     if (p.y.kind === 'point') pyv.push(p.y.z);
   });
   var bx = pxv.length ? pxv : all, by_ = pyv.length ? pyv : all;
-  // EQUAL SCALE ALWAYS: same difficulty per pixel
+  // EQUAL SCALE ALWAYS (the project maintainers' rule): same difficulty per pixel
   // on both axes — slope 1 draws at 45°. Independent centers, spans
   // grown to the shared units-per-pixel.
   var cx = (Math.min.apply(null, bx) + Math.max.apply(null, bx)) / 2;
