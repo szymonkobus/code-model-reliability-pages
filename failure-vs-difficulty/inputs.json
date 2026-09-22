@@ -1,44 +1,44 @@
 {
  "schema": "inputs-sidecar v1 (pool-pages-lead 2026-09-03; run-monitor freshness leg)",
- "generated_at": "2026-09-22T19:14:47Z",
+ "generated_at": "2026-09-22T20:25:27Z",
  "output": "pages/failure-vs-difficulty/pool-site/failure-vs-difficulty/data.json",
  "builder": "pages/failure-vs-difficulty/pool-site/failure-vs-difficulty/build_pool_curves.py",
  "inputs": [
   {
    "path": "definitions/difficulty/analysis/pool-intake/run_intake_2pl.py",
-   "mtime": "2026-09-22T14:00:39Z",
-   "size": 168919,
-   "sha12": "dd9586170091"
+   "mtime": "2026-09-22T19:59:10Z",
+   "size": 175746,
+   "sha12": "a706e9c60960"
   },
   {
    "path": "definitions/difficulty/html/datasets/dataset_mirrors_stamp.json",
-   "mtime": "2026-09-22T18:30:54Z",
-   "size": 151284,
-   "sha12": "925a720e0136"
+   "mtime": "2026-09-22T20:19:09Z",
+   "size": 151540,
+   "sha12": "9d6e66e2a484"
   },
   {
    "path": "definitions/difficulty/html/datasets/task_difficulty.golden.pool.csv",
-   "mtime": "2026-09-22T18:30:47Z",
+   "mtime": "2026-09-22T20:19:01Z",
    "size": 262769,
    "sha12": "69334fe9b35b"
   },
   {
    "path": "definitions/difficulty/html/datasets/task_difficulty.pool.csv",
-   "mtime": "2026-09-22T18:30:47Z",
+   "mtime": "2026-09-22T20:19:01Z",
    "size": 264383,
    "sha12": "454cb3fe1c73"
   },
   {
    "path": "definitions/difficulty/html/first-look/allfail_exposure.json",
-   "mtime": "2026-09-22T18:13:17Z",
-   "size": 2065625,
-   "sha12": "33727cfea717"
+   "mtime": "2026-09-22T19:13:17Z",
+   "size": 2066212,
+   "sha12": "46558f7d6dd8"
   },
   {
    "path": "definitions/difficulty/knowledge/golden_set.json",
-   "mtime": "2026-09-22T19:13:20Z",
+   "mtime": "2026-09-22T20:16:13Z",
    "size": 4016,
-   "sha12": "d96df139c263"
+   "sha12": "c1cb99017b9e"
   },
   {
    "path": "definitions/difficulty/knowledge/landing_in_progress.json",
@@ -60,9 +60,9 @@
   },
   {
    "path": "definitions/fitting/serving.json",
-   "mtime": "2026-09-22T19:08:15Z",
+   "mtime": "2026-09-22T20:07:45Z",
    "size": 65790,
-   "sha12": "3e6d22beb04b"
+   "sha12": "bb59e0e7db6d"
   },
   {
    "path": "definitions/fitting/serving_golden_pool.json",
@@ -462,9 +462,9 @@
   },
   {
    "path": "pages/failure-vs-difficulty/artifacts/golden_set.json",
-   "mtime": "2026-09-22T18:33:48Z",
+   "mtime": "2026-09-22T19:21:13Z",
    "size": 4721,
-   "sha12": "746c49656648"
+   "sha12": "e2d6813ffd0f"
   },
   {
    "path": "pages/failure-vs-difficulty/crossings-site/data/lev_grid.json",
@@ -474,9 +474,9 @@
   },
   {
    "path": "pages/pool-pages/build/flags/recheck_flags.py",
-   "mtime": "2026-09-22T18:56:01Z",
-   "size": 136669,
-   "sha12": "5d0c89432090"
+   "mtime": "2026-09-22T19:18:14Z",
+   "size": 137652,
+   "sha12": "ddd6c27d6104"
   },
   {
    "path": "pages/pool-pages/build/flags/state/census_hold.json",
@@ -492,9 +492,9 @@
   },
   {
    "path": "pages/pool-pages/build/flags/state/counts_of_record.prev.json",
-   "mtime": "2026-09-22T18:25:45Z",
+   "mtime": "2026-09-22T19:25:45Z",
    "size": 535,
-   "sha12": "2d8c88864af3"
+   "sha12": "33ce3cb2448a"
   },
   {
    "path": "pages/pool-pages/build/flags/state/feed_clusters_expected.json",
@@ -504,21 +504,21 @@
   },
   {
    "path": "pages/pool-pages/build/flags/state/plain_twins_last_good.json",
-   "mtime": "2026-09-22T18:42:56Z",
-   "size": 32626,
-   "sha12": "db5acf93bd3e"
+   "mtime": "2026-09-22T19:40:34Z",
+   "size": 32710,
+   "sha12": "fc441ada0276"
   },
   {
    "path": "pages/pool-pages/build/flags/state/valid_cells_last_good.store.json.stamp",
-   "mtime": "2026-09-22T18:42:54Z",
+   "mtime": "2026-09-22T19:31:00Z",
    "size": 21,
-   "sha12": "921ff9cd142f"
+   "sha12": "af9d7feca959"
   },
   {
    "path": "runs/arms.jsonl",
-   "mtime": "2026-09-22T18:54:58Z",
-   "size": 473653,
-   "sha12": "782193b86e48"
+   "mtime": "2026-09-22T20:02:56Z",
+   "size": 475083,
+   "sha12": "da15c1656446"
   },
   {
    "path": "runs/generate/api/census/bridge_regex_legs.json",
@@ -534,15 +534,15 @@
   },
   {
    "path": "runs/generate/screens/fleet/attempt_override_index.jsonl",
-   "mtime": "2026-09-22T18:52:54Z",
-   "size": 125070068,
-   "sha12": "a81d263bac7f"
+   "mtime": "2026-09-22T19:43:49Z",
+   "size": 125090222,
+   "sha12": "55a4f1109d2d"
   },
   {
    "path": "runs/generate/screens/fleet/attempt_override_index.jsonl.stamp",
-   "mtime": "2026-09-22T19:09:01Z",
+   "mtime": "2026-09-22T19:52:02Z",
    "size": 153,
-   "sha12": "a81c38869bee"
+   "sha12": "b54dd5ed90c0"
   },
   {
    "path": "runs/generate/screens/fleet/census/voided_judgings.json",
@@ -558,9 +558,9 @@
   },
   {
    "path": "runs/generate/screens/fleet/collector_status.json",
-   "mtime": "2026-09-22T18:46:11Z",
-   "size": 502,
-   "sha12": "04e3fa26ef88"
+   "mtime": "2026-09-22T20:19:04Z",
+   "size": 488,
+   "sha12": "9452bb743673"
   },
   {
    "path": "runs/generate/screens/fleet/config_arm_map.tsv",
@@ -576,9 +576,9 @@
   },
   {
    "path": "runs/generate/screens/fleet/generated_cells.json",
-   "mtime": "2026-09-22T18:42:03Z",
-   "size": 4278066,
-   "sha12": "125cabe3618d"
+   "mtime": "2026-09-22T20:20:33Z",
+   "size": 4287936,
+   "sha12": "6011f41ebd75"
   },
   {
    "path": "runs/generate/screens/fleet/identity_backfill_tasks.bulbasaur.jsonl",
@@ -594,9 +594,9 @@
   },
   {
    "path": "runs/generate/screens/fleet/valid_cells.json",
-   "mtime": "2026-09-22T18:41:58Z",
-   "size": 245531953,
-   "sha12": "a1ee01885630"
+   "mtime": "2026-09-22T19:28:49Z",
+   "size": 245876754,
+   "sha12": "b6e3581ba988"
   },
   {
    "path": "runs/judge/knowledge/judge_instability_same_era_by_task.json",
@@ -618,9 +618,9 @@
   },
   {
    "path": "runs/judge/rejudge/contradicted_zero_keys.json",
-   "mtime": "2026-09-22T19:03:52Z",
-   "size": 72464686,
-   "sha12": "bdf98da816b3"
+   "mtime": "2026-09-22T20:15:32Z",
+   "size": 72679426,
+   "sha12": "8a69bea91532"
   },
   {
    "path": "runs/judge/rejudge/import_bearing_tasks.json",
@@ -642,9 +642,9 @@
   },
   {
    "path": "runs/judge/witnessed_windows.json",
-   "mtime": "2026-09-22T19:00:20Z",
+   "mtime": "2026-09-22T20:10:46Z",
    "size": 1937373,
-   "sha12": "8c5cf17d0a24"
+   "sha12": "6bd71bd30e59"
   },
   {
    "path": "runs/knowledge/opus_refused_tasks_excluded.json",
@@ -660,39 +660,39 @@
   },
   {
    "path": "runs/watch/forecast/watch/held_arms.json",
-   "mtime": "2026-09-22T18:38:05Z",
-   "size": 118626,
-   "sha12": "d16761b31004"
+   "mtime": "2026-09-22T19:38:19Z",
+   "size": 118837,
+   "sha12": "40e5a23a9ebe"
   },
   {
    "path": "runs/watch/forecast/watch/kimi_linear_empty_output_flag.json",
-   "mtime": "2026-09-22T18:23:11Z",
+   "mtime": "2026-09-22T19:24:11Z",
    "size": 10104,
-   "sha12": "db5809b8239b"
+   "sha12": "287c0a1b44ed"
   },
   {
    "path": "runs/watch/forecast/watch/price_per_model.json",
-   "mtime": "2026-09-22T18:38:05Z",
-   "size": 239736,
-   "sha12": "168cf03a5a23"
+   "mtime": "2026-09-22T19:38:19Z",
+   "size": 239844,
+   "sha12": "672b90edd27f"
   },
   {
    "path": "side-projects/newbench/labels_cells.jsonl",
-   "mtime": "2026-09-22T18:56:21Z",
-   "size": 752405,
-   "sha12": "e312c9aacfff"
+   "mtime": "2026-09-22T20:02:08Z",
+   "size": 752607,
+   "sha12": "9ff1888287b5"
   },
   {
    "path": "tasks/build/certify/certificates/certs.jsonl",
-   "mtime": "2026-09-22T19:02:42Z",
-   "size": 373956825,
-   "sha12": "80f4a4fc4315"
+   "mtime": "2026-09-22T19:36:43Z",
+   "size": 374154171,
+   "sha12": "5af5d39f6a20"
   },
   {
    "path": "tasks/build/certify/certificates/summary.json",
-   "mtime": "2026-09-22T19:02:43Z",
-   "size": 214202,
-   "sha12": "2e31160b1fa3"
+   "mtime": "2026-09-22T20:21:51Z",
+   "size": 214364,
+   "sha12": "1eade3e9dbc1"
   },
   {
    "path": "tasks/build/certify/out/suite_v1_ids.txt",
@@ -702,9 +702,9 @@
   },
   {
    "path": "tasks/build/certify/versions/task_versions.json",
-   "mtime": "2026-09-22T18:39:58Z",
-   "size": 190561,
-   "sha12": "13894391a2a9"
+   "mtime": "2026-09-22T19:51:53Z",
+   "size": 190592,
+   "sha12": "a97d9a644b44"
   },
   {
    "path": "tasks/build/critic/f2_degenerate_samples_pertask.json",
@@ -713,16 +713,16 @@
    "sha12": "0b352e66bf54"
   },
   {
-   "path": "tasks/knowledge/counts_of_record.json",
-   "mtime": "2026-09-22T18:25:29Z",
+   "path": "tasks/knowledge/counts_of_record.published.json",
+   "mtime": "2026-09-22T19:35:39Z",
    "size": 42936,
-   "sha12": "4140dbe94586"
+   "sha12": "7013d785b8aa"
   },
   {
    "path": "tasks/knowledge/disclosures.published.json",
-   "mtime": "2026-09-22T18:42:37Z",
-   "size": 470907,
-   "sha12": "e7252cbbd66f"
+   "mtime": "2026-09-22T19:35:39Z",
+   "size": 471059,
+   "sha12": "b58e53ae6d97"
   },
   {
    "path": "tasks/knowledge/keep_labels.json",
@@ -738,9 +738,9 @@
   },
   {
    "path": "tasks/knowledge/set_members_of_record.json",
-   "mtime": "2026-09-22T18:25:29Z",
+   "mtime": "2026-09-22T19:25:27Z",
    "size": 725821,
-   "sha12": "12978017f562"
+   "sha12": "8c611232ae3c"
   },
   {
    "path": "tasks/knowledge/twin_fold.json",
@@ -750,9 +750,9 @@
   },
   {
    "path": "tasks/knowledge/winner_rule.json",
-   "mtime": "2026-09-22T18:50:00Z",
-   "size": 5301417,
-   "sha12": "b433d7416d5a"
+   "mtime": "2026-09-22T20:14:27Z",
+   "size": 5308235,
+   "sha12": "a29bc9714a5e"
   },
   {
    "path": "tasks/state/held_valid_cells_stamps.txt",
