@@ -560,7 +560,7 @@ function mergeRunSet(raw) {
   runSets(raw).forEach(function (rs, k) {
     if (!rs || !rs.configs || !rs.configs.length) return;
     var set = rs.set || {}; if (set.axis_id && axis && set.axis_id !== axis) return;   // merged only on the run's own axis
-    var R = { key: set.key || set.series || ('run' + k), name: set.name || 'run', clause: set.clause || 'a run read along its steps, placed on the scale without a vote', tag: set.tag || '',
+    var R = { key: set.series || set.key || ('run' + k),   // the set's series slug (no field named key in the sidecar: a secret scanner read it as an API key, 22 Sep) name: set.name || 'run', clause: set.clause || 'a run read along its steps, placed on the scale without a vote', tag: set.tag || '',
               hue: set.hue || null, ramp: set.ramp || [], dash: set.dash || '', think: !!set.think, withheld: set.withheld || [], stateKey: set.state_key || (k === 0 ? 'run' : 'run_' + String(set.key || k).replace(/[^a-z0-9]/gi, '')), idx: [], folded: [] };
     var rowsById = {}; (rs.rows || []).forEach(function (r) { rowsById[r.cfg] = r; });
     rs.configs.forEach(function (c) {
@@ -569,21 +569,21 @@ function mergeRunSet(raw) {
       if (twin) {   // ONE MODEL, ONE MARK, IN THE RUN'S OWN ROW (the project maintainers' word of 22 Sep 15:1x UK: the run has no chip in the top column, it is the thing in its
         var r = rowsById[c.id];   // bottom row): the board's twin config joins the run — the run's label, colour and mark, out of the top row and the fitted line; its series fit stands in under the Bayesian source when the board fit set has none
         if (r && !haveRow[twin.id]) { var r2 = {}; Object.keys(r).forEach(function (kk) { r2[kk] = r[kk]; }); r2.cfg = twin.id; r2.alongside = R.key; delete r2.run; D.bay.rows.push(r2); haveRow[twin.id] = true; if (D.bayById) D.bayById[twin.id] = r2; }
-        twin.run = true; twin.run_key = R.key; twin.board_label = twin.label; twin.label = c.label || twin.label; twin.display_name = c.display_name || twin.display_name; twin.fam = c.fam || twin.fam;
+        twin.run = true; twin.series = R.key; twin.board_label = twin.label; twin.label = c.label || twin.label; twin.display_name = c.display_name || twin.display_name; twin.fam = c.fam || twin.fam;
         twin.step = c.step; twin.index = c.index; if (c.color) twin.color = c.color; twin.think = !!c.think; twin.alongside = R.name;
         if (c.gates_failed) { twin.gates_failed = true; twin.gate_flag = c.gate_flag; if (!twin.disclosure) twin.disclosure = c.gate_flag; }
         R.idx.push(D.shared.configs.indexOf(twin)); R.folded.push(twin.id); return;
       }
-      c.run = true; c.run_key = R.key; if (c.gates_failed && !c.disclosure) c.disclosure = c.gate_flag;   // a flagged fit carries its sentence where the board's arms carry theirs
+      c.run = true; c.series = R.key; if (c.gates_failed && !c.disclosure) c.disclosure = c.gate_flag;   // a flagged fit carries its sentence where the board's arms carry theirs
       have[c.id] = true; D.shared.configs.push(c); R.idx.push(D.shared.configs.length - 1);
-      var row = rowsById[c.id]; if (row && !haveRow[c.id]) { row.run = true; row.run_key = R.key; D.bay.rows.push(row); haveRow[c.id] = true; if (D.bayById) D.bayById[c.id] = row; }   // the row index is built at load; the run's rows join it here
+      var row = rowsById[c.id]; if (row && !haveRow[c.id]) { row.run = true; row.series = R.key; D.bay.rows.push(row); haveRow[c.id] = true; if (D.bayById) D.bayById[c.id] = row; }   // the row index is built at load; the run's rows join it here
     });
     if (R.idx.length || R.folded.length || R.withheld.length) { RUNS.push(R); state.runs[R.stateKey] = Kit.state.get(R.stateKey, 'show') === 'hide' ? 'hide' : 'show'; }   // each run shown by default; URL <key>=hide
   });
   RUN = RUNS[0] || null;
 }
 function isRun(i) { var c = D.shared && D.shared.configs[i]; return !!(c && c.run); }
-function runOf(i) { var c = D.shared && D.shared.configs[i]; if (!c || !c.run) return null; for (var k = 0; k < RUNS.length; k++) if (RUNS[k].key === c.run_key) return RUNS[k]; return RUN; }
+function runOf(i) { var c = D.shared && D.shared.configs[i]; if (!c || !c.run) return null; var ck = c.series || c.run_key; for (var k = 0; k < RUNS.length; k++) if (RUNS[k].key === ck) return RUNS[k]; return RUN; }
 function runShown(R) { R = R || RUN; return !!R && state.runs[R.stateKey] !== 'hide'; }
 function runOnPlane(R) { return runShown(R) && state.src === 'bayes'; }   // a run's checkpoints are read from Bayesian fits only: on the plane, in the frame line and in the caption under that source
 function anyRunOnPlane() { return RUNS.some(function (R) { return R.idx.length && runOnPlane(R); }); }

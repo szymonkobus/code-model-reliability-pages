@@ -1,0 +1,1333 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pool: failure rate vs difficulty · capability vs reliability (provisional)</title>
+<link rel="stylesheet" href="kit.css">
+<style>
+:root { --bg:#faf6ec; --panel:#f2ecdf; --border:#e0d9c8;
+  --border2:#cfc5ac; --ink:#1a1a1a; --ink-2:#52514e; --ink-3:#8b8477; }
+body { background:var(--bg); color:var(--ink); margin:0 auto;
+  max-width:76rem; padding:1rem 1.2rem 4rem;
+  font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; }
+h1 { font-size:1.4rem; margin:.2rem 0 .1rem; }
+h2 { font-size:1.05rem; margin:1.4rem 0 .3rem; }
+.sub { color:var(--ink-2); font-size:.9rem; margin:0 0 .5rem; }
+.prov { background:#f6ecc8; border:1px solid #dfca86; border-radius:8px;
+  padding:.5rem .8rem; font-size:.85rem; margin:.4rem 0 .8rem; }
+.stamp { color:var(--ink-3); font-size:.78rem; }
+#controls { position:sticky; top:0; z-index:9; background:var(--bg);
+  border-bottom:1px solid var(--border); padding-block:.45rem; }
+@media (max-width:640px) { #controls { position:static; } }
+#chips, #fams { margin:.35rem 0; font-size:.78rem; }
+.chip, .fam { border:1px solid var(--border2); border-radius:999px;
+  background:var(--panel); padding:.1rem .55rem; cursor:pointer;
+  display:inline-block; margin:.12rem .18rem; font:inherit;
+  font-size:inherit; color:inherit; }
+.chip.off { opacity:.35; }
+.chip.unfitted { color:#9a9890 !important; border-color:#cfcabd !important; background:#f1eee6; }   /* no posterior under the Bayesian source = grey at first sight */
+#awaitline, #linknote { margin:.1rem 0 .4rem; }
+.fam { font-weight:600; }
+svg { width:100%; height:auto; display:block; background:#fcfaf3;
+  border:1px solid var(--border); border-radius:10px; }
+.exportbtn { border:1px solid var(--border2); border-radius:6px;
+  background:var(--panel); font:inherit; font-size:.75rem;
+  padding:.1rem .55rem; cursor:pointer; margin:.25rem 0 .8rem; }
+.note { color:var(--ink-2); font-size:.82rem; margin:.3rem 0; }
+#narrate { color:var(--ink-2); font-size:.85rem; margin:.35rem 0 .5rem;
+  font-variant-numeric:tabular-nums; }
+.kit-switch.inert { opacity:.45; }
+.kit-switch.inert button { cursor:not-allowed; }
+details.how { font-size:.82rem; color:var(--ink-2); margin:.3rem 0 .8rem; }
+details.how summary { cursor:pointer; color:#7a5c1e; }
+details.tblx { font-size:.82rem; margin:.3rem 0 .8rem; }
+details.tblx summary { cursor:pointer; color:#7a5c1e; }
+.tblwrap { overflow-x:auto; position:relative; }
+details.tblx table { border-collapse:collapse; font-variant-numeric:tabular-nums; }
+details.tblx td, details.tblx th { border-bottom:1px solid var(--border);
+  padding:.15rem .6rem; text-align:right; font-size:.8rem; }
+details.tblx th:first-child, details.tblx td:first-child { text-align:left; }
+@media (max-width:640px) { .dotlab { display:none; } }
+</style></head><body>
+<nav class="site" style="font-size:13px;margin:0 0 6px">
+result browser ·
+process flow ·
+stats ·
+<b>failure rate vs difficulty</b></nav>
+<h1>Pool: failure rate vs difficulty · capability vs reliability</h1>
+<p class="sub">One failure-rate curve per config on the <span id="poolframe">certified
+pool</span>. The Definition and Source switches swap the whole estimator
+chain, as on the board tools. 2PL diagnostics:
+difficulty's intake surface.</p>
+<p id="status" class="stamp" data-critical-text data-chain-val></p>
+<div id="stalepill"></div>
+<div class="prov" id="prov"></div>
+<div id="controls"></div>
+<div id="fams"></div>
+<div id="chips"></div>
+<p class="note" id="awaitline" data-chain-inv hidden></p>
+<p class="note" id="linknote" data-chain-inv hidden></p>
+<p id="narrate" data-chain-val></p>
+<div id="mainbox" style="position:relative">
+<svg id="main" data-plot viewBox="0 0 960 520"></svg></div>
+<button class="exportbtn" data-svg="main">download PNG</button>
+<p class="note" id="mainnote" data-chain-val="est src"></p>
+<details class="how" id="how"><summary>how this plot is made</summary>
+<div id="howbody"></div></details>
+
+<h2>Capability vs reliability (pool, provisional)</h2>
+<p class="note" id="relnote" data-chain-val="est src"></p>
+<svg id="relcap" data-plot viewBox="0 0 960 520"></svg>
+<button class="exportbtn" data-svg="relcap">download PNG</button>
+<details class="tblx" id="crosstbl" open><summary>crossings readout —
+the numbers behind the dots</summary><div class="tblwrap"
+id="crossbody"></div></details>
+
+<p class="stamp" id="foot"></p>
+<script src="kit.js"></script>
+<script src="kit-viz.js"></script>
+<script>
+(function () {
+'use strict';
+// colors come from THE project semantic palette via data.json
+// (assign_styles in the builder) — no local color table, ever
+var D = null, sel = null, bayByIdent = null, srcMount = null,
+    srcCtl = null, FAMS = null;
+var taskCache = {}, hoverTimer = null;
+
+function logit(p) { return Math.log(p / (1 - p)); }
+function pct(z) { return 100 / (1 + Math.exp(-z)); }
+
+var state = { est: 'avg', src: 'bayes', dots: 'off',
+              xs: 'logit', ys: 'logit', band: '90', rm: '0', trend: 'on' };
+var BAND_Z = { '80': 1.2816, '90': 1.6449, '95': 1.96 };
+var ML = 70, MT = 18, MR = 16, MB = 46, W = 960, H = 520;
+var PW = W - ML - MR, PH = H - MT - MB;
+var LIM = null;
+var YL = [logit(0.001), logit(0.999)];
+
+function famOf(label) {
+  if (label.indexOf('Qwen2.5-Coder') === 0) return 'Qwen2.5-Coder';
+  if (label.indexOf('Qwen2.5') === 0) return 'Qwen2.5';
+  if (label.indexOf('Qwen3') === 0) return 'Qwen3';
+  if (label.toLowerCase().indexOf('deepseek-coder') === 0)
+    return 'DS-Coder';
+  if (label.indexOf('DeepSeek') === 0) return 'DeepSeek';
+  if (label.indexOf('Kimi') === 0) return 'Kimi';
+  return 'other';
+}
+
+function chainLim() {
+  if (state.src === 'bayes' && D.bayes.available) {
+    var a = D.bayes.arms[0].zgrid;
+    return [a[0] - 0.15, a[a.length - 1] + 0.15];
+  }
+  return [D.grid[0] - 0.15, D.grid[D.grid.length - 1] + 0.15];
+}
+// per-axis transforms (percent only; Logit | Raw) — the /curves rule
+function tx(z) { return state.xs === 'raw' ? pct(z) / 100 : z; }
+function xdom() {
+  return state.xs === 'raw'
+    ? [Math.max(0, pct(LIM[0]) / 100 - 0.02),
+       Math.min(1, pct(LIM[1]) / 100 + 0.02)]
+    : LIM;
+}
+function sx(z) {
+  var d = xdom();
+  return ML + (tx(z) - d[0]) / (d[1] - d[0]) * PW;
+}
+function tyv(zl) { return state.ys === 'raw'
+  ? 1 / (1 + Math.exp(-zl)) : zl; }
+function ydom() {
+  return state.ys === 'raw' ? [0, 1] : YL;
+}
+function syl(zl) {
+  var z = Math.max(YL[0], Math.min(YL[1], zl));
+  var d = ydom();
+  return MT + (d[1] - tyv(z)) / (d[1] - d[0]) * PH;
+}
+function yIn(zl) { return zl >= YL[0] && zl <= YL[1]; }
+function sy(r) {
+  return syl(logit(Math.max(1e-4, Math.min(1 - 1e-4, r))));
+}
+
+fetch('data.json').then(function (r) { return r.json(); })
+  .then(function (d) { D = d; boot(); });
+
+function houseName() {
+  return state.est === 'avg' ? 'Direct — kernel trend'
+                             : 'Direct — binned medians';
+}
+
+function idOf(i) { var c = D.configs[i]; return c ? (c.arm_id || c.id) : String(i); }   // registry arm id (bundle configs[].arm_id), else the configuration identity
+var EXTRA_IDS = new Set(), REBOUND = null;
+function writeSel() {   // selection keyed by arm identity, never chip positions (positions differ between datasets)
+  var ids = Array.from(sel).map(idOf); EXTRA_IDS.forEach(function (id) { ids.push(id); });
+  var all = sel.size === D.configs.length && !EXTRA_IDS.size;
+  Kit.state.set('sel', all ? null : ids.sort().join(','), null);
+  if (!all && location.search.indexOf('%2C') >= 0)
+    history.replaceState(null, '', location.pathname + location.search.replace(/%2C/g, ',') + location.hash);
+}
+
+var bayByArm = {};   // fitting's arm_id -> posterior row (pointer identity first; the configuration identity stays the fallback)
+function bayOf(c) { return bayByIdent[c.id] || (c.arm_id ? bayByArm[c.arm_id] : undefined); }
+
+function boot() {
+  var f = D.frame;
+  var cn = D.coverage_note;
+  // ONE status line; every number appears once. Detail lives behind
+  // the disclosure (the disclosure's source —
+  // the record: "so many words... The number 24 is 8 times... as if
+  // you don't want me to read it").
+
+  // source stamps first: D.sources_state from flags/feed_hold.py —
+  // "store: newest outcome … · project state … [‖] · page built … · rebuilds every …"; the glyph's hover names the stale/partial source.
+  window.srcLine = function (builtStamp, cadenceText) {   // scope-proof: pages define D in several script scopes
+    var S = (typeof D !== 'undefined' && D && D.sources_state) || {};
+    var st = function (x) { return x ? String(x).replace('+00:00', 'Z') : 'n/a'; };
+    var g = S.glyph ? ' <span class="fl" title="' + String(S.sentence || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;') + '">' + S.glyph + '</span>' : '';
+    return 'store: newest outcome ' + st(S.store_newest) + ' · project state ' + st(S.fleet_state) + g + ' · page built ' + st(builtStamp) + ' · ' + cadenceText;
+   };
+  document.getElementById('status').innerHTML =
+    '<b>PROVISIONAL</b> · ' + srcLine(D.stamp, 'rebuilds every 1h')
+    + ((D.frame && D.frame.axis_source && D.frame.axis_source.mirror && D.frame.axis_source.mirror.wave_of_record)
+       ? ' · difficulty axis: wave of record ' + D.frame.axis_source.mirror.wave_of_record + ' (cut ' + String(D.frame.axis_source.mirror.cut || '').replace('+00:00', 'Z') + '); '
+         + Number(D.frame.axis_source.n_interim_live || 0).toLocaleString() + ' tasks interim'
+       : ' · difficulty axis: live snapshot (axis of record mirror absent)')
+    + ((D.frame && D.frame.drawing_rule) ? ' · every configuration with data is shown' : '')
+    + (D.loader_basis ? ' · valid rows per the validity rule, read via difficulty’s loader @' + (D.loader_basis.read_at || 'n/a') + ' · windows @' + (D.loader_basis.windows_stamp || 'n/a')
+         + ' · pooling applied: ' + String(((D.loader_basis.acct || {}).pooling || {}).applied)
+         + frameFlags21(D.flags_meta && D.flags_meta.card)
+         + ((D.loader_basis.acct || {}).truncation && D.loader_basis.acct.truncation.convention ? ' · ' + D.loader_basis.acct.truncation.field + ': ' + D.loader_basis.acct.truncation.convention : '')
+       : ' · read before the validity rule: last row per (task, config); the valid read lands at the family gate')
+    + (function () {
+        var bad = D.configs.filter(function (c) { return c.flag && c.flag.arm_level; });
+        return bad.length ? ' · axis includes rows the validity rule invalidates (' + bad.map(function (c) {
+          return c.label + ', ' + (c.n_axis_cells || 0).toLocaleString() + ' cells'; }).join('; ')
+          + '); easy-end difficulties read high' : '';
+      })()
+    + (D.bayes && D.bayes.wave_id ? ' · Bayesian curves: served wave ' + D.bayes.wave_id + ', fitted ' + String(D.bayes.snapshot_ts || 'n/a').slice(0, 10) + '; changes only when a new wave is promoted' : '')   // fit snapshot near the top
+    + ' · auto-refreshes every 1h · ' + cn.shown + ' of '
+    + cn.roster_total + ' roster configs fitted';
+  var sub = cn.subthreshold.map(function (x) {
+    return x.label + (x.held ? ' \u2014 ' + x.held + ' (' + x.held_at + ')' : '') + ' (' + x.cells + ' cells)';
+  }).join('; ');
+  document.getElementById('prov').innerHTML =
+    '<details><summary style="cursor:pointer">coverage, axis '
+    + '&amp; provenance</summary><div style="margin:.4rem 0 0">'
+    + 'Provisional = pre-official screening measurements; values '
+    + 'move as coverage completes and are never board canon. '
+    + f.regime + '. Pooled selection is by the suite-v1 manifest '
+    + 'only; population and axis recipe: "how this plot is made" '
+    + 'below.<br>'
+    + (sub ? 'Below the fit floor: ' + sub + '. ' : '')
+    + cn.pending.length + ' configs have no certified cells yet '
+    + '(free-tier queue / mid-generation): ' + cn.pending.join(', ')
+    + ' <span class="attr" title="coverage counts from the loader read @' + esc21((D.loader_basis && D.loader_basis.read_at) || D.stamp || 'n/a') + '">[read @' + esc21((D.loader_basis && D.loader_basis.read_at) || D.stamp || 'n/a') + ']</span>' 
+    + (cn.identity_caveat ? ' <a class="reflag" href="#identity-caveat" title="' + esc21(cn.identity_caveat) + '">§</a>' : '')
+    + ((cn.held && cn.held.length) ? '. Held: '
+        + cn.held.map(function (h) { return h.label + ' \u2014 ' + h.text + ' (' + h.at + (h.status ? '; ' + h.status : '') + ')'; }).join('; ')
+        + (cn.held_composition ? ' [' + cn.held_composition.drawn + ' drawn, ' + cn.held_composition.below_floor + ' below the fit floor, ' + cn.held_composition.no_cells + ' without cells]' : '') : '')
+    + (cn.identity_caveat ? '.<br><span id="identity-caveat">§ ' + esc21(cn.identity_caveat) + '</span>' : '')
+    + '.<br>manifest ' + f.manifest_sha + ' · label store '
+    + f.label_store_sha + '</div></details>';
+  document.getElementById('foot').textContent =
+    'maintainers: the maintainers · rebuild: uv run build_pool_curves.py '
+    + '(hourly cron) · sources: the maintainers outcomes, '
+    + 'suite_v1_manifest.jsonl, the maintainers serving.json';
+
+  bayByIdent = {};
+  bayByArm = {};
+  if (D.bayes.available) {
+    D.bayes.arms.forEach(function (a) { bayByIdent[a.ident] = a; if (a.arm_id) bayByArm[a.arm_id] = a; });
+  }
+
+  // URL state BEFORE the first render (cold path == click path)
+  state.est = Kit.state.get('est', 'avg');
+  state.src = Kit.state.get('src', 'bayes');   // Bayesian by default, the kernel one click away
+  state.dots = Kit.state.get('dots', 'off');
+  state.xs = Kit.state.get('xs', 'logit');
+  state.ys = Kit.state.get('ys', 'logit');
+  state.band = Kit.state.get('band', '90');
+  state.rm = Kit.state.get('rm', '0');
+  state.trend = Kit.state.get('trend', 'on');
+  sel = new Set(); EXTRA_IDS = new Set(); REBOUND = null;
+  var sp = Kit.state.get('sel', null);
+  if (sp !== null && sp !== '') {
+    if (/^\d+(\.\d+)*$/.test(sp)) {            // legacy positional link (?sel=3.7): re-bound once to arm ids, said on one line
+      var idxs = sp.split('.').map(Number).filter(function (k) { return k >= 0 && k < D.configs.length; });
+      idxs.forEach(function (k) { sel.add(k); });
+      REBOUND = { from: sp, ids: idxs.map(idOf) };
+    } else {
+      var byId = {};
+      D.configs.forEach(function (_, i) { byId[idOf(i)] = i; });
+      sp.split(',').filter(Boolean).forEach(function (id) { if (byId[id] !== undefined) sel.add(byId[id]); else EXTRA_IDS.add(id); });
+    }
+  } else {
+    D.configs.forEach(function (_, i) { sel.add(i); });
+  }
+
+  // Carried URL state is invisible state: if any control differs
+  // from the cold defaults, SAY so and offer one click home
+  // (2026-08-31: a bookmarked ?xs=raw read as "the page is raw").
+  var DFLT = { est: 'avg', src: 'bayes', dots: 'off', xs: 'logit',
+               ys: 'logit', band: '90', rm: '0', trend: 'on' };
+  var diffs = Object.keys(DFLT).filter(function (k) {
+    return state[k] !== DFLT[k];
+  });
+  if (sel.size !== D.configs.length) diffs.push('selection');
+  if (diffs.length) {
+    var sp2 = document.getElementById('stalepill');
+    sp2.innerHTML = '<span class="statepill" data-critical-text '
+      + 'style="background:#f6ecc8;border:1px '
+      + 'solid #dfca86;border-radius:999px;padding:.15rem .7rem;'
+      + 'font-size:.78rem">this link carries non-default view state ('
+      + diffs.join(', ') + ') <button style="border:none;background:'
+      + 'none;color:#0b57d0;cursor:pointer;font:inherit;padding:0" '
+      + 'onclick="location=location.pathname">reset to defaults'
+      + '</button></span>';
+  }
+
+  var row = document.getElementById('controls');
+  Kit.switchControl({ mount: row, key: 'est', label: 'Definition',
+    options: [{ value: 'avg', label: 'Average rate' },
+              { value: 'med', label: 'Median task' }],
+    dflt: 'avg',
+    onchange: function (v) {
+      state.est = v;
+      if (srcMount) buildSrcSwitch();
+      if (sel) render();
+    } });
+  srcMount = document.createElement('span');
+  row.appendChild(srcMount);
+  buildSrcSwitch();
+  Kit.switchControl({ mount: row, key: 'band', label: 'Bands',
+    options: [{ value: 'off', label: 'Off' },
+              { value: '80', label: '80%' },
+              { value: '90', label: '90%' },
+              { value: '95', label: '95%' }],
+    dflt: '90',
+    onchange: function (v) { state.band = v; if (sel) render(); } });
+  Kit.switchControl({ mount: row, key: 'trend', label: 'Trend',
+    options: [['on', 'On'], ['off', 'Off']], value: state.trend,
+    onChange: function (v) { state.trend = v; Kit.state.set('trend', v === 'on' ? null : v); redraw(); } });
+  Kit.switchControl({ mount: row, key: 'dots', label: 'Task dots',
+    options: [{ value: 'off', label: 'Off' },
+              { value: 'on', label: 'On' }],
+    dflt: 'off',
+    onchange: function (v) { state.dots = v; if (sel) render(); } });
+  Kit.switchControl({ mount: row, key: 'rm',
+    label: 'Raw running median',
+    options: [{ value: '0', label: 'Off' },
+              { value: '1', label: 'On' }],
+    dflt: '0',
+    onchange: function (v) { state.rm = v; if (sel) render(); } });
+  Kit.switchControl({ mount: row, key: 'xs', label: 'X scale',
+    options: [{ value: 'logit', label: 'Logit' },
+              { value: 'raw', label: 'Raw' }],
+    dflt: 'logit',
+    onchange: function (v) { state.xs = v; if (sel) render(); } });
+  Kit.switchControl({ mount: row, key: 'ys', label: 'Y scale',
+    options: [{ value: 'logit', label: 'Logit' },
+              { value: 'raw', label: 'Raw' }],
+    dflt: 'logit',
+    onchange: function (v) { state.ys = v; if (sel) render(); } });
+
+  // family buttons + chips (the /curves chip pattern)
+  FAMS = [];
+  D.configs.forEach(function (c, i) {
+    var fm = c.family;
+    var e = FAMS.find(function (x) { return x.name === fm; });
+    if (!e) { e = { name: fm, members: [] }; FAMS.push(e); }
+    e.members.push(i);
+  });
+  var fams = document.getElementById('fams');
+  var allB = document.createElement('button');
+  allB.type = 'button';
+  allB.className = 'fam'; allB.textContent = 'all';
+  allB.onclick = function () {
+    sel = new Set(D.configs.map(function (_, i) { return i; }));
+    writeSel(); render();
+  };
+  fams.appendChild(allB);
+  var noneB = document.createElement('button');
+  noneB.type = 'button';
+  noneB.className = 'fam'; noneB.textContent = 'none';
+  noneB.onclick = function () { sel = new Set(); writeSel(); render(); };
+  fams.appendChild(noneB);
+  FAMS.forEach(function (fm) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'fam'; b.textContent = fm.name;
+    b.onclick = function () {
+      var allOn = fm.members.every(function (i) { return sel.has(i); });
+      fm.members.forEach(function (i) {
+        if (allOn) sel.delete(i); else sel.add(i);
+      });
+      writeSel(); render();
+    };
+    fams.appendChild(b);
+  });
+  var chips = document.getElementById('chips');
+  D.configs.forEach(function (c, i) {
+    var s = document.createElement('button');
+    s.type = 'button';
+    // coverage as a figure and a §: "N of T cells so far", "coarse" below the fit floor
+    var partial = (c.frame_tasks && c.n_cells < c.frame_tasks);
+    var cov21 = partial ? (c.n_cells.toLocaleString() + ' of ' + Number(c.frame_tasks).toLocaleString() + ' cells so far'
+                 + (c.coarse ? ' \u00b7 coarse: below the ' + Number((D.frame && D.frame.fit_floor_cells) || 0).toLocaleString() + '-cell fit floor' : '')
+                 + (c.band_gaps ? ' \u00b7 band missing at ' + c.band_gaps + ' of ' + (D.configs[i].trend || []).length + ' knots (kernel could not form one)' : '')) : '';
+    s.className = 'chip'; s.textContent = c.label;   // no tag signs on chips — one width; state = grey vs normal; flags in the hover and the fold-out list
+    s.dataset.arm = idOf(i);
+    var t21 = (cov21 ? cov21 + ' ' : '') + (c.flag ? c.label + ': ' + c.flag.cells.toLocaleString() + ' cells across all results: ' + c.flag.label : '') + windowsFor21(D.flags_meta, c.id);
+    var bi = (D.bayes && D.bayes.arms) ? D.bayes.arms.filter(function (a) { return a.ident === c.id || a.id === c.id; })[0] : null;
+    if (bi && bi.interim && bi.interim.flag) t21 = (t21 ? t21 + ' \u00b7 ' : '') + bi.interim.flag;   // fitting's interim_serving flag, literal form
+    // task-pool disclosure records listing this arm (flags_meta.card.by_arm): one \u00a7 on the chip, the records' status lines in the hover
+    var card21 = D.flags_meta && D.flags_meta.card, keys21 = (card21 && ((card21.by_ident && card21.by_ident[c.id]) || (card21.by_arm && card21.by_arm[c.id]))) || [];
+    if (keys21.length) {
+      var lines21 = keys21.map(function (k) { var e = (card21.keys || {})[k] || {}; return k.replace(/_/g, ' ') + ': ' + (e.status_line_plain || e.status_line || e.sentence || 'details on the notes page'); });   /* the maintainers plain twin first */
+      t21 = (t21 ? t21 + ' \u00b7 ' : '') + lines21.join(' \u00b7 ');
+    }
+    s.dataset.baseTitle = t21 ? t21.replace(/^\n/, '').trim() : '';   // kept: paintChips composes the title on every repaint
+    if (s.dataset.baseTitle) s.title = s.dataset.baseTitle;
+    s.style.borderColor = D.configs[i].color;
+    s.style.color = D.configs[i].color;
+    s.dataset.i = i;
+    s.onclick = function () {
+      if (sel.has(i)) sel.delete(i); else sel.add(i);
+      writeSel(); render();
+    };
+    chips.appendChild(s);
+  });
+  if (REBOUND) {   // rewrite the link once, say so on one line
+    writeSel();
+    var ln = document.getElementById('linknote');
+    if (ln) { ln.hidden = false; ln.textContent = 'this link carried chip positions (sel=' + REBOUND.from + '); re-bound once to arm ids: ' + REBOUND.ids.join(', ') + ' \u2014 positions differ between datasets, ids do not'; }
+  }
+
+  var pf = document.getElementById('poolframe');   // #150: the pool frame in one sentence (frame_sentence from this bundle) as the hover of the population words
+  if (pf && D.frame_sentence) pf.title = D.frame_sentence;
+  hoverWire();
+  render();
+  flagList21();
+  document.querySelectorAll('.exportbtn').forEach(function (b) {
+    b.onclick = function () { exportPng(b.dataset.svg); };
+  });
+}
+
+function buildSrcSwitch() {
+  srcMount.textContent = '';
+  srcCtl = Kit.switchControl({ mount: srcMount, key: 'src',
+    label: 'Source',
+    options: [{ value: 'direct', label: houseName() },
+              { value: 'bayes', label: 'Bayesian fit' }],
+    dflt: 'bayes',
+    onchange: function (v) { state.src = v; if (sel) render(); } });
+}
+
+function syncDotsLock() {
+  var sw = document.querySelector('.kit-switch[data-key="dots"]');
+  if (!sw) return;
+  var inert = state.src === 'bayes';
+  sw.classList.toggle('inert', inert);
+  sw.title = inert
+    ? 'task dots belong to the direct chains — the Bayesian source '
+      + 'draws fitted curves, not per-task data'
+    : '';
+  sw.querySelectorAll('button').forEach(function (b) {
+    b.disabled = inert;
+  });
+}
+
+function paintChips() {
+  var bay = state.src === 'bayes';
+  document.querySelectorAll('#chips .chip[data-i]').forEach(function (s) {
+    var i = +s.dataset.i;
+    var inWave = !bay || !!bayOf(D.configs[i]);
+    s.classList.toggle('unfitted', bay && !inWave);              // no posterior = grey at first sight; still selectable, not drawn until its fit lands
+    s.disabled = false;
+    var base = s.dataset.baseTitle || '';                        // coverage / interim flag / sampler flag / disclosure text set at creation
+    s.title = ((bay && !inWave) ? 'awaits its Bayesian fit (wave ' + awaitWave() + '): greyed, not drawn until it lands' : '') + (base ? (((bay && !inWave)) ? ' \u00b7 ' : '') + base : '');
+    s.classList.toggle('off', !sel.has(i));
+  });
+  var el = document.getElementById('awaitline');
+  if (el) {
+    var aw = bay ? D.configs.filter(function (c) { return !bayOf(c); }) : [];
+    if (!bay) { el.hidden = true; el.textContent = ''; }
+    else {
+      el.hidden = false;
+      el.textContent = aw.length ? (aw.length + ' arm' + (aw.length === 1 ? '' : 's') + ' await' + (aw.length === 1 ? 's' : '') + ' their Bayesian fit (wave ' + awaitWave() + ') \u2014 greyed above, not drawn: '
+                                    + aw.map(function (c) { return c.label; }).join(', '))
+                                 : 'every configuration has its Bayesian fit (wave ' + awaitWave() + ')';
+    }
+  }
+}
+function awaitWave() {   // the wave an unfitted arm awaits: the re-fit in flight when fitting names one, else the served wave
+  var b = D.bayes || {};
+  return (b.coverage && b.coverage.wave_id) || (b.newer && b.newer[0] && b.newer[0].wave_id) || b.wave_id || 'n/a';
+}
+
+function chainNote() {
+  // chain identity only — estimator parameters live in "how this
+  // plot is made" (word-budget rule: no number repeated as prose)
+  if (state.src === 'direct') {
+    return state.est === 'avg'
+      ? 'average-rate chain · kernel trend over per-task Jeffreys '
+        + 'rates · band: '
+        + (state.band === 'off' ? 'off'
+           : 'pointwise ' + state.band + '%, binomial SE')
+        + ' · crossings: first upward of the trend'
+      : 'median-task chain · shared equal-count bin medians · band: '
+        + (state.band === 'off' ? 'off'
+           : 'bootstrap-over-tasks ' + state.band + '%')
+        + ' · floor/ceiling bin medians are BOUNDS (▼/▲) · '
+        + 'crossings: first upward, linear between bin centers';
+  }
+  return (state.est === 'avg'
+    ? 'average-rate chain · Bayesian posterior · crossings — '
+      + D.bayes.avg_cross_method
+    : 'median-task chain · Bayesian posterior · crossings — '
+      + D.bayes.med_cross_method);
+}
+
+function flagTag(c) {   // 'verdict under re-check' hover text (numbers unchanged)
+  return c.flag ? ' ' + c.flag.mark + ' ' + c.flag.cells.toLocaleString()
+    + ' cells across all results: ' + c.flag.label : '';
+}
+function recheckNote() {
+  var n = 0, arms = 0;
+  D.configs.forEach(function (c, i) {
+    if (sel.has(i) && c.flag) { n += c.flag.cells; arms += 1; }
+  });
+  return (n ? ' · ' + n.toLocaleString() + ' cells across all results under re-check across '
+    + arms + ' shown arm' + (arms === 1 ? '' : 's') + ' (flag on hover; values unchanged; list '
+    + ((D.flags_meta && D.flags_meta.source_file) || '') + ' @ '
+    + ((D.flags_meta && D.flags_meta.generated_at) || 'n/a') + ')' : '');
+}
+// HELD-ITEM #21: windows + per-class scope lines, all DERIVED.
+// per-leg STATE = judging's own class text (literal, on click); arms = arms.jsonl arm_ids;
+// class digits: frame-held FIRST under the artifact's field name, store-wide beside it.
+function ukWords21(iso) { try { var d = new Date(String(iso || '').replace('+00:00', 'Z')); if (isNaN(d)) return ''; var q = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).formatToParts(d), o = {}; q.forEach(function (z) { o[z.type] = z.value; }); return o.day + ' ' + o.month + ' ' + o.hour + ':' + o.minute + ' UK'; } catch (e) { return ''; } }   // the UK clock in words for a record's stamp (the project maintainers' rule: UK clock time, no stamps in prose)
+function esc21(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); }
+
+function frameFlags21(card) {   // route-class disclosures in FRAME mode: one § per surface in the basis line, hover = status_line
+  var out = [];
+  if (!card || !card.keys) return '';
+  Object.keys(card.keys).forEach(function (k) { var f = card.keys[k].frame_flag; if (f && f.text) {
+    out.push(' \u00b7 <span class="reflag" title="' + esc21(f.hover || '') + '">' + esc21(f.text) + '</span>'); } });
+  return out.join('');
+}
+function classLines21(FM) {
+  var pc = (FM && FM.per_class) || {}, marks = (FM && FM.marks) || {}, out = [];
+  Object.keys(pc).forEach(function (k) {
+    var v = pc[k] || {};
+    if (!(v.cells > 0)) return;
+    var hover = 'artifact ' + ((FM && FM.source_file) || '') + ' @ ' + ((FM && FM.generated_at) || 'n/a')
+      + ' · fields: cells_in_frame_held=' + v.cells_in_frame_held + ', cells=' + v.cells + ', axis_status=' + v.axis_status
+      + (v.reason ? ' · reason: ' + (v.reason_plain || v.reason) : '') + (v.self_clearing ? ' · self-clearing: ' + (v.self_clearing_plain || v.self_clearing) : '');   /* the record's _plain twins when it carries them */
+    var fb = v.cells_in_frame_held_frame;
+    var frameWords = fb ? "held in difficulty's frame (" + Number(fb.n_tasks).toLocaleString() + " tasks × " + Number(fb.n_configs).toLocaleString() + " configs, " + (fb.scope || '') + ")"
+      : (v.frame_block_missing ? "held in difficulty's frame — FRAME BLOCK MISSING from the artifact"
+         : (v.scope_note ? v.scope_note : "held in difficulty's frame (field cells_in_frame_held)"));
+    var armWords = (v.arms && v.arms.length) ? esc21(v.arms.join(', ')) + ': ' : '';
+    out.push('<span title="' + esc21(hover) + '">' + (marks[k] || '◇') + ' ' + armWords + Number(v.cells_in_frame_held || 0).toLocaleString()
+      + ' ' + esc21(frameWords) + ' · ' + Number(v.cells).toLocaleString() + ' across all results — ' + esc21(v.reason || k) + '</span>');
+  });
+  return out;
+}
+function windowsDetails21(FM) {
+  var W = FM && FM.windows;
+  if (!W) return '';
+  if (W.error) return '<p class="note" data-chain-val">witnessed windows unavailable: ' + esc21(W.error) + ' (' + esc21(W.path || 'witnessed_windows.json') + ')</p>';
+  var items = (W.groups || []).map(function (g) {
+    var arms = Object.keys(g.arms || {}).sort(function (a, b) { return g.arms[b] - g.arms[a] || (a < b ? -1 : 1); })
+      .map(function (a) { return g.arms[a] + ' on ' + a; }).join(', ');
+    var heal = Object.keys(g.heal || {}).length
+      ? ' — heal: ' + Object.keys(g.heal).map(function (h) { return g.heal[h] + ' ' + h; }).join(' · ') + ' (state as of ' + esc21(ukWords21(W.heal_stamp) || 'an unstamped time') + ')' : '';
+    return '<li>' + g.n + ' run' + (g.n === 1 ? '' : 's') + ' (' + esc21(arms) + ') — class “' + esc21(g['class']) + '”' + heal + '</li>';
+  });
+  return '<details data-chain-val><summary>' + W.n + ' witnessed windows (' + esc21(W.path || 'witnessed_windows.json') + ' @' + esc21(W.stamp || 'n/a')
+    + ') — state per leg = the file’s class text</summary><ul>' + items.join('') + '</ul></details>';
+}
+
+function f2Lines21(FM, manifest) {
+  // #40 generalized (task-pool disclosures.json _render_rule + _arm_mapping_rule): for every disclosure key that
+  // lists an arm, that arm gets ONE small flag glyph linking to the key's anchored entry on the companion notes
+  // page (hover = that key's status_line); the sentence never prints here; a future key needs no edit.
+  var C = FM && FM.card, out = [];
+  if (!C) return out;
+  if (C.error) return ['<span data-chain-val style="color:#b00020">disclosure record unreadable: ' + esc21(C.error) + ' (' + esc21(C.path || 'disclosures.json') + ')</span>'];
+  var keys = C.keys || {};
+  Object.keys(keys).forEach(function (k) {
+    var e = keys[k]; if (!e) return;
+    var glyphOnly = !e.render || e.render.prose_in_table === false;
+    (e.arms || []).forEach(function (arm) {
+      if (glyphOnly) {
+        out.push('<span class="reflag" title="' + esc21(((manifest ? e.text_manifest_by_arm : e.text_by_arm) || {})[arm] || e.status_line_plain || e.status_line || '') + '">§ ' + esc21(arm) + '</span>');   // the arm's own line when the key carries one (registry-row keys differ per arm), else the key's status line
+      } else {
+        var t = (manifest ? (e.text_manifest_by_arm || {}) : (e.text_by_arm || {}))[arm];
+        if (t) out.push('<span title="' + esc21(e.status_line_plain || e.status_line || '') + '">' + esc21(arm) + ': ' + esc21(t) + ' [as of ' + esc21(ukWords21(C._stamp) || 'an unstamped time') + ']</span>');
+      }
+    });
+  });
+  (C.marks || []).forEach(function (m) { out.push('<span data-chain-val style="color:#b00020">' + esc21(m) + '</span>'); });
+  var N = FM && FM.notes;
+  if (N && !N.error && N.notes && N.notes.open_conflict_cap_hit) {
+    var oc = N.notes.open_conflict_cap_hit;
+    out.push('<span data-chain-val title="difficulty artifact ' + esc21(N.path || '') + ' @ ' + esc21(N.stamp || '') + ' · notes.open_conflict_cap_hit literal">open conflict (cap-hit attempts): ' + esc21(typeof oc === 'string' ? oc : JSON.stringify(oc)) + '</span>');
+  }
+  return out;
+}
+function windowsFor21(FM, cfg) {
+  var W = FM && FM.windows, rows = W && W.by_config && W.by_config[cfg];
+  if (!rows || !rows.length) return '';
+  return '\nwindows (' + (W.path || 'witnessed_windows.json') + ' @' + (W.stamp || 'n/a') + '): '
+    + rows.map(function (r) { return r.shard + ' — ' + r['class'] + (r.heal ? ' [' + r.heal + ']' : ''); }).join('; ');
+}
+function narrate(shown, cellsShown) {
+  var axis = state.src === 'bayes'
+    ? 'axis: the wave’s own (' + D.bayes.n_tasks + ' tasks, '
+      + 'declared per wave — never overlaid on the direct axis)'
+    : 'axis: pool snapshot';
+  if (D.bayes && D.bayes.axis_censor && D.bayes.axis_censor.text)
+    axis += ' · ' + D.bayes.axis_censor.text;   // HELD-ITEMS #12, bound line
+  // #20/#22: fitting's read_label and successor sentences carry project words (§1b, PRE-§1b READ) — the face says it plainly, the
+  // literal sentences live in the hover of that clause
+  var caveatVerbatim = [];
+  if (D.bayes && D.bayes.serving_caveat && D.bayes.serving_caveat.text) caveatVerbatim.push(D.bayes.serving_caveat.text);
+  if (D.bayes && D.bayes.successor_note && D.bayes.successor_note.text) caveatVerbatim.push(D.bayes.successor_note.text);
+  if (caveatVerbatim.length)
+    axis += ' · @@CAVEAT@@served fit from before the current validity rule; interim fits from the current wave are labelled@@';
+  var serving = state.src === 'bayes'
+    ? ' · serving fit = wave ' + D.bayes.wave_id + ' (snapshot '
+      + D.bayes.snapshot_ts + '; ' + D.bayes.n_cells + ' cells)'
+      + ((D.bayes.coverage && D.bayes.coverage.wave_id) ? ' · interim fits: landed ' + D.bayes.coverage.landed + ' of ' + D.bayes.coverage.of + ' in wave ' + D.bayes.coverage.wave_id
+         + (D.bayes.coverage.drawn_interim ? ' (' + D.bayes.coverage.drawn_interim + ' drawn here as interim)' : '') : '')
+      + (D.bayes.newer && D.bayes.newer.length
+         ? (function (nw) {   // fitting's state field decides the words: queued / running / complete / left the queue; never assumed running
+              var st = nw.state || nw.status || '';
+              var head = st === 'pending' ? ' · newer wave queued on the free tier' : st === 'running' ? ' · newer wave running'
+                       : st === 'complete' ? ' · newer wave complete' : st === 'queue-empty' ? ' · newer wave left the queue' : ' · newer wave ' + (st || 'state unread');
+              var landed = (nw.landed !== null && nw.landed !== undefined && nw.of) ? ', ' + nw.landed + ' of ' + nw.of + ' fits landed' : '';
+              var eta = nw.eta ? ' (' + nw.eta + ')' : '';
+              return head + landed + eta;
+            })(D.bayes.newer[0]) : '')
+    : ' · ' + cellsShown.toLocaleString() + ' cells behind '
+      + 'the shown fits';
+  (function () {
+    var txt =
+    (state.est === 'avg' ? 'average rate' : 'median task') + ' · '
+    + (state.src === 'direct' ? houseName().toLowerCase()
+                              : 'Bayesian fit') + ' · ' + axis
+    + ' · ' + (shown === D.configs.length ? 'all fitted configs'
+               : shown + ' of the fitted configs') + ' shown'
+    + serving + recheckNote();
+    var esc = function (t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); };
+    // first-screen budget: the face keeps the estimator, the source, the served wave, the interim count and
+    // the shown-configs clause; every other clause (axis wave, snapshot, cells, newer wave state + ETA, the read_label literal) is the hover
+    var full = txt.replace(/@@CAVEAT@@([^@]*)@@/, '$1') + (caveatVerbatim.length ? ' · ' + caveatVerbatim.join(' · ') : '');
+    var face = (state.est === 'avg' ? 'average rate' : 'median task') + ' · ' + (state.src === 'direct' ? houseName().toLowerCase() : 'Bayesian fit');
+    if (state.src === 'bayes' && D.bayes && D.bayes.available) {
+      face += ' · served wave ' + D.bayes.wave_id;
+      if (D.bayes.coverage && D.bayes.coverage.wave_id) face += ' · interim fits: landed ' + D.bayes.coverage.landed + ' of ' + D.bayes.coverage.of;
+    } else {
+      face += ' · axis: pool snapshot';
+    }
+    face += ' · ' + (shown === D.configs.length ? 'all fitted configs' : shown + ' of the fitted configs') + ' shown';
+    document.getElementById('narrate').innerHTML = '<span title="' + esc(full) + '" style="border-bottom:1px dotted #8a93a0;cursor:help">' + esc(face) + '</span>';
+  })();
+  // #21: class lines (frame-held first) + windows detail as a SIBLING element (narrate is text-only)
+  var n21 = document.getElementById('narrate'), f21 = document.getElementById('flags21');
+  if (!f21 && n21 && n21.parentNode) {   // stage (g): the validity block sits behind one \u00a7 in a collapsed block (no sentences above the chart)
+    var d21 = document.createElement('details'); d21.className = 'how'; d21.id = 'flags21-box';
+    var s21 = document.createElement('summary'); s21.textContent = '\u00a7 validity and coverage details (re-check classes, windows)'; d21.appendChild(s21);
+    f21 = document.createElement('div'); f21.id = 'flags21'; f21.className = 'note'; f21.setAttribute('data-chain-val', ''); d21.appendChild(f21);
+    n21.parentNode.insertBefore(d21, n21.nextSibling); }
+  if (f21) { var cl21 = classLines21(D.flags_meta).concat(f2Lines21(D.flags_meta, true)); f21.innerHTML = (cl21.length ? cl21.join(' · ') : '') + windowsDetails21(D.flags_meta); }
+}
+
+function flagList21() {   // per-configuration flags and disclosures with their notes links — the fold-out list replaces the chip signs
+  var box = document.getElementById('flags21-box'); if (!box) return;
+  var el = document.getElementById('flaglist');
+  if (!el) { el = document.createElement('div'); el.id = 'flaglist'; el.className = 'note'; el.setAttribute('data-chain-inv', ''); box.appendChild(el); }
+  var card = D.flags_meta && D.flags_meta.card, base = (D.notes_base || '/progress/notes.html');
+  var items = [];
+  D.configs.forEach(function (c) {
+    var parts = [], links = [];
+    if (c.frame_tasks && c.n_cells < c.frame_tasks) parts.push(c.n_cells.toLocaleString() + ' of ' + Number(c.frame_tasks).toLocaleString() + ' cells so far' + (c.coarse ? ' \u00b7 coarse: below the fit floor' : ''));
+    if (c.flag) parts.push(c.flag.label + ' (' + Number(c.flag.cells || 0).toLocaleString() + ' cells)');
+    var keys = (card && ((card.by_ident && card.by_ident[c.id]) || (card.by_arm && card.by_arm[c.id]))) || [];
+    keys.forEach(function (k) {
+      var e = (card.keys || {})[k] || {};
+      parts.push(k.replace(/_/g, ' ') + ': ' + (e.status_line || e.sentence || 'details on the notes page'));
+      links.push('<span class="reflag">\u00a7 ' + esc21(k.replace(/_/g, ' ')) + '</span>');
+    });
+    var bi = bayOf(c); if (bi && bi.interim && bi.interim.flag) parts.push(bi.interim.flag);
+    if (parts.length) items.push('<div>' + esc21(c.label) + ': ' + esc21(parts.join(' \u00b7 ')) + (links.length ? ' ' + links.join(' ') : '') + '</div>');
+  });
+  var un = (D.bayes && D.bayes.unresolved_stems) || [];
+  el.innerHTML = (items.length ? '<div><b>per-configuration flags and disclosures</b> (' + items.length + ' of ' + D.configs.length + '; also on each chip\u2019s hover)</div>' + items.join('') : '')
+    + (un.length ? '<div><b>unresolved wave stems</b> (no registry identity in fitting\u2019s arm_ids.json; awaiting by name, never guessed): ' + un.map(esc21).join(', ') + '</div>' : '');
+}
+
+function verdictRuleHTML() {   // the maintainers cut-answers verdict rule (winner_rule.json cut_answers_verdict_rule): named once; the rule's own text rides the hover; absent -> the sentence alone
+  var R = (typeof D_ALL !== 'undefined' && D_ALL && D_ALL.verdict_rule) || (D && D.verdict_rule) || null;
+  var esc_ = function (t) { return String(t == null ? '' : t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); };
+  var sent = 'passes are the judged verdicts as written (n_plus_pass); cap-cut answers count with their verdict and are flagged, share k of n per cell \u2014 winner_rule.json cut_answers_verdict_rule';
+  return '<p class="note"' + (R && R.rule ? ' title="' + esc_(R.rule) + (R.stamp ? ' (adopted ' + esc_(R.stamp) + ')' : '') + '"' : '') + '>' + sent + (R && R.stamp ? ' (' + esc_(R.stamp) + ')' : '') + '</p>';
+}
+
+function howBody() {
+  var f = D.frame;
+  var rows = [
+    '<b>Population.</b> Suite-v1 certified tasks only ('
+      + f.manifest_tasks + ' frozen 2026-08-29); a task enters the '
+      + 'axis when ≥' + f.min_cover + ' of the fitted configs '
+      + 'cover it (' + f.axis_tasks + ' tasks; ≥' + f.min_cells
+      + ' certified cells per fitted config). '
+      + 'Cells: project runs under the production judge config, latest '
+      + 'line per task × config; attempts per cell as stored ('
+      + (function (mix) {
+          if (!mix) return 'n per cell in hover';
+          var ks = Object.keys(mix).sort(function (a, b) {
+            return (+b) - (+a); });
+          return ks.length === 1
+            ? 'uniform n=' + ks[0]
+            : 'cells: ' + ks.map(function (k) {
+                return mix[k] + ' @ n=' + k; }).join(' · ')
+              + '; n per cell in hover';
+        })(f.n_mix) + ').',
+    '<b>Axis.</b> Task difficulty = log-odds of the equal-weight '
+      + 'Jeffreys-mean failure over the fitted configs (the board '
+      + 'recipe on pool cells) — PROVISIONAL while coverage fills.'
+      + (f.easy_end_note ? ' Mixed-n note: ' + f.easy_end_note : ''),
+    '<b>Direct chains.</b> Average rate: kernel trend, logit-space '
+      + 'Gaussian σ = ' + f.sigma_logit + '; band ' + f.band
+      + '. Median task: ' + f.nbins + ' shared equal-count bins ('
+      + f.bin_sizes[0] + '\u2013'
+      + f.bin_sizes[f.bin_sizes.length - 1] + ' tasks each); band '
+      + f.med_band
+      + '; floor/ceiling bin medians are pinned bounds (▼/▲), never '
+      + 'data.',
+    '<b>Bayesian chains.</b> The serving wave’s per-config posterior '
+      + '(10–90% pointwise band) on the wave’s own axis; median-task '
+      + 'crossings from exact posterior draws, average-rate crossings '
+      + 'by the adopted interim band inversion (labeled); sampler-'
+      + 'flagged fits draw dashed with diagnostics on hover.',
+    '<b>Trend.</b> Long-dashed straight line = linear trend: fitting’s least-squares line through each arm’s Bayesian curve over the fitted range (logit-logit; a curve under Raw y); descriptive — the curve and its band are the evidence. Slope median, 80% interval and rms deviation on hover; Trend switch above.',
+    '<b>Crossings.</b> First-upward at 50% and 1%; bounds are '
+      + 'directional (open triangles toward the uncertain side), '
+      + 'never interpolated through.',
+    '<b>Scales.</b> Percent labels always; Logit spreads the tails, '
+      + 'Raw is plain probability. The rel-vs-cap view keeps both '
+      + 'axes at the SAME scale (equal difficulty per pixel) so '
+      + 'slopes read honestly — slope 1 is 45°.',
+  ];
+  return rows.map(function (r) {
+    return '<p data-chain-val="est src">' + r + '</p>';
+  }).join('');
+}
+
+function axisSvg() {
+  var out = '';
+  [0.001, 0.01, 0.05, 0.25, 0.5, 0.75, 0.95, 0.99].forEach(function (p) {
+    if (state.ys === 'raw' && p < 0.05 && p !== 0.01) return;
+    var y = sy(p);
+    out += '<line x1="' + ML + '" y1="' + y + '" x2="' + (W - MR)
+      + '" y2="' + y + '" stroke="#eceef1" stroke-width="0.8"/>'
+      + '<text x="' + (ML - 6) + '" y="' + (y + 4)
+      + '" text-anchor="end" font-size="11" fill="#52514e">'
+      + (p < 0.01 ? (p * 100).toFixed(1) : Math.round(p * 100))
+      + '%</text>';
+  });
+  var lastTx = -1e9;
+  for (var z = Math.ceil(LIM[0]); z <= Math.floor(LIM[1]); z++) {
+    var Xt = sx(z);
+    // collision thinning: raw scale compresses the tails until
+    // neighboring labels touch ("95%98%99%") — skip any label
+    // closer than 26px to the previous one
+    if (Xt - lastTx < 26) continue;
+    out += '<text x="' + Xt + '" y="' + (H - MB + 16)
+      + '" text-anchor="middle" font-size="11" fill="#52514e">'
+      + pct(z).toFixed(0) + '%</text>';
+    lastTx = Xt;
+  }
+  out += '<text x="' + (ML + PW / 2) + '" y="' + (H - 8)
+    + '" text-anchor="middle" font-size="12" fill="#52514e" '
+    + 'data-chain-val="src">task difficulty ('
+    + (state.src === 'bayes'
+       ? 'the wave’s own axis — PROVISIONAL, declared per wave'
+       : 'pool Jeffreys-mean failure — PROVISIONAL snapshot axis')
+    + '; percent, ' + (state.xs === 'raw' ? 'raw' : 'logit')
+    + ' spacing)</text>'
+    + '<text x="15" y="' + (MT + PH / 2)
+    + '" text-anchor="middle" font-size="12" fill="#52514e" '
+    + 'transform="rotate(-90 15 ' + (MT + PH / 2) + ')">failure '
+    + 'rate per attempt (percent, '
+    + (state.ys === 'raw' ? 'raw' : 'logit') + ' spacing)</text>';
+  return out;
+}
+
+function render() {
+  if (!D || !sel) return;
+  LIM = chainLim();
+  syncDotsLock();
+  paintChips();
+  var out = axisSvg();
+  var shown = 0, cellsShown = 0;
+
+  if (state.src === 'direct') {
+    D.configs.forEach(function (c, i) {
+      if (!sel.has(i)) return;
+      shown++;
+      cellsShown += c.n_axis_cells;
+      var col = c.color;
+      if (state.rm === '1' && c.rm && c.rm.z.length) {
+        var rp = '', rpen = false;
+        c.rm.z.forEach(function (z, k) {
+          if (!yIn(logit(Math.max(1e-4,
+              Math.min(1 - 1e-4, c.rm.v[k]))))) { rpen = false; return; }
+          rp += (rpen ? 'L' : 'M') + sx(z).toFixed(1) + ' '
+            + sy(c.rm.v[k]).toFixed(1);
+          rpen = true;
+        });
+        if (rp) out += '<path d="' + rp + '" fill="none" stroke="'
+          + col + '" stroke-width="1" opacity="0.5" '
+          + 'stroke-dasharray="1.5 2.5"><title>' + c.label + flagTag(c)
+          + ' — raw running median (31 nearest tasks, data-side '
+          + 'check)</title></path>';
+      }
+      if (state.dots === 'on' && sel.size <= 6) {
+        c.dots.z.forEach(function (z, k) {
+          out += '<circle cx="' + sx(z).toFixed(1) + '" cy="'
+            + sy(c.dots.r[k]).toFixed(1)
+            + '" r="2.6" fill="' + col + '" opacity="0.35" '
+            + 'data-task="' + i + ':' + k + '"/>';
+        });
+      }
+      if (state.est === 'avg') {
+        if (state.band !== 'off' && c.band) {
+          var bz = BAND_Z[state.band];
+          var bd = '', pen0 = false, back = [];
+          D.grid.forEach(function (g, k) {
+            var mu = c.trend[k], se = c.band.se[k];
+            if (mu == null || se == null) { return; }
+            var hi2 = Math.min(mu + bz * se, 1 - 1e-4);
+            var lo2 = Math.max(mu - bz * se, 1e-4);
+            bd += (pen0 ? 'L' : 'M') + sx(g).toFixed(1) + ' '
+              + sy(hi2).toFixed(1);
+            back.push([g, lo2]);
+            pen0 = true;
+          });
+          for (var bk = back.length - 1; bk >= 0; bk--) {
+            bd += 'L' + sx(back[bk][0]).toFixed(1) + ' '
+              + sy(back[bk][1]).toFixed(1);
+          }
+          if (bd) out += '<path d="' + bd + 'Z" fill="' + col
+            + '" opacity="' + (sel.size > 6 ? 0.09 : 0.14) + '"/>';
+        }
+        var p = '', pen = false;
+        D.grid.forEach(function (g, k) {
+          var v = c.trend[k];
+          if (v == null
+              || !yIn(logit(Math.max(1e-4, Math.min(1 - 1e-4, v))))) {
+            pen = false; return;   // break, never a false plateau
+          }
+          p += (pen ? 'L' : 'M') + sx(g).toFixed(1) + ' '
+            + sy(v).toFixed(1);
+          pen = true;
+        });
+        out += '<path d="' + p + '" fill="none" stroke="' + col
+          + '" stroke-width="1.6" opacity="0.85" data-mark '
+          + 'data-chain-val="est src" data-cfg="' + i + '">'
+          + '<title>' + c.label + flagTag(c) + ' — kernel trend over '
+          + c.n_axis_cells + ' cells</title></path>';
+      } else {
+        var p2 = '', pen2 = false;
+        c.med.forEach(function (b) {
+          if (b.m == null || b.cens !== 0) { pen2 = false; return; }
+          p2 += (pen2 ? 'L' : 'M') + sx(b.z).toFixed(1) + ' '
+            + sy(b.m).toFixed(1);
+          pen2 = true;
+        });
+        out += '<path d="' + p2 + '" fill="none" stroke="' + col
+          + '" stroke-width="1.6" stroke-dasharray="5 3" '
+          + 'opacity="0.85" data-mark data-chain-val="est src" '
+          + 'data-cfg="' + i + '">'
+          + '<title>' + c.label + flagTag(c) + ' — binned medians over '
+          + c.n_axis_cells + ' cells</title></path>';
+        c.med.forEach(function (b) {
+          if (b.m == null) return;
+          var X = sx(b.z).toFixed(1);
+          if (b.cens !== 0) {
+            // floor/ceiling bin: pinned directional BOUND
+            var Yp = sy(b.m).toFixed(1);
+            out += '<path d="M' + X + ' ' + Yp
+              + (b.cens === -1 ? 'm0 6l5 -10l-10 0Z'
+                               : 'm0 -6l5 10l-10 0Z')
+              + '" fill="none" stroke="' + col
+              + '" stroke-width="1.3" data-mark><title>'
+              + D.configs[i].label + ' — bin at the Jeffreys '
+              + (b.cens === -1 ? 'floor' : 'ceiling')
+              + ' (' + b.n + ' cells): a bound, not a measurement'
+              + '</title></path>';
+            return;
+          }
+          if (state.band !== 'off' && b.q) {
+            var qq = b.q[state.band];
+            out += '<path d="M' + X + ' ' + sy(qq[0]).toFixed(1)
+              + 'L' + X + ' ' + sy(qq[1]).toFixed(1)
+              + '" stroke="' + col + '" stroke-width="1" '
+              + 'opacity="0.5" fill="none"/>';
+          }
+          out += '<circle cx="' + X + '" cy="'
+            + sy(b.m).toFixed(1) + '" r="2.6" data-mark fill="'
+            + col + '"/>';
+        });
+      }
+    });
+  } else if (D.bayes.available) {
+    var key = state.est === 'avg' ? 'avg' : 'typ';
+    D.configs.forEach(function (c, i) {
+      if (!sel.has(i)) return;
+      var a = bayOf(c);
+      var col = c.color;
+      if (!a) return;                 // no posterior = not drawn under the Bayesian source (the chip is greyed and the awaiting line names it); never a kernel stand-in
+      shown++;
+      if (state.band !== 'off') {
+        var band = '';
+        a.zgrid.forEach(function (z, k) {
+          band += (k ? 'L' : 'M') + sx(z).toFixed(1) + ' '
+            + syl(a[key].q90[k]).toFixed(1);
+        });
+        for (var k2 = a.zgrid.length - 1; k2 >= 0; k2--) {
+          band += 'L' + sx(a.zgrid[k2]).toFixed(1) + ' '
+            + syl(a[key].q10[k2]).toFixed(1);
+        }
+        out += '<path d="' + band + 'Z" fill="' + col
+          + '" opacity="' + (sel.size > 6 ? 0.09 : 0.14) + '"/>';
+      }
+      var p3 = '', pen3 = false;
+      a.zgrid.forEach(function (z, k) {
+        if (!yIn(a[key].q50[k])) { pen3 = false; return; }
+        p3 += (pen3 ? 'L' : 'M') + sx(z).toFixed(1) + ' '
+          + syl(a[key].q50[k]).toFixed(1);
+        pen3 = true;
+      });
+      var fl = a.flag || {};
+      var warn = fl.board_half_pct_gate === 'FAIL'
+                 || fl.rhat_gate === 'FAIL';
+      out += '<path d="' + p3 + '" fill="none" stroke="' + col
+        + '" stroke-width="1.6" opacity="0.85" data-mark '
+        + 'data-chain-val="est src" data-cfg="' + i + '"'
+        + (warn ? ' stroke-dasharray="2 2"' : '') + '>'
+        + '<title>' + c.label + flagTag(c) + (a.interim && a.interim.flag ? ' \u00b7 ' + a.interim.flag : '') + ' — posterior median'
+        + (warn ? '; sampler warnings on this fit ('
+          + fl.divergences + ' divergences'
+          + (fl.rhat_gate === 'FAIL' ? ', R-hat gate FAIL' : '')
+          + ') — dashed per the accept-with-note convention' : '')
+        + '</title></path>';
+      // linear trend (fitting's linefit; posterior medians of slope / intercept over the draws), over zrange only; pointwise so it is
+      // a straight line in logit-logit and a curve under raw y; long dashes distinguish it from the short-dashed flagged fits
+      var lf = a.linefit && a.linefit[key];
+      if (state.trend !== 'off' && lf && lf.slope_q10_q50_q90 && lf.intercept_at_zmid_q50 !== null && a.linefit.zrange && a.linefit.zrange.length === 2) {
+        var sl = lf.slope_q10_q50_q90[1], ic = lf.intercept_at_zmid_q50, zm = a.linefit.zmid, z0 = a.linefit.zrange[0], z1 = a.linefit.zrange[1];
+        var pt = '', pen4 = false, nseg = 40;
+        for (var t = 0; t <= nseg; t++) {
+          var zz = z0 + (z1 - z0) * t / nseg, yl = ic + sl * (zz - zm);
+          if (!yIn(yl)) { pen4 = false; continue; }
+          pt += (pen4 ? 'L' : 'M') + sx(zz).toFixed(1) + ' ' + syl(yl).toFixed(1); pen4 = true;
+        }
+        out += '<path d="' + pt + '" fill="none" stroke="' + col + '" stroke-width="1.2" opacity="0.9" stroke-dasharray="7 4" data-mark data-cfg="' + i + '">'
+          + '<title>' + c.label + ' — linear trend (' + (state.est === 'avg' ? 'average' : 'typical') + ' chain): slope ' + sl + ' logit/z, 80% interval [' + lf.slope_q10_q50_q90[0] + ', ' + lf.slope_q10_q50_q90[2] + '] · rms deviation of the curve from its own line ' + lf.rms_dev_q50 + ' logit · fitted range z ∈ [' + z0 + ', ' + z1 + '] (fitting linefit, ' + a.linefit.n_draws + ' draws)</title></path>';
+      }
+    });
+  } else {
+    out += '<text x="' + (ML + PW / 2) + '" y="' + (MT + PH / 2)
+      + '" text-anchor="middle" font-size="14" fill="#8a6d1d">'
+      + 'Bayesian fits running — no complete wave serving yet; this '
+      + 'chain populates automatically</text>';
+  }
+
+  document.getElementById('main').innerHTML = out;
+  armCrosshair();
+  narrate(shown, cellsShown);
+  document.getElementById('mainnote').textContent = chainNote()
+    + (state.src === 'direct' && state.dots === 'on' && sel.size > 6
+       ? ' · task dots draw only with ≤6 configs selected ('
+         + sel.size + ' selected)' : '')
+    ;
+  document.getElementById('howbody').innerHTML = howBody() + verdictRuleHTML();
+
+  renderRelcap();
+}
+
+var crossArm = null;
+function armCrosshair() {
+  var box = document.getElementById('mainbox');
+  var svg = document.getElementById('main');
+  var scale = svg.clientWidth / W;
+  if (!scale) return;
+  var grid = (state.src === 'bayes' && D.bayes.available)
+    ? D.bayes.arms[0].zgrid : D.grid;
+  var xs = grid.map(function (g) { return sx(g) * scale; });
+  if (crossArm && crossArm.dispose) crossArm.dispose();
+  box.querySelectorAll('.kit-crosshair').forEach(function (e) {
+    e.remove();
+  });
+  crossArm = Kit.crosshair({
+    container: box, xs: xs,
+    readout: function (i) {
+      var g = grid[i];
+      var rows = [];
+      D.configs.forEach(function (c, ci) {
+        if (!sel.has(ci)) return;
+        var v = null;
+        if (state.src === 'direct') {
+          if (state.est === 'avg') v = c.trend[i];
+          else {
+            var best = null, bd = 1e9;
+            c.med.forEach(function (b) {
+              if (b.m == null || b.cens !== 0) return;
+              var d2 = Math.abs(b.z - g);
+              if (d2 < bd) { bd = d2; best = b.m; }
+            });
+            v = best;
+          }
+        } else {
+          var a = bayOf(c);
+          if (a) v = 1 / (1 + Math.exp(-a[
+            state.est === 'avg' ? 'avg' : 'typ'].q50[i]));
+        }
+        if (v != null) rows.push({ key: c.color,
+          value: (v * 100).toFixed(1) + '%', label: c.label, v: v });
+      });
+      rows.sort(function (a, b) { return b.v - a.v; });
+      var extra = rows.length > 12
+        ? [{ key: null, value: '', label: '+' + (rows.length - 12)
+             + ' more (deselect chips to focus)' }] : [];
+      return { title: 'difficulty ' + pct(g).toFixed(1) + '% — '
+               + (state.est === 'avg' ? 'average rate' : 'median task')
+               + ', ' + (state.src === 'direct' ? 'direct' : 'Bayesian'),
+               rows: rows.slice(0, 12).concat(extra) };
+    } });
+}
+
+function crossOf(c) {
+  if (state.src === 'direct') {
+    return state.est === 'avg' ? c.cross : c.cross_med;
+  }
+  var a = bayOf(c);
+  if (!a) return null;
+  if (state.est === 'avg') {
+    // crossings of record: capability = the 50% crossing (equal on both curves, exact
+    // draws); reliability of record = the 1% crossing of the average-rate curve, exact per draw where the fit carries estimands_avg
+    // (interim / candidate waves); pre-31g fits keep the median-task 1% crossing and wear fitting's flag (‡); p_left_censored > 0.5 is
+    // a bound at the grid edge, never a point. Arms without a table row fall back to the curve-inverted band (labelled as before).
+    var rec = a.cross_record;
+    var useRec = rec && rec.d1 && rec.d50 && rec.d50.z != null
+      && (rec.d1.of_record ? (rec.d1.z != null || rec.d1.kind === 'bound') : !!(rec.d1_median_task && (rec.d1_median_task.z != null || rec.d1_median_task.kind === 'bound')));
+    if (useRec) {
+      var m50 = (a.cross_med && a.cross_med['50']) || {};
+      var d1 = rec.d1.of_record ? rec.d1 : rec.d1_median_task;
+      var bound = d1.kind === 'bound';
+      return { '50': { z: rec.d50.z, lo: m50.lo == null ? null : m50.lo, hi: m50.hi == null ? null : m50.hi, kind: 'point', of_record: true },
+               '1': { z: bound ? (rec.d1.bound_z != null ? rec.d1.bound_z : (rec.d1.grid_lo_z != null ? rec.d1.grid_lo_z : d1.z)) : d1.z, lo: bound ? null : d1.lo, hi: bound ? null : d1.hi,   // a bound marker sits at the bound itself, the grid edge only as the older fallback
+                      kind: bound ? 'lo-bound' : (d1.kind || 'point'), of_record: !!rec.d1.of_record, flag: rec.d1.of_record ? null : (rec.d1.flag || null),
+                      bound_text: bound ? (rec.d1.bound_text || null) : null, source: rec.d1.source || null,
+                      status: rec.d1.status || null, status_kind: rec.d1.status_kind || null, reason_text: rec.d1.reason_text || null } };
+    }
+    return a.cross_avg;
+  }
+  return a.cross_med;
+}
+
+function renderRelcap() {
+  var M2 = { ML: 90, MB: 56 };
+  var PW2 = W - M2.ML - 20, PH2 = H - MT - M2.MB;
+  var pts = [];
+  D.configs.forEach(function (c, i) {
+    if (!sel.has(i)) return;
+    var cr = crossOf(c);
+    if (!cr || !cr['50'] || cr['50'].z == null
+        || !cr['1'] || cr['1'].z == null) return;
+    pts.push({ i: i, x: cr['50'], y: cr['1'] });
+  });
+  var el = document.getElementById('relcap');
+  if (!pts.length) {
+    el.innerHTML = '';
+    document.getElementById('crossbody').innerHTML = '';
+    return;
+  }
+  var pxv = [], pyv = [], all = [];
+  pts.forEach(function (p) {
+    all.push(p.x.z, p.y.z);
+    if (p.x.kind === 'point') pxv.push(p.x.z);
+    if (p.y.kind === 'point') pyv.push(p.y.z);
+  });
+  var bx = pxv.length ? pxv : all, by_ = pyv.length ? pyv : all;
+  // EQUAL SCALE ALWAYS: same difficulty per pixel
+  // on both axes — slope 1 draws at 45°. Independent centers, spans
+  // grown to the shared units-per-pixel.
+  var cx = (Math.min.apply(null, bx) + Math.max.apply(null, bx)) / 2;
+  var cy = (Math.min.apply(null, by_) + Math.max.apply(null, by_)) / 2;
+  var spx = Math.max.apply(null, bx) - Math.min.apply(null, bx) + 0.5;
+  var spy = Math.max.apply(null, by_) - Math.min.apply(null, by_) + 0.5;
+  var upp = Math.max(spx / PW2, spy / PH2);
+  var lox = cx - upp * PW2 / 2, hix = cx + upp * PW2 / 2;
+  var loy = cy - upp * PH2 / 2, hiy = cy + upp * PH2 / 2;
+  function clx(z) { return Math.max(lox, Math.min(hix, z)); }
+  function cly(z) { return Math.max(loy, Math.min(hiy, z)); }
+  function rx(z) { return M2.ML + (z - lox) / (hix - lox) * PW2; }
+  function ry(z) { return MT + (hiy - z) / (hiy - loy) * PH2; }
+  var out = '';
+  function tick(lo, hi) {
+    var span = hi - lo;
+    return span > 6 ? 2 : span > 3 ? 1 : 0.5;
+  }
+  for (var z = Math.ceil(lox / tick(lox, hix)) * tick(lox, hix);
+       z <= hix; z += tick(lox, hix)) {
+    out += '<text x="' + rx(z) + '" y="' + (H - M2.MB + 16)
+      + '" text-anchor="middle" font-size="11" fill="#52514e">'
+      + pct(z).toFixed(pct(z) < 10 ? 1 : 0) + '%</text>';
+  }
+  for (var z2 = Math.ceil(loy / tick(loy, hiy)) * tick(loy, hiy);
+       z2 <= hiy; z2 += tick(loy, hiy)) {
+    out += '<text x="' + (M2.ML - 8) + '" y="' + (ry(z2) + 4)
+      + '" text-anchor="end" font-size="11" fill="#52514e">'
+      + pct(z2).toFixed(pct(z2) < 10 ? 1 : 0) + '%</text>';
+  }
+  var gl = Math.max(lox, loy), gh = Math.min(hix, hiy);
+  if (gl < gh) {
+    out += '<path d="M' + rx(gl) + ' ' + ry(gl) + 'L' + rx(gh) + ' '
+      + ry(gh) + '" stroke="#cfc5ac" stroke-dasharray="3.3 2.7" '
+      + 'fill="none"/>';
+  } else {
+    out += '<text x="' + (M2.ML + 10) + '" y="' + (MT + 14)
+      + '" font-size="10" fill="#8b8477">y = x lies outside this '
+      + 'frame (every shown config crosses 1% far easier than 50%)'
+      + '</text>';
+  }
+  pts.forEach(function (p) {
+    var col = D.configs[p.i].color;
+    var X = rx(clx(p.x.z)), Y = ry(cly(p.y.z));
+    if (p.x.lo != null || p.y.lo != null) {
+      if (p.x.lo != null && p.x.hi != null) {
+        out += '<path d="M' + rx(clx(p.x.lo)).toFixed(1) + ' '
+          + Y.toFixed(1) + 'L' + rx(clx(p.x.hi)).toFixed(1) + ' '
+          + Y.toFixed(1) + '" stroke="' + col
+          + '" stroke-width="1" opacity="0.5" fill="none"/>';
+      }
+      if (p.y.lo != null && p.y.hi != null) {
+        out += '<path d="M' + X.toFixed(1) + ' '
+          + ry(cly(p.y.lo)).toFixed(1) + 'L' + X.toFixed(1) + ' '
+          + ry(cly(p.y.hi)).toFixed(1) + '" stroke="' + col
+          + '" stroke-width="1" opacity="0.5" fill="none"/>';
+      }
+    }
+    var full = p.x.kind === 'point' && p.y.kind === 'point';
+    if (full) {
+      out += '<circle cx="' + X + '" cy="' + Y + '" r="5" data-mark '
+        + 'fill="' + col + '" stroke="#fcfaf3" stroke-width="1.2"/>';
+    } else {
+      var tri = p.y.kind === 'hi-bound' ? 'm0 -6l5 10l-10 0Z'
+        : p.y.kind === 'lo-bound' ? 'm0 6l5 -10l-10 0Z'
+        : p.x.kind === 'hi-bound' ? 'm6 0l-10 5l0 -10Z'
+        : 'm-6 0l10 5l0 -10Z';
+      out += '<path d="M' + X + ' ' + Y + tri + '" data-mark '
+        + 'fill="none" stroke="' + col + '" stroke-width="1.4" '
+        + 'opacity="0.75"/>';
+    }
+    p._X = X; p._Y = Y;
+  });
+  pts.forEach(function (p) {
+    var iso = pts.every(function (q) {
+      return q === p || Math.abs(q._X - p._X) > 110
+        || Math.abs(q._Y - p._Y) > 24;
+    });
+    if (iso) {
+      var rightish = p._X > W - 120;
+      out += '<text class="dotlab" x="'
+        + (p._X + (rightish ? -7 : 7)) + '" y="'
+        + (p._Y - 6) + '" font-size="9"'
+        + (rightish ? ' text-anchor="end"' : '')
+        + ' fill="' + D.configs[p.i].color
+        + '">' + D.configs[p.i].label + '</text>';
+    }
+  });
+  pts.forEach(function (p) {            // ‡ = pre-31g fit: the 1% crossing shown is the median-task crossing; the reliability of record is pending
+    if (p.y && p.y.flag) {
+      out += '<text class="dotlab reflag" x="' + (p._X - 12) + '" y="' + (p._Y + 4) + '" font-size="10" fill="#7a3a1a">\u2021</text>';
+    }
+  });
+  pts.forEach(function (p) {            // ~ = not resolved: the 1% crossing's 80% band is wider than one difficulty step; value and band kept; the hover carries the row's status sentence and the bracketed reason
+    if (p.y && p.y.status_kind === 'unresolved') {
+      out += '<text class="dotlab reflag" x="' + (p._X + 9) + '" y="' + (p._Y + 4) + '" font-size="11" fill="#7a3a1a">~<title>' + esc21((p.y.status || 'not resolved') + (p.y.reason_text ? ' ' + p.y.reason_text : '')) + '</title></text>';
+    }
+  });
+  pts.forEach(function (p) {            // flagged arms: text beside the dot, always
+    var fc = D.configs[p.i].flag;
+    if (fc) {
+      var rightish2 = p._X > W - 160;
+      out += '<text class="dotlab reflag" x="' + (p._X + (rightish2 ? -9 : 9)) + '" y="'
+        + (p._Y + 12) + '" font-size="9"' + (rightish2 ? ' text-anchor="end"' : '')
+        + ' fill="#7a3a1a">' + fc.mark + ' ' + ((fc.classes && fc.classes.length) ? fc.classes.join('+') : '') + '</text>';
+    }
+  });
+  pts.forEach(function (p) {
+    out += '<circle cx="' + p._X + '" cy="' + p._Y
+      + '" r="9" fill="transparent"><title>'
+      + D.configs[p.i].label + (D.configs[p.i].flag ? ' ' + D.configs[p.i].flag.mark + ' ' + D.configs[p.i].flag.label : '') + ' — 50%: '
+      + pct(p.x.z).toFixed(1) + '% (' + p.x.kind + ') · 1%: '
+      + (p.y.bound_text ? p.y.bound_text + ' in z, a bound (p_left_censored > 0.5)' : pct(p.y.z).toFixed(1) + '% (' + p.y.kind + ')')
+      + (p.y.flag ? ' \u00b7 \u2021 ' + p.y.flag : (p.y.of_record ? ' \u00b7 1% crossing of record (average-rate, exact per draw)' : ''))
+      + (p.y.status_kind === 'unresolved' ? ' \u00b7 ~ ' + p.y.status + (p.y.reason_text ? ' ' + p.y.reason_text : '') : '')
+      + '</title></circle>';
+  });
+  out += '<text x="' + (M2.ML + PW2 / 2) + '" y="' + (H - 8)
+    + '" text-anchor="middle" font-size="12" fill="#52514e" '
+    + 'data-chain-val="src">difficulty at the 50% crossing '
+    + '(log-odds spacing, equal scale both axes)</text>'
+    + '<text x="15" y="' + (MT + PH2 / 2)
+    + '" text-anchor="middle" font-size="12" fill="#52514e" '
+    + 'transform="rotate(-90 15 ' + (MT + PH2 / 2)
+    + ')">difficulty at the 1% crossing</text>';
+  el.innerHTML = out;
+  var meth = state.src === 'direct'
+    ? (state.est === 'avg'
+       ? 'dots = crossings of the direct kernel trend'
+       : 'dots = crossings of the binned-median polyline (first '
+         + 'upward, linear between bin centers)')
+    : (state.est === 'avg'
+       ? 'dots = Bayesian average-rate crossings — '
+         + D.bayes.avg_cross_method + '; whiskers = 80% credible '
+         + 'intervals (exact per draw where the crossing of record exists; the curve-inverted band otherwise) · \u2021 = pre-31g fit: '
+         + 'the 1% crossing shown is the median-task crossing, the reliability of record is pending fitting\'s export switch'
+         + (pts.some(function (p) { return p.y && p.y.status_kind === 'unresolved'; })
+            ? ' \u00b7 ~ not resolved: the 1% crossing\'s 80% band is wider than one difficulty step (the reference bandwidth)' : '')
+       : 'dots = Bayesian median-task crossings — '
+         + D.bayes.med_cross_method + '; whiskers = 80% credible '
+         + 'intervals');
+  document.getElementById('relnote').textContent =
+    meth + '. Open triangles point toward the uncertain side — '
+    + 'bounds, not measurements.';
+  crossTable(pts);
+}
+
+function crossTable(pts) {
+  var rows = pts.slice().sort(function (a, b) {
+    return a.x.z - b.x.z;
+  }).map(function (p) {
+    function cell(c) {
+      return (c.kind === 'point' ? pct(c.z).toFixed(1) + '%'
+        : c.kind === 'lo-bound' ? '≤ ' + pct(c.z).toFixed(1) + '%'
+        : c.kind === 'hi-bound' ? '≥ ' + pct(c.z).toFixed(1) + '%'
+        : '—')
+        + (c.lo != null && c.hi != null
+           ? ' [' + pct(c.lo).toFixed(1) + ', ' + pct(c.hi).toFixed(1)
+             + ']' : '');
+    }
+    var fc = D.configs[p.i].flag;
+    return '<tr><td>' + D.configs[p.i].label
+      + (fc ? ' <span class="reflag" title="' + esc21(fc.label) + '">' + fc.mark + ' ' + fc.cells.toLocaleString()
+              + ' cells</span> <a class="reflag" href="#flags21" title="' + esc21(fc.label) + '">§</a>' : '')
+      + '</td><td>' + cell(p.x) + '</td><td>' + cell(p.y)
+      + (p.y.bound_text ? ' <span class="reflag" title="' + esc21(p.y.bound_text + ' in z: p_left_censored above 0.5, a bound, never a point') + '">bound</span>' : '')
+      + (p.y.flag ? ' <span class="reflag" title="' + esc21(p.y.flag) + '">\u2021</span>' : '')
+      + (p.y.status_kind === 'unresolved' ? ' <span class="reflag" title="' + esc21((p.y.status || 'not resolved') + (p.y.reason_text ? ' ' + p.y.reason_text : '')) + '">~</span>' : '') + '</td></tr>';
+  }).join('');
+  var estw = state.est === 'avg' ? 'average-rate' : 'median-task';
+  var ivw = state.src === 'bayes' ? '[CrI80]'
+    : '[' + state.band + '% band edges]';
+  if (state.band === 'off' && state.src !== 'bayes') ivw = '';
+  document.getElementById('crossbody').innerHTML =
+    '<table><thead><tr><th>config</th><th>' + estw
+    + ' 50% crossing ' + ivw + '</th><th>' + estw
+    + ' 1% crossing ' + ivw
+    + '</th></tr></thead><tbody>' + rows + '</tbody></table>';
+}
+
+function hoverWire() {
+  var box = document.getElementById('main');
+  box.addEventListener('pointermove', function (ev) {
+    var t = ev.target.closest ? ev.target.closest('[data-task]') : null;
+    if (!t) {
+      if (hoverTimer) { clearTimeout(hoverTimer); hoverTimer = null; }
+      Kit.tooltip.hide();
+      return;
+    }
+    var parts = t.dataset.task.split(':');
+    var c = D.configs[+parts[0]], k = +parts[1];
+    var id = c.dots.t[k];
+    var head = c.label + ' · ' + id + ' — ' + c.dots.f[k] + '/'
+      + c.dots.n[k] + ' failed · difficulty '
+      + pct(c.dots.z[k]).toFixed(1) + '%';
+    var show = function (body) {
+      Kit.tooltip.show(ev.clientX, ev.clientY, [
+        { key: null, value: '', label: body || 'loading task text…' },
+      ], head);
+    };
+    if (taskCache[id] !== undefined) { show(taskCache[id]); return; }
+    show(null);
+    if (hoverTimer) clearTimeout(hoverTimer);
+    hoverTimer = setTimeout(function () {
+      fetch('./tasks/' + id.replace(/\//g, '_') + '.json')
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (d) {
+          taskCache[id] = d && d.prompt
+            ? d.prompt.slice(0, 240) + (d.prompt.length > 240 ? '…' : '')
+            : '(task text unavailable)';
+          show(taskCache[id]);
+        })
+        .catch(function () {
+          taskCache[id] = '(task text unavailable)';
+          show(taskCache[id]);
+        });
+    }, 150);
+  });
+  box.addEventListener('pointerleave', function () {
+    Kit.tooltip.hide();
+  });
+}
+
+function exportPng(id) {
+  var svg = document.getElementById(id);
+  var xml = new XMLSerializer().serializeToString(svg);
+  var img = new Image();
+  var vb = svg.viewBox.baseVal;
+  img.onload = function () {
+    var cv = document.createElement('canvas');
+    cv.width = vb.width * 2; cv.height = vb.height * 2;
+    var ctx = cv.getContext('2d');
+    ctx.fillStyle = '#fcfaf3';
+    ctx.fillRect(0, 0, cv.width, cv.height);
+    ctx.drawImage(img, 0, 0, cv.width, cv.height);
+    var a = document.createElement('a');
+    a.download = 'pool-' + id + '.png';
+    a.href = cv.toDataURL('image/png');
+    a.click();
+  };
+  img.src = 'data:image/svg+xml;base64,'
+    + btoa(unescape(encodeURIComponent(xml)));
+}
+})();
+</script>
+<script>
+// hover text under the face rule: the JS twin of flags/hovertext.py — stamps as dates, files as source words, no paths / wave ids, three figures; peer-literal spans skipped; keeps late-rendered titles plain
+(function(){var M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];var N={'arms.jsonl':"the maintainers's registry",'valid_cells.json':"screens' census",'disclosures.json':"the maintainers disclosure record",'price_per_model.json':"forecast's price file",'spend-by-model.json':'the spend ledger','data.json':"the page's data file",'meta.json':"fitting's wave record",'dataset_mirrors_stamp.json':"difficulty's mirror stamp",'certs.jsonl':'the certificates','twin_fold.json':"the maintainers twin-fold record",'configs.tsv':"screens' configuration table",'outcomes.jsonl':'the outcomes store',
+'serving.json':"fitting's serving pointer",'serving_board.json':"fitting's board pointer",'serving_board_top.json':"fitting's board-top pointer",'serving_combined.json':"fitting's combined pointer",'serving_pool.json':"fitting's pool pointer",'fail_counts_matrix.csv':'the board matrix',
+'task_difficulty.csv':'the difficulty axis','run_intake_2pl.py':'the intake loader'};
+function sf3(x){x=Number(x);if(!isFinite(x))return String(x);if(x===0)return '0';if(Math.abs(x-Math.round(x))<1e-9)return String(Math.round(x));var mag=Math.floor(Math.log10(Math.abs(x))),dec=Math.max(0,2-mag),r=Number(x.toFixed(dec));if(r!==0){var mr=Math.floor(Math.log10(Math.abs(r)));if(mr!==mag){dec=Math.max(0,2-mr);r=Number(x.toFixed(dec));}}if(dec===0||(Math.abs(r-Math.round(r))<1e-9&&Math.abs(r-x)<1e-12))return String(Math.round(r));var s=r.toFixed(dec);if(Math.abs(r-x)<1e-12&&s.indexOf('.')>=0)s=s.replace(/0+$/,'').replace(/\.$/,'');return s;}
+function sig(t){return t.replace(/(?<![\w.\-])(\d{1,3}(?:,\d{3})+|\d+)\.(\d+)(%?)(?![\w.])/g,function(m,ip,fr,pc){if((ip.replace(/,/g,'')+fr).replace(/^0+/,'').length<=3)return m;var v=parseFloat(ip.replace(/,/g,'')+'.'+fr),o=sf3(v);if(ip.indexOf(',')>=0&&o.indexOf('.')<0&&Math.abs(v)>=1000)o=Number(o).toLocaleString('en-US');return o+pc;});}
+window.plainHover=function(t){if(!t)return t;var s=String(t);
+s=s.replace(/(?<![\w-])[A-Za-z][\w.]*(?:-[\w.]+)*-20\d{6}T\d{4}Z(?:-\w+)*(?![\w-])/g,'the served wave');
+s=s.replace(/(?<![\w-])(20\d\d)-(\d\d)-(\d\d)(?:[T ](\d\d):(\d\d)(?::\d\d(?:\.\d+)?)?\s*(?:Z|UTC|[+-]\d\d:?\d\d)?)?(?![\w-])/g,function(m,y,mo,d,hh,mm){var w=parseInt(d,10)+' '+M[parseInt(mo,10)-1];if(hh!=null&&mm!=null)w+=' '+hh+':'+mm;return w;});
+s=s.replace(/(?<![\w.])(?:~|\/home)\/[\w.\/@-]+/g,function(m){var b=m.split('/').pop();return N[b]||'';});
+s=s.replace(/(?<![\w.])(?:~?\/)?(?:[\w.@-]+\/)*[\w.@-]+\.(?:json|jsonl|py|tsv|csv|sh|sbatch|log)\b(?:\[[^\]]*\])?/g,function(m){var b=m.replace(/\[.*$/,'').split('/').pop();return N[b]||'';});
+s=s.replace(/(?<=[\s(])@\s*(?=\d{1,2} [A-Z][a-z]{2}\b)/g,'').replace(/\s*@\s*(?=[,;)\]]|$)/g,'').replace(/\b(registry|census|record|file|pointer|ledger|meter|table|store|axis|matrix|stamp|lists|plan|certificates|summary|register|feed|map|generator|loader|watch|budgets|reasons|list|state|totals)\s+(\d{1,2} [A-Z][a-z]{2}(?: \d\d:\d\d)?)(?=[,;)\]]|$| ·)/g,'$1, $2');
+s=s.replace(/\(\s*[,;·]?\s*\)/g,'').replace(/\(\s*[,;]\s*/g,'(').replace(/\s*[,;]\s*\)/g,')').replace(/\s{2,}/g,' ').replace(/\s+([,;:)])/g,'$1').replace(/\(\s+/g,'(');
+return sig(s).replace(/^[\s·;,]+|[\s·;,]+$/g,'');};
+function fix(el){if(el.nodeType===1){if(el.closest&&el.closest('[data-peer-literal]')){window.__plainHoverSkipped=(window.__plainHoverSkipped||0)+1;return;}if(el.hasAttribute&&el.hasAttribute('title')){var v=el.getAttribute('title'),p=window.plainHover(v);if(p!==v)el.setAttribute('title',p);}if(el.tagName&&el.tagName.toLowerCase()==='title'&&el.parentNode&&el.parentNode.namespaceURI==='http://www.w3.org/2000/svg'){var tv=el.textContent,tp=window.plainHover(tv);if(tp!==tv)el.textContent=tp;}}}
+function sweep(root){fix(root);if(root.querySelectorAll){root.querySelectorAll('[title], svg title').forEach(fix);}}
+function start(){sweep(document.body);new MutationObserver(function(ms){ms.forEach(function(m){if(m.type==='attributes'){fix(m.target);}else{m.addedNodes.forEach(function(n){if(n.nodeType===1)sweep(n);else if(n.nodeType===3&&n.parentNode&&n.parentNode.tagName&&n.parentNode.tagName.toLowerCase()==='title')fix(n.parentNode);});}});}).observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['title'],characterData:false});}
+if(document.body)start();else document.addEventListener('DOMContentLoaded',start);})();
+</script>
+</body></html>

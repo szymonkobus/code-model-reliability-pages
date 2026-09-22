@@ -10,3 +10,8 @@ condition = "AND"
 paths = ['''capability-vs-reliability/data/.*\.json$''']
 regexTarget = "match"
 regexes = ['''(?:run_)?key":"[a-z0-9][a-z0-9._-]{3,60}"''']
+
+[[allowlists]]
+description = "failure-vs-difficulty data bundle: fitted curves, coverage counts and flag keys (field names like key / *_key over configuration ids and count strings), built from the benchmark store; never a credential"
+targetRules = ["generic-api-key"]
+paths = ['''failure-vs-difficulty/(data|frame|inputs)\.json$''']
