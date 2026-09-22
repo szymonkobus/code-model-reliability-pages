@@ -55,7 +55,8 @@ function layout() {
   FS = NARROW ? 13 : Math.max(12, Math.ceil(11.5 * UPX)); FT = NARROW ? 13 : Math.max(11, Math.ceil(10.5 * UPX));   // ticks render >= 11.5 px at any desktop width
   TRK.x0 = ML; TRK.x1 = ML + PW; TRK.y = NARROW ? 22 : 18;
 }
-var LOGIT_TICKS = [0.5, 1, 2, 5, 10, 20, 50, 80, 90, 95, 98, 99, 99.5];
+var LOGIT_TICKS = [0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50, 80, 90, 95, 98, 99, 99.5];   // both axes reach down to 0.1% with 0.2% and 0.1% ticks (the project maintainers' word of 22 Sep 15:2x UK: models sit there now)
+var AXIS_FLOOR_PCT = 0.1;   // the lowest position both axes show, as a percent of the scale
 var LOGIT_TICKS_EXPORT = [0.05, 0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50, 80, 90, 95, 98, 99, 99.5, 99.8, 99.9];   // the export continues an axis to the lowest drawn point with a tick there (the project maintainers 15:0x UK 18 Sep)
 /* /sweep fold (tools convergence blocking condition, ported 2026-09-02):
  * K = x level / y level is the FOLD; a, K and a/K carry two degrees of
@@ -278,7 +279,7 @@ function showDataNote() { var el = document.getElementById('datanote'); if (el) 
 var state = { data: 'board', arms: 'all', view: 'scatter', def: 'average', src: 'project', xdef: 'crossing', move: 'off',
               line: 'steps', lw: 'equal', resid: 'off', hold: 'k', lad: 'off', fitci: 'plain',
               w: 'on', wd: 'adj', xs: 'logit', ys: 'logit',
-              a: 50, c: 1, kp: 'on', partial: 'hide', run: 'show' };
+              a: 50, c: 1, kp: 'off', partial: 'hide', run: 'show' };   // K paths off by default on both versions (the project maintainers' word of 22 Sep 15:1x UK)
 var sel = null, chips = [], srcMount = null, playTimer = null;
 var LIM = null;    // shared difficulty limits (logit) for both axes
 
@@ -565,11 +566,13 @@ function mergeRunSet(raw) {
     rs.configs.forEach(function (c) {
       if (have[c.id]) return;
       var twin = byNorm[normId(c.id)];
-      if (twin) {   // ONE MODEL, ONE MARK (failure-vs-difficulty's word, 22 Sep 13:1x UK: a run stands on the board as one model, at its final): the checkpoint the board
-        var r = rowsById[c.id];   // carries as a model is that model; its series fit draws it under the Bayesian source when the board fit set has none of its own, alongside the axis
-        if (r && !haveRow[twin.id]) { var r2 = {}; Object.keys(r).forEach(function (kk) { r2[kk] = r[kk]; }); r2.cfg = twin.id; r2.alongside = R.key; delete r2.run; D.bay.rows.push(r2); haveRow[twin.id] = true; if (D.bayById) D.bayById[twin.id] = r2; twin.alongside = R.name; }
+      if (twin) {   // ONE MODEL, ONE MARK, IN THE RUN'S OWN ROW (the project maintainers' word of 22 Sep 15:1x UK: the run has no chip in the top column, it is the thing in its
+        var r = rowsById[c.id];   // bottom row): the board's twin config joins the run — the run's label, colour and mark, out of the top row and the fitted line; its series fit stands in under the Bayesian source when the board fit set has none
+        if (r && !haveRow[twin.id]) { var r2 = {}; Object.keys(r).forEach(function (kk) { r2[kk] = r[kk]; }); r2.cfg = twin.id; r2.alongside = R.key; delete r2.run; D.bay.rows.push(r2); haveRow[twin.id] = true; if (D.bayById) D.bayById[twin.id] = r2; }
+        twin.run = true; twin.run_key = R.key; twin.board_label = twin.label; twin.label = c.label || twin.label; twin.display_name = c.display_name || twin.display_name; twin.fam = c.fam || twin.fam;
+        twin.step = c.step; twin.index = c.index; if (c.color) twin.color = c.color; twin.think = !!c.think; twin.alongside = R.name;
         if (c.gates_failed) { twin.gates_failed = true; twin.gate_flag = c.gate_flag; if (!twin.disclosure) twin.disclosure = c.gate_flag; }
-        R.folded.push(twin.id); return;
+        R.idx.push(D.shared.configs.indexOf(twin)); R.folded.push(twin.id); return;
       }
       c.run = true; c.run_key = R.key; if (c.gates_failed && !c.disclosure) c.disclosure = c.gate_flag;   // a flagged fit carries its sentence where the board's arms carry theirs
       have[c.id] = true; D.shared.configs.push(c); R.idx.push(D.shared.configs.length - 1);
@@ -596,6 +599,8 @@ function boot() {
     ? [D.shared.limits.lo - 0.15, D.shared.limits.hi + 0.15]
     : [D.shared.reachable.floor_z - 0.35,
        D.shared.reachable.top_z + 0.35];
+  var zFloor = logit(AXIS_FLOOR_PCT / 100) - 0.15;   // the project maintainers' word of 22 Sep 15:2x UK: both axes down to 0.1% (equal scale, so one window for x and y) — a run's bound marks sit inside the drawn range
+  if (LIM[0] > zFloor) LIM[0] = zFloor;
 
   sel = new Set();
   var selParam = Kit.state.get('sel', null), selRewrite = false;
@@ -617,14 +622,14 @@ function boot() {
     }
     var dropped = withheldArms().filter(function (i) { return sel.has(i); });
     if (dropped.length) { dropped.forEach(function (i) { sel.delete(i); }); selRewrite = true; dataNote = (dataNote ? dataNote + ' \u00b7 ' : '') + dropped.map(function (i) { return D.shared.configs[i].label; }).join(', ') + ' is not shown (see the notes)'; }
-    if (!sel.size) { D.shared.configs.forEach(function (_, i) { if (!isWithheld(i)) sel.add(i); }); selRewrite = true; }
+    if (!sel.size) { D.shared.configs.forEach(function (_, i) { if (!isWithheld(i) && !isRun(i)) sel.add(i); }); selRewrite = true; }
     if (Kit.state.get('partial', 'hide') !== 'show' && sel.size && Array.from(sel).every(isPartial)) {   // the project maintainers 2026-09-07  (via failure-vs-difficulty): a link naming only hidden partial arms draws every shown arm; the named chips stay greyed
       dataNote = (dataNote ? dataNote + ' \u00b7 ' : '') + 'the link named only partial models, which are hidden; every shown model is drawn';
-      D.shared.configs.forEach(function (_, i) { if (!isPartial(i) && !isWithheld(i)) sel.add(i); }); selRewrite = true;
+      D.shared.configs.forEach(function (_, i) { if (!isPartial(i) && !isWithheld(i) && !isRun(i)) sel.add(i); }); selRewrite = true;
     }
     if (selRewrite) writeSel();   // the URL now carries arm ids (writeSel is a hoisted declaration)
   } else {
-    D.shared.configs.forEach(function (_, i) { if (!isWithheld(i)) sel.add(i); });   // the default selection never includes a withheld arm
+    D.shared.configs.forEach(function (_, i) { if (!isWithheld(i) && !isRun(i)) sel.add(i); });   // the default selection never includes a withheld arm, nor a run's checkpoints: a run's row is deselected by default (the project maintainers' word of 22 Sep 15:1x UK)
   }
   state.a = +Kit.state.get('a', 50);
   state.c = +Kit.state.get('c', 1);
@@ -739,7 +744,7 @@ function boot() {
   Kit.switchControl({ mount: row, key: 'kp', label: 'K paths',
     options: [{ value: 'off', label: 'Off' },
               { value: 'on', label: 'On' }],
-    dflt: 'on',
+    dflt: 'off',   // off by default on the live page and the public copy alike (the project maintainers' word of 22 Sep 15:1x UK)
     onchange: function (v) { state.kp = v; if (sel) render(); } });
   Kit.switchControl({ mount: row, key: 'lad', label: 'K ladders',
     options: [{ value: 'off', label: 'Off' }, { value: 'on', label: 'On' }],
