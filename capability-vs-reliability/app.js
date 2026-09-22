@@ -560,7 +560,8 @@ function mergeRunSet(raw) {
   runSets(raw).forEach(function (rs, k) {
     if (!rs || !rs.configs || !rs.configs.length) return;
     var set = rs.set || {}; if (set.axis_id && axis && set.axis_id !== axis) return;   // merged only on the run's own axis
-    var R = { key: set.series || set.key || ('run' + k),   // the set's series slug (no field named key in the sidecar: a secret scanner read it as an API key, 22 Sep) name: set.name || 'run', clause: set.clause || 'a run read along its steps, placed on the scale without a vote', tag: set.tag || '',
+    // the run is keyed by the set's series slug (no field named key in the sidecar: a secret scanner read key":"<id> as an API key, 22 Sep)
+    var R = { key: set.series || set.key || ('run' + k), name: set.name || 'run', clause: set.clause || 'a run read along its steps, placed on the scale without a vote', tag: set.tag || '',
               hue: set.hue || null, ramp: set.ramp || [], dash: set.dash || '', think: !!set.think, withheld: set.withheld || [], stateKey: set.state_key || (k === 0 ? 'run' : 'run_' + String(set.key || k).replace(/[^a-z0-9]/gi, '')), idx: [], folded: [] };
     var rowsById = {}; (rs.rows || []).forEach(function (r) { rowsById[r.cfg] = r; });
     rs.configs.forEach(function (c) {
