@@ -13,8 +13,8 @@
 
 var W = 860, H = 720, ML = 62, MR = 16, MT = 40, MB = 46;
 var PW = W - ML - MR, PH = H - MT - MB;
-/* EXPORT (the project maintainers 12:1x UK 18 Sep via the coordination: "a button to export the plot ... a legend with all the models ... It should just show whatever
- * is shown in the plot ... It shouldn't be too different from how you render them"): the export is THIS render path run once more, at a fixed
+/* EXPORT (the project maintainers' word of 18 Sep 12:1x UK: a button exports the plot with a legend of every model, showing what the plot
+ * shows, rendered as the page renders it): the export is THIS render path run once more, at a fixed
  * desktop geometry, with per-axis limits tightened to the drawn extent (EXT: the dots, whiskers and move arrows of the last screen render);
  * the reference helper clones the chart and lays the legend beside it. The page's own frame (LIM) never moves. */
 var EXPORTING = false, LIMX = null, LIMY = null, EXT = null, NO_RATCHET = false;   // NO_RATCHET: the export's restore render leaves the text blocks' heights as they were
@@ -100,9 +100,9 @@ fetch(MOUNT + 'data/manifest.json')
                                  : 'dataset \u201c' + String(want).slice(0, 40) + '\u201d is not one of ' + Object.keys(DATASETS).join(' | ')) + '; showing ' + DATASETS[DEFAULT_DATA].label;
       want = DEFAULT_DATA; Kit.state.set('data', null, null);
     }
-    /* ARMS (the project maintainers, chat 2026-09-03 17:: the golden set — Qwen3 0.6B–8B plain + thinking, Claude haiku-4-5 and sonnet-5 plain +
-     * thinking — "I want to be able to see the failure vs diff and cap vs rel ... only defined in terms of those with all the methods we
-     * know ... a data point"): key arms = all | golden (vocabulary adopted by failure-vs-difficulty for both official pages); under golden the
+    /* ARMS (the project maintainers' word of 3 Sep 2026 : the golden set — Qwen3 0.6B–8B plain + thinking, Claude haiku-4-5 and sonnet-5 plain +
+     * thinking — is a set to read failure against difficulty and capability against reliability on, defined over the arms every method
+     * covers; a data point, not the definition): key arms = all | golden (vocabulary adopted by failure-vs-difficulty for both official pages); under golden the
      * artifact set is datasets["golden-<data>"] — its own axis over the 12 arms, every estimator that exists for it */
     var armsWant = Kit.state.get('arms', 'all'), armsKey = armsWant === 'golden' ? 'golden-' + want : want;
     if (armsWant !== 'all' && armsWant !== 'golden') { dataNote = (dataNote ? dataNote + ' \u00b7 ' : '') + 'arms=' + String(armsWant).slice(0, 40) + ' is not one of all | golden; showing all models'; armsWant = 'all'; armsKey = want; Kit.state.set('arms', null, null); }
@@ -115,9 +115,8 @@ fetch(MOUNT + 'data/manifest.json')
   }).then(function (all) {
     D.shared = all[0]; D.avg = all[1]; D.med = all[2]; D.bay = all[3]; D.bayPrev = all[4] || null;
     D.runRaw = all[5] || null;   // merged in boot(), after the withdrawn pass, and only on the run's own axis   // bayes_prev: the fit before the last flip (arrows)
-    /* WITHDRAWN arms are ABSENT (the project maintainers, terminal 2026-09-03: "If I say the data shouldn't be included, it means the data
-     * shouldn't be included at all. Do not have these phantom points … permanently removed from any figures or displays or
-     * anything"): dropped from the configs and every chain before anything renders — no dot, no chip, no count, no reason.
+    /* WITHDRAWN arms are ABSENT (the project maintainers' word of 3 Sep 2026: data adopted out is out entirely — no phantom points, removed from every
+     * figure and display): dropped from the configs and every chain before anything renders — no dot, no chip, no count, no reason.
      * Source: the registry's withdrawn status (arms.jsonl, 2026-09-03) plus shared.withdrawn / shared.fit_excluded when the
      * artifact carries them (out-of-fit-population arms are absent too, never greyed). */
     var WITHDRAWN = {};   // 2026-09-03 : Gemma 4 re-entered with corrected-prompt data — the old hard-coded ids are gone; withdrawn arms come from the artifact
@@ -168,27 +167,24 @@ fetch(MOUNT + 'data/manifest.json')
   });
 
 /* ---------------- state ---------------- */
-/* DATASET option (the project maintainers, terminal 2026-09-03: "an option at the top to check which dataset we use: the board or these
- * new tasks, and eventually they will all become one … I like it as an option"). Vocabulary shared with
+/* DATASET option (the project maintainers' word of 3 Sep 2026: an option at the top chooses the dataset — the board or the new tasks,
+ * one set in the end). Vocabulary shared with
  * /failure-vs-difficulty: key data = board | new | all. An option whose artifact set does not
  * exist yet is served disabled with the reason on hover; a deep link to it falls back to board and says so. */
 var HOUSE_DATASETS = {   // availability comes from manifest.datasets at load; the reason sits on the disabled button and in the fallback note
-  // the project maintainers, chat 2026-09-05 14:: "since we focus on finishing generation from the top half of new pool this is what we should plot as
-  // well. Prioritising board+top half then top half by itself" — names of record (Definitions' vocabulary, shared with /failure-vs-difficulty):
+  // the project maintainers' word of 5 Sep 2026 : the generation effort goes to the top half of the new pool, so that is plotted too — the board
+  // with the top half first, then the top half by itself — names of record (Definitions' vocabulary, shared with /failure-vs-difficulty):
   // board_top = the 438 board tasks + the focused cohorts 1 and 2 on one axis (the DEFAULT view once its bundle is served); top = the focused 877.
   // Bundles: curves-site/data-board_top, data-top (+ golden pair); membership via unified_tasks.csv task_tier from the maintainers' frozen file.
-  // ORDER OF THE OPTIONS = the project maintainers' priorities (the project maintainers 2026-09-10  via fitting/coordinator, literal: "i care abt wave 1+2 jotily the most. then wave 1 only (as sanity
-  // check) then wave 2 only. then all the rest (quite little)"): wave 1+2 (default) | wave 1 | wave 2 | wave 2 + parked | wave 1+2 + parked.
-  // COUNTS NOT CODE-NAMES (the project maintainers 2026-09-07 : "when we are showing tasks to supervisors, we don't use the board or half or
-  // anything like that. It is super cryptic… You should just say in the figure: 400 → 1,200"): the labels below are plain-word fallbacks; relabel()
+  // ORDER OF THE OPTIONS = the project maintainers' priorities: wave 1+2 (default) | wave 1 | wave 2 | wave 2 + parked | wave 1+2 + parked.
+  // COUNTS NOT CODE-NAMES: the labels below are plain-word fallbacks; relabel()
   // rewrites them from the served frames as task counts ("438 original + 853 new tasks"). The URL keys stay (board_top | top | board | new | all).
   board_top: { label: 'wave 1+2', hover: 'wave 1+2, on one difficulty axis', available: false, reason: 'this set is not served yet' },
   board: { label: 'wave 1', hover: 'wave 1', available: true, reason: 'wave 1 are always served' },
   top: { label: 'wave 2', hover: 'wave 2 (the parked tasks are not in it)', available: false, reason: 'this set is not served yet' },
   'new': { label: 'wave 2 + parked', hover: 'wave 2 + parked', available: false, reason: 'crossing rows for wave 2 over the frozen level grid are not published yet' },
   all: { label: 'wave 1+2 + parked', hover: 'wave 1+2 + parked, on one difficulty axis', available: false, reason: 'no single axis covers the original and wave 2 yet (difficulty computes one over the combined set)' },
-  // CODING SETS ONLY (the project maintainers 2026-09-11 ≈, via coordinator, literal: "Math and AIME shouldn't be on capability-versus-difficulty pay curves
-  // but it can have a mirror page with all the new bench results presented in that way."): the MATH-500 and AIME options of 09-10 are retired here;
+  // CODING SETS ONLY: the MATH-500 and AIME options of 09-10 are retired here;
   // the maintainers's mirror page carries the newbench results in this form. A link that still says data=math500|aime falls back to the default set with a note.
 };
 // MIRROR HOOKS:
@@ -224,8 +220,8 @@ function relabel() {   // OFFICIAL SET NAMES with the count of record (the proje
     DATASETS.board_top.label = 'wave 1+2 (' + f(C.wave12) + ' tasks)'; DATASETS.board_top.short = 'wave 1+2';
     DATASETS['new'].label = 'wave 2 + parked (' + f(C.new_total) + ' tasks)'; DATASETS['new'].short = 'wave 2 + parked';
     DATASETS.all.label = 'wave 1+2 + parked (' + f(C.all) + ' tasks)'; DATASETS.all.short = 'all waves';
-    // SAY WAVE 1+2, NEVER THE SOURCE NAMES (the project maintainers at ops's terminal 2026-09-16 10:5x UK, literal: '"wave 1 (the kept HumanEval+ and MBPP+ tasks) and wave 2 (the new task
-    // pool)" stop using this vocab no JE MBPP newtask pool jsut say wave 1+2'): the sets are wave 1, wave 2, wave 1+2 and nothing else — no source names, no gloss
+    // SAY WAVE 1+2, NEVER THE SOURCE NAMES (the project maintainers' word of 16 Sep 2026 10:5x UK: the task sets are called wave 1 and wave 2 — no benchmark names, no new-task-pool
+    // words, just wave 1+2): the sets are wave 1, wave 2, wave 1+2 and nothing else — no source names, no gloss
     DATASETS.board.hover = 'wave 1';
     DATASETS.top.hover = 'wave 2 (the parked tasks are not in it)';
     DATASETS.board_top.hover = 'wave 1+2, on one difficulty axis';
@@ -243,8 +239,8 @@ function relabel() {   // OFFICIAL SET NAMES with the count of record (the proje
   if (na) { DATASETS.all.label = 'wave 1+2 + parked (' + na + ' tasks)'; DATASETS.all.short = 'wave 1+2 + parked'; }
   DATASETS.board_top.hover = 'wave 1+2, on one difficulty axis'; DATASETS.top.hover = 'wave 2 (the parked tasks are not in it)'; DATASETS.board.hover = 'wave 1'; DATASETS['new'].hover = 'wave 2 + parked'; DATASETS.all.hover = 'wave 1+2 + parked, on one difficulty axis';
 }
-/* PARTIAL ARMS (the project maintainers 2026-09-07, via coordinator + failure-vs-difficulty: "Shouldn't roughly all the models have all the tasks? …
- * maybe don't show it. We should have a toggle with a default of 'show partial arms'" / "the togle should be on rel vs cap as well"):
+/* PARTIAL ARMS (the project maintainers' words of 7 Sep 2026: roughly every model should have every task; a model without them is not shown
+ * by default, behind a toggle for partial arms, on this page as well):
  * an arm with attempts on fewer than 90% of this set's tasks is PARTIAL — hidden by default; the Partial arms switch (URL partial=show)
  * draws it greyed and marked, kept out of the fit; every hover carries "attempts on X of Y tasks (Z%)"; the notes name the hidden arms.
  * Coverage comes from failure-vs-difficulty's frames through the shared artifact (configs[].coverage {tasks, of}). */
@@ -268,7 +264,7 @@ function refreshPartialChips() {   // the project maintainers 2026-09-07  (via f
     if (c.think) words.push('thinking mode \u2014 open marker on the chart');
     if (c.run) { var Rw = runOf(i) || RUN; if (Rw) words.push((c.display_name || Rw.name + ' \u2014 ' + c.label) + ': ' + Rw.clause); }   // the full display name of record on hover (the labels rows' maintainers, 22 Sep)
     if (c.alongside) words.push('positioned on the served axis, not shaping it \u2014 its fit from the ' + c.alongside + ' series, read alongside the board fit set');   // difficulty's word of 22 Sep
-    if (c.gates_failed) words.push(c.gate_flag || 'flagged: the fit failed a sampler gate');   // a flagged fit is shown with its flag and its sentence, never plain (Definitions, 22 Sep)
+    if (c.gates_failed) words.push('flagged fit: ' + (c.gate_flag || 'the fit failed a sampler gate'));   // a flagged fit is shown with its flag and its sentence, never plain (Definitions, 22 Sep); the sentence of record follows the word
     var base = words.join(' \u00b7 ');
     if (isWithheld(i)) { b.disabled = true; b.setAttribute('aria-disabled', 'true'); b.classList.add('partial'); b.classList.remove('partialshown'); b.title = 'not shown: ' + WITHHELD[c.id]; return; }
     if (isPartial(i)) {
@@ -434,9 +430,9 @@ function prevFitName() {   // the project maintainers asked on 2026-09-14 which 
 }
 function readBayes(i, levLogit) { return readBayesRow(D.bayById[D.shared.configs[i].id], levLogit, D.bay); }
 function readBayesRow(r, levLogit, B) {   // B = the artifact the row belongs to (the served fit, or the previous fit for the arrows)
-  // the def switch swaps the WHOLE chain here too (2026-08-31 fix —
-  // the project maintainers: "median and average under the posterior show exactly the
-  // same points and we know that's not the case"): median-task =
+  // the def switch swaps the WHOLE chain here too (the 31 Aug 2026 fix on
+  // the project maintainers' word: the median and the average under the posterior cannot show the very same
+  // points, yet they did): median-task =
   // exact crossing draws; average-rate = band-inverted tables.
   var lt = state.def === 'average' ? r.levels_avg : r.levels;
   var LV = B.lev_logit;
@@ -485,13 +481,12 @@ function armFlag(i) {
   var f = D.shared.artifact_flags;
   return f && f.by_cfg[D.shared.configs[i].id] || null;
 }
-// CAPABILITY-C VARIANTS (the project maintainers 2026-09-14: "whast the distirbution of diffculty. uniform in 0, 1 or unofrm in logit space. can you make it so the page
-// shows both?"): capC = difficulty's C with the population weighted evenly along the failure level (u in 0-1; today's file); capC_z = the same battery weighted
+// CAPABILITY-C VARIANTS (the project maintainers' word of 14 Sep 2026: the distribution of difficulty may be uniform on 0–1 or uniform in logit space;
+// the page shows both): capC = difficulty's C with the population weighted evenly along the failure level (u in 0-1; today's file); capC_z = the same battery weighted
 // evenly along the difficulty scale (logit u over the axis's task range; difficulty's second file). Names stay as they are until the project maintainers and the metrics report agree
 // on better ones (the project maintainers' word); the plain clauses are difficulty's. Every Capability-C-keyed site reads the pressed variant through capBlock().
 var CAP_KEYS = {
-  // NAMES (the project maintainers, chat 2026-09-14 , literal: "It should be either capability (uniform difficulty 0, 1 to uniform logit. Those two names cart the distinction
-  // between them"): the two options are named by the marginal they weight the population with; the metrics-report attribution moves to the hover clause
+  // NAMES: the two options are named by the marginal they weight the population with; the metrics-report attribution moves to the hover clause
   // difficulty's axis names of record: 'Capability (uniform difficulty 0\u20131)' and 'Capability (uniform logit)'; their files carry a name field from
   // their next build and the switch binds it from the block (name()), typed as the fallback until then
   // THIRD VIEW + DISTRIBUTION NAMES: difficulty's names of record are Capability (uniform) = Beta(1,1) along the failure level, Capability (Haldane) = even weight per
@@ -565,7 +560,7 @@ function mergeRunSet(raw) {
     if (!rs || !rs.configs || !rs.configs.length) return;
     var set = rs.set || {}; if (set.axis_id && axis && set.axis_id !== axis) return;   // merged only on the run's own axis
     var R = { key: set.key || set.series || ('run' + k), name: set.name || 'run', clause: set.clause || 'a run read along its steps, placed on the scale without a vote', tag: set.tag || '',
-              hue: set.hue || null, ramp: set.ramp || [], dash: set.dash || '', think: !!set.think, stateKey: set.state_key || (k === 0 ? 'run' : 'run_' + String(set.key || k).replace(/[^a-z0-9]/gi, '')), idx: [], folded: [] };
+              hue: set.hue || null, ramp: set.ramp || [], dash: set.dash || '', think: !!set.think, withheld: set.withheld || [], stateKey: set.state_key || (k === 0 ? 'run' : 'run_' + String(set.key || k).replace(/[^a-z0-9]/gi, '')), idx: [], folded: [] };
     var rowsById = {}; (rs.rows || []).forEach(function (r) { rowsById[r.cfg] = r; });
     rs.configs.forEach(function (c) {
       if (have[c.id]) return;
@@ -580,7 +575,7 @@ function mergeRunSet(raw) {
       have[c.id] = true; D.shared.configs.push(c); R.idx.push(D.shared.configs.length - 1);
       var row = rowsById[c.id]; if (row && !haveRow[c.id]) { row.run = true; row.run_key = R.key; D.bay.rows.push(row); haveRow[c.id] = true; if (D.bayById) D.bayById[c.id] = row; }   // the row index is built at load; the run's rows join it here
     });
-    if (R.idx.length || R.folded.length) { RUNS.push(R); state.runs[R.stateKey] = Kit.state.get(R.stateKey, 'show') === 'hide' ? 'hide' : 'show'; }   // each run shown by default; URL <key>=hide
+    if (R.idx.length || R.folded.length || R.withheld.length) { RUNS.push(R); state.runs[R.stateKey] = Kit.state.get(R.stateKey, 'show') === 'hide' ? 'hide' : 'show'; }   // each run shown by default; URL <key>=hide
   });
   RUN = RUNS[0] || null;
 }
@@ -605,8 +600,8 @@ function boot() {
   sel = new Set();
   var selParam = Kit.state.get('sel', null), selRewrite = false;
   if (selParam !== null && selParam !== '') {
-    // SELECTION BY ARM IDENTITY (the project maintainers 2026-09-04: "the page remembers the ordering of chips which is different when selecting
-    // different dataset — fix bug"): the URL carries arm keys (the board id an arm shares across datasets), never chip positions;
+    // SELECTION BY ARM IDENTITY (the project maintainers' word of 4 Sep 2026: the page remembered chip positions, which differ between datasets — a bug
+    // to fix): the URL carries arm keys (the board id an arm shares across datasets), never chip positions;
     // a legacy positional link (digits and dots) is re-bound to keys once and the URL rewritten, with a note
     var keyOf = function (c) { return c.board_id || c.id; };
     var byKey = {}; D.shared.configs.forEach(function (c, i) { byKey[keyOf(c)] = i; byKey[c.id] = i; });
@@ -735,8 +730,8 @@ function boot() {
     if (b) { b.disabled = true; b.setAttribute('aria-disabled', 'true'); b.title = L[4]; }
   });
   showDataNote();
-  // constant-K paths (2026-08-29, the project maintainers' requirement: "drawing the
-  // lines under constant ratio K"): each arm's locus of crossing
+  // constant-K paths (the project maintainers' word of 29 Aug 2026: draw the
+  // lines under a constant ratio K): each arm's locus of crossing
   // pairs as the level pair sweeps holding K = x/y fixed — the sweep
   // tool's arcs, ported; drawn from the SAME per-level tables as the
   // dots, all three estimator sources
@@ -807,8 +802,7 @@ function boot() {
       } });
   });
   state.xs = Kit.state.get('xs', 'logit') === 'raw' ? 'raw' : 'logit'; state.ys = Kit.state.get('ys', 'logit') === 'raw' ? 'raw' : 'logit';
-  // FITTED LINE (the project maintainers 2026-09-14 , literal: "make cap vs rel allow for fitting linear map in the whatever axis is set (not by defult but
-  // in more fefults)" and "more controls should have a button to deactive linear fit"): one switch — Off | In difficulty steps (today's line, default) | In the axes as set
+  // FITTED LINE: one switch — Off | In difficulty steps (today's line, default) | In the axes as set
   Kit.switchControl({ mount: sb, key: 'line', label: 'Fitted line',
     options: [{ value: 'off', label: 'Off' }, { value: 'steps', label: 'In logit' }, { value: 'axes', label: 'In the axes as set' }],
     dflt: 'steps',
@@ -1018,9 +1012,9 @@ function applyLevel(key, v, K0) {
   // HELD = protected from INDIRECT change (the other handle, the fold
   // slider, play) — never locked against a DIRECT drag or typed value.
   // Moving a held level directly moves it ALONE: the other level stays,
-  // K recomputes within 1x..K_MAX (the project maintainers 2026-09-02: "it should be held
-  // fixed when I change any other options, but if I move it directly it's
-  // clear that it should change").
+  // K recomputes within 1x..K_MAX (the project maintainers' word of 2 Sep 2026: K holds
+  // fixed while other options change, and moves only when moved
+  // directly).
   // NO SILENT CEILING: the level being moved is ALWAYS
   // honored; K = x/y stays within 1x..K_MAX by letting the OTHER level
   // yield at a bound (K pinned, named in #kBound) — never by ignoring input.
@@ -1178,8 +1172,8 @@ function writeSel() {
   var all = sel.size === D.shared.configs.length;
   Kit.state.set('sel', all ? null : Array.from(sel).sort(function (p, q) { return p - q; }).map(function (i) { var c = D.shared.configs[i]; return c.board_id || c.id; }).join(','), null);   // arm keys, stable across datasets (2026-09-04)
 }
-/* ONE ORDER (the project maintainers 2026-09-15 12:2x UK, literal: "…let's have one ordering of all the models. This ordering is by their capability.
- * Do I need to say that again, starting from lowest to highest?"): every list of models on the page — the chips, the ridges — follows the capability
+/* ONE ORDER (the project maintainers' word of 15 Sep 2026 12:2x UK: one ordering of all the models, by their capability, lowest to
+ * highest, everywhere): every list of models on the page — the chips, the ridges — follows the capability
  * reading shown (the x axis as set, at the x level), lowest first; a bound sorts at the end it points to; an arm without a reading goes last */
 function capKey(i) {
   if (isRun(i) && (state.src !== 'bayes' || !D.bayById || !D.bayById[D.shared.configs[i].id])) return -1e9;   // no project-chain row for the run's checkpoints
@@ -1226,7 +1220,8 @@ function buildChips() {
   noneBtn.className = 'util'; noneBtn.textContent = 'none';
   noneBtn.onclick = function () { D.shared.configs.forEach(function (c, i) { if (!c.run) sel.delete(i); }); writeSel(); render(); };   // the run's chips keep their own selection
   box.appendChild(allBtn); box.appendChild(noneBtn);
-  // LEGEND ORDER: family buttons in the colour scheme's family order, then every model grouped by family, within a
+  // LEGEND ORDER (the project maintainers' word of 18 Sep 13:1x UK: the legend sorts by model family, not by capability, so the colours
+  // make sense): family buttons in the colour scheme's family order, then every model grouped by family, within a
   // family by size — the dataset's own order; never by capability or any measured value
   // MODEL ROW ORDER (the project maintainers' answer to the brief's call 7, 21 Sep 10:4x UK: the model list and the curves stay in capability order
   // while the legend goes by family — "for now"; the export legend keeps the reference family order): family buttons in the order of the family's
@@ -1252,7 +1247,7 @@ function buildChips() {
     if (isPartial(i) || isWithheld(i)) b.classList.add('partial');
     if (c.run) { var Rc = runOf(i) || RUN; b.classList.add('run'); b.title = (c.display_name || Rc.name + ' \u2014 ' + c.label) + ': ' + Rc.clause; }   // the full display name of record on hover
     if (c.alongside) { b.title = (b.title ? b.title + ' \u00b7 ' : '') + 'positioned on the served axis, not shaping it \u2014 its fit from the ' + c.alongside + ' series, read alongside the board fit set'; }   // difficulty's word of 22 Sep: a run's final admitted to the board is positioned, never voting
-    if (c.gates_failed) { b.classList.add('flagged'); var fg = document.createElement('span'); fg.className = 'flag'; fg.textContent = '\u2691'; fg.setAttribute('aria-label', 'flagged fit'); b.title = (b.title ? b.title + ' \u00b7 ' : '') + (c.gate_flag || 'the fit failed a sampler gate'); b.appendChild(fg); }   // a flagged fit is shown with its flag and its sentence, never plain (Definitions, 22 Sep)
+    if (c.gates_failed) { b.classList.add('flagged'); var fg = document.createElement('span'); fg.className = 'flag'; fg.textContent = '\u2691'; fg.setAttribute('aria-label', 'flagged fit'); b.title = (b.title ? b.title + ' \u00b7 ' : '') + 'flagged fit: ' + (c.gate_flag || 'the fit failed a sampler gate'); b.appendChild(fg); }   // a flagged fit is shown with its flag and its sentence, never plain (Definitions, 22 Sep)
     b.style.color = c.color; b.style.borderColor = c.color;
     b.insertBefore(document.createTextNode(c.label), b.firstChild); b.dataset.idx = i;
     b.onclick = function () { if (sel.has(i)) sel.delete(i); else sel.add(i); writeSel(); render(); };
@@ -1264,13 +1259,20 @@ function buildChips() {
   var rbox = document.getElementById('chips-runs');
   if (rbox) {
     rbox.innerHTML = '';
-    RUNS.forEach(function (R) {   // one line per run set: its name, its own all/none, its checkpoints in the run's order
-      if (!R.idx.length) return;
+    RUNS.forEach(function (R) {   // one line per run set: its name, its own all/none, its checkpoints in the run's order, and the checkpoints not shown said in words
+      if (!R.idx.length && !R.withheld.length) return;
       var line = document.createElement('div'); line.className = 'chips chips-run'; line.id = 'chips-run-' + R.key.replace(/[^a-z0-9]/gi, '-'); line.dataset.run = R.key; line.dataset.stateKey = R.stateKey;
-      var lab = document.createElement('span'); lab.className = 'runlabel'; lab.style.color = R.hue || D.shared.configs[R.idx[0]].color; lab.textContent = R.name; lab.title = R.clause; line.appendChild(lab);
-      var rAll = document.createElement('button'); rAll.className = 'util'; rAll.textContent = 'all'; rAll.onclick = function () { R.idx.forEach(function (i) { sel.add(i); }); writeSel(); render(); }; line.appendChild(rAll);
-      var rNone = document.createElement('button'); rNone.className = 'util'; rNone.textContent = 'none'; rNone.onclick = function () { R.idx.forEach(function (i) { sel.delete(i); }); writeSel(); render(); }; line.appendChild(rNone);
-      R.idx.forEach(function (i) { line.appendChild(makeChip(i)); });
+      var lab = document.createElement('span'); lab.className = 'runlabel'; lab.style.color = R.hue || (R.idx.length ? D.shared.configs[R.idx[0]].color : '#52514e'); lab.textContent = R.name; lab.title = R.clause; line.appendChild(lab);
+      if (R.idx.length) {
+        var rAll = document.createElement('button'); rAll.className = 'util'; rAll.textContent = 'all'; rAll.onclick = function () { R.idx.forEach(function (i) { sel.add(i); }); writeSel(); render(); }; line.appendChild(rAll);
+        var rNone = document.createElement('button'); rNone.className = 'util'; rNone.textContent = 'none'; rNone.onclick = function () { R.idx.forEach(function (i) { sel.delete(i); }); writeSel(); render(); }; line.appendChild(rNone);
+        R.idx.forEach(function (i) { line.appendChild(makeChip(i)); });
+      }
+      if (R.withheld.length) {   // a fail-closed hide says so on the face (difficulty's form, 22 Sep): the name of record and the reason, under the run's chips
+        var note = document.createElement('span'); note.className = 'runnote'; note.setAttribute('data-critical-text', '');
+        note.textContent = 'Not shown: ' + R.withheld.map(function (w) { return (w.display_name || w.label || w.id) + ' \u2014 ' + w.reason; }).join('; ') + '.';
+        line.appendChild(note);
+      }
       line.hidden = !runOnPlane(R);
       rbox.appendChild(line);
     });
@@ -1341,7 +1343,7 @@ function paintChips() {
     var nofit = (state.src === 'bayes' && !!D.bay && !D.bayById[cfgId]) || (isRun(+b.dataset.idx) && state.src !== 'bayes');   // one estimator per view: an arm without a posterior is a greyed chip, never a point; the run's checkpoints are Bayesian fits only
     b.classList.toggle('nofit', nofit);
     var cfgC = D.shared.configs[+b.dataset.idx] || {};
-    if (nofit) { b.title = (isRun(+b.dataset.idx) && state.src !== 'bayes' ? 'a run\u2019s checkpoints are Bayesian fits \u2014 not drawn under the reference chain' : 'awaiting its Bayesian fit \u2014 not drawn under the Bayesian estimator') + (cfgC.gates_failed ? ' \u00b7 ' + (cfgC.gate_flag || 'flagged: the fit failed a sampler gate') : ''); b.dataset.nofit = '1'; }   // the flag stays on the hover in every state (Definitions, 22 Sep)
+    if (nofit) { b.title = (isRun(+b.dataset.idx) && state.src !== 'bayes' ? 'a run\u2019s checkpoints are Bayesian fits \u2014 not drawn under the reference chain' : 'awaiting its Bayesian fit \u2014 not drawn under the Bayesian estimator') + (cfgC.gates_failed ? ' \u00b7 flagged fit: ' + (cfgC.gate_flag || 'the fit failed a sampler gate') : ''); b.dataset.nofit = '1'; }   // the flag stays on the hover in every state (Definitions, 22 Sep)
     else if (b.dataset.nofit) { b.title = ''; delete b.dataset.nofit; recompose = true; }
   });
   if (recompose) refreshPartialChips();   // a chip back from no-fit gets its hover words again
@@ -1541,7 +1543,7 @@ function axisShort(axis) {   // the axis carries a short title; the long estimat
   // no method name on the figure: the source is on the switch and in the provenance fold
   return dName(axis) + (state.def === 'median' ? ' (median task)' : '');
 }
-/* the project maintainers' names of record for the axes:
+/* the project maintainers' names of record for the axes (the record of 18 Sep 12:1x UK and 13:0x UK: D50 and D99, D uppercase):
  * DN = the difficulty at which the model's solve chance is N%, N = 100 minus the failure level as set (50% -> D50, 1% -> D99); printed bare */
 function dName(axis) {
   var lev = axis === 'x' ? +state.a : +state.c;
@@ -1985,8 +1987,8 @@ function renderScatter() {
   refreshBeyondChips();
   var drawnN = visible.length - undrawn.length - beyondArms.length, totalN = D.shared.configs.length;
   // the label names the fit's space whenever it differs from the axes' display
-  // PANEL (the project maintainers 2026-09-15 12:1x UK, literal: "stop with so many words on the lienar fir How about slope, the range of the slope, and that's it, or maybe
-  // also r, the r-value? I don't want to rest so many words on it. R Big R No small r."): three short lines — the slope, its range, R (the correlation coefficient)
+  // PANEL (the project maintainers' word of 15 Sep 2026 12:1x UK: fewer words on the linear fit — the slope, its range and R, the
+  // capital letter, nothing more): three short lines — the slope, its range, R (the correlation coefficient)
   // ONE LINE (the project maintainers, 2026-09-15 13:2x UK: one line — slope x [y, z] and R: a — instead of three): the project maintainers' shape, an em space
   // as the one gap, tabular figures, two decimals everywhere, the same on every view
   var pl1 = f ? 'slope ' + f.b.toFixed(2) + ' [' + f.lo.toFixed(2) + ', ' + f.hi.toFixed(2) + ']\u2003R: ' + f.r.toFixed(2) : (sweeping ? 'fit paused while the levels move' : NARROW ? 'no fit: under 3 fully measured models' : 'no fit: fewer than three fully measured models');
@@ -2008,8 +2010,8 @@ function renderScatter() {
   // (source parenthetical), and are exempt from other keys' runs
   if (EXPORTING) out = out.slice(0, clipAt) + '<clipPath id="expclip"><rect x="' + ML + '" y="' + MT + '" width="' + PW + '" height="' + PH + '"/></clipPath>'
     + '<g clip-path="url(#expclip)">' + out.slice(clipAt) + '</g>';   // the export's tight limits: trails, ladders, the band and the line stop at the plot box
-  // the titles are the project maintainers' names, bare (the project maintainers 13:0x UK 18 Sep via the coordination: "It should just be D50 and D99 … You don't need to write percent if
-  // the y-axis already has the percent numbers next to the tags … One can see what the spacing is"): no unit word, no spacing word, on every width
+  // the titles are the project maintainers' names, bare (the project maintainers' word of 18 Sep 13:0x UK: the axis titles read D50 and D99 alone — the percent numbers on the
+  // ticks say the unit and the spacing shows itself): no unit word, no spacing word, on every width
   var tyx = EXPORTING ? 20 : NARROW ? 11 : 15, tfs = EXPORTING ? EXPORT_TITLE_PX : NARROW ? 13 : Math.max(FS + 1, Math.ceil(13 * UPX));   // the titles render at 13 px or more, never under the tick type (the project maintainers 13:2x UK 18 Sep); twice that in the export (13:5x UK)
   out += '<text x="' + (ML + PW / 2) + '" y="' + (H - 6)
     + '" text-anchor="middle" fill="#52514e" font-size="' + tfs + '" data-role="axis-title" '
@@ -2135,8 +2137,7 @@ function exportOptions() {
 }
 
 /* ---------------- ridges view (posterior; median-task chain) --- */
-/* OPUS PAIR FOLD (the project maintainers 2026-09-10 ≈ via the coordination: "I think the posterior ridges imply the Opus 5 thinking is more reliable
- * than Opus 5 on the capability vs. reliability plot … if you do scatter, it's less reliable. Could you have that investigated?"):
+/* OPUS PAIR FOLD:
  * ONE figure with both readings for the two arms on one difficulty axis and the verdict in words, drawn from the served rows;
  * hidden when either arm is absent or unfitted in the dataset shown. Ridge = posterior of the MEDIAN-TASK 1% crossing (d1 draws);
  * scatter = the point of record, the AVERAGE-RATE 1% crossing (levels_avg). */
@@ -2586,7 +2587,7 @@ function reliabilityDefinition() {
 /* FIRST SCREEN: line 1 the question, lines 2–3 the answer
  * with ONE metric (the drawn slope) and at most three supporting numbers (arm count, interval ends) — rendered from state */
 // the figure's caption under the chart: fitting's words (21 Sep, with difficulty's corrections; reworded the same evening without log-odds words under the project maintainers' 6 Sep rule), every figure rendered from the fit's state, never typed
-//. Shown for the line of
+// (the project maintainers' question of 21 Sep 18:2x UK: what the straight line fitted to D99 against D50 means). Shown for the line of
 // record only: the unweighted least-squares line in the scale's own steps (In logit, or In the axes as set with both axes on the logit scale).
 function fitCaption(fit, n) {
   var el = document.getElementById('fitcaption'); if (!el) return;
@@ -2616,8 +2617,8 @@ function headline(nFit, fit, nFull, sweeping) {
   var xw = capC ? CAP_KEYS[state.xdef].name() : dName('x');
   var ans;
   if (fit) {
-    // no verdict, no direction word (the project maintainers 2026-09-16 17:4x UK, literal: "Never tell me the ordering of things: who's the best, who's what? We are not
-    // optimizing anything. We're trying to get information."): the first screen states the fitted line's slope with its range and R, nothing more
+    // no verdict, no direction word (the project maintainers' word of 16 Sep 2026 17:4x UK: never a ranking — who is best, who is what — the page gives
+    // information, it optimises nothing): the first screen states the fitted line's slope with its range and R, nothing more
     ans = 'The fitted line across the models, ' + dName('y') + ' against ' + xw + ': slope ' + fit.b.toFixed(2) + ' [' + fit.lo.toFixed(2) + ', ' + fit.hi.toFixed(2) + '], R ' + fit.r.toFixed(2) + (inAxes() ? ', in the axes as set' : '') + (state.lw === 'bands' ? ', each dot weighted by its bands' : '') + ' (' + est + ').';
   } else ans = 'Too few fully measured models at these levels to fit a line (' + nFull + ' measured; the fit needs three).';
   el.textContent = q + ' ' + ans;
@@ -2683,7 +2684,7 @@ function hoverWire() {
     var fl = armFlag(i), fe = D.shared.fit_excluded && D.shared.fit_excluded[c.id];
     var cf = D.bay && D.bay.disclosures && D.bay.disclosures.cut_flag && D.bay.disclosures.cut_flag[c.id];   // cut flag beside the arm (fit pointer gemma_cut_flag), never a failure claim
     Kit.tooltip.show(ev.clientX, ev.clientY, [
-      { key: c.gates_failed ? '#b3261e' : c.color, value: fmt(rx), label: axisName('x') + (c.gates_failed ? ' \u00b7 flagged fit: ' + (c.gate_flag || 'a sampler gate failed') : '') },
+      { key: c.gates_failed ? '#b3261e' : c.color, value: fmt(rx), label: axisName('x') + (c.gates_failed ? ' \u00b7 flagged fit: ' + (c.gate_flag || 'the fit failed a sampler gate') : '') },
       { key: c.color, value: fmt(ry), label: axisName('y') },
       { key: null, value: '', label: rx.extra },
       { key: null, value: '', label: ry.extra === rx.extra ? '' : ry.extra },
