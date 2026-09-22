@@ -2618,13 +2618,13 @@ function headline(nFit, fit, nFull, sweeping) {
   var capC = isCap();
   var q = capC ? 'Does a model that solves more of the pool also stay reliable further up the difficulty scale?'
                : 'Does a more capable model also stay reliable further up the difficulty scale?';
-  var est = state.src === 'bayes' ? 'estimates from the fitted failure curves' : 'estimates from the smoothed failure trend';   // plain words, no method name on the figure (the project maintainers 2026-09-14)
+  var est = state.src === 'bayes' ? 'estimates from the fitted failure curves' : 'estimates from the smoothed failure trend';   // plain words, no method name on the figure (the project maintainers 2026-09-14); the parenthetical left the headline on the project maintainers' word of 22 Sep 20:1x UK — the estimator switch names the source
   var xw = capC ? CAP_KEYS[state.xdef].name() : dName('x');
   var ans;
   if (fit) {
     // no verdict, no direction word (the project maintainers' word of 16 Sep 2026 17:4x UK: never a ranking — who is best, who is what — the page gives
     // information, it optimises nothing): the first screen states the fitted line's slope with its range and R, nothing more
-    ans = 'The fitted line across the models, ' + dName('y') + ' against ' + xw + ': slope ' + fit.b.toFixed(2) + ' [' + fit.lo.toFixed(2) + ', ' + fit.hi.toFixed(2) + '], R ' + fit.r.toFixed(2) + (inAxes() ? ', in the axes as set' : '') + (state.lw === 'bands' ? ', each dot weighted by its bands' : '') + ' (' + est + ').';
+    ans = 'The fitted line across the models, ' + dName('y') + ' against ' + xw + ': slope ' + fit.b.toFixed(2) + ' [' + fit.lo.toFixed(2) + ', ' + fit.hi.toFixed(2) + '], R ' + fit.r.toFixed(2) + (inAxes() ? ', in the axes as set' : '') + (state.lw === 'bands' ? ', each dot weighted by its bands' : '') + '.';
   } else ans = 'Too few fully measured models at these levels to fit a line (' + nFull + ' measured; the fit needs three).';
   el.textContent = q + ' ' + ans;
 }
