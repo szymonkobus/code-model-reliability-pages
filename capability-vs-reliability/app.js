@@ -540,7 +540,7 @@ function reading(i, levLogit, axis) {
 }
 
 /* ---------------- boot ---------------- */
-// THE THIRD MODEL SET (the project maintainers at the terminal, 22 Sep 2026 11:1x UK: "add third set of models (OLMO)"): the Olmo 3.1 7B RL-Zero Code
+// THE THIRD MODEL SET (the project maintainers' word of 22 Sep 2026 11:1x UK: a third model set, the Olmo run): the Olmo 3.1 7B RL-Zero Code
 // run's checkpoints, from fitting's fit files of record via build_olmo_set.py (data/olmo_run.json). Merged into the configs and the Bayesian rows
 // only when the loaded dataset sits on the run's axis (the board_top axis); its own switch in the model row, its own family group and colours
 // (the run's hue, lighter early to darker at the final model), each checkpoint labelled by its index in the maintainers' order; a run read along its
@@ -1189,7 +1189,7 @@ function buildChips() {
   var allBtn = document.createElement('button');
   allBtn.className = 'util'; allBtn.textContent = 'all';
   allBtn.onclick = function () {
-    D.shared.configs.forEach(function (_, i) { if (!isHidden(i) && !isRun(i)) sel.add(i); });   // hidden partial arms are unselectable; the run's line has its own all/none (the record 22 Sep)
+    D.shared.configs.forEach(function (_, i) { if (!isHidden(i) && !isRun(i)) sel.add(i); });   // hidden partial arms are unselectable; the run's line has its own all/none (the project maintainers' word of 22 Sep)
     writeSel(); render();
   };
   var noneBtn = document.createElement('button');
@@ -1203,7 +1203,7 @@ function buildChips() {
   // most capable member, then every model in ONE flat row by capability, lowest first
   var mainIdx = [], runIdx = [];
   D.shared.configs.forEach(function (c, i) { (c.run ? runIdx : mainIdx).push(i); });
-  var ordered = capOrder(mainIdx);   // the main row; the run's checkpoints go to their own line below (the record 22 Sep 11:5x UK)
+  var ordered = capOrder(mainIdx);   // the main row; the run's checkpoints go to their own line below (the project maintainers' word of 22 Sep 11:46 UK)
   var famKey = function (f) { return Math.max.apply(null, f.members.map(function (i) { var k = capKey(i); return isFinite(k) ? k : -1e9; })); };
   var isRunFam = function (f) { return f.members.length && isRun(f.members[0]); };
   fams.filter(function (f) { return !isRunFam(f); }).sort(function (p, q) { return famKey(p) - famKey(q); }).forEach(function (f) {   // the run's family has its own line below
@@ -1220,15 +1220,15 @@ function buildChips() {
     var c = D.shared.configs[i], b = document.createElement('button');
     b.className = 'chip'; if (c.think) { b.classList.add('think'); b.title = 'thinking mode \u2014 open marker on the chart'; }
     if (isPartial(i) || isWithheld(i)) b.classList.add('partial');
-    if (c.run) { b.classList.add('run'); b.title = RUN.name + ' \u2014 ' + c.label + (c.step != null ? ' (training step ' + c.step + ')' : '') + ': ' + RUN.clause; }
+    if (c.run) { b.classList.add('run'); b.title = (c.display_name || RUN.name + ' \u2014 ' + c.label) + ': ' + RUN.clause; }   // the full display name of record on hover
     b.style.color = c.color; b.style.borderColor = c.color;
     b.textContent = c.label; b.dataset.idx = i;
     b.onclick = function () { if (sel.has(i)) sel.delete(i); else sel.add(i); writeSel(); render(); };
     chips.push(b); return b;
   };
   ordered.forEach(function (i) { box.appendChild(makeChip(i)); });
-  // THE RUN'S OWN LINE OF CHIPS (the record at the terminal, 22 Sep 11:5x UK: a new line of chips below the existing ones, shown only when the
-  // Olmo toggle is on, not bound to the all/none buttons above, with its own all/none — so the run's checkpoints compare with one another)
+  // THE RUN'S OWN LINE OF CHIPS (the project maintainers' word of 22 Sep 11:46 UK: a line of chips for the run below the models' row, shown when the
+  // run toggle is on, not bound to the all/none buttons above, with its own all/none, so the run's checkpoints compare with one another)
   var rbox = document.getElementById('chips-run');
   if (rbox) {
     rbox.innerHTML = '';
@@ -1297,7 +1297,7 @@ function paintChips() {
   var box = document.getElementById('chips'), byIdx = {}; chips.forEach(function (b) { byIdx[+b.dataset.idx] = b; });
   var idxs = chips.map(function (b) { return +b.dataset.idx; });
   capOrder(idxs.filter(function (i) { return !isRun(i); })).forEach(function (i) { if (byIdx[i] && byIdx[i].parentNode === box) box.appendChild(byIdx[i]); });   // the main row by capability; the run's line keeps the run's order
-  var rbox = document.getElementById('chips-run'); if (rbox) rbox.hidden = !(RUN && runOnPlane());   // the run's line shows only when the run is on the plane (the record 22 Sep)   // capability order, re-read at every render (the brief's call 7, 21 Sep)   // one order, re-read at every render
+  var rbox = document.getElementById('chips-run'); if (rbox) rbox.hidden = !(RUN && runOnPlane());   // the run's line shows only when the run is on the plane (the project maintainers' word of 22 Sep)   // capability order, re-read at every render (the brief's call 7, 21 Sep)   // one order, re-read at every render
   chips.forEach(function (b) {
     b.classList.toggle('off', !sel.has(+b.dataset.idx));
     b.setAttribute('aria-pressed', sel.has(+b.dataset.idx) ? 'true' : 'false');   // selection readable by probes
@@ -2046,7 +2046,7 @@ function exportLegend() {   // every drawn model grouped by family in the colour
     var mark = function (cx, cy) {   // the drawn path is an absolute M followed by relative commands: re-anchor it on the legend row
       return '<path d="' + d.replace(/^M[-\d.]+ [-\d.]+/, 'M' + cx + ' ' + cy) + '" fill="' + fill + '" stroke="' + stroke + '" stroke-width="' + sw + '"' + (op && +op < 1 ? ' opacity="' + op + '"' : '') + '/>';
     };
-    rows.push({ label: c.label + (grey ? ' (partial)' : ''), family: c.fam, color: grey ? '#8b8477' : c.color, line: false, marker: mark });
+    rows.push({ label: (c.display_name || c.label) + (grey ? ' (partial)' : ''), family: c.fam, color: grey ? '#8b8477' : c.color, line: false, marker: mark });   // legends carry the full display name of record (the labels rows' maintainers, 22 Sep)
   });
   return rows;
 }
@@ -2552,7 +2552,7 @@ function fitCaption(fit, n) {
   var runDrawn = runOnPlane() && Array.from(sel).some(function (i) { return isRun(i); });
   var outs = [state.partial === 'show' ? 'the faded partial models' : null, runDrawn ? 'the run\u2019s checkpoints' : null].filter(Boolean);
   var drawnTxt = outs.length ? 'across the fitted models (' + outs.join(' and ') + ' drawn are not in the fit)' : 'across the drawn models';   // exact in every state
-  el.hidden = false; if (fold) fold.hidden = false;   // a fold at the very end of the page (the record 22 Sep 11:4x UK: nothing between the plot and its controls; the summary carries the opening words)
+  el.hidden = false; if (fold) fold.hidden = false;   // a fold at the very end of the page (the project maintainers' word of 22 Sep 11:43 UK: nothing between the plot and its controls; the summary carries the opening words)
   el.textContent = 'Both axes are positions on the difficulty scale. A task’s position is its failure rate averaged over the models that shape the scale (one vote per model), smoothed toward one half by the Jeffreys step on the total attempts, placed on the scale by its odds: one step on the scale multiplies the odds of failure by about 2.7, and positions print as shares (a difficulty of 70% is a task those models fail on 70% of their attempts on average). '
     + xn + ' is the difficulty at which a model’s fitted failure curve crosses ' + xl + ', ' + yn + ' the difficulty at which the same curve crosses ' + yl + '. The line ' + yn + ' = a + b·' + xn + ' is fitted in scale steps ' + drawnTxt + ' (ordinary least squares, every dot equal; equal axes). The slope b is how many steps ' + yn + ' moves for each step of ' + xn + ' across models; with b near one the intercept a is a constant gap: every model’s ' + yn + ' sits |a| steps below its ' + xn + ', the same gap for every model, and the odds of failure at the ' + yn + ' position are e^a times those at the ' + xn + ' position. With b away from one the gap changes by (b − 1) steps per step of ' + xn + ', so the intercept alone is the gap at the scale’s 50% mark. '
     + 'Today: slope ' + b.toFixed(2) + ' [' + fit.lo.toFixed(2) + ', ' + fit.hi.toFixed(2) + '], intercept ' + a.toFixed(2) + aRange + ' steps (e^' + a.toFixed(2) + ' ≈ ' + eaTxt + '), R ' + fit.r.toFixed(2) + ', ' + n + ' models on ' + set + '.';
