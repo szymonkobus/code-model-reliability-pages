@@ -1,0 +1,12 @@
+# Secret-scan allowlist for the standalone pages (infra, 22 Sep 2026). The pages carry benchmark data, never credentials; the classes below
+# are field names of the data files whose VALUES are run or model identifiers that the generic keyword rule reads as keys.
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "run sidecars: the run_key / key fields hold run identifiers (e.g. a lower-case run name), never a credential"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = ['''capability-vs-reliability/data/.*\.json$''']
+regexTarget = "match"
+regexes = ['''(?:run_)?key":"[a-z0-9][a-z0-9._-]{3,60}"''']

@@ -1,4 +1,4 @@
-/* project plot export — the maintainers, 18 Sep 2026 (v5.6, 21 Sep : attributions by role and date only, the place of speaking dropped from served comments — the maintainers's F104; v5.5, 20 Sep 05:xxZ: served comments attribute by role and date, no name or pronoun — the maintainers's F099; v5.4, : EXPORT TEXT SIZES restated — the word of record is the RATIO, twice and one and a half times the page's own sizes; 26/18 px are those ratios for a 13/12 page; doc only; v5.3, : EXPORT TEXT SIZES documented + Kit.EXPORT_TEXT constants, behaviour identical to v5.2, no re-vendor needed for behaviour; v5.2, : the download anchor is removed the moment it is clicked, so the page HTML is unchanged at once — capability-vs-reliability's read; v5.1, : DeepSeek patterns matched before Qwen — "DeepSeek-R1-Distill-Qwen-32B" was filed under Qwen3 by "Qwen-3…" — and the Qwen3 pattern stops at a digit; v5, : legend rows grouped by family in the palette's order, Kit.legendByFamily, the project maintainers' word of 18 Sep 13:1x UK; v4, : legendTitle; v3: scatter rows without a line, the page's own marks, data-legend on server-built SVGs, download links for static figures). The project maintainers' ask of 18 Sep 12:1x UK, on the capability-vs-reliability page (the words of record are filed in the reference ledger): every plot on a page the reader studies gets
+/* project plot export — the reference template, 18 Sep 2026 (v5.9, 22 Sep 12:2x UK: the Olmo family key reads 'Olmo 3' — the generation, its 3 and 3.1 releases one hue — the pattern unchanged; v5.8, 21 Sep 17:4x UK: a legend row with ramp: [shades…] draws a checkpoint series as ONE gradient bar, first step's shade to the last's, the label carrying the step range — the long-series form; v5.7, 21 Sep 11:2x UK: the Olmo region's two families — OLMo-2, then the Olmo 3.1 checkpoint series — join Kit.FAMILIES after Gemma-4, the palette registry's order; every other family's grouping unchanged; v5.6, 21 Sep 06:2x UK: attributions by role and date only, the place of speaking dropped from served comments — the presentation critic's finding of 21 Sep; v5.5, 20 Sep 06:xx UK: served comments attribute by role and date, no name or pronoun — the presentation critic's finding of 20 Sep; v5.4, 14:4x UK: EXPORT TEXT SIZES restated — the word of record is the RATIO, twice and one and a half times the page's own sizes; 26/18 px are those ratios for a 13/12 page; doc only; v5.3, 14:1x UK: EXPORT TEXT SIZES documented + Kit.EXPORT_TEXT constants, behaviour identical to v5.2, no re-vendor needed for behaviour; v5.2, 14:0x UK: the download anchor is removed the moment it is clicked, so the page HTML is unchanged at once — capability-vs-reliability's read; v5.1, 13:4x UK: DeepSeek patterns matched before Qwen — "DeepSeek-R1-Distill-Qwen-32B" was filed under Qwen3 by "Qwen-3…" — and the Qwen3 pattern stops at a digit; v5, 13:3x UK: legend rows grouped by family in the palette's order, Kit.legendByFamily, the project maintainers' word of 18 Sep 13:1x UK; v4, 13:1x UK: legendTitle; v3: scatter rows without a line, the page's own marks, data-legend on server-built SVGs, download links for static figures). The project maintainers' ask of 18 Sep 12:1x UK, on the capability-vs-reliability page (the words of record are filed in the reference ledger): every plot on a page the reader studies gets
  * an export button; the export shows the plot's axes and a legend of every model beside it, exactly what the plot shows and nothing
  * more, produced by a robust method close to the page's own rendering, as the default way every plot exports.
  *
@@ -22,6 +22,7 @@
  *              their order after the models. legendOrder: 'given' opts out (rows that are not models). Kit.legendByFamily(rows) is the same grouping.
  *   legendTitle the legend's heading, default 'Models' — a set-keyed or category-keyed plot names its rows ('Task sets', 'Categories')
  *              dash: an SVG stroke-dasharray string or ''; line: false (or width: 0) for a scatter row with no line series;
+ *              ramp: [hex, hex, …] — a checkpoint series as ONE row: a gradient bar from the first step's shade to the last's, the label the series' name and step range
  *              marker: 'circle' | 'open-circle' | 'square' | 'open-square' | 'triangle' | 'open-triangle' | 'none', or the page's own mark
  *              as { d, fill, stroke, strokeWidth, scale } (a path fragment drawn in a box centred on the row) or a function (cx, cy, color) → svg
  *   title      the page's plot title in plain words;  view: the controls' state in words;  stamp: 'data as of 18 Sep 12:07 UK'
@@ -56,7 +57,7 @@
   var NS = 'http://www.w3.org/2000/svg';
   Kit.EXPORT_TEXT = { plotWidth: 900, axisTitle: 26, tick: 18, axisTitleScale: 2, tickScale: 1.5, margins: { left: 90, right: 30, top: 40, bottom: 62 } };   // the project maintainers' word of 18 Sep 13:5x UK: the SCALES rule (2× and 1.5× the page's own sizes); 26/18 are those scales for a 13/12 page
   Kit.exportTextSizes = function (pageAxisTitlePx, pageTickPx) { return { axisTitle: Math.round(2 * pageAxisTitlePx), tick: Math.round(1.5 * pageTickPx) }; };   // the sizes an export redraw takes for a page drawing at the given px
-  // the palette registry's family order (FAMILY_HUES, pages/failure-vs-difficulty/plot_difficulty.py; palette/DESIGN.md) — one hue a family,
+  // the palette registry's family order (its FAMILY_HUES table and design record) — one hue a family,
   // lightness rungs within it, so a legend grouped by family in this order reads as the colours do (the project maintainers' word of 18 Sep 13:1x UK)
   var FAMILIES = Kit.FAMILIES = [
     ['Qwen2.5-Coder', /qwen[-\s]?2\.5[-\s]?coder/i],
@@ -72,7 +73,9 @@
     ['DeepSeek-R1-Distill', /deepseek[-\s]?r1|\br1[-\s]?distill|\bds[-\s]?r1d?\b/i],
     ['GPT-5', /\bgpt[-\s]?5/i],
     ['Gemini', /\bgemini\b/i],
-    ['Gemma-4', /\bgemma\b/i]
+    ['Gemma-4', /\bgemma\b/i],
+    ['OLMo-2', /\bolmo[-\s]?2\b/i],   // the Olmo region (21 Sep): newbench's released models, then the Olmo 3.1 checkpoint series
+    ['Olmo 3', /\bolmo[-\s]?3(?:\.\d+)?\b/i]   // the generation's key (was 'Olmo 3.1' until 22 Sep): the 3 and 3.1 releases, one hue
   ];
   // patterns are tried DeepSeek first: a distilled model's label names its base ("DeepSeek-R1-Distill-Qwen-32B", "…-Llama-8B"), and the
   // registry's order (Qwen before DeepSeek) is a RANK for the legend, not a match order
@@ -150,6 +153,13 @@
     var out = '<text class="kit-legend-title" x="' + x + '" y="' + (y + 12) + '" font-family="' + FONT + '" font-size="12" font-weight="600" fill="#1a1a1a">' + esc(title || 'Models') + '</text>';   // legendTitle: what the rows are (task sets, categories) when not models
     legend.forEach(function (m, i) {
       var c = Math.floor(i / perCol), r = i % perCol, lx = x + c * colW, ly = y + 30 + r * rowH, color = m.color || '#52514e';
+      if (m.ramp && m.ramp.length > 1) {   // a checkpoint series drawn as ONE row: a gradient bar from the first step's shade to the last's (21 Sep); the label carries the step range
+        var gid = 'kit-ramp-' + i + '-' + Math.random().toString(36).slice(2, 7);
+        out += '<defs><linearGradient id="' + gid + '" x1="0" y1="0" x2="1" y2="0">' + m.ramp.map(function (col, k) { return '<stop offset="' + (m.ramp.length === 1 ? 0 : k / (m.ramp.length - 1)) + '" stop-color="' + esc(col) + '"/>'; }).join('') + '</linearGradient></defs>';
+        out += '<rect x="' + lx + '" y="' + (ly - 4) + '" width="26" height="8" rx="2" fill="url(#' + gid + ')"' + (m.dash ? ' stroke="' + esc(m.ramp[m.ramp.length - 1]) + '" stroke-dasharray="' + esc(m.dash) + '" stroke-width="1"' : '') + '/>';
+        out += '<text class="kit-legend-row" data-family="' + esc(Kit.familyOf(m)) + '" x="' + (lx + 34) + '" y="' + (ly + 4) + '" font-family="' + FONT + '" font-size="12" fill="#1a1a1a">' + esc(m.label) + '</text>';
+        return;
+      }
       if (m.line !== false && m.width !== 0) out += '<line x1="' + lx + '" y1="' + ly + '" x2="' + (lx + 26) + '" y2="' + ly + '" stroke="' + color + '" stroke-width="' + (m.width || 2) + '"' + (m.dash ? ' stroke-dasharray="' + esc(m.dash) + '"' : '') + '/>';   // a scatter row has no line series: line: false (or width: 0)
       out += markerSvg(m.marker || 'circle', lx + 13, ly, color, bg);
       out += '<text class="kit-legend-row" data-family="' + esc(Kit.familyOf(m)) + '" x="' + (lx + 34) + '" y="' + (ly + 4) + '" font-family="' + FONT + '" font-size="12" fill="#1a1a1a">' + esc(m.label) + '</text>';   // the marks let a gate read the composed legend's order
