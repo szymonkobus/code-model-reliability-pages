@@ -1,6 +1,6 @@
 {
  "schema": "inputs-sidecar v1 (pool-pages-lead 2026-09-03; run-monitor freshness leg)",
- "generated_at": "2026-09-22T20:25:27Z",
+ "generated_at": "2026-09-22T21:21:47Z",
  "output": "pages/failure-vs-difficulty/pool-site/failure-vs-difficulty/data.json",
  "builder": "pages/failure-vs-difficulty/pool-site/failure-vs-difficulty/build_pool_curves.py",
  "inputs": [
@@ -12,33 +12,33 @@
   },
   {
    "path": "definitions/difficulty/html/datasets/dataset_mirrors_stamp.json",
-   "mtime": "2026-09-22T20:19:09Z",
-   "size": 151540,
-   "sha12": "9d6e66e2a484"
+   "mtime": "2026-09-22T21:16:58Z",
+   "size": 151544,
+   "sha12": "ce91fa984855"
   },
   {
    "path": "definitions/difficulty/html/datasets/task_difficulty.golden.pool.csv",
-   "mtime": "2026-09-22T20:19:01Z",
+   "mtime": "2026-09-22T21:16:51Z",
    "size": 262769,
    "sha12": "69334fe9b35b"
   },
   {
    "path": "definitions/difficulty/html/datasets/task_difficulty.pool.csv",
-   "mtime": "2026-09-22T20:19:01Z",
+   "mtime": "2026-09-22T21:16:51Z",
    "size": 264383,
    "sha12": "454cb3fe1c73"
   },
   {
    "path": "definitions/difficulty/html/first-look/allfail_exposure.json",
-   "mtime": "2026-09-22T19:13:17Z",
-   "size": 2066212,
-   "sha12": "46558f7d6dd8"
+   "mtime": "2026-09-22T21:13:47Z",
+   "size": 2068104,
+   "sha12": "2133d4bc462a"
   },
   {
    "path": "definitions/difficulty/knowledge/golden_set.json",
-   "mtime": "2026-09-22T20:16:13Z",
+   "mtime": "2026-09-22T21:13:50Z",
    "size": 4016,
-   "sha12": "c1cb99017b9e"
+   "sha12": "f3f291b2323d"
   },
   {
    "path": "definitions/difficulty/knowledge/landing_in_progress.json",
@@ -60,9 +60,9 @@
   },
   {
    "path": "definitions/fitting/serving.json",
-   "mtime": "2026-09-22T20:07:45Z",
+   "mtime": "2026-09-22T21:11:16Z",
    "size": 65790,
-   "sha12": "bb59e0e7db6d"
+   "sha12": "91ee33d29b5b"
   },
   {
    "path": "definitions/fitting/serving_golden_pool.json",
@@ -462,9 +462,9 @@
   },
   {
    "path": "pages/failure-vs-difficulty/artifacts/golden_set.json",
-   "mtime": "2026-09-22T19:21:13Z",
+   "mtime": "2026-09-22T21:14:35Z",
    "size": 4721,
-   "sha12": "e2d6813ffd0f"
+   "sha12": "ebf74eb80937"
   },
   {
    "path": "pages/failure-vs-difficulty/crossings-site/data/lev_grid.json",
@@ -492,9 +492,9 @@
   },
   {
    "path": "pages/pool-pages/build/flags/state/counts_of_record.prev.json",
-   "mtime": "2026-09-22T19:25:45Z",
+   "mtime": "2026-09-22T20:35:46Z",
    "size": 535,
-   "sha12": "33ce3cb2448a"
+   "sha12": "97f35abf7927"
   },
   {
    "path": "pages/pool-pages/build/flags/state/feed_clusters_expected.json",
@@ -504,21 +504,21 @@
   },
   {
    "path": "pages/pool-pages/build/flags/state/plain_twins_last_good.json",
-   "mtime": "2026-09-22T19:40:34Z",
-   "size": 32710,
-   "sha12": "fc441ada0276"
+   "mtime": "2026-09-22T20:35:44Z",
+   "size": 32794,
+   "sha12": "7cfd63316655"
   },
   {
    "path": "pages/pool-pages/build/flags/state/valid_cells_last_good.store.json.stamp",
-   "mtime": "2026-09-22T19:31:00Z",
+   "mtime": "2026-09-22T20:21:09Z",
    "size": 21,
-   "sha12": "af9d7feca959"
+   "sha12": "c1dbf03685f5"
   },
   {
    "path": "runs/arms.jsonl",
-   "mtime": "2026-09-22T20:02:56Z",
-   "size": 475083,
-   "sha12": "da15c1656446"
+   "mtime": "2026-09-22T21:06:40Z",
+   "size": 475147,
+   "sha12": "fb35f6b7944c"
   },
   {
    "path": "runs/generate/api/census/bridge_regex_legs.json",
@@ -534,15 +534,15 @@
   },
   {
    "path": "runs/generate/screens/fleet/attempt_override_index.jsonl",
-   "mtime": "2026-09-22T19:43:49Z",
-   "size": 125090222,
-   "sha12": "55a4f1109d2d"
+   "mtime": "2026-09-22T20:51:55Z",
+   "size": 125183453,
+   "sha12": "d564223deb67"
   },
   {
    "path": "runs/generate/screens/fleet/attempt_override_index.jsonl.stamp",
-   "mtime": "2026-09-22T19:52:02Z",
+   "mtime": "2026-09-22T20:53:25Z",
    "size": 153,
-   "sha12": "b54dd5ed90c0"
+   "sha12": "e8bbd5cc9af1"
   },
   {
    "path": "runs/generate/screens/fleet/census/voided_judgings.json",
@@ -558,9 +558,9 @@
   },
   {
    "path": "runs/generate/screens/fleet/collector_status.json",
-   "mtime": "2026-09-22T20:19:04Z",
-   "size": 488,
-   "sha12": "9452bb743673"
+   "mtime": "2026-09-22T21:15:26Z",
+   "size": 504,
+   "sha12": "d6bc8e80772c"
   },
   {
    "path": "runs/generate/screens/fleet/config_arm_map.tsv",
@@ -576,9 +576,9 @@
   },
   {
    "path": "runs/generate/screens/fleet/generated_cells.json",
-   "mtime": "2026-09-22T20:20:33Z",
-   "size": 4287936,
-   "sha12": "6011f41ebd75"
+   "mtime": "2026-09-22T21:11:07Z",
+   "size": 4293893,
+   "sha12": "ac05162087f9"
   },
   {
    "path": "runs/generate/screens/fleet/identity_backfill_tasks.bulbasaur.jsonl",
@@ -594,9 +594,9 @@
   },
   {
    "path": "runs/generate/screens/fleet/valid_cells.json",
-   "mtime": "2026-09-22T19:28:49Z",
-   "size": 245876754,
-   "sha12": "b6e3581ba988"
+   "mtime": "2026-09-22T21:11:01Z",
+   "size": 246377321,
+   "sha12": "cfe2abd59c5b"
   },
   {
    "path": "runs/judge/knowledge/judge_instability_same_era_by_task.json",
@@ -618,9 +618,9 @@
   },
   {
    "path": "runs/judge/rejudge/contradicted_zero_keys.json",
-   "mtime": "2026-09-22T20:15:32Z",
-   "size": 72679426,
-   "sha12": "8a69bea91532"
+   "mtime": "2026-09-22T21:12:26Z",
+   "size": 72858376,
+   "sha12": "c2335117fa0f"
   },
   {
    "path": "runs/judge/rejudge/import_bearing_tasks.json",
@@ -642,9 +642,9 @@
   },
   {
    "path": "runs/judge/witnessed_windows.json",
-   "mtime": "2026-09-22T20:10:46Z",
+   "mtime": "2026-09-22T21:08:35Z",
    "size": 1937373,
-   "sha12": "6bd71bd30e59"
+   "sha12": "3d30e51c2c97"
   },
   {
    "path": "runs/knowledge/opus_refused_tasks_excluded.json",
@@ -660,21 +660,21 @@
   },
   {
    "path": "runs/watch/forecast/watch/held_arms.json",
-   "mtime": "2026-09-22T19:38:19Z",
-   "size": 118837,
-   "sha12": "40e5a23a9ebe"
+   "mtime": "2026-09-22T20:37:58Z",
+   "size": 119048,
+   "sha12": "68ba9b08f665"
   },
   {
    "path": "runs/watch/forecast/watch/kimi_linear_empty_output_flag.json",
-   "mtime": "2026-09-22T19:24:11Z",
+   "mtime": "2026-09-22T20:23:41Z",
    "size": 10104,
-   "sha12": "287c0a1b44ed"
+   "sha12": "8f104f60e7a7"
   },
   {
    "path": "runs/watch/forecast/watch/price_per_model.json",
-   "mtime": "2026-09-22T19:38:19Z",
-   "size": 239844,
-   "sha12": "672b90edd27f"
+   "mtime": "2026-09-22T20:37:58Z",
+   "size": 239886,
+   "sha12": "5d7cc7bb10f8"
   },
   {
    "path": "side-projects/newbench/labels_cells.jsonl",
@@ -684,15 +684,15 @@
   },
   {
    "path": "tasks/build/certify/certificates/certs.jsonl",
-   "mtime": "2026-09-22T19:36:43Z",
-   "size": 374154171,
-   "sha12": "5af5d39f6a20"
+   "mtime": "2026-09-22T20:53:39Z",
+   "size": 374655833,
+   "sha12": "ba576d294bbd"
   },
   {
    "path": "tasks/build/certify/certificates/summary.json",
-   "mtime": "2026-09-22T20:21:51Z",
-   "size": 214364,
-   "sha12": "1eade3e9dbc1"
+   "mtime": "2026-09-22T20:53:40Z",
+   "size": 214521,
+   "sha12": "f27dde2a744b"
   },
   {
    "path": "tasks/build/certify/out/suite_v1_ids.txt",
@@ -702,9 +702,9 @@
   },
   {
    "path": "tasks/build/certify/versions/task_versions.json",
-   "mtime": "2026-09-22T19:51:53Z",
-   "size": 190592,
-   "sha12": "a97d9a644b44"
+   "mtime": "2026-09-22T21:09:15Z",
+   "size": 190806,
+   "sha12": "94c50889a658"
   },
   {
    "path": "tasks/build/critic/f2_degenerate_samples_pertask.json",
@@ -714,15 +714,15 @@
   },
   {
    "path": "tasks/knowledge/counts_of_record.published.json",
-   "mtime": "2026-09-22T19:35:39Z",
+   "mtime": "2026-09-22T20:35:30Z",
    "size": 42936,
-   "sha12": "7013d785b8aa"
+   "sha12": "d2c33096639c"
   },
   {
    "path": "tasks/knowledge/disclosures.published.json",
-   "mtime": "2026-09-22T19:35:39Z",
-   "size": 471059,
-   "sha12": "b58e53ae6d97"
+   "mtime": "2026-09-22T20:35:30Z",
+   "size": 471260,
+   "sha12": "5d47484684b9"
   },
   {
    "path": "tasks/knowledge/keep_labels.json",
@@ -738,9 +738,9 @@
   },
   {
    "path": "tasks/knowledge/set_members_of_record.json",
-   "mtime": "2026-09-22T19:25:27Z",
+   "mtime": "2026-09-22T20:26:17Z",
    "size": 725821,
-   "sha12": "8c611232ae3c"
+   "sha12": "571a064e2460"
   },
   {
    "path": "tasks/knowledge/twin_fold.json",
@@ -750,9 +750,9 @@
   },
   {
    "path": "tasks/knowledge/winner_rule.json",
-   "mtime": "2026-09-22T20:14:27Z",
-   "size": 5308235,
-   "sha12": "a29bc9714a5e"
+   "mtime": "2026-09-22T20:36:27Z",
+   "size": 5309566,
+   "sha12": "8b1cbb7a166c"
   },
   {
    "path": "tasks/state/held_valid_cells_stamps.txt",
