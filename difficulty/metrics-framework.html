@@ -103,9 +103,9 @@
 <script>
 (function(){var num=/^[\s\u2212\-+]?[\d.,]+(\s*%|\s*\[.*\])?\s*$/;document.querySelectorAll('table').forEach(function(t){var rows=t.querySelectorAll('tr');if(!rows.length)return;var ncol=0;rows.forEach(function(r){ncol=Math.max(ncol,r.children.length)});for(var c=0;c<ncol;c++){var cells=[],nums=0,longest=0;rows.forEach(function(r){var el=r.children[c];if(!el)return;cells.push(el);var tx=(el.textContent||'').trim();if(el.tagName==='TD'){if(num.test(tx)&&tx.length)nums++;longest=Math.max(longest,tx.length)}});var tds=cells.filter(function(e){return e.tagName==='TD'}).length;var cls=null;if(tds&&nums>=0.8*tds)cls='num';else if(c===0&&longest<=40)cls='name';else if(longest>40)cls='prose';if(cls)cells.forEach(function(e){e.classList.add(cls)})}})})();
 </script>
-</head><body><nav class="site"><a href="index.html" class="">Start</a><a href="report.html" class="">Report</a><a href="names-proposal.html" class="">Name propositions</a><a href="synthesis.html" class="">Synthesis</a><a href="measures.html" class="">Measures</a><a href="atlas.html" class="">Atlas</a><a href="metrics-report.html" class="">Metrics</a><a href="difficulty-weighting.html" class="">Weighting</a><a href="vocab.html" class="">Names</a><button class="themeBtn" id="themeToggle" title="toggle light/dark">theme</button></nav><nav class="toc">Jump: <a href="#notation-every-symbol-used-below-defined-first">Notation: every symbol used below, defined first</a> <a href="#the-three-axis-geometry-the-framing-adopted">The three-axis geometry (the framing, adopted)</a> <a href="#the-axioms-each-with-its-literal-source-and-its-operational-test">The axioms: each with its literal source and its operational test</a> <a href="#estimator-honesty-constraints-inherited-from-the-estimator-roles">Estimator honesty (constraints inherited from the estimator roles)</a> <a href="#amendment-1-ownership-and-tail-weighting-added-after-the-phase-2">Amendment 1: ownership and tail-weighting (added after the Phase-2</a> <a href="#generators-launched-before-any-test-suite-run-recorded-for-pre-registration">generators launched, before any test-suite run; recorded for pre-registration</a> <a href="#integrity">integrity)</a> <a href="#amendment-2-twelve-loopholes-closed-from-the-adversarial-probe-with">Amendment 2: twelve loopholes closed (from the adversarial probe, with</a> <a href="#measured-demonstrations-added-before-any-test-suite-run">measured demonstrations; added before any test-suite run)</a> <a href="#amendment-3-shared-infrastructure-rules-added-after-the-test-suite-and">Amendment 3: shared-infrastructure rules (added AFTER the test suite and</a> <a href="#the-14-attack-adversarial-round-from-measured-results-the-first">the 14-attack adversarial round, from measured results; the first</a> <a href="#amendment-informed-by-outcomes-rather-than-anticipation-and-marked-so">amendment informed by outcomes rather than anticipation, and marked so)</a> <a href="#the-pre-registered-test-suite-identical-for-every-candidate">The pre-registered test suite (identical for every candidate)</a> <a href="#failure-modes-already-adopted-regression-tests-not-to-be-re-proposed">Failure modes already adopted (regression tests, not to be re-proposed)</a> <a href="#what-is-already-accepted-the-fixed-points-candidates-build-against">What is already accepted (the fixed points candidates build against)</a></nav><h1 id="a-framework-for-capability-reliability-and-the-third-axis">A framework for capability, reliability, and the third axis</h1><p class="byline" data-freshness data-chrome>Rebuilt 15 Sep 13:23 UK; data as of 15 Sep 13:23 UK; rebuilt with every new count landing for the original tasks and after any edit to the text.</p>
-<p><em>Frozen pre-registration record of the metrics request (Phase 1, late August). The notation table carries the values at freeze (m 46 configurations, t 442 tasks); it is not updated with the live frame.</em></p>
-<p><em>Phase 1 of maintainers metrics request (literal:
+</head><body><nav class="site"><a href="index.html" class="">Start</a><a href="report.html" class="">Report</a><a href="names-proposal.html" class="">Name propositions</a><a href="synthesis.html" class="">Synthesis</a><a href="measures.html" class="">Measures</a><a href="atlas.html" class="">Atlas</a><a href="metrics-report.html" class="">Metrics</a><a href="difficulty-weighting.html" class="">Weighting</a><a href="vocab.html" class="">Names</a><button class="themeBtn" id="themeToggle" title="toggle light/dark">theme</button></nav><nav class="toc">Jump: <a href="#notation-every-symbol-used-below-defined-first">Notation: every symbol used below, defined first</a> <a href="#the-three-axis-geometry-the-project-maintainers-framing-adopted">The three-axis geometry (the project maintainers' framing, adopted)</a> <a href="#the-axioms-each-with-its-literal-source-and-its-operational-test">The axioms: each with its literal source and its operational test</a> <a href="#estimator-honesty-constraints-inherited-from-the-estimator-roles">Estimator honesty (constraints inherited from the estimator roles)</a> <a href="#amendment-1-ownership-and-tail-weighting-added-after-the-phase-2">Amendment 1: ownership and tail-weighting (added after the Phase-2</a> <a href="#generators-launched-before-any-test-suite-run-recorded-for-pre-registration">generators launched, before any test-suite run; recorded for pre-registration</a> <a href="#integrity">integrity)</a> <a href="#amendment-2-twelve-loopholes-closed-from-the-adversarial-probe-with">Amendment 2: twelve loopholes closed (from the adversarial probe, with</a> <a href="#measured-demonstrations-added-before-any-test-suite-run">measured demonstrations; added before any test-suite run)</a> <a href="#amendment-3-shared-infrastructure-rules-added-after-the-test-suite-and">Amendment 3: shared-infrastructure rules (added AFTER the test suite and</a> <a href="#the-14-attack-adversarial-round-from-measured-results-the-first">the 14-attack adversarial round, from measured results; the first</a> <a href="#amendment-informed-by-outcomes-rather-than-anticipation-and-marked-so">amendment informed by outcomes rather than anticipation, and marked so)</a> <a href="#the-pre-registered-test-suite-identical-for-every-candidate">The pre-registered test suite (identical for every candidate)</a> <a href="#failure-modes-already-adopted-regression-tests-not-to-be-re-proposed">Failure modes already adopted (regression tests, not to be re-proposed)</a> <a href="#what-is-already-accepted-the-fixed-points-candidates-build-against">What is already accepted (the fixed points candidates build against)</a></nav><h1 id="a-framework-for-capability-reliability-and-the-third-axis">A framework for capability, reliability, and the third axis</h1><p class="byline" data-freshness data-chrome>Rebuilt 22 Sep 11:23 UK; data as of 22 Sep 11:23 UK; rebuilt with every new count landing for wave 1 and after any edit to the text.</p>
+<p><em>Frozen pre-registration record of the metrics request (Phase 1, late August). The notation table carries the values at freeze (m 46 configurations, t 442 tasks); it is not updated with the live results.</em></p>
+<p><em>Phase 1 of the project maintainers' metrics request (literal:
 <code>~/orchestrator/request-metrics-literal.md</code>). This document fixes the
 rules BEFORE any candidate is proposed: what a definition must be, the
 axioms it must clear, and the pre-registered test suite every candidate will
@@ -174,7 +174,7 @@ Estimator machinery: the maintainers where fitted curves are needed.</em></p>
 rates against task difficulty. Every candidate metric is one number read
 off that cloud. Capability, reliability, and the third axis are three
 different reads of the same cloud.</p>
-<h2 id="the-three-axis-geometry-the-framing-adopted">The three-axis geometry (the framing, adopted)</h2>
+<h2 id="the-three-axis-geometry-the-project-maintainers-framing-adopted">The three-axis geometry (the project maintainers' framing, adopted)</h2>
 <p>From the literal: <em>"capability and reliability are not opposite ends...
 capability is kind of like an average, mean, median... statistic.
 Reliability is on one hand. We could create a name for the third thing...
@@ -183,18 +183,18 @@ the other extreme end."</em></p>
 <li>Reliability, the lower extreme: the difficulty up to which the model
   essentially does not fail (anchor τ = 1%).</li>
 <li>Capability, the central statistic: where the model's failure
-  transitions through even odds (anchor τ = 50%; the adopted choice, made by
+  transitions through even odds (anchor τ = 50%; the project maintainers' adopted choice, made by
   looking at the failure-trend plots: <em>"I just chose that and I think it
   was kind of a good choice"</em>).</li>
 <li>The third axis (name to be earned; "brilliance is not a good name"),
   the upper extreme: the difficulty beyond which the model essentially
-  never succeeds; the anti-fluke instinct: <em>"twice-solved tasks, at least
+  never succeeds; the project maintainers' anti-fluke instinct: <em>"twice-solved tasks, at least
   twice."</em></li>
 </ul>
 <p>All three are difficulty-valued level statistics of one curve. The gaps
 between them are then themselves meaningful (transition width below and
 above the center: a model that <em>"quickly transitions"</em> vs one <em>"struggling
-persistently"</em>, the record; note the two gaps need not be equal, and their
+persistently"</em>, the project maintainers' words; note the two gaps need not be equal, and their
 asymmetry is a candidate diagnostic, not assumed away).</p>
 <h2 id="the-axioms-each-with-its-literal-source-and-its-operational-test">The axioms: each with its literal source and its operational test</h2>
 <p>A1: Equation first, counting preferred.
@@ -209,22 +209,21 @@ the CSV with no further choices.</p>
 <p>A2: Composition stability (task addition moves precision, not the estimand).
 <em>Source: "should be stable as you add more tasks... Adding more tests only
 changes how well we discriminate."</em>
-Statement: under enlargement of the pool by tasks drawn from the same
+Statement: under enlargement of the task set by tasks drawn from the same
 difficulty distribution, the candidate's estimand is unchanged; under
 deliberate stocking attacks it must not be purchasable.
 Tests (identical for all candidates): (i) task bootstrap: resample tasks
 with replacement, report the estimand's spread; (ii) the duplication
 attack: duplicate the easiest quartile, report median shift across 46
-configs (the maintainers measured protocol; equal-vote forms fail it, axis-vote
-forms pass; inherited result); (iii) benchmark mix swap: HumanEval-only
-vs MBPP-only vs pooled, report rank agreement of the 46 configs.</p>
+configs; (iii) source-half swap: each half of wave 1
+alone vs pooled, report rank agreement of the 46 configs.</p>
 <p>A3: Difficulty-space residence.
 <em>Source: "it should live in the difficulty space somehow... whatever score
 it is, it should still be difficulty-based", or else "some natural
 meaning".</em>
 Statement: the value is a difficulty (d-units, board failure on the difficulty scale)
 or carries a defended natural unit with a stated conversion story.
-Counts conditioned on pool size are out (<em>the verdict on the mastered
+Counts conditioned on pool size are out (<em>the project maintainers' verdict on the mastered
 count: "so conditioned on the number of tasks, and it's not in
 difficulty"</em>), unless re-expressed in difficulty or axis units.</p>
 <p>A4: No arbitrary constants.
@@ -234,7 +233,7 @@ declared protocol facts (n = 128, the verifier). Any other constant must
 be derived, or shown by sweep to not drive conclusions, or it kills the
 candidate.</p>
 <p>A5: New-coordinate requirement.
-<em>Source: the repeated objection that candidates "look quite linear in the
+<em>Source: the project maintainers' repeated objection that candidates "look quite linear in the
 mean pass rate... almost like a linear transformation of that."</em>
 Statement: a candidate must carry information beyond the incumbent mean
 pass rate and beyond the already-accepted pair (50%-crossing, reliable
@@ -243,19 +242,19 @@ Test: Spearman rank correlation with mean pass rate across the 46 configs,
 and residual spread after conditioning on the accepted pair; report both.
 Near-monotone (|ρ| ≳ 0.98) fails unless the candidate's case is explicitly
 units/interpretation rather than new ordering, and then it must say so on
-its card (<em>the praise-with-suspicion of the surprisal metric is the
+its card (<em>the project maintainers' praise-with-suspicion of the surprisal metric is the
 template for honest labeling</em>).</p>
 <p>A6: Graceful saturation (the catastrophic case).
 <em>Source: "The catastrophic failure is if it's way too easy and the model
 doesn't fail, almost never."</em>
-Statement: for a model that never fails on the pool (and one that never
+Statement: for a model that never fails on the task set (and one that never
 succeeds), the candidate returns a defined, bounded, one-sidedly honest
 value ("≥ hardest measured difficulty", "no range"), never an infinity, an
 undefined expression, or a silently extrapolated number.
 Test: evaluate on synthetic all-pass and all-fail models plus the board's
 near-saturated configs; inspect values and intervals.</p>
 <p>A7: Protocol robustness (n-dependence and flukes).
-<em>Source: the twice-solved instinct; the candidates page's measured
+<em>Source: the project maintainers' twice-solved instinct; the candidates page's measured
 0.27-probability mastery miscount at n=128.</em>
 Statement: the candidate states how it changes when n changes; estimand
 drift under attempt-subsampling (n = 32) must be small or explicitly
@@ -264,15 +263,15 @@ n-indexed; single-success flukes must not move upper-extreme candidates
 form).
 Test: attempt-subsample at n = 32, report estimand shift per config.</p>
 <p>A8: Generalization promise.
-<em>Source: "somehow promising to generalize"; the worry: "whether any
+<em>Source: "somehow promising to generalize"; the project maintainers' worry: "whether any
 scaling trends could be picked up from it... could end up doing exactly
 the scaling thing."</em>
 Statement (soft axiom, reported not pass/fail): the candidate should show
-(i) cross-benchmark consistency (its HE-only and MBPP-only readings of the
+(i) cross-benchmark consistency (its two source-half readings of the
 same model agree up to stated uncertainty); (ii) sane scaling-ladder
 behavior; (iii) no self-fulfillment: the capability-vs-reliability
 gradient across models must not be an artifact of task mix (test: recompute
-the gradient under reweighted pools; the stated comfort condition is a
+the gradient under reweighted pools; the project maintainers' stated comfort condition is a
 gradient near 1 that survives reweighting).</p>
 <h2 id="estimator-honesty-constraints-inherited-from-the-estimator-roles">Estimator honesty (constraints inherited from the estimator roles)</h2>
 <p>Two measured facts from the maintainers bind every candidate's uncertainty
@@ -323,23 +322,23 @@ stable model property (CI 0–69%); 44–51% is a reproducible
 model×benchmark interaction and 13–19% task lottery. A tail-anchored third
 axis defined as a pure model coordinate therefore has a measured ceiling.
 Test-suite addition: every candidate gets an ownership test: its
-cross-benchmark trait share (HE-reading vs MBPP-reading of the same model)
+cross-benchmark trait share (the two source-half readings of the same model)
 is measured and printed on the card; candidates must declare whether they
 claim to be a model coordinate or a (model, pool) coordinate. (2)
 Tail-weighting must be declared: the trait-vs-pair split of a summary
 moves with how deeply it weights the tail (tail-weighted → pair-dominated;
 pool-averaged → trait-dominated), so each card states its tail weighting
-explicitly. (3) One measured candidate enters the pool from their lane:
+explicitly. (3) One measured candidate enters the task set from their lane:
 the excess count of failed easy tasks beyond what capability predicts,
 near-constant across benchmarks (0.89–0.91) and predictive out-of-pool,
 noting it points BELOW capability ("leakiness"), a different direction
-than the hard-end reach maintainers sketched; whether the third axis should be
-reach (the instinct) or leakiness (their portable quantity), or whether
+than the hard-end reach the project maintainers sketched; whether the third axis should be
+reach (the project maintainers' instinct) or leakiness (their portable quantity), or whether
 reach survives the ownership test at all, is now an explicit Phase-3/4
 question, not an assumption either way. adopted out as axis material by
 their leave-one-out work: family lineage, failure-fingerprint entropy
 alone, per-task failure depth, thinking flags, size; and (added with
-their clash-content result) failure-kind profiles at model level: a
+their clash-content result) failure-category profiles at model level: a
 model's mix of failure kinds bears zero relation to its reliability
 residual (corr² = 0.00), even though individual clash cells lean
 interpretation-flavored (their /h/clash-content.html): flavor lives in
@@ -417,7 +416,7 @@ the shared difficulty-axis machinery, not candidate logic. Binding rules:</p>
    Point-vote plug-ins are display/exploration only. Measured basis: the
    clean-twin sandwich moves the plug-in debt-free boundary median
    +1.39 d / max 4.1; the smeared form under the identical attack moves
-   median 0.022 d (~60× reduction) because ε-precise placement is
+   median 0.022 d (~60× reduction) because ε-precise position is
    unobservable at the measured label noise.</li>
 <li>Typed censoring extends to level-set measures. A gate still ON at
    a pool edge makes the value a lower bound and must be flagged
@@ -430,7 +429,7 @@ the shared difficulty-axis machinery, not candidate logic. Binding rules:</p>
    effect that shrinks as the project grows).</li>
 <li>Pool-edge policy. Frontier values are typed pool-capped;
    truncation-debt diagnostics (closed form) accompany integral reads;
-   the strip between the pool max and the Jeffreys ceiling
+   the strip between the task set's max and the Jeffreys ceiling
    (<code>logit((128+½)/129) = +5.55</code>) is simultaneously the ceiling-attack
    surface and the hard-task acquisition target.</li>
 <li>EB-profile gating ban. Per-model empirical-Bayes profiles may
@@ -458,13 +457,13 @@ the shared difficulty-axis machinery, not candidate logic. Binding rules:</p>
 </ol>
 <p>Convergence target: at most two surviving candidates per axis, then the
 curated trio with the open choices (threshold anchors, third-axis name and
-final form) stated as decisions for maintainers, not made silently.</p>
+final form) stated as decisions for the project maintainers, not made silently.</p>
 <h2 id="failure-modes-already-adopted-regression-tests-not-to-be-re-proposed">Failure modes already adopted (regression tests, not to be re-proposed)</h2>
-<p>From the review of the five-candidate round: arbitrary constants (44
+<p>From the project maintainers' review of the five-candidate round: arbitrary constants (44
 hardest, 1280-attempt budget, 5 candidates of anything); metrics discussed
 before defined; counts conditioned on pool size; near-monotone-in-mean-pass
 presented as new coordinates; and from the corpus: equal-vote composition
-dependence (the pool's stocking buys credit) and budget transfer at loose
+dependence (the task set's stocking buys credit) and budget transfer at loose
 thresholds (measured: a 20%-budget cumulative range admits 80% failure on
 its last tasks: the loose-τ cumulative family is structurally suspect for
 CAPABILITY even though the 1% cumulative form is sound for RELIABILITY).
@@ -480,7 +479,7 @@ candidate materially differs and says how.</p>
   way to measure reliability"</em>: reasonable-not-adopted; it anchors the
   lower extreme and its machinery (votes, posteriors, boundary walls) is
   inherited.</li>
-<li>The 50%-crossing as capability: the adopted anchor and current suspicion
+<li>The 50%-crossing as capability: the project maintainers' adopted anchor and current suspicion
   (<em>"maybe the current definition of difficulty at a 50% failure rate IS a
   robust definition of capabilities"</em>): the null hypothesis capability
   candidates must beat or formalize, not a straw man.</li>

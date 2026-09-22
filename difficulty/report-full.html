@@ -103,14 +103,14 @@
 <script>
 (function(){var num=/^[\s\u2212\-+]?[\d.,]+(\s*%|\s*\[.*\])?\s*$/;document.querySelectorAll('table').forEach(function(t){var rows=t.querySelectorAll('tr');if(!rows.length)return;var ncol=0;rows.forEach(function(r){ncol=Math.max(ncol,r.children.length)});for(var c=0;c<ncol;c++){var cells=[],nums=0,longest=0;rows.forEach(function(r){var el=r.children[c];if(!el)return;cells.push(el);var tx=(el.textContent||'').trim();if(el.tagName==='TD'){if(num.test(tx)&&tx.length)nums++;longest=Math.max(longest,tx.length)}});var tds=cells.filter(function(e){return e.tagName==='TD'}).length;var cls=null;if(tds&&nums>=0.8*tds)cls='num';else if(c===0&&longest<=40)cls='name';else if(longest>40)cls='prose';if(cls)cells.forEach(function(e){e.classList.add(cls)})}})})();
 </script>
-</head><body><nav class="site"><a href="index.html" class="">Start</a><a href="report.html" class="">Report</a><a href="names-proposal.html" class="">Name propositions</a><a href="synthesis.html" class="">Synthesis</a><a href="measures.html" class="">Measures</a><a href="atlas.html" class="">Atlas</a><a href="metrics-report.html" class="">Metrics</a><a href="difficulty-weighting.html" class="">Weighting</a><a href="vocab.html" class="">Names</a><button class="themeBtn" id="themeToggle" title="toggle light/dark">theme</button></nav><nav class="toc">Jump: <a href="#part-i-the-definitions">Part I: The definitions</a> <a href="#part-ii-what-this-means-on-our-data">Part II: What this means on our data</a> <a href="#part-iii-recommendation">Part III: Recommendation</a> <a href="#decision-layer-for-maintainerss-decision-queue">Decision layer</a></nav><h1 id="defining-task-difficulty-from-rollouts-candidate-definitions-and-what-they-say-on-our-data">Defining task difficulty from rollouts: candidate definitions, and what they say on our data</h1><p class="byline" data-freshness data-chrome>Rebuilt 15 Sep 13:23 UK; data as of 15 Sep 13:23 UK; rebuilt with every new count landing for the original tasks and after any edit to the text.</p>
+</head><body><nav class="site"><a href="index.html" class="">Start</a><a href="report.html" class="">Report</a><a href="names-proposal.html" class="">Name propositions</a><a href="synthesis.html" class="">Synthesis</a><a href="measures.html" class="">Measures</a><a href="atlas.html" class="">Atlas</a><a href="metrics-report.html" class="">Metrics</a><a href="difficulty-weighting.html" class="">Weighting</a><a href="vocab.html" class="">Names</a><button class="themeBtn" id="themeToggle" title="toggle light/dark">theme</button></nav><nav class="toc">Jump: <a href="#part-i-the-definitions">Part I: The definitions</a> <a href="#part-ii-what-this-means-on-our-data">Part II: What this means on our data</a> <a href="#part-iii-recommendation">Part III: Recommendation</a> <a href="#decision-layer-for-the-project-maintainers-decision-queue">Decision layer</a></nav><h1 id="defining-task-difficulty-from-rollouts-candidate-definitions-and-what-they-say-on-our-data">Defining task difficulty from rollouts: candidate definitions, and what they say on our data</h1><p class="byline" data-freshness data-chrome>Rebuilt 22 Sep 11:23 UK; data as of 22 Sep 11:23 UK; rebuilt with every new count landing for wave 1 and after any edit to the text.</p>
 <p>What this report answers. Which definitions of task difficulty are
 candidates, what each one says on our data, and which ones survive. The
 data are 28 model configurations on 443 kept tasks with 128 rollouts each;
 the kept set follows the label decisions and the numbers regenerate whenever a
 decision moves a task in or out. Provenance and file paths are in the note at
 the end.[^prov]</p>
-<p>[^prov]: requested by maintainers; near-final; task-audit
+<p>[^prov]: requested by the project maintainers; near-final; the audit team
     discussion resolved (their input marked); temp plots requested from
     the maintainers (slots marked). Keep-set under the queue-closing label decision
     (eaa595a), built live from the label files. Per-task scores for every
@@ -146,17 +146,17 @@ only be bounded, not estimated.</p>
 </blockquote>
 <h2 id="part-i-the-definitions">Part I: The definitions</h2>
 <p>A difficulty definition, for us, is a rule that turns a task's rollout record
-into a value or ordering, with a declared frame: which solver population,
+into a value or ordering, with a declared setting: which solver population,
 which attempt budget, which verifier. Six candidates, chosen to be genuinely
 different objects rather than re-scalings of one another. (The IRT framing
-below overlaps with the "quick primer" maintainers circulated: Rasch/2PL,
+below overlaps with the "quick primer" the project maintainers circulated: Rasch/2PL,
 discrimination-as-trickiness, infit/outfit, level-sets, DIF; where this
 report goes beyond it is marked.)</p>
 <h3 id="d1-population-referenced-failure-rate-the-incumbent-kept-honest">D1: Population-referenced failure rate (the incumbent, kept honest)</h3>
 <p>Definition. D1 = the pooled failure rate over a declared model pool and budget, placed on the difficulty scale. This is the classical-test-theory item p-value; it is what the
 current difficulty sort uses.
 Keep because it is the anchor everything else re-parameterizes; cheap;
-monotone. Fix by declaring the frame (pool, budget, verifier version)
+monotone. Fix by declaring the setting (pool, budget, verifier version)
 next to every use, Jeffreys-smoothing ((c+½)/(n+1)) so 0/n and n/n stop
 being exact ties, and flagging censored tasks instead of ranking them.
 Known failure: pool-mix dependence (adding weak models makes every task
@@ -220,31 +220,31 @@ it, or are actively hurt by it. Negative-Δ tasks are the over-inference
 lures. This makes "difficulty for whom" actionable: difficulty is a short
 vector (Δ-think, scale-slope, …), and specific contrasts carry meaning.</p>
 <h3 id="exclusion-from-semantic-only-to-a-two-gate-pipeline">Exclusion: from semantic-only to a two-gate pipeline</h3>
-<p>Today exclusion is semantic (audit labels contradiction/underspecification).
+<p>At this writing (September 2026) exclusion is semantic (audit labels contradiction/underspecification).
 We add a statistical gate from D2's machinery, |a| &lt; 0.3 or item misfit
 (outfit above the 95th percentile), with a ceiling/floor guard since a is
 unidentifiable on saturated items, as a <em>flag and re-audit queue</em>, never an
 automatic delete. The gates are complementary by construction: the audit
 sees <em>why</em> (with adopted justifications) but cannot see behavioral anomalies;
 the statistics see <em>that</em> something is off, including verifier/grader
-errors invisible to reading the task (cf. arXiv:2605.30504's IRT
+errors invisible to reading the task (cf. <code>arXiv:2605.30504</code>'s IRT
 benchmark-auditing, 95% precision on mislabels with 114 models), but cannot
 name the cause.</p>
-<p>Policy (agreed with task-audit): labels exclude (they carry a adopted WHY);
+<p>Policy (agreed with the audit team): labels exclude (they carry a adopted WHY);
 statistical flags feed a blind deep-check re-audit round under their standing
 protocol; the flags live in a separate file with separate custody,
-regenerated with every refit, while the label files remain maintainers-adopted
+regenerated with every refit, while the label files remain the project maintainers-adopted
 ground truth (files in the provenance note). A robustness note from
 practice: queue membership near the misfit threshold is jittery when the
 cutoff is a live quantile (a 3-task keep-set change swapped one borderline
 member, Mbpp/614 ↔ 425); the cutoff is therefore frozen at the current
 epoch's value with a drift monitor, so membership moves only when a task's
 own statistic moves, and threshold-straddling audits complete anyway as
-specificity evidence (task-audit protocol). Auto-exclusion on
+specificity evidence (the audit team's protocol). Auto-exclusion on
 statistics is rejected because it conflates defects with genuine inversions
 (Mbpp/261 is real behavior, not a broken task) and 28 configs is thin for
 stable a. Precedent that this formalizes existing ad-hoc practice
-(task-audit's cases): their three known grading incidents were all
+(the audit team's cases): their three known grading incidents were all
 high-ability-fail/low-ability-pass patterns (e.g. a reasoning model scoring
 0/128 on the trivial HumanEval/15 due to a proven grader artifact), exactly
 what the gate flags with no bespoke instrument; and two round-7 split verdicts
@@ -258,7 +258,7 @@ Ex-ante text-based prediction: the QDE literature's honest ceiling is low;
 it is an <em>explanation</em> layer, not a definition.</p>
 <hr />
 <h2 id="part-ii-what-this-means-on-our-data">Part II: What this means on our data</h2>
-<p><em>Frame of this part: a dated snapshot, 28 configurations and 443 kept tasks on the late-August frame. The live fit is the larger current chain, 59 model rows on wave 1 (431 tasks), rerun at every board landing; its outputs and the decisions record are named in the provenance note.</em></p>
+<p><em>Frame of this part: a dated snapshot, 28 configurations and 443 kept tasks on the late-August set of results. The live fit is the larger current chain, 59 model rows on wave 1 (431 tasks), rerun at every board landing; its outputs and the decisions record are named in the provenance note.</em></p>
 <p>Every number in this part comes from one per-task score table and one
 fit over the 28 configurations and 443 kept tasks (both re-judges included); the stability table below was computed when the kept
 set had 446 tasks, and the difference is immaterial to it. Files and the
@@ -268,7 +268,11 @@ decision that fixed the kept set are in the provenance note.[^prov]</p>
    Mean discrimination by current audit label: regular 2.09 (n=222) →
    tricky 1.57 (n=220; the adopted regular→tricky dissents pulled the tricky
    mean further down, as the prediction implies) →
-   underspecification ~0.98 → contradiction ~0.61. Trickiness and defectiveness are progressively lower
+   underspecification ~0.98 → contradiction ~0.61 (defect-class means from
+   the audit team's rejoin of the fit against the bd02ab5 decision, which was made
+   on semantic evidence <em>before</em> anyone saw the fit: the closest available
+   thing to independent validation, given the original labels were partly
+   rate-informed). Trickiness and defectiveness are progressively lower
    discrimination, exactly as the psychometrics predicts. The decision's three
    re-admissions corroborate in the other direction: all land on-scale with
    healthy discrimination (HumanEval/132: b=+5.1, a=1.9, a genuinely very
@@ -299,11 +303,11 @@ decision that fixed the kept set are in the provenance note.[^prov]</p>
    cutoff re-frozen 80.8→80.5 by the same derivation, and that
    near-identity across nearly double the panel is itself a stability
    datum;
-   ceiling/floor-unidentifiable items guarded out, including, per the maintainers's refinement of the
-   task-audit HumanEval/7 disposition, ceiling rows where a b-outlier is a
+   ceiling/floor-unidentifiable items guarded out, including, per the checker's refinement of the
+   the audit team HumanEval/7 disposition, ceiling rows where a b-outlier is a
    fitting artifact with no failure behavior to audit): 29 audit-tricky, 14
-   regular. The live counts are recomputed by the the maintainers worker under
-   maintainers 08-26 decision (the file is named in the provenance note). The third rule is new (from monkey-business's ground-truth validation on external
+   regular. The live counts are recomputed by the checking worker under
+   the project maintainers' 08-26 decision (the file is named in the provenance note). The third rule is new (from monkey-business's ground-truth validation on external
    corpora with independently established label errors): tasks with NORMAL
    discrimination but difficulty beyond the panel's ability range ±3 are
    flagged as wrong-for-everyone label-error suspects; that class evades
@@ -311,7 +315,7 @@ decision that fixed the kept set are in the provenance note.[^prov]</p>
    b≈+15). Standing blind spot, documented: judge error that hits all
    models uniformly is invisible to any response-pattern diagnostic; a
    clean flag queue does NOT mean "labels verified". Eight of them appear in no defect queue of
-   task-audit's (Mbpp/161, 162, 139, 566, 273, 127, 118, HumanEval/55):
+   the audit team's (Mbpp/161, 162, 139, 566, 273, 127, 118, HumanEval/55):
    novel candidates the semantic audit structurally could not see.
    Round-8 blind audit outcome (30 tasks, merged 9b32f87): 19 genuine
    capability-inversions (real task behavior; they stay, correctly labeled),
@@ -359,7 +363,7 @@ decision that fixed the kept set are in the provenance note.[^prov]</p>
    ported literal to four unrelated benchmark matrices (23–27 configs ×
    534–1209 tasks each; converged; Spearman(b, −pooled) 0.90–0.99; same
    first-order-summary deviance caveat), and this report's mechanistic
-   predictions were scored against their per-task failure-anatomy census:
+   predictions were scored against their per-task failure-anatomy tally:
    <em>High-a = clean skill gates</em>. CONFIRMED (steepest: hard-constraint
    generation, mean a 2.7, one task at +6.3). <em>Low-a = ability-orthogonal
    mechanics</em>. PARTIAL: ambiguity-forks yes, but transcription-floor
@@ -435,12 +439,11 @@ decision that fixed the kept set are in the provenance note.[^prov]</p>
      protocol, not the model: retries plus a verifier (k independent
      attempts with checking turn a 90%-per-attempt task into system-level
      near-certainty), or redesigning the task. Practically: promising 99%
-     on such tasks costs k× compute or re-engineering; the next model tier
-     will not deliver it.
+     on such tasks costs k× compute or re-engineering; the next model generation will not deliver it.
    - <em>Discrimination a is the "reliability ROI" of extra capability.</em> On a
      steep task (high a), one more step of model ability converts 50% →
      90%+; on a flat task (low a), the same investment buys a few points.
-     So "will the next model tier fix this failure?" is answered per task by
+     So "will the next model generation fix this failure?" is answered per task by
      a: high-a failures, yes; low-a failures, no (those need audit or
      protocol fixes instead).
    - <em>For the published ranking</em>: two models with equal overall pass rate can differ
@@ -460,7 +463,7 @@ decision that fixed the kept set are in the provenance note.[^prov]</p>
    all-fail across 28 configs (vs ~20% unrankable under the 3-Qwen pool);
    D4 at the Haiku-think reference still censors on its never-solved tail,
    which k50's explicit censoring flag is for.</p>
-<h3 id="adoption-constraints-from-figure-builder-the-in-practice-custodian-and-the-stability-test">Adoption constraints and the stability test</h3>
+<h3 id="adoption-constraints-from-derisk-plot-the-in-practice-custodian-and-the-stability-test">Adoption constraints and the stability test</h3>
 <p>Constraints an adopted definition must meet: recomputable in seconds inside a
 sweep OR shipped as a versioned single-producer artifact outside the render
 chain; total over kept tasks with <em>explicit</em> no-value flags (no silent NaNs);
@@ -472,8 +475,7 @@ same models against the axis (audit/pricing use only), and swapping the publishe
 refits): ρ(b) = 0.98 (drop Claude), 0.97 (drop DeepSeek), 0.95 (drop
 Qwen2.5-Coder), 0.86 (drop Qwen3, 12 of 28 configs): b FAILS the bar on
 the heaviest ablation; pooled D1 scores 0.998/0.981/0.978/0.936 on the
-same ablations. The bar travels with the ablation design (the maintainers's
-formulation, adopted): their ≥0.97 was measured on 7-family ablations of a 63-configuration model set where the heaviest removal is 12/63; here the heaviest is
+same ablations. The bar travels with the ablation design: their ≥0.97 was measured on 7-family ablations of a 63-configuration model set where the heaviest removal is 12/63; here the heaviest is
 12/28: a much bigger bite, and the incumbent D1 itself fails it there. On
 THIS panel the honest comparison is b 0.86–0.98 vs D1 0.94–1.00, same
 ablations: D1 dominates on every one, which is the two-layer argument in
@@ -485,7 +487,7 @@ only). Honest conclusion: with 28 shared-weight configs, b is a lens and a
 diagnostic, not yet a publication-grade ranking column: precisely the primer's
 caveat, now with numbers. The flag/queue layer does not have this problem
 (it routes to human audit rather than into published ranks).</p>
-<h3 id="figures-by-figure-builder-frame-eaa595a-builder-difficulty-plottemporary_plotsbuild_defreport_figspy">Figures</h3>
+<h3 id="figures-by-derisk-plot-results-snapshot-eaa595a-builder-difficulty-plottemporary_plotsbuild_defreport_figspy">Figures</h3>
 <p><img alt="F1: five tasks as curves" src="figs/review_defreport_curves.png" /></p>
 <p><em>F1. Five kept tasks, each drawn as what it is under the 2PL reading: a
 curve of pass probability against config ability; dots are observed
@@ -521,7 +523,7 @@ matters, spread where equal-weighting hides variation.</em></p>
 <h2 id="part-iii-recommendation">Part III: Recommendation</h2>
 <p>Two-layer adoption, honest to the stability test:</p>
 <p>Ranking layer (the published axis): keep D1 (Jeffreys-
-smoothed, frame-declared, censoring-flagged) as the ranking column for now.
+smoothed, setting-declared, censoring-flagged) as the ranking column for now.
 It is the most removal-stable object we measured, computable in a sweep, and
 its known conflations are now <em>documented and flagged</em> rather than silent.</p>
 <p>Diagnostic layer (versioned artifact, mine, refreshed on matrix/label
@@ -529,8 +531,7 @@ changes): D2's (b, a) + purify/queue flags, D3's reliability gap 4.6/a,
 D6's Δ-think, D4 at one named reference model (audit/pricing only, never an
 x-axis for its own models). These annotate the published ranking: flagged tasks carry
 "no difficulty rank; queued for audit" instead of a fake position; the
-two-policy sensitivity ships with any published ranking, and it has
-MOVED with the instrument: 11/50 of the hardest-by-pooled were queue
+two-policy sensitivity ships with any published ranking, and it has moved as the measurement changed: 11/50 of the hardest-by-pooled were queue
 anomalies on the epoch-1 panel; on epoch 2 (53 configs, frontier arms
 in) it is 3/50: the hard tail is now well-measured, the same
 decensoring the metrics suite measured as reach identifiability rising
@@ -539,14 +540,14 @@ decensoring the metrics suite measured as reach identifiability rising
 wide enough to pass the stability bar (worst-case single-family ρ ≥ 0.97),
 plausibly at 50–100 diverse configs (metabench-scale fits show the ceiling
 is high); until then it is a lens.</p>
-<p>Exclusion policy (agreed with task-audit): semantic gate removes (adopted
+<p>Exclusion policy (agreed with the audit team): semantic gate removes (adopted
 WHY); statistical gate flags and routes to blind re-audit rounds; never
 auto-exclude on statistics (it conflates defects with genuine inversions
 like Mbpp/261).</p>
 <p>Standing caveats: 28 configs share weights across thinking pairs
 (effective population smaller); protocols differ across families; 2PL is a
 first-order summary (per-cell deviance ≈ 29).</p>
-<h2 id="decision-layer-for-maintainerss-decision-queue">Decision layer</h2>
+<h2 id="decision-layer-for-the-project-maintainers-decision-queue">Decision layer</h2>
 <ol>
 <li>adopted, closed: the 2PL diagnostic is adopted project-wide as a standard
    diagnostic (every benchmark/task maintainers adds it to their debugging
@@ -554,17 +555,15 @@ first-order summary (per-cell deviance ≈ 29).</p>
    ("just another way to scrutinise the results"), and it must always be
    RECOMPUTED, never cached as truth. Exactly the two-layer scheme: D1
    ranks, the fit scrutinises.</li>
-<li>Status: open on the decisions record. Authorize the diagnostic columns + flags onto the /audit cards and the published ranking
-   (task-audit will render flags as an evidence source; the maintainers joins on
-   task_id).</li>
-<li>Status: open on the decisions record. The 35-task blind re-audit round: task-audit is ready to run it under
+<li>Status: open on the decisions record. Authorize the diagnostic columns + flags onto the /audit cards and the published ranking.</li>
+<li>Status: open on the decisions record. The 35-task blind re-audit round: the audit team is ready to run it under
    their standing protocol; dissents land in your decision queue as usual.</li>
 <li>Status: deferred on the decisions record, P-level published-record change: swapping the published ranking's axis from D1 to b; revisit at panel width ≥ ~50 diverse configs.</li>
 </ol>
 <p><em>References: Rasch 1960; Embretson &amp; Reise 2000; De Boeck &amp; Wilson 2004;
 Rodriguez et al. 2021 (ACL); Martínez-Plumed et al. 2019 (AIJ); Maia Polo et
 al. 2024 (tinyBenchmarks); Kipnis et al. 2025 (metabench); Hofmann et al.
-2025 (Fluid Benchmarking); arXiv:2605.30504 (IRT benchmark auditing); tooling
+2025 (Fluid Benchmarking); <code>arXiv:2605.30504</code> (IRT benchmark auditing); tooling
 mirt / py-irt. Wider conceptual grounding: SYNTHESIS.md and MEASURES.md
 (M01–M39).</em></p><script>(function(){
 var b=document.getElementById('themeToggle'); if(!b) return;

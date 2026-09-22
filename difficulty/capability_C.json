@@ -5,8 +5,8 @@
  "distribution": "uniform: even weight along the failure level on 0 to 1, Beta(1,1)",
  "marginal_plain": "population weighted evenly along the failure level (uniform in u on [0, 1]; Voronoi cell mass in u; uncovered easy end credited solved)",
  "frame": {
-  "keep_set_hash": "26b3d29962cb",
-  "runs_fingerprint": "counts:fail_counts_matrix.csv@26b3d29962cb",
+  "keep_set_hash": "c3f08ea1a903",
+  "runs_fingerprint": "counts:fail_counts_matrix.csv@c3f08ea1a903",
   "population_fingerprint": "7c54db44c611",
   "fitted_arms": [
    "Qwen/Qwen2.5-0.5B-Instruct",
@@ -69,13 +69,13 @@
    "zai-org/GLM-4.7-Flash"
   ],
   "population_M": 58,
-  "build_date": "",
+  "build_date": "2026-09-22T10:23:40Z",
   "population": "board (all complete arms)",
   "restriction": null
  },
  "source": "analysis/battery/make_u_frame.py (formula: C_m = u_lo + sum_t w_t (1 - f_mt/n_t), Voronoi-in-u weights; uncovered easy end credited solved, hard end failed)",
- "placement": "z omitted by design: apply the identity z = logit(C) — the dot sits at level u = C",
- "uncertainty_semantics": "",
+ "placement": "z omitted by design: apply the identity z = logit(C) \u2014 the dot sits at level u = C",
+ "uncertainty_semantics": "ci80_C is an 80% bootstrap interval (10th-90th percentile, B=400, fixed seed) capturing THREE sources jointly per replicate: (1) which tasks the pool holds \u2014 tasks resampled with replacement; (2) finite attempts \u2014 every kept cell's failure count redrawn binomially at its observed rate; (3) level-position estimation \u2014 difficulty levels and cell weights recomputed from the redrawn matrix. The model roster is held FIXED: the scale is population-relative by construction, so roster variation is a scale change, not sampling noise.",
  "exclusions": [
   {
    "cfg": "Qwen/Qwen3-30B-A3B-Thinking",
@@ -87,464 +87,464 @@
    "cfg": "Qwen/Qwen2.5-0.5B-Instruct",
    "C": 0.137,
    "ci80_C": [
-    0.1285,
-    0.1603
+    0.1288,
+    0.1588
    ]
   },
   {
    "cfg": "Qwen/Qwen2.5-1.5B-Instruct",
    "C": 0.2313,
    "ci80_C": [
-    0.2259,
-    0.2629
+    0.2256,
+    0.262
    ]
   },
   {
    "cfg": "Qwen/Qwen2.5-14B-Instruct",
    "C": 0.4186,
    "ci80_C": [
-    0.3881,
-    0.4526
+    0.3809,
+    0.4496
    ]
   },
   {
    "cfg": "Qwen/Qwen2.5-32B-Instruct",
-   "C": 0.5214,
+   "C": 0.5212,
    "ci80_C": [
-    0.4907,
-    0.5324
+    0.4854,
+    0.5309
    ]
   },
   {
    "cfg": "Qwen/Qwen2.5-3B-Instruct",
    "C": 0.3039,
    "ci80_C": [
-    0.2899,
-    0.3356
+    0.2879,
+    0.3339
    ]
   },
   {
    "cfg": "Qwen/Qwen2.5-7B-Instruct",
-   "C": 0.3913,
+   "C": 0.391,
    "ci80_C": [
-    0.364,
-    0.4293
+    0.3597,
+    0.4246
    ]
   },
   {
    "cfg": "Qwen/Qwen2.5-Coder-0.5B-Instruct",
    "C": 0.1958,
    "ci80_C": [
-    0.1836,
-    0.2342
+    0.1841,
+    0.2348
    ]
   },
   {
    "cfg": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
    "C": 0.2727,
    "ci80_C": [
-    0.2674,
-    0.3049
+    0.2655,
+    0.304
    ]
   },
   {
    "cfg": "Qwen/Qwen2.5-Coder-14B-Instruct",
-   "C": 0.4882,
+   "C": 0.4876,
    "ci80_C": [
-    0.4542,
-    0.5394
+    0.4504,
+    0.536
    ]
   },
   {
    "cfg": "Qwen/Qwen2.5-Coder-32B-Instruct",
-   "C": 0.5175,
+   "C": 0.5169,
    "ci80_C": [
-    0.4976,
-    0.586
+    0.4889,
+    0.59
    ]
   },
   {
    "cfg": "Qwen/Qwen2.5-Coder-3B-Instruct",
-   "C": 0.332,
+   "C": 0.3318,
    "ci80_C": [
-    0.3343,
-    0.3738
+    0.3297,
+    0.3687
    ]
   },
   {
    "cfg": "Qwen/Qwen2.5-Coder-7B-Instruct",
-   "C": 0.4429,
+   "C": 0.4425,
    "ci80_C": [
-    0.4145,
-    0.4908
+    0.4089,
+    0.4853
    ]
   },
   {
    "cfg": "Qwen/Qwen3-0.6B",
    "C": 0.1731,
    "ci80_C": [
-    0.1621,
-    0.2133
+    0.1625,
+    0.2101
    ]
   },
   {
    "cfg": "Qwen/Qwen3-0.6B-Thinking",
    "C": 0.1996,
    "ci80_C": [
-    0.1857,
-    0.224
+    0.1863,
+    0.2216
    ]
   },
   {
    "cfg": "Qwen/Qwen3-1.7B",
    "C": 0.248,
    "ci80_C": [
-    0.2234,
-    0.2722
+    0.2254,
+    0.2697
    ]
   },
   {
    "cfg": "Qwen/Qwen3-1.7B-Thinking",
    "C": 0.3904,
    "ci80_C": [
-    0.3705,
-    0.4217
+    0.371,
+    0.4252
    ]
   },
   {
    "cfg": "Qwen/Qwen3-14B",
    "C": 0.506,
    "ci80_C": [
-    0.4758,
-    0.5325
+    0.4739,
+    0.5271
    ]
   },
   {
    "cfg": "Qwen/Qwen3-14B-Thinking",
-   "C": 0.6758,
+   "C": 0.6765,
    "ci80_C": [
-    0.6419,
-    0.7021
+    0.6438,
+    0.7077
    ]
   },
   {
    "cfg": "Qwen/Qwen3-30B-A3B",
    "C": 0.4688,
    "ci80_C": [
-    0.4355,
-    0.4997
+    0.4273,
+    0.4996
    ]
   },
   {
    "cfg": "Qwen/Qwen3-32B",
    "C": 0.468,
    "ci80_C": [
-    0.4458,
-    0.4956
+    0.4442,
+    0.4945
    ]
   },
   {
    "cfg": "Qwen/Qwen3-32B-Thinking",
-   "C": 0.7396,
+   "C": 0.741,
    "ci80_C": [
-    0.699,
-    0.7635
+    0.7065,
+    0.7718
    ]
   },
   {
    "cfg": "Qwen/Qwen3-4B",
    "C": 0.3094,
    "ci80_C": [
-    0.2917,
-    0.324
+    0.2899,
+    0.329
    ]
   },
   {
    "cfg": "Qwen/Qwen3-4B-Instruct-2507",
    "C": 0.4077,
    "ci80_C": [
-    0.3711,
-    0.4297
+    0.3698,
+    0.4313
    ]
   },
   {
    "cfg": "Qwen/Qwen3-4B-Thinking",
-   "C": 0.584,
+   "C": 0.5844,
    "ci80_C": [
-    0.5362,
-    0.6074
+    0.5341,
+    0.6135
    ]
   },
   {
    "cfg": "Qwen/Qwen3-8B",
    "C": 0.3539,
    "ci80_C": [
-    0.3335,
-    0.3754
+    0.3354,
+    0.3747
    ]
   },
   {
    "cfg": "Qwen/Qwen3-8B-Thinking",
-   "C": 0.5837,
+   "C": 0.5841,
    "ci80_C": [
-    0.5418,
-    0.6274
+    0.5436,
+    0.6293
    ]
   },
   {
    "cfg": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
    "C": 0.5746,
    "ci80_C": [
-    0.4998,
-    0.5842
+    0.5043,
+    0.5941
    ]
   },
   {
    "cfg": "claude-haiku-4-5",
    "C": 0.6096,
    "ci80_C": [
-    0.5537,
-    0.6474
+    0.5492,
+    0.6486
    ]
   },
   {
    "cfg": "claude-haiku-4-5-thinking",
-   "C": 0.7858,
+   "C": 0.7864,
    "ci80_C": [
-    0.7177,
-    0.8086
+    0.7256,
+    0.8038
    ]
   },
   {
    "cfg": "claude-opus-5",
-   "C": 0.8875,
+   "C": 0.8853,
    "ci80_C": [
-    0.8186,
-    0.8963
+    0.8084,
+    0.8962
    ]
   },
   {
    "cfg": "claude-opus-5-thinking",
-   "C": 0.8937,
+   "C": 0.8915,
    "ci80_C": [
-    0.8195,
-    0.902
+    0.8117,
+    0.904
    ]
   },
   {
    "cfg": "claude-sonnet-5",
-   "C": 0.7321,
+   "C": 0.7328,
    "ci80_C": [
-    0.6626,
-    0.7532
+    0.672,
+    0.7589
    ]
   },
   {
    "cfg": "claude-sonnet-5-thinking",
-   "C": 0.8248,
+   "C": 0.8254,
    "ci80_C": [
-    0.7382,
-    0.8205
+    0.7471,
+    0.8294
    ]
   },
   {
    "cfg": "deepseek-ai/DeepSeek-Coder-V2-Instruct",
    "C": 0.5057,
    "ci80_C": [
-    0.4627,
-    0.5419
+    0.4641,
+    0.5451
    ]
   },
   {
    "cfg": "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct",
-   "C": 0.3806,
+   "C": 0.3805,
    "ci80_C": [
-    0.3584,
-    0.402
+    0.361,
+    0.4016
    ]
   },
   {
    "cfg": "deepseek-ai/DeepSeek-R1-0528",
-   "C": 0.8045,
+   "C": 0.8043,
    "ci80_C": [
-    0.7799,
-    0.8359
+    0.7817,
+    0.8358
    ]
   },
   {
    "cfg": "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
-   "C": 0.4278,
+   "C": 0.4275,
    "ci80_C": [
-    0.3885,
-    0.4617
+    0.3894,
+    0.4614
    ]
   },
   {
    "cfg": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
-   "C": 0.2339,
+   "C": 0.2338,
    "ci80_C": [
-    0.2295,
-    0.2703
+    0.2306,
+    0.2682
    ]
   },
   {
    "cfg": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
-   "C": 0.5658,
+   "C": 0.5661,
    "ci80_C": [
-    0.516,
-    0.6002
+    0.5219,
+    0.6066
    ]
   },
   {
    "cfg": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
-   "C": 0.6652,
+   "C": 0.6653,
    "ci80_C": [
-    0.6121,
-    0.6833
+    0.6162,
+    0.6875
    ]
   },
   {
    "cfg": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
-   "C": 0.434,
+   "C": 0.4339,
    "ci80_C": [
-    0.4097,
-    0.4701
+    0.4058,
+    0.4684
    ]
   },
   {
    "cfg": "deepseek-ai/DeepSeek-V3-0324",
-   "C": 0.5831,
+   "C": 0.583,
    "ci80_C": [
-    0.5487,
-    0.6037
+    0.5503,
+    0.6056
    ]
   },
   {
    "cfg": "deepseek-ai/DeepSeek-V3.2",
-   "C": 0.6023,
+   "C": 0.6017,
    "ci80_C": [
-    0.5634,
-    0.6213
+    0.5653,
+    0.6237
    ]
   },
   {
    "cfg": "deepseek-ai/DeepSeek-V3.2-Thinking",
-   "C": 0.6906,
+   "C": 0.6915,
    "ci80_C": [
-    0.6563,
-    0.7194
+    0.6592,
+    0.7225
    ]
   },
   {
    "cfg": "deepseek-ai/deepseek-coder-1.3b-instruct",
    "C": 0.2449,
    "ci80_C": [
-    0.2364,
-    0.2931
+    0.2343,
+    0.2888
    ]
   },
   {
    "cfg": "deepseek-ai/deepseek-coder-33b-instruct",
    "C": 0.3815,
    "ci80_C": [
-    0.3623,
-    0.426
+    0.3597,
+    0.4185
    ]
   },
   {
    "cfg": "deepseek-ai/deepseek-coder-6.7b-instruct",
-   "C": 0.3519,
+   "C": 0.3518,
    "ci80_C": [
-    0.3387,
-    0.3965
+    0.3352,
+    0.3952
    ]
   },
   {
    "cfg": "google/gemini-3.5-flash-lite",
-   "C": 0.6417,
+   "C": 0.6428,
    "ci80_C": [
-    0.5815,
-    0.6646
+    0.5858,
+    0.6775
    ]
   },
   {
    "cfg": "google/gemini-3.6-flash",
-   "C": 0.8438,
+   "C": 0.8466,
    "ci80_C": [
-    0.7936,
-    0.8687
+    0.8078,
+    0.8817
    ]
   },
   {
    "cfg": "google/gemma-4-12B-it",
-   "C": 0.5503,
+   "C": 0.5495,
    "ci80_C": [
-    0.498,
-    0.5879
+    0.5021,
+    0.5832
    ]
   },
   {
    "cfg": "google/gemma-4-31B-it",
-   "C": 0.6919,
+   "C": 0.6918,
    "ci80_C": [
-    0.6412,
-    0.7034
+    0.6408,
+    0.7028
    ]
   },
   {
    "cfg": "moonshotai/Kimi-Dev-72B",
-   "C": 0.4462,
+   "C": 0.4461,
    "ci80_C": [
-    0.421,
-    0.4668
+    0.4206,
+    0.4656
    ]
   },
   {
    "cfg": "moonshotai/Kimi-K2-Instruct",
    "C": 0.585,
    "ci80_C": [
-    0.5366,
-    0.6177
+    0.532,
+    0.6224
    ]
   },
   {
    "cfg": "moonshotai/Kimi-Linear-48B-A3B-Instruct",
    "C": 0.399,
    "ci80_C": [
-    0.3829,
-    0.4225
+    0.3821,
+    0.4257
    ]
   },
   {
    "cfg": "moonshotai/Moonlight-16B-A3B-Instruct",
    "C": 0.2944,
    "ci80_C": [
-    0.2726,
-    0.3146
+    0.2725,
+    0.3118
    ]
   },
   {
    "cfg": "openai/gpt-5-mini",
-   "C": 0.8088,
+   "C": 0.8081,
    "ci80_C": [
-    0.7952,
-    0.8461
+    0.7916,
+    0.8443
    ]
   },
   {
    "cfg": "openai/gpt-5-nano",
-   "C": 0.7102,
+   "C": 0.7097,
    "ci80_C": [
-    0.6812,
-    0.7623
+    0.6849,
+    0.7601
    ]
   },
   {
    "cfg": "zai-org/GLM-4.7-Flash",
-   "C": 0.4052,
+   "C": 0.4051,
    "ci80_C": [
-    0.3861,
-    0.424
+    0.3856,
+    0.4227
    ]
   }
  ]

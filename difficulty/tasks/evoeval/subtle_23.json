@@ -1,5 +1,1 @@
-{
- "task_id": "evoeval/subtle_23",
- "benchmark": "pool-build",
- "text": "\n\ndef strlen(string: str) -> int:\n    \"\"\" Return length of given string plus 1\n    >>> strlen('')\n    1\n    >>> strlen('abc')\n    4\n    \"\"\"\n"
-}
+{"task_id": "evoeval/subtle_23", "benchmark": "pool-build", "text": "\n\ndef strlen(string: str) -> int:\n    \"\"\" Return length of given string plus 1\n    >>> strlen('')\n    1\n    >>> strlen('abc')\n    4\n    \"\"\"\n"}

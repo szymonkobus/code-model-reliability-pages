@@ -103,7 +103,7 @@
 <script>
 (function(){var num=/^[\s\u2212\-+]?[\d.,]+(\s*%|\s*\[.*\])?\s*$/;document.querySelectorAll('table').forEach(function(t){var rows=t.querySelectorAll('tr');if(!rows.length)return;var ncol=0;rows.forEach(function(r){ncol=Math.max(ncol,r.children.length)});for(var c=0;c<ncol;c++){var cells=[],nums=0,longest=0;rows.forEach(function(r){var el=r.children[c];if(!el)return;cells.push(el);var tx=(el.textContent||'').trim();if(el.tagName==='TD'){if(num.test(tx)&&tx.length)nums++;longest=Math.max(longest,tx.length)}});var tds=cells.filter(function(e){return e.tagName==='TD'}).length;var cls=null;if(tds&&nums>=0.8*tds)cls='num';else if(c===0&&longest<=40)cls='name';else if(longest>40)cls='prose';if(cls)cells.forEach(function(e){e.classList.add(cls)})}})})();
 </script>
-</head><body><nav class="site"><a href="index.html" class="">Start</a><a href="report.html" class="">Report</a><a href="names-proposal.html" class="">Name propositions</a><a href="synthesis.html" class="">Synthesis</a><a href="measures.html" class="">Measures</a><a href="atlas.html" class="">Atlas</a><a href="metrics-report.html" class="">Metrics</a><a href="difficulty-weighting.html" class="">Weighting</a><a href="vocab.html" class="">Names</a><button class="themeBtn" id="themeToggle" title="toggle light/dark">theme</button></nav><nav class="toc">Jump: <a href="#the-difficulty-scale">The difficulty scale</a> <a href="#the-task-distribution">The task distribution</a> <a href="#capability-c">Capability C</a> <a href="#the-reliable-zone-and-the-solvable-zone">The reliable zone and the solvable zone</a> <a href="#contested-mass-z">Contested mass Z</a> <a href="#what-difficulty-determines-and-what-it-does-not">What difficulty determines, and what it does not</a> <a href="#the-estimation-layer-in-one-place">The estimation layer, in one place</a> <a href="#how-these-were-stress-tested">How these were stress-tested</a> <a href="#alternatives-considered-and-why-they-were-dismissed">Alternatives considered, and why they were dismissed</a> <a href="#patterns-in-the-current-models">Patterns in the current models</a> <a href="#open-decisions">Open decisions</a></nav><h1 id="capability-reliability-and-the-third-axis">Capability, reliability, and the third axis</h1><p class="byline" data-freshness data-chrome>Rebuilt 15 Sep 13:23 UK; data as of 15 Sep 13:23 UK; rebuilt with every new count landing for the original tasks and after any edit to the text.</p>
+</head><body><nav class="site"><a href="index.html" class="">Start</a><a href="report.html" class="">Report</a><a href="names-proposal.html" class="">Name propositions</a><a href="synthesis.html" class="">Synthesis</a><a href="measures.html" class="">Measures</a><a href="atlas.html" class="">Atlas</a><a href="metrics-report.html" class="">Metrics</a><a href="difficulty-weighting.html" class="">Weighting</a><a href="vocab.html" class="">Names</a><button class="themeBtn" id="themeToggle" title="toggle light/dark">theme</button></nav><nav class="toc">Jump: <a href="#the-difficulty-scale">The difficulty scale</a> <a href="#the-task-distribution">The task distribution</a> <a href="#capability-c">Capability C</a> <a href="#the-reliable-zone-and-the-solvable-zone">The reliable zone and the solvable zone</a> <a href="#contested-mass-z">Contested mass Z</a> <a href="#what-difficulty-determines-and-what-it-does-not">What difficulty determines, and what it does not</a> <a href="#the-estimation-layer-in-one-place">The estimation layer, in one place</a> <a href="#how-these-were-stress-tested">How these were stress-tested</a> <a href="#alternatives-considered-and-why-they-were-dismissed">Alternatives considered, and why they were dismissed</a> <a href="#patterns-in-the-current-models">Patterns in the current models</a> <a href="#open-decisions">Open decisions</a></nav><h1 id="capability-reliability-and-the-third-axis">Capability, reliability, and the third axis</h1><p class="byline" data-freshness data-chrome>Rebuilt 22 Sep 11:23 UK; data as of 22 Sep 11:23 UK; rebuilt with every new count landing for wave 1 and after any edit to the text.</p>
 <p>We care about three properties of an AI agent. Reliability: up to
 what difficulty can you hand it work and expect at most a fixed, small
 failure rate. Capability: given a task, the chance the model
@@ -111,7 +111,7 @@ solves it. And a third axis, contested mass: how much of the
 difficulty spectrum the model is inconsistent on, sometimes solving a
 task and sometimes not. We quantify all three against tasks. A task is
 a programming problem with tests; one attempt either passes or fails.
-Each model ran 128 attempts on each of 431
+Each model ran 128 attempts on each of 430
 tasks.</p>
 <p>Every quantity below is stated three times, in three marked registers:
 the definition (exact, in terms of true chances), any identity
@@ -122,7 +122,7 @@ facts about the current models are marked as observations.</p>
 <summary>Provenance: where these definitions come from and how the numbers stay current</summary>
 <p>This page is the outcome of the metrics request: 26 candidate
 definitions, reduced by a frozen pre-registered test suite, then 14
-adversarial attacks by independent agents, then a full mathematical redesign driven by maintainers line-by-line review, itself
+adversarial attacks by independent agents, then a full mathematical redesign driven by the project maintainers' line-by-line review, itself
 stress-tested by a fresh critic round before publication (that round
 killed one of the draft's own headline claims; see the dismissed
 list). Volatile numbers resolve from the analysis outputs at render
@@ -158,25 +158,25 @@ accepts is measured (removing a model moves task levels by at most
 1.70 points of \(u\)), and the
 leave-one-out delta ships as a diagnostic column (90th percentile
 2.10 points on capability).</p>
-<p>Estimator of record. What is served
+<p>Estimator in service. What is served
 today and what the decision asks for are stated apart. Served: the difficulty axis of a fit is computed once at its cut as the
 equal-weight Jeffreys mean over the arms holding the task, the pooled smoothed frequency above placed on the difficulty scale, with a delta-method
 standard error; the approved Bayesian method (one prior head, sampler declared per fit) then fits each arm's failure curve against that axis
-with errors in variables. So the axis of record is the cut-time axis and
-the Bayesian posterior of record is per arm curve, not per task. Asked
-for: maintainers decision that the Bayesian view defines difficulty as one
+with errors in variables. So the served axis is the cut-time axis and
+the served Bayesian posterior is per arm curve, not per task. Asked
+for: the project maintainers' decision that the Bayesian view defines difficulty as one
 joint distribution, under which a task keeps a difficulty when some models have
 no cells on it and partial coverage never withholds the estimate. Two
 form questions sit with the fitting-method maintainers (spec 03m), both open: the
 task-effect distribution of the per-arm curve fits (single Gaussian,
 Student-t or two-component mixture; gauntlet defined, unserved, serving
-on maintainers word), and a per-task position from one joint posterior
+on the project maintainers' word), and a per-task position from one joint posterior
 across arms. No served number claims a joint per-task position. The
 existing prototype of that construct is the fitting-method maintainers' translation
 coordinate (one shared curve shape, a per-model shift, per-task positions
 estimated jointly; 3 to 5 times the held-out predictivity of the
 official points on three populations; passed the maintainers adoption
-checklist), not Bayesian and not served; adoption is maintainers act under
+checklist), not Bayesian and not served; adoption is the project maintainers' act under
 the 08-26 standing task.
 A third served-versus-adopted item: both reserved
 words are read off the average-rate curve, the expected failure rate
@@ -184,12 +184,12 @@ over the tasks at a difficulty with the fitted task spread included
 (capability = its 50% crossing, reliability = its 1% crossing); the
 median-task crossing is the labelled second option. fitting's exported
 average curve is the Gaussian task-spread transform of its exported
-median-task curve (the fitting-method maintainers' measurement on the served fit of the new tasks, spec 04a): equal at 50%, so every served capability stands;
-apart at 1% (by about a third of the original tasks' difficulty range at the median arm, up to about half), and today's
-levels tables read d1 from the median-task curve, so every served d1
+median-task curve (the fitting-method maintainers' measurement on the served fit of wave 2, spec 04a): equal at 50%, so every served capability stands;
+apart at 1% (by about a third of wave 1's difficulty range at the median arm, up to about half), and today's
+levels tables read D99 from the median-task curve, so every served D99
 is a median-task crossing under a flag until fitting's tables read the
 average-rate crossing export (both columns kept; the switch is fitting's
-act, announced with per-arm moved d1). The fidelity of the derived
+act, announced with per-arm moved D99). The fidelity of the derived
 average curve to the true average under concentration is an estimator
 question (the fitting-method maintainers' synthetic fits), not a change of estimand.</p>
 <p>Axis smoothing. The axis is a task's arm-average failure rate placed on the difficulty scale (a stretched fail-rate scale that keeps very easy and very hard tasks apart), arms equal-weighted. Its estimator
@@ -197,7 +197,7 @@ applies the Jeffreys pseudo-observation once per task on the task's
 total attempts, q = (N p̄ + ½)/(N + 1), never once per arm before
 averaging: per-arm smoothing shrinks the average toward ½ by n/(n+1)
 whatever the number of arms and confines a one-attempt axis to a narrow band around the middle (no task can read easier than about one in four failing or harder than about three in four) (experiment-design's measurement: re-learning the axis that
-way at one attempt per arm-task shifts the 1% crossing by about a fifth of the original tasks' difficulty range and flips the design ranking; at 32 attempts the shift is negligible). A count-based axis resolves positions only within about
+way at one attempt per arm-task shifts the 1% crossing by about a fifth of wave 1's difficulty range and flips the design ranking; at 32 attempts the shift is negligible). A count-based axis resolves positions only within about
 ±log(2N + 1); beyond that, and under few attempts, the joint fit places
 tasks. Served fits keep their cut-time axis (per-arm smoothing, factor
 0.97 at 32 attempts, 0.992 at 128; nothing served moves) until the big
@@ -213,13 +213,13 @@ rate curves and the reliability crossings, the Bayesian fit is the
 privileged estimator ("I would privilege Bayesian fit for averages rn"); the local-logistic kernel fit stays a secondary, labelled
 option. Measured (the fitting-method maintainers spec 04m): on arms with
 concentrated failures the served Gaussian-task-effect fit misplaces the
-average-rate 1% crossing toward easier tasks by up to about a quarter of the original tasks' difficulty range and the 10% and
+average-rate 1% crossing toward easier tasks by up to about a quarter of wave 1's difficulty range and the 10% and
 50% crossings by about 0.5 too late on synthetic arms, while
 count-average readings sit within 0.03 on the synthetic arms (the large gap reported for one real golden arm,
 claude-sonnet-5, spec 05b, was withdrawn as a concentration
 measurement: that fit was the most basis-truncated on the served record,
 the fitting-method maintainers spec 06n; on identical inputs the count-average and posterior
-50% crossings agree closely (the median gap is negligible and 32 of 33 arms sit within a small fraction of the original tasks' range),
+50% crossings agree closely (the median gap is negligible and 32 of 33 arms sit within a small fraction of wave 1's range),
 and the clean real-arm comparison waits for that arm's own re-fit at the
 adequate basis; the golden re-fits move crossings by
 hundredths of a step at most, so a gap of that size, if real, is not the
@@ -227,28 +227,27 @@ basis but the fit's behaviour under concentrated failures, the open test on
 that arm; measured on the golden set (the fitting-method maintainers spec 07b) on the golden set's own
 inputs, the count-average and posterior 50% crossings agree within a tenth of
 a difficulty step on all twelve arms, claude-sonnet-5 included, at both basis
-sizes, so the gap belongs to the served new-task fit's inputs (43 arms, 1,563
+sizes, so the gap belongs to the served wave 2 fit's inputs (43 arms, 1,563
 tasks at its cut), whose own re-fit stays deferred as adopted); the estimand stands, the task-effect form gauntlet (with a
 fifth criterion, bias at most 0.10 on the synthetic arms) is the first
 estimator item, served crossings of arms in that regime carry a flag,
-and the promotion of the passing form to estimator of record is queued
-for maintainers. A golden-set variant exists beside the official axis: difficulty
+and the passing form becomes the served estimator on the project maintainers' word (queued). A golden-set variant exists beside the official axis: difficulty
 defined from twelve arms only (Qwen3 0.6B, 1.7B, 4B and 8B, each plain
 and thinking; Claude Haiku 4.5 and Claude Sonnet 5, each plain and
 thinking), with failure rate against difficulty and capability against
-reliability computed on that axis by every estimator we have, on the original tasks, on the new tasks and on the combined set; it is served as
+reliability computed on that axis by every estimator we have, on wave 1, on wave 2 and on wave 1+2; it is served as
 the "golden set" option and labelled a data point, and its serving files
-carry the state of each half (which arms have landed, which gates flag). The direction of record: failure against
+carry the state of each half (which arms have landed, which gates flag). The adopted direction: failure against
 difficulty and capability against reliability are to be seen on this consistent set with every method we have,
 as a data point and not as a new definition of difficulty for all purposes. The membership file is knowledge/golden_set.json.</p>
 <p>The tasks used. One task set, one grading
-convention, one axis. The set \(T\) is every HumanEval and MBPP task
-together with every pool task carrying the kept status of record;
+convention, one axis. The set \(T\) is every wave 1 task
+together with every pool task carrying the kept label;
 a task is identified by the hash of its content, so a twin is a task
 of its own and only identical content present in both sources is
 one task. Membership is by label, not by data: the tasks used are the
 valid tasks, labelled regular or tricky; a task labelled contradiction or
-underspecification, or removed by the hand, is not used; the same rule
+underspecification, or removed by the project maintainers, is not used; the same rule
 holds on both sides and is unchanged: as adopted, plots never include results from underspecified or
 contradictory tasks; only the valid tasks are shown. The sentence shared with the estimator pages: the
 tasks used are the valid tasks, every configuration with data on them is
@@ -266,9 +265,9 @@ versions are distinct configurations; an arm judged on part of
 \(T\) enters with its coverage as a figure and a flag, never
 withheld. A cell is the passes and the attempts of one configuration on
 one task over the attempts that are valid under the register of the
-row's source (the pool's adopted judge stamps, the original tasks' judge-era register), one winner rule over both with the pinned judges of either
+row's source (wave 2's adopted judge stamps, wave 1's judge-era register), one winner rule over both with the pinned judges of either
 side on the same top tier, pooling of distinct valid draws, version
-identity; cells of the original tasks enter at their stored attempts and pool cells at the attempts
+identity; wave 1 cells enter at their stored attempts and pool cells at the attempts
 summed over valid distinct draws, and the binomial likelihood carries
 the unequal attempts without reweighting. The judge environment is part of the
 convention: one pinned interpreter with the standard library and the
@@ -278,19 +277,19 @@ route, so a solution that imports an absent package fails as the arm
 configured against the declared environment; a route that lacked part of
 that set is a defect and its judgings are re-judged under the uniform
 environment; changing the set itself would re-judge every landed cell
-and is a joint decision with the record, never a judge-lane change.
-Answers cut at the pool's
+and is a joint decision with the project maintainers' word, never a judge-lane change.
+Answers cut at wave 2's
 768-token cap are not failures to claim: "we can't have this answer cap.
 We need to run correct generation we can't claim failures in this way"; until each cut answer is continued from its banked
 prefix under 4,096 tokens and re-judged, the cut share is a flag on the
-affected cells and the longer new tasks read harder than the models are. Definitions publishes the
+affected cells and the longer wave 2 tasks read harder than the models are. Definitions publishes the
 matrix of arms by tasks that every reader fits or draws from, keyed by
-content hash and stamped with its basis, and beside it the axis file of the fit of record (task, position, standard error, arms holding the
-task, ready flag, fit id). The original tasks are the restriction of this task set
-to HumanEval and MBPP; the pool pages are its restriction to the pool
+content hash and stamped with its basis, and beside it the axis file of the served fit (task, position, standard error, arms holding the
+task, ready flag, fit id). Wave 1 is the restriction of this task set
+to its original members; the first-look pages are its restriction to wave 2
 tasks; every page names the restriction it reads. The direction: the frame is every task we have, and board and pool become one set</p>
-<p>The plotted sets. The direction: with generation finishing on wave 2 (869 tasks) first, that set is the one to plot. Two plotted sets follow, on the one axis: the 438 original tasks with the 877 focused new tasks, and the 877 focused new tasks by themselves; the parked new tasks are excluded from these plots and from nothing else: the frame
-and the fits of record keep every kept task (the 09-03 rule), and a tier is
+<p>The plotted sets. The direction: with generation finishing on wave 2 (869 tasks) first, that set is the one to plot. Two plotted sets follow, on the one axis: the 438 wave 1 tasks with the 877 focused wave 2 tasks, and the 877 focused wave 2 tasks by themselves; the parked wave 2 tasks are excluded from these plots and from nothing else: the frame
+and the served fits keep every kept task (the project maintainers' rule of 3 Sep), and a tier is
 a membership label, never a filter on results. The dataset mirrors carry the two sets beside the original, new and combined sets.</p>
 <p>Where noise is allowed. Capability is a
 position on the axis averaged over many tasks, and noise there is
@@ -321,7 +320,7 @@ tasks at difficulty \(u\), the conditional expectation of
 \(q_{mT}\) given \(u(T) = u\): its failure curve. Tasks at one
 difficulty keep their individual chances; that spread is treated
 below, not assumed away.</p>
-<p>Estimator. The pool is a finite sample of tasks from the space,
+<p>Estimator. The task set is a finite sample of tasks from the space,
 assembled however it was assembled: not a draw from \(\Lambda\).
 Expectations under \(\Lambda\) are estimated from it by weighting
 each task by the correction factor \(d\Lambda/d\widehat\Lambda\)
@@ -330,12 +329,12 @@ difficulty; the cell construction (each task's weight reaching
 halfway to its neighbors, ties sharing) estimates it, and under the
 uniform condition a task's weight is its cell's length in \(u\).
 One assumption sits here and nowhere in the definitions: within
-each difficulty, the pool's tasks stand in for \(\Lambda\)'s. The
+each difficulty, the task set's tasks stand in for \(\Lambda\)'s. The
 pool covers difficulties 0.500% to 94.0%; the
 uncovered 6.50% is handled where it matters.</p>
 </details>
 <h2 id="capability-c">Capability C</h2>
-<p>Definition. C is the share of the task population a model solves, the population weighted by a difficulty distribution. Three weightings are served, named after the distributions of difficulty by the record: Capability (uniform), Capability (Haldane) and Capability (Jeffreys); the fold defines each.</p>
+<p>Definition. C is the share of the task population a model solves, the population weighted by a difficulty distribution. Three weightings are served, named after the distributions of difficulty by the project maintainers' word: Capability (uniform), Capability (Haldane) and Capability (Jeffreys); the fold defines each.</p>
 <details>
 <summary>Capability C: the full account</summary>
 <p>$$ C_m \;=\; \Pr\bigl[\, m \ \text{solves}\ T \,\bigr],
@@ -378,14 +377,14 @@ pool edges on \(C\), and their total (6.50% of
 the spectrum) bounds how far any completion could move any model's
 value. Achieved roster mean: 0.499 against the ideal 0.500;
 the gap is the estimation layer's coverage distortion, printed so
-it cannot hide. Current median capability: 0.479.</p>
+it cannot hide. Current median capability: 0.478.</p>
 <p>The second good notion, also defined here: the 50% crossing
 \(X_m\): the level at which the model's failure curve first
 reaches even odds. A pointwise reading: it needs no \(\nu\) at
 all, and it is the adopted meaning of bare "capability" in the naming
 contract. The two agree closely on current data because transition
 centers are symmetric; divergence between them under pool reweighting
-is the standing alarm that the pool is reshaping itself around the
+is the standing alarm that the task set is reshaping itself around the
 metric.</p>
 <details>
 <summary>Under particular task weightings</summary>
@@ -398,7 +397,7 @@ position under this weighting). Both candidates have mean ½, so both
 keep the anchor.
 Jeffreys: the same model's capability is
 \(\tfrac{2}{\pi}\arcsin\sqrt{\theta}\), the threshold on
-the arcsine clock; the ends of the spectrum weigh more, and the pool
+the arcsine clock; the ends of the spectrum weigh more, and the task set
 identifies about 87% of the question instead of about 98% (Weighting
 page). The ½ roster anchor holds under both (any mean-½ weighting).
 The 50% crossing needs no weighting at all.</p>
@@ -462,14 +461,14 @@ violations). (Typed extremes) Cumulative: 1 of
 58 models have no reliable zone (they fail over 1% of even
 the easiest workload), 18 are still solving beyond the
 pool's hardest levels ("beyond coverage", never a number); those
-18 are the live gauge of where the pool needs harder
+18 are the live gauge of where the task set needs harder
 tasks. Trailing: 56 of 58 defined on the
 reliable side, 40 on the solvable side.</p>
 <p>Current medians. Cumulative: \(R\) at the 8.10%
 level, \(S\) at 76.1%, zone 67.3% of
 the scale. Trailing: \(R^{\mathrm{tr}}\) at 1.70%,
-\(S^{\mathrm{tr}}\) at 88.4%, zone
-84.4%. The trailing zone is wider on both sides, as
+\(S^{\mathrm{tr}}\) at 85.5%, zone
+79.8%. The trailing zone is wider on both sides, as
 it must be: pointwise conditions bind sooner than averages.</p>
 <details>
 <summary>Under particular task weightings</summary>
@@ -485,7 +484,7 @@ where residual success sits; measured on the Weighting page.</p>
 the reliable zone (blue), the uncertain zone (gray), and the beyond-
 solvable zone (red), with capability as the dot. Sorted by
 capability. An x marks models with no reliable zone; an arrowhead
-marks models still solving at the pool's edge.</em></p>
+marks models still solving at the task set's edge.</em></p>
 <p><img alt="reliable boundary" src="figs/metric_reliable_u.png" /></p>
 <p><em>The cumulative reliable boundary against mean pass rate. The
 vertical spread is the point: models with the same pass rate differ
@@ -566,11 +565,11 @@ witnessing "at least 2 failures and 2 successes in 128 attempts"
 triggers on 37% of tasks with \(q\) = 1% and
 13% at \(q\) = 0.5%,
 so near-deterministic tasks leak in. Measured: median witnessed mass
-47.3% of the spectrum, median soft mass
-24.0%; half of the witnessed zone is
+47.5% of the spectrum, median soft mass
+23.9%; half of the witnessed zone is
 near-deterministic leakage, not genuine coin-flipping.</p>
-<p>Current soft contested mass: median 24.0% of the
-spectrum (quartiles 20.2–31.0%).
+<p>Current soft contested mass: median 23.9% of the
+spectrum (quartiles 20.1–31.0%).
 Widths are \(\nu\)-mass, not distances in hardness.</p>
 <p><img alt="contested mass" src="figs/metric_contested_u.png" /></p>
 <p><em>Soft (filled) and witnessed (open) contested mass per model. The
@@ -606,10 +605,10 @@ a model's chances, the lottery term would be zero and the two views
 would agree exactly (identity in both directions).</p>
 <p>Observation: the lottery is large. Among tasks within a narrow
 band of a model's own capability level, where the curve reads about
-47% failure, a median 29%
+47% failure, a median 28%
 of tasks are personally extreme (the model fails them under 5% or
-over 95% of the time), and 7% (up to
-12% on a quarter of models) are extreme on
+over 95% of the time), and 8% (up to
+13% on a quarter of models) are extreme on
 the wrong side: reliably solved though harder than the model's
 level, or reliably failed though easier. No curve can produce those;
 they are pure within-level spread. Consistently, every model's
@@ -715,7 +714,7 @@ the quantifier menu with its chain).</p>
 <ol>
 <li>Models keep failing unusually far into easy territory: the lower
    tail of the failure curve is heavier than any symmetric-transition
-   account predicts (null-corrected asymmetry -0.620;
+   account predicts (null-corrected asymmetry -0.580;
    stable across four data snapshots). The opposite of a guessing
    floor. This is also why the ordering fact below is not automatic.</li>
 <li>Reliable ≤ capability ≤ solvable holds wherever defined
@@ -724,31 +723,31 @@ the quantifier menu with its chain).</p>
    0 violations). Not implied by
    the definitions; an empirical regularity of current models.</li>
 <li>18 of 58 models are still solving beyond
-   the pool's hardest levels: the pool, not the models, is the
+   the task set's hardest levels: the task set, not the models, is the
    binding instrument at the top. That count is the standing gauge
    for acquiring harder tasks.</li>
 <li>The uncertain zone is wide (median 67.3% of the
    spectrum) but only about a third of it is genuine coin-flipping
-   (median soft mass 24.0%): most of the zone is
+   (median soft mass 23.9%): most of the zone is
    already decided task-by-task: the lottery again.</li>
 </ol>
 </details>
 <h2 id="open-decisions">Open decisions</h2>
-<p>The one list of what is open on maintainers for Definitions. Every other place (the front page, STATUS.md, WORKING-STATE.md) points here. Each item asks its question in one sentence first; the options are lettered; all of the work is free.</p>
+<p>The one list of what is open on the project maintainers for Definitions. Every other place (the front page, STATUS.md, WORKING-STATE.md) points here. Each item asks its question in one sentence first; the options are lettered; all of the work is free.</p>
 <ol>
 <li>Which reading does "reliability" certify? (a) cumulative: the whole workload up to the boundary averages at most 1% failure, the working default on every page today; (b) trailing: every sub-stretch up to the boundary; (c) per-task: every single task. Status: open (the guarantee-semantics card); recommendation (a) for reporting and (b) wherever a zone width is quoted as a guarantee.</li>
 <li>Which difficulty distribution weights the axis? (a) uniform on the unit interval, the current declaration; (b) the Jeffreys alternative derived on the Weighting page; (c) both reported. Status: open.</li>
 <li>Which form does the third axis take? (a) soft contested mass, threshold-free, recommended; (b) witnessed mass as display beside it. Status: open; it waits on the decision whether axis lengths qualify as metrics alongside boundary positions (the lengths-qualify card).</li>
 <li>How are the models weighted in the population? (a) uniform over the fitted models, the current declaration (53 at the late-August freeze; the live count is on the first-look pages); (b) family-weighted, checkpoint siblings sharing one vote. Status: open; the family-jackknife stability measurement is pending.</li>
-<li>Which assurance level do quoted boundaries carry? (a) the median with a 5 to 95% band; (b) a 99%-assured boundary (measured cost on the old construction: 1.10% of the scale). Status: open.</li>
-<li>Do answers cut at the output cap count as attempts? (a) a cut answer counts as an attempt and a failure, today's reading; (b) cut answers leave the attempt count for every model and the axis alike, with the continuation legs credited as they land. Status: open since <span data-chrome>9 September</span> (the cut-at-cap semantics item).</li>
-<li>Which estimator becomes the estimator of record under concentration? (a) the served fit's crossing of record; (b) the reference crossing that passed the estimator gauntlet. Status: open; the fitting-method maintainers' measurement of <span data-chrome>9 September</span> shows the two agree within a third of a difficulty step on all 59 arms of the fresh focused set, so the choice costs nothing in numbers today.</li>
-<li>Who bears the continuation cost of finishing cut answers, and at what cap? Status: open since <span data-chrome>9 September</span>; free tier today.</li>
-<li>Should the fitted model change to remove the slow-mixing warning on the small models? On arms that fail nearly every focused task the sampler mixes slowly at the arm level (the share of all-fail tasks in an arm's inputs predicts its R-hat on both frames; a doubled warm-up on one such arm made the mixing worse, not better), while the reported crossings stay inside their bands and are disclosed per arm, with a visible note on the one arm whose chains disagree about a crossing by more than a tenth of a difficulty step. (a) keep the approved model as it is, with the disclosure, the working default; (b) explore a model-side change (the HSGP domain and the length-scale prior on such arms), which changes the approved model. Status: open since <span data-chrome>12 September</span> (fitting-method specification 12c); nothing runs before a decision.</li>
+<li>Which assurance level do quoted boundaries carry? (a) the median with a 5 to 95% band; (b) a 99%-assured boundary (measured cost on the old construction: 1.20% of the scale). Status: open.</li>
+<li>Do answers cut at the output cap count as attempts? (a) a cut answer counts as an attempt and a failure, today's reading; (b) cut answers leave the attempt count for every model and the axis alike, with the continuation runs credited as they land. Status: open since <span data-chrome>9 September</span> (the cut-at-cap semantics item).</li>
+<li>Which estimator becomes the served estimator under concentration? (a) the served fit's crossing; (b) the reference crossing that passed the estimator gauntlet. Status: open; the fitting-method maintainers' measurement of <span data-chrome>9 September</span> shows the two agree within a third of a difficulty step on all 59 arms of the fresh focused set, so the choice costs nothing in numbers today.</li>
+<li>Who bears the continuation cost of finishing cut answers, and at what cap? Status: open since <span data-chrome>9 September</span>; on the free queue today.</li>
+<li>Should the fitted model change to remove the slow-mixing warning on the small models? On arms that fail nearly every focused task the sampler mixes slowly at the arm level (the share of all-fail tasks in an arm's inputs predicts its R-hat on both task sets; a doubled warm-up on one such arm made the mixing worse, not better), while the reported crossings stay inside their bands and are disclosed per arm, with a visible note on the one arm whose chains disagree about a crossing by more than a tenth of a difficulty step. (a) keep the approved model as it is, with the disclosure, the working default; (b) explore a model-side change (the HSGP domain and the length-scale prior on such arms), which changes the approved model. Status: open since <span data-chrome>12 September</span> (fitting-method specification 12c); nothing runs before a decision.</li>
 </ol>
 <details>
 <summary>adopted and closed</summary>
-<p>adopted and closed: the difficulty axis of each fit is set by every arm with at least 90% of that set's tasks scored, nothing else excludes an arm, and no axis is unified across fits (adopted <span data-chrome>10 September</span>, in three steps: a fixed set of models may set the axis; more models are better judges of difficulty than fewer, so the set should be as wide as the coverage allows; and each fit keeps its own set, with gemma-4-12B in; Definitions' first proposal of one unified 48-arm panel with noise exclusions was rejected, and its Gemma cut figure corrected, as recorded in the ledger). Panels of record in knowledge/difficulty_panel.json: wave 1+2 51 arms, wave 1 58 arms, the live board + pool axis 51 today under the same rule; the switch waits on the cuts' gates and the new positions are reported once; the scorer (pass means both the base and the plus tests pass; adopted <span data-chrome>2 September</span>, reversing the earlier reading); the 2PL diagnostic adopted project-wide as a diagnostic, never the official measure; crossings are read off the average-rate curve (<span data-chrome>4 September</span>); difficulty is judged by the golden twelve for the pilot and single-task label changes never trigger a re-cut (<span data-chrome>8 September</span>); crossings on pages read as difficulty percent, never as task counts (<span data-chrome>10 September</span>).</p>
+<p>adopted and closed: the difficulty axis of each fit is set by every arm with at least 90% of that set's tasks scored, nothing else excludes an arm, and no axis is unified across fits (adopted <span data-chrome>10 September</span>, in three steps: a fixed set of models may set the axis; the set is as wide as the coverage allows; and each fit keeps its own set, with gemma-4-12B in; Definitions' first proposal of one unified 48-arm panel with noise exclusions was rejected, and its Gemma cut figure corrected, as recorded in the ledger). Panels in force, in knowledge/difficulty_panel.json: wave 1+2 51 arms, wave 1 58 arms, the live board + pool axis 51 today under the same rule; the switch waits on the cuts' gates and the new positions are reported once; the scorer (pass means both the base and the plus tests pass; adopted <span data-chrome>2 September</span>, reversing the earlier reading); the 2PL diagnostic adopted project-wide as a diagnostic, never the official measure; crossings are read off the average-rate curve (<span data-chrome>4 September</span>); difficulty is judged by the golden twelve for the pilot and single-task label changes never trigger a re-cut (<span data-chrome>8 September</span>); crossings on pages read as difficulty percent, never as task counts (<span data-chrome>10 September</span>).</p>
 </details>
 <details>
 <summary>Operational handoff</summary>
@@ -757,7 +756,7 @@ in-words line as printed here, per-model values with typed extremes
 ("no reliable zone", "beyond coverage") and uncertainty bands, the
 zones figure, and the standing diagnostics (coverage strip,
 self-grading leave-one-out deltas, witnessed-vs-soft comparison,
-scale version). The seven promoted attacks from the adversarial
+scale version). The seven attacks kept from the adversarial
 round remain the regression suite for any future metric. All outputs
 are versioned CSVs; seeds and specs frozen.</p>
 </details><script>(function(){

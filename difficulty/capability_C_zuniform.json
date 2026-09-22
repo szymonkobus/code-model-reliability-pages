@@ -5,8 +5,8 @@
  "distribution": "Haldane: even weight per logit step over the tasks' range, the improper Beta(0,0) cut at the easiest and hardest task",
  "marginal_plain": "population weighted evenly along the difficulty scale (uniform in logit over the axis's task range; Voronoi cell mass in z, normalised)",
  "frame": {
-  "keep_set_hash": "26b3d29962cb",
-  "runs_fingerprint": "counts:fail_counts_matrix.csv@26b3d29962cb",
+  "keep_set_hash": "c3f08ea1a903",
+  "runs_fingerprint": "counts:fail_counts_matrix.csv@c3f08ea1a903",
   "population_fingerprint": "7c54db44c611",
   "fitted_arms": [
    "Qwen/Qwen2.5-0.5B-Instruct",
@@ -69,13 +69,13 @@
    "zai-org/GLM-4.7-Flash"
   ],
   "population_M": 58,
-  "build_date": "",
+  "build_date": "2026-09-22T10:23:43Z",
   "population": "board (all complete arms)",
   "restriction": null
  },
  "source": "analysis/battery/make_u_frame.py NU_MARGINAL=z (formula: C_m = sum_t w_t (1 - f_mt/n_t), Voronoi-in-logit weights over the axis's task range normalised to one; no end credit: the range is the tasks')",
- "placement": "z omitted by design: apply the identity z = logit(C) — the dot sits at level u = C",
- "uncertainty_semantics": "",
+ "placement": "z omitted by design: apply the identity z = logit(C) \u2014 the dot sits at level u = C",
+ "uncertainty_semantics": "ci80_C is an 80% bootstrap interval (10th-90th percentile, B=400, fixed seed) capturing THREE sources jointly per replicate: (1) which tasks the pool holds \u2014 tasks resampled with replacement; (2) finite attempts \u2014 every kept cell's failure count redrawn binomially at its observed rate; (3) level-position estimation \u2014 difficulty levels and cell weights recomputed from the redrawn matrix. The model roster is held FIXED: the scale is population-relative by construction, so roster variation is a scale change, not sampling noise.",
  "exclusions": [
   {
    "cfg": "Qwen/Qwen3-30B-A3B-Thinking",
@@ -87,464 +87,464 @@
    "cfg": "Qwen/Qwen2.5-0.5B-Instruct",
    "C": 0.3509,
    "ci80_C": [
-    0.3478,
-    0.3943
+    0.3474,
+    0.3949
    ]
   },
   {
    "cfg": "Qwen/Qwen2.5-1.5B-Instruct",
    "C": 0.4618,
    "ci80_C": [
-    0.4658,
-    0.516
+    0.4615,
+    0.5134
    ]
   },
   {
    "cfg": "Qwen/Qwen2.5-14B-Instruct",
    "C": 0.6074,
    "ci80_C": [
-    0.6016,
-    0.6687
+    0.5952,
+    0.6646
    ]
   },
   {
    "cfg": "Qwen/Qwen2.5-32B-Instruct",
-   "C": 0.6711,
+   "C": 0.6708,
    "ci80_C": [
-    0.6597,
-    0.7278
+    0.6524,
+    0.7231
    ]
   },
   {
    "cfg": "Qwen/Qwen2.5-3B-Instruct",
    "C": 0.5299,
    "ci80_C": [
-    0.5277,
-    0.5852
+    0.5235,
+    0.5827
    ]
   },
   {
    "cfg": "Qwen/Qwen2.5-7B-Instruct",
-   "C": 0.592,
+   "C": 0.5918,
    "ci80_C": [
-    0.5871,
-    0.6539
+    0.585,
+    0.649
    ]
   },
   {
    "cfg": "Qwen/Qwen2.5-Coder-0.5B-Instruct",
    "C": 0.4208,
    "ci80_C": [
-    0.4207,
-    0.4727
+    0.4175,
+    0.4726
    ]
   },
   {
    "cfg": "Qwen/Qwen2.5-Coder-1.5B-Instruct",
    "C": 0.5037,
    "ci80_C": [
-    0.5061,
-    0.5606
+    0.5012,
+    0.5578
    ]
   },
   {
    "cfg": "Qwen/Qwen2.5-Coder-14B-Instruct",
-   "C": 0.6428,
+   "C": 0.642,
    "ci80_C": [
-    0.635,
-    0.7158
+    0.629,
+    0.7096
    ]
   },
   {
    "cfg": "Qwen/Qwen2.5-Coder-32B-Instruct",
-   "C": 0.6598,
+   "C": 0.659,
    "ci80_C": [
-    0.6578,
-    0.7466
+    0.6513,
+    0.7394
    ]
   },
   {
    "cfg": "Qwen/Qwen2.5-Coder-3B-Instruct",
-   "C": 0.5512,
+   "C": 0.5511,
    "ci80_C": [
-    0.5582,
-    0.617
+    0.5545,
+    0.6121
    ]
   },
   {
    "cfg": "Qwen/Qwen2.5-Coder-7B-Instruct",
-   "C": 0.6176,
+   "C": 0.6171,
    "ci80_C": [
-    0.6116,
-    0.6826
+    0.6069,
+    0.6776
    ]
   },
   {
    "cfg": "Qwen/Qwen3-0.6B",
    "C": 0.3851,
    "ci80_C": [
-    0.3858,
-    0.4389
+    0.3843,
+    0.4407
    ]
   },
   {
    "cfg": "Qwen/Qwen3-0.6B-Thinking",
    "C": 0.398,
    "ci80_C": [
-    0.3933,
-    0.4442
+    0.391,
+    0.4444
    ]
   },
   {
    "cfg": "Qwen/Qwen3-1.7B",
    "C": 0.4873,
    "ci80_C": [
-    0.4778,
-    0.5346
+    0.4764,
+    0.5326
    ]
   },
   {
    "cfg": "Qwen/Qwen3-1.7B-Thinking",
    "C": 0.5919,
    "ci80_C": [
-    0.5865,
-    0.6511
+    0.5844,
+    0.6521
    ]
   },
   {
    "cfg": "Qwen/Qwen3-14B",
    "C": 0.6624,
    "ci80_C": [
-    0.6512,
-    0.7235
+    0.6466,
+    0.7191
    ]
   },
   {
    "cfg": "Qwen/Qwen3-14B-Thinking",
-   "C": 0.7728,
+   "C": 0.7738,
    "ci80_C": [
-    0.7645,
-    0.8412
+    0.7624,
+    0.8442
    ]
   },
   {
    "cfg": "Qwen/Qwen3-30B-A3B",
    "C": 0.6407,
    "ci80_C": [
-    0.6322,
-    0.7046
+    0.6293,
+    0.6978
    ]
   },
   {
    "cfg": "Qwen/Qwen3-32B",
    "C": 0.6418,
    "ci80_C": [
-    0.6365,
-    0.7062
+    0.6332,
+    0.7014
    ]
   },
   {
    "cfg": "Qwen/Qwen3-32B-Thinking",
-   "C": 0.8308,
+   "C": 0.8326,
    "ci80_C": [
-    0.8109,
-    0.8793
+    0.8179,
+    0.8857
    ]
   },
   {
    "cfg": "Qwen/Qwen3-4B",
    "C": 0.5409,
    "ci80_C": [
-    0.5348,
-    0.5931
+    0.5342,
+    0.5926
    ]
   },
   {
    "cfg": "Qwen/Qwen3-4B-Instruct-2507",
    "C": 0.6018,
    "ci80_C": [
-    0.59,
-    0.6591
+    0.5854,
+    0.6584
    ]
   },
   {
    "cfg": "Qwen/Qwen3-4B-Thinking",
-   "C": 0.7132,
+   "C": 0.7137,
    "ci80_C": [
-    0.6962,
-    0.7743
+    0.6914,
+    0.7758
    ]
   },
   {
    "cfg": "Qwen/Qwen3-8B",
    "C": 0.5692,
    "ci80_C": [
-    0.5623,
-    0.625
+    0.5627,
+    0.6226
    ]
   },
   {
    "cfg": "Qwen/Qwen3-8B-Thinking",
-   "C": 0.7138,
+   "C": 0.7143,
    "ci80_C": [
-    0.6996,
-    0.7863
+    0.7001,
+    0.7875
    ]
   },
   {
    "cfg": "Qwen/Qwen3-Coder-30B-A3B-Instruct",
    "C": 0.7019,
    "ci80_C": [
-    0.6701,
-    0.7539
+    0.6698,
+    0.7526
    ]
   },
   {
    "cfg": "claude-haiku-4-5",
    "C": 0.7297,
    "ci80_C": [
-    0.7061,
-    0.7997
+    0.6996,
+    0.7984
    ]
   },
   {
    "cfg": "claude-haiku-4-5-thinking",
-   "C": 0.8601,
+   "C": 0.8608,
    "ci80_C": [
-    0.8253,
-    0.9278
+    0.8236,
+    0.9242
    ]
   },
   {
    "cfg": "claude-opus-5",
-   "C": 0.9538,
+   "C": 0.9511,
    "ci80_C": [
-    0.9154,
-    0.9741
+    0.9065,
+    0.9721
    ]
   },
   {
    "cfg": "claude-opus-5-thinking",
-   "C": 0.9659,
+   "C": 0.9632,
    "ci80_C": [
-    0.9239,
-    0.9802
+    0.9118,
+    0.979
    ]
   },
   {
    "cfg": "claude-sonnet-5",
-   "C": 0.8217,
+   "C": 0.8225,
    "ci80_C": [
-    0.7838,
-    0.8726
+    0.7836,
+    0.8759
    ]
   },
   {
    "cfg": "claude-sonnet-5-thinking",
-   "C": 0.8927,
+   "C": 0.8935,
    "ci80_C": [
-    0.8381,
-    0.9291
+    0.8423,
+    0.9314
    ]
   },
   {
    "cfg": "deepseek-ai/DeepSeek-Coder-V2-Instruct",
    "C": 0.6625,
    "ci80_C": [
-    0.6477,
-    0.7298
+    0.6481,
+    0.7299
    ]
   },
   {
    "cfg": "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct",
-   "C": 0.5853,
+   "C": 0.5852,
    "ci80_C": [
-    0.5763,
-    0.6398
+    0.5753,
+    0.6396
    ]
   },
   {
    "cfg": "deepseek-ai/DeepSeek-R1-0528",
-   "C": 0.8588,
+   "C": 0.8585,
    "ci80_C": [
-    0.8576,
-    0.9277
+    0.8517,
+    0.9322
    ]
   },
   {
    "cfg": "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
-   "C": 0.5999,
+   "C": 0.5996,
    "ci80_C": [
-    0.5876,
-    0.6545
+    0.5861,
+    0.6531
    ]
   },
   {
    "cfg": "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
-   "C": 0.447,
+   "C": 0.4469,
    "ci80_C": [
-    0.452,
-    0.5065
+    0.4504,
+    0.5041
    ]
   },
   {
    "cfg": "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
-   "C": 0.7144,
+   "C": 0.7148,
    "ci80_C": [
-    0.6989,
-    0.7628
+    0.6998,
+    0.7643
    ]
   },
   {
    "cfg": "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
-   "C": 0.7775,
+   "C": 0.7777,
    "ci80_C": [
-    0.7575,
-    0.8198
+    0.7582,
+    0.8205
    ]
   },
   {
    "cfg": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
-   "C": 0.6066,
+   "C": 0.6065,
    "ci80_C": [
-    0.601,
-    0.6693
+    0.5973,
+    0.6653
    ]
   },
   {
    "cfg": "deepseek-ai/DeepSeek-V3-0324",
-   "C": 0.7055,
+   "C": 0.7054,
    "ci80_C": [
-    0.69,
-    0.7663
+    0.6898,
+    0.7686
    ]
   },
   {
    "cfg": "deepseek-ai/DeepSeek-V3.2",
-   "C": 0.7254,
+   "C": 0.7247,
    "ci80_C": [
-    0.7122,
-    0.7806
+    0.7097,
+    0.7773
    ]
   },
   {
    "cfg": "deepseek-ai/DeepSeek-V3.2-Thinking",
-   "C": 0.7797,
+   "C": 0.7809,
    "ci80_C": [
-    0.7719,
-    0.847
+    0.7703,
+    0.8486
    ]
   },
   {
    "cfg": "deepseek-ai/deepseek-coder-1.3b-instruct",
    "C": 0.4769,
    "ci80_C": [
-    0.4766,
-    0.5339
+    0.4758,
+    0.5314
    ]
   },
   {
    "cfg": "deepseek-ai/deepseek-coder-33b-instruct",
    "C": 0.5791,
    "ci80_C": [
-    0.5788,
-    0.6451
+    0.5759,
+    0.6401
    ]
   },
   {
    "cfg": "deepseek-ai/deepseek-coder-6.7b-instruct",
-   "C": 0.557,
+   "C": 0.5569,
    "ci80_C": [
-    0.5602,
-    0.6216
+    0.5558,
+    0.6195
    ]
   },
   {
    "cfg": "google/gemini-3.5-flash-lite",
-   "C": 0.7444,
+   "C": 0.7459,
    "ci80_C": [
-    0.7188,
-    0.8082
+    0.7194,
+    0.8108
    ]
   },
   {
    "cfg": "google/gemini-3.6-flash",
-   "C": 0.9128,
+   "C": 0.9163,
    "ci80_C": [
-    0.8801,
-    0.9583
+    0.9003,
+    0.9646
    ]
   },
   {
    "cfg": "google/gemma-4-12B-it",
-   "C": 0.6884,
+   "C": 0.6874,
    "ci80_C": [
-    0.6703,
-    0.7526
+    0.6674,
+    0.7464
    ]
   },
   {
    "cfg": "google/gemma-4-31B-it",
-   "C": 0.7682,
+   "C": 0.7681,
    "ci80_C": [
-    0.7493,
-    0.8304
+    0.7432,
+    0.8245
    ]
   },
   {
    "cfg": "moonshotai/Kimi-Dev-72B",
    "C": 0.6278,
    "ci80_C": [
-    0.6186,
-    0.6814
+    0.6173,
+    0.6801
    ]
   },
   {
    "cfg": "moonshotai/Kimi-K2-Instruct",
    "C": 0.7133,
    "ci80_C": [
-    0.6914,
-    0.7791
+    0.6896,
+    0.7839
    ]
   },
   {
    "cfg": "moonshotai/Kimi-Linear-48B-A3B-Instruct",
    "C": 0.5966,
    "ci80_C": [
-    0.5913,
-    0.6569
+    0.5888,
+    0.6531
    ]
   },
   {
    "cfg": "moonshotai/Moonlight-16B-A3B-Instruct",
    "C": 0.5178,
    "ci80_C": [
-    0.5103,
-    0.5668
+    0.5091,
+    0.5677
    ]
   },
   {
    "cfg": "openai/gpt-5-mini",
-   "C": 0.8742,
+   "C": 0.8734,
    "ci80_C": [
-    0.8782,
-    0.9523
+    0.8674,
+    0.951
    ]
   },
   {
    "cfg": "openai/gpt-5-nano",
-   "C": 0.807,
+   "C": 0.8063,
    "ci80_C": [
-    0.8053,
-    0.8906
+    0.7967,
+    0.8879
    ]
   },
   {
    "cfg": "zai-org/GLM-4.7-Flash",
-   "C": 0.6048,
+   "C": 0.6047,
    "ci80_C": [
-    0.6004,
-    0.6535
+    0.6006,
+    0.6522
    ]
   }
  ]

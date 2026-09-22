@@ -1,5 +1,1 @@
-{
- "task_id": "Mbpp/278~twin1",
- "benchmark": "pool-build",
- "text": "\"\"\"\nSo here's what I need: write a function that figures out how many elements show up before the tuple element in the given tuple.\nassert count_first_elements((1, 5, 7, (4, 6), 10) ) == 3\n\"\"\""
-}
+{"task_id": "Mbpp/278~twin1", "benchmark": "pool-build", "text": "\"\"\"\nSo here's what I need: write a function that figures out how many elements show up before the tuple element in the given tuple.\nassert count_first_elements((1, 5, 7, (4, 6), 10) ) == 3\n\"\"\""}

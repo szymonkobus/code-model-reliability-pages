@@ -103,7 +103,7 @@
 <script>
 (function(){var num=/^[\s\u2212\-+]?[\d.,]+(\s*%|\s*\[.*\])?\s*$/;document.querySelectorAll('table').forEach(function(t){var rows=t.querySelectorAll('tr');if(!rows.length)return;var ncol=0;rows.forEach(function(r){ncol=Math.max(ncol,r.children.length)});for(var c=0;c<ncol;c++){var cells=[],nums=0,longest=0;rows.forEach(function(r){var el=r.children[c];if(!el)return;cells.push(el);var tx=(el.textContent||'').trim();if(el.tagName==='TD'){if(num.test(tx)&&tx.length)nums++;longest=Math.max(longest,tx.length)}});var tds=cells.filter(function(e){return e.tagName==='TD'}).length;var cls=null;if(tds&&nums>=0.8*tds)cls='num';else if(c===0&&longest<=40)cls='name';else if(longest>40)cls='prose';if(cls)cells.forEach(function(e){e.classList.add(cls)})}})})();
 </script>
-</head><body><nav class="site"><a href="index.html" class="here">Start</a><a href="report.html" class="">Report</a><a href="names-proposal.html" class="">Name propositions</a><a href="synthesis.html" class="">Synthesis</a><a href="measures.html" class="">Measures</a><a href="atlas.html" class="">Atlas</a><a href="metrics-report.html" class="">Metrics</a><a href="difficulty-weighting.html" class="">Weighting</a><a href="vocab.html" class="">Names</a><button class="themeBtn" id="themeToggle" title="toggle light/dark">theme</button></nav><h1 id="difficulty-what-is-the-difficulty-of-a-task">difficulty: what is the difficulty of a task?</h1><p class="byline" data-freshness data-chrome>Rebuilt 15 Sep 13:23 UK; data as of 15 Sep 13:23 UK; rebuilt with every new count landing for the original tasks and after any edit to the text.</p>
+</head><body><nav class="site"><a href="index.html" class="here">Start</a><a href="report.html" class="">Report</a><a href="names-proposal.html" class="">Name propositions</a><a href="synthesis.html" class="">Synthesis</a><a href="measures.html" class="">Measures</a><a href="atlas.html" class="">Atlas</a><a href="metrics-report.html" class="">Metrics</a><a href="difficulty-weighting.html" class="">Weighting</a><a href="vocab.html" class="">Names</a><button class="themeBtn" id="themeToggle" title="toggle light/dark">theme</button></nav><h1 id="difficulty-what-is-the-difficulty-of-a-task">difficulty: what is the difficulty of a task?</h1><p class="byline" data-freshness data-chrome>Rebuilt 22 Sep 11:23 UK; data as of 22 Sep 11:23 UK; rebuilt with every new count landing for wave 1 and after any edit to the text.</p>
 <p>What this site answers. How hard each task is for the population of
 models we measure, how a model's capability and reliability are read off
 that difficulty scale, and what every served number means. Start with the
@@ -146,7 +146,7 @@ an instantiation.</p>
 <li><code>notes/sessions-context.md</code>: what the peer sessions contributed.</li>
 </ol>
 <h2 id="the-atlas">The atlas</h2>
-<p><code>atlas.html</code>, interactive atlas of the late-August frame: 442 kept tasks and 28 configurations, a dated snapshot whose data were last written at the end of August (the live fit has since moved to 59 model rows on wave 1 (431 tasks), see the machinery fold). The atlas draws every task's curve on the (b, a)
+<p><code>atlas.html</code>, interactive atlas of the late-August frame: 442 wave 1 tasks and 28 configurations, a dated snapshot whose data were last written at the end of August (the live fit has since moved to 59 model rows on wave 1 (431 tasks), see the machinery fold). The atlas draws every task's curve on the (b, a)
 plane: pan/zoom (semantic zoom dots→sparklines→tiles), hover for stats + task
 text, click for the full prompt with a θ50/θ99-annotated response curve,
 typed-exact jump (task id or <code>b=… a=…</code>), minimap, region annotations, and a
@@ -156,7 +156,7 @@ dropdown, SVG panel curve, eased camera, spatial hashing).</p>
 <h2 id="machinery">Machinery</h2>
 <p>Per-task statistics are computed from the canonical run outputs; the notes,
 catalog and these pages are regenerated from structured session outputs (all
-kept); the two-parameter fit of the original tasks runs at every landing of wave 1 (431 tasks) over every model row present (the count in the atlas sentence above), rebuilding its counts from the canonical runs and writing per-task and per-model parameters; the ratified configuration set of the atlas sentence above was the late-August frame. Historical one-shot workflow scripts
+kept); the two-parameter fit of wave 1 runs at every landing (431 tasks) over every model row present (the count in the atlas sentence above), rebuilding its counts from the canonical runs and writing per-task and per-model parameters; the ratified configuration set of the atlas sentence above was the late-August frame. Historical one-shot workflow scripts
 are quarantined (superseded by inline-script launches, which survive harness
 restarts).</p>
 <details><summary>Provenance: scripts and files</summary>

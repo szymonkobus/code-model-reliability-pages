@@ -1,5 +1,1 @@
-{
- "task_id": "HumanEval/56~twin1",
- "benchmark": "pool-build",
- "text": "\ndef correct_bracketing(brackets: str):\n    \"\"\" Take brackets, a string of \"<\" and \">\".\n    Return True if every opening bracket has a corresponding closing bracket.\n\n    >>> correct_bracketing(\"<\")\n    False\n    >>> correct_bracketing(\"<>\")\n    True\n    >>> correct_bracketing(\"<<><>>\")\n    True\n    >>> correct_bracketing(\"><<>\")\n    False\n    \"\"\"\n"
-}
+{"task_id": "HumanEval/56~twin1", "benchmark": "pool-build", "text": "\ndef correct_bracketing(brackets: str):\n    \"\"\" Take brackets, a string of \"<\" and \">\".\n    Return True if every opening bracket has a corresponding closing bracket.\n\n    >>> correct_bracketing(\"<\")\n    False\n    >>> correct_bracketing(\"<>\")\n    True\n    >>> correct_bracketing(\"<<><>>\")\n    True\n    >>> correct_bracketing(\"><<>\")\n    False\n    \"\"\"\n"}

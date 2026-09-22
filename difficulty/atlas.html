@@ -1662,7 +1662,22 @@ function bindSugg(){
    Mbpp/566 re-grade wave), appends a caveat so the prose can't silently lie. */
 var STALE_NOTE = ' Note: the fit has been re-run since this caption was written; trust the live panel numbers over the prose.';
 var CHK_TOL = {a:0.02, b:0.2, think_dif:0.12, pooled:0.012};
-var STOPS =;
+var STOPS = [
+  { id:'Mbpp/261', chk:{a:-0.93, think_dif:-4.1}, title:'The anti-ability lure',
+    body:'division_elements asks for element-wise division, and the worked example happens to use exact halves. Weak models just call / and pass; stronger reasoners notice the integer tuples, infer floor division, and fail. The fitted slope is negative (a = −0.93: ability actively hurts) and thinking arms do worst of all (think Δ −4.1). This is the capital of lure country.' },
+  { id:'HumanEval/97', chk:{a:0.30, pooled:0.58}, title:'The oldest inversion suspect',
+    body:'multiply: take the product of the last digits of two numbers. Pass rates barely move across the whole ladder (a = 0.30, pooled 58%): the example-validated residue bug rewards a shallow reading and punishes a careful one. Flagged low_a and sitting in the review queue since the first sweep; the atlas keeps it faded until the decision lands.' },
+  { id:'HumanEval/132', chk:{a:1.88, b:5.1, pooled:0.017}, title:'Genuinely hard, and clean',
+    body:'is_nested: decide whether a bracket string contains a properly nested subsequence. Nothing is wrong with this one. The curve is steep and orderly (a = 1.88); it is simply far to the right, at b = +5.1, beyond every non-thinking config we measured, pooled pass 1.7%. A real summit, not a defect.' },
+  { id:'Mbpp/161', chk:{a:0.05, b:-15.5}, title:'A hole, not a hill',
+    body:'remove_lowercase is nearly flat: roughly the same pass rate from a 0.6B model to the top of the ladder (a = 0.05). No ability level separates success from failure, so the difficulty estimate runs away to b ≈ −15.5. That is not a measurement; it is a hole, and the atlas parks it out here in the compressed margin.' },
+  { id:'Mbpp/437', chk:{think_dif:6.6}, title:'What a thinking budget buys',
+    body:'remove_odd characters: the filled dots (standard arms) sit near zero, while the open dots (the same families with thinking on) sit near one. think Δ = +6.6, the largest conversion in the frame. Same weights, different regime: this is the task that shows the two arms are genuinely different test-takers.' },
+  { id:'HumanEval/15', chk:{b:-12}, title:'The day-one catch',
+    body:'string_sequence was the first grader defect this frame surfaced: tiny models “pass” it, larger ones wobble, and the 2PL fit collapses (low_a + misfit; b runs off to −12). It has been queued for a re-grade since day one: parked and faded, but deliberately kept on the map so nobody re-discovers it.' },
+  { wide:true, title:'The whole plane',
+    body:'443 kept tasks, 28 configs. Rightward means harder; upward means a task separates weak from strong more decisively. The high shelf is reliable once solvable; below the zero line is lure country, where ability backfires; the compressed margins hold the holes. Esc leaves the tour; the plane is yours. Drag, zoom, click anything.' }
+];
 function resolveTour(){
   STOPS = STOPS.filter(function(s){
     if (s.wide) return true;

@@ -1,5 +1,1 @@
-{
- "task_id": "evoeval/combine_46",
- "benchmark": "pool-build",
- "text": "\ndef get_max_even_positive(l: list):\n    \"\"\"This function takes a list of positive and negative numbers, filters \n    out the negative numbers, and returns the largest even number among the \n    remaining elements. If there are no positive even numbers in the list, \n    the function should return -1.\n\n    For example:\n    get_max_even_positive([-1, 2, -4, 5, 6]) = 6\n    get_max_even_positive([1, 3, 5, 7]) = -1\n    \"\"\"\n"
-}
+{"task_id": "evoeval/combine_46", "benchmark": "pool-build", "text": "\ndef get_max_even_positive(l: list):\n    \"\"\"This function takes a list of positive and negative numbers, filters \n    out the negative numbers, and returns the largest even number among the \n    remaining elements. If there are no positive even numbers in the list, \n    the function should return -1.\n\n    For example:\n    get_max_even_positive([-1, 2, -4, 5, 6]) = 6\n    get_max_even_positive([1, 3, 5, 7]) = -1\n    \"\"\"\n"}

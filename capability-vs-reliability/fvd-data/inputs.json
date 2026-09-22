@@ -1,457 +1,463 @@
 {
- "generated_at": "",
+ "generated_at": "2026-09-22T10:26:08Z",
  "builder": "pages/failure-vs-difficulty/build_curves_site_data.py",
  "outputs": [
-  "pages/failure-vs-difficulty/curves-site/data/chain_average.5787f56e0d63.json",
-  "pages/failure-vs-difficulty/curves-site/data/chain_median.5787f56e0d63.json",
-  "pages/failure-vs-difficulty/curves-site/data/dots.5787f56e0d63.json",
+  "pages/failure-vs-difficulty/curves-site/data/chain_average.5ca9fec7a1ed.json",
+  "pages/failure-vs-difficulty/curves-site/data/chain_median.5ca9fec7a1ed.json",
+  "pages/failure-vs-difficulty/curves-site/data/dots.5ca9fec7a1ed.json",
   "pages/failure-vs-difficulty/curves-site/data/manifest.json",
-  "pages/failure-vs-difficulty/curves-site/data/shared.5787f56e0d63.json"
+  "pages/failure-vs-difficulty/curves-site/data/shared.5ca9fec7a1ed.json"
  ],
  "inputs": [
   {
    "path": "deep-dives/gpt5-reliability/cleaning_disclosure.json",
-   "mtime_at_open": "",
-   "size": 13404,
-   "sha12": "0c038830f746"
+   "mtime_at_open": "2026-09-18T13:29:50Z",
+   "size": 17750,
+   "sha12": "811fbcbee7a7"
   },
   {
    "path": "definitions/fitting/serving_board.json",
-   "mtime_at_open": "",
-   "size": 150348,
-   "sha12": "2c8e91206f93"
+   "mtime_at_open": "2026-09-21T17:51:19Z",
+   "size": 151909,
+   "sha12": "e13347d29c6e"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/crossings_of_record.csv",
-   "mtime_at_open": "",
-   "size": 114768,
-   "sha12": "91d2ef543f07"
+   "mtime_at_open": "2026-09-19T09:50:02Z",
+   "size": 113431,
+   "sha12": "e1adfb8f8c83"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/gates_summary.json",
-   "mtime_at_open": "",
-   "size": 32368,
-   "sha12": "26d63aeb3b1e"
+   "mtime_at_open": "2026-09-18T12:38:24Z",
+   "size": 32336,
+   "sha12": "3eb2941a6e4a"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen2.5-0.5B-Instruct_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T03:37:25Z",
    "size": 10864155,
    "sha12": "3cde2c3ae4ee"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen2.5-1.5B-Instruct_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T03:37:25Z",
    "size": 10999724,
    "sha12": "03da4ae52954"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen2.5-14B-Instruct_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T03:37:26Z",
    "size": 11014421,
    "sha12": "4f9c89f83d16"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen2.5-32B-Instruct_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T03:37:27Z",
    "size": 11009424,
    "sha12": "08be95186450"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen2.5-3B-Instruct_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T04:07:26Z",
    "size": 11007428,
    "sha12": "9e2a691b2bab"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen2.5-7B-Instruct_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T04:07:27Z",
    "size": 11010377,
    "sha12": "855c037ed8fc"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen2.5-Coder-0.5B-Instruct_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T04:07:28Z",
    "size": 10912220,
    "sha12": "aab6d0daa443"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen2.5-Coder-1.5B-Instruct_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T03:37:28Z",
    "size": 11014421,
    "sha12": "787cb5ee4511"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen2.5-Coder-14B-Instruct_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T04:07:29Z",
    "size": 10998867,
    "sha12": "9184ed2dc6b4"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen2.5-Coder-32B-Instruct_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T04:07:29Z",
    "size": 10967899,
    "sha12": "b5a89b4e9b1a"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen2.5-Coder-3B-Instruct_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T04:07:30Z",
    "size": 11007507,
    "sha12": "358a90bd3650"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen2.5-Coder-7B-Instruct_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T04:07:31Z",
    "size": 11013461,
    "sha12": "b9acf46d3d51"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen3-0.6B-Thinking_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T05:08:03Z",
    "size": 10594499,
    "sha12": "6f2c795c9cb1"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen3-0.6B_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T04:37:48Z",
    "size": 10900832,
    "sha12": "d91a2a37a48b"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen3-1.7B-Thinking_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T05:08:04Z",
    "size": 11007655,
    "sha12": "e6b05ee74dcb"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen3-1.7B_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T05:08:05Z",
    "size": 10966096,
    "sha12": "70e7274f0627"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen3-14B-Thinking_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T05:37:33Z",
    "size": 11013693,
    "sha12": "ab7bba268012"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen3-14B_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T05:08:05Z",
    "size": 11024591,
    "sha12": "1337f6efece7"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen3-30B-A3B-Thinking_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T04:07:32Z",
    "size": 11005551,
    "sha12": "a0caa9cc0977"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen3-30B-A3B_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T05:37:34Z",
    "size": 11020534,
    "sha12": "59fdb24b990f"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen3-32B-Thinking_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T05:37:35Z",
    "size": 10928260,
    "sha12": "9a4b6ea685a1"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen3-32B_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T05:37:36Z",
    "size": 11027644,
    "sha12": "810dc0e79621"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen3-4B-Instruct-2507_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T05:37:36Z",
    "size": 10967116,
    "sha12": "304c21bf53b4"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen3-4B-Thinking_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T05:37:37Z",
    "size": 10982516,
    "sha12": "759818ca15a3"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen3-4B_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T05:37:38Z",
    "size": 10961799,
    "sha12": "b8bd296550ab"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen3-8B-Thinking_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T05:37:39Z",
    "size": 10975342,
    "sha12": "f535508a1b29"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen3-8B_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T05:37:39Z",
    "size": 10961614,
    "sha12": "0dc5ad0f8823"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen3-Coder-30B-A3B-Instruct_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T05:37:40Z",
    "size": 11013131,
    "sha12": "ec8629119c1c"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_claude-haiku-4-5-thinking_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T05:37:41Z",
    "size": 10984122,
    "sha12": "a7a82264cbb6"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_claude-haiku-4-5_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T05:37:41Z",
    "size": 10995880,
    "sha12": "715db89d7e55"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_claude-opus-5-thinking_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-11T09:37:42Z",
    "size": 10285556,
    "sha12": "b195c1536a07"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_claude-opus-5_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-11T08:37:36Z",
    "size": 10463698,
    "sha12": "8aa3ff0f4c9d"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_claude-sonnet-5-thinking_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T05:37:42Z",
    "size": 10989699,
    "sha12": "1f83a92d175b"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_claude-sonnet-5_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T05:37:43Z",
    "size": 10969489,
    "sha12": "914e48ff7850"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_deepseek-ai--DeepSeek-Coder-V2-Instruct_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T05:37:44Z",
    "size": 10999748,
    "sha12": "3355cb9c89b0"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_deepseek-ai--DeepSeek-Coder-V2-Lite-Instruct_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T05:55:52Z",
    "size": 10990946,
    "sha12": "c1c668259118"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_deepseek-ai--DeepSeek-R1-0528_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T05:55:53Z",
    "size": 10834376,
    "sha12": "df832105147b"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_deepseek-ai--DeepSeek-R1-Distill-Llama-8B_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T05:55:54Z",
    "size": 11003574,
    "sha12": "8441cc113882"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_deepseek-ai--DeepSeek-R1-Distill-Qwen-1.5B_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T06:07:47Z",
    "size": 10436498,
    "sha12": "8f57b9ebf9ab"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_deepseek-ai--DeepSeek-R1-Distill-Qwen-14B_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T05:55:54Z",
    "size": 10969027,
    "sha12": "da2b5ab5a053"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_deepseek-ai--DeepSeek-R1-Distill-Qwen-32B_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T05:55:55Z",
    "size": 10972836,
    "sha12": "b3c99ba20f8c"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_deepseek-ai--DeepSeek-R1-Distill-Qwen-7B_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T05:55:56Z",
    "size": 11024911,
    "sha12": "84da05ed1ea5"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_deepseek-ai--DeepSeek-V3-0324_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T06:07:47Z",
    "size": 10979418,
    "sha12": "55c54f9e7883"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_deepseek-ai--DeepSeek-V3.2-Thinking_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T06:37:25Z",
    "size": 10956765,
    "sha12": "18f75a9fa0c9"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_deepseek-ai--DeepSeek-V3.2_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T06:37:25Z",
    "size": 10979688,
    "sha12": "3e23cea0f2ea"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_deepseek-ai--deepseek-coder-1.3b-instruct_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T06:37:26Z",
    "size": 10986409,
    "sha12": "2406e7dbb362"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_deepseek-ai--deepseek-coder-33b-instruct_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T06:37:27Z",
    "size": 10988967,
    "sha12": "b71ef1429b57"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_deepseek-ai--deepseek-coder-6.7b-instruct_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T06:37:28Z",
    "size": 10996567,
    "sha12": "9683ef2ebf2b"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_google--gemini-3.5-flash-lite_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T06:37:28Z",
    "size": 10977420,
    "sha12": "629d241a4931"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_google--gemini-3.6-flash_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T06:58:51Z",
    "size": 10576764,
    "sha12": "7e07fdbd84fe"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_google--gemma-4-12B-it_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T07:38:01Z",
    "size": 10972751,
    "sha12": "e2b2be20c643"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_google--gemma-4-31B-it_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T07:38:02Z",
    "size": 10985602,
    "sha12": "90861eff213d"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_moonshotai--Kimi-Dev-72B_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T07:38:03Z",
    "size": 11011325,
    "sha12": "fbd090415e75"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_moonshotai--Kimi-K2-Instruct_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T07:38:03Z",
    "size": 10979614,
    "sha12": "3d72491ba5a9"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_moonshotai--Kimi-Linear-48B-A3B-Instruct_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T07:38:04Z",
    "size": 11006735,
    "sha12": "823e289a0877"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_moonshotai--Moonlight-16B-A3B-Instruct_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T07:38:05Z",
    "size": 10991594,
    "sha12": "8ef3b1f2bf99"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_openai--gpt-5-mini_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T07:38:06Z",
    "size": 10492103,
    "sha12": "a0b6be2c337a"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_openai--gpt-5-nano_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T07:38:06Z",
    "size": 10946199,
    "sha12": "439f5717b6e3"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_zai-org--GLM-4.7-Flash_eivon.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-12T07:38:07Z",
    "size": 11007686,
    "sha12": "8254822389bd"
   },
   {
    "path": "pages/failure-vs-difficulty/artifacts/caprel_crossings_intervals.csv",
-   "mtime_at_open": "",
-   "size": 35665,
-   "sha12": "d863583ad153"
+   "mtime_at_open": "2026-09-22T10:19:40Z",
+   "size": 36049,
+   "sha12": "c6376c1b86c1"
   },
   {
    "path": "pages/failure-vs-difficulty/artifacts/fail_counts_matrix.csv",
-   "mtime_at_open": "",
-   "size": 1308402,
-   "sha12": "f129ebd8dd17"
+   "mtime_at_open": "2026-09-22T10:20:33Z",
+   "size": 1304899,
+   "sha12": "9ca9248b93dc"
   },
   {
    "path": "pages/failure-vs-difficulty/artifacts/fit_exclusions.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-03T20:20:54Z",
    "size": 5573,
    "sha12": "ead35347522f"
   },
   {
    "path": "pages/failure-vs-difficulty/artifacts/task_difficulty.csv",
-   "mtime_at_open": "",
-   "size": 16565,
-   "sha12": "26a2d6a4cda3"
+   "mtime_at_open": "2026-09-22T10:18:33Z",
+   "size": 16521,
+   "sha12": "5c151eeee896"
   },
   {
    "path": "runs/arms.jsonl",
-   "mtime_at_open": "",
-   "size": 325930,
-   "sha12": "91250bbdf935"
+   "mtime_at_open": "2026-09-22T10:10:36Z",
+   "size": 457808,
+   "sha12": "eaa987473fc1"
   },
   {
    "path": "runs/models.jsonl",
-   "mtime_at_open": "",
-   "size": 8719,
-   "sha12": "1ac55c7ce878"
+   "mtime_at_open": "2026-09-22T10:11:37Z",
+   "size": 11411,
+   "sha12": "50daae884c34"
   },
   {
    "path": "runs/store/wave-1/mbpp/gpt-5-mini_openai_temp_1.0.eval_results.json.recut_20260907T154051Z.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-07T15:41:17Z",
    "size": 84006,
    "sha12": "88ff19bc034d"
   },
   {
    "path": "runs/store/wave-1/mbpp/gpt-5-nano_openai_temp_1.0.eval_results.json.recut_20260907T154051Z.json",
-   "mtime_at_open": "",
+   "mtime_at_open": "2026-09-07T15:41:20Z",
    "size": 17271,
    "sha12": "922358fe3fd0"
   },
   {
    "path": "runs/watch/forecast/watch/held_arms.json",
-   "mtime_at_open": "",
-   "size": 86270,
-   "sha12": "3735d68e4856"
+   "mtime_at_open": "2026-09-22T09:36:00Z",
+   "size": 116727,
+   "sha12": "137056836842"
+  },
+  {
+   "path": "side-projects/newbench/labels_cells.jsonl",
+   "mtime_at_open": "2026-09-22T06:49:07Z",
+   "size": 525141,
+   "sha12": "684e0f35610b"
   },
   {
    "path": "tasks/knowledge/counts_of_record.json",
-   "mtime_at_open": "",
-   "size": 30485,
-   "sha12": "932ee60d7077"
+   "mtime_at_open": "2026-09-22T10:24:49Z",
+   "size": 31412,
+   "sha12": "21b6532c9435"
   },
   {
-   "path": "tasks/knowledge/disclosures.json",
-   "mtime_at_open": "",
-   "size": 447737,
-   "sha12": "037ab2379d31"
+   "path": "tasks/knowledge/disclosures.published.json",
+   "mtime_at_open": "2026-09-22T09:35:42Z",
+   "size": 466563,
+   "sha12": "f8ffe56d0bea"
   }
  ],
  "streams": [],
@@ -459,11 +465,13 @@
   "mode": "event-driven",
   "cadence_minutes": null,
   "triggers": [
-   "board landing",
+   "board landing (runs-lead publication ping -> full chain)",
    "Bayesian serving-pointer flip (fitting's ping -> pointer-flip chain)",
-   "registry/palette or wording decision touching plot_difficulty.py",
+   "registry/palette or wording ruling touching plot_difficulty.py",
    "hold-register move flagged on the /plots stamp (fail-matrix rebuild)",
-   "consumed canon eval file moved -> watch_and_reland.sh relaunches the full chain (checked every 20 min, one chain at a time; maintainers 2026-09-03: continuously)"
-  ]
- }
+   "consumed canon eval file moved -> watch_and_reland.sh relaunches the full chain (checked every 20 min, one chain at a time; Szymon 2026-09-03: continuously)"
+  ],
+  "freshness_rule": "an input newer than generated_at is stale only when its change is one of the triggers above and no rebuild followed; judge by trigger, not by interval"
+ },
+ "note": "inputs = files actually opened for reading during this run (recorded by an open() hook); sha12 = sha256 prefix of the bytes for files <= 50 MB; eval files carry mtime+size, their consumed content is frame.inputs_content_sha; mtime_at_open vs generated_at is the freshness comparator"
 }
