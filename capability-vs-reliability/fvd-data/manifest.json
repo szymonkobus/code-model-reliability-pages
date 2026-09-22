@@ -1,5 +1,5 @@
 {
- "fingerprint": "890828deecff",
+ "fingerprint": "64ae686ad14e",
  "frame": {
   "population_M": 58,
   "tasks": 430,
@@ -29,13 +29,13 @@
   },
   "keep_set_hash": "c3f08ea1a903",
   "axis_order_hash": "82b1968451ae",
-  "runs_fingerprint": "ebc9081b7e4a",
+  "runs_fingerprint": "a3f7a78e083d",
   "runs_fingerprint_rule": "sha1 over path:mtime_ns:size of the consumed *.eval_results.json files (since 2026-09-02; before: every file under runs/)",
   "inputs_content_sha": "d5a4e3cd1533",
   "scorer": "plus_status (a sample counts as solved if its plus run passed; difficulty ruled base AND plus on 2026-09-02 \u2014 the switch of served numbers waits for Szymon's gate; under base AND plus a result can read differently, e.g. Mbpp/274 for Qwen3-30B-A3B: 128 passes here vs 127)",
   "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\\t<task>\\t<passes>\\t<attempts>\\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column verbatim; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) \u2014 reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
   "build_date": "2026-09-22",
-  "built_at": "2026-09-22T20:12:54Z",
+  "built_at": "2026-09-22T21:06:18Z",
   "vocab_ruled": "2026-08-27",
   "counts_of_record": {
    "original_kept": 430,
@@ -44,7 +44,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-22T19:24:54Z",
+   "_stamp": "2026-09-22T20:25:33Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -304,12 +304,12 @@
    "openai/gpt-5-nano": "20260907T154051Z",
    "openai/gpt-5-mini": "20260907T154051Z"
   },
-  "newest_input_mtime": "2026-09-22T20:04:42Z"
+  "newest_input_mtime": "2026-09-22T20:37:58Z"
  },
  "files": {
-  "shared": "shared.890828deecff.json",
-  "chain_average": "chain_average.890828deecff.json",
-  "chain_median": "chain_median.890828deecff.json",
-  "dots": "dots.890828deecff.json"
+  "shared": "shared.64ae686ad14e.json",
+  "chain_average": "chain_average.64ae686ad14e.json",
+  "chain_median": "chain_median.64ae686ad14e.json",
+  "dots": "dots.64ae686ad14e.json"
  }
 }
