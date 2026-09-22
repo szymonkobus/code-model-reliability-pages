@@ -1543,7 +1543,7 @@ function axisShort(axis) {   // the axis carries a short title; the long estimat
   // no method name on the figure: the source is on the switch and in the provenance fold
   return dName(axis) + (state.def === 'median' ? ' (median task)' : '');
 }
-/* the project maintainers' names of record for the axes (the record of 18 Sep 12:1x UK and 13:0x UK: D50 and D99, D uppercase):
+/* the axis names of record (the project maintainers' words of 18 Sep 12:1x UK and 13:0x UK: D50 and D99, D uppercase):
  * DN = the difficulty at which the model's solve chance is N%, N = 100 minus the failure level as set (50% -> D50, 1% -> D99); printed bare */
 function dName(axis) {
   var lev = axis === 'x' ? +state.a : +state.c;
