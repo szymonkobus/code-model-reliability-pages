@@ -1,44 +1,44 @@
 {
  "schema": "inputs-sidecar v1 (pool-pages-lead 2026-09-03; run-monitor freshness leg)",
- "generated_at": "2026-09-22T21:21:47Z",
+ "generated_at": "2026-09-22T23:13:01Z",
  "output": "pages/failure-vs-difficulty/pool-site/failure-vs-difficulty/data.json",
  "builder": "pages/failure-vs-difficulty/pool-site/failure-vs-difficulty/build_pool_curves.py",
  "inputs": [
   {
    "path": "definitions/difficulty/analysis/pool-intake/run_intake_2pl.py",
-   "mtime": "2026-09-22T19:59:10Z",
-   "size": 175746,
-   "sha12": "a706e9c60960"
+   "mtime": "2026-09-22T22:24:50Z",
+   "size": 181544,
+   "sha12": "8f6858ce99a5"
   },
   {
    "path": "definitions/difficulty/html/datasets/dataset_mirrors_stamp.json",
-   "mtime": "2026-09-22T21:16:58Z",
-   "size": 151544,
-   "sha12": "ce91fa984855"
+   "mtime": "2026-09-22T22:13:53Z",
+   "size": 151532,
+   "sha12": "f4f8096b29b5"
   },
   {
    "path": "definitions/difficulty/html/datasets/task_difficulty.golden.pool.csv",
-   "mtime": "2026-09-22T21:16:51Z",
+   "mtime": "2026-09-22T22:13:47Z",
    "size": 262769,
    "sha12": "69334fe9b35b"
   },
   {
    "path": "definitions/difficulty/html/datasets/task_difficulty.pool.csv",
-   "mtime": "2026-09-22T21:16:51Z",
+   "mtime": "2026-09-22T22:13:47Z",
    "size": 264383,
-   "sha12": "454cb3fe1c73"
+   "sha12": "52f5605ef354"
   },
   {
    "path": "definitions/difficulty/html/first-look/allfail_exposure.json",
-   "mtime": "2026-09-22T21:13:47Z",
-   "size": 2068104,
-   "sha12": "2133d4bc462a"
+   "mtime": "2026-09-22T22:11:59Z",
+   "size": 2071298,
+   "sha12": "20d7242d2e1a"
   },
   {
    "path": "definitions/difficulty/knowledge/golden_set.json",
-   "mtime": "2026-09-22T21:13:50Z",
+   "mtime": "2026-09-22T23:11:35Z",
    "size": 4016,
-   "sha12": "f3f291b2323d"
+   "sha12": "6d27555b00e1"
   },
   {
    "path": "definitions/difficulty/knowledge/landing_in_progress.json",
@@ -53,16 +53,10 @@
    "sha12": "393095f759a3"
   },
   {
-   "path": "definitions/fitting/axis_exclusions.json",
-   "mtime": "2026-09-02T16:59:45Z",
-   "size": 46666,
-   "sha12": "eb8a27247373"
-  },
-  {
    "path": "definitions/fitting/serving.json",
-   "mtime": "2026-09-22T21:11:16Z",
+   "mtime": "2026-09-22T23:11:25Z",
    "size": 65790,
-   "sha12": "91ee33d29b5b"
+   "sha12": "09435cacd4ea"
   },
   {
    "path": "definitions/fitting/serving_golden_pool.json",
@@ -462,9 +456,9 @@
   },
   {
    "path": "pages/failure-vs-difficulty/artifacts/golden_set.json",
-   "mtime": "2026-09-22T21:14:35Z",
+   "mtime": "2026-09-22T22:16:17Z",
    "size": 4721,
-   "sha12": "ebf74eb80937"
+   "sha12": "e0086598c46f"
   },
   {
    "path": "pages/failure-vs-difficulty/crossings-site/data/lev_grid.json",
@@ -492,9 +486,9 @@
   },
   {
    "path": "pages/pool-pages/build/flags/state/counts_of_record.prev.json",
-   "mtime": "2026-09-22T20:35:46Z",
+   "mtime": "2026-09-22T22:35:07Z",
    "size": 535,
-   "sha12": "97f35abf7927"
+   "sha12": "e4ddd0094daf"
   },
   {
    "path": "pages/pool-pages/build/flags/state/feed_clusters_expected.json",
@@ -504,63 +498,27 @@
   },
   {
    "path": "pages/pool-pages/build/flags/state/plain_twins_last_good.json",
-   "mtime": "2026-09-22T20:35:44Z",
-   "size": 32794,
-   "sha12": "7cfd63316655"
+   "mtime": "2026-09-22T22:35:24Z",
+   "size": 25876,
+   "sha12": "617d1d25d958"
   },
   {
    "path": "pages/pool-pages/build/flags/state/valid_cells_last_good.store.json.stamp",
-   "mtime": "2026-09-22T20:21:09Z",
+   "mtime": "2026-09-22T22:39:34Z",
    "size": 21,
-   "sha12": "c1dbf03685f5"
+   "sha12": "68f56949b148"
   },
   {
    "path": "runs/arms.jsonl",
-   "mtime": "2026-09-22T21:06:40Z",
-   "size": 475147,
-   "sha12": "fb35f6b7944c"
-  },
-  {
-   "path": "runs/generate/api/census/bridge_regex_legs.json",
-   "mtime": "2026-09-05T13:11:58Z",
-   "size": 9223,
-   "sha12": "97fe5a468799"
-  },
-  {
-   "path": "runs/generate/api/census/raw_draw_identity_claude.json",
-   "mtime": "2026-09-11T05:23:22Z",
-   "size": 3967249,
-   "sha12": "8d5ab21f2f7d"
-  },
-  {
-   "path": "runs/generate/screens/fleet/attempt_override_index.jsonl",
-   "mtime": "2026-09-22T20:51:55Z",
-   "size": 125183453,
-   "sha12": "d564223deb67"
-  },
-  {
-   "path": "runs/generate/screens/fleet/attempt_override_index.jsonl.stamp",
-   "mtime": "2026-09-22T20:53:25Z",
-   "size": 153,
-   "sha12": "e8bbd5cc9af1"
-  },
-  {
-   "path": "runs/generate/screens/fleet/census/voided_judgings.json",
-   "mtime": "2026-09-09T15:56:19Z",
-   "size": 281496,
-   "sha12": "dfe32850587d"
-  },
-  {
-   "path": "runs/generate/screens/fleet/closed_configs.json",
-   "mtime": "2026-09-21T18:24:04Z",
-   "size": 3254,
-   "sha12": "71256aaa21ba"
+   "mtime": "2026-09-22T22:47:02Z",
+   "size": 475731,
+   "sha12": "02f6fdbc5d3e"
   },
   {
    "path": "runs/generate/screens/fleet/collector_status.json",
-   "mtime": "2026-09-22T21:15:26Z",
-   "size": 504,
-   "sha12": "d6bc8e80772c"
+   "mtime": "2026-09-22T23:11:46Z",
+   "size": 489,
+   "sha12": "44214bf5da0d"
   },
   {
    "path": "runs/generate/screens/fleet/config_arm_map.tsv",
@@ -576,27 +534,15 @@
   },
   {
    "path": "runs/generate/screens/fleet/generated_cells.json",
-   "mtime": "2026-09-22T21:11:07Z",
-   "size": 4293893,
-   "sha12": "ac05162087f9"
-  },
-  {
-   "path": "runs/generate/screens/fleet/identity_backfill_tasks.bulbasaur.jsonl",
-   "mtime": "2026-09-21T18:03:13Z",
-   "size": 37337386,
-   "sha12": "53e4d85158e5"
-  },
-  {
-   "path": "runs/generate/screens/fleet/identity_backfill_tasks.charmander.jsonl",
-   "mtime": "2026-09-17T00:16:06Z",
-   "size": 133789821,
-   "sha12": "ee7481cdb852"
+   "mtime": "2026-09-22T23:11:49Z",
+   "size": 4309490,
+   "sha12": "cc270c27d370"
   },
   {
    "path": "runs/generate/screens/fleet/valid_cells.json",
-   "mtime": "2026-09-22T21:11:01Z",
-   "size": 246377321,
-   "sha12": "cfe2abd59c5b"
+   "mtime": "2026-09-22T22:35:57Z",
+   "size": 246772062,
+   "sha12": "f5d697c5c49e"
   },
   {
    "path": "runs/judge/knowledge/judge_instability_same_era_by_task.json",
@@ -615,12 +561,6 @@
    "mtime": "2026-09-03T13:36:19Z",
    "size": 307932,
    "sha12": "56406b2bf5dc"
-  },
-  {
-   "path": "runs/judge/rejudge/contradicted_zero_keys.json",
-   "mtime": "2026-09-22T21:12:26Z",
-   "size": 72858376,
-   "sha12": "c2335117fa0f"
   },
   {
    "path": "runs/judge/rejudge/import_bearing_tasks.json",
@@ -642,15 +582,9 @@
   },
   {
    "path": "runs/judge/witnessed_windows.json",
-   "mtime": "2026-09-22T21:08:35Z",
+   "mtime": "2026-09-22T23:11:42Z",
    "size": 1937373,
-   "sha12": "3d30e51c2c97"
-  },
-  {
-   "path": "runs/knowledge/opus_refused_tasks_excluded.json",
-   "mtime": "2026-09-08T09:15:40Z",
-   "size": 3426,
-   "sha12": "030471b28ecc"
+   "sha12": "a96e0ac8fdc5"
   },
   {
    "path": "runs/watch/critic/scratch/defect-lists/defect_cells_20260903a.json",
@@ -660,51 +594,45 @@
   },
   {
    "path": "runs/watch/forecast/watch/held_arms.json",
-   "mtime": "2026-09-22T20:37:58Z",
-   "size": 119048,
-   "sha12": "68ba9b08f665"
+   "mtime": "2026-09-22T22:36:22Z",
+   "size": 119470,
+   "sha12": "8b409ab1fb1c"
   },
   {
    "path": "runs/watch/forecast/watch/kimi_linear_empty_output_flag.json",
-   "mtime": "2026-09-22T20:23:41Z",
+   "mtime": "2026-09-22T22:22:51Z",
    "size": 10104,
-   "sha12": "8f104f60e7a7"
+   "sha12": "b33fb60e8586"
   },
   {
    "path": "runs/watch/forecast/watch/price_per_model.json",
-   "mtime": "2026-09-22T20:37:58Z",
-   "size": 239886,
-   "sha12": "5d7cc7bb10f8"
+   "mtime": "2026-09-22T22:36:21Z",
+   "size": 241185,
+   "sha12": "5e13164d621a"
   },
   {
    "path": "side-projects/newbench/labels_cells.jsonl",
-   "mtime": "2026-09-22T20:02:08Z",
-   "size": 752607,
-   "sha12": "9ff1888287b5"
+   "mtime": "2026-09-22T22:44:12Z",
+   "size": 752944,
+   "sha12": "33ec28e0c51c"
   },
   {
    "path": "tasks/build/certify/certificates/certs.jsonl",
-   "mtime": "2026-09-22T20:53:39Z",
-   "size": 374655833,
-   "sha12": "ba576d294bbd"
+   "mtime": "2026-09-22T22:55:40Z",
+   "size": 375895911,
+   "sha12": "6e19ee7dc43a"
   },
   {
    "path": "tasks/build/certify/certificates/summary.json",
-   "mtime": "2026-09-22T20:53:40Z",
-   "size": 214521,
-   "sha12": "f27dde2a744b"
+   "mtime": "2026-09-22T22:55:41Z",
+   "size": 215189,
+   "sha12": "d96fcbb32917"
   },
   {
    "path": "tasks/build/certify/out/suite_v1_ids.txt",
    "mtime": "2026-08-29T23:42:30Z",
    "size": 34929,
    "sha12": "9212e2d33fc9"
-  },
-  {
-   "path": "tasks/build/certify/versions/task_versions.json",
-   "mtime": "2026-09-22T21:09:15Z",
-   "size": 190806,
-   "sha12": "94c50889a658"
   },
   {
    "path": "tasks/build/critic/f2_degenerate_samples_pertask.json",
@@ -714,15 +642,15 @@
   },
   {
    "path": "tasks/knowledge/counts_of_record.published.json",
-   "mtime": "2026-09-22T20:35:30Z",
+   "mtime": "2026-09-22T22:34:56Z",
    "size": 42936,
-   "sha12": "d2c33096639c"
+   "sha12": "4920db64bc1f"
   },
   {
    "path": "tasks/knowledge/disclosures.published.json",
-   "mtime": "2026-09-22T20:35:30Z",
-   "size": 471260,
-   "sha12": "5d47484684b9"
+   "mtime": "2026-09-22T22:34:56Z",
+   "size": 457294,
+   "sha12": "eeb460c81794"
   },
   {
    "path": "tasks/knowledge/keep_labels.json",
@@ -738,21 +666,15 @@
   },
   {
    "path": "tasks/knowledge/set_members_of_record.json",
-   "mtime": "2026-09-22T20:26:17Z",
+   "mtime": "2026-09-22T22:25:12Z",
    "size": 725821,
-   "sha12": "571a064e2460"
-  },
-  {
-   "path": "tasks/knowledge/twin_fold.json",
-   "mtime": "2026-09-21T15:34:10Z",
-   "size": 149432,
-   "sha12": "63540cd90792"
+   "sha12": "b03d24070bf4"
   },
   {
    "path": "tasks/knowledge/winner_rule.json",
-   "mtime": "2026-09-22T20:36:27Z",
-   "size": 5309566,
-   "sha12": "8b1cbb7a166c"
+   "mtime": "2026-09-22T22:36:15Z",
+   "size": 5318537,
+   "sha12": "e10a2a1c6a87"
   },
   {
    "path": "tasks/state/held_valid_cells_stamps.txt",
@@ -770,7 +692,7 @@
   {
    "path": "runs/generate/screens/outcomes",
    "note": "continuously appended source; listed for context, no staleness assertion",
-   "files_opened": 290
+   "files_opened": 97
   }
  ],
  "rule": "integrity: generated_at >= every recorded mtime (by construction); freshness: CURRENT input mtimes vs generated_at with the builder's cadence as grace; streams carry no assertion"
