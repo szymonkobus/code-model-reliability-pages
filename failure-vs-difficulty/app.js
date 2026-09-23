@@ -2000,7 +2000,7 @@ function exportView(nDrawn) {   // the controls' state in words for the stamp li
   var f = D.shared.frame || {}, ds = DATASETS[DATASET] || {};
   var parts = [String(f.dataset_label || ds.label || DATASET).split(':')[0]];
   if (ARMS === 'golden') parts.push('golden set');
-  parts.push(state.def === 'average' ? 'average-rate chain' : 'median-task chain');
+  parts.push(state.def === 'average' ? 'average rate' : 'median task');
   parts.push(state.src === 'bayes' ? 'Bayesian curves' : houseName().toLowerCase());
   parts.push(state.band === 'off' ? 'bands off' : state.band + '% bands');
   if (state.src === 'bayes' && state.trend !== 'off') parts.push('linear trends');
