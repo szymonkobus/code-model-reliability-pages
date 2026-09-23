@@ -555,7 +555,7 @@ function reading(i, levLogit, axis) {
 var RUNS = [];   // the run sets merged on this dataset (the sidecar's sets, or its single set), each with its own line of chips and switch (the project maintainers' word of 22 Sep 12:1x UK: more Olmo runs are coming)
 var RUN = null;   // the first set, for one-set readers
 function runSets(raw) { if (!raw) return []; if (raw.sets && raw.sets.length) return raw.sets; return raw.configs ? [raw] : []; }
-function normId(id) { return String(id).replace(/_temp_[0-9.]+$/, '').replace(/_batch$/, '').replace(/--/g, '/'); }   // one model under its run forms (the palette registry's id rule)
+function normId(id) { return String(id).replace(/_temp_[0-9.]+$/, '').replace(/_batch$/, '').replace(/--/g, '/').replace(/_think$/, '-Thinking'); }   // one model under its run forms (the palette registry's id rule); fitting's <stem>_think_temp_<t> is the board's <stem>-Thinking (failure-vs-difficulty's id form; the Think final: olmo-3-7b-think-final-Thinking, 23 Sep)
 function mergeRunSet(raw) {
   RUNS = []; RUN = null; state.runs = state.runs || {};
   if (!raw || !D.shared || !D.bay || !D.bay.rows) return;
