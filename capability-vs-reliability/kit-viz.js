@@ -1,22 +1,7 @@
-/* project UI kit — viz interaction module (the maintainers, tools-convergence).
- * Vendor beside kit.js on pages with charts. No dependencies.
- *
- * Implements the reference hover conventions (R1 #2, adopted in PLAN):
- *  - ONE tooltip for the page; values lead (bold), labels follow; series
- *    keyed by a short color stroke, never a filled box; textContent only.
- *  - Crosshair on line/curve charts: a vertical hairline snaps to the
- *    nearest data X; the reader aims at a position, never at a 2px line.
- *  - Keyboard parity: when the chart container has focus, Left/Right move
- *    the snap index and show the same readout; Esc hides.
- *  - Per-mark hover for bars/dots/cells via Kit.hoverMarks (the mark is
- *    the hit target; give small marks an enlarged transparent hit area
- *    site-side — hit targets >= 24px).
- */
+/* kit-viz.js — the reference kit, served form 395151b8, built 23 Sep 2026 from source 62f8769d22ad. */
 (function (global) {
   'use strict';
   var Kit = global.Kit = global.Kit || {};
-
-  /* ---------------- tooltip (singleton) ---------------- */
   var tipEl = null;
   function ensureTip() {
     if (tipEl) return tipEl;
@@ -27,7 +12,6 @@
     return tipEl;
   }
   Kit.tooltip = {
-    /* rows: [{key: cssColor|null, value: string, label: string}]; title? */
     show: function (clientX, clientY, rows, title) {
       var el = ensureTip();
       el.textContent = '';
@@ -65,15 +49,6 @@
     },
     hide: function () { if (tipEl) tipEl.style.display = 'none'; },
   };
-
-  /* ---------------- crosshair ----------------
-   * Kit.crosshair({
-   *   container,             // positioned element wrapping the chart
-   *   xs: [px,...],          // data x positions (container-relative, sorted)
-   *   readout: fn(i) -> {title, rows}   // tooltip content at index i
-   *   onSnap: fn(i)|null     // optional extra hook (e.g. highlight marks)
-   * }) -> { destroy }
-   */
   Kit.crosshair = function (cfg) {
     var box = typeof cfg.container === 'string'
       ? document.querySelector(cfg.container) : cfg.container;
@@ -81,7 +56,7 @@
     line.className = 'kit-crosshair';
     box.appendChild(line);
     if (!box.hasAttribute('tabindex')) box.tabIndex = 0;
-    var idx = -1;
+    var idx = -1, pinned = false;
 
     function nearest(px) {
       var best = 0, bd = Infinity;
@@ -122,7 +97,9 @@
       showAt(i, null);
     }
     box.addEventListener('pointermove', onMove);
-    box.addEventListener('pointerleave', hide);
+    box.addEventListener('pointerleave', function () { if (!pinned) hide(); });
+    box.addEventListener('pointerdown', function (ev) { if (ev.pointerType === 'touch') { pinned = true; onMove(ev); } });
+    document.addEventListener('pointerdown', function (ev) { if (pinned && !box.contains(ev.target)) { pinned = false; hide(); } });
     box.addEventListener('keydown', onKey);
     box.addEventListener('focus', function () { if (idx < 0) showAt(0, null); });
     box.addEventListener('blur', hide);
@@ -133,10 +110,6 @@
       line.remove(); Kit.tooltip.hide();
     } };
   };
-
-  /* ---------------- per-mark hover ----------------
-   * Kit.hoverMarks(container, selector, fn(el) -> {title, rows})
-   * The mark (or its enlarged hit proxy) is the target; focus = hover. */
   Kit.hoverMarks = function (container, selector, fn) {
     var box = typeof container === 'string'
       ? document.querySelector(container) : container;
