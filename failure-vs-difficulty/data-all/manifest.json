@@ -1,5 +1,5 @@
 {
- "fingerprint": "dcc6128d0baa",
+ "fingerprint": "7aadcc3d8f19",
  "frame": {
   "dataset": "all",
   "dataset_label": "wave 1+2 (2,153 tasks): 431 of wave 1 + 1,693 of wave 2 + 29 tasks outside both waves, the list kept on 3 September 2026",
@@ -19,7 +19,7 @@
   "difficulty_population_M": 61,
   "tasks": 2167,
   "keep_set_hash": "60ede5d24001",
-  "inputs_content_sha": "2b28706d2471",
+  "inputs_content_sha": "ac7a8f74ed4e",
   "tasks_on_axis": 2167,
   "tasks_kept": 2167,
   "tasks_awaiting_axis": 0,
@@ -29,10 +29,10 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "2c0495668faf",
+  "runs_fingerprint": "500f4275d11f",
   "axis_wave": "unified-live",
   "build_date": "2026-09-23",
-  "stamp": "2026-09-23T11:46:42Z",
+  "stamp": "2026-09-23T13:53:30Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -41,16 +41,13 @@
    "olmo-3-7b-think-final-Thinking": 430,
    "olmo-3-7b-think-step0025-Thinking": 430,
    "olmo-3-7b-think-step0050-Thinking": 430,
-   "olmo-3-7b-think-step0100-Thinking": 144,
+   "olmo-3-7b-think-step0100-Thinking": 358,
    "olmo-3-7b-think-step0200-Thinking": 430,
    "olmo-3-7b-think-step0800-Thinking": 430,
    "olmo-3.1-7b-rl-zero-code-final_completion": 430,
    "olmo-3.1-7b-rl-zero-code-step0050_completion": 430,
-   "olmo-3.1-7b-rl-zero-code-step0100_completion": 430,
    "olmo-3.1-7b-rl-zero-code-step0150_completion": 430,
-   "olmo-3.1-7b-rl-zero-code-step0250_completion": 430,
    "olmo-3.1-7b-rl-zero-code-step0450_completion": 430,
-   "olmo-3.1-7b-rl-zero-code-step0900_completion": 430,
    "olmo-3.1-7b-rl-zero-code-step1950_completion": 430,
    "qwen3-8b-4k32": 430,
    "qwen3-8b-code-rl": 430,
@@ -66,7 +63,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-23T11:15:02Z",
+   "unified_built_at": "2026-09-23T13:13:32Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -606,7 +603,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-23T11:24:31Z",
+   "_stamp": "2026-09-23T13:24:26Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -772,9 +769,9 @@
   }
  },
  "files": {
-  "shared": "shared.dcc6128d0baa.json",
-  "chain_average": "chain_average.dcc6128d0baa.json",
-  "chain_median": "chain_median.dcc6128d0baa.json",
-  "dots": "dots.dcc6128d0baa.json"
+  "shared": "shared.7aadcc3d8f19.json",
+  "chain_average": "chain_average.7aadcc3d8f19.json",
+  "chain_median": "chain_median.7aadcc3d8f19.json",
+  "dots": "dots.7aadcc3d8f19.json"
  }
 }
