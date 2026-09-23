@@ -1369,7 +1369,7 @@ function paintChips() {
     var nofit = (state.src === 'bayes' && !!D.bay && !D.bayById[cfgId]) || (isRun(+b.dataset.idx) && state.src !== 'bayes');   // one estimator per view: an arm without a posterior is a greyed chip, never a point; the run's checkpoints are Bayesian fits only
     b.classList.toggle('nofit', nofit);
     var cfgC = D.shared.configs[+b.dataset.idx] || {};
-    if (nofit) { b.title = capTitle(isRun(+b.dataset.idx) && state.src !== 'bayes' ? 'a run\u2019s checkpoints are Bayesian fits \u2014 not drawn under the reference chain' : 'awaiting its Bayesian fit \u2014 not drawn under the Bayesian estimator') + (cfgC.gates_failed ? ' \u00b7 flagged fit: ' + (cfgC.gate_flag || 'the fit failed a sampler gate') : ''); b.dataset.nofit = '1'; }   // the flag stays on the hover in every state (Definitions, 22 Sep)
+    if (nofit) { b.title = capTitle((isRun(+b.dataset.idx) && state.src !== 'bayes' ? 'a run\u2019s checkpoints are Bayesian fits \u2014 not drawn under the reference chain' : 'awaiting its Bayesian fit \u2014 not drawn under the Bayesian estimator') + (cfgC.gates_failed ? ' \u00b7 flagged fit: ' + (cfgC.gate_flag || 'the fit failed a sampler gate') : '')); b.dataset.nofit = '1'; }   // the flag stays on the hover in every state (Definitions, 22 Sep)
     else if (b.dataset.nofit) { b.title = ''; delete b.dataset.nofit; recompose = true; }
   });
   if (recompose) refreshPartialChips();   // a chip back from no-fit gets its hover words again
@@ -2107,7 +2107,7 @@ function exportView() {   // the controls' state in words for the export's stamp
 }
 function exportLegend() {   // every drawn model grouped by family in the colour scheme's order, within a family by size (the project maintainers 13:1x UK 18 Sep), its mark exactly as drawn
   var rows = [];
-  famOrder(Array.from(sel).filter(function (i) { return !isHidden(i) && !isRun(i) && !isDual(i); })).forEach(function (i) {   // a board model shown again in a run's row is in that run's ramp row, not a row of its own
+  famOrder(Array.from(sel).filter(function (i) { return !isHidden(i); })).forEach(function (i) {   // one row per drawn model by its name of record, a run's checkpoints like every other model (the project maintainers' word of 23 Sep 15:0x UK: no grouped run row, no fit-quality note in the export)
     var m = document.querySelector('#marks path[data-mark][data-i="' + i + '"]'); if (!m) return;   // not drawn: no crossing at this pair, or beyond the frame
     var c = D.shared.configs[i], grey = isPartial(i);
     var d = m.getAttribute('d') || '', fill = m.getAttribute('fill') || 'none', stroke = m.getAttribute('stroke') || c.color, sw = m.getAttribute('stroke-width') || '1.3';
@@ -2115,19 +2115,9 @@ function exportLegend() {   // every drawn model grouped by family in the colour
     var mark = function (cx, cy) {   // the drawn path is an absolute M followed by relative commands: re-anchor it on the legend row
       return '<path d="' + d.replace(/^M[-\d.]+ [-\d.]+/, 'M' + cx + ' ' + cy) + '" fill="' + fill + '" stroke="' + stroke + '" stroke-width="' + sw + '"' + (op && +op < 1 ? ' opacity="' + op + '"' : '') + '/>';
     };
-    rows.push({ label: (c.display_name || c.label) + (grey ? ' (partial)' : '') + (c.gates_failed ? ' (flagged fit)' : ''), family: c.fam, color: grey ? '#8b8477' : c.color, line: false, marker: mark });   // legends carry the full display name of record (the labels rows' maintainers, 22 Sep)
+    rows.push({ label: (c.display_name || c.label) + (grey ? ' (partial)' : ''), family: c.fam, color: grey ? '#8b8477' : c.color, line: false, marker: mark });   // no fit-quality words in the export: the flag lives in the page's hover and tooltip   // legends carry the full display name of record (the labels rows' maintainers, 22 Sep)
   });
-  RUNS.forEach(function (R) {   // a run set is ONE legend row: a gradient bar over its drawn checkpoints' shades with the series' dash, the label its name and checkpoints (the maintainers, 22 Sep 12:0x UK)
-    if (!runOnPlane(R)) return;   // no run row under the reference chain: a run's checkpoints are Bayesian fits only
-    var drawn = R.idx.filter(function (i) { return sel.has(i) && !isHidden(i) && document.querySelector('#marks path[data-mark][data-i="' + i + '"]'); });
-    if (!drawn.length) return;
-    var cs = drawn.map(function (i) { return D.shared.configs[i]; });
-    // checkpoint indexes, never training steps (the project maintainers' word of 23 Sep 10:0x UK): the chip's k/N of record, else the index
-    var ckWord = function (c) { var m = /(\d+\/\d+)\s*$/.exec(c.label || ''); return m ? m[1] : (c.index != null ? String(c.index) : ''); };
-    var steps = cs.filter(function (c) { return c.step != null; }), fin = cs.some(function (c) { return c.step == null; });
-    var lab = R.name + (steps.length ? ', ' + (steps.length === 1 ? 'checkpoint ' + ckWord(steps[0]) : steps.length + ' checkpoints ' + ckWord(steps[0]) + '\u2013' + ckWord(steps[steps.length - 1])) : '') + (fin ? (steps.length ? ' and the final' : ', the final') : '') + (cs.some(function (c) { return c.gates_failed; }) ? ' (a flagged fit among them)' : '');
-    rows.push({ label: lab, family: cs[0].fam, color: cs[cs.length - 1].color, ramp: cs.length > 1 ? cs.map(function (c) { return c.color; }) : null, dash: R.dash || '', line: false, marker: R.think ? 'open-circle' : 'circle' });
-  });
+  // no grouped run row in the export (23 Sep 15:0x UK): each checkpoint drawn is its own row above
   return rows;
 }
 function exportOptions() {
