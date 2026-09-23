@@ -567,7 +567,7 @@ function mergeRunSet(raw) {
     if (!rs || !rs.configs || !rs.configs.length) return;
     var set = rs.set || {}; if (set.axis_id && axis && set.axis_id !== axis) return;   // merged only on the run's own axis
     // the run is keyed by the set's series slug (no field named key in the sidecar: a secret scanner read key":"<id> as an API key, 22 Sep)
-    var R = { key: set.series || set.key || ('run' + k), name: set.name || 'run', clause: set.clause || 'a run read along its steps, placed on the scale without a vote', tag: set.tag || '',
+    var R = { key: set.series || set.key || ('run' + k), name: set.name || 'run', clause: set.clause || 'a run read along its checkpoints, placed on the scale without a vote', tag: set.tag || '',
               hue: set.hue || null, ramp: set.ramp || [], dash: set.dash || '', think: !!set.think, withheld: set.withheld || [], stateKey: set.state_key || (k === 0 ? 'run' : 'run_' + String(set.key || k).replace(/[^a-z0-9]/gi, '')), idx: [], folded: [] };
     var rowsById = {}; (rs.rows || []).forEach(function (r) { rowsById[r.cfg] = r; });
     rs.configs.forEach(function (c) {
@@ -2114,9 +2114,10 @@ function exportLegend() {   // every drawn model grouped by family in the colour
     var drawn = R.idx.filter(function (i) { return sel.has(i) && !isHidden(i) && document.querySelector('#marks path[data-mark][data-i="' + i + '"]'); });
     if (!drawn.length) return;
     var cs = drawn.map(function (i) { return D.shared.configs[i]; });
-    var stepWord = function (c) { return c.step == null ? 'final' : String(c.step); };
+    // checkpoint indexes, never training steps (the project maintainers' word of 23 Sep 10:0x UK): the chip's k/N of record, else the index
+    var ckWord = function (c) { var m = /(\d+\/\d+)\s*$/.exec(c.label || ''); return m ? m[1] : (c.index != null ? String(c.index) : ''); };
     var steps = cs.filter(function (c) { return c.step != null; }), fin = cs.some(function (c) { return c.step == null; });
-    var lab = R.name + (steps.length ? ', ' + (steps.length === 1 ? 'step ' + stepWord(steps[0]) : steps.length + ' steps ' + stepWord(steps[0]) + '\u2013' + stepWord(steps[steps.length - 1])) : '') + (fin ? (steps.length ? ' and the final' : ', the final') : '') + (cs.some(function (c) { return c.gates_failed; }) ? ' (a flagged fit among them)' : '');
+    var lab = R.name + (steps.length ? ', ' + (steps.length === 1 ? 'checkpoint ' + ckWord(steps[0]) : steps.length + ' checkpoints ' + ckWord(steps[0]) + '\u2013' + ckWord(steps[steps.length - 1])) : '') + (fin ? (steps.length ? ' and the final' : ', the final') : '') + (cs.some(function (c) { return c.gates_failed; }) ? ' (a flagged fit among them)' : '');
     rows.push({ label: lab, family: cs[0].fam, color: cs[cs.length - 1].color, ramp: cs.length > 1 ? cs.map(function (c) { return c.color; }) : null, dash: R.dash || '', line: false, marker: R.think ? 'open-circle' : 'circle' });
   });
   return rows;
