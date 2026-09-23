@@ -52,7 +52,7 @@ svg { width:100%; height:auto; display:block; touch-action:pan-y; }  /* plot bod
 .chips .chip.off { opacity:.3; }
 .chips .chip.nofit { opacity:.45; border-style:dotted; }   /* awaiting its Bayesian fit: greyed, never a point (the project maintainers' word, 2026-09-04) */
 .chips .chip.partial { opacity:.45; border-style:dotted; }   /* partial model (attempts on under 90% of the set's tasks): hidden by default, greyed when shown (the project maintainers' word, 2026-09-07) */
-.chips .chip[disabled] { cursor:default; }   /* a hidden partial model's chip is unselectable, in place with a hint */
+.chips .chip[disabled] { cursor:default; }   /* a hidden partial model's chip is unselectable, in place with a hint (the project maintainers' word, 2026-09-07 ) */
 .chips .chip.partialshown { border-style:dotted; }   /* shown on request: a normal chip with the partial mark */
 .chips .chip.beyond { opacity:.55; border-style:dashed; }   /* a model not drawn at these levels: its crossing lies beyond the hardest task (the project maintainers' word, 2026-09-09) */
 .chips .util { border:1px solid var(--border2); border-radius:5px;
@@ -92,7 +92,7 @@ a { color:#0b57d0; }
 .chip .flag { margin-left:.3rem; color:#b3261e; font-size:.85em; }   /* a flagged fit carries its flag on the chip (Definitions, 22 Sep) */
 #armsbar { display:flex; flex-wrap:wrap; align-items:flex-start; gap:.35rem 1.1rem; }   /* a clear gap between the model sets in the row (the nit, 22 Sep 11:1x UK: no gap between the first set's last chip and the next label) */
 #armsbar .kit-switch { display:flex; flex-direction:column; align-items:flex-start; gap:.15rem; } #morecontrols .kit-filter-row { margin:.3rem 0; } }
-/* the export row and its buttons take the reference look from kit.css (.kit-export, .kit-export-btn): one look on every site */
+/* the export row and its buttons take the reference look from kit.css (.kit-export, .kit-export-btn): one look on every site (the maintainers, 21 Sep) */
 </style></head><body>
 <h1>Capability vs reliability</h1>
 <p id="headline" data-chain-val="def src xdef fitci">the answer loads with the data</p>

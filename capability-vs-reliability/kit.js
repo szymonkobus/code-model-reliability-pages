@@ -3,7 +3,7 @@
  * Consumed by the three tools (curves / crossings / cumulative): maintainers
  * vendor kit.js + kit.css into their site at build. No dependencies.
  *
- * Core contract: a switch
+ * Core contract (the maintainers's estimator-chain-swap binding): a switch
  * emits ONE state-change event carrying the full control state; the site
  * re-derives EVERYTHING from that state. The kit never lets a control
  * restyle part of a view — partial swaps are structurally impossible
@@ -45,7 +45,7 @@
    *             {value:'median',  label:'Median'}],
    *   dflt: 'average',           // default (omitted from URL)
    *   onchange: fn(value)        // fires on init AND every change
-   * }) -> { value(), set(value) }
+   * }) -> { value, set(value) }
    * Semantics: onchange means "the whole estimator chain for this key
    * changed — re-derive everything that depends on it".
    * Keyboard: Left/Right/Home/End on the group; buttons are real buttons.

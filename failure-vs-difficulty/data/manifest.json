@@ -1,0 +1,315 @@
+{
+ "fingerprint": "aa120b309dc6",
+ "frame": {
+  "population_M": 58,
+  "tasks": 430,
+  "difficulty_population_M": 59,
+  "axis_M": 59,
+  "fitted_M": 58,
+  "complete_M": 58,
+  "sampled_M": 59,
+  "frame_M": 59,
+  "off_panel_arms": [
+   "olmo3.1-7b-rlzc-final",
+   "q3-8B-sft-code",
+   "q35-9B-base",
+   "q35-9B-base-sft-code"
+  ],
+  "withdrawn": {},
+  "fit_excluded": [],
+  "fit_exclusion_reasons": {},
+  "fit_exclusion_short": {},
+  "fit_reversible_when": {},
+  "fit_disclosures": {},
+  "withheld_configs": [
+   "Qwen/Qwen3-30B-A3B-Thinking"
+  ],
+  "withheld_reasons": {
+   "Qwen/Qwen3-30B-A3B-Thinking": "held by ruling of 2 Sep 23:23 UK (kept off paid time (not counted in coverage, the price total or the money's end); runs on the free machines after everything else; last in the free queue)"
+  },
+  "keep_set_hash": "c3f08ea1a903",
+  "axis_order_hash": "82b1968451ae",
+  "runs_fingerprint": "a3f7a78e083d",
+  "runs_fingerprint_rule": "sha1 over path:mtime_ns:size of the consumed *.eval_results.json files (since 2026-09-02; before: every file under runs/)",
+  "inputs_content_sha": "d5a4e3cd1533",
+  "scorer": "plus_status (a sample counts as solved if its plus run passed; difficulty ruled base AND plus on 2026-09-02 \u2014 the switch of served numbers waits for Szymon's gate; under base AND plus a result can read differently, e.g. Mbpp/274 for Qwen3-30B-A3B: 128 passes here vs 127)",
+  "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\\t<task>\\t<passes>\\t<attempts>\\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column verbatim; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) \u2014 reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
+  "build_date": "2026-09-22",
+  "built_at": "2026-09-22T22:03:33Z",
+  "vocab_ruled": "2026-08-27",
+  "counts_of_record": {
+   "original_kept": 430,
+   "new_focused": 869,
+   "new_parked": 893,
+   "new_total": 1762,
+   "new_focused_kept": 858,
+   "new_parked_kept": 879,
+   "_stamp": "2026-09-22T21:24:33Z",
+   "waves": {
+    "wave_1": {
+     "name": "wave 1",
+     "aliases": [
+      "board",
+      "the board",
+      "original tasks",
+      "originals",
+      "HumanEval+ / MBPP+",
+      "HE+/MBPP+"
+     ],
+     "old_names": [
+      "board",
+      "the board",
+      "original tasks",
+      "originals",
+      "HumanEval+ / MBPP+",
+      "HE+/MBPP+"
+     ],
+     "count": 430,
+     "count_key": "original_kept",
+     "figure_count": 430,
+     "label": "wave 1 (430 tasks)",
+     "figure_label": "wave 1 (430 tasks)",
+     "kept_count": 430,
+     "members": 542,
+     "tasks_total": 542,
+     "fit_frame_tasks": null,
+     "fit_frame_note": "the tasks a served fit stands on come from the fit owner's own stamp (fitting's served stamp read 438 wave 1 / 877 wave 2 / 1,315 as cut on 2026-09-08; difficulty's served board wave old-20260908T0037Z 433), never from this file"
+    },
+    "wave_2": {
+     "name": "wave 2",
+     "aliases": [
+      "focused",
+      "the focused half",
+      "focused half",
+      "new_focused",
+      "first half of the pool"
+     ],
+     "old_names": [
+      "focused",
+      "the focused half",
+      "focused half",
+      "new_focused",
+      "first half of the pool"
+     ],
+     "count": 869,
+     "count_key": "new_focused",
+     "figure_count": 869,
+     "label": "wave 2 (869 tasks)",
+     "figure_label": "wave 2 (869 tasks)",
+     "kept_count": 858,
+     "members": 869,
+     "tasks": 869,
+     "never_includes": "wave 2 parked"
+    },
+    "wave_2_parked": {
+     "name": "wave 2 parked",
+     "aliases": [
+      "parked",
+      "the parked half",
+      "new_parked",
+      "second half of the pool"
+     ],
+     "old_names": [
+      "parked",
+      "the parked half",
+      "new_parked",
+      "second half of the pool"
+     ],
+     "count": 893,
+     "count_key": "new_parked",
+     "figure_count": 893,
+     "label": "wave 2 parked (893 tasks)",
+     "figure_label": "wave 2 parked (893 tasks)",
+     "kept_count": 879,
+     "members": 893,
+     "tasks": 893
+    },
+    "wave_1_plus_2": {
+     "name": "wave 1+2",
+     "aliases": [
+      "combined",
+      "board + focused",
+      "unified (board and focused)"
+     ],
+     "old_names": [
+      "combined",
+      "board + focused",
+      "unified (board and focused)"
+     ],
+     "count": 1299,
+     "count_key": "original_kept + new_focused",
+     "figure_count": 1299,
+     "label": "wave 1+2 (1,299 tasks)",
+     "figure_label": "wave 1+2 (1,299 tasks)",
+     "kept_count": 1288,
+     "members": 1411,
+     "composition": "wave 1 + wave 2; never includes wave 2 parked",
+     "fit_population_note": "fit_population 1,288 = fit_original 430 (the range explorer's matrix frame at its last build) + the wave 2 kept count 858 after the twin fold (22 Sep 2026: the kept frame the served fits stand on; until then this figure added the wave 2 members); a served fit states its own task count from its owner's stamp, never from this figure"
+    },
+    "wave_2_plus_parked": {
+     "name": "wave 2 and wave 2 parked",
+     "aliases": [
+      "new tasks",
+      "all new tasks",
+      "wave 2 + wave 2 parked",
+      "both new-task waves"
+     ],
+     "old_names": [
+      "wave 2 + wave 2 parked"
+     ],
+     "composition": "wave 2 + wave 2 parked (every new task); never includes the pilot",
+     "count": 1762,
+     "count_key": "new_total",
+     "figure_count": 1762,
+     "label": "wave 2 and wave 2 parked (1,762 tasks)",
+     "figure_label": "wave 2 and wave 2 parked (1,762 tasks)",
+     "figure_label_template": "wave 2 and wave 2 parked (1,762 tasks)",
+     "template_rule": "the label of record (13 Sep ruling): the set name with its count of record; a FIT that draws this set states its frame count BESIDE the label from the fit owner's stamp (fitting's serving stamp), never inside it; the 10 Sep frame-count template is superseded; a page naming the SET uses label (the membership count new_total)",
+     "kept_count": 1737,
+     "members": 1762,
+     "never_includes": "the pilot; 'wave 2' alone never means this union"
+    },
+    "all_waves_plus_pilot": {
+     "name": "wave 1 + wave 2 + wave 2 parked + pilot",
+     "composition": "wave 1 + wave 2 + wave 2 parked + the pilot's hundred",
+     "count": null,
+     "count_key": null,
+     "count_source": "the fit owner's stamp (fitting's serving_golden_combined.json task count as cut) \u2014 never this file",
+     "figure_label_template": "wave 1 + wave 2 + wave 2 parked (2,192 tasks) + the easy-tasks pilot (100 tasks)",
+     "template_rule": "the label of record (13 Sep ruling): the waves' count of record in the label, the pilot named with its plain what and the hundred of record as its own count (ruling 07:51:54Z 13 Sep); the fit owner's frame as cut is stated beside the label from its stamp, never inside it (supersedes the 10 Sep frame-count template)",
+     "kept_count": 2267,
+     "members": 2404,
+     "hundred_of_record_check": {
+      "ruled": 100,
+      "population_file_yes_ways_1_to_5": 100,
+      "agree": true,
+      "rule": "the label carries the ruled 100; a file count that differs is a departure to surface, never a silent relabel"
+     },
+     "pilot_part": "the pilot's hundred (100); the 72 surplus pilot tasks of ways 1 to 5 and the doers' way-6 tasks (20 population + 10 surplus) are not in this label unless the fit owner's stamp says so",
+     "never_without": "the word 'pilot' \u2014 the pilot is a third named set outside every wave and never enters a wave count or fit by default",
+     "words_of_record": "the owner's word of 2026-09-08, relayed by the router, interpreted in this block's sentence; the verbatim in the store's record"
+    },
+    "_basis": "LABEL COUNT = the set as it appears on the approved surfaces, as changed only by the owner's rulings (the 9 Sep HumanEval/132 ruling moved wave 1 from 432 to its present count): each wave's label is its count field in this file (count_key names the field). wave 1 = the board's graded set with a valid label (original_kept; the label-excluded originals were never board tasks on the approved surfaces), wave 2 = the frozen focus membership after the twin fold (new_focused), wave 2 parked = new_parked, wave 1+2 = original_kept + new_focused. Qualifiers beside every wave: kept_count (tasks with a valid label) and members (every admitted task) \u2014 both computed here, never typed. Pages that do not draw their label from this file name their own basis in their notes: a fitted figure names the fit frame from fitting's served stamp (following at each re-cut); a census of all runs names members. Basis settled with pool-pages-lead on 2026-09-08 against the approved surfaces (RULINGS.md WAVE LABEL BASIS SETTLED); the kept-everywhere word of that evening is withdrawn (no ruling behind it); re-decided 2026-09-10 under cleanup F1a-24 (RULINGS.md COUNT OF RECORD BASIS): the fields are the single source, the prose carries no typed count. 'wave 2' never includes 'wave 2 parked'",
+    "_rule": "official names in figures with the count in parentheses; old names understood as aliases; 'wave 2' never means 'wave 2 parked'; the pilot set is a separate named set outside every wave (see pilot); a fit over every wave plus the pilot is labelled 'wave 1 + wave 2 + wave 2 parked + pilot (N tasks)' with N from the fit owner's stamp (all_waves_plus_pilot)",
+    "_word_of_record": "the owner's word of 2026-09-08, relayed by the router, interpreted in this block's sentence; the verbatim in the store's record",
+    "testbed_situations": {
+     "name": "testbed situations",
+     "aliases": [
+      "testbed",
+      "alignment testbed situations"
+     ],
+     "composition": "a third-kind set apart; never part of any wave",
+     "count": 10133,
+     "count_key": "testbed.admitted",
+     "label": "testbed situations (1,964 derisking-pilot rows: 1,021 pilot designs under review by ruling of 11 Sep + 945 golden-pilot rows marked to run on the golden models (about 20 tasks per shape, by ruling of 11 Sep); 8,169 probe design rows held (roles baseline 136 / control 1,172 / positive-control 2 / situation 6,859); none in the pool store)",
+     "figure_label_template": "testbed situations ({n:,} tasks)",
+     "planned_not_built": true,
+     "never_includes": "any wave task; a situation is a new task id even when its parent is a wave-1 task"
+    }
+   }
+  },
+  "bayes_fits": {
+   "serving_pointer": "definitions/fitting/serving_board.json",
+   "wave_id": "old-20260910T2211Z",
+   "custody_dir": "definitions/fitting/waves/old-20260910T2211Z/results",
+   "set_fingerprint": "63db7d7176e6",
+   "set_sha256_method": "sha256 over sorted(basename + bytes) of the SERVED posterior_summary_*.json files (not_served stems excluded; n_arms counts the same files)",
+   "pointer_updated_at": "2026-09-19T09:58:51Z",
+   "note": null,
+   "gates": {
+    "convention": "0.5%-of-draws convention",
+    "n_pass": 43,
+    "n_arms": 58,
+    "max_divergence_share_pct": 0.09,
+    "rhat_max": 1.044,
+    "bulk_ess_min": 122,
+    "flagged": [
+     "Qwen/Qwen2.5-14B-Instruct",
+     "Qwen/Qwen2.5-3B-Instruct",
+     "Qwen/Qwen2.5-Coder-0.5B-Instruct",
+     "Qwen/Qwen3-0.6B",
+     "Qwen/Qwen3-0.6B-Thinking",
+     "Qwen/Qwen3-1.7B",
+     "Qwen/Qwen3-4B",
+     "Qwen/Qwen3-4B-Instruct-2507",
+     "Qwen/Qwen3-8B",
+     "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+     "deepseek-ai/deepseek-coder-33b-instruct",
+     "moonshotai/Kimi-Dev-72B",
+     "moonshotai/Kimi-Linear-48B-A3B-Instruct",
+     "moonshotai/Moonlight-16B-A3B-Instruct",
+     "zai-org/GLM-4.7-Flash"
+    ],
+    "source": "definitions/fitting/waves/old-20260910T2211Z/gates_summary.json"
+   },
+   "served_not_in_population": [
+    {
+     "model_id": "Qwen/Qwen3-30B-A3B-Thinking",
+     "reason": "held by ruling of 2 Sep 23:23 UK (kept off paid time (not counted in coverage, the price total or the money's end); runs on the free machines after everything else; last in the free queue) \u2014 fitted on its partial board results only, a fraction of the frame"
+    }
+   ],
+   "provisional_classes": null,
+   "basis_truncation": {
+    "adequate": true,
+    "within_band": null,
+    "band": null,
+    "m_basis": 40,
+    "m_basis_per_rule_06h": 40,
+    "hsgp_L": 8.6409,
+    "min_ell_arm": "Qwen/Qwen3-30B-A3B",
+    "min_ell_median": 0.691,
+    "r_at_min_ell": 0.001818,
+    "disclosure": null,
+    "disclosure_rule": "a served fit's basis is adequate when its re-fit at the ruled basis moves none of the served crossings beyond the run-to-run noise floor (measured no-move band); the 1% design criterion applies to new cuts only",
+    "computed_at": "2026-09-12T07:40:28Z",
+    "rule": "design rule for new cuts: adequate iff r(min ell) <= 1e-2, r = exp(-1/4(ell w_M)^2)/exp(-1/4(ell w_1)^2), w_j = j*pi/(2L); served fits are judged by the measured no-move band (see the disclosure rule)"
+   },
+   "membership_lag": {
+    "kept_set_fitted": 431,
+    "landing_kept_set": 430,
+    "n_tasks_dropped": 1,
+    "fit_relabelled_after_cut": 1,
+    "fit_disclosure": "this fit stands on 431 wave 1 tasks; one wave 1 task was relabelled after the cut (one 'underspecification') and left the kept sets (430 wave 1 tasks at the landing); it stays in this fit as cut and leaves at the next cut made for another reason"
+   },
+   "n_fits": 58,
+   "n_fit_files": 59,
+   "not_served": [],
+   "fit_n_tasks": [
+    431
+   ],
+   "fit_dates": [
+    "2026-09-11",
+    "2026-09-12"
+   ],
+   "matches_axis": false,
+   "strict_gate_flagged": [
+    "Qwen/Qwen2.5-14B-Instruct",
+    "Qwen/Qwen2.5-3B-Instruct",
+    "Qwen/Qwen2.5-Coder-0.5B-Instruct",
+    "Qwen/Qwen3-0.6B",
+    "Qwen/Qwen3-0.6B-Thinking",
+    "Qwen/Qwen3-1.7B",
+    "Qwen/Qwen3-4B",
+    "Qwen/Qwen3-4B-Instruct-2507",
+    "Qwen/Qwen3-8B",
+    "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+    "deepseek-ai/deepseek-coder-33b-instruct",
+    "moonshotai/Kimi-Dev-72B",
+    "moonshotai/Kimi-Linear-48B-A3B-Instruct",
+    "moonshotai/Moonlight-16B-A3B-Instruct",
+    "zai-org/GLM-4.7-Flash"
+   ]
+  },
+  "cleaned_arms_board": {
+   "openai/gpt-5-nano": "20260907T154051Z",
+   "openai/gpt-5-mini": "20260907T154051Z"
+  },
+  "newest_input_mtime": "2026-09-22T22:03:07Z"
+ },
+ "files": {
+  "shared": "shared.aa120b309dc6.json",
+  "chain_average": "chain_average.aa120b309dc6.json",
+  "chain_median": "chain_median.aa120b309dc6.json",
+  "dots": "dots.aa120b309dc6.json"
+ }
+}

@@ -1,0 +1,10 @@
+{
+ "checked_at": "2026-09-23T05:40:49Z",
+ "inputs_sig": "cb85ca2ea402+98bcb48a0652",
+ "built_at": "2026-09-22T15:25:51Z",
+ "inputs": [
+  "definitions/difficulty/html/datasets/task_difficulty.cruxeval_o.csv",
+  "side-projects/newbench/site/data/index.json"
+ ],
+ "rule": "refreshed each watcher tick while the inputs' content matches the build (or right after a landing newer than every input); a stale stamp means the watcher stopped, a rebuild failed or an input moved without a landing"
+}

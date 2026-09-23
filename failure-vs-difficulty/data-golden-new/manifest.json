@@ -1,0 +1,398 @@
+{
+ "fingerprint": "efa0c57904cf",
+ "frame": {
+  "dataset": "new",
+  "dataset_label": "wave 2 (1,773 tasks): 1,761 of wave 2 + 12 tasks outside both waves, the list kept on 4 September 2026",
+  "dataset_label_head": "wave 2 (1,773 tasks)",
+  "dataset_label_source": {
+   "field": "label_of_record",
+   "pointer": "serving_golden_pool.json",
+   "note": "label = set name + the count the figure stands on, at its stamp (the served wave's axis at the cut of 4 September 2026: 1,761 of wave 2, 12 tasks outside both waves); the kept lists of today (the kept set at 22 Sep 13:24 UK): 1,737 of wave 2 of this axis still kept \u2014 a task that left the kept set after the cut stays in the fit as cut (the ruling of 8 Sep); the count is the cut's, the split by the waves' membership of record today (the wave-1 pin of 10 September 2026 and the wave-2 list with its parked members); Definitions' rule of 22 September 2026: one string written by the fit's writer, printed by every composer, never a count composed on a page from two sources"
+  },
+  "population": "golden",
+  "population_source": "definitions/difficulty/knowledge/golden_set.json",
+  "population_label": "golden set (12 models): Qwen3 0.6B/1.7B/4B/8B plain + thinking, Claude Haiku 4.5 + Sonnet 5 plain + thinking \u2014 a data point, not the difficulty definition (by ruling of 3 Sep)",
+  "population_M": 12,
+  "fitted_M": 12,
+  "complete_M": 12,
+  "sampled_M": 12,
+  "difficulty_population_M": 12,
+  "tasks": 1737,
+  "keep_set_hash": "abc6c6e65227",
+  "inputs_content_sha": "ba1e4321b5b8",
+  "tasks_on_axis": 1737,
+  "tasks_kept": 1737,
+  "tasks_awaiting_axis": 0,
+  "axis_set_hash": "abc6c6e65227",
+  "on_axis_by_wave": {
+   "wave_1": 0,
+   "wave_2": 858,
+   "wave_2_parked": 879
+  },
+  "runs_fingerprint": "897c1c749e55",
+  "axis_wave": "golden-pool-20260904T1407Z",
+  "build_date": "2026-09-23",
+  "stamp": "2026-09-23T05:49:02Z",
+  "unified_sources_not_taken": {
+   "pilot": 1496
+  },
+  "census_wave1_cells_by_arm": null,
+  "inputs": {
+   "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
+   "unified_built_at": "2026-09-23T05:12:24Z",
+   "board_cells_source": null,
+   "board_landing_id": null,
+   "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.golden.pool.csv"
+  },
+  "withheld_configs": [],
+  "withheld_reasons": {},
+  "withdrawn": {},
+  "fit_excluded": [],
+  "coverage": {
+   "claude-haiku-4-5": {
+    "tasks": 1737,
+    "of": 1737
+   },
+   "claude-sonnet-5": {
+    "tasks": 1737,
+    "of": 1737
+   },
+   "claude-haiku-4-5-thinking": {
+    "tasks": 1737,
+    "of": 1737
+   },
+   "claude-sonnet-5-thinking": {
+    "tasks": 1737,
+    "of": 1737
+   },
+   "Qwen/Qwen3-0.6B": {
+    "tasks": 1737,
+    "of": 1737
+   },
+   "Qwen/Qwen3-1.7B": {
+    "tasks": 1737,
+    "of": 1737
+   },
+   "Qwen/Qwen3-4B": {
+    "tasks": 1737,
+    "of": 1737
+   },
+   "Qwen/Qwen3-8B": {
+    "tasks": 1737,
+    "of": 1737
+   },
+   "Qwen/Qwen3-0.6B-Thinking": {
+    "tasks": 1734,
+    "of": 1737
+   },
+   "Qwen/Qwen3-1.7B-Thinking": {
+    "tasks": 1737,
+    "of": 1737
+   },
+   "Qwen/Qwen3-4B-Thinking": {
+    "tasks": 1737,
+    "of": 1737
+   },
+   "Qwen/Qwen3-8B-Thinking": {
+    "tasks": 1737,
+    "of": 1737
+   }
+  },
+  "scorer": "unified results: passes/n per configuration x task (board results under plus_status; pool results \u00a71b-valid), Definitions' unified frame",
+  "estimators": "local-logistic trend with shipped bands (rho/deff), binned medians (15 bins) with bootstrap bands and crossings, raw running median; average-chain crossings read off the trend and its band (first upward crossing)",
+  "bayes_fits": {
+   "serving_pointer": "definitions/fitting/serving_golden_pool.json",
+   "wave_id": "golden-pool-20260904T1407Z-m100",
+   "completed_at": "2026-09-07T06:43:24Z",
+   "gates_note": "flagged models are SERVED with the disclosure, never withheld; gates_summary.py is the single source",
+   "fit_n_tasks": [
+    1773
+   ],
+   "fit_frame": {
+    "n_tasks": 1773,
+    "pilot_included": false,
+    "pilot_kept": null,
+    "name": null,
+    "label": null,
+    "qualifiers": null
+   },
+   "strict_gate_flagged": [
+    "Qwen/Qwen3-1.7B",
+    "Qwen/Qwen3-4B",
+    "Qwen/Qwen3-8B",
+    "claude-haiku-4-5",
+    "claude-haiku-4-5-thinking",
+    "claude-sonnet-5"
+   ],
+   "served_not_drawn": null,
+   "custody_dir": "definitions/fitting/waves/golden-pool-20260904T1407Z-m100/results",
+   "set_fingerprint": "f397260cc9fb",
+   "pointer_updated_at": "2026-09-19T08:43:32Z",
+   "n_fits": 12,
+   "note": null,
+   "gates": {
+    "convention": "0.5%-of-draws convention",
+    "n_pass": 6,
+    "n_arms": 12,
+    "max_divergence_share_pct": 0.0,
+    "rhat_max": 1.082,
+    "bulk_ess_min": 40,
+    "flagged": [
+     "Qwen--Qwen3-1.7B_temp_0.8",
+     "Qwen--Qwen3-4B_temp_0.8",
+     "Qwen--Qwen3-8B_temp_0.8",
+     "claude-haiku-4-5-thinking_batch",
+     "claude-haiku-4-5_batch",
+     "claude-sonnet-5_batch"
+    ],
+    "source": "{'Qwen--Qwen3-0.6B_temp_0.8': {'divergences': 0, 'divergence_frac': 0.0, 'strict_gate': 'pass', 'board_half_pct_gate': 'pass', 'rhat_gate': 'pass', 'ess_gate': 'pass', 'rhat_max': 1.0071, 'ess_note': None, 'bulk_ess_min': 494.5, 'gates_failed': []}, 'Qwen--Qwen3-0.6B_think_temp_0.6': {'divergences': 0, 'divergence_frac': 0.0, 'strict_gate': 'pass', 'board_half_pct_gate': 'pass', 'rhat_gate': 'pass', 'ess_gate': 'pass', 'rhat_max': 1.0044, 'ess_note': None, 'bulk_ess_min': 1340.0, 'gates_failed': []}, 'Qwen--Qwen3-1.7B_temp_0.8': {'divergences': 0, 'divergence_frac': 0.0, 'strict_gate': 'pass', 'board_half_pct_gate': 'FAIL', 'rhat_gate': 'FAIL', 'ess_gate': 'FAIL', 'rhat_max': 1.0359, 'ess_note': None, 'bulk_ess_min': 98.1, 'gates_failed': ['rhat', 'ess', 'board_half_pct']}, 'Qwen--Qwen3-1.7B_think_temp_0.6': {'divergences': 0, 'divergence_frac': 0.0, 'strict_gate': 'pass', 'board_half_pct_gate': 'pass', 'rhat_gate': 'pass', 'ess_gate': 'pass', 'rhat_max': 1.0061, 'ess_note': None, 'bulk_ess_min': 496.2, 'gates_failed': []}, 'Qwen--Qwen3-4B_temp_0.8': {'divergences': 0, 'divergence_frac': 0.0, 'strict_gate': 'pass', 'board_half_pct_gate': 'FAIL', 'rhat_gate': 'FAIL', 'ess_gate': 'FAIL', 'rhat_max': 1.0125, 'ess_note': None, 'bulk_ess_min': 272.2, 'gates_failed': ['rhat', 'ess', 'board_half_pct']}, 'Qwen--Qwen3-4B_think_temp_0.6': {'divergences': 0, 'divergence_frac': 0.0, 'strict_gate': 'pass', 'board_half_pct_gate': 'pass', 'rhat_gate': 'pass', 'ess_gate': 'pass', 'rhat_max': 1.003, 'ess_note': None, 'bulk_ess_min': 1473.3, 'gates_failed': []}, 'Qwen--Qwen3-8B_temp_0.8': {'divergences': 0, 'divergence_frac': 0.0, 'strict_gate': 'pass', 'board_half_pct_gate': 'FAIL', 'rhat_gate': 'pass', 'ess_gate': 'FAIL', 'rhat_max': 1.0054, 'ess_note': None, 'bulk_ess_min': 384.3, 'gates_failed': ['ess', 'board_half_pct']}, 'Qwen--Qwen3-8B_think_temp_0.6': {'divergences': 0, 'divergence_frac': 0.0, 'strict_gate': 'pass', 'board_half_pct_gate': 'pass', 'rhat_gate': 'pass', 'ess_gate': 'pass', 'rhat_max': 1.0018, 'ess_note': None, 'bulk_ess_min': 1564.6, 'gates_failed': []}, 'claude-haiku-4-5-thinking_batch': {'divergences': 0, 'divergence_frac': 0.0, 'strict_gate': 'pass', 'board_half_pct_gate': 'FAIL', 'rhat_gate': 'FAIL', 'ess_gate': 'FAIL', 'rhat_max': 1.0202, 'ess_note': None, 'bulk_ess_min': 276.5, 'gates_failed': ['rhat', 'ess', 'board_half_pct']}, 'claude-haiku-4-5_batch': {'divergences': 0, 'divergence_frac': 0.0, 'strict_gate': 'pass', 'board_half_pct_gate': 'FAIL', 'rhat_gate': 'FAIL', 'ess_gate': 'FAIL', 'rhat_max': 1.037, 'ess_note': None, 'bulk_ess_min': 143.7, 'gates_failed': ['rhat', 'ess', 'board_half_pct']}, 'claude-sonnet-5-thinking_batch': {'divergences': 1, 'divergence_frac': 3e-05, 'strict_gate': 'pass_with_note', 'board_half_pct_gate': 'pass', 'rhat_gate': 'pass', 'ess_gate': 'pass', 'rhat_max': 1.0068, 'ess_note': None, 'bulk_ess_min': 669.0, 'gates_failed': []}, 'claude-sonnet-5_batch': {'divergences': 0, 'divergence_frac': 0.0, 'strict_gate': 'pass', 'board_half_pct_gate': 'FAIL', 'rhat_gate': 'FAIL', 'ess_gate': 'FAIL', 'rhat_max': 1.0817, 'ess_note': None, 'bulk_ess_min': 40.7, 'gates_failed': ['rhat', 'ess', 'board_half_pct']}, '_convention_note': \"0.5%-of-draws convention (blessed for pool surfaces, curve-science 08-30): FAIL iff divergences/(chains*samples) > 0.005 OR rhat_gate != pass OR ess_gate == FAIL; 'pass_with_note' ess_gate is a pass (fully-censored estimand, ESS n/a).\"}"
+   },
+   "provisional_classes": null,
+   "basis_truncation": {
+    "adequate": true,
+    "within_band": true,
+    "band": {
+     "r_star": 0.1288,
+     "grid_step": 0.013557,
+     "n_arms_measured": 37,
+     "computed_at": "2026-09-07T06:39:15Z",
+     "file": "definitions/fitting/knowledge/basis_adequacy_band.json",
+     "rule": "spec 2026-09-06w"
+    },
+    "m_basis": 100,
+    "m_basis_per_rule_06h": 100,
+    "hsgp_L": 21.0065,
+    "min_ell_arm": "claude-sonnet-5-thinking_batch",
+    "min_ell_median": 0.92,
+    "r_at_min_ell": 7.37e-06,
+    "disclosure": "re-fitted at the ruled basis on identical inputs (12 of 12 models): the served D50 (the 50% crossing) is unchanged within the run-to-run noise floor on every model; D99 (the 1% crossing) moved on one model, Qwen3-1.7B, later by about 0.05 on the difficulty scale (toward harder tasks, more reliable), and stayed within the noise floor on the other eleven",
+    "disclosure_rule": "the measured no-move band: the noise floor is two grid steps",
+    "computed_at": "2026-09-07T06:45:26Z",
+    "rule": "spec of 6 Sep (h), item 2: adequate iff r(min ell) <= 1e-2, r = exp(-1/4(ell w_M)^2)/exp(-1/4(ell w_1)^2), w_j = j*pi/(2L)"
+   },
+   "served_axis_note": null,
+   "membership_lag": {
+    "kept_set_fitted": 1773,
+    "landing_kept_set": 1737,
+    "n_tasks_dropped": 20,
+    "source": "Definitions' mirror stamp",
+    "folded_twins": 16
+   },
+   "partial_coverage_arms": [
+    "Qwen/Qwen3-0.6B",
+    "Qwen/Qwen3-0.6B-Thinking",
+    "Qwen/Qwen3-1.7B",
+    "Qwen/Qwen3-1.7B-Thinking",
+    "Qwen/Qwen3-4B",
+    "Qwen/Qwen3-4B-Thinking",
+    "Qwen/Qwen3-8B",
+    "Qwen/Qwen3-8B-Thinking",
+    "claude-haiku-4-5",
+    "claude-haiku-4-5-thinking",
+    "claude-sonnet-5"
+   ],
+   "matches_axis": true,
+   "population": "golden",
+   "dataset": "new",
+   "cleaned": {},
+   "concentration_counts": {
+    "diffuse": 2,
+    "intermediate": 1,
+    "concentrated": 3,
+    "extreme": 6
+   },
+   "drawn": 12
+  },
+  "vocab_ruled": "2026-08-27",
+  "interim": "kernel fits on all results available at build; refit hourly as results land",
+  "off_panel": {
+   "n_with_cells": 0,
+   "arms": [],
+   "unregistered": [],
+   "in_side_block": [],
+   "panel_conflicts": [],
+   "line": null
+  },
+  "cleaned_arms_unified": [
+   "openai/gpt-5-mini",
+   "openai/gpt-5-nano"
+  ],
+  "counts_of_record": {
+   "original_kept": 430,
+   "new_focused": 869,
+   "new_parked": 893,
+   "new_total": 1762,
+   "new_focused_kept": 858,
+   "new_parked_kept": 879,
+   "_stamp": "2026-09-23T05:24:08Z",
+   "waves": {
+    "wave_1": {
+     "name": "wave 1",
+     "aliases": [
+      "board",
+      "the board",
+      "original tasks",
+      "originals",
+      "HumanEval+ / MBPP+",
+      "HE+/MBPP+"
+     ],
+     "old_names": [
+      "board",
+      "the board",
+      "original tasks",
+      "originals",
+      "HumanEval+ / MBPP+",
+      "HE+/MBPP+"
+     ],
+     "count": 430,
+     "count_key": "original_kept",
+     "figure_count": 430,
+     "label": "wave 1 (430 tasks)",
+     "figure_label": "wave 1 (430 tasks)",
+     "kept_count": 430,
+     "members": 542,
+     "tasks_total": 542,
+     "fit_frame_tasks": null,
+     "fit_frame_note": "the tasks a served fit stands on come from the fit owner's own stamp (fitting's served stamp read 438 wave 1 / 877 wave 2 / 1,315 as cut on 2026-09-08; difficulty's served board wave old-20260908T0037Z 433), never from this file"
+    },
+    "wave_2": {
+     "name": "wave 2",
+     "aliases": [
+      "focused",
+      "the focused half",
+      "focused half",
+      "new_focused",
+      "first half of the pool"
+     ],
+     "old_names": [
+      "focused",
+      "the focused half",
+      "focused half",
+      "new_focused",
+      "first half of the pool"
+     ],
+     "count": 869,
+     "count_key": "new_focused",
+     "figure_count": 869,
+     "label": "wave 2 (869 tasks)",
+     "figure_label": "wave 2 (869 tasks)",
+     "kept_count": 858,
+     "members": 869,
+     "tasks": 869,
+     "never_includes": "wave 2 parked"
+    },
+    "wave_2_parked": {
+     "name": "wave 2 parked",
+     "aliases": [
+      "parked",
+      "the parked half",
+      "new_parked",
+      "second half of the pool"
+     ],
+     "old_names": [
+      "parked",
+      "the parked half",
+      "new_parked",
+      "second half of the pool"
+     ],
+     "count": 893,
+     "count_key": "new_parked",
+     "figure_count": 893,
+     "label": "wave 2 parked (893 tasks)",
+     "figure_label": "wave 2 parked (893 tasks)",
+     "kept_count": 879,
+     "members": 893,
+     "tasks": 893
+    },
+    "wave_1_plus_2": {
+     "name": "wave 1+2",
+     "aliases": [
+      "combined",
+      "board + focused",
+      "unified (board and focused)"
+     ],
+     "old_names": [
+      "combined",
+      "board + focused",
+      "unified (board and focused)"
+     ],
+     "count": 1299,
+     "count_key": "original_kept + new_focused",
+     "figure_count": 1299,
+     "label": "wave 1+2 (1,299 tasks)",
+     "figure_label": "wave 1+2 (1,299 tasks)",
+     "kept_count": 1288,
+     "members": 1411,
+     "composition": "wave 1 + wave 2; never includes wave 2 parked",
+     "fit_population_note": "fit_population 1,288 = fit_original 430 (the range explorer's matrix frame at its last build) + the wave 2 kept count 858 after the twin fold (22 Sep 2026: the kept frame the served fits stand on; until then this figure added the wave 2 members); a served fit states its own task count from its owner's stamp, never from this figure"
+    },
+    "wave_2_plus_parked": {
+     "name": "wave 2 and wave 2 parked",
+     "aliases": [
+      "new tasks",
+      "all new tasks",
+      "wave 2 + wave 2 parked",
+      "both new-task waves"
+     ],
+     "old_names": [
+      "wave 2 + wave 2 parked"
+     ],
+     "composition": "wave 2 + wave 2 parked (every new task); never includes the pilot",
+     "count": 1762,
+     "count_key": "new_total",
+     "figure_count": 1762,
+     "label": "wave 2 and wave 2 parked (1,762 tasks)",
+     "figure_label": "wave 2 and wave 2 parked (1,762 tasks)",
+     "figure_label_template": "wave 2 and wave 2 parked (1,762 tasks)",
+     "template_rule": "the label of record (13 Sep ruling): the set name with its count of record; a FIT that draws this set states its frame count BESIDE the label from the fit owner's stamp (fitting's serving stamp), never inside it; the 10 Sep frame-count template is superseded; a page naming the SET uses label (the membership count new_total)",
+     "kept_count": 1737,
+     "members": 1762,
+     "never_includes": "the pilot; 'wave 2' alone never means this union"
+    },
+    "all_waves_plus_pilot": {
+     "name": "wave 1 + wave 2 + wave 2 parked + pilot",
+     "composition": "wave 1 + wave 2 + wave 2 parked + the pilot's hundred",
+     "count": null,
+     "count_key": null,
+     "count_source": "the fit owner's stamp (fitting's serving_golden_combined.json task count as cut) \u2014 never this file",
+     "figure_label_template": "wave 1 + wave 2 + wave 2 parked (2,192 tasks) + the easy-tasks pilot (100 tasks)",
+     "template_rule": "the label of record (13 Sep ruling): the waves' count of record in the label, the pilot named with its plain what and the hundred of record as its own count (ruling 07:51:54Z 13 Sep); the fit owner's frame as cut is stated beside the label from its stamp, never inside it (supersedes the 10 Sep frame-count template)",
+     "kept_count": 2267,
+     "members": 2404,
+     "hundred_of_record_check": {
+      "ruled": 100,
+      "population_file_yes_ways_1_to_5": 100,
+      "agree": true,
+      "rule": "the label carries the ruled 100; a file count that differs is a departure to surface, never a silent relabel"
+     },
+     "pilot_part": "the pilot's hundred (100); the 72 surplus pilot tasks of ways 1 to 5 and the doers' way-6 tasks (20 population + 10 surplus) are not in this label unless the fit owner's stamp says so",
+     "never_without": "the word 'pilot' \u2014 the pilot is a third named set outside every wave and never enters a wave count or fit by default",
+     "words_of_record": "the owner's word of 2026-09-08, relayed by the router, interpreted in this block's sentence; the verbatim in the store's record"
+    },
+    "_basis": "LABEL COUNT = the set as it appears on the approved surfaces, as changed only by the owner's rulings (the 9 Sep HumanEval/132 ruling moved wave 1 from 432 to its present count): each wave's label is its count field in this file (count_key names the field). wave 1 = the board's graded set with a valid label (original_kept; the label-excluded originals were never board tasks on the approved surfaces), wave 2 = the frozen focus membership after the twin fold (new_focused), wave 2 parked = new_parked, wave 1+2 = original_kept + new_focused. Qualifiers beside every wave: kept_count (tasks with a valid label) and members (every admitted task) \u2014 both computed here, never typed. Pages that do not draw their label from this file name their own basis in their notes: a fitted figure names the fit frame from fitting's served stamp (following at each re-cut); a census of all runs names members. Basis settled with pool-pages-lead on 2026-09-08 against the approved surfaces (RULINGS.md WAVE LABEL BASIS SETTLED); the kept-everywhere word of that evening is withdrawn (no ruling behind it); re-decided 2026-09-10 under cleanup F1a-24 (RULINGS.md COUNT OF RECORD BASIS): the fields are the single source, the prose carries no typed count. 'wave 2' never includes 'wave 2 parked'",
+    "_rule": "official names in figures with the count in parentheses; old names understood as aliases; 'wave 2' never means 'wave 2 parked'; the pilot set is a separate named set outside every wave (see pilot); a fit over every wave plus the pilot is labelled 'wave 1 + wave 2 + wave 2 parked + pilot (N tasks)' with N from the fit owner's stamp (all_waves_plus_pilot)",
+    "_word_of_record": "the owner's word of 2026-09-08, relayed by the router, interpreted in this block's sentence; the verbatim in the store's record",
+    "testbed_situations": {
+     "name": "testbed situations",
+     "aliases": [
+      "testbed",
+      "alignment testbed situations"
+     ],
+     "composition": "a third-kind set apart; never part of any wave",
+     "count": 10133,
+     "count_key": "testbed.admitted",
+     "label": "testbed situations (1,964 derisking-pilot rows: 1,021 pilot designs under review by ruling of 11 Sep + 945 golden-pilot rows marked to run on the golden models (about 20 tasks per shape, by ruling of 11 Sep); 8,169 probe design rows held (roles baseline 136 / control 1,172 / positive-control 2 / situation 6,859); none in the pool store)",
+     "figure_label_template": "testbed situations ({n:,} tasks)",
+     "planned_not_built": true,
+     "never_includes": "any wave task; a situation is a new task id even when its parent is a wave-1 task"
+    }
+   }
+  }
+ },
+ "files": {
+  "shared": "shared.efa0c57904cf.json",
+  "chain_average": "chain_average.efa0c57904cf.json",
+  "chain_median": "chain_median.efa0c57904cf.json",
+  "dots": "dots.efa0c57904cf.json"
+ }
+}

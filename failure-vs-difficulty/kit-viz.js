@@ -1,4 +1,4 @@
-/* project UI kit — viz interaction module.
+/* project UI kit — viz interaction module (the maintainers, tools-convergence).
  * Vendor beside kit.js on pages with charts. No dependencies.
  *
  * Implements the reference hover conventions (R1 #2, adopted in PLAN):
@@ -72,7 +72,7 @@
    *   xs: [px,...],          // data x positions (container-relative, sorted)
    *   readout: fn(i) -> {title, rows}   // tooltip content at index i
    *   onSnap: fn(i)|null     // optional extra hook (e.g. highlight marks)
-   * }) -> { destroy() }
+   * }) -> { destroy }
    */
   Kit.crosshair = function (cfg) {
     var box = typeof cfg.container === 'string'
@@ -82,7 +82,8 @@
     box.appendChild(line);
     if (!box.hasAttribute('tabindex')) box.tabIndex = 0;
     var idx = -1, pinned = false;
-    // pinned: phones fire pointerleave right after a tap, so a hover-only
+    // pinned (the maintainers, /cumulative v1.3 layer-B decision B4, folded upstream
+    // 09-02): phones fire pointerleave right after a tap, so a hover-only
     // readout vanished before it could be read. TAP = snap + persistent
     // readout until the next tap or a tap outside the container. Hover
     // behaviour is unchanged (mouse pointers never pin).

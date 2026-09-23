@@ -1,0 +1,743 @@
+{
+ "fingerprint": "996f47436647",
+ "frame": {
+  "dataset": "top",
+  "dataset_label": "wave 2 (866 tasks), the list kept on 10 September 2026; wave 2 parked (879 tasks) left out",
+  "dataset_label_head": "wave 2 (866 tasks)",
+  "dataset_label_source": {
+   "field": "label_of_record",
+   "pointer": "serving_top.json",
+   "note": "label = set name + the count the figure stands on, at its stamp (the served wave's axis at the cut of 10 September 2026: 866 of wave 2); the kept lists of today (the kept set at 22 Sep 13:24 UK): 858 of wave 2 of this axis still kept \u2014 a task that left the kept set after the cut stays in the fit as cut (the ruling of 8 Sep); the count is the cut's, the split by the waves' membership of record today (the wave-1 pin of 10 September 2026 and the wave-2 list with its parked members); Definitions' rule of 22 September 2026: one string written by the fit's writer, printed by every composer, never a count composed on a page from two sources"
+  },
+  "population": "all",
+  "population_source": null,
+  "population_label": "all models",
+  "population_M": 57,
+  "fitted_M": 57,
+  "complete_M": 57,
+  "sampled_M": 57,
+  "difficulty_population_M": 57,
+  "tasks": 858,
+  "keep_set_hash": "532d0efad8a5",
+  "inputs_content_sha": "da0349140c3f",
+  "tasks_on_axis": 858,
+  "tasks_kept": 858,
+  "tasks_awaiting_axis": 0,
+  "axis_set_hash": "532d0efad8a5",
+  "on_axis_by_wave": {
+   "wave_1": 0,
+   "wave_2": 858,
+   "wave_2_parked": 0
+  },
+  "runs_fingerprint": "897c1c749e55",
+  "axis_wave": "pool-20260910T2244Z",
+  "build_date": "2026-09-23",
+  "stamp": "2026-09-23T05:46:58Z",
+  "unified_sources_not_taken": {
+   "pilot": 1496
+  },
+  "census_wave1_cells_by_arm": null,
+  "inputs": {
+   "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
+   "unified_built_at": "2026-09-23T05:12:24Z",
+   "board_cells_source": null,
+   "board_landing_id": null,
+   "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.top.csv"
+  },
+  "withheld_configs": [],
+  "withheld_reasons": {},
+  "withdrawn": {},
+  "fit_excluded": [],
+  "coverage": {
+   "claude-haiku-4-5": {
+    "tasks": 858,
+    "of": 858
+   },
+   "claude-sonnet-5": {
+    "tasks": 858,
+    "of": 858
+   },
+   "claude-opus-5": {
+    "tasks": 845,
+    "of": 858
+   },
+   "claude-haiku-4-5-thinking": {
+    "tasks": 858,
+    "of": 858
+   },
+   "claude-sonnet-5-thinking": {
+    "tasks": 858,
+    "of": 858
+   },
+   "claude-opus-5-thinking": {
+    "tasks": 856,
+    "of": 858
+   },
+   "deepseek-ai/deepseek-coder-1.3b-instruct": {
+    "tasks": 858,
+    "of": 858
+   },
+   "deepseek-ai/deepseek-coder-6.7b-instruct": {
+    "tasks": 858,
+    "of": 858
+   },
+   "deepseek-ai/deepseek-coder-33b-instruct": {
+    "tasks": 858,
+    "of": 858
+   },
+   "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct": {
+    "tasks": 858,
+    "of": 858
+   },
+   "deepseek-ai/DeepSeek-Coder-V2-Instruct": {
+    "tasks": 155,
+    "of": 858
+   },
+   "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B": {
+    "tasks": 857,
+    "of": 858
+   },
+   "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B": {
+    "tasks": 858,
+    "of": 858
+   },
+   "deepseek-ai/DeepSeek-R1-Distill-Llama-8B": {
+    "tasks": 858,
+    "of": 858
+   },
+   "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B": {
+    "tasks": 858,
+    "of": 858
+   },
+   "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B": {
+    "tasks": 856,
+    "of": 858
+   },
+   "deepseek-ai/DeepSeek-V3-0324": {
+    "tasks": 170,
+    "of": 858
+   },
+   "deepseek-ai/DeepSeek-V3.2": {
+    "tasks": 241,
+    "of": 858
+   },
+   "zai-org/GLM-4.7-Flash": {
+    "tasks": 851,
+    "of": 858
+   },
+   "openai/gpt-5-nano": {
+    "tasks": 857,
+    "of": 858
+   },
+   "openai/gpt-5-mini": {
+    "tasks": 858,
+    "of": 858
+   },
+   "google/gemini-3.5-flash-lite": {
+    "tasks": 858,
+    "of": 858
+   },
+   "google/gemini-3.6-flash": {
+    "tasks": 858,
+    "of": 858
+   },
+   "google/gemma-4-12B-it": {
+    "tasks": 856,
+    "of": 858
+   },
+   "google/gemma-4-31B-it": {
+    "tasks": 858,
+    "of": 858
+   },
+   "moonshotai/Moonlight-16B-A3B-Instruct": {
+    "tasks": 849,
+    "of": 858
+   },
+   "moonshotai/Kimi-Linear-48B-A3B-Instruct": {
+    "tasks": 299,
+    "of": 858
+   },
+   "moonshotai/Kimi-Dev-72B": {
+    "tasks": 825,
+    "of": 858
+   },
+   "moonshotai/Kimi-K2-Instruct": {
+    "tasks": 378,
+    "of": 858
+   },
+   "olmo-3.1-7b-rl-zero-code-final_completion": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen2.5-Coder-0.5B-Instruct": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen2.5-Coder-1.5B-Instruct": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen2.5-Coder-3B-Instruct": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen2.5-Coder-7B-Instruct": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen2.5-Coder-14B-Instruct": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen2.5-Coder-32B-Instruct": {
+    "tasks": 857,
+    "of": 858
+   },
+   "Qwen/Qwen2.5-0.5B-Instruct": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen2.5-1.5B-Instruct": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen2.5-3B-Instruct": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen2.5-7B-Instruct": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen2.5-14B-Instruct": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen2.5-32B-Instruct": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen3-0.6B": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen3-1.7B": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen3-4B": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen3-8B": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen3-14B": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen3-32B": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen3-4B-Instruct-2507": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen3-Coder-30B-A3B-Instruct": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen3-30B-A3B": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen3-0.6B-Thinking": {
+    "tasks": 855,
+    "of": 858
+   },
+   "Qwen/Qwen3-1.7B-Thinking": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen3-4B-Thinking": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen3-8B-Thinking": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen3-14B-Thinking": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen3-32B-Thinking": {
+    "tasks": 852,
+    "of": 858
+   }
+  },
+  "scorer": "unified results: passes/n per configuration x task (board results under plus_status; pool results \u00a71b-valid), Definitions' unified frame",
+  "estimators": "local-logistic trend with shipped bands (rho/deff), binned medians (15 bins) with bootstrap bands and crossings, raw running median; average-chain crossings read off the trend and its band (first upward crossing)",
+  "bayes_fits": {
+   "serving_pointer": "definitions/fitting/serving_top.json",
+   "wave_id": "top-20260910T2211Z",
+   "completed_at": "2026-09-13T06:54:04Z",
+   "gates_note": "flagged models are SERVED with the disclosure, never withheld; gates_summary.py is the single source; per-model record in composite_gate_failed_arms",
+   "fit_n_tasks": [
+    866
+   ],
+   "fit_frame": {
+    "n_tasks": 866,
+    "pilot_included": false,
+    "pilot_kept": null,
+    "name": null,
+    "label": null,
+    "qualifiers": null
+   },
+   "strict_gate_flagged": [
+    "Qwen/Qwen2.5-0.5B-Instruct",
+    "Qwen/Qwen2.5-1.5B-Instruct",
+    "Qwen/Qwen2.5-14B-Instruct",
+    "Qwen/Qwen2.5-32B-Instruct",
+    "Qwen/Qwen2.5-3B-Instruct",
+    "Qwen/Qwen2.5-7B-Instruct",
+    "Qwen/Qwen2.5-Coder-0.5B-Instruct",
+    "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+    "Qwen/Qwen2.5-Coder-14B-Instruct",
+    "Qwen/Qwen2.5-Coder-32B-Instruct",
+    "Qwen/Qwen2.5-Coder-3B-Instruct",
+    "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "Qwen/Qwen3-0.6B",
+    "Qwen/Qwen3-1.7B",
+    "Qwen/Qwen3-4B",
+    "claude-haiku-4-5",
+    "claude-sonnet-5",
+    "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct",
+    "deepseek-ai/deepseek-coder-1.3b-instruct",
+    "deepseek-ai/deepseek-coder-33b-instruct",
+    "deepseek-ai/deepseek-coder-6.7b-instruct",
+    "google/gemini-3.5-flash-lite",
+    "openai/gpt-5-nano"
+   ],
+   "served_not_drawn": null,
+   "custody_dir": "definitions/fitting/waves/top-20260910T2211Z/results",
+   "set_fingerprint": "3fa1dd2406a1",
+   "pointer_updated_at": "2026-09-19T09:45:48Z",
+   "n_fits": 55,
+   "note": null,
+   "gates": {
+    "convention": "0.5%-of-draws convention",
+    "n_pass": 33,
+    "n_arms": 56,
+    "max_divergence_share_pct": 0.01,
+    "rhat_max": 1.045,
+    "bulk_ess_min": 95,
+    "flagged": [
+     "Qwen--Qwen2.5-0.5B-Instruct_temp_0.8",
+     "Qwen--Qwen2.5-1.5B-Instruct_temp_0.8",
+     "Qwen--Qwen2.5-14B-Instruct_temp_0.8",
+     "Qwen--Qwen2.5-32B-Instruct_temp_0.8",
+     "Qwen--Qwen2.5-3B-Instruct_temp_0.8",
+     "Qwen--Qwen2.5-7B-Instruct_temp_0.8",
+     "Qwen--Qwen2.5-Coder-0.5B-Instruct_temp_0.8",
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct_temp_0.8",
+     "Qwen--Qwen2.5-Coder-14B-Instruct_temp_0.8",
+     "Qwen--Qwen2.5-Coder-32B-Instruct_temp_0.8",
+     "Qwen--Qwen2.5-Coder-3B-Instruct_temp_0.8",
+     "Qwen--Qwen2.5-Coder-7B-Instruct_temp_0.8",
+     "Qwen--Qwen3-0.6B_temp_0.8",
+     "Qwen--Qwen3-1.7B_temp_0.8",
+     "Qwen--Qwen3-4B_temp_0.8",
+     "claude-haiku-4-5_batch",
+     "claude-sonnet-5_batch",
+     "deepseek-ai--DeepSeek-Coder-V2-Lite-Instruct_temp_0.8",
+     "deepseek-ai--deepseek-coder-1.3b-instruct_temp_0.8",
+     "deepseek-ai--deepseek-coder-33b-instruct_temp_0.8",
+     "deepseek-ai--deepseek-coder-6.7b-instruct_temp_0.8",
+     "gemini-3.5-flash-lite_batch",
+     "gpt-5-nano_batch"
+    ],
+    "source": "definitions/fitting/waves/top-20260910T2211Z/gates_summary.json"
+   },
+   "provisional_classes": null,
+   "basis_truncation": {
+    "adequate": false,
+    "within_band": null,
+    "band": null,
+    "m_basis": 40,
+    "m_basis_per_rule_06h": 60,
+    "hsgp_L": 13.2689,
+    "min_ell_arm": "deepseek-ai--DeepSeek-R1-Distill-Qwen-32B_think_temp_0.6",
+    "min_ell_median": 0.386,
+    "r_at_min_ell": 0.1529,
+    "disclosure": "basis beyond the measured no-move band (r 0.15; band to 0.129): whether the served crossings moved is measured at this set's re-fit, not yet landed",
+    "disclosure_rule": "a served fit's basis is adequate when its re-fit at the ruled basis moves none of the served crossings beyond the run-to-run noise floor (measured no-move band); the 1% design criterion applies to new cuts only",
+    "computed_at": "2026-09-13T06:54:37Z",
+    "rule": "design rule for new cuts: adequate iff r(min ell) <= 1e-2, r = exp(-1/4(ell w_M)^2)/exp(-1/4(ell w_1)^2), w_j = j*pi/(2L); served fits are judged by the measured no-move band (see the disclosure rule)"
+   },
+   "served_axis_note": null,
+   "membership_lag": {
+    "kept_set_fitted": 866,
+    "landing_kept_set": 858,
+    "n_tasks_dropped": 7,
+    "source": "Definitions' mirror stamp",
+    "folded_twins": 1
+   },
+   "partial_coverage_arms": [
+    "Qwen/Qwen3-0.6B-Thinking",
+    "Qwen/Qwen3-30B-A3B",
+    "Qwen/Qwen3-32B-Thinking",
+    "Qwen/Qwen3-4B-Instruct-2507",
+    "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+    "claude-opus-5",
+    "claude-opus-5-thinking",
+    "deepseek-ai/DeepSeek-Coder-V2-Instruct",
+    "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+    "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
+    "deepseek-ai/DeepSeek-V3.2",
+    "google/gemma-4-12B-it",
+    "moonshotai/Kimi-Dev-72B",
+    "moonshotai/Kimi-K2-Instruct",
+    "moonshotai/Kimi-Linear-48B-A3B-Instruct",
+    "moonshotai/Moonlight-16B-A3B-Instruct",
+    "openai/gpt-5-nano",
+    "zai-org/GLM-4.7-Flash"
+   ],
+   "matches_axis": false,
+   "population": "all",
+   "dataset": "top",
+   "cleaned": {
+    "openai/gpt-5-mini": "gpt-5 models: impossible typing imports removed before grading; 12 attempts changed",
+    "openai/gpt-5-nano": "gpt-5 models: impossible typing imports removed before grading; 45 attempts changed"
+   },
+   "alongside": {
+    "olmo-3.1-7b-rl-zero-code-final_completion": {
+     "wave_id": "olmo-board_top-20260922T0453Z",
+     "pointer": "serving_olmo_board_top.json"
+    }
+   },
+   "concentration_counts": {
+    "diffuse": 7,
+    "concentrated": 13,
+    "extreme": 28,
+    "intermediate": 6,
+    "unclassified (no easy-third failures)": 1
+   },
+   "drawn": 56
+  },
+  "vocab_ruled": "2026-08-27",
+  "interim": "kernel fits on all results available at build; refit hourly as results land",
+  "off_panel": {
+   "n_with_cells": 24,
+   "arms": [
+    {
+     "id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
+     "arm_id": "olmo3.1-7b-rlzc-s0050",
+     "label": "Olmo 3.1 7B RL-Zero Code (step 50)"
+    },
+    {
+     "id": "olmo-3.1-7b-rl-zero-code-step0100_completion",
+     "arm_id": "olmo3.1-7b-rlzc-s0100",
+     "label": "Olmo 3.1 7B RL-Zero Code (step 100)"
+    },
+    {
+     "id": "olmo-3.1-7b-rl-zero-code-step0150_completion",
+     "arm_id": "olmo3.1-7b-rlzc-s0150",
+     "label": "Olmo 3.1 7B RL-Zero Code (step 150)"
+    },
+    {
+     "id": "olmo-3.1-7b-rl-zero-code-step0250_completion",
+     "arm_id": "olmo3.1-7b-rlzc-s0250",
+     "label": "Olmo 3.1 7B RL-Zero Code (step 250)"
+    },
+    {
+     "id": "olmo-3.1-7b-rl-zero-code-step0450_completion",
+     "arm_id": "olmo3.1-7b-rlzc-s0450",
+     "label": "Olmo 3.1 7B RL-Zero Code (step 450)"
+    },
+    {
+     "id": "olmo-3.1-7b-rl-zero-code-step0900_completion",
+     "arm_id": "olmo3.1-7b-rlzc-s0900",
+     "label": "Olmo 3.1 7B RL-Zero Code (step 900)"
+    },
+    {
+     "id": "olmo-3.1-7b-rl-zero-code-step1950_completion",
+     "arm_id": "olmo3.1-7b-rlzc-s1950",
+     "label": "Olmo 3.1 7B RL-Zero Code (step 1950)"
+    },
+    {
+     "id": "olmo-3-7b-think-step0025-Thinking",
+     "arm_id": "olmo3-7b-think-s0025",
+     "label": "Olmo 3 7B Think (step 25)"
+    },
+    {
+     "id": "olmo-3-7b-think-step0050-Thinking",
+     "arm_id": "olmo3-7b-think-s0050",
+     "label": "Olmo 3 7B Think (step 50)"
+    },
+    {
+     "id": "olmo-3-7b-think-step0100-Thinking",
+     "arm_id": "olmo3-7b-think-s0100",
+     "label": "Olmo 3 7B Think (step 100)"
+    },
+    {
+     "id": "olmo-3-7b-think-step0200-Thinking",
+     "arm_id": "olmo3-7b-think-s0200",
+     "label": "Olmo 3 7B Think (step 200)"
+    },
+    {
+     "id": "olmo-3-7b-think-step0800-Thinking",
+     "arm_id": "olmo3-7b-think-s0800",
+     "label": "Olmo 3 7B Think (step 800)"
+    },
+    {
+     "id": "olmo-3-7b-think-final-Thinking",
+     "arm_id": "olmo3-7b-think-final",
+     "label": "Olmo 3 7B Think (final)"
+    },
+    {
+     "id": "qwen3-8b-4k32",
+     "arm_id": "q3-8B-4k32",
+     "label": "Qwen3 8B (raw, re-run)"
+    },
+    {
+     "id": "qwen3-8b-sft-code",
+     "arm_id": "q3-8B-sft-code",
+     "label": "Qwen3 8B (code fine-tune)"
+    },
+    {
+     "id": "qwen3-8b-sft-maths",
+     "arm_id": "q3-8B-sft-maths",
+     "label": "Qwen3 8B (maths fine-tune)"
+    },
+    {
+     "id": "qwen3-8b-sft-code-harder",
+     "arm_id": "q3-8B-sft-code-harder",
+     "label": "Qwen3 8B (code fine-tune, other models' solutions)"
+    },
+    {
+     "id": "qwen3-8b-sft-code-coverage",
+     "arm_id": "q3-8B-sft-code-coverage",
+     "label": "Qwen3 8B (code fine-tune, coverage set)"
+    },
+    {
+     "id": "qwen3-8b-code-rl",
+     "arm_id": "q3-8B-code-rl",
+     "label": "Qwen3 8B (code fine-tune by RL)"
+    },
+    {
+     "id": "qwen3-8b-sft-code-think-Thinking",
+     "arm_id": "q3-8B-sft-code-think",
+     "label": "Qwen3 8B (thinking, code fine-tune, other models' traces)"
+    },
+    {
+     "id": "Qwen/Qwen3.5-9B-Base_completion",
+     "arm_id": "q35-9B-base",
+     "label": "Qwen3.5 9B Base"
+    },
+    {
+     "id": "qwen35_9b_base_sft_code_completion",
+     "arm_id": "q35-9B-base-sft-code",
+     "label": "Qwen3.5 9B Base (code fine-tune)"
+    },
+    {
+     "id": "qwen35_9b_base_sft_maths_completion",
+     "arm_id": "q35-9B-base-sft-maths",
+     "label": "Qwen3.5 9B Base (maths fine-tune)"
+    },
+    {
+     "id": "qwen35_9b_base_sft_code_harder_completion",
+     "arm_id": "q35-9B-base-sft-code-harder",
+     "label": "Qwen3.5 9B Base (code fine-tune, other models' solutions)"
+    }
+   ],
+   "unregistered": [],
+   "in_side_block": [],
+   "panel_conflicts": [],
+   "line": "24 study models with results are off the panel; their fits appear in their own block when served"
+  },
+  "cleaned_arms_unified": [
+   "openai/gpt-5-mini",
+   "openai/gpt-5-nano"
+  ],
+  "counts_of_record": {
+   "original_kept": 430,
+   "new_focused": 869,
+   "new_parked": 893,
+   "new_total": 1762,
+   "new_focused_kept": 858,
+   "new_parked_kept": 879,
+   "_stamp": "2026-09-23T05:24:08Z",
+   "waves": {
+    "wave_1": {
+     "name": "wave 1",
+     "aliases": [
+      "board",
+      "the board",
+      "original tasks",
+      "originals",
+      "HumanEval+ / MBPP+",
+      "HE+/MBPP+"
+     ],
+     "old_names": [
+      "board",
+      "the board",
+      "original tasks",
+      "originals",
+      "HumanEval+ / MBPP+",
+      "HE+/MBPP+"
+     ],
+     "count": 430,
+     "count_key": "original_kept",
+     "figure_count": 430,
+     "label": "wave 1 (430 tasks)",
+     "figure_label": "wave 1 (430 tasks)",
+     "kept_count": 430,
+     "members": 542,
+     "tasks_total": 542,
+     "fit_frame_tasks": null,
+     "fit_frame_note": "the tasks a served fit stands on come from the fit owner's own stamp (fitting's served stamp read 438 wave 1 / 877 wave 2 / 1,315 as cut on 2026-09-08; difficulty's served board wave old-20260908T0037Z 433), never from this file"
+    },
+    "wave_2": {
+     "name": "wave 2",
+     "aliases": [
+      "focused",
+      "the focused half",
+      "focused half",
+      "new_focused",
+      "first half of the pool"
+     ],
+     "old_names": [
+      "focused",
+      "the focused half",
+      "focused half",
+      "new_focused",
+      "first half of the pool"
+     ],
+     "count": 869,
+     "count_key": "new_focused",
+     "figure_count": 869,
+     "label": "wave 2 (869 tasks)",
+     "figure_label": "wave 2 (869 tasks)",
+     "kept_count": 858,
+     "members": 869,
+     "tasks": 869,
+     "never_includes": "wave 2 parked"
+    },
+    "wave_2_parked": {
+     "name": "wave 2 parked",
+     "aliases": [
+      "parked",
+      "the parked half",
+      "new_parked",
+      "second half of the pool"
+     ],
+     "old_names": [
+      "parked",
+      "the parked half",
+      "new_parked",
+      "second half of the pool"
+     ],
+     "count": 893,
+     "count_key": "new_parked",
+     "figure_count": 893,
+     "label": "wave 2 parked (893 tasks)",
+     "figure_label": "wave 2 parked (893 tasks)",
+     "kept_count": 879,
+     "members": 893,
+     "tasks": 893
+    },
+    "wave_1_plus_2": {
+     "name": "wave 1+2",
+     "aliases": [
+      "combined",
+      "board + focused",
+      "unified (board and focused)"
+     ],
+     "old_names": [
+      "combined",
+      "board + focused",
+      "unified (board and focused)"
+     ],
+     "count": 1299,
+     "count_key": "original_kept + new_focused",
+     "figure_count": 1299,
+     "label": "wave 1+2 (1,299 tasks)",
+     "figure_label": "wave 1+2 (1,299 tasks)",
+     "kept_count": 1288,
+     "members": 1411,
+     "composition": "wave 1 + wave 2; never includes wave 2 parked",
+     "fit_population_note": "fit_population 1,288 = fit_original 430 (the range explorer's matrix frame at its last build) + the wave 2 kept count 858 after the twin fold (22 Sep 2026: the kept frame the served fits stand on; until then this figure added the wave 2 members); a served fit states its own task count from its owner's stamp, never from this figure"
+    },
+    "wave_2_plus_parked": {
+     "name": "wave 2 and wave 2 parked",
+     "aliases": [
+      "new tasks",
+      "all new tasks",
+      "wave 2 + wave 2 parked",
+      "both new-task waves"
+     ],
+     "old_names": [
+      "wave 2 + wave 2 parked"
+     ],
+     "composition": "wave 2 + wave 2 parked (every new task); never includes the pilot",
+     "count": 1762,
+     "count_key": "new_total",
+     "figure_count": 1762,
+     "label": "wave 2 and wave 2 parked (1,762 tasks)",
+     "figure_label": "wave 2 and wave 2 parked (1,762 tasks)",
+     "figure_label_template": "wave 2 and wave 2 parked (1,762 tasks)",
+     "template_rule": "the label of record (13 Sep ruling): the set name with its count of record; a FIT that draws this set states its frame count BESIDE the label from the fit owner's stamp (fitting's serving stamp), never inside it; the 10 Sep frame-count template is superseded; a page naming the SET uses label (the membership count new_total)",
+     "kept_count": 1737,
+     "members": 1762,
+     "never_includes": "the pilot; 'wave 2' alone never means this union"
+    },
+    "all_waves_plus_pilot": {
+     "name": "wave 1 + wave 2 + wave 2 parked + pilot",
+     "composition": "wave 1 + wave 2 + wave 2 parked + the pilot's hundred",
+     "count": null,
+     "count_key": null,
+     "count_source": "the fit owner's stamp (fitting's serving_golden_combined.json task count as cut) \u2014 never this file",
+     "figure_label_template": "wave 1 + wave 2 + wave 2 parked (2,192 tasks) + the easy-tasks pilot (100 tasks)",
+     "template_rule": "the label of record (13 Sep ruling): the waves' count of record in the label, the pilot named with its plain what and the hundred of record as its own count (ruling 07:51:54Z 13 Sep); the fit owner's frame as cut is stated beside the label from its stamp, never inside it (supersedes the 10 Sep frame-count template)",
+     "kept_count": 2267,
+     "members": 2404,
+     "hundred_of_record_check": {
+      "ruled": 100,
+      "population_file_yes_ways_1_to_5": 100,
+      "agree": true,
+      "rule": "the label carries the ruled 100; a file count that differs is a departure to surface, never a silent relabel"
+     },
+     "pilot_part": "the pilot's hundred (100); the 72 surplus pilot tasks of ways 1 to 5 and the doers' way-6 tasks (20 population + 10 surplus) are not in this label unless the fit owner's stamp says so",
+     "never_without": "the word 'pilot' \u2014 the pilot is a third named set outside every wave and never enters a wave count or fit by default",
+     "words_of_record": "the owner's word of 2026-09-08, relayed by the router, interpreted in this block's sentence; the verbatim in the store's record"
+    },
+    "_basis": "LABEL COUNT = the set as it appears on the approved surfaces, as changed only by the owner's rulings (the 9 Sep HumanEval/132 ruling moved wave 1 from 432 to its present count): each wave's label is its count field in this file (count_key names the field). wave 1 = the board's graded set with a valid label (original_kept; the label-excluded originals were never board tasks on the approved surfaces), wave 2 = the frozen focus membership after the twin fold (new_focused), wave 2 parked = new_parked, wave 1+2 = original_kept + new_focused. Qualifiers beside every wave: kept_count (tasks with a valid label) and members (every admitted task) \u2014 both computed here, never typed. Pages that do not draw their label from this file name their own basis in their notes: a fitted figure names the fit frame from fitting's served stamp (following at each re-cut); a census of all runs names members. Basis settled with pool-pages-lead on 2026-09-08 against the approved surfaces (RULINGS.md WAVE LABEL BASIS SETTLED); the kept-everywhere word of that evening is withdrawn (no ruling behind it); re-decided 2026-09-10 under cleanup F1a-24 (RULINGS.md COUNT OF RECORD BASIS): the fields are the single source, the prose carries no typed count. 'wave 2' never includes 'wave 2 parked'",
+    "_rule": "official names in figures with the count in parentheses; old names understood as aliases; 'wave 2' never means 'wave 2 parked'; the pilot set is a separate named set outside every wave (see pilot); a fit over every wave plus the pilot is labelled 'wave 1 + wave 2 + wave 2 parked + pilot (N tasks)' with N from the fit owner's stamp (all_waves_plus_pilot)",
+    "_word_of_record": "the owner's word of 2026-09-08, relayed by the router, interpreted in this block's sentence; the verbatim in the store's record",
+    "testbed_situations": {
+     "name": "testbed situations",
+     "aliases": [
+      "testbed",
+      "alignment testbed situations"
+     ],
+     "composition": "a third-kind set apart; never part of any wave",
+     "count": 10133,
+     "count_key": "testbed.admitted",
+     "label": "testbed situations (1,964 derisking-pilot rows: 1,021 pilot designs under review by ruling of 11 Sep + 945 golden-pilot rows marked to run on the golden models (about 20 tasks per shape, by ruling of 11 Sep); 8,169 probe design rows held (roles baseline 136 / control 1,172 / positive-control 2 / situation 6,859); none in the pool store)",
+     "figure_label_template": "testbed situations ({n:,} tasks)",
+     "planned_not_built": true,
+     "never_includes": "any wave task; a situation is a new task id even when its parent is a wave-1 task"
+    }
+   }
+  }
+ },
+ "files": {
+  "shared": "shared.996f47436647.json",
+  "chain_average": "chain_average.996f47436647.json",
+  "chain_median": "chain_median.996f47436647.json",
+  "dots": "dots.996f47436647.json"
+ }
+}

@@ -1,0 +1,25 @@
+{
+ "_stamp": "2026-09-10T13:47:24Z",
+ "ruled_by": "Szymon at the terminal 2026-09-09 13:1xZ (verbatim via router; also relayed by capability-vs-reliability)",
+ "verbatim": "Hey let's not show Gemma 412B because if the quarter of the task hit the cap, it means we haven't measured its performance.",
+ "note": "",
+ "rule": "arms whose identity contains a match string are not drawn and unselectable on every dataset (the partial-arms switch does not reveal them); one note line under the chart names them",
+ "arms": [],
+ "lifted": {
+  "when": "Szymon at infra's terminal ≈13:3xZ 10 Sep (infra relayed verbatim to runs-lead 13:36:42Z; router; capability-vs-reliability relayed to me 13:5xZ)",
+  "verbatim": "From this data point, we should stop censoring Gemma 4 for sure because it is not chronically not finishing its thinking in general.",
+  "record": "runs-lead knowledge/COMMISSION.md (10 Sep ≈13:3xZ entry) and knowledge/RULINGS.md 'GEMMA 4 (12B) UNCENSORED': every exclusion, withholding or flag resting on Gemma-4-12B not finishing is lifted",
+  "effect": "google/gemma-4-12B-it drawn and selectable like any other arm on every dataset and in every figure; the note line is gone; its cut answers stand as generated (the 4,096 continuation is the fit frame)",
+  "was": {
+   "verbatim": "Hey let's not show Gemma 412B because if the quarter of the task hit the cap, it means we haven't measured its performance.",
+   "note": "not shown: a quarter of its answers were cut at the token cap, so its performance is not measured",
+   "arms": [
+    {
+     "match": "gemma-4-12b",
+     "label": "Gemma-4-12B",
+     "keeps": "Gemma-4-31B stays"
+    }
+   ]
+  }
+ }
+}

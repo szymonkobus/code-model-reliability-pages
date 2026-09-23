@@ -1,4 +1,4 @@
-/* project UI kit — viz interaction module.
+/* project UI kit — viz interaction module (the maintainers, tools-convergence).
  * Vendor beside kit.js on pages with charts. No dependencies.
  *
  * Implements the reference hover conventions (R1 #2, adopted in PLAN):
@@ -72,7 +72,7 @@
    *   xs: [px,...],          // data x positions (container-relative, sorted)
    *   readout: fn(i) -> {title, rows}   // tooltip content at index i
    *   onSnap: fn(i)|null     // optional extra hook (e.g. highlight marks)
-   * }) -> { destroy() }
+   * }) -> { destroy }
    */
   Kit.crosshair = function (cfg) {
     var box = typeof cfg.container === 'string'

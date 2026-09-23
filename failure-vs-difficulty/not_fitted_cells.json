@@ -1,0 +1,37 @@
+{
+ "_source": "runs/knowledge/opus_refused_tasks_excluded.json",
+ "_source_stamp": "2026-09-08T08:46:36Z",
+ "_owner": "runs-lead",
+ "his_verbatim": "Okay to me, those tasks seem kind of easy, not too interesting. I would just not use them to fit the Opus's difficulty curve. That's my verdict but it's not a general verdict done for all refusers ever. This is just for this Opus 1. No, because there are just so few of them, they're very easy tasks. It doesn't seem like it will impact the difficulty curve at all. That's my decision.",
+ "page": "https://ant-devbox.tail94f86e.ts.net/opus-refusals/",
+ "rule": "arms whose identity (batch suffix dropped) equals a key carry the note on every dataset; the cells themselves are dropped upstream (Definitions' intake loader, fitting's cut)",
+ "arms": {
+  "claude-opus-5": {
+   "n_tasks": 13,
+   "tasks": [
+    "EasyTail/E1/logs_error_total",
+    "EasyTail/E1/payroll_overtime_count",
+    "EasyTail/E1/shipping_heavy_value",
+    "EasyTail/E1B/last_zero_item",
+    "EasyTail/E1G/first_name_amount_over_25",
+    "EasyTail/E2/positives_doubled_sum",
+    "EasyTail/E2/tail_half_sum_minus_min",
+    "EasyTail/E2B/even_len_reversed_sorted",
+    "EasyTail/E2G/odd_double_minn",
+    "EasyTail/E3/score_report_line",
+    "EasyTail/E3G/coord_pair_label",
+    "EasyTail/E3G/percent_progress_label",
+    "Mbpp/63~twin1"
+   ],
+   "note": "the tasks it refused on every attempt are excluded from this model's results and fit by the ruling of 8 Sep (not failures); the refusals page keeps the record"
+  },
+  "claude-opus-5-thinking": {
+   "n_tasks": 2,
+   "tasks": [
+    "EasyTail/E1/payroll_overtime_count",
+    "EasyTail/E1B/last_zero_item"
+   ],
+   "note": "the tasks it refused on every attempt are excluded from this model's results and fit by the ruling of 8 Sep (not failures); the refusals page keeps the record"
+  }
+ }
+}
