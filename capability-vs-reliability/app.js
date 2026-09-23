@@ -275,6 +275,7 @@ function refreshPartialChips() {   // the project maintainers 2026-09-07  (via f
     if (c.think) words.push('thinking mode \u2014 open marker on the chart');
     if (c.run) { var Rw = runOf(i) || RUN; words.push(c.display_name || (Rw ? Rw.name + ' \u2014 ' : '') + c.label); }   // the full display name of record on hover (the labels rows' maintainers, 22 Sep); the run's clause is on the run line's label and the frame line, not on every chip (the maintainers F133, 23 Sep: hovers within 300 characters)
     if (c.alongside) words.push('positioned on the served axis, not shaping it \u2014 its fit from the ' + c.alongside + ' series, read alongside the board fit set');   // difficulty's word of 22 Sep
+    if (c.provisional) words.push(c.provisional_note || 'provisional position: a fast estimate; the fit of record replaces it');
     if (c.gates_failed) words.push('flagged fit: ' + (c.gate_flag || 'the fit failed a sampler gate'));   // a flagged fit is shown with its flag and its sentence, never plain (Definitions, 22 Sep); the sentence of record follows the word
     var base = words.join(' \u00b7 ');
     if (isWithheld(i)) { b.disabled = true; b.setAttribute('aria-disabled', 'true'); b.classList.add('partial'); b.classList.remove('partialshown'); b.title = capTitle('not shown: ' + WITHHELD[c.id]); return; }
@@ -1275,7 +1276,8 @@ function buildChips() {
     var c = D.shared.configs[i], b = document.createElement('button');
     b.className = 'chip'; if (c.think) { b.classList.add('think'); b.title = 'thinking mode \u2014 open marker on the chart'; }
     if (isPartial(i) || isWithheld(i)) b.classList.add('partial');
-    if (c.run) { var Rc = runOf(i) || RUN; b.classList.add('run'); b.title = (c.display_name || Rc.name + ' \u2014 ' + c.label); }   // the full display name of record on hover; the clause is on the run line's label (F133)
+    if (c.run) { var Rc = runOf(i) || RUN; b.classList.add('run'); b.title = (c.display_name || Rc.name + ' \u2014 ' + c.label); }
+    if (c.provisional) { b.classList.add('provisional'); }   // a provisional designation (a fast estimate the fit of record replaces): dashed chip, hollow dashed mark, the word on hover, in the tooltip and the legend   // the full display name of record on hover; the clause is on the run line's label (F133)
     if (c.alongside) { b.title = capTitle((b.title ? b.title + ' \u00b7 ' : '') + 'positioned on the served axis, not shaping it \u2014 its fit from the ' + c.alongside + ' series, read alongside the board fit set'); }   // difficulty's word of 22 Sep: a run's final admitted to the board is positioned, never voting
     if (c.gates_failed) { b.classList.add('flagged'); var fg = document.createElement('span'); fg.className = 'flag'; fg.textContent = '\u2691'; fg.setAttribute('aria-label', 'flagged fit'); b.title = (b.title ? b.title + ' \u00b7 ' : '') + 'flagged fit: ' + (c.gate_flag || 'the fit failed a sampler gate'); b.appendChild(fg); }   // a flagged fit is shown with its flag and its sentence, never plain (Definitions, 22 Sep)
     b.style.color = c.color; b.style.borderColor = c.color;
@@ -1916,7 +1918,7 @@ function renderScatter() {
         + 'm-' + DR + ' 0a' + DR + ' ' + DR + ' 0 1 0 ' + (2 * DR) + ' 0a' + DR + ' ' + DR + ' 0 1 0 -' + (2 * DR) + ' 0Z" fill="'
         + (c.think ? '#fcfaf3' : col) + '" stroke="'
         + (c.think ? col : '#fcfaf3')
-        + '" stroke-width="1.3" data-mark data-chain-val data-i="' + i + '"/>'
+        + '" stroke-width="1.3" data-mark data-chain-val data-i="' + i + '"' + (c.provisional ? ' stroke-dasharray="3 2" data-provisional="1"' : '') + '/>'
         + (flg ? '<circle cx="' + X + '" cy="' + Y + '" r="7" fill="none" '
             + 'stroke="#b3261e" stroke-dasharray="2 2" stroke-width="1.2" '
             + 'data-flag/>' : '')
@@ -1929,7 +1931,7 @@ function renderScatter() {
                                  : 'm-6 0l10 5l0 -10Z';
       mark = '<path d="M' + Xs + ' ' + Ys + pt
         + '" fill="none" stroke="' + col
-        + '" stroke-width="1.4" data-mark data-chain-val data-i="' + i + '"/>';
+        + '" stroke-width="1.4" data-mark data-chain-val data-i="' + i + '"' + (c.provisional ? ' stroke-dasharray="3 2" data-provisional="1"' : '') + '/>';
     }
     mark += (standIn ? '<circle cx="' + X + '" cy="' + Y + '" r="8" fill="none" stroke="#8b8477" stroke-dasharray="3 2" stroke-width="1.1" data-standin/>' : '')
       + (fitEx ? '<circle cx="' + X + '" cy="' + Y + '" r="9" fill="none" stroke="#8b8477" stroke-dasharray="1.5 2.5" stroke-width="1.2" data-fitexcluded/>' : '');   // on every mark shape
@@ -2127,7 +2129,7 @@ function exportLegend() {   // every drawn model grouped by family in the colour
     var mark = function (cx, cy) {   // the drawn path is an absolute M followed by relative commands: re-anchor it on the legend row
       return '<path d="' + d.replace(/^M[-\d.]+ [-\d.]+/, 'M' + cx + ' ' + cy) + '" fill="' + fill + '" stroke="' + stroke + '" stroke-width="' + sw + '"' + (op && +op < 1 ? ' opacity="' + op + '"' : '') + '/>';
     };
-    rows.push({ label: (c.display_name || c.label) + (grey ? ' (partial)' : ''), family: c.fam, color: grey ? '#8b8477' : c.color, line: false, marker: mark });   // no fit-quality words in the export: the flag lives in the page's hover and tooltip   // legends carry the full display name of record (the labels rows' maintainers, 22 Sep)
+    rows.push({ label: (c.display_name || c.label) + (grey ? ' (partial)' : '') + (c.provisional ? ' (provisional)' : ''), family: c.fam, color: grey ? '#8b8477' : c.color, line: false, marker: mark });   // no fit-quality words in the export: the flag lives in the page's hover and tooltip   // legends carry the full display name of record (the labels rows' maintainers, 22 Sep)
   });
   // no grouped run row in the export (23 Sep 15:0x UK): each checkpoint drawn is its own row above
   return rows;
