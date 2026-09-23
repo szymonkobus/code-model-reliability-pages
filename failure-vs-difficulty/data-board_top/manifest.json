@@ -1,5 +1,5 @@
 {
- "fingerprint": "46bc2477392b",
+ "fingerprint": "fa4605f9a54a",
  "frame": {
   "dataset": "board_top",
   "dataset_label": "wave 1+2 (1,297 tasks): 431 of wave 1 + 866 of wave 2, the list kept on 10 September 2026; wave 2 parked (879 tasks) left out \u00b7 positioned on this axis today: 430 of wave 1, 858 of wave 2",
@@ -19,7 +19,7 @@
   "difficulty_population_M": 61,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "7e12039b4a3e",
+  "inputs_content_sha": "f051f2027bd7",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -29,10 +29,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "500f4275d11f",
+  "runs_fingerprint": "d292bc7665c4",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-09-23",
-  "stamp": "2026-09-23T15:50:29Z",
+  "stamp": "2026-09-23T16:50:28Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -41,8 +41,9 @@
    "olmo-3-7b-think-final-Thinking": 430,
    "olmo-3-7b-think-step0025-Thinking": 430,
    "olmo-3-7b-think-step0050-Thinking": 430,
-   "olmo-3-7b-think-step0100-Thinking": 358,
+   "olmo-3-7b-think-step0100-Thinking": 430,
    "olmo-3-7b-think-step0200-Thinking": 430,
+   "olmo-3-7b-think-step0400-Thinking": 418,
    "olmo-3-7b-think-step0800-Thinking": 430,
    "olmo-3.1-7b-rl-zero-code-final_completion": 430,
    "olmo-3.1-7b-rl-zero-code-step0050_completion": 430,
@@ -63,7 +64,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-23T15:15:39Z",
+   "unified_built_at": "2026-09-23T16:16:41Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -35156,7 +35157,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-23T15:24:28Z",
+   "_stamp": "2026-09-23T16:24:30Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -35322,9 +35323,9 @@
   }
  },
  "files": {
-  "shared": "shared.46bc2477392b.json",
-  "chain_average": "chain_average.46bc2477392b.json",
-  "chain_median": "chain_median.46bc2477392b.json",
-  "dots": "dots.46bc2477392b.json"
+  "shared": "shared.fa4605f9a54a.json",
+  "chain_average": "chain_average.fa4605f9a54a.json",
+  "chain_median": "chain_median.fa4605f9a54a.json",
+  "dots": "dots.fa4605f9a54a.json"
  }
 }

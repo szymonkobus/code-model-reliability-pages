@@ -639,7 +639,7 @@ function buildChips() {
         var parts = []; if (a.disclosure) parts.push(a.disclosure); if (a.set_label) parts.push('fitted on ' + a.set_label);
         if (a.gates_failed) parts.push(a.gate_face ? noSpecTags(String(a.gate_face)) : 'sampler gate flagged on this fit; drawn with the disclosure');
         if (a.protocol) parts.push('read by ' + a.protocol + ': the base model continues the prompt, no chat turn');
-        b.dataset.state = noSpecTags(parts.join(' · ')); b.title = oneSentence(noSpecTags(parts[0] || a.label));
+        b.dataset.state = noSpecTags(parts.join(' · ')); b.title = (a.withheld && a.disclosure) ? noSpecTags(String(a.disclosure)) : oneSentence(noSpecTags(parts[0] || a.label));   // a withheld checkpoint's hover is the fit maintainers' whole sentence with its held-out clause and floor, never cut (the pool pages lead  23 Sep)
         b.onclick = function () { if (seriesSel.has(k)) seriesSel.delete(k); else seriesSel.add(k); render(); };
         seriesChips.push(b); box.appendChild(b);
       });
@@ -1029,7 +1029,7 @@ function renderSeriesBlock() {   // the run's row: cloned from renderSideBlock f
     if (a.gates_failed) parts.push(a.gate_face ? noSpecTags(String(a.gate_face)) : 'sampler gate flagged on this fit; drawn with the disclosure');   // the fit maintainers' own face sentence when the pointer carries it
     if (a.protocol) parts.push('read by ' + a.protocol + ': the base model continues the prompt, no chat turn');
     b.dataset.state = noSpecTags(parts.join(' · '));
-    b.title = oneSentence(noSpecTags(parts[0] || a.label)) + ((a.protocol && !/^read by /.test(parts[0] || '')) ? ' (read by ' + a.protocol + ')' : '');
+    b.title = (a.withheld && a.disclosure ? noSpecTags(String(a.disclosure)) : oneSentence(noSpecTags(parts[0] || a.label))) + ((a.protocol && !/^read by /.test(parts[0] || '')) ? ' (read by ' + a.protocol + ')' : '');   // a withheld checkpoint's hover is the fit maintainers' whole sentence with its held-out clause and floor, never cut (the pool pages lead  23 Sep)
     b.onclick = function () { if (seriesSel.has(k)) seriesSel.delete(k); else seriesSel.add(k); render(); };
     sc.appendChild(b);
   });
