@@ -1287,7 +1287,8 @@ function buildChips() {
       }
       if (R.withheld.length) {   // a fail-closed hide says so on the face (difficulty's form, 22 Sep): the name of record and the reason, under the run's chips
         var note = document.createElement('span'); note.className = 'runnote'; note.setAttribute('data-critical-text', '');
-        note.textContent = 'Not shown: ' + R.withheld.map(function (w) { return (w.display_name || w.label || w.id) + ' \u2014 ' + w.reason; }).join('; ') + '.';
+        var groups = [], byReason = {}; R.withheld.forEach(function (w) { var k = w.reason || ''; if (!byReason[k]) { byReason[k] = []; groups.push(k); } byReason[k].push(w.display_name || w.label || w.id); });   // one reason said once for the checkpoints it covers (fitting withheld three on one decision, 23 Sep)
+        note.textContent = 'Not shown: ' + groups.map(function (k) { return byReason[k].join(', ') + ' \u2014 ' + k; }).join('; ') + '.';
         line.appendChild(note);
       }
       if (R.pending && !R.idx.length) { var pn = document.createElement('span'); pn.className = 'runnote'; pn.setAttribute('data-critical-text', ''); pn.textContent = R.pending; line.appendChild(pn); }   // a run named but not yet fitted: its row says so in words
