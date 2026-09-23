@@ -65,11 +65,11 @@ function withCommas(n) { return String(parseInt(n, 10)).replace(/\B(?=(\d{3})+(?
       var keys = (card.by_ident && card.by_ident[id]) || [];
       var out = [], seen = {};
       keys.forEach(function (k) {
-        var rec = card.keys && card.keys[k]; if (!rec || rec.frame_wide) return;   // frame-wide keys are not per-row glyphs (the rule of 09-02)
+        var rec = card.keys && card.keys[k]; if (!rec || rec.frame_wide) return;   // frame-wide keys are not per-row glyphs (the rule of 2 Sep)
         var r = rec.render || {};
         var anchor = rec.anchor || k; if (seen[anchor]) return; seen[anchor] = 1;
         // render.hover may NAME a field of the record ('status_line', 'sentence') rather than carry the text
-        var hv = rec.status_line_plain || r.hover || rec.render_hover || rec.status_line || k;   // the pool pages' build word  09-07: the task pool's stamp-free twin first
+        var hv = rec.status_line_plain || r.hover || rec.render_hover || rec.status_line || k;   // the pool pages' build word 7 Sep: the task pool's stamp-free twin first
         if (typeof hv === 'string' && typeof rec[hv] === 'string') hv = rec[hv];
         out.push({ key: k, glyph: r.glyph || '§', hover: hv, href: notesBase + '#' + anchor });
       });
@@ -158,18 +158,18 @@ function withCommas(n) { return String(parseInt(n, 10)).replace(/\B(?=(\d{3})+(?
     var withheld = [].concat(cn.pending || [], (cn.held || []).map(function (h) { return h.label; }), landing)
       .filter(function (v, i, a) { return a.indexOf(v) === i; });   // one entry per arm (held is per config)
     var reasons = {};
-    // Definitions' landing flag (S0 half, 20 Sep; Definitions' word ): a model whose landing is in progress is hidden whole — curve, chip,
+    // Definitions' landing flag (S0 half, 20 Sep; Definitions' word): a model whose landing is in progress is hidden whole — curve, chip,
     // counts — and the face says only the fact BY COUNT (one model's results are still arriving, in those words) until the flag releases it; its name
     // and ids stay in the record fields (coverage_note.landing_in_progress, frame.landing), never on the face while hidden
     var landingN = (cn.landing_in_progress || []).length;
-    // data facts only on the display (the project maintainers 2026-09-03); the bundle keeps the register words
+    // data facts only on the display (the project maintainers 3 Sep 2026); the bundle keeps the register words
     (cn.pending || []).forEach(function (l) { reasons[l] = 'no certified results on these tasks yet'; });
     (cn.held || []).forEach(function (h) { reasons[h.label] = 'no certified results on these tasks yet'; });
-    var display = {};   // the data fact the display may say for a withheld model (the project maintainers 2026-09-03: no decision words on the display); the register's words stay in reasons
+    var display = {};   // the data fact the display may say for a withheld model (the project maintainers 3 Sep 2026: no decision words on the display); the register's words stay in reasons
     landing.forEach(function (l) { reasons[l] = 'landing in progress (difficulty\'s flag of record): out of the curves and counts until the run role\'s whole word'; display[l] = 'results still arriving'; });
     var sframe = {
       dataset: 'new', dataset_label: 'new tasks (pool)',
-      off_panel: frame.off_panel || null, landing: frame.landing || null, landing_hidden_n: landingN,   // record field + the count the face may say landing: frame.landing || null,   // the landing block (arm ids, flag sha, error) rides as a record field; the face reads the withheld list   // difficulty  18 Sep: the plain line for off-panel arms with cells (rendered under the chips)
+      off_panel: frame.off_panel || null, landing: frame.landing || null, landing_hidden_n: landingN,   // record field + the count the face may say landing: frame.landing || null, // the landing block (arm ids, flag sha, error) rides as a record field; the face reads the withheld list // difficulty 18 Sep: the plain line for off-panel arms with cells (rendered under the chips)
       population_M: cfgs.length, fitted_M: cfgs.length, complete_M: cfgs.length,
       sampled_M: cn.roster_total || cfgs.length, difficulty_population_M: cn.roster_total || cfgs.length,
       tasks: parseInt(frame.axis_tasks || ids.length, 10), tasks_manifest: parseInt(frame.manifest_tasks || 0, 10),
@@ -178,11 +178,11 @@ function withCommas(n) { return String(parseInt(n, 10)).replace(/\B(?=(\d{3})+(?
       withheld_configs: withheld, withheld_reasons: reasons, withheld_display: display, withdrawn: {}, fit_excluded: [],
       scorer: 'pool loader (§1b-valid results; every-attempt denominators; difficulty\'s module defaults)',
       band_rule: frame.band || '', med_band_rule: frame.med_band || '', sigma_logit: frame.sigma_logit,
-      fit_floor: frame.min_cells ? ('at least ' + numWord(frame.min_cells) + ' valid result' + (frame.min_cells > 1 ? 's' : '') + ' to be fitted') : '',   // the counting word (difficulty, 19 Sep): results, in words
+      fit_floor: frame.min_cells ? ('at least ' + numWord(frame.min_cells) + ' valid result' + (frame.min_cells > 1 ? 's' : '') + ' to be fitted') : '',   // the counting word (the difficulty maintainers, 19 Sep): results, in words
       bayes_fits: B.available ? { serving_pointer: 'pool bundle Bayesian block (the wave 2 serving pointer)', wave_id: B.wave_id, set_fingerprint: (B.wave_id || '').slice(-12),
                                   n_fits: (B.arms || []).length, fit_n_tasks: [B.n_tasks],
                                   matches_axis: ((B.arms || []).length === cfgs.length && B.n_tasks === parseInt(frame.axis_tasks || ids.length, 10)),
-                                  levels: ['80'], note: B.coverage ? (B.coverage.served ? ('served fit set · ' + (B.coverage.landed != null ? B.coverage.landed : (B.arms || []).length) + ' models fitted')   // no wave id on a face (the project maintainers' 09-07 word)
+                                  levels: ['80'], note: B.coverage ? (B.coverage.served ? ('served fit set · ' + (B.coverage.landed != null ? B.coverage.landed : (B.arms || []).length) + ' models fitted')   // no wave id on a face (the project maintainers' 7 Sep word)
                                           : ('interim fits: ' + (typeof B.coverage.summary === 'string' ? B.coverage.summary
                                           : (B.coverage.landed != null ? B.coverage.landed + ' of ' + B.coverage.of + ' models landed from wave ' + (B.coverage.wave_id || '?') + ', drawn as interim' : JSON.stringify(B.coverage))))) : '',
                                   coverage: B.coverage || null }
@@ -199,18 +199,18 @@ function withCommas(n) { return String(parseInt(n, 10)).replace(/\B(?=(\d{3})+(?
       links: [{ label: 'result browser', href: './pool/browser/' }, { label: 'stats', href: './pool/stats/' },
               { label: 'the intake surface', href: '/difficulty/pool-intake/' }],
       notes_base: P.notes_base || (P.flags_meta && P.flags_meta.card && P.flags_meta.card.notes_base) || '/progress/notes.html',
-      // source freshness (the pool pages' sources_state, 2026-09-05; the project maintainers : pages mark partial/stale inputs while
+      // source freshness (the pool pages' sources_state, 5 Sep 2026; the project maintainers: pages mark partial/stale inputs while
       // the cluster is unreadable): newest outcome in the store, project-state time, hold state + sentence
       sources_state: (P.sources_state && typeof P.sources_state === 'object') ? {
         store_newest: P.sources_state.store_newest || null, fleet_state: P.sources_state.fleet_state || null,
-        glyph: P.sources_state.glyph || null,   // the hold glyph (‖) for the machinery line (the pool pages lead's word  09-09)
+        glyph: P.sources_state.glyph || null,   // the hold glyph (‖) for the machinery line (the pool pages lead's word 9 Sep)
         hold: (P.sources_state.fleet_hold && P.sources_state.fleet_hold.state) || null,
         stale: P.sources_state.stale || null,
         sentence: (P.sources_state.fleet_hold && P.sources_state.fleet_hold.sentence) || P.sources_state.sentence || '' } : null,
       source: 'the pool bundle (data.json)',
       vocab_ruled: '2026-08-27'
     };
-    var ax = frame.axis_source || null;   // since  the bundle sits on the difficulty axis of record
+    var ax = frame.axis_source || null;   // since the bundle sits on the difficulty axis of record
     var axLive = !!(ax && ax.mirror && (ax.mirror.axis_basis === 'live' || ax.mirror.wave_of_record === 'unified-live'));   // Definitions' live count-based axis (10 Sep 13:31); "unified-live" is an identifier, never a wave name on a face
     var axDef = ax && ax.mirror ? (axLive ? (String(ax.basis || ax.mirror.axis_plain || 'live axis').replace(/\.\s*$/, '') + '; the tasks used take their positions from the mirror' + ((ax.n_interim_live || ax.n_interim || 0) > 0 ? ', some of them interim' : ''))
                                           : ('the difficulty axis, wave ' + (ax.mirror.wave_of_record || '?') + ' (cut ' + (ax.mirror.cut || '?') + '); '

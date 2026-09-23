@@ -1,4 +1,4 @@
-/* project plot export — the maintainers, 18 Sep 2026 (v5.6, 21 Sep : attributions by role and date only, the place of speaking dropped from served comments — the maintainers's F104; v5.5, 20 Sep 05:xxZ: served comments attribute by role and date, no name or pronoun — the maintainers's F099; v5.4, : EXPORT TEXT SIZES restated — the word of record is the RATIO, twice and one and a half times the page's own sizes; 26/18 px are those ratios for a 13/12 page; doc only; v5.3, : EXPORT TEXT SIZES documented + Kit.EXPORT_TEXT constants, behaviour identical to v5.2, no re-vendor needed for behaviour; v5.2, : the download anchor is removed the moment it is clicked, so the page HTML is unchanged at once — capability-vs-reliability's read; v5.1, : DeepSeek patterns matched before Qwen — "DeepSeek-R1-Distill-Qwen-32B" was filed under Qwen3 by "Qwen-3…" — and the Qwen3 pattern stops at a digit; v5, : legend rows grouped by family in the palette's order, Kit.legendByFamily, the project maintainers' word of 18 Sep 13:1x UK; v4, : legendTitle; v3: scatter rows without a line, the page's own marks, data-legend on server-built SVGs, download links for static figures). The project maintainers' ask of 18 Sep 12:1x UK, on the capability-vs-reliability page (the words of record are filed in the reference ledger): every plot on a page the reader studies gets
+/* project plot export — the site design maintainers, 18 Sep 2026 (v5.6, 21 Sep: attributions by role and date only, the place of speaking dropped from served comments — the presentation critic's F104; v5.5, 20 Sep 05:xxZ: served comments attribute by role and date, no name or pronoun — the presentation critic's F099; v5.4,: EXPORT TEXT SIZES restated — the word of record is the RATIO, twice and one and a half times the page's own sizes; 26/18 px are those ratios for a 13/12 page; doc only; v5.3,: EXPORT TEXT SIZES documented + Kit.EXPORT_TEXT constants, behaviour identical to v5.2, no re-vendor needed for behaviour; v5.2,: the download anchor is removed the moment it is clicked, so the page HTML is unchanged at once — the capability page's maintainers' read; v5.1,: DeepSeek patterns matched before Qwen — "DeepSeek-R1-Distill-Qwen-32B" was filed under Qwen3 by "Qwen-3…" — and the Qwen3 pattern stops at a digit; v5,: legend rows grouped by family in the palette's order, Kit.legendByFamily, the project maintainers' word of 18 Sep 13:1x UK; v4,: legendTitle; v3: scatter rows without a line, the page's own marks, data-legend on server-built SVGs, download links for static figures). The project maintainers' ask of 18 Sep 12:1x UK, on the the capability page's maintainers page (the words of record are filed in the reference ledger): every plot on a page the reader studies gets
  * an export button; the export shows the plot's axes and a legend of every model beside it, exactly what the plot shows and nothing
  * more, produced by a robust method close to the page's own rendering, as the default way every plot exports.
  *
@@ -14,36 +14,36 @@
  * never truncated — (4) writes a title above and one muted stamp line below (page · view · data as of <UK time>), and (5) downloads a
  * PNG at 2× (default) or the SVG. No fetches, no web fonts (the system stack), deterministic size: the same view gives the same bytes.
  *
- * API:  Kit.exportPlot({ svg, legend, title, view, stamp, fileBase, format, scale, crop, background })
- *   svg        SVGSVGElement or a function returning one (the page's own plot; a fresh element drawn with tight domains is best)
- *   legend     [{ label, color, dash, marker, width, line, family }] in any order — the helper groups the rows by family (the project maintainers' word of 18 Sep)
- *              in the palette registry's order (Kit.FAMILIES; FAMILY_HUES in pages/failure-vs-difficulty/plot_difficulty.py) and keeps the
- *              given order within a family; family: an explicit family name, else read from the label; rows of no known family keep
- *              their order after the models. legendOrder: 'given' opts out (rows that are not models). Kit.legendByFamily(rows) is the same grouping.
- *   legendTitle the legend's heading, default 'Models' — a set-keyed or category-keyed plot names its rows ('Task sets', 'Categories')
- *              dash: an SVG stroke-dasharray string or ''; line: false (or width: 0) for a scatter row with no line series;
- *              marker: 'circle' | 'open-circle' | 'square' | 'open-square' | 'triangle' | 'open-triangle' | 'none', or the page's own mark
- *              as { d, fill, stroke, strokeWidth, scale } (a path fragment drawn in a box centred on the row) or a function (cx, cy, color) → svg
- *   title      the page's plot title in plain words;  view: the controls' state in words;  stamp: 'data as of 18 Sep 12:07 UK'
- *   fileBase   file name without extension (page_view_date is the reference form)
- *   format     'png' (default) | 'svg';  scale: PNG pixel ratio (default 2)
- *   crop       null (default, the frame as drawn) | 'data' (trim the dead bands above and right of the [data-layer="data"] groups + 4%;
- *              the axis strips at left and bottom stay — the left dead band goes only when the page redraws with tight domains)
- *   Elements marked data-export="omit" (a levels slider, hover targets) are left out of the file.
- *   A server-built SVG (no client draw function) may carry data-legend (JSON rows), data-title, data-page, data-view, data-stamp on the
- *   <svg>; the helper reads them when the call leaves them out, so a Python builder emits the legend once with the figure.
- *   A STATIC figure (PNG/SVG file, legend drawn inside) exports as itself: Kit.exportFigureLink(container, { href, label, svgHref }).
- *   background the ground colour behind everything (default the chart ground #fcfaf3)
+ * API: Kit.exportPlot({ svg, legend, title, view, stamp, fileBase, format, scale, crop, background })
+ * svg SVGSVGElement or a function returning one (the page's own plot; a fresh element drawn with tight domains is best)
+ * legend [{ label, color, dash, marker, width, line, family }] in any order — the helper groups the rows by family (the project maintainers' word of 18 Sep)
+ * in the palette registry's order (Kit.FAMILIES; FAMILY_HUES in pages/failure-vs-difficulty/plot_difficulty.py) and keeps the
+ * given order within a family; family: an explicit family name, else read from the label; rows of no known family keep
+ * their order after the models. legendOrder: 'given' opts out (rows that are not models). Kit.legendByFamily(rows) is the same grouping.
+ * legendTitle the legend's heading, default 'Models' — a set-keyed or category-keyed plot names its rows ('Task sets', 'Categories')
+ * dash: an SVG stroke-dasharray string or ''; line: false (or width: 0) for a scatter row with no line series;
+ * marker: 'circle' | 'open-circle' | 'square' | 'open-square' | 'triangle' | 'open-triangle' | 'none', or the page's own mark
+ * as { d, fill, stroke, strokeWidth, scale } (a path fragment drawn in a box centred on the row) or a function (cx, cy, color) → svg
+ * title the page's plot title in plain words; view: the controls' state in words; stamp: 'data as of 18 Sep 12:07 UK'
+ * fileBase file name without extension (page_view_date is the reference form)
+ * format 'png' (default) | 'svg'; scale: PNG pixel ratio (default 2)
+ * crop null (default, the frame as drawn) | 'data' (trim the dead bands above and right of the [data-layer="data"] groups + 4%;
+ * the axis strips at left and bottom stay — the left dead band goes only when the page redraws with tight domains)
+ * Elements marked data-export="omit" (a levels slider, hover targets) are left out of the file.
+ * A server-built SVG (no client draw function) may carry data-legend (JSON rows), data-title, data-page, data-view, data-stamp on the
+ * <svg>; the helper reads them when the call leaves them out, so a Python builder emits the legend once with the figure.
+ * A STATIC figure (PNG/SVG file, legend drawn inside) exports as itself: Kit.exportFigureLink(container, { href, label, svgHref }).
+ * background the ground colour behind everything (default the chart ground #fcfaf3)
  * Returns a Promise resolving to { svgText, width, height } after the download starts.
  *
  * EXPORT TEXT SIZES (the project maintainers' word of 18 Sep 13:5x UK: on the export plot the axis names twice as big and the
- *   axis numbers half again): the page's export redraw sets its axis names at TWICE the page's size and its tick numbers at
- *   ONE AND A HALF times, the page itself unchanged — the RATIOS are the word of record: a page drawing 13 px names and 12 px ticks exports at 26/18,
- *   a page at 13/13 exports at 26/20 (round 1.5 × 13 up). Kit.EXPORT_TEXT (capability-vs-reliability's method of record for a 13/12 page): a
- *   900 px plot, axis names 26 px, tick numbers 18 px, margins left 90 / right 30 / top 40 / bottom 62, x tick baseline tick + 5 below the
- *   axis, y ticks centred at tick ÷ 3, the y title at x = 20 rotated, the x title 6 px above the bottom edge; legend 12 px and caption 11 px
- *   as before. The helper never rescales text (bigger text needs re-laid margins only the draw knows). Mark axis names data-role="axis-title"
- *   and tick labels data-role="tick" so the reference gate reads the sizes exactly.
+ * axis numbers half again): the page's export redraw sets its axis names at TWICE the page's size and its tick numbers at
+ * ONE AND A HALF times, the page itself unchanged — the RATIOS are the word of record: a page drawing 13 px names and 12 px ticks exports at 26/18,
+ * a page at 13/13 exports at 26/20 (round 1.5 × 13 up). Kit.EXPORT_TEXT (the capability page's maintainers' method of record for a 13/12 page): a
+ * 900 px plot, axis names 26 px, tick numbers 18 px, margins left 90 / right 30 / top 40 / bottom 62, x tick baseline tick + 5 below the
+ * axis, y ticks centred at tick ÷ 3, the y title at x = 20 rotated, the x title 6 px above the bottom edge; legend 12 px and caption 11 px
+ * as before. The helper never rescales text (bigger text needs re-laid margins only the draw knows). Mark axis names data-role="axis-title"
+ * and tick labels data-role="tick" so the reference gate reads the sizes exactly.
  *
  * Button: Kit.exportButton(container, optionsOrFactory) mounts the project "Export plot" button (and a small "SVG" twin) into a
  * control strip; the factory runs at click time so the current view is exported. */

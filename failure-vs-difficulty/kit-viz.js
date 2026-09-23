@@ -1,16 +1,16 @@
-/* project UI kit — viz interaction module (the maintainers, tools-convergence).
+/* project UI kit — viz interaction module (the site design maintainers, tools-convergence).
  * Vendor beside kit.js on pages with charts. No dependencies.
  *
  * Implements the reference hover conventions (R1 #2, adopted in PLAN):
- *  - ONE tooltip for the page; values lead (bold), labels follow; series
- *    keyed by a short color stroke, never a filled box; textContent only.
- *  - Crosshair on line/curve charts: a vertical hairline snaps to the
- *    nearest data X; the reader aims at a position, never at a 2px line.
- *  - Keyboard parity: when the chart container has focus, Left/Right move
- *    the snap index and show the same readout; Esc hides.
- *  - Per-mark hover for bars/dots/cells via Kit.hoverMarks (the mark is
- *    the hit target; give small marks an enlarged transparent hit area
- *    site-side — hit targets >= 24px).
+ * - ONE tooltip for the page; values lead (bold), labels follow; series
+ * keyed by a short color stroke, never a filled box; textContent only.
+ * - Crosshair on line/curve charts: a vertical hairline snaps to the
+ * nearest data X; the reader aims at a position, never at a 2px line.
+ * - Keyboard parity: when the chart container has focus, Left/Right move
+ * the snap index and show the same readout; Esc hides.
+ * - Per-mark hover for bars/dots/cells via Kit.hoverMarks (the mark is
+ * the hit target; give small marks an enlarged transparent hit area
+ * site-side — hit targets >= 24px).
  */
 (function (global) {
   'use strict';
@@ -67,13 +67,13 @@
   };
 
   /* ---------------- crosshair ----------------
-   * Kit.crosshair({
-   *   container,             // positioned element wrapping the chart
-   *   xs: [px,...],          // data x positions (container-relative, sorted)
-   *   readout: fn(i) -> {title, rows}   // tooltip content at index i
-   *   onSnap: fn(i)|null     // optional extra hook (e.g. highlight marks)
-   * }) -> { destroy }
-   */
+ * Kit.crosshair({
+ * container, // positioned element wrapping the chart
+ * xs: [px,...], // data x positions (container-relative, sorted)
+ * readout: fn(i) -> {title, rows} // tooltip content at index i
+ * onSnap: fn(i)|null // optional extra hook (e.g. highlight marks)
+ * }) -> { destroy }
+ */
   Kit.crosshair = function (cfg) {
     var box = typeof cfg.container === 'string'
       ? document.querySelector(cfg.container) : cfg.container;
@@ -83,7 +83,7 @@
     if (!box.hasAttribute('tabindex')) box.tabIndex = 0;
     var idx = -1, pinned = false;
     // pinned (the maintainers, /cumulative v1.3 layer-B decision B4, folded upstream
-    // 09-02): phones fire pointerleave right after a tap, so a hover-only
+    // 2 Sep): phones fire pointerleave right after a tap, so a hover-only
     // readout vanished before it could be read. TAP = snap + persistent
     // readout until the next tap or a tap outside the container. Hover
     // behaviour is unchanged (mouse pointers never pin).
@@ -142,8 +142,8 @@
   };
 
   /* ---------------- per-mark hover ----------------
-   * Kit.hoverMarks(container, selector, fn(el) -> {title, rows})
-   * The mark (or its enlarged hit proxy) is the target; focus = hover. */
+ * Kit.hoverMarks(container, selector, fn(el) -> {title, rows})
+ * The mark (or its enlarged hit proxy) is the target; focus = hover. */
   Kit.hoverMarks = function (container, selector, fn) {
     var box = typeof container === 'string'
       ? document.querySelector(container) : container;

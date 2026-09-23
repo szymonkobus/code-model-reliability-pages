@@ -1,4 +1,4 @@
-/* project UI kit v1 — the maintainers (tools-convergence Day 0).
+/* project UI kit v1 — the site design maintainers (tools-convergence Day 0).
  *
  * Consumed by the three tools (curves / crossings / cumulative): maintainers
  * vendor kit.js + kit.css into their site at build. No dependencies.
@@ -37,19 +37,19 @@
   };
 
   /* ---------------- the switch widget ----------------
-   * Kit.switchControl({
-   *   mount: element|selector,   // where to render
-   *   key: 'def',                // URL query param
-   *   label: 'Definition',       // visible label
-   *   options: [{value:'average', label:'Average'},
-   *             {value:'median',  label:'Median'}],
-   *   dflt: 'average',           // default (omitted from URL)
-   *   onchange: fn(value)        // fires on init AND every change
-   * }) -> { value, set(value) }
-   * Semantics: onchange means "the whole estimator chain for this key
-   * changed — re-derive everything that depends on it".
-   * Keyboard: Left/Right/Home/End on the group; buttons are real buttons.
-   */
+ * Kit.switchControl({
+ * mount: element|selector, // where to render
+ * key: 'def', // URL query param
+ * label: 'Definition', // visible label
+ * options: [{value:'average', label:'Average'},
+ * {value:'median', label:'Median'}],
+ * dflt: 'average', // default (omitted from URL)
+ * onchange: fn(value) // fires on init AND every change
+ * }) -> { value, set(value) }
+ * Semantics: onchange means "the whole estimator chain for this key
+ * changed — re-derive everything that depends on it".
+ * Keyboard: Left/Right/Home/End on the group; buttons are real buttons.
+ */
   Kit.switchControl = function (cfg) {
     var el = typeof cfg.mount === 'string'
       ? document.querySelector(cfg.mount) : cfg.mount;
@@ -115,8 +115,8 @@
   };
 
   /* ---------------- filter row ----------------
-   * One row above the content that hosts every control (dataviz rule:
-   * filters scope everything below; never per-chart). */
+ * One row above the content that hosts every control (dataviz rule:
+ * filters scope everything below; never per-chart). */
   Kit.filterRow = function (mount) {
     var el = typeof mount === 'string' ? document.querySelector(mount) : mount;
     var row = document.createElement('div');
