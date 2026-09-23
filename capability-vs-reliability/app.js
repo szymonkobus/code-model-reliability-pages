@@ -267,7 +267,7 @@ function refreshPartialChips() {   // the project maintainers 2026-09-07  (via f
   chips.forEach(function (b) { var i = +b.dataset.idx, c = D.shared.configs[i]; if (!c) return;
     var words = [];   // the chip's hover, in order: the mark, the run and its clause, the board twin's standing, the flag, then the coverage
     if (c.think) words.push('thinking mode \u2014 open marker on the chart');
-    if (c.run) { var Rw = runOf(i) || RUN; if (Rw) words.push((c.display_name || Rw.name + ' \u2014 ' + c.label) + ': ' + Rw.clause); }   // the full display name of record on hover (the labels rows' maintainers, 22 Sep)
+    if (c.run) { var Rw = runOf(i) || RUN; words.push(c.display_name || (Rw ? Rw.name + ' \u2014 ' : '') + c.label); }   // the full display name of record on hover (the labels rows' maintainers, 22 Sep); the run's clause is on the run line's label and the frame line, not on every chip (the maintainers F133, 23 Sep: hovers within 300 characters)
     if (c.alongside) words.push('positioned on the served axis, not shaping it \u2014 its fit from the ' + c.alongside + ' series, read alongside the board fit set');   // difficulty's word of 22 Sep
     if (c.gates_failed) words.push('flagged fit: ' + (c.gate_flag || 'the fit failed a sampler gate'));   // a flagged fit is shown with its flag and its sentence, never plain (Definitions, 22 Sep); the sentence of record follows the word
     var base = words.join(' \u00b7 ');
