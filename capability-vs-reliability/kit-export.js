@@ -1,4 +1,4 @@
-/* project plot export — the reference template, 18 Sep 2026 (v5.9, 22 Sep 12:2x UK: the Olmo family key reads 'Olmo 3' — the generation, its 3 and 3.1 releases one hue — the pattern unchanged; v5.8, 21 Sep 17:4x UK: a legend row with ramp: [shades…] draws a checkpoint series as ONE gradient bar, first step's shade to the last's, the label carrying the step range — the long-series form; v5.7, 21 Sep 11:2x UK: the Olmo region's two families — OLMo-2, then the Olmo 3.1 checkpoint series — join Kit.FAMILIES after Gemma-4, the palette registry's order; every other family's grouping unchanged; v5.6, 21 Sep 06:2x UK: attributions by role and date only, the place of speaking dropped from served comments — the presentation critic's finding of 21 Sep; v5.5, 20 Sep 06:xx UK: served comments attribute by role and date, no name or pronoun — the presentation critic's finding of 20 Sep; v5.4, 14:4x UK: EXPORT TEXT SIZES restated — the word of record is the RATIO, twice and one and a half times the page's own sizes; 26/18 px are those ratios for a 13/12 page; doc only; v5.3, 14:1x UK: EXPORT TEXT SIZES documented + Kit.EXPORT_TEXT constants, behaviour identical to v5.2, no re-vendor needed for behaviour; v5.2, 14:0x UK: the download anchor is removed the moment it is clicked, so the page HTML is unchanged at once — capability-vs-reliability's read; v5.1, 13:4x UK: DeepSeek patterns matched before Qwen — "DeepSeek-R1-Distill-Qwen-32B" was filed under Qwen3 by "Qwen-3…" — and the Qwen3 pattern stops at a digit; v5, 13:3x UK: legend rows grouped by family in the palette's order, Kit.legendByFamily, the project maintainers' word of 18 Sep 13:1x UK; v4, 13:1x UK: legendTitle; v3: scatter rows without a line, the page's own marks, data-legend on server-built SVGs, download links for static figures). The project maintainers' ask of 18 Sep 12:1x UK, on the capability-vs-reliability page (the words of record are filed in the reference ledger): every plot on a page the reader studies gets
+/* project plot export — the reference template, 18 Sep 2026 (v6.1, 23 Sep 15:2x UK: NO TITLE in an export and no page name in its footer — the record at the terminal 15:1x UK via the coordination, the same on every page's export; v6.0.3: served comments carry no project phrase — the maintainers's static-words check; v6.0.2: Kit.exportButton leaves the SVG twin out for a canvas export — opts.svg false, a canvases object, or factory.canvas = true; v6.0.1: Kit.exportCanvas legend rows may carry dash (a dashed line swatch) and open (a hollow swatch) / composeCanvasExport — the canvas path, one PNG of stacked canvases with an HTML legend, for the coverage matrix and the maintainers; v5.9, 22 Sep 12:2x UK: the Olmo family key reads 'Olmo 3' — the generation, its 3 and 3.1 releases one hue — the pattern unchanged; v5.8, 21 Sep 17:4x UK: a legend row with ramp: [shades…] draws a checkpoint series as ONE gradient bar, first step's shade to the last's, the label carrying the step range — the long-series form; v5.7, 21 Sep 11:2x UK: the Olmo region's two families — OLMo-2, then the Olmo 3.1 checkpoint series — join Kit.FAMILIES after Gemma-4, the palette registry's order; every other family's grouping unchanged; v5.6, 21 Sep 06:2x UK: attributions by role and date only, the place of speaking dropped from served comments — the presentation critic's finding of 21 Sep; v5.5, 20 Sep 06:xx UK: served comments attribute by role and date, no name or pronoun — the presentation critic's finding of 20 Sep; v5.4, 14:4x UK: EXPORT TEXT SIZES restated — the word is the RATIO, twice and one and a half times the page's own sizes; 26/18 px are those ratios for a 13/12 page; doc only; v5.3, 14:1x UK: EXPORT TEXT SIZES documented + Kit.EXPORT_TEXT constants, behaviour identical to v5.2, no re-vendor needed for behaviour; v5.2, 14:0x UK: the download anchor is removed the moment it is clicked, so the page HTML is unchanged at once — capability-vs-reliability's read; v5.1, 13:4x UK: DeepSeek patterns matched before Qwen — "DeepSeek-R1-Distill-Qwen-32B" was filed under Qwen3 by "Qwen-3…" — and the Qwen3 pattern stops at a digit; v5, 13:3x UK: legend rows grouped by family in the palette's order, Kit.legendByFamily, the project maintainers' word of 18 Sep 13:1x UK; v4, 13:1x UK: legendTitle; v3: scatter rows without a line, the page's own marks, data-legend on server-built SVGs, download links for static figures). The project maintainers' ask of 18 Sep 12:1x UK, on the capability-vs-reliability page (the words are filed in the reference ledger): every plot on a page the reader studies gets
  * an export button; the export shows the plot's axes and a legend of every model beside it, exactly what the plot shows and nothing
  * more, produced by a robust method close to the page's own rendering, as the default way every plot exports.
  *
@@ -39,8 +39,8 @@
  *
  * EXPORT TEXT SIZES (the project maintainers' word of 18 Sep 13:5x UK: on the export plot the axis names twice as big and the
  *   axis numbers half again): the page's export redraw sets its axis names at TWICE the page's size and its tick numbers at
- *   ONE AND A HALF times, the page itself unchanged — the RATIOS are the word of record: a page drawing 13 px names and 12 px ticks exports at 26/18,
- *   a page at 13/13 exports at 26/20 (round 1.5 × 13 up). Kit.EXPORT_TEXT (capability-vs-reliability's method of record for a 13/12 page): a
+ *   ONE AND A HALF times, the page itself unchanged — the RATIOS are the word: a page drawing 13 px names and 12 px ticks exports at 26/18,
+ *   a page at 13/13 exports at 26/20 (round 1.5 × 13 up). Kit.EXPORT_TEXT (capability-vs-reliability's method for a 13/12 page): a
  *   900 px plot, axis names 26 px, tick numbers 18 px, margins left 90 / right 30 / top 40 / bottom 62, x tick baseline tick + 5 below the
  *   axis, y ticks centred at tick ÷ 3, the y title at x = 20 rotated, the x title 6 px above the bottom edge; legend 12 px and caption 11 px
  *   as before. The helper never rescales text (bigger text needs re-laid margins only the draw knows). Mark axis names data-role="axis-title"
@@ -178,7 +178,8 @@
     Array.prototype.forEach.call(clone.querySelectorAll('[data-export="omit"]'), function (el) { el.parentNode && el.parentNode.removeChild(el); });   // interactive-only marks (a levels slider, hover targets) stay out of the file
     clone.removeAttribute('width'); clone.removeAttribute('height'); clone.removeAttribute('style'); clone.removeAttribute('class'); clone.removeAttribute('id');
     clone.setAttribute('viewBox', crop.x + ' ' + crop.y + ' ' + crop.w + ' ' + crop.h);
-    var plotW = Math.round(crop.w), plotH = Math.round(crop.h), pad = 16, titleH = opts.title ? 28 : 0, stampH = 22;
+    // NO TITLE IN AN EXPORT (the project maintainers' word at the terminal 23 Sep 2026 15:1x UK, via the coordination: drop the page's title when the image is downloaded — an export is shared as part of the plot): the axes, the points and the legend, cropped to the data; the footer keeps the controls' words and the data stamp, not the page's name
+    var plotW = Math.round(crop.w), plotH = Math.round(crop.h), pad = 16, titleH = 0, stampH = 22;
     var legend = opts.legendOrder === 'given' ? (opts.legend || []) : Kit.legendByFamily(opts.legend || []);   // grouped by family (the project maintainers' word of 18 Sep); 'given' for rows that are not models
     var lg = legend.length ? legendPanel(legend, plotW + pad * 2, pad + titleH, plotH, opts.background || '#fcfaf3', opts.legendTitle) : { svg: '', width: 0, height: 0 };
     var W = plotW + pad * 2 + (lg.width ? lg.width + pad : 0), H = pad + titleH + Math.max(plotH, lg.height) + stampH + pad;
@@ -186,8 +187,8 @@
     var bg = opts.background || '#fcfaf3';
     var head = '<svg xmlns="' + NS + '" width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '" font-family="' + FONT + '">' +
       '<rect width="' + W + '" height="' + H + '" fill="' + bg + '"/>' +
-      (opts.title ? '<text x="' + pad + '" y="' + (pad + 16) + '" font-size="15" font-weight="600" fill="#1a1a1a">' + esc(opts.title) + '</text>' : '');
-    var stamp = [opts.page, opts.view, opts.stamp].filter(Boolean).join(' · ');
+      '';   // no title row (23 Sep)
+    var stamp = [opts.view, opts.stamp].filter(Boolean).join(' · ');   // the view's words and the data stamp; no page name (23 Sep)
     var foot = (stamp ? '<text x="' + pad + '" y="' + (H - pad) + '" font-size="11" fill="#6b675f">' + esc(stamp) + '</text>' : '') + '</svg>';
     var svgText = head + new XMLSerializer().serializeToString(clone) + lg.svg + foot;
     return { svgText: svgText, width: W, height: H };
@@ -214,6 +215,41 @@
     });
   };
 
+  // CANVAS EXPORT (23 Sep 2026; the maintainers's coverage matrix — two canvases in one scroller, an HTML legend — and capability-vs-reliability's
+  // the maintainers): the same one PNG the SVG path gives — title above, the canvases stacked at their device pixels (the whole drawing, not the
+  // scrolled viewport), the legend rows below (from an HTML legend element's swatches and words, or from rows {label, color}), one muted stamp
+  // line (page · view · data as of <UK time>) — at 2×, and no SVG twin for a bitmap. API: Kit.exportCanvas({ canvases, legend, title, page, view,
+  // stamp, fileBase, scale }) → Promise; Kit.composeCanvasExport(opts) → the composed canvas (for a page that wants the bitmap itself).
+  function legendRowsOf(legend) {   // rows {label, color} from an array of rows or an HTML element whose children carry a swatch (a background colour) and words
+    if (!legend) return [];
+    if (Array.isArray(legend)) return legend.map(function (r) { return { label: r.label || '', color: r.color || '#52514e', dash: r.dash || null, open: !!r.open }; });   // dash: a line swatch with that pattern (a thinking arm's dashed line); open: a hollow swatch
+    var rows = [];
+    Array.prototype.forEach.call(legend.children, function (item) {
+      var sw = null; Array.prototype.some.call(item.querySelectorAll('*'), function (el) { var bg = getComputedStyle(el).backgroundColor; if (bg && bg !== 'rgba(0, 0, 0, 0)' && bg !== 'transparent' && el.getBoundingClientRect().width <= 40) { sw = bg; return true; } return false; });
+      var words = (item.textContent || '').replace(/\s+/g, ' ').trim(); if (words) rows.push({ label: words, color: sw || getComputedStyle(item).color || '#52514e' });
+    });
+    return rows;
+  }
+  Kit.composeCanvasExport = function (opts) {
+    var cvs = (opts.canvases || []).filter(Boolean); if (!cvs.length) throw new Error('composeCanvasExport: no canvases');
+    var s = opts.scale || 2, pad = 16 * s, titleH = 0, stampH = 22 * s, rowH = 20 * s, font = FONT;   // no title row in an export (23 Sep)
+    var rows = legendRowsOf(opts.legend), legendH = rows.length ? rows.length * rowH + pad : 0;
+    var drawW = 0, drawH = 0; cvs.forEach(function (c) { drawW = Math.max(drawW, c.width); drawH += c.height; });
+    var W = Math.max(drawW + pad * 2, 400 * s), H = pad + titleH + drawH + legendH + stampH + pad;
+    var out = document.createElement('canvas'); out.width = W; out.height = H; var ctx = out.getContext('2d');
+    ctx.fillStyle = opts.background || '#faf6ec'; ctx.fillRect(0, 0, W, H);
+    var y = pad;
+    cvs.forEach(function (c) { ctx.drawImage(c, pad, y, c.width, c.height); y += c.height; });
+    if (rows.length) { y += pad / 2; ctx.font = (12 * s) + 'px ' + font; ctx.textBaseline = 'middle';
+      rows.forEach(function (r) { if (r.dash) { ctx.save(); ctx.strokeStyle = r.color; ctx.lineWidth = 2.5 * s; ctx.setLineDash(r.dash.map(function (d) { return d * s; })); ctx.beginPath(); ctx.moveTo(pad, y + rowH / 2); ctx.lineTo(pad + 14 * s, y + rowH / 2); ctx.stroke(); ctx.restore(); } else if (r.open) { ctx.save(); ctx.strokeStyle = r.color; ctx.lineWidth = 2 * s; ctx.strokeRect(pad + s, y + rowH / 2 - 4 * s, 12 * s, 8 * s); ctx.restore(); } else { ctx.fillStyle = r.color; ctx.fillRect(pad, y + rowH / 2 - 5 * s, 14 * s, 10 * s); } ctx.fillStyle = '#1a1a1a'; ctx.fillText(r.label, pad + 20 * s, y + rowH / 2); y += rowH; }); y += pad / 2; }
+    var stamp = [opts.view, opts.stamp].filter(Boolean).join(' · ');   // no page name (23 Sep)
+    if (stamp) { ctx.fillStyle = '#6b675f'; ctx.font = (11 * s) + 'px ' + font; ctx.textBaseline = 'bottom'; ctx.fillText(stamp, pad, H - pad); }
+    return out;
+  };
+  Kit.exportCanvas = function (opts) {
+    var out = Kit.composeCanvasExport(opts), base = (opts.fileBase || 'plot').replace(/[^\w.-]+/g, '-');
+    return new Promise(function (resolve, reject) { out.toBlob(function (blob) { if (!blob) { reject(new Error('exportCanvas: no PNG')); return; } download(blob, base + '.png'); resolve({ width: out.width, height: out.height }); }, 'image/png'); });
+  };
   Kit.exportFigureLink = function (container, opts) {   // a STATIC figure (a PNG or SVG file drawn server-side, legend inside): the export is the
     // file itself — a project-styled download link in the same row under the figure; opts: { href, label, svgHref } (an SVG twin when one exists)
     var wrap = document.createElement('span'); wrap.className = 'kit-export';
@@ -222,12 +258,16 @@
     (container || document.body).appendChild(wrap); return wrap;
   };
 
-  Kit.exportButton = function (container, factory) {   // the reference control: "Export plot" (PNG) with an "SVG" twin; the factory runs at click time
+  Kit.exportButton = function (container, factory, opts) {   // the reference control: "Export plot" (PNG) with an "SVG" twin; the factory runs at click time.
+    // A bitmap has no SVG twin: the twin is left out when the factory's object carries canvases, when the factory function is marked
+    // factory.canvas = true, or when opts.svg === false (ops's finding on /activity/, 23 Sep: a dead "SVG" control beside a canvas export).
+    opts = opts || {};
+    var noSvg = opts.svg === false || (factory && typeof factory === 'object' && !!factory.canvases) || (typeof factory === 'function' && factory.canvas === true);
     var wrap = document.createElement('span'); wrap.className = 'kit-export';
-    var b1 = document.createElement('button'); b1.type = 'button'; b1.className = 'kit-export-btn'; b1.textContent = 'Export plot'; b1.title = 'Download this plot as a PNG with a legend of every model, cropped to the data shown';
-    var b2 = document.createElement('button'); b2.type = 'button'; b2.className = 'kit-export-btn kit-export-svg'; b2.textContent = 'SVG'; b2.title = 'The same export as an SVG file';
-    var run = function (fmt) { var o = typeof factory === 'function' ? factory() : factory; o.format = fmt; Kit.exportPlot(o).catch(function (e) { console.error(e); }); };
-    b1.addEventListener('click', function () { run('png'); }); b2.addEventListener('click', function () { run('svg'); });
-    wrap.appendChild(b1); wrap.appendChild(b2); (container || document.body).appendChild(wrap); return wrap;
+    var b1 = document.createElement('button'); b1.type = 'button'; b1.className = 'kit-export-btn'; b1.textContent = 'Export plot'; b1.title = noSvg ? 'Download this plot as a PNG with its legend' : 'Download this plot as a PNG with a legend of every model, cropped to the data shown';
+    var run = function (fmt) { var o = typeof factory === 'function' ? factory() : factory; if (o.canvases) { if (fmt === 'png') Kit.exportCanvas(o).catch(function (e) { console.error(e); }); return; } o.format = fmt; Kit.exportPlot(o).catch(function (e) { console.error(e); }); };
+    b1.addEventListener('click', function () { run('png'); }); wrap.appendChild(b1);
+    if (!noSvg) { var b2 = document.createElement('button'); b2.type = 'button'; b2.className = 'kit-export-btn kit-export-svg'; b2.textContent = 'SVG'; b2.title = 'The same export as an SVG file'; b2.addEventListener('click', function () { run('svg'); }); wrap.appendChild(b2); }
+    (container || document.body).appendChild(wrap); return wrap;
   };
 })(typeof window !== 'undefined' ? window : this);

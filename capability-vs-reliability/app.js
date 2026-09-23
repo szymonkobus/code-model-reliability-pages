@@ -2101,8 +2101,7 @@ function exportView() {   // the controls' state in words for the export's stamp
   parts.push(axisShort('y') + ' against ' + axisShort('x'));
   var sp = function (v) { return v === 'raw' ? 'linear' : 'logit'; };
   parts.push(state.xs === state.ys ? sp(state.xs) + ' axes' : 'horizontal ' + sp(state.xs) + ', vertical ' + sp(state.ys));
-  parts.push(state.src === 'bayes' ? 'Bayesian crossing estimator' : 'project crossing estimator');
-  if (state.line !== 'off') parts.push('fitted line ' + (inAxes() ? 'in the axes as set' : 'in logit') + (state.lw === 'bands' ? ', weighted by the bands' : ''));
+  // no estimator or method words in a shared image (the coordination on the standing words, 23 Sep 15:1x UK): the estimator's name lives on the page's switch
   return parts.join(' \u00b7 ');
 }
 function exportLegend() {   // every drawn model grouped by family in the colour scheme's order, within a family by size (the project maintainers 13:1x UK 18 Sep), its mark exactly as drawn
@@ -2151,7 +2150,7 @@ function exportOptions() {
   var parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date());
   var pick = function (t) { return (parts.find(function (q) { return q.type === t; }) || {}).value || ''; };
   var slug = String(ds.label || state.data || 'view').split(' (')[0].replace(/\+/g, '-').replace(/[^\w-]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
-  return { svg: chart, legend: legend, title: 'Capability vs reliability', page: 'capability-vs-reliability', view: exportView(),
+  return { svg: chart, legend: legend, title: '', page: '', view: exportView(),   // no page title and no page name in the exported figure: the axes, the points and the legend, with one muted line of the view's words and the data stamp (the project maintainers' word of 23 Sep 15:1x UK)
     stamp: (f.build_ts || f.runs_window) ? 'data as of ' + plainTs(f.build_ts || f.runs_window) : '', fileBase: 'capability-vs-reliability_' + slug + '_' + pick('year') + '-' + pick('month') + '-' + pick('day'), crop: null };   // the helper groups the rows by family in the reference order; the page's model row uses the same call (one order)
 }
 
