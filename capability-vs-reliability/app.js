@@ -594,7 +594,7 @@ function mergeRunSet(raw) {
   RUN = RUNS[0] || null;
 }
 function isRun(i) { var c = D.shared && D.shared.configs[i]; return !!(c && c.run); }
-function isDual(i) { for (var k = 0; k < RUNS.length; k++) if (RUNS[k].dual && RUNS[k].dual.indexOf(i) >= 0) return true; return false; }   // a board model that a run's row shows again (final_on_board)
+function isDual(i) { for (var k = 0; k < RUNS.length; k++) if (RUNS[k].dual && RUNS[k].dual.indexOf(i) >= 0 && runOnPlane(RUNS[k])) return true; return false; }   // a board model that a run's row shows again (final_on_board) — inside the run's legend row only while the run is on the plane; under the reference chain it is a board model with its own row
 function runOf(i) { var c = D.shared && D.shared.configs[i]; if (!c || !c.run) return null; var ck = c.series || c.run_key; for (var k = 0; k < RUNS.length; k++) if (RUNS[k].key === ck) return RUNS[k]; return RUN; }
 function runShown(R) { R = R || RUN; return !!R; }   // no per-run switch since 23 Sep 12:0x UK: a run is on the plane whenever its source is
 function runOnPlane(R) { return runShown(R) && state.src === 'bayes'; }   // a run's checkpoints are read from Bayesian fits only: on the plane, in the frame line and in the caption under that source
@@ -2110,7 +2110,8 @@ function exportLegend() {   // every drawn model grouped by family in the colour
     };
     rows.push({ label: (c.display_name || c.label) + (grey ? ' (partial)' : '') + (c.gates_failed ? ' (flagged fit)' : ''), family: c.fam, color: grey ? '#8b8477' : c.color, line: false, marker: mark });   // legends carry the full display name of record (the labels rows' maintainers, 22 Sep)
   });
-  RUNS.forEach(function (R) {   // a run set is ONE legend row: a gradient bar over its drawn checkpoints' shades with the series' dash, the label its name and steps (the maintainers, 22 Sep 12:0x UK)
+  RUNS.forEach(function (R) {   // a run set is ONE legend row: a gradient bar over its drawn checkpoints' shades with the series' dash, the label its name and checkpoints (the maintainers, 22 Sep 12:0x UK)
+    if (!runOnPlane(R)) return;   // no run row under the reference chain: a run's checkpoints are Bayesian fits only
     var drawn = R.idx.filter(function (i) { return sel.has(i) && !isHidden(i) && document.querySelector('#marks path[data-mark][data-i="' + i + '"]'); });
     if (!drawn.length) return;
     var cs = drawn.map(function (i) { return D.shared.configs[i]; });
