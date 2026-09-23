@@ -50,7 +50,8 @@ svg { width:100%; height:auto; display:block; touch-action:pan-y; }  /* plot bod
 .chips .chip { border-radius:10px; padding:1px 8px; background:none;
   border:1px solid; cursor:pointer; font:inherit; font-size:.78rem; }
 .chips .chip.off { opacity:.3; }
-.chips .chip.nofit { opacity:.45; border-style:dotted; }   /* awaiting its Bayesian fit: greyed, never a point (the project maintainers' word, 2026-09-04) */
+.chips .chip.nofit { border-style:dotted; }   /* awaiting its Bayesian fit: a dotted border, never a point (2026-09-04); the chip reads and toggles like every other (the project maintainers' word of 23 Sep 12:0x UK) */
+#armsbar .kit-switch { margin-right:.9rem; }   /* a space after every toggle: Models ⟨toggle⟩ Partial models ⟨toggle⟩ (the project maintainers' word of 23 Sep 12:0x UK) */
 .chips .chip.partial { opacity:.45; border-style:dotted; }   /* partial model (attempts on under 90% of the set's tasks): hidden by default, greyed when shown (the project maintainers' word, 2026-09-07) */
 .chips .chip[disabled] { cursor:default; }   /* a hidden partial model's chip is unselectable, in place with a hint (the project maintainers' word, 2026-09-07 ) */
 .chips .chip.partialshown { border-style:dotted; }   /* shown on request: a normal chip with the partial mark */

@@ -564,11 +564,13 @@ function mergeRunSet(raw) {
   var have = {}; D.shared.configs.forEach(function (c) { have[c.id] = true; });
   var haveRow = {}; D.bay.rows.forEach(function (r) { haveRow[r.cfg] = true; });
   runSets(raw).forEach(function (rs, k) {
-    if (!rs || !rs.configs || !rs.configs.length) return;
+    if (!rs || !rs.configs) return;
     var set = rs.set || {}; if (set.axis_id && axis && set.axis_id !== axis) return;   // merged only on the run's own axis
+    if (!rs.configs.length && !set.pending && !(set.withheld || []).length) return;   // a run with no fit of record yet has a row only when the sidecar says it is pending (23 Sep 12:0x UK)
     // the run is keyed by the set's series slug (no field named key in the sidecar: a secret scanner read key":"<id> as an API key, 22 Sep)
     var R = { key: set.series || set.key || ('run' + k), name: set.name || 'run', clause: set.clause || 'a run read along its checkpoints, placed on the scale without a vote', tag: set.tag || '',
-              hue: set.hue || null, ramp: set.ramp || [], dash: set.dash || '', think: !!set.think, withheld: set.withheld || [], stateKey: set.state_key || (k === 0 ? 'run' : 'run_' + String(set.key || k).replace(/[^a-z0-9]/gi, '')), idx: [], folded: [] };
+              hue: set.hue || null, ramp: set.ramp || [], dash: set.dash || '', think: !!set.think, withheld: set.withheld || [], stateKey: set.state_key || (k === 0 ? 'run' : 'run_' + String(set.key || k).replace(/[^a-z0-9]/gi, '')), idx: [], folded: [], dual: [],
+              order: (set.order == null ? 100 + k : set.order), pending: set.pending || '', finalOnBoard: !!set.final_on_board };   // order: the rows under the all-models rows (Think first, then RL-Zero Code); pending: no fit of record yet; finalOnBoard: the final keeps its chip among all models, duplicated in the run's row (23 Sep 12:0x UK)
     var rowsById = {}; (rs.rows || []).forEach(function (r) { rowsById[r.cfg] = r; });
     rs.configs.forEach(function (c) {
       if (have[c.id]) return;
@@ -576,6 +578,7 @@ function mergeRunSet(raw) {
       if (twin) {   // ONE MODEL, ONE MARK, IN THE RUN'S OWN ROW (the project maintainers' word of 22 Sep 15:1x UK: the run has no chip in the top column, it is the thing in its
         var r = rowsById[c.id];   // bottom row): the board's twin config joins the run — the run's label, colour and mark, out of the top row and the fitted line; its series fit stands in under the Bayesian source when the board fit set has none
         if (r && !haveRow[twin.id]) { var r2 = {}; Object.keys(r).forEach(function (kk) { r2[kk] = r[kk]; }); r2.cfg = twin.id; r2.alongside = R.key; delete r2.run; D.bay.rows.push(r2); haveRow[twin.id] = true; if (D.bayById) D.bayById[twin.id] = r2; }
+        if (R.finalOnBoard) { var ti = D.shared.configs.indexOf(twin); twin.series = R.key; twin.gates_failed = twin.gates_failed || !!c.gates_failed; if (c.gates_failed && !twin.gate_flag) twin.gate_flag = c.gate_flag; R.idx.push(ti); R.dual.push(ti); R.folded.push(twin.id); return; }   // the board's chip stays; the run's row shows the same model again
         twin.run = true; twin.series = R.key; twin.board_label = twin.label; twin.label = c.label || twin.label; twin.display_name = c.display_name || twin.display_name; twin.fam = c.fam || twin.fam;
         twin.step = c.step; twin.index = c.index; if (c.color) twin.color = c.color; twin.think = !!c.think; twin.alongside = R.name;
         if (c.gates_failed) { twin.gates_failed = true; twin.gate_flag = c.gate_flag; if (!twin.disclosure) twin.disclosure = c.gate_flag; }
@@ -585,13 +588,14 @@ function mergeRunSet(raw) {
       have[c.id] = true; D.shared.configs.push(c); R.idx.push(D.shared.configs.length - 1);
       var row = rowsById[c.id]; if (row && !haveRow[c.id]) { row.run = true; row.series = R.key; D.bay.rows.push(row); haveRow[c.id] = true; if (D.bayById) D.bayById[c.id] = row; }   // the row index is built at load; the run's rows join it here
     });
-    if (R.idx.length || R.folded.length || R.withheld.length) { RUNS.push(R); state.runs[R.stateKey] = Kit.state.get(R.stateKey, 'show') === 'hide' ? 'hide' : 'show'; }   // each run shown by default; URL <key>=hide
+    if (R.idx.length || R.folded.length || R.withheld.length || R.pending) { RUNS.push(R); state.runs[R.stateKey] = 'show'; }
   });
+  RUNS.sort(function (a, b) { return a.order - b.order; });   // the Think run's row before the RL-Zero Code row (23 Sep 12:0x UK)
   RUN = RUNS[0] || null;
 }
 function isRun(i) { var c = D.shared && D.shared.configs[i]; return !!(c && c.run); }
 function runOf(i) { var c = D.shared && D.shared.configs[i]; if (!c || !c.run) return null; var ck = c.series || c.run_key; for (var k = 0; k < RUNS.length; k++) if (RUNS[k].key === ck) return RUNS[k]; return RUN; }
-function runShown(R) { R = R || RUN; return !!R && state.runs[R.stateKey] !== 'hide'; }
+function runShown(R) { R = R || RUN; return !!R; }   // no per-run switch since 23 Sep 12:0x UK: a run is on the plane whenever its source is
 function runOnPlane(R) { return runShown(R) && state.src === 'bayes'; }   // a run's checkpoints are read from Bayesian fits only: on the plane, in the frame line and in the caption under that source
 function anyRunOnPlane() { return RUNS.some(function (R) { return R.idx.length && runOnPlane(R); }); }
 function mainConfigs() { return D.shared.configs.filter(function (c) { return !c.run; }); }
@@ -677,13 +681,7 @@ function boot() {
     dflt: 'hide',
     onchange: function (v) { state.partial = v === 'show' ? 'show' : 'hide'; Kit.state.set('partial', state.partial, 'hide'); refreshPartialChips(); render(); } });
   if (!partialArms().length) { var psw = document.querySelector('.kit-switch[data-key="partial"]'); if (psw) psw.style.display = 'none'; }   // no partial arm in this set: the switch is inert and hidden
-  RUNS.forEach(function (R) {   // each run set's own switch in the model row (the project maintainers 22 Sep 11:1x UK; a second run gets its own, 12:1x UK)
-    if (!R.idx.length) return;   // a run whose only checkpoint is a board model has no line of its own
-    var runSw = Kit.switchControl({ mount: document.getElementById('armsbar') || row, key: R.stateKey, label: R.name,
-      options: [{ value: 'show', label: 'shown' }, { value: 'hide', label: 'hidden' }], dflt: 'show',
-      onchange: function (v) { state.runs[R.stateKey] = v === 'hide' ? 'hide' : 'show'; Kit.state.set(R.stateKey, state.runs[R.stateKey], 'show'); render(); frameLine(); } });   // the clause goes with the run
-    if (runSw.value() !== state.runs[R.stateKey]) runSw.set(state.runs[R.stateKey]);
-  });
+  // no shown/hidden switch per run: the run's own row (its all/none) is the mechanism (the project maintainers' word of 23 Sep 12:0x UK); a URL's <key>=hide no longer hides a run
   showDataNote();
   Object.keys(DATASETS).forEach(function (k) {
     if (DATASETS[k].available) return;
@@ -1263,7 +1261,7 @@ function buildChips() {
     var c = D.shared.configs[i], b = document.createElement('button');
     b.className = 'chip'; if (c.think) { b.classList.add('think'); b.title = 'thinking mode \u2014 open marker on the chart'; }
     if (isPartial(i) || isWithheld(i)) b.classList.add('partial');
-    if (c.run) { var Rc = runOf(i) || RUN; b.classList.add('run'); b.title = (c.display_name || Rc.name + ' \u2014 ' + c.label) + ': ' + Rc.clause; }   // the full display name of record on hover
+    if (c.run) { var Rc = runOf(i) || RUN; b.classList.add('run'); b.title = (c.display_name || Rc.name + ' \u2014 ' + c.label); }   // the full display name of record on hover; the clause is on the run line's label (F133)
     if (c.alongside) { b.title = (b.title ? b.title + ' \u00b7 ' : '') + 'positioned on the served axis, not shaping it \u2014 its fit from the ' + c.alongside + ' series, read alongside the board fit set'; }   // difficulty's word of 22 Sep: a run's final admitted to the board is positioned, never voting
     if (c.gates_failed) { b.classList.add('flagged'); var fg = document.createElement('span'); fg.className = 'flag'; fg.textContent = '\u2691'; fg.setAttribute('aria-label', 'flagged fit'); b.title = (b.title ? b.title + ' \u00b7 ' : '') + 'flagged fit: ' + (c.gate_flag || 'the fit failed a sampler gate'); b.appendChild(fg); }   // a flagged fit is shown with its flag and its sentence, never plain (Definitions, 22 Sep)
     b.style.color = c.color; b.style.borderColor = c.color;
@@ -1278,19 +1276,20 @@ function buildChips() {
   if (rbox) {
     rbox.innerHTML = '';
     RUNS.forEach(function (R) {   // one line per run set: its name, its own all/none, its checkpoints in the run's order, and the checkpoints not shown said in words
-      if (!R.idx.length && !R.withheld.length) return;
+      if (!R.idx.length && !R.withheld.length && !R.pending) return;
       var line = document.createElement('div'); line.className = 'chips chips-run'; line.id = 'chips-run-' + R.key.replace(/[^a-z0-9]/gi, '-'); line.dataset.run = R.key; line.dataset.stateKey = R.stateKey;
       var lab = document.createElement('span'); lab.className = 'runlabel'; lab.style.color = R.hue || (R.idx.length ? D.shared.configs[R.idx[0]].color : '#52514e'); lab.textContent = R.name; lab.title = R.clause; line.appendChild(lab);
       if (R.idx.length) {
         var rAll = document.createElement('button'); rAll.className = 'util'; rAll.textContent = 'all'; rAll.onclick = function () { R.idx.forEach(function (i) { sel.add(i); }); writeSel(); render(); }; line.appendChild(rAll);
         var rNone = document.createElement('button'); rNone.className = 'util'; rNone.textContent = 'none'; rNone.onclick = function () { R.idx.forEach(function (i) { sel.delete(i); }); writeSel(); render(); }; line.appendChild(rNone);
-        R.idx.forEach(function (i) { line.appendChild(makeChip(i)); });
+        R.idx.forEach(function (i) { var ch = makeChip(i); if (R.dual.indexOf(i) >= 0) { ch.classList.add('run'); ch.dataset.dual = '1'; ch.title = (D.shared.configs[i].display_name || D.shared.configs[i].label) + ' \u2014 a model of the all-models rows, shown here as the run\u2019s final too'; } line.appendChild(ch); });
       }
       if (R.withheld.length) {   // a fail-closed hide says so on the face (difficulty's form, 22 Sep): the name of record and the reason, under the run's chips
         var note = document.createElement('span'); note.className = 'runnote'; note.setAttribute('data-critical-text', '');
         note.textContent = 'Not shown: ' + R.withheld.map(function (w) { return (w.display_name || w.label || w.id) + ' \u2014 ' + w.reason; }).join('; ') + '.';
         line.appendChild(note);
       }
+      if (R.pending && !R.idx.length) { var pn = document.createElement('span'); pn.className = 'runnote'; pn.setAttribute('data-critical-text', ''); pn.textContent = R.pending; line.appendChild(pn); }   // a run named but not yet fitted: its row says so in words
       line.hidden = !runOnPlane(R);
       rbox.appendChild(line);
     });
@@ -2585,7 +2584,7 @@ function setHeld(msg, kind) {
 function frameLine() {
   var el = document.getElementById('framebar'); if (!el || !D || !D.shared) return;
   var f = D.shared.frame || {};
-  var base = (D.golden ? 'golden set (12) \u00b7 ' : '') + (DATASETS[D.dataId] ? (DATASETS[D.dataId].frameLabel || DATASETS[D.dataId].label) + ': ' : '') + mainConfigs().length + ' models' + RUNS.filter(function (R) { return R.idx.length && runOnPlane(R); }).map(function (R) { return ' \u00b7 ' + R.name + ': ' + R.clause; }).join('') + ' \u00b7 as of ' + asOf(f.build_ts || f.build_date) + ', ' + CADENCE + '.';   // the ONE machinery line: stamp + declared refresh in plain words (the project maintainers 2026-09-07; the maintainers's freshness row reads it)
+  var base = (D.golden ? 'golden set (12) \u00b7 ' : '') + (DATASETS[D.dataId] ? (DATASETS[D.dataId].frameLabel || DATASETS[D.dataId].label) + ': ' : '') + mainConfigs().length + ' models' + RUNS.filter(function (R) { return (R.idx.length || R.pending) && runOnPlane(R); }).map(function (R) { return ' \u00b7 ' + R.name + ': ' + R.clause + (R.idx.length ? '' : ' \u2014 ' + R.pending); }).join('') + ' \u00b7 as of ' + asOf(f.build_ts || f.build_date) + ', ' + CADENCE + '.';   // the ONE machinery line: stamp + declared refresh in plain words (the project maintainers 2026-09-07; the maintainers's freshness row reads it)
   // the Bayesian coverage sentence lives in the readout fold-out (bayesNote), not on the frame line (the maintainers 2026-09-05)
   el.textContent = base;
   if (D.golden) { base += ' ' + String(f.golden_note || 'golden set: a data point, not the difficulty definition').replace(new RegExp('\\s*\\(' + String.fromCharCode(83, 122, 121, 109, 111, 110) + ' [0-9-]+\\)'), '') + '.'; el.textContent = base; }
