@@ -32,7 +32,7 @@
   "runs_fingerprint": "500f4275d11f",
   "axis_wave": "unified-live",
   "build_date": "2026-09-23",
-  "stamp": "2026-09-23T13:53:30Z",
+  "stamp": "2026-09-23T15:46:15Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -63,7 +63,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-23T13:13:32Z",
+   "unified_built_at": "2026-09-23T15:15:39Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -77,20 +77,20 @@
     "tasks": 2167,
     "of": 2167
    },
-   "claude-sonnet-5": {
+   "claude-haiku-4-5-thinking": {
     "tasks": 2167,
     "of": 2167
    },
-   "claude-opus-5": {
-    "tasks": 1275,
-    "of": 2167
-   },
-   "claude-haiku-4-5-thinking": {
+   "claude-sonnet-5": {
     "tasks": 2167,
     "of": 2167
    },
    "claude-sonnet-5-thinking": {
     "tasks": 2167,
+    "of": 2167
+   },
+   "claude-opus-5": {
+    "tasks": 1275,
     "of": 2167
    },
    "claude-opus-5-thinking": {
@@ -141,12 +141,12 @@
     "tasks": 600,
     "of": 2167
    },
-   "deepseek-ai/DeepSeek-V3.2": {
-    "tasks": 750,
-    "of": 2167
-   },
    "deepseek-ai/DeepSeek-R1-0528": {
     "tasks": 430,
+    "of": 2167
+   },
+   "deepseek-ai/DeepSeek-V3.2": {
+    "tasks": 750,
     "of": 2167
    },
    "deepseek-ai/DeepSeek-V3.2-Thinking": {
@@ -257,7 +257,15 @@
     "tasks": 2167,
     "of": 2167
    },
+   "Qwen/Qwen3-0.6B-Thinking": {
+    "tasks": 2164,
+    "of": 2167
+   },
    "Qwen/Qwen3-1.7B": {
+    "tasks": 2167,
+    "of": 2167
+   },
+   "Qwen/Qwen3-1.7B-Thinking": {
     "tasks": 2167,
     "of": 2167
    },
@@ -265,7 +273,19 @@
     "tasks": 2167,
     "of": 2167
    },
+   "Qwen/Qwen3-4B-Thinking": {
+    "tasks": 2167,
+    "of": 2167
+   },
+   "Qwen/Qwen3-4B-Instruct-2507": {
+    "tasks": 2167,
+    "of": 2167
+   },
    "Qwen/Qwen3-8B": {
+    "tasks": 2167,
+    "of": 2167
+   },
+   "Qwen/Qwen3-8B-Thinking": {
     "tasks": 2167,
     "of": 2167
    },
@@ -273,12 +293,16 @@
     "tasks": 2167,
     "of": 2167
    },
+   "Qwen/Qwen3-14B-Thinking": {
+    "tasks": 2167,
+    "of": 2167
+   },
    "Qwen/Qwen3-32B": {
     "tasks": 2167,
     "of": 2167
    },
-   "Qwen/Qwen3-4B-Instruct-2507": {
-    "tasks": 2167,
+   "Qwen/Qwen3-32B-Thinking": {
+    "tasks": 1958,
     "of": 2167
    },
    "Qwen/Qwen3-Coder-30B-A3B-Instruct": {
@@ -287,30 +311,6 @@
    },
    "Qwen/Qwen3-30B-A3B": {
     "tasks": 2167,
-    "of": 2167
-   },
-   "Qwen/Qwen3-0.6B-Thinking": {
-    "tasks": 2164,
-    "of": 2167
-   },
-   "Qwen/Qwen3-1.7B-Thinking": {
-    "tasks": 2167,
-    "of": 2167
-   },
-   "Qwen/Qwen3-4B-Thinking": {
-    "tasks": 2167,
-    "of": 2167
-   },
-   "Qwen/Qwen3-8B-Thinking": {
-    "tasks": 2167,
-    "of": 2167
-   },
-   "Qwen/Qwen3-14B-Thinking": {
-    "tasks": 2167,
-    "of": 2167
-   },
-   "Qwen/Qwen3-32B-Thinking": {
-    "tasks": 1958,
     "of": 2167
    },
    "Qwen/Qwen3-30B-A3B-Thinking": {
@@ -527,6 +527,11 @@
      "label": "Olmo 3 7B Think (checkpoint 31)"
     },
     {
+     "id": "qwen3-8b-sft-code-think-Thinking",
+     "arm_id": "q3-8B-sft-code-think",
+     "label": "Qwen3 8B (thinking, code fine-tune, other models' traces)"
+    },
+    {
      "id": "qwen3-8b-4k32",
      "arm_id": "q3-8B-4k32",
      "label": "Qwen3 8B (raw, re-run)"
@@ -552,19 +557,14 @@
      "label": "Qwen3 8B (code fine-tune, coverage set)"
     },
     {
-     "id": "qwen3-8b-code-rl",
-     "arm_id": "q3-8B-code-rl",
-     "label": "Qwen3 8B (code fine-tune by RL)"
-    },
-    {
-     "id": "qwen3-8b-sft-code-think-Thinking",
-     "arm_id": "q3-8B-sft-code-think",
-     "label": "Qwen3 8B (thinking, code fine-tune, other models' traces)"
-    },
-    {
      "id": "qwen3-8b-think-w1x32-Thinking",
      "arm_id": "q3-8B-think-w1x32",
      "label": "Qwen3 8B (thinking, re-run)"
+    },
+    {
+     "id": "qwen3-8b-code-rl",
+     "arm_id": "q3-8B-code-rl",
+     "label": "Qwen3 8B (code fine-tune by RL)"
     },
     {
      "id": "Qwen/Qwen3.5-9B-Base_completion",
@@ -603,7 +603,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-23T13:24:26Z",
+   "_stamp": "2026-09-23T15:24:28Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
