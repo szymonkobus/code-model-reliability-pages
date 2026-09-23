@@ -1702,7 +1702,7 @@ function relabelDataset(f) {
   var lbl = (OFFICIAL && OFFICIAL[DATASET]) ? OFFICIAL[DATASET].label : (DATASETS[DATASET].label || DATASET);   // set label of record, never a bare count (the project maintainers' word of 10 Sep)
   DATASETS[DATASET].label = lbl; DATASETS[DATASET].short = lbl;
   var btn = document.querySelector('#controls button[data-value="' + DATASET + '"]');
-  if (btn) btn.textContent = lbl;
+  if (btn) btn.textContent = setWord(lbl);   // the label of record keeps its count for the status line; the switch reads the set name alone
 }
 
 function pageVersion() {   // the served app.js version (index.html's ?v= tag), so a page fix moves the stamp

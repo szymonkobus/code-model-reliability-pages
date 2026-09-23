@@ -29,17 +29,17 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "500f4275d11f",
+  "runs_fingerprint": "ef372f9a8548",
   "axis_wave": "combined-20260909T1322Z",
   "build_date": "2026-09-23",
-  "stamp": "2026-09-23T14:06:38Z",
+  "stamp": "2026-09-23T15:57:27Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-23T13:53:30Z",
+   "unified_built_at": "2026-09-23T15:50:38Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.golden.all.csv"
@@ -53,11 +53,11 @@
     "tasks": 2167,
     "of": 2167
    },
-   "claude-sonnet-5": {
+   "claude-haiku-4-5-thinking": {
     "tasks": 2167,
     "of": 2167
    },
-   "claude-haiku-4-5-thinking": {
+   "claude-sonnet-5": {
     "tasks": 2167,
     "of": 2167
    },
@@ -69,7 +69,15 @@
     "tasks": 2167,
     "of": 2167
    },
+   "Qwen/Qwen3-0.6B-Thinking": {
+    "tasks": 2164,
+    "of": 2167
+   },
    "Qwen/Qwen3-1.7B": {
+    "tasks": 2167,
+    "of": 2167
+   },
+   "Qwen/Qwen3-1.7B-Thinking": {
     "tasks": 2167,
     "of": 2167
    },
@@ -77,19 +85,11 @@
     "tasks": 2167,
     "of": 2167
    },
-   "Qwen/Qwen3-8B": {
-    "tasks": 2167,
-    "of": 2167
-   },
-   "Qwen/Qwen3-0.6B-Thinking": {
-    "tasks": 2164,
-    "of": 2167
-   },
-   "Qwen/Qwen3-1.7B-Thinking": {
-    "tasks": 2167,
-    "of": 2167
-   },
    "Qwen/Qwen3-4B-Thinking": {
+    "tasks": 2167,
+    "of": 2167
+   },
+   "Qwen/Qwen3-8B": {
     "tasks": 2167,
     "of": 2167
    },
@@ -227,7 +227,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-23T13:24:26Z",
+   "_stamp": "2026-09-23T15:24:28Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",

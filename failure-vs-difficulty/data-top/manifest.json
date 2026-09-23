@@ -1,5 +1,5 @@
 {
- "fingerprint": "0876d19d014a",
+ "fingerprint": "dd8e84e36eed",
  "frame": {
   "dataset": "top",
   "dataset_label": "wave 2 (866 tasks), the list kept on 10 September 2026; wave 2 parked (879 tasks) left out",
@@ -19,7 +19,7 @@
   "difficulty_population_M": 58,
   "tasks": 858,
   "keep_set_hash": "532d0efad8a5",
-  "inputs_content_sha": "4224c2e6b0eb",
+  "inputs_content_sha": "8afa2366844c",
   "tasks_on_axis": 858,
   "tasks_kept": 858,
   "tasks_awaiting_axis": 0,
@@ -29,17 +29,17 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "500f4275d11f",
+  "runs_fingerprint": "ef372f9a8548",
   "axis_wave": "pool-20260910T2244Z",
   "build_date": "2026-09-23",
-  "stamp": "2026-09-23T14:03:07Z",
+  "stamp": "2026-09-23T15:54:15Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-23T13:53:30Z",
+   "unified_built_at": "2026-09-23T15:50:38Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.top.csv"
@@ -53,20 +53,20 @@
     "tasks": 858,
     "of": 858
    },
-   "claude-sonnet-5": {
+   "claude-haiku-4-5-thinking": {
     "tasks": 858,
     "of": 858
    },
-   "claude-opus-5": {
-    "tasks": 845,
-    "of": 858
-   },
-   "claude-haiku-4-5-thinking": {
+   "claude-sonnet-5": {
     "tasks": 858,
     "of": 858
    },
    "claude-sonnet-5-thinking": {
     "tasks": 858,
+    "of": 858
+   },
+   "claude-opus-5": {
+    "tasks": 845,
     "of": 858
    },
    "claude-opus-5-thinking": {
@@ -225,7 +225,15 @@
     "tasks": 858,
     "of": 858
    },
+   "Qwen/Qwen3-0.6B-Thinking": {
+    "tasks": 855,
+    "of": 858
+   },
    "Qwen/Qwen3-1.7B": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen3-1.7B-Thinking": {
     "tasks": 858,
     "of": 858
    },
@@ -233,7 +241,19 @@
     "tasks": 858,
     "of": 858
    },
+   "Qwen/Qwen3-4B-Thinking": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen3-4B-Instruct-2507": {
+    "tasks": 858,
+    "of": 858
+   },
    "Qwen/Qwen3-8B": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Qwen/Qwen3-8B-Thinking": {
     "tasks": 858,
     "of": 858
    },
@@ -241,12 +261,16 @@
     "tasks": 858,
     "of": 858
    },
+   "Qwen/Qwen3-14B-Thinking": {
+    "tasks": 858,
+    "of": 858
+   },
    "Qwen/Qwen3-32B": {
     "tasks": 858,
     "of": 858
    },
-   "Qwen/Qwen3-4B-Instruct-2507": {
-    "tasks": 858,
+   "Qwen/Qwen3-32B-Thinking": {
+    "tasks": 852,
     "of": 858
    },
    "Qwen/Qwen3-Coder-30B-A3B-Instruct": {
@@ -255,30 +279,6 @@
    },
    "Qwen/Qwen3-30B-A3B": {
     "tasks": 858,
-    "of": 858
-   },
-   "Qwen/Qwen3-0.6B-Thinking": {
-    "tasks": 855,
-    "of": 858
-   },
-   "Qwen/Qwen3-1.7B-Thinking": {
-    "tasks": 858,
-    "of": 858
-   },
-   "Qwen/Qwen3-4B-Thinking": {
-    "tasks": 858,
-    "of": 858
-   },
-   "Qwen/Qwen3-8B-Thinking": {
-    "tasks": 858,
-    "of": 858
-   },
-   "Qwen/Qwen3-14B-Thinking": {
-    "tasks": 858,
-    "of": 858
-   },
-   "Qwen/Qwen3-32B-Thinking": {
-    "tasks": 852,
     "of": 858
    }
   },
@@ -502,6 +502,11 @@
      "label": "Olmo 3 7B Think (checkpoint 31)"
     },
     {
+     "id": "qwen3-8b-sft-code-think-Thinking",
+     "arm_id": "q3-8B-sft-code-think",
+     "label": "Qwen3 8B (thinking, code fine-tune, other models' traces)"
+    },
+    {
      "id": "qwen3-8b-4k32",
      "arm_id": "q3-8B-4k32",
      "label": "Qwen3 8B (raw, re-run)"
@@ -530,11 +535,6 @@
      "id": "qwen3-8b-code-rl",
      "arm_id": "q3-8B-code-rl",
      "label": "Qwen3 8B (code fine-tune by RL)"
-    },
-    {
-     "id": "qwen3-8b-sft-code-think-Thinking",
-     "arm_id": "q3-8B-sft-code-think",
-     "label": "Qwen3 8B (thinking, code fine-tune, other models' traces)"
     },
     {
      "id": "Qwen/Qwen3.5-9B-Base_completion",
@@ -573,7 +573,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-23T13:24:26Z",
+   "_stamp": "2026-09-23T15:24:28Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -739,9 +739,9 @@
   }
  },
  "files": {
-  "shared": "shared.0876d19d014a.json",
-  "chain_average": "chain_average.0876d19d014a.json",
-  "chain_median": "chain_median.0876d19d014a.json",
-  "dots": "dots.0876d19d014a.json"
+  "shared": "shared.dd8e84e36eed.json",
+  "chain_average": "chain_average.dd8e84e36eed.json",
+  "chain_median": "chain_median.dd8e84e36eed.json",
+  "dots": "dots.dd8e84e36eed.json"
  }
 }
