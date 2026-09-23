@@ -1350,7 +1350,7 @@ function phoneFold() {   // phone (<=600 px): short pill labels; the rarely touc
 
 function paintChips() {
   RUNS.forEach(function (R) { var rsw = document.querySelector('.kit-switch[data-key="' + R.stateKey + '"]'); if (rsw) rsw.style.display = state.src === 'bayes' ? '' : 'none'; });   // a run's switch only where its fits are read
-  var box = document.getElementById('chips'), byIdx = {}; chips.forEach(function (b) { byIdx[+b.dataset.idx] = b; });
+  var box = document.getElementById('chips'), byIdx = {}; chips.forEach(function (b) { if (b.parentNode === box) byIdx[+b.dataset.idx] = b; });   // the all-models chips only: a model shown again in a run's row has a second chip there, which must not shadow this one (the Think final sat first, unsorted, 23 Sep 13:4x UK)
   var idxs = chips.map(function (b) { return +b.dataset.idx; });
   capOrder(idxs.filter(function (i) { return !isRun(i); })).forEach(function (i) { if (byIdx[i] && byIdx[i].parentNode === box) box.appendChild(byIdx[i]); });   // the main row by capability; the run's line keeps the run's order
   RUNS.forEach(function (R) { var line = document.querySelector('.chips-run[data-run="' + R.key + '"]'); if (line) line.hidden = !runOnPlane(R); });   // the run's line shows only when the run is on the plane (the project maintainers' word of 22 Sep)   // capability order, re-read at every render (the brief's call 7, 21 Sep)   // one order, re-read at every render
