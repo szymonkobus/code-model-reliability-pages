@@ -1,5 +1,5 @@
 {
- "fingerprint": "8c395440dbdf",
+ "fingerprint": "844b3d84ae4c",
  "frame": {
   "dataset": "board_top",
   "dataset_label": "wave 1+2 (1,297 tasks): 431 of wave 1 + 866 of wave 2, the list kept on 10 September 2026; wave 2 parked (879 tasks) left out \u00b7 positioned on this axis today: 430 of wave 1, 858 of wave 2",
@@ -12,14 +12,14 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 60,
-  "fitted_M": 60,
-  "complete_M": 60,
-  "sampled_M": 60,
-  "difficulty_population_M": 60,
+  "population_M": 61,
+  "fitted_M": 61,
+  "complete_M": 61,
+  "sampled_M": 61,
+  "difficulty_population_M": 61,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "d06497eaffc3",
+  "inputs_content_sha": "96a932fdc95d",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -29,10 +29,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "51aad598058d",
+  "runs_fingerprint": "490af819893f",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-09-23",
-  "stamp": "2026-09-23T07:48:25Z",
+  "stamp": "2026-09-23T08:05:31Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -65,7 +65,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-23T07:13:23Z",
+   "unified_built_at": "2026-09-23T07:50:20Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -200,6 +200,10 @@
     "of": 1288
    },
    "olmo-3.1-7b-rl-zero-code-final_completion": {
+    "tasks": 1288,
+    "of": 1288
+   },
+   "olmo-3-7b-think-final-Thinking": {
     "tasks": 1288,
     "of": 1288
    },
@@ -40970,7 +40974,7 @@
    ]
   },
   "off_panel": {
-   "n_with_cells": 25,
+   "n_with_cells": 24,
    "arms": [
     {
      "id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
@@ -41031,11 +41035,6 @@
      "id": "olmo-3-7b-think-step0800-Thinking",
      "arm_id": "olmo3-7b-think-s0800",
      "label": "Olmo 3 7B Think (step 800)"
-    },
-    {
-     "id": "olmo-3-7b-think-final-Thinking",
-     "arm_id": "olmo3-7b-think-final",
-     "label": "Olmo 3 7B Think (final)"
     },
     {
      "id": "qwen3-8b-4k32",
@@ -41114,7 +41113,7 @@
     "qwen35_9b_base_sft_maths_completion"
    ],
    "panel_conflicts": [],
-   "line": "13 study models with results are off the panel; their fits appear in their own block when served"
+   "line": "12 study models with results are off the panel; their fits appear in their own block when served"
   },
   "cleaned_arms_unified": [
    "openai/gpt-5-mini",
@@ -41293,9 +41292,9 @@
   }
  },
  "files": {
-  "shared": "shared.8c395440dbdf.json",
-  "chain_average": "chain_average.8c395440dbdf.json",
-  "chain_median": "chain_median.8c395440dbdf.json",
-  "dots": "dots.8c395440dbdf.json"
+  "shared": "shared.844b3d84ae4c.json",
+  "chain_average": "chain_average.844b3d84ae4c.json",
+  "chain_median": "chain_median.844b3d84ae4c.json",
+  "dots": "dots.844b3d84ae4c.json"
  }
 }
