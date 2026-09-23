@@ -1,5 +1,5 @@
 {
- "fingerprint": "aa120b309dc6",
+ "fingerprint": "8902cdc0aa32",
  "frame": {
   "population_M": 58,
   "tasks": 430,
@@ -25,7 +25,7 @@
    "Qwen/Qwen3-30B-A3B-Thinking"
   ],
   "withheld_reasons": {
-   "Qwen/Qwen3-30B-A3B-Thinking": "held by ruling of 2 Sep 23:23 UK (kept off paid time (not counted in coverage, the price total or the money's end); runs on the free machines after everything else; last in the free queue)"
+   "Qwen/Qwen3-30B-A3B-Thinking": "held by ruling of 2 Sep 23:23 UK (kept off paid time (not counted in coverage or in the figures to finish); runs on the free machines after everything else; last in the free queue)"
   },
   "keep_set_hash": "c3f08ea1a903",
   "axis_order_hash": "82b1968451ae",
@@ -34,8 +34,8 @@
   "inputs_content_sha": "d5a4e3cd1533",
   "scorer": "plus_status (a sample counts as solved if its plus run passed; difficulty ruled base AND plus on 2026-09-02 \u2014 the switch of served numbers waits for Szymon's gate; under base AND plus a result can read differently, e.g. Mbpp/274 for Qwen3-30B-A3B: 128 passes here vs 127)",
   "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\\t<task>\\t<passes>\\t<attempts>\\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column verbatim; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) \u2014 reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
-  "build_date": "2026-09-22",
-  "built_at": "2026-09-22T22:03:33Z",
+  "build_date": "2026-09-23",
+  "built_at": "2026-09-23T06:40:28Z",
   "vocab_ruled": "2026-08-27",
   "counts_of_record": {
    "original_kept": 430,
@@ -44,7 +44,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-22T21:24:33Z",
+   "_stamp": "2026-09-23T06:24:15Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -245,7 +245,7 @@
    "served_not_in_population": [
     {
      "model_id": "Qwen/Qwen3-30B-A3B-Thinking",
-     "reason": "held by ruling of 2 Sep 23:23 UK (kept off paid time (not counted in coverage, the price total or the money's end); runs on the free machines after everything else; last in the free queue) \u2014 fitted on its partial board results only, a fraction of the frame"
+     "reason": "held by ruling of 2 Sep 23:23 UK (kept off paid time (not counted in coverage or in the figures to finish); runs on the free machines after everything else; last in the free queue) \u2014 fitted on its partial board results only, a fraction of the frame"
     }
    ],
    "provisional_classes": null,
@@ -304,12 +304,12 @@
    "openai/gpt-5-nano": "20260907T154051Z",
    "openai/gpt-5-mini": "20260907T154051Z"
   },
-  "newest_input_mtime": "2026-09-22T22:03:07Z"
+  "newest_input_mtime": "2026-09-23T06:36:29Z"
  },
  "files": {
-  "shared": "shared.aa120b309dc6.json",
-  "chain_average": "chain_average.aa120b309dc6.json",
-  "chain_median": "chain_median.aa120b309dc6.json",
-  "dots": "dots.aa120b309dc6.json"
+  "shared": "shared.8902cdc0aa32.json",
+  "chain_average": "chain_average.8902cdc0aa32.json",
+  "chain_median": "chain_median.8902cdc0aa32.json",
+  "dots": "dots.8902cdc0aa32.json"
  }
 }
