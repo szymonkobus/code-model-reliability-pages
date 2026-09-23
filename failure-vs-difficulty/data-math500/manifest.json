@@ -28,7 +28,7 @@
   "runs_fingerprint": "98bcb48a0652",
   "axis_wave": "math500-live",
   "build_date": "2026-09-23",
-  "stamp": "2026-09-23T02:59:15Z",
+  "stamp": "2026-09-23T17:06:24Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
@@ -147,7 +147,15 @@
     "tasks": 500,
     "of": 500
    },
+   "Qwen/Qwen3-0.6B-Thinking": {
+    "tasks": 500,
+    "of": 500
+   },
    "Qwen/Qwen3-1.7B": {
+    "tasks": 500,
+    "of": 500
+   },
+   "Qwen/Qwen3-1.7B-Thinking": {
     "tasks": 500,
     "of": 500
    },
@@ -155,7 +163,15 @@
     "tasks": 500,
     "of": 500
    },
+   "Qwen/Qwen3-4B-Thinking": {
+    "tasks": 500,
+    "of": 500
+   },
    "Qwen/Qwen3-8B": {
+    "tasks": 500,
+    "of": 500
+   },
+   "Qwen/Qwen3-8B-Thinking": {
     "tasks": 500,
     "of": 500
    },
@@ -163,7 +179,15 @@
     "tasks": 500,
     "of": 500
    },
+   "Qwen/Qwen3-14B-Thinking": {
+    "tasks": 500,
+    "of": 500
+   },
    "Qwen/Qwen3-32B": {
+    "tasks": 500,
+    "of": 500
+   },
+   "Qwen/Qwen3-32B-Thinking": {
     "tasks": 500,
     "of": 500
    },
@@ -172,30 +196,6 @@
     "of": 500
    },
    "qwen3-8b-sft-maths": {
-    "tasks": 500,
-    "of": 500
-   },
-   "Qwen/Qwen3-0.6B-Thinking": {
-    "tasks": 500,
-    "of": 500
-   },
-   "Qwen/Qwen3-1.7B-Thinking": {
-    "tasks": 500,
-    "of": 500
-   },
-   "Qwen/Qwen3-4B-Thinking": {
-    "tasks": 500,
-    "of": 500
-   },
-   "Qwen/Qwen3-8B-Thinking": {
-    "tasks": 500,
-    "of": 500
-   },
-   "Qwen/Qwen3-14B-Thinking": {
-    "tasks": 500,
-    "of": 500
-   },
-   "Qwen/Qwen3-32B-Thinking": {
     "tasks": 500,
     "of": 500
    },
@@ -4373,7 +4373,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-23T02:24:09Z",
+   "_stamp": "2026-09-23T16:24:30Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
