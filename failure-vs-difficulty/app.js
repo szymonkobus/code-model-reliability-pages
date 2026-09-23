@@ -965,7 +965,7 @@ function renderSideBlock() {
   var isAvg = state.def === 'average';
   var sideUnresolved = false;   // one legend line under the side table only when a row carries the mark (as the main table)
   var t = document.createElement('table');
-  t.innerHTML = '<tr><th>model</th><th title="D50 — the difficulty at which the ' + (isAvg ? 'average failure rate' : 'median task&#39;s failure rate') + ' crosses 50% (' + (isAvg ? 'average-rate' : 'median-task') + ' chain)">D50</th><th title="D99 — the difficulty at which the ' + (isAvg ? 'average failure rate' : 'median task&#39;s failure rate') + ' crosses 1%, a 99% solve chance (' + (isAvg ? 'average-rate' : 'median-task') + ' chain)">D99</th></tr>';
+  t.innerHTML = '<tr><th>model</th><th title="D50 — the difficulty at which the ' + (isAvg ? 'average failure rate' : 'median task&#39;s failure rate') + ' crosses 50% (' + (isAvg ? 'average rate' : 'median task') + ')">D50</th><th title="D99 — the difficulty at which the ' + (isAvg ? 'average failure rate' : 'median task&#39;s failure rate') + ' crosses 1%, a 99% solve chance (' + (isAvg ? 'average rate' : 'median task') + ')">D99</th></tr>';
   sb.arms.forEach(function (a, k) {
     if (!sideSel.has(k)) return;
     var cv = sideCurve(a); var rec = isAvg ? a.cross_record : null;
@@ -1043,7 +1043,7 @@ function renderSeriesBlock() {   // the run's row: cloned from renderSideBlock f
   var isAvg = state.def === 'average';
   var sideUnresolved = false;   // one legend line under the side table only when a row carries the mark (as the main table)
   var t = document.createElement('table');
-  t.innerHTML = '<tr><th>model</th><th title="D50 — the difficulty at which the ' + (isAvg ? 'average failure rate' : 'median task&#39;s failure rate') + ' crosses 50% (' + (isAvg ? 'average-rate' : 'median-task') + ' chain)">D50</th><th title="D99 — the difficulty at which the ' + (isAvg ? 'average failure rate' : 'median task&#39;s failure rate') + ' crosses 1%, a 99% solve chance (' + (isAvg ? 'average-rate' : 'median-task') + ' chain)">D99</th></tr>';
+  t.innerHTML = '<tr><th>model</th><th title="D50 — the difficulty at which the ' + (isAvg ? 'average failure rate' : 'median task&#39;s failure rate') + ' crosses 50% (' + (isAvg ? 'average rate' : 'median task') + ')">D50</th><th title="D99 — the difficulty at which the ' + (isAvg ? 'average failure rate' : 'median task&#39;s failure rate') + ' crosses 1%, a 99% solve chance (' + (isAvg ? 'average rate' : 'median task') + ')">D99</th></tr>';
   sb.arms.forEach(function (a, k) {
     if (!seriesSel.has(k)) return;
     var cv = sideCurve(a); var rec = isAvg ? a.cross_record : null;
@@ -1211,7 +1211,7 @@ function render() {
         var zsT = [], ysT = [];
         for (var tt = 0; tt <= 40; tt++) { var zzT = lfa.zrange[0] + (lfa.zrange[1] - lfa.zrange[0]) * tt / 40; zsT.push(zzT); ysT.push(icT + slT * (zzT - zmT)); }
         curves += '<path d="' + pathLine(zsT, ysT) + '" fill="none" stroke="' + c.color + '" stroke-width="1.2" opacity="0.9" stroke-dasharray="7 4" data-trend="1" data-i="' + i
-          + '" data-label="' + c.label + ' — linear trend (' + (state.def === 'average' ? 'average' : 'typical') + ' chain): slope ' + slT + ' logit per z, 80% interval [' + lfk.slope_q10_q50_q90[0] + ', ' + lfk.slope_q10_q50_q90[2] + ']'
+          + '" data-label="' + c.label + ' — linear trend (' + (state.def === 'average' ? 'average rate' : 'median task') + '): slope ' + slT + ' logit per z, 80% interval [' + lfk.slope_q10_q50_q90[0] + ', ' + lfk.slope_q10_q50_q90[2] + ']'
           + (lfk.rms_dev_q50 != null ? ' · rms deviation of the curve from its own line ' + lfk.rms_dev_q50 + ' logit' : '')
           + ' · fitted range z in [' + lfa.zrange[0] + ', ' + lfa.zrange[1] + ']' + (lfa.n_draws ? ' (' + lfa.n_draws + ' draws)' : '') + '"/>';
       }
@@ -1328,8 +1328,8 @@ function paintChips() {
 }
 
 function narrate(visible, dotsOn, unfitted) {
-  var defName = state.def === 'average' ? 'average-rate chain'
-                                        : 'median-task chain';
+  var defName = state.def === 'average' ? 'average rate'
+                                        : 'median task';
   var srcName = state.src === 'bayes'
     ? 'Bayesian curves' + (unfitted.length
         ? ' (' + unfitted.length + ' of ' + visible.length
@@ -1483,13 +1483,13 @@ function notes(visible, unfitted) {
     }).length;
     var w2 = document.createElement('div');
     w2.className = 'warn';
-    w2.textContent = 'Chain asymmetry at 1%, labeled at point of use: '
-      + 'D99 on the median-task chain is censored for ' + undef1
+    w2.textContent = 'Asymmetry at 1%, labeled at point of use: '
+      + 'D99 under the median task is censored for ' + undef1
       + ' of ' + ids.length + ' models at 128 attempts per '
       + 'task (a bin median below 0.5% means the median task has 0 '
       + 'failures — the crossing is reported as a bound, never '
-      + 'interpolated through censored bins). The average-rate chain '
-      + 'reaches 1% by pooling; the median chain cannot at this '
+      + 'interpolated through censored bins). The average rate '
+      + 'reaches 1% by pooling; the median task cannot at this '
       + 'per-task resolution.';
     el.appendChild(w2);
   }
@@ -1572,7 +1572,7 @@ function crossingsTable(visible) {
   var k50 = isAvg ? 'average-rate 50% crossing' : 'median-task 50% crossing';   // the vocabulary keys of the frame's enforced sentences
   var k1 = isAvg ? 'average-rate 1% crossing' : 'median-task 1% crossing';
   var n50 = 'D50', n1 = 'D99';   // the project maintainers' names (13:0x UK 18 Sep, via the coordination and the site design maintainers): D50 and D99, uppercase; the chain named in the hover
-  var chainWord = isAvg ? 'average-rate chain' : 'median-task chain';
+  var chainWord = isAvg ? 'average rate' : 'median task';
   var hov50 = 'D50 — the difficulty at which the ' + (isAvg ? 'average failure rate' : 'median task\'s failure rate') + ' crosses 50% (' + chainWord + ')';
   var hov1 = 'D99 — the difficulty at which the ' + (isAvg ? 'average failure rate' : 'median task\'s failure rate') + ' crosses 1%, a 99% solve chance (' + chainWord + ')';
   var h = document.createElement('p');
@@ -1581,7 +1581,7 @@ function crossingsTable(visible) {
     + (voc[k50] || hov50.replace(/^D50 — /, '')) + '; ' + n1 + ' — '
     + (voc[k1] || hov1.replace(/^D99 — /, ''))
     + (isB
-      ? '. Readings from the Bayesian posterior median curve for the active chain (first upward crossing); brackets are where the '
+      ? '. Readings from the Bayesian posterior median curve for the estimator picked (first upward crossing); brackets are where the '
         + 'ribbon edges cross the same level (95% where the fit set carries it, else 80%); models without a posterior read "awaiting fit"; '
         + 'the served crossings with their own intervals live on Capability vs reliability.'
       : '. Readings from the ' + houseName().toLowerCase() + ' for the active '
