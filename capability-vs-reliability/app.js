@@ -715,18 +715,25 @@ function boot() {
   // when the page opened on wave 1+2 (09-05). Now the switch shows on every dataset; where Capability C is not computed the option is greyed with the reason,
   // and a deep link xdef=capC on such a set falls back to the crossing with a note.
   var CAPC_REASON = 'Capability C is computed for wave 1 only; choose Dataset = wave 1 to use it';   // wave names only, no attribution (the project maintainers 2026-09-16)
+  var xdefReady = false;   // the kit calls onchange once at construction: a D option then must not move the level (the level inputs are built later; a= carries the level)
   var xdefSw = Kit.switchControl({ mount: row, key: 'xdef', label: 'Capability axis',
-    options: [{ value: 'crossing', label: 'D50' },
+    options: [{ value: 'D90', label: 'D90' }, { value: 'D80', label: 'D80' }, { value: 'crossing', label: 'D50' }, { value: 'D25', label: 'D25' }, { value: 'D10', label: 'D10' },   // the capability axis as a switch (the project maintainers' question of 23 Sep 15:3x UK): the crossing at a level, D50 the lens of record
               { value: 'capC', label: CAP_KEYS.capC.name() },
               { value: 'capC_z', label: CAP_KEYS.capC_z.name() },
               { value: 'capC_j', label: CAP_KEYS.capC_j.name() }],
     dflt: 'crossing',
     onchange: function (v) {
       if (CAP_KEYS[v] && !CAP_KEYS[v].block()) { if (xdefSw) xdefSw.set('crossing'); return; }   // a greyed option reached by keyboard: stay on the crossing
+      if (v === 'crossing' || /^D\d+$/.test(v)) {   // a D option is the crossing at a level: it moves the horizontal level as the presets do; the URL carries the level (a=), not the option
+        state.xdef = 'crossing'; if (!xdefReady) return;
+        var N = v === 'crossing' ? 50 : +v.slice(1); Kit.state.set('xdef', null, null); syncXdefLock(); setLevels(100 - N, state.c); return;
+      }
       state.xdef = v;
       syncXdefLock();
       if (sel) render();
     } });
+  xdefReady = true;
+  ['D90', 'D80', 'crossing', 'D25', 'D10'].forEach(function (v) { var bD = row.querySelector('.kit-switch[data-key="xdef"] button[data-value="' + v + '"]'); var N = v === 'crossing' ? 50 : +v.slice(1); if (bD) bD.title = 'D' + N + ': the difficulty at which the model\u2019s solve chance is ' + N + '% (its failure rate ' + (100 - N) + '%)'; });
   Object.keys(CAP_KEYS).forEach(function (k) {
     var capBtn = row.querySelector('.kit-switch[data-key="xdef"] button[data-value="' + k + '"]');
     if (CAP_KEYS[k].block()) { if (capBtn) capBtn.title = CAP_KEYS[k].clause(); return; }   // the two variants are told apart on hover by difficulty's plain clauses
@@ -851,7 +858,7 @@ function boot() {
   sb.appendChild(sn);
 
   buildLevels();
-  state.xdef = Kit.state.get('xdef', 'crossing');
+  state.xdef = Kit.state.get('xdef', 'crossing'); if (/^D\d+$/.test(state.xdef)) state.xdef = 'crossing';   // a D option is a level, carried by a=
   state.move = Kit.state.get('move', 'off') === 'on' ? 'on' : 'off';   // fit-move arrows OFF by default (the project maintainers' word of 2026-09-14: fit-move off by default); URL move=on
   state.partial = Kit.state.get('partial', 'hide') === 'show' ? 'show' : 'hide';
   state.runs = state.runs || {};   // per-run shown/hidden, read as each run is merged (URL <state key>=hide)   // the third set shown by default (the project maintainers 22 Sep); URL run=hide   // partial arms hidden by default (the project maintainers 2026-09-07)
@@ -1355,7 +1362,13 @@ function phoneFold() {   // phone (<=600 px): short pill labels; the rarely touc
   phoneFolded = true;
 }
 
+function syncXdefPressed() {   // the Capability axis switch shows the level as set (typed, a preset, the sweep): D<100 − a>; none pressed at a level off the list
+  if (isCap()) return;
+  var N = Math.round(100 - state.a), want = (N === 50 ? 'crossing' : 'D' + N);
+  document.querySelectorAll('.kit-switch[data-key="xdef"] button').forEach(function (b) { if (b.dataset.value === 'capC' || b.dataset.value === 'capC_z' || b.dataset.value === 'capC_j') { b.setAttribute('aria-pressed', 'false'); return; } b.setAttribute('aria-pressed', String(b.dataset.value === want)); });
+}
 function paintChips() {
+  syncXdefPressed();
   RUNS.forEach(function (R) { var rsw = document.querySelector('.kit-switch[data-key="' + R.stateKey + '"]'); if (rsw) rsw.style.display = state.src === 'bayes' ? '' : 'none'; });   // a run's switch only where its fits are read
   var box = document.getElementById('chips'), byIdx = {}; chips.forEach(function (b) { if (b.parentNode === box) byIdx[+b.dataset.idx] = b; });   // the all-models chips only: a model shown again in a run's row has a second chip there, which must not shadow this one (the Think final sat first, unsorted, 23 Sep 13:4x UK)
   var idxs = chips.map(function (b) { return +b.dataset.idx; });
