@@ -1,5 +1,5 @@
 {
- "fingerprint": "d1b45c02fe30",
+ "fingerprint": "6f4b2cfe4919",
  "frame": {
   "dataset": "board_top",
   "dataset_label": "wave 1+2 (1,297 tasks): 431 of wave 1 + 866 of wave 2, the list kept on 10 September 2026; wave 2 parked (879 tasks) left out \u00b7 positioned on this axis today: 430 of wave 1, 858 of wave 2",
@@ -19,7 +19,7 @@
   "difficulty_population_M": 61,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "e5595ac4b0a1",
+  "inputs_content_sha": "5657a6df6101",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -29,10 +29,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "868609aabae5",
+  "runs_fingerprint": "e0ac80c3bb52",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-09-23",
-  "stamp": "2026-09-23T09:06:49Z",
+  "stamp": "2026-09-23T10:03:43Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -65,7 +65,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-23T08:47:29Z",
+   "unified_built_at": "2026-09-23T09:46:34Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -26809,7 +26809,7 @@
      "arm_kind": "RL checkpoint (code): a released step of the Olmo 3.1 7B RL-Zero Code run, read on wave 1+2 at the completion cell",
      "baseline_arm": "olmo3.1-7b-rlzc-s0050",
      "baseline_id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
-     "label": "Olmo 3.1 7B RL-Zero Code (step 150)",
+     "label": "Olmo 3.1 7B RL-Zero Code (checkpoint 2)",
      "family": "Olmo 3",
      "color": "#769130",
      "run": "Olmo 3.1 7B RL-Zero Code",
@@ -28833,7 +28833,7 @@
      "arm_kind": "RL checkpoint (code): a released step of the Olmo 3.1 7B RL-Zero Code run, read on wave 1+2 at the completion cell",
      "baseline_arm": null,
      "baseline_id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
-     "label": "Olmo 3.1 7B RL-Zero Code (step 50)",
+     "label": "Olmo 3.1 7B RL-Zero Code (checkpoint 0)",
      "family": "Olmo 3",
      "color": "#7a9631",
      "run": "Olmo 3.1 7B RL-Zero Code",
@@ -30857,7 +30857,7 @@
      "arm_kind": "RL checkpoint (code): a released step of the Olmo 3.1 7B RL-Zero Code run, read on wave 1+2 at the completion cell",
      "baseline_arm": "olmo3.1-7b-rlzc-s0050",
      "baseline_id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
-     "label": "Olmo 3.1 7B RL-Zero Code (step 1950)",
+     "label": "Olmo 3.1 7B RL-Zero Code (checkpoint 32)",
      "family": "Olmo 3",
      "color": "#2f3913",
      "run": "Olmo 3.1 7B RL-Zero Code",
@@ -32881,7 +32881,7 @@
      "arm_kind": "RL checkpoint (code): a released step of the Olmo 3.1 7B RL-Zero Code run, read on wave 1+2 at the completion cell",
      "baseline_arm": "olmo3.1-7b-rlzc-s0050",
      "baseline_id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
-     "label": "Olmo 3.1 7B RL-Zero Code (step 250)",
+     "label": "Olmo 3.1 7B RL-Zero Code (checkpoint 4)",
      "family": "Olmo 3",
      "color": "#728c2e",
      "run": "Olmo 3.1 7B RL-Zero Code",
@@ -34905,7 +34905,7 @@
      "arm_kind": "RL checkpoint (code): a released step of the Olmo 3.1 7B RL-Zero Code run, read on wave 1+2 at the completion cell",
      "baseline_arm": "olmo3.1-7b-rlzc-s0050",
      "baseline_id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
-     "label": "Olmo 3.1 7B RL-Zero Code (step 100)",
+     "label": "Olmo 3.1 7B RL-Zero Code (checkpoint 1)",
      "family": "Olmo 3",
      "color": "#789331",
      "run": "Olmo 3.1 7B RL-Zero Code",
@@ -36929,7 +36929,7 @@
      "arm_kind": "RL checkpoint (code): a released step of the Olmo 3.1 7B RL-Zero Code run, read on wave 1+2 at the completion cell",
      "baseline_arm": "olmo3.1-7b-rlzc-s0050",
      "baseline_id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
-     "label": "Olmo 3.1 7B RL-Zero Code (step 450)",
+     "label": "Olmo 3.1 7B RL-Zero Code (checkpoint 8)",
      "family": "Olmo 3",
      "color": "#6a822b",
      "run": "Olmo 3.1 7B RL-Zero Code",
@@ -38953,7 +38953,7 @@
      "arm_kind": "RL checkpoint (code): a released step of the Olmo 3.1 7B RL-Zero Code run, read on wave 1+2 at the completion cell",
      "baseline_arm": "olmo3.1-7b-rlzc-s0050",
      "baseline_id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
-     "label": "Olmo 3.1 7B RL-Zero Code (step 900)",
+     "label": "Olmo 3.1 7B RL-Zero Code (checkpoint 16)",
      "family": "Olmo 3",
      "color": "#596c24",
      "run": "Olmo 3.1 7B RL-Zero Code",
@@ -40979,62 +40979,62 @@
     {
      "id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
      "arm_id": "olmo3.1-7b-rlzc-s0050",
-     "label": "Olmo 3.1 7B RL-Zero Code (step 50)"
+     "label": "Olmo 3.1 7B RL-Zero Code (checkpoint 0)"
     },
     {
      "id": "olmo-3.1-7b-rl-zero-code-step0100_completion",
      "arm_id": "olmo3.1-7b-rlzc-s0100",
-     "label": "Olmo 3.1 7B RL-Zero Code (step 100)"
+     "label": "Olmo 3.1 7B RL-Zero Code (checkpoint 1)"
     },
     {
      "id": "olmo-3.1-7b-rl-zero-code-step0150_completion",
      "arm_id": "olmo3.1-7b-rlzc-s0150",
-     "label": "Olmo 3.1 7B RL-Zero Code (step 150)"
+     "label": "Olmo 3.1 7B RL-Zero Code (checkpoint 2)"
     },
     {
      "id": "olmo-3.1-7b-rl-zero-code-step0250_completion",
      "arm_id": "olmo3.1-7b-rlzc-s0250",
-     "label": "Olmo 3.1 7B RL-Zero Code (step 250)"
+     "label": "Olmo 3.1 7B RL-Zero Code (checkpoint 4)"
     },
     {
      "id": "olmo-3.1-7b-rl-zero-code-step0450_completion",
      "arm_id": "olmo3.1-7b-rlzc-s0450",
-     "label": "Olmo 3.1 7B RL-Zero Code (step 450)"
+     "label": "Olmo 3.1 7B RL-Zero Code (checkpoint 8)"
     },
     {
      "id": "olmo-3.1-7b-rl-zero-code-step0900_completion",
      "arm_id": "olmo3.1-7b-rlzc-s0900",
-     "label": "Olmo 3.1 7B RL-Zero Code (step 900)"
+     "label": "Olmo 3.1 7B RL-Zero Code (checkpoint 16)"
     },
     {
      "id": "olmo-3.1-7b-rl-zero-code-step1950_completion",
      "arm_id": "olmo3.1-7b-rlzc-s1950",
-     "label": "Olmo 3.1 7B RL-Zero Code (step 1950)"
+     "label": "Olmo 3.1 7B RL-Zero Code (checkpoint 32)"
     },
     {
      "id": "olmo-3-7b-think-step0025-Thinking",
      "arm_id": "olmo3-7b-think-s0025",
-     "label": "Olmo 3 7B Think (step 25)"
+     "label": "Olmo 3 7B Think (checkpoint 0)"
     },
     {
      "id": "olmo-3-7b-think-step0050-Thinking",
      "arm_id": "olmo3-7b-think-s0050",
-     "label": "Olmo 3 7B Think (step 50)"
+     "label": "Olmo 3 7B Think (checkpoint 1)"
     },
     {
      "id": "olmo-3-7b-think-step0100-Thinking",
      "arm_id": "olmo3-7b-think-s0100",
-     "label": "Olmo 3 7B Think (step 100)"
+     "label": "Olmo 3 7B Think (checkpoint 3)"
     },
     {
      "id": "olmo-3-7b-think-step0200-Thinking",
      "arm_id": "olmo3-7b-think-s0200",
-     "label": "Olmo 3 7B Think (step 200)"
+     "label": "Olmo 3 7B Think (checkpoint 7)"
     },
     {
      "id": "olmo-3-7b-think-step0800-Thinking",
      "arm_id": "olmo3-7b-think-s0800",
-     "label": "Olmo 3 7B Think (step 800)"
+     "label": "Olmo 3 7B Think (checkpoint 31)"
     },
     {
      "id": "qwen3-8b-4k32",
@@ -41126,7 +41126,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-23T08:24:14Z",
+   "_stamp": "2026-09-23T09:24:06Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -41292,9 +41292,9 @@
   }
  },
  "files": {
-  "shared": "shared.d1b45c02fe30.json",
-  "chain_average": "chain_average.d1b45c02fe30.json",
-  "chain_median": "chain_median.d1b45c02fe30.json",
-  "dots": "dots.d1b45c02fe30.json"
+  "shared": "shared.6f4b2cfe4919.json",
+  "chain_average": "chain_average.6f4b2cfe4919.json",
+  "chain_median": "chain_median.6f4b2cfe4919.json",
+  "dots": "dots.6f4b2cfe4919.json"
  }
 }
