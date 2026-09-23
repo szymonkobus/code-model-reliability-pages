@@ -32,7 +32,7 @@
   "runs_fingerprint": "500f4275d11f",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-09-23",
-  "stamp": "2026-09-23T13:58:47Z",
+  "stamp": "2026-09-23T15:50:29Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -63,7 +63,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-23T13:53:30Z",
+   "unified_built_at": "2026-09-23T15:15:39Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -77,20 +77,20 @@
     "tasks": 1288,
     "of": 1288
    },
-   "claude-sonnet-5": {
+   "claude-haiku-4-5-thinking": {
     "tasks": 1288,
     "of": 1288
    },
-   "claude-opus-5": {
-    "tasks": 1275,
-    "of": 1288
-   },
-   "claude-haiku-4-5-thinking": {
+   "claude-sonnet-5": {
     "tasks": 1288,
     "of": 1288
    },
    "claude-sonnet-5-thinking": {
     "tasks": 1288,
+    "of": 1288
+   },
+   "claude-opus-5": {
+    "tasks": 1275,
     "of": 1288
    },
    "claude-opus-5-thinking": {
@@ -141,12 +141,12 @@
     "tasks": 600,
     "of": 1288
    },
-   "deepseek-ai/DeepSeek-V3.2": {
-    "tasks": 671,
-    "of": 1288
-   },
    "deepseek-ai/DeepSeek-R1-0528": {
     "tasks": 430,
+    "of": 1288
+   },
+   "deepseek-ai/DeepSeek-V3.2": {
+    "tasks": 671,
     "of": 1288
    },
    "deepseek-ai/DeepSeek-V3.2-Thinking": {
@@ -257,7 +257,15 @@
     "tasks": 1288,
     "of": 1288
    },
+   "Qwen/Qwen3-0.6B-Thinking": {
+    "tasks": 1285,
+    "of": 1288
+   },
    "Qwen/Qwen3-1.7B": {
+    "tasks": 1288,
+    "of": 1288
+   },
+   "Qwen/Qwen3-1.7B-Thinking": {
     "tasks": 1288,
     "of": 1288
    },
@@ -265,7 +273,19 @@
     "tasks": 1288,
     "of": 1288
    },
+   "Qwen/Qwen3-4B-Thinking": {
+    "tasks": 1288,
+    "of": 1288
+   },
+   "Qwen/Qwen3-4B-Instruct-2507": {
+    "tasks": 1288,
+    "of": 1288
+   },
    "Qwen/Qwen3-8B": {
+    "tasks": 1288,
+    "of": 1288
+   },
+   "Qwen/Qwen3-8B-Thinking": {
     "tasks": 1288,
     "of": 1288
    },
@@ -273,12 +293,16 @@
     "tasks": 1288,
     "of": 1288
    },
+   "Qwen/Qwen3-14B-Thinking": {
+    "tasks": 1288,
+    "of": 1288
+   },
    "Qwen/Qwen3-32B": {
     "tasks": 1288,
     "of": 1288
    },
-   "Qwen/Qwen3-4B-Instruct-2507": {
-    "tasks": 1288,
+   "Qwen/Qwen3-32B-Thinking": {
+    "tasks": 1282,
     "of": 1288
    },
    "Qwen/Qwen3-Coder-30B-A3B-Instruct": {
@@ -287,30 +311,6 @@
    },
    "Qwen/Qwen3-30B-A3B": {
     "tasks": 1288,
-    "of": 1288
-   },
-   "Qwen/Qwen3-0.6B-Thinking": {
-    "tasks": 1285,
-    "of": 1288
-   },
-   "Qwen/Qwen3-1.7B-Thinking": {
-    "tasks": 1288,
-    "of": 1288
-   },
-   "Qwen/Qwen3-4B-Thinking": {
-    "tasks": 1288,
-    "of": 1288
-   },
-   "Qwen/Qwen3-8B-Thinking": {
-    "tasks": 1288,
-    "of": 1288
-   },
-   "Qwen/Qwen3-14B-Thinking": {
-    "tasks": 1288,
-    "of": 1288
-   },
-   "Qwen/Qwen3-32B-Thinking": {
-    "tasks": 1282,
     "of": 1288
    },
    "Qwen/Qwen3-30B-A3B-Thinking": {
@@ -24764,17 +24764,17 @@
   },
   "series_arms": {
    "served": true,
-   "serving_word": "Definitions' word of 23 September 2026 (13:27 UTC) on staging 0d901be82d52, implemented by that staging: the three withheld checkpoints' sentences name the hour of their return (back about 21:15 UK) in the Olmo lead's face form, the decision kept in the record; the checkpoint class in the run records' re-worded form; each entry naming its fit layout; no figure, position, gate or count moves. Written on the Olmo lead's direction under the project owner's ten-minute rule (21 September).",
+   "serving_word": "Definitions' word of 23 September 2026 (15:36 UTC) on staging 8c5f00debcfd, implemented by that staging: checkpoint 1's sentence names a second ground \u2014 some of its wave 2 answers are being judged again \u2014 and its hour becomes the floor back by 23:30 UK at the latest (the census that lifts the identity hold comes about 16:30\u201316:50Z and is expected to serve those answers too); checkpoint 4's sentence names wave 1 and wave 2 answers being judged again; checkpoint 16 unchanged; the composed sentence says all three have answers being judged again and names both floors; no position moves",
    "wave_id": "olmo-board_top-20260922T0453Z",
    "n_arms": 8,
    "heading": "checkpoints of one training run",
-   "heading_note": "label = plain words for what the group is (the project owner's word of 22 September 2026 via the post-training lead, ruled by Definitions the same day): no task count or composition in the label; the composition sits in group_composition, the counts in the count fields and membership (the kept set at 23 Sep 13:24 UK: 430 of wave 1, 858 of wave 2 on the served axis; the set's members at 23 Sep 13:24 UK: 430 of wave 1, 869 of wave 2), fitted figures beside it \u2014 a task that left the kept set after a cut stays in that fit as cut (the ruling of 8 Sep) and is named in its model's membership_lag",
+   "heading_note": "label = plain words for what the group is (the project owner's word of 22 September 2026 via the post-training lead, ruled by Definitions the same day): no task count or composition in the label; the composition sits in group_composition, the counts in the count fields and membership (the kept set at 23 Sep 16:24 UK: 430 of wave 1, 858 of wave 2 on the served axis; the set's members at 23 Sep 16:24 UK: 430 of wave 1, 869 of wave 2), fitted figures beside it \u2014 a task that left the kept set after a cut stays in that fit as cut (the ruling of 8 Sep) and is named in its model's membership_lag",
    "membership": "results for at least one of these models on all 1,288 kept tasks of the set (1,299 members); positions from the served axis, unchanged",
    "axis_rule": "the served wave 1+2 axis unchanged: study models are positioned on an axis they did not shape (ruling of 17 Sep); positions are comparable with the served set's",
    "axis_pinned_to_served": true,
    "cut_at": "2026-09-22T04:53:28Z",
    "completed_at": "2026-09-22T16:16:19Z",
-   "updated_at": "2026-09-23T13:27:37Z",
+   "updated_at": "2026-09-23T15:46:05Z",
    "pointer": "definitions/fitting/serving_series_olmo31_rlzero_code.json",
    "arms": [
     {
@@ -32898,7 +32898,7 @@
      "n_tasks_positioned": 1288,
      "n_cells": 1288,
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 22 September 2026",
-     "disclosure": "position withheld: the wave 1 answers of this checkpoint were judged from the wrong copy of its answers; held out until the judging of the right answers is in the count; back about 21:15 UK",
+     "disclosure": "position withheld: the wave 1 answers of this checkpoint were judged from the wrong copy of its answers, and some of its wave 1 and wave 2 answers are being judged again; held out until both judgings are in the count; back by 08:00 UK tomorrow at the latest",
      "gates_failed": false,
      "gate_face": null,
      "withheld": true,
@@ -32931,7 +32931,7 @@
      "n_tasks_positioned": 1288,
      "n_cells": 1288,
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 22 September 2026",
-     "disclosure": "position withheld: the wave 1 answers of this checkpoint were judged from the wrong copy of its answers; held out until the judging of the right answers is in the count; back about 21:15 UK",
+     "disclosure": "position withheld: the wave 1 answers of this checkpoint were judged from the wrong copy of its answers, and some of its wave 2 answers are being judged again; held out until both judgings are in the count; back by 23:30 UK at the latest",
      "gates_failed": true,
      "gate_face": "every attempt failed on 38% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's interval is wider",
      "withheld": true,
@@ -34988,7 +34988,7 @@
      "n_tasks_positioned": 1288,
      "n_cells": 1288,
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 22 September 2026",
-     "disclosure": "position withheld: the wave 1 answers of this checkpoint were judged from the wrong copy of its answers; held out until the judging of the right answers is in the count; back about 21:15 UK",
+     "disclosure": "position withheld: the wave 1 answers of this checkpoint were judged from the wrong copy of its answers, and two judgings of its right answers disagree; held out until they are judged again and that judging is in the count; back by 08:00 UK tomorrow at the latest",
      "gates_failed": false,
      "gate_face": null,
      "withheld": true,
@@ -35067,6 +35067,11 @@
      "label": "Olmo 3 7B Think (checkpoint 31)"
     },
     {
+     "id": "qwen3-8b-sft-code-think-Thinking",
+     "arm_id": "q3-8B-sft-code-think",
+     "label": "Qwen3 8B (thinking, code fine-tune, other models' traces)"
+    },
+    {
      "id": "qwen3-8b-4k32",
      "arm_id": "q3-8B-4k32",
      "label": "Qwen3 8B (raw, re-run)"
@@ -35092,19 +35097,14 @@
      "label": "Qwen3 8B (code fine-tune, coverage set)"
     },
     {
-     "id": "qwen3-8b-code-rl",
-     "arm_id": "q3-8B-code-rl",
-     "label": "Qwen3 8B (code fine-tune by RL)"
-    },
-    {
-     "id": "qwen3-8b-sft-code-think-Thinking",
-     "arm_id": "q3-8B-sft-code-think",
-     "label": "Qwen3 8B (thinking, code fine-tune, other models' traces)"
-    },
-    {
      "id": "qwen3-8b-think-w1x32-Thinking",
      "arm_id": "q3-8B-think-w1x32",
      "label": "Qwen3 8B (thinking, re-run)"
+    },
+    {
+     "id": "qwen3-8b-code-rl",
+     "arm_id": "q3-8B-code-rl",
+     "label": "Qwen3 8B (code fine-tune by RL)"
     },
     {
      "id": "Qwen/Qwen3.5-9B-Base_completion",
@@ -35156,7 +35156,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-23T13:24:26Z",
+   "_stamp": "2026-09-23T15:24:28Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",

@@ -105,7 +105,7 @@ function applyOfficialNames(C) {
   Array.prototype.forEach.call(document.querySelectorAll('[data-count="wave12"]'), function (el) { el.textContent = f2(C.original_kept + C.new_focused); });
   Object.keys(L).forEach(function (k) {
     if (!DATASETS[k]) return; DATASETS[k].label = L[k].label; DATASETS[k].short = L[k].label; DATASETS[k].hover = L[k].hover;
-    var bt = document.querySelector('#controls button[data-value="' + k + '"]'); if (bt) bt.textContent = L[k].label;
+    var bt = document.querySelector('#controls button[data-value="' + k + '"]'); if (bt) bt.textContent = setWord(L[k].label);   // the label of record carries its count; the switch reads the set name alone
   });
   return true;
 }
@@ -143,6 +143,7 @@ var DEFAULT_DATASET = (MIRROR && typeof window.MIRROR_DEFAULT === 'string' && DA
                       : (DATASETS.board_top ? 'board_top' : Object.keys(DATASETS)[0]);
 var FALLBACK_DATASET = DATASETS.board ? 'board' : DEFAULT_DATASET;
 var EXTRA_AVAILABLE = {};   // keys outside the built-ins: manifest present?
+function setWord(s) { return String(s == null ? '' : s).replace(/\s*\([\d,]+ tasks\)\s*$/, ''); }   // a set switch reads the set name alone: wave 1, wave 2, wave 1+2 … — the count stays in the status line and the hover (the project maintainers' word of 23 Sep, via the pool pages lead)
 function isExtra(k) { return !!(DATASETS[k] && !BUILTIN_KEYS[k]); }
 function extraDir(k) { return String(DATASETS[k].src || '').replace(/\/?manifest\.json$/, '') || ('data-' + k); }
 var DATASET = (typeof Kit !== 'undefined' && Kit.state) ? Kit.state.get('data', DEFAULT_DATASET) : DEFAULT_DATASET;   // default: board + top half (the project maintainers' word,)
@@ -385,7 +386,7 @@ function boot() {
   var dsCtl = Kit.switchControl({ mount: row, key: 'data', label: 'Dataset',
     // the project maintainers' word of 10 Sep (coordinator note): wave 1+2 matters most, then wave 1 alone as a sanity check, then wave 2 alone,
     // then the rest — the switch runs in that order; wave 1+2 stays the default
-    options: Object.keys(DATASETS).map(function (k) { return { value: k, label: DATASETS[k].label }; }),   // the list's own order (the project maintainers' order on this page; a mirror's on its)
+    options: Object.keys(DATASETS).map(function (k) { return { value: k, label: setWord(DATASETS[k].label) }; }),   // the list's own order (the project maintainers' order on this page; a mirror's on its)
     dflt: DEFAULT_DATASET,
     onchange: function (v) {
       if (!ready || coercing) return;
@@ -402,7 +403,7 @@ function boot() {
     if (!EXTRA_AVAILABLE[ds]) return;
     fetch(DATASETS[ds].src).then(function (r) { return r.json(); }).then(function (m) {
       var f = m.frame || {}; if (!bt || !f.dataset_label) return;
-      var nm = String(f.dataset_label).split(':')[0]; DATASETS[ds].label = nm; DATASETS[ds].short = nm; bt.textContent = nm;
+      var nm = String(f.dataset_label).split(':')[0]; DATASETS[ds].label = nm; DATASETS[ds].short = nm; bt.textContent = setWord(nm);
       var hv = DATASETS[ds].hover ? String(f.dataset_label) + ' — ' + DATASETS[ds].hover : String(f.dataset_label);
       noteDataset(ds, hv); bt.title = oneSentence(hv);
     }).catch(function () {});
@@ -468,7 +469,7 @@ function boot() {
   // model selection lives with the model chips (the project maintainers 4 Sep 2026: an Arms chip is model selection, not a diagram control)
   var armsRow = Kit.filterRow('#armsrow');
   var armsCtl = Kit.switchControl({ mount: armsRow, key: 'arms', label: 'Models',
-    options: [{ value: 'all', label: 'all models' }, { value: 'golden', label: 'golden set (12)' }],
+    options: [{ value: 'all', label: 'all models' }, { value: 'golden', label: 'golden set' }],
     dflt: 'all',
     onchange: function (v) {
       if (!ready || coercing) return;
