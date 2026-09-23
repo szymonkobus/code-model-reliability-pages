@@ -78,6 +78,16 @@ a { color:#0b57d0; }
 </style></head><body>
 <h1>Failure rate vs difficulty</h1>
 <p class="sub">One curve per model — a thinking variant counts as its own model; benchmarks pooled. The Dataset switch picks the tasks used (wave 1+2 first), the Models switch below the chart picks the models.</p>
+<details id="defs"><summary>Definitions</summary>
+<ul class="defs">
+<li><b>Failure rate</b> — a model's share of failed attempts on a task; each curve is one model's failure rate against task difficulty, benchmarks pooled; a thinking variant counts as its own model.</li>
+<li><b>Task difficulty</b> — a task's position on the shared difficulty axis, the axis the outcome-distributions page shares, in logit units unless the X scale reads Raw.</li>
+<li><b>Average rate / Median task</b> — the definition switch picks one estimator: the average failure rate over the tasks, or the median task's failure rate; the trend, the bands and the crossings follow it.</li>
+<li><b>D50</b> — the difficulty at which the curve first crosses a 50% failure rate upward.</li>
+<li><b>D99</b> — the difficulty at which the curve first crosses 1%, a 99% solve chance.</li>
+<li><b>Band</b> — the posterior interval of the fitted curve at the chosen level (80% or 90%; 95% where available); the bracket beside a crossing is where the band's edges cross the same level.</li>
+<li><b>Curve estimator</b> — Bayesian: the served Gaussian-task-effect posterior, its median curve drawn, a model without a posterior not drawn; Local-logistic fit: the descriptive fit, the curve and its band carry the measurement.</li>
+</ul></details>
 <div id="controls"></div>
 <div id="chartbox" aria-label="failure rate vs difficulty">
   <div id="fitpanel" aria-label="what is drawn"></div>
