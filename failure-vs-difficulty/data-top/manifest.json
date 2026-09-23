@@ -12,11 +12,11 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 57,
-  "fitted_M": 57,
-  "complete_M": 57,
-  "sampled_M": 57,
-  "difficulty_population_M": 57,
+  "population_M": 58,
+  "fitted_M": 58,
+  "complete_M": 58,
+  "sampled_M": 58,
+  "difficulty_population_M": 58,
   "tasks": 858,
   "keep_set_hash": "532d0efad8a5",
   "inputs_content_sha": "dc8ecc4bbce7",
@@ -32,7 +32,7 @@
   "runs_fingerprint": "490af819893f",
   "axis_wave": "pool-20260910T2244Z",
   "build_date": "2026-09-23",
-  "stamp": "2026-09-23T07:51:56Z",
+  "stamp": "2026-09-23T08:08:52Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -166,6 +166,10 @@
     "of": 858
    },
    "olmo-3.1-7b-rl-zero-code-final_completion": {
+    "tasks": 858,
+    "of": 858
+   },
+   "olmo-3-7b-think-final-Thinking": {
     "tasks": 858,
     "of": 858
    },
@@ -430,7 +434,7 @@
   "vocab_ruled": "2026-08-27",
   "interim": "kernel fits on all results available at build; refit hourly as results land",
   "off_panel": {
-   "n_with_cells": 24,
+   "n_with_cells": 23,
    "arms": [
     {
      "id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
@@ -493,11 +497,6 @@
      "label": "Olmo 3 7B Think (step 800)"
     },
     {
-     "id": "olmo-3-7b-think-final-Thinking",
-     "arm_id": "olmo3-7b-think-final",
-     "label": "Olmo 3 7B Think (final)"
-    },
-    {
      "id": "qwen3-8b-4k32",
      "arm_id": "q3-8B-4k32",
      "label": "Qwen3 8B (raw, re-run)"
@@ -556,7 +555,7 @@
    "unregistered": [],
    "in_side_block": [],
    "panel_conflicts": [],
-   "line": "24 study models with results are off the panel; their fits appear in their own block when served"
+   "line": "23 study models with results are off the panel; their fits appear in their own block when served"
   },
   "cleaned_arms_unified": [
    "openai/gpt-5-mini",
