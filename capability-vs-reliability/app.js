@@ -2038,7 +2038,7 @@ function renderScatter() {
   var pl3 = '';
   var plw = Math.max(pl1.length * pfs, pl2.length * pfs2, pl3.length * pfs2) * 0.56 + 18, plh = (pfs + 6) + ((pl2 || pl3) ? (pl3 ? 2 : 1) * (pfs2 + 4) : 0) + 8;
   var plMax = W - MR - plx - 4; if (plw > plMax) { var shrink = plMax / plw; pfs = Math.max(Math.ceil(11 * UPX), Math.floor(pfs * shrink)); pfs2 = Math.max(Math.ceil(11 * UPX), Math.floor(pfs2 * shrink)); plw = plMax; plh = (pfs + 6) + ((pl2 || pl3) ? (pl3 ? 2 : 1) * (pfs2 + 4) : 0) + 8; }
-  out += (state.line === 'off' ? '' : '<g id="fitpanel" data-critical-text data-export="omit" data-chain-val="def src xdef fitci line xs ys s l sel" pointer-events="none">'
+  out += (true ? '' : '<g id="fitpanel" data-critical-text data-export="omit" data-chain-val="def src xdef fitci line xs ys s l sel" pointer-events="none">'   // FIGURES CARRY NO NOTES (the project maintainers' word of 23 Sep 17:1x UK): the fit box leaves the plane; its words stand in the headline (slope, its interval, R) and the frame line (the counts)
     + '<rect x="' + plx + '" y="' + ply + '" width="' + plw.toFixed(0) + '" height="' + plh + '" rx="6" fill="#fcfaf3" fill-opacity="0.94" stroke="#d9d2c2"/>'
     + '<text x="' + (plx + 9) + '" y="' + (ply + pfs + 4) + '" font-size="' + pfs + '" fill="#1f1e1b" font-weight="600" style="font-variant-numeric:tabular-nums">' + pl1 + '</text>'
     + (pl2 ? '<text x="' + (plx + 9) + '" y="' + (ply + pfs + pfs2 + 9) + '" font-size="' + pfs2 + '" fill="#52514e" style="font-variant-numeric:tabular-nums">' + pl2 + '</text>' : '')
@@ -2064,6 +2064,12 @@ function renderScatter() {
   if (moveN) out += '<text x="' + (ML + 8) + '" y="' + (MT + PH - 8 - (beyondFrame ? 14 : 0)) + '" font-size="' + (NARROW ? 12 : 11) + '" fill="#52514e" data-chain-val="src move">arrows: moves from ' + prevFitName() + '</text>';
   var body = (moveN ? '<g id="moves">' + moves + '</g>' : '') + '<g id="marks">' + marks + '</g>';
   document.getElementById('plotg').innerHTML = out + (EXPORTING ? '<g clip-path="url(#expclip)">' + body + '</g>' : body);
+  (function () {   // the fit's words beside the plot, off the figure (the project maintainers' word of 23 Sep 17:1x UK: figures carry no notes): slope, its interval and R as before; gone when the line is off
+    var fp = document.getElementById('fitpanel'), row = document.getElementById('exportrow');
+    if (state.line === 'off' || !row) { if (fp) fp.remove(); return; }
+    if (!fp) { fp = document.createElement('div'); fp.id = 'fitpanel'; fp.className = 'fitwords'; fp.setAttribute('data-critical-text', ''); fp.setAttribute('data-chain-val', 'def src xdef fitci line xs ys s l sel'); row.insertAdjacentElement('beforebegin', fp); }
+    fp.textContent = pl1;
+  })();
   updateTrack();
 
   // while the levels move, every text block whose wrapping depends on the numbers keeps its height
@@ -2642,8 +2648,8 @@ function fitCaption(fit, n) {
   var drawnTxt = outs.length ? 'across the fitted models (' + outs.join(' and ') + ' drawn are not in the fit)' : 'across the drawn models';   // exact in every state (the maintainers 21 Sep; the run set 22 Sep)
   el.hidden = false; if (fold) fold.hidden = false;   // a fold at the very end of the page (the project maintainers' word of 22 Sep 11:43 UK: nothing between the plot and its controls; the summary carries the opening words)
   el.textContent = 'Both axes are positions on the difficulty scale. A task’s position is its failure rate averaged over the models that shape the scale (one vote per model), smoothed toward one half by the Jeffreys step on the total attempts, placed on the scale by its odds: one step on the scale multiplies the odds of failure by about 2.7, and positions print as shares (a difficulty of 70% is a task those models fail on 70% of their attempts on average). '
-    + xn + ' is the difficulty at which a model’s fitted failure curve crosses ' + xl + ', ' + yn + ' the difficulty at which the same curve crosses ' + yl + '. The line ' + yn + ' = a + b·' + xn + ' is fitted in scale steps ' + drawnTxt + ' (ordinary least squares, every dot equal; equal axes). The slope b is how many steps ' + yn + ' moves for each step of ' + xn + ' across models; with b near one the intercept a is a constant gap: every model’s ' + yn + ' sits |a| steps below its ' + xn + ', the same gap for every model, and the odds of failure at the ' + yn + ' position are e^a times those at the ' + xn + ' position. With b away from one the gap changes by (b − 1) steps per step of ' + xn + ', so the intercept alone is the gap at the scale’s 50% mark. '
-    + 'Today: slope ' + b.toFixed(2) + ' [' + fit.lo.toFixed(2) + ', ' + fit.hi.toFixed(2) + '], intercept ' + a.toFixed(2) + aRange + ' steps (e^' + a.toFixed(2) + ' ≈ ' + eaTxt + '), R ' + fit.r.toFixed(2) + ', ' + n + ' models on ' + set + '.';
+    + xn + ' is the difficulty at which a model’s fitted failure curve crosses ' + xl + ', ' + yn + ' the difficulty at which the same curve crosses ' + yl + '. A straight line is fitted through the models in scale steps ' + drawnTxt + ' (ordinary least squares, every dot equal; equal axes): it gives ' + yn + ' as an intercept a plus a slope b times ' + xn + '. The slope b is how many steps ' + yn + ' moves for each step of ' + xn + ' across models; with b near one the intercept a is a constant gap: every model’s ' + yn + ' sits a steps below its ' + xn + ' (the size of a), the same gap for every model, and the odds of failure at the ' + yn + ' position are e to the power a times those at the ' + xn + ' position. With b away from one the gap changes by (b − 1) steps per step of ' + xn + ', so the intercept alone is the gap at the scale’s 50% mark. '
+    + 'Today: slope ' + b.toFixed(2) + ' [' + fit.lo.toFixed(2) + ', ' + fit.hi.toFixed(2) + '], intercept ' + a.toFixed(2) + aRange + ' steps (e to the power ' + a.toFixed(2) + ', about ' + eaTxt + '), R ' + fit.r.toFixed(2) + ', ' + n + ' models on ' + set + '.';
 }
 function headline(nFit, fit, nFull, sweeping) {
   var el = document.getElementById('headline'); if (!el) return;
