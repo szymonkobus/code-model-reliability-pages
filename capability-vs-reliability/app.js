@@ -725,7 +725,7 @@ function boot() {
     onchange: function (v) {
       if (CAP_KEYS[v] && !CAP_KEYS[v].block()) { if (xdefSw) xdefSw.set('crossing'); return; }   // a greyed option reached by keyboard: stay on the crossing
       if (v === 'crossing' || /^D\d+$/.test(v)) {   // a D option is the crossing at a level: it moves the horizontal level as the presets do; the URL carries the level (a=), not the option
-        state.xdef = 'crossing'; if (!xdefReady) return;
+        state.xdef = 'crossing'; if (!xdefReady || typeof elA === 'undefined' || !elA) return;   // at construction, or when a deep link's fallback sets the crossing before the level inputs exist: the level stays as a= says
         var N = v === 'crossing' ? 50 : +v.slice(1); Kit.state.set('xdef', null, null); syncXdefLock(); setLevels(100 - N, state.c); return;
       }
       state.xdef = v;
