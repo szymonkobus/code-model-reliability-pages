@@ -1179,12 +1179,12 @@ function syncWdLock() {
   var inert = state.src === 'bayes' || state.def === 'median';
   sw.classList.toggle('inert', inert);
   sw.style.display = inert ? 'none' : '';   // a control that cannot apply is absent, not greyed with a hover reason (critic 2nd read 09-04); the kit's display rule beats [hidden]
-  sw.title = !inert ? ''
+  sw.title = capTitle(!inert ? ''
     : state.src === 'bayes'
       ? 'widths apply to the average-rate frequentist whiskers only '
         + '— whiskers: the 80% band of the fit\u2019s uncertainty (finite attempts and the spread across tasks)'
       : 'widths apply to the average-rate chain only — median-task '
-        + 'whiskers are bootstrap band quantiles';
+        + 'whiskers are bootstrap band quantiles');
   sw.querySelectorAll('button').forEach(function (b) {
     b.disabled = inert;
   });
@@ -1269,7 +1269,7 @@ function buildChips() {
     b.className = 'chip'; if (c.think) { b.classList.add('think'); b.title = 'thinking mode \u2014 open marker on the chart'; }
     if (isPartial(i) || isWithheld(i)) b.classList.add('partial');
     if (c.run) { var Rc = runOf(i) || RUN; b.classList.add('run'); b.title = (c.display_name || Rc.name + ' \u2014 ' + c.label); }   // the full display name of record on hover; the clause is on the run line's label (F133)
-    if (c.alongside) { b.title = (b.title ? b.title + ' \u00b7 ' : '') + 'positioned on the served axis, not shaping it \u2014 its fit from the ' + c.alongside + ' series, read alongside the board fit set'; }   // difficulty's word of 22 Sep: a run's final admitted to the board is positioned, never voting
+    if (c.alongside) { b.title = capTitle((b.title ? b.title + ' \u00b7 ' : '') + 'positioned on the served axis, not shaping it \u2014 its fit from the ' + c.alongside + ' series, read alongside the board fit set'); }   // difficulty's word of 22 Sep: a run's final admitted to the board is positioned, never voting
     if (c.gates_failed) { b.classList.add('flagged'); var fg = document.createElement('span'); fg.className = 'flag'; fg.textContent = '\u2691'; fg.setAttribute('aria-label', 'flagged fit'); b.title = (b.title ? b.title + ' \u00b7 ' : '') + 'flagged fit: ' + (c.gate_flag || 'the fit failed a sampler gate'); b.appendChild(fg); }   // a flagged fit is shown with its flag and its sentence, never plain (Definitions, 22 Sep)
     b.style.color = c.color; b.style.borderColor = c.color;
     b.insertBefore(document.createTextNode(c.label), b.firstChild); b.dataset.idx = i;
@@ -1289,7 +1289,7 @@ function buildChips() {
       if (R.idx.length) {
         var rAll = document.createElement('button'); rAll.className = 'util'; rAll.textContent = 'all'; rAll.onclick = function () { R.idx.forEach(function (i) { sel.add(i); }); writeSel(); render(); }; line.appendChild(rAll);
         var rNone = document.createElement('button'); rNone.className = 'util'; rNone.textContent = 'none'; rNone.onclick = function () { R.idx.forEach(function (i) { sel.delete(i); }); writeSel(); render(); }; line.appendChild(rNone);
-        R.idx.forEach(function (i) { var ch = makeChip(i); if (R.dual.indexOf(i) >= 0) { ch.classList.add('run'); ch.dataset.dual = '1'; var fl = ch.querySelector('.flag'); ch.textContent = (R.dualLabel || {})[i] || ch.textContent; if (fl) ch.appendChild(fl); ch.title = (D.shared.configs[i].display_name || D.shared.configs[i].label) + ' \u2014 a model of the all-models rows, shown here as the run\u2019s final too'; } line.appendChild(ch); });
+        R.idx.forEach(function (i) { var ch = makeChip(i); if (R.dual.indexOf(i) >= 0) { ch.classList.add('run'); ch.dataset.dual = '1'; var fl = ch.querySelector('.flag'); ch.textContent = (R.dualLabel || {})[i] || ch.textContent; if (fl) ch.appendChild(fl); ch.title = capTitle((D.shared.configs[i].display_name || D.shared.configs[i].label) + ' \u2014 a model of the all-models rows, shown here as the run\u2019s final too'); } line.appendChild(ch); });
       }
       if (R.withheld.length) {   // a fail-closed hide says so on the face (difficulty's form, 22 Sep): the name of record and the reason, under the run's chips
         var note = document.createElement('span'); note.className = 'runnote'; note.setAttribute('data-critical-text', '');
