@@ -1,6 +1,6 @@
 {
  "schema": "inputs-sidecar v1 (pool-pages-lead 2026-09-03; run-monitor freshness leg)",
- "generated_at": "2026-09-22T23:13:01Z",
+ "generated_at": "2026-09-23T00:13:17Z",
  "output": "pages/failure-vs-difficulty/pool-site/failure-vs-difficulty/data.json",
  "builder": "pages/failure-vs-difficulty/pool-site/failure-vs-difficulty/build_pool_curves.py",
  "inputs": [
@@ -12,33 +12,33 @@
   },
   {
    "path": "definitions/difficulty/html/datasets/dataset_mirrors_stamp.json",
-   "mtime": "2026-09-22T22:13:53Z",
-   "size": 151532,
-   "sha12": "f4f8096b29b5"
+   "mtime": "2026-09-22T23:13:20Z",
+   "size": 151536,
+   "sha12": "36ba1345bc50"
   },
   {
    "path": "definitions/difficulty/html/datasets/task_difficulty.golden.pool.csv",
-   "mtime": "2026-09-22T22:13:47Z",
+   "mtime": "2026-09-22T23:13:15Z",
    "size": 262769,
    "sha12": "69334fe9b35b"
   },
   {
    "path": "definitions/difficulty/html/datasets/task_difficulty.pool.csv",
-   "mtime": "2026-09-22T22:13:47Z",
+   "mtime": "2026-09-22T23:13:15Z",
    "size": 264383,
    "sha12": "52f5605ef354"
   },
   {
    "path": "definitions/difficulty/html/first-look/allfail_exposure.json",
-   "mtime": "2026-09-22T22:11:59Z",
-   "size": 2071298,
-   "sha12": "20d7242d2e1a"
+   "mtime": "2026-09-22T23:11:34Z",
+   "size": 1982154,
+   "sha12": "06f1fc3255a3"
   },
   {
    "path": "definitions/difficulty/knowledge/golden_set.json",
-   "mtime": "2026-09-22T23:11:35Z",
+   "mtime": "2026-09-23T00:11:46Z",
    "size": 4016,
-   "sha12": "6d27555b00e1"
+   "sha12": "d771f3e0dea0"
   },
   {
    "path": "definitions/difficulty/knowledge/landing_in_progress.json",
@@ -54,9 +54,9 @@
   },
   {
    "path": "definitions/fitting/serving.json",
-   "mtime": "2026-09-22T23:11:25Z",
+   "mtime": "2026-09-23T00:09:57Z",
    "size": 65790,
-   "sha12": "09435cacd4ea"
+   "sha12": "5f69d432c70b"
   },
   {
    "path": "definitions/fitting/serving_golden_pool.json",
@@ -456,9 +456,9 @@
   },
   {
    "path": "pages/failure-vs-difficulty/artifacts/golden_set.json",
-   "mtime": "2026-09-22T22:16:17Z",
+   "mtime": "2026-09-22T23:42:55Z",
    "size": 4721,
-   "sha12": "e0086598c46f"
+   "sha12": "ae2c1cfe2904"
   },
   {
    "path": "pages/failure-vs-difficulty/crossings-site/data/lev_grid.json",
@@ -486,9 +486,9 @@
   },
   {
    "path": "pages/pool-pages/build/flags/state/counts_of_record.prev.json",
-   "mtime": "2026-09-22T22:35:07Z",
+   "mtime": "2026-09-22T23:33:08Z",
    "size": 535,
-   "sha12": "e4ddd0094daf"
+   "sha12": "c7ee068983b9"
   },
   {
    "path": "pages/pool-pages/build/flags/state/feed_clusters_expected.json",
@@ -504,21 +504,21 @@
   },
   {
    "path": "pages/pool-pages/build/flags/state/valid_cells_last_good.store.json.stamp",
-   "mtime": "2026-09-22T22:39:34Z",
+   "mtime": "2026-09-22T23:45:36Z",
    "size": 21,
-   "sha12": "68f56949b148"
+   "sha12": "6ae73f434b41"
   },
   {
    "path": "runs/arms.jsonl",
-   "mtime": "2026-09-22T22:47:02Z",
-   "size": 475731,
-   "sha12": "02f6fdbc5d3e"
+   "mtime": "2026-09-22T23:55:53Z",
+   "size": 475761,
+   "sha12": "8965555dfc27"
   },
   {
    "path": "runs/generate/screens/fleet/collector_status.json",
-   "mtime": "2026-09-22T23:11:46Z",
-   "size": 489,
-   "sha12": "44214bf5da0d"
+   "mtime": "2026-09-22T23:48:37Z",
+   "size": 503,
+   "sha12": "f94b3ecbad7f"
   },
   {
    "path": "runs/generate/screens/fleet/config_arm_map.tsv",
@@ -534,15 +534,15 @@
   },
   {
    "path": "runs/generate/screens/fleet/generated_cells.json",
-   "mtime": "2026-09-22T23:11:49Z",
-   "size": 4309490,
-   "sha12": "cc270c27d370"
+   "mtime": "2026-09-22T23:45:00Z",
+   "size": 4310893,
+   "sha12": "0e11dd314677"
   },
   {
    "path": "runs/generate/screens/fleet/valid_cells.json",
-   "mtime": "2026-09-22T22:35:57Z",
-   "size": 246772062,
-   "sha12": "f5d697c5c49e"
+   "mtime": "2026-09-22T23:44:56Z",
+   "size": 246977094,
+   "sha12": "cf3dddccd5f6"
   },
   {
    "path": "runs/judge/knowledge/judge_instability_same_era_by_task.json",
@@ -582,9 +582,9 @@
   },
   {
    "path": "runs/judge/witnessed_windows.json",
-   "mtime": "2026-09-22T23:11:42Z",
+   "mtime": "2026-09-23T00:12:17Z",
    "size": 1937373,
-   "sha12": "a96e0ac8fdc5"
+   "sha12": "d961eef8bb36"
   },
   {
    "path": "runs/watch/critic/scratch/defect-lists/defect_cells_20260903a.json",
@@ -594,21 +594,21 @@
   },
   {
    "path": "runs/watch/forecast/watch/held_arms.json",
-   "mtime": "2026-09-22T22:36:22Z",
-   "size": 119470,
-   "sha12": "8b409ab1fb1c"
+   "mtime": "2026-09-23T00:09:20Z",
+   "size": 120330,
+   "sha12": "688a6e9c4bfd"
   },
   {
    "path": "runs/watch/forecast/watch/kimi_linear_empty_output_flag.json",
-   "mtime": "2026-09-22T22:22:51Z",
+   "mtime": "2026-09-22T23:22:14Z",
    "size": 10104,
-   "sha12": "b33fb60e8586"
+   "sha12": "92b99a1c6e7d"
   },
   {
    "path": "runs/watch/forecast/watch/price_per_model.json",
-   "mtime": "2026-09-22T22:36:21Z",
-   "size": 241185,
-   "sha12": "5e13164d621a"
+   "mtime": "2026-09-22T23:33:28Z",
+   "size": 241337,
+   "sha12": "dbfd37940442"
   },
   {
    "path": "side-projects/newbench/labels_cells.jsonl",
@@ -618,15 +618,15 @@
   },
   {
    "path": "tasks/build/certify/certificates/certs.jsonl",
-   "mtime": "2026-09-22T22:55:40Z",
-   "size": 375895911,
-   "sha12": "6e19ee7dc43a"
+   "mtime": "2026-09-23T00:08:26Z",
+   "size": 376761387,
+   "sha12": "e20cf7ba6755"
   },
   {
    "path": "tasks/build/certify/certificates/summary.json",
-   "mtime": "2026-09-22T22:55:41Z",
-   "size": 215189,
-   "sha12": "d96fcbb32917"
+   "mtime": "2026-09-23T00:08:27Z",
+   "size": 215246,
+   "sha12": "5a658e354ba9"
   },
   {
    "path": "tasks/build/certify/out/suite_v1_ids.txt",
@@ -642,15 +642,15 @@
   },
   {
    "path": "tasks/knowledge/counts_of_record.published.json",
-   "mtime": "2026-09-22T22:34:56Z",
+   "mtime": "2026-09-22T23:32:57Z",
    "size": 42936,
-   "sha12": "4920db64bc1f"
+   "sha12": "7188daece3ef"
   },
   {
    "path": "tasks/knowledge/disclosures.published.json",
-   "mtime": "2026-09-22T22:34:56Z",
-   "size": 457294,
-   "sha12": "eeb460c81794"
+   "mtime": "2026-09-22T23:32:57Z",
+   "size": 457450,
+   "sha12": "4b7f01fac42c"
   },
   {
    "path": "tasks/knowledge/keep_labels.json",
@@ -666,15 +666,15 @@
   },
   {
    "path": "tasks/knowledge/set_members_of_record.json",
-   "mtime": "2026-09-22T22:25:12Z",
+   "mtime": "2026-09-22T23:24:32Z",
    "size": 725821,
-   "sha12": "b03d24070bf4"
+   "sha12": "bd9920215ced"
   },
   {
    "path": "tasks/knowledge/winner_rule.json",
-   "mtime": "2026-09-22T22:36:15Z",
-   "size": 5318537,
-   "sha12": "e10a2a1c6a87"
+   "mtime": "2026-09-23T00:05:38Z",
+   "size": 5323963,
+   "sha12": "b51257768f9e"
   },
   {
    "path": "tasks/state/held_valid_cells_stamps.txt",
