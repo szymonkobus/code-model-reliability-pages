@@ -263,6 +263,12 @@ function armNote(c) { var d = c && c.disclosure; return (d && !/^covers \d/.test
 function underCredit(c) { var u = D.bay && D.bay.disclosures && D.bay.disclosures.pool_cells_undercredit; if (!u || !c) return null; var ids = (u.affected_arms || []).map(function (k) { return String(k).replace(/\s*\(.*\)\s*$/, ''); }); var hit = ids.indexOf(c.id) >= 0 || ids.indexOf(String(c.id).split('/').pop()) >= 0 || (c.board_id && ids.indexOf(c.board_id) >= 0); return hit ? u : null; }   // entries may carry a note in parentheses ("… (about 2 points)")   // fitting 2026-09-07 : passes on the new tasks counted as failures at this cut for these arms
 function cleanedScope(c) { var sc = D.bay && D.bay.cleaned_scope; return (sc && c && sc[c.id]) || ''; }   // a cleaned fit whose cleaning is partial (fitting's cleaned_arms[arm].scope)
 function asGraded(c) { return !!(c && /removed before grading|cleaning/i.test(armNote(c)) && D.bay && !((D.bay.cleaned_arms || []).indexOf(c.id) >= 0)); }   // the reference chain carries the adopted cleaning but this arm's served Bayesian fit is still on the attempts as first graded (fitting's cleaned_arms lists the re-fitted ones)   // failure-vs-difficulty's per-arm disclosure (the gpt cleaning line when it lands); the coverage sentence is already the hover's coverage row
+function capTitle(t) {   // a hover stays within 300 characters (the maintainers's rule of 8 Sep): a long sentence of record is cut at its last clause boundary before the line, marked with an ellipsis; the whole sentence stays in the mark's tooltip and the legend
+  t = String(t || ''); if (t.length <= 300) return t;
+  var cut = t.slice(0, 296), k = Math.max(cut.lastIndexOf('; '), cut.lastIndexOf(', '), cut.lastIndexOf(' \u2014 '), cut.lastIndexOf('. '));
+  if (k < 200) k = cut.lastIndexOf(' ');
+  return cut.slice(0, k > 0 ? k : 296).replace(/[;,.\s]+$/, '') + ' \u2026';
+}
 function refreshPartialChips() {   // the project maintainers 2026-09-07  (via failure-vs-difficulty): hidden partial chips stay in place, greyed and UNSELECTABLE, with a hint; switch on = normal chips
   chips.forEach(function (b) { var i = +b.dataset.idx, c = D.shared.configs[i]; if (!c) return;
     var words = [];   // the chip's hover, in order: the mark, the run and its clause, the board twin's standing, the flag, then the coverage
@@ -271,11 +277,11 @@ function refreshPartialChips() {   // the project maintainers 2026-09-07  (via f
     if (c.alongside) words.push('positioned on the served axis, not shaping it \u2014 its fit from the ' + c.alongside + ' series, read alongside the board fit set');   // difficulty's word of 22 Sep
     if (c.gates_failed) words.push('flagged fit: ' + (c.gate_flag || 'the fit failed a sampler gate'));   // a flagged fit is shown with its flag and its sentence, never plain (Definitions, 22 Sep); the sentence of record follows the word
     var base = words.join(' \u00b7 ');
-    if (isWithheld(i)) { b.disabled = true; b.setAttribute('aria-disabled', 'true'); b.classList.add('partial'); b.classList.remove('partialshown'); b.title = 'not shown: ' + WITHHELD[c.id]; return; }
+    if (isWithheld(i)) { b.disabled = true; b.setAttribute('aria-disabled', 'true'); b.classList.add('partial'); b.classList.remove('partialshown'); b.title = capTitle('not shown: ' + WITHHELD[c.id]); return; }
     if (isPartial(i)) {
-      if (partialShown()) { b.disabled = false; b.removeAttribute('aria-disabled'); b.classList.remove('partial'); b.classList.add('partialshown'); b.title = (base ? base + ' \u00b7 ' : '') + 'partial: ' + coverageText(c) + ', shown greyed'; }
-      else { b.disabled = true; b.setAttribute('aria-disabled', 'true'); b.classList.add('partial'); b.classList.remove('partialshown'); b.title = 'partial model, hidden; the Partial models switch shows it' + (coverageText(c) ? ' \u2014 ' + coverageText(c) : ''); }
-    } else if (coverageText(c)) { b.title = (base ? base + ' \u00b7 ' : '') + coverageText(c); } else if (base) { b.title = base; }
+      if (partialShown()) { b.disabled = false; b.removeAttribute('aria-disabled'); b.classList.remove('partial'); b.classList.add('partialshown'); b.title = capTitle((base ? base + ' \u00b7 ' : '') + 'partial: ' + coverageText(c) + ', shown greyed'); }
+      else { b.disabled = true; b.setAttribute('aria-disabled', 'true'); b.classList.add('partial'); b.classList.remove('partialshown'); b.title = capTitle('partial model, hidden; the Partial models switch shows it' + (coverageText(c) ? ' \u2014 ' + coverageText(c) : '')); }
+    } else if (coverageText(c)) { b.title = capTitle((base ? base + ' \u00b7 ' : '') + coverageText(c)); } else if (base) { b.title = capTitle(base); }
   });
 }
 var dataNote = null;
@@ -1363,7 +1369,7 @@ function paintChips() {
     var nofit = (state.src === 'bayes' && !!D.bay && !D.bayById[cfgId]) || (isRun(+b.dataset.idx) && state.src !== 'bayes');   // one estimator per view: an arm without a posterior is a greyed chip, never a point; the run's checkpoints are Bayesian fits only
     b.classList.toggle('nofit', nofit);
     var cfgC = D.shared.configs[+b.dataset.idx] || {};
-    if (nofit) { b.title = (isRun(+b.dataset.idx) && state.src !== 'bayes' ? 'a run\u2019s checkpoints are Bayesian fits \u2014 not drawn under the reference chain' : 'awaiting its Bayesian fit \u2014 not drawn under the Bayesian estimator') + (cfgC.gates_failed ? ' \u00b7 flagged fit: ' + (cfgC.gate_flag || 'the fit failed a sampler gate') : ''); b.dataset.nofit = '1'; }   // the flag stays on the hover in every state (Definitions, 22 Sep)
+    if (nofit) { b.title = capTitle(isRun(+b.dataset.idx) && state.src !== 'bayes' ? 'a run\u2019s checkpoints are Bayesian fits \u2014 not drawn under the reference chain' : 'awaiting its Bayesian fit \u2014 not drawn under the Bayesian estimator') + (cfgC.gates_failed ? ' \u00b7 flagged fit: ' + (cfgC.gate_flag || 'the fit failed a sampler gate') : ''); b.dataset.nofit = '1'; }   // the flag stays on the hover in every state (Definitions, 22 Sep)
     else if (b.dataset.nofit) { b.title = ''; delete b.dataset.nofit; recompose = true; }
   });
   if (recompose) refreshPartialChips();   // a chip back from no-fit gets its hover words again
