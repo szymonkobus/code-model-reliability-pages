@@ -1,5 +1,5 @@
 {
- "fingerprint": "2d4faf360fa5",
+ "fingerprint": "43504cae9606",
  "frame": {
   "dataset": "all",
   "dataset_label": "wave 1+2 (2,153 tasks): 431 of wave 1 + 1,693 of wave 2 + 29 tasks outside both waves, the list kept on 3 September 2026",
@@ -19,7 +19,7 @@
   "difficulty_population_M": 61,
   "tasks": 2167,
   "keep_set_hash": "60ede5d24001",
-  "inputs_content_sha": "40077bf27c20",
+  "inputs_content_sha": "fe0e781557c5",
   "tasks_on_axis": 2167,
   "tasks_kept": 2167,
   "tasks_awaiting_axis": 0,
@@ -29,10 +29,10 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "d47f37078d14",
+  "runs_fingerprint": "97d42388155b",
   "axis_wave": "unified-live",
   "build_date": "2026-09-24",
-  "stamp": "2026-09-24T01:41:05Z",
+  "stamp": "2026-09-24T02:45:35Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -51,6 +51,7 @@
    "olmo-3.1-7b-rl-zero-code-step0150_completion": 430,
    "olmo-3.1-7b-rl-zero-code-step0250_completion": 430,
    "olmo-3.1-7b-rl-zero-code-step0450_completion": 430,
+   "olmo-3.1-7b-rl-zero-code-step0900_completion": 430,
    "olmo-3.1-7b-rl-zero-code-step1950_completion": 430,
    "qwen3-8b-4k32": 430,
    "qwen3-8b-code-rl": 430,
@@ -66,7 +67,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-24T01:12:47Z",
+   "unified_built_at": "2026-09-24T02:13:19Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -606,7 +607,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-24T01:24:06Z",
+   "_stamp": "2026-09-24T02:24:10Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -772,9 +773,9 @@
   }
  },
  "files": {
-  "shared": "shared.2d4faf360fa5.json",
-  "chain_average": "chain_average.2d4faf360fa5.json",
-  "chain_median": "chain_median.2d4faf360fa5.json",
-  "dots": "dots.2d4faf360fa5.json"
+  "shared": "shared.43504cae9606.json",
+  "chain_average": "chain_average.43504cae9606.json",
+  "chain_median": "chain_median.43504cae9606.json",
+  "dots": "dots.43504cae9606.json"
  }
 }
