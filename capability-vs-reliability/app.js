@@ -2126,7 +2126,7 @@ function exportView() {   // the controls' state in words for the export's stamp
   parts.push(axisShort('y') + ' against ' + axisShort('x'));
   var sp = function (v) { return v === 'raw' ? 'linear' : 'logit'; };
   parts.push(state.xs === state.ys ? sp(state.xs) + ' axes' : 'horizontal ' + sp(state.xs) + ', vertical ' + sp(state.ys));
-  // no estimator or method words in a shared image (the coordination on the standing words, 23 Sep 15:1x UK): the estimator's name lives on the page's switch
+  // no estimator or method words in a shared image (the coordination on the project maintainers' standing words, 23 Sep 15:1x UK): the estimator's name lives on the page's switch
   return parts.join(' \u00b7 ');
 }
 function exportLegend() {   // every drawn model grouped by family in the colour scheme's order, within a family by size (the project maintainers 13:1x UK 18 Sep), its mark exactly as drawn
