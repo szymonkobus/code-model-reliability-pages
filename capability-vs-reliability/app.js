@@ -280,9 +280,9 @@ function refreshPartialChips() {   // the project maintainers 2026-09-07  (via f
     var base = words.join(' \u00b7 ');
     if (isWithheld(i)) { b.disabled = true; b.setAttribute('aria-disabled', 'true'); b.classList.add('partial'); b.classList.remove('partialshown'); b.title = capTitle('not shown: ' + WITHHELD[c.id]); return; }
     if (isPartial(i)) {
-      if (partialShown()) { b.disabled = false; b.removeAttribute('aria-disabled'); b.classList.remove('partial'); b.classList.add('partialshown'); b.title = capTitle((base ? base + ' \u00b7 ' : '') + 'partial: ' + coverageText(c) + ', shown greyed'); }
-      else { b.disabled = true; b.setAttribute('aria-disabled', 'true'); b.classList.add('partial'); b.classList.remove('partialshown'); b.title = capTitle('partial model, hidden; the Partial models switch shows it' + (coverageText(c) ? ' \u2014 ' + coverageText(c) : '')); }
-    } else if (coverageText(c)) { b.title = capTitle((base ? base + ' \u00b7 ' : '') + coverageText(c)); } else if (base) { b.title = capTitle(base); }
+      if (partialShown()) { b.disabled = false; b.removeAttribute('aria-disabled'); b.classList.remove('partial'); b.classList.add('partialshown'); b.title = capTitle((base ? base + ' \u00b7 ' : '') + 'partial model, shown greyed'); }
+      else { b.disabled = true; b.setAttribute('aria-disabled', 'true'); b.classList.add('partial'); b.classList.remove('partialshown'); b.title = capTitle('partial model, hidden; the Partial models switch shows it'); }
+    } else if (base) { b.title = capTitle(base); } else { b.title = ''; }
   });
 }
 var dataNote = null;
@@ -476,7 +476,7 @@ function readBayesRow(r, levLogit, B) {   // B = the artifact the row belongs to
   var pc = null;
   if (lt.p_left[j0] !== null && lt.p_right[j0] !== null)
     pc = ip(lt.p_left) + ip(lt.p_right);
-  var interimNote = r.interim ? 'interim fit, landed ' + plainTs(r.interim.landed) : null;   // no wave id, no Zulu time (the project maintainers 2026-09-07)
+  var interimNote = r.interim ? 'interim fit' : null;   // no wave id, no Zulu time (the project maintainers 2026-09-07)
   return { z: ip(lt.mid), lo: ip(lt.lo), hi: ip(lt.hi), kind: 'point',
            hi_open: lt.hi_open[j0] || lt.hi_open[j],
            lo_open: lt.lo_open[j0] || lt.lo_open[j],
@@ -1300,16 +1300,7 @@ function buildChips() {
         var rNone = document.createElement('button'); rNone.className = 'util'; rNone.textContent = 'none'; rNone.onclick = function () { R.idx.forEach(function (i) { sel.delete(i); }); writeSel(); render(); }; line.appendChild(rNone);
         R.idx.forEach(function (i) { var ch = makeChip(i); if (R.dual.indexOf(i) >= 0) { ch.classList.add('run'); ch.dataset.dual = '1'; var fl = ch.querySelector('.flag'); ch.textContent = (R.dualLabel || {})[i] || ch.textContent; if (fl) ch.appendChild(fl); ch.title = capTitle((D.shared.configs[i].display_name || D.shared.configs[i].label) + ' \u2014 a model of the all-models rows, shown here as the run\u2019s final too'); } line.appendChild(ch); });
       }
-      if (R.withheld.length) {   // a fail-closed hide says so on the face (difficulty's form, 22 Sep): the name of record and the reason, under the run's chips
-        var note = document.createElement('span'); note.className = 'runnote'; note.setAttribute('data-critical-text', '');
-        var groups = [], byReason = {}; R.withheld.forEach(function (w) { var k = w.reason || ''; if (!byReason[k]) { byReason[k] = []; groups.push(k); } byReason[k].push(w.display_name || w.label || w.id); });   // one reason said once for the checkpoints it covers (fitting withheld three on one decision, 23 Sep)
-        note.textContent = 'Not shown: ' + groups.map(function (k) { return byReason[k].join(', ') + ' \u2014 ' + k; }).join('; ') + '.';
-        line.appendChild(note);
-      }
-      // fitting's face_note leaf (24 Sep ): one caveat sentence on a drawn checkpoint — a prose line under the run's chips after the Not shown words,
-      // never inside the figure or the hover (the hover keeps the gate sentence whole)
-      R.idx.forEach(function (i) { var c = D.shared.configs[i]; if (!c || !c.face_note) return;
-        var fn = document.createElement('span'); fn.className = 'runnote'; fn.setAttribute('data-critical-text', ''); fn.textContent = (c.display_name || c.label) + ' \u2014 ' + c.face_note; line.appendChild(fn); });
+      // the project maintainers' word of 24 Sep 12:4x UK: the page states the current truth only — no per-checkpoint notes about re-judging, counts, moves or hours under the run's chips
       if (R.pending && !R.idx.length) { var pn = document.createElement('span'); pn.className = 'runnote'; pn.setAttribute('data-critical-text', ''); pn.textContent = R.pending; line.appendChild(pn); }   // a run named but not yet fitted: its row says so in words
       line.hidden = !runOnPlane(R);
       rbox.appendChild(line);

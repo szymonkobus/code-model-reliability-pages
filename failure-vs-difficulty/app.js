@@ -609,7 +609,7 @@ function buildChips() {
       b.className = 'chip';
       b.style.color = c.color; b.style.borderColor = c.color;
       b.textContent = c.label.replace(new RegExp('^' + f.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(?=[\\s/_:-]|$)[\\s/_:-]*'), '').trim() || c.label;   // the strip needs the family name to END at a separator: with the family key "Olmo 3" (22 Sep) the label "Olmo 3.1 7B …" keeps its whole name instead of losing "Olmo 3" and printing ".1 7B …" // family prefix AND its separator go ("GPT-5-nano" under GPT-5 reads "nano", not "-nano")
-      b.dataset.label = b.textContent;
+      b.dataset.label = b.textContent; b.dataset.name = (c && c.label) || b.textContent;   // the full name of record, for readers (the maintainers's parity scan)
       b.dataset.idx = i;
       b.onclick = function () {
         if (sel.has(i)) sel.delete(i); else sel.add(i);
@@ -636,7 +636,7 @@ function buildChips() {
       SERIES_MERGED[r.name] = true;
       sbR.arms.forEach(function (a, k) {
         var b = document.createElement('button'); b.className = 'chip serieschip'; b.style.color = a.color; b.style.borderColor = a.color;
-        b.textContent = a.short_label || a.label; b.dataset.label = b.textContent; b.dataset.series = String(k); b.dataset.row = String(sbR._row);   // the short form of record ('RL-Zero Code · 0/32') from the labels row, never composed
+        b.textContent = a.short_label || a.label; b.dataset.label = b.textContent; b.dataset.name = a.label || b.textContent; b.dataset.name = a.label || b.textContent; b.dataset.series = String(k); b.dataset.row = String(sbR._row);   // the short form of record ('RL-Zero Code · 0/32') from the labels row, never composed
         var parts = []; if (a.disclosure) parts.push(a.disclosure); if (a.set_label) parts.push('fitted on ' + a.set_label);
         if (a.gates_failed) parts.push(a.gate_face ? noSpecTags(String(a.gate_face)) : 'sampler gate flagged on this fit; drawn with the disclosure');
         if (a.protocol) parts.push('read by ' + a.protocol + ': the base model continues the prompt, no chat turn');
@@ -649,7 +649,7 @@ function buildChips() {
     r.members.forEach(function (i) {
       var c = D.shared.configs[i]; var b = document.createElement('button'); b.className = 'chip'; b.style.color = c.color; b.style.borderColor = c.color;
       b.textContent = c.short_label || SHORT_LABELS_OF_RECORD[c.id] || c.label;   // the bundle's short label of record when the builder carries it, else the row's value carried here by hand (transitional), else the full label — never a composed form
-      b.dataset.label = b.textContent; b.dataset.idx = i;
+      b.dataset.label = b.textContent; b.dataset.name = c.label || b.textContent; b.dataset.idx = i;
       b.onclick = function () { if (sel.has(i)) sel.delete(i); else sel.add(i); writeSel(); render(); };
       chips.push(b); box.appendChild(b);
     });
@@ -954,7 +954,7 @@ function renderSideBlock() {
     var b = document.createElement('button');
     b.className = 'chip' + (sideSel.has(k) ? '' : ' off') + (a.disclosure ? ' disclosed' : '');
     b.style.color = a.color; b.style.borderColor = a.color;
-    b.textContent = a.label; b.dataset.label = a.label; b.dataset.side = String(k);
+    b.textContent = a.label; b.dataset.label = a.label; b.dataset.name = a.label; b.dataset.side = String(k);
     var parts = [];
     if (a.disclosure) parts.push(a.disclosure);
     if (a.set_label) parts.push('fitted on ' + a.set_label);
@@ -1035,7 +1035,7 @@ function renderSeriesRow(sb, ri) {   // the run's row: cloned from renderSideBlo
     var b = document.createElement('button');
     b.className = 'chip' + (seriesSel.has(k) ? '' : ' off') + (a.disclosure ? ' disclosed' : '');
     b.style.color = a.color; b.style.borderColor = a.color;
-    b.textContent = a.short_label || a.label; b.dataset.label = b.textContent; b.dataset.series = String(k); b.dataset.row = String(ri);   // the short form of record ('RL-Zero Code · 0/32', '· final') from the labels row, never composed
+    b.textContent = a.short_label || a.label; b.dataset.label = b.textContent; b.dataset.name = a.label || b.textContent; b.dataset.name = a.label || b.textContent; b.dataset.series = String(k); b.dataset.row = String(ri);   // the short form of record ('RL-Zero Code · 0/32', '· final') from the labels row, never composed
     var parts = [];
     if (a.disclosure) parts.push(a.disclosure);
     if (a.set_label) parts.push('fitted on ' + a.set_label);
