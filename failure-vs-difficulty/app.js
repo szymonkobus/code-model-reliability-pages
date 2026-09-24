@@ -143,7 +143,7 @@ var DEFAULT_DATASET = (MIRROR && typeof window.MIRROR_DEFAULT === 'string' && DA
                       : (DATASETS.board_top ? 'board_top' : Object.keys(DATASETS)[0]);
 var FALLBACK_DATASET = DATASETS.board ? 'board' : DEFAULT_DATASET;
 var EXTRA_AVAILABLE = {};   // keys outside the built-ins: manifest present?
-function setWord(s) { return String(s == null ? '' : s).replace(/\s*\([\d,]+ tasks\)\s*$/, ''); }   // a set switch reads the set name alone: wave 1, wave 2, wave 1+2 … — the count stays in the status line and the hover (the project maintainers' word of 23 Sep, via the pool pages lead)
+function setWord(s) { return String(s == null ? '' : s).replace(/\s*\([\d,]+ tasks\)\s*$/, ''); }   // a set switch reads the project maintainers' set name alone: wave 1, wave 2, wave 1+2 … — the count stays in the status line and the hover (the project maintainers' word of 23 Sep, via the pool pages lead)
 function isExtra(k) { return !!(DATASETS[k] && !BUILTIN_KEYS[k]); }
 function extraDir(k) { return String(DATASETS[k].src || '').replace(/\/?manifest\.json$/, '') || ('data-' + k); }
 var DATASET = (typeof Kit !== 'undefined' && Kit.state) ? Kit.state.get('data', DEFAULT_DATASET) : DEFAULT_DATASET;   // default: board + top half (the project maintainers' word,)
@@ -757,7 +757,7 @@ function faceNumbers(s) {   // the project maintainers 8 Sep: one to three signi
     return (out.indexOf('e') >= 0) ? m : String(Number(out));
   });
 }
-function currentTruth(t) {   // the record of 24 Sep (12:4x UK, via the maintainers): a page states the current truth only — no re-judging counts, no hours of fits to come, no may-move notes; the
+function currentTruth(t) {   // the project maintainers' word of 24 Sep (12:4x UK, via the maintainers): a page states the current truth only — no re-judging counts, no hours of fits to come, no may-move notes; the
   // clauses of a fit maintainers' disclosure that speak of history or of fits to come leave the line here as well as at their source (clause boundaries only: '; ' and ' · ')
   var HIST = /judg|fitted again|fitted once more|new fit|may move|moved from|\bsince \d|\buntil\b|landing about|at the latest|a second run|double length|re-run|in the count|count on their|stood at|as they stood|checked fit|the check\b|noise floor/i;
   return String(t || '').split(/(; | \u00b7 )/).reduce(function (acc, piece, i, arr) {   // keep separators only when the clause after them is kept
@@ -804,7 +804,7 @@ function hasOwnBayes(i) {
   var cfgB = (state.def === 'average' ? D.avg : D.med).configs[id];
   return !!(cfgB && cfgB.bayes);
 }
-function runFitFor(id) {   // the record of 24 Sep (13:0x UK): a served model without a Bayesian fit whose training run's pointer carries its fit of record draws that fit — the run's copy the row
+function runFitFor(id) {   // the project maintainers' word of 24 Sep (13:0x UK): a served model without a Bayesian fit whose training run's pointer carries its fit of record draws that fit — the run's copy the row
   // keeps aside (orderSeries: merged_arms); null when no run row carries the model or its copy has no posterior
   var rows; try { rows = seriesRows(); } catch (e) { return null; }
   for (var r = 0; r < rows.length; r++) { var a = rows[r].merged_arms && rows[r].merged_arms[id]; if (a && (a.bayes_avg || a.bayes_med)) return a; }
@@ -1408,7 +1408,7 @@ function notes(visible, unfitted) {
   var bnEl = document.getElementById('basisnote');
   if (bnEl) {
     var cont = D.shared.configs.map(function (c, i) { return i; }).filter(function (i) { return shownArm(i) && D.shared.configs[i].continuation_flag; });
-    bnEl.textContent = '';   // the cap-cut clause left the face (the record of 24 Sep); each model's § hover keeps its record
+    bnEl.textContent = '';   // the cap-cut clause left the face (the project maintainers' word of 24 Sep); each model's § hover keeps its record
     if (false) bnEl.textContent = cont.length ? 'answers cut at the output cap were continued for ' + cont.length + ' of the models in this view (verdicts as continued; each model\u2019s \u00a7 hover carries its record)' : '';
   }
   var nsEl = document.getElementById('notshown');   // VISIBLE under the chart (the notes container sits in the closed fold-out): the project maintainers' one note line
@@ -1812,7 +1812,7 @@ function fitFrameClause(f) {   // the task pool maintainers DECISIONS 10 Sep (cr
   if (ff.pilot_kept) hov.push('the pilot\u2019s ' + ff.pilot_kept + ' of record in the frame');
   return ' · <span title="' + (hov.length ? oneSentence(hov.join(', ')) : '') + '">the fit on ' + (ff.label || ff.name) + ' as cut</span>';   // a set-membership label (the task pool maintainers' template), never a bare task count (the project maintainers' word of 10 Sep)
 }
-function setDefinition(f, isPool) {   // the set's definition once, in the Definitions fold at the top (the record of 24 Sep): the label of record for the tasks used, no counts elsewhere on the face
+function setDefinition(f, isPool) {   // the set's definition once, in the Definitions fold at the top (the project maintainers' word of 24 Sep): the label of record for the tasks used, no counts elsewhere on the face
   var ul = document.querySelector('#defs ul.defs'); if (!ul) return;
   var li = document.getElementById('defset');
   var label = '';
@@ -1850,7 +1850,7 @@ function stamp() {
   // the STATE line: hashes, sources, axis, withheld arms, fit source, links — in the fold-out
   document.getElementById('stamp').setAttribute('data-chrome', '');
   document.getElementById('stamp').innerHTML =
-    (dl ? '' : head + ' · ')
+    (dl ? '' : head + ' · ') + machinery + ' · '   // the build clock and the cadence live in this fold line (chrome), off the plot's face since 24 Sep
     + '<span data-chain-inv>' + (isPool ? 'manifest ' : 'axis-set ') + f.keep_set_hash
     + ' · ' + (isPool ? 'label store ' : 'data fingerprint ') + f.runs_fingerprint
     + (f.sources_state ? ' · <span title="' + noStamps(String(f.sources_state.sentence || '')).replace(/"/g, '&quot;') + '">newest outcome ' + (f.sources_state.store_newest ? relTime(f.sources_state.store_newest) : '?') + '</span>'
