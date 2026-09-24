@@ -112,20 +112,20 @@
   },
   "all": {
    "files": {
-    "shared": "shared.all.e6a03595fb85.json",
-    "chain_average": "chain_average.all.e6a03595fb85.json",
-    "bayes": "bayes.all.e6a03595fb85-fcea34c566d7.json"
+    "shared": "shared.all.49ff3b941175.json",
+    "chain_average": "chain_average.all.49ff3b941175.json",
+    "bayes": "bayes.all.49ff3b941175-fcea34c566d7.json"
    },
    "label": "all waves",
    "arms": "all",
-   "fingerprint": "e6a03595fb85",
+   "fingerprint": "49ff3b941175",
    "frame": {
     "population_M": 61,
     "tasks": 2167,
     "keep_set_hash": "60ede5d24001",
     "runs_fingerprint": "f8e411fdd18b",
     "build_date": "2026-09-24",
-    "build_ts": "2026-09-24T16:46:34Z",
+    "build_ts": "2026-09-24T17:03:19Z",
     "vocab_ruled": "2026-08-27",
     "set": "all",
     "set_label": "all waves",
@@ -141,9 +141,9 @@
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-24T16:46:34Z",
+   "source_stamp": "2026-09-24T17:03:19Z",
    "source_fp": "8115f368300b",
-   "updated_at": "2026-09-24T17:05:29Z",
+   "updated_at": "2026-09-24T17:19:46Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -191,7 +191,7 @@
    },
    "source_stamp": "2026-09-24T16:56:32Z",
    "source_fp": "2170daa5ba76",
-   "updated_at": "2026-09-24T17:05:42Z",
+   "updated_at": "2026-09-24T17:19:56Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -240,7 +240,7 @@
    },
    "source_stamp": "2026-09-24T17:00:47Z",
    "source_fp": "9ade4a8f547f",
-   "updated_at": "2026-09-24T17:05:55Z",
+   "updated_at": "2026-09-24T17:20:11Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -289,7 +289,7 @@
    },
    "source_stamp": "2026-09-24T17:01:57Z",
    "source_fp": "1046449453a3",
-   "updated_at": "2026-09-24T17:06:09Z",
+   "updated_at": "2026-09-24T17:20:24Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -339,7 +339,7 @@
    },
    "source_stamp": "2026-09-24T16:50:59Z",
    "source_fp": "33d7b7119806",
-   "updated_at": "2026-09-24T17:07:07Z",
+   "updated_at": "2026-09-24T17:21:20Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -357,7 +357,8 @@
     "declared": true
    },
    "missing": {
-    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry"
+    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
+    "capC_z": "Capability C names neither a row nor an exclusion for 2 arm(s) (olmo-3.1-7b-rl-zero-code-final_completion, olmo-3-7b-think-final-Thinking) \u2014 waits for difficulty's re-emit"
    }
   },
   "top": {
@@ -394,7 +395,7 @@
    },
    "source_stamp": "2026-09-24T16:54:39Z",
    "source_fp": "3a97e0db016d",
-   "updated_at": "2026-09-24T17:08:11Z",
+   "updated_at": "2026-09-24T17:22:07Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -451,7 +452,7 @@
    },
    "source_stamp": "2026-09-24T16:49:44Z",
    "source_fp": "c5c09ed74c07",
-   "updated_at": "2026-09-24T17:08:24Z",
+   "updated_at": "2026-09-24T17:22:20Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -508,7 +509,7 @@
    },
    "source_stamp": "2026-09-24T16:50:20Z",
    "source_fp": "a1400fa4eaeb",
-   "updated_at": "2026-09-24T17:08:36Z",
+   "updated_at": "2026-09-24T17:22:37Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
