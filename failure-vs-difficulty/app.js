@@ -1377,7 +1377,8 @@ function notes(visible, unfitted) {
   var bnEl = document.getElementById('basisnote');
   if (bnEl) {
     var cont = D.shared.configs.map(function (c, i) { return i; }).filter(function (i) { return shownArm(i) && D.shared.configs[i].continuation_flag; });
-    bnEl.textContent = cont.length ? 'answers cut at the output cap were continued for ' + cont.length + ' of the models in this view (verdicts as continued; each model\u2019s \u00a7 hover carries its record)' : '';
+    bnEl.textContent = '';   // the cap-cut clause left the face (the record of 24 Sep); each model's § hover keeps its record
+    if (false) bnEl.textContent = cont.length ? 'answers cut at the output cap were continued for ' + cont.length + ' of the models in this view (verdicts as continued; each model\u2019s \u00a7 hover carries its record)' : '';
   }
   var nsEl = document.getElementById('notshown');   // VISIBLE under the chart (the notes container sits in the closed fold-out): the project maintainers' one note line
   if (nsEl) nsEl.textContent = (ns.length && NOT_SHOWN) ? 'not shown: ' + ns.map(function (i) { return D.shared.configs[i].label; }).join(', ') + ' — ' + String(NOT_SHOWN.note).replace(/^not shown:\s*/, '') : '';
@@ -1780,6 +1781,16 @@ function fitFrameClause(f) {   // the task pool maintainers DECISIONS 10 Sep (cr
   if (ff.pilot_kept) hov.push('the pilot\u2019s ' + ff.pilot_kept + ' of record in the frame');
   return ' · <span title="' + (hov.length ? oneSentence(hov.join(', ')) : '') + '">the fit on ' + (ff.label || ff.name) + ' as cut</span>';   // a set-membership label (the task pool maintainers' template), never a bare task count (the project maintainers' word of 10 Sep)
 }
+function setDefinition(f, isPool) {   // the set's definition once, in the Definitions fold at the top (the record of 24 Sep): the label of record for the tasks used, no counts elsewhere on the face
+  var ul = document.querySelector('#defs ul.defs'); if (!ul) return;
+  var li = document.getElementById('defset');
+  var label = '';
+  try { label = String(freshCounts(tasksUsedLabel(f, isPool)) || '').replace(/<[^>]*>/g, '').trim(); } catch (e) { label = ''; }
+  label = label.replace(/\s*·\s*wave 2 parked.*$/, '').trim();   // the parked clause is a note, not the definition
+  if (!label) { if (li) li.remove(); return; }
+  if (!li) { li = document.createElement('li'); li.id = 'defset'; ul.insertBefore(li, ul.firstChild); }
+  li.textContent = ''; var b = document.createElement('b'); b.textContent = 'Tasks used'; li.appendChild(b); li.appendChild(document.createTextNode(' \u2014 ' + label));
+}
 function stamp() {
   var f = D.shared.frame;
   var isPool = f.dataset === 'new';   // the golden block is the pool's bundle too (same links, same wording)
@@ -1800,8 +1811,11 @@ function stamp() {
   var head = facts + ' · ' + machinery;
   var dl = document.getElementById('dataline'), fl = document.getElementById('frameline');
   head = noBareDates(head); facts = noBareDates(facts);   // day-month form for any bare date (the golden sentence's decision date); ISO 'built' stamps are untouched
-  if (fl) fl.innerHTML = facts;
-  if (dl) { dl.setAttribute('data-chrome', ''); dl.innerHTML = fl ? machinery : head; }
+  // the project maintainers' word of 24 Sep (via the coordination, 12:2x UK): the facts block leaves the plot's face — no task counts as a caption, no build stamp, no cap-cut clause,
+  // no machinery under the chart; the set's definition sits once in the Definitions fold (setDefinition below); the frame's facts stay in the bundle (data/manifest.json), a maintainer file
+  if (fl) fl.innerHTML = '';
+  if (dl) { dl.setAttribute('data-chrome', ''); dl.innerHTML = ''; }
+  setDefinition(f, isPool);
   // the STATE line: hashes, sources, axis, withheld arms, fit source, links — in the fold-out
   document.getElementById('stamp').setAttribute('data-chrome', '');
   document.getElementById('stamp').innerHTML =
