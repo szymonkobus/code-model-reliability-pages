@@ -629,13 +629,14 @@ function buildChips() {
     nm.style.color = D.shared.configs[r.members[0]].color; box.appendChild(nm);
     // one row per run: the fit maintainers' checkpoint-series block for this run joins the row in training order, its chips before the
     // set member's own final; the pointer's copy of the final is not drawn (seriesBlock drops it) — the final's chip and fit stay the served set's, its D50 and D99 in the main table
-    var sbR = seriesBlock(); var sbRun = sbR ? ((sbR.arms[0] && sbR.arms[0].run) || headingShort(sbR)) : null;
+    seriesRows().forEach(function (sbR) {   // one row per run (24 Sep): each run's checkpoint-series block joins the served set's row of the same run, else draws its own row below
+    var sbRun = sbR ? ((sbR.arms[0] && sbR.arms[0].run) || headingShort(sbR)) : null; var seriesSel = seriesSelFor(sbR._row);
     if (sbR && sbRun === r.name) {
-      if (!seriesSel) seriesSel = new Set();   // off by default (the project maintainers' word of 22 Sep, via the coordination)
+      
       SERIES_MERGED[r.name] = true;
       sbR.arms.forEach(function (a, k) {
         var b = document.createElement('button'); b.className = 'chip serieschip'; b.style.color = a.color; b.style.borderColor = a.color;
-        b.textContent = a.short_label || a.label; b.dataset.label = b.textContent; b.dataset.series = String(k);   // the short form of record ('RL-Zero Code · 0/32') from the labels row, never composed
+        b.textContent = a.short_label || a.label; b.dataset.label = b.textContent; b.dataset.series = String(k); b.dataset.row = String(sbR._row);   // the short form of record ('RL-Zero Code · 0/32') from the labels row, never composed
         var parts = []; if (a.disclosure) parts.push(a.disclosure); if (a.set_label) parts.push('fitted on ' + a.set_label);
         if (a.gates_failed) parts.push(a.gate_face ? noSpecTags(String(a.gate_face)) : 'sampler gate flagged on this fit; drawn with the disclosure');
         if (a.protocol) parts.push('read by ' + a.protocol + ': the base model continues the prompt, no chat turn');
@@ -644,6 +645,7 @@ function buildChips() {
         seriesChips.push(b); box.appendChild(b);
       });
     }
+    });
     r.members.forEach(function (i) {
       var c = D.shared.configs[i]; var b = document.createElement('button'); b.className = 'chip'; b.style.color = c.color; b.style.borderColor = c.color;
       b.textContent = c.short_label || SHORT_LABELS_OF_RECORD[c.id] || c.label;   // the bundle's short label of record when the builder carries it, else the row's value carried here by hand (transitional), else the full label — never a composed form
@@ -651,7 +653,7 @@ function buildChips() {
       b.onclick = function () { if (sel.has(i)) sel.delete(i); else sel.add(i); writeSel(); render(); };
       chips.push(b); box.appendChild(b);
     });
-    ['all', 'none'].forEach(function (w) { var ub = document.createElement('button'); ub.className = 'util'; ub.textContent = w; ub.onclick = function () { r.members.forEach(function (i) { if (w === 'all') sel.add(i); else sel.delete(i); }); if (SERIES_MERGED[r.name] && seriesBlock()) { seriesSel = new Set(); if (w === 'all') seriesBlock().arms.forEach(function (_, k) { seriesSel.add(k); }); } writeSel(); render(); }; box.appendChild(ub); });   // the row's buttons cover its checkpoints too
+    ['all', 'none'].forEach(function (w) { var ub = document.createElement('button'); ub.className = 'util'; ub.textContent = w; ub.onclick = function () { r.members.forEach(function (i) { if (w === 'all') sel.add(i); else sel.delete(i); }); seriesRows().forEach(function (sbX) { if (SERIES_MERGED[r.name] && (((sbX.arms[0] && sbX.arms[0].run) || headingShort(sbX)) === r.name)) { var ssX = seriesSelFor(sbX._row); ssX.clear(); if (w === 'all') sbX.arms.forEach(function (_, k) { ssX.add(k); }); } }); writeSel(); render(); }; box.appendChild(ub); });   // the row's buttons cover its checkpoints too
   });
 }
 
@@ -886,8 +888,14 @@ var RAW_TICKS = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
  * rows; never merged into the served set's list, table or ordering. Nothing prints while the pointer carries no serving word. */
 var sideSel = null, seriesSel = null;
 var SERIES_MERGED = {}, seriesChips = [];   // one row per run (22 Sep): the runs whose checkpoint-series chips live in the served set's run row, and those chips
-function seriesBlock() {   // the fit maintainers' checkpoint-series pointer (kind "checkpoint series"): a training run's fitted checkpoints, the run's own row (the project maintainers' words of 22 Sep); the bundle's frame.series_arms
-  var f = D.shared.frame || {}; var s = f.series_arms;
+var seriesSels = [];   // one selection per run row (24 Sep: one row per training run); row 0 is the RL-Zero Code run, row 1 the Olmo 3 7B Think run
+function seriesSelFor(i) { if (!seriesSels[i]) seriesSels[i] = new Set(); return seriesSels[i]; }   // off by default (the project maintainers' word of 22 Sep, via the coordination)
+function seriesRows() {   // every run row the bundle carries: frame.series_rows (24 Sep), else the single frame.series_arms block (22 Sep); each ordered once in place
+  var f = D.shared.frame || {}; var rows = (f.series_rows && f.series_rows.length) ? f.series_rows : (f.series_arms ? [f.series_arms] : []);
+  var out = []; rows.forEach(function (s, i) { var o = orderSeries(s); if (o) { o._row = i; out.push(o); } }); return out;
+}
+function seriesBlock() { var r = seriesRows(); return r.length ? r[0] : null; }   // the first run's row, for readers of the single-row contract
+function orderSeries(s) {   // the fit maintainers' checkpoint-series pointer (kind "checkpoint series"): a training run's fitted checkpoints, the run's own row (the project maintainers' words of 22 Sep); the bundle's frame.series_arms
   if (!(s && s.served && s.arms && s.arms.length)) return null;
   if (!s._ordered) {   // once, in place, so the chip indices hold across renders
     // one row per run, one fit per model: an arm the served set already carries as a
@@ -1002,27 +1010,32 @@ function renderSideBlock() {
   if (sb.membership) { var m = document.createElement('p'); m.className = 'sub'; m.textContent = noSpecTags(sb.membership); st.appendChild(m); }
 }
 
-function renderSeriesBlock() {   // the run's row: cloned from renderSideBlock for the fit maintainers' checkpoint-series block (22 Sep)
-  var sb = seriesBlock();
+function renderSeriesBlock() {   // one row per run (24 Sep): every run row the bundle carries, row 0 keeping the ids of the single-row form
+  var rows = seriesRows(); rows.forEach(function (sb, i) { renderSeriesRow(sb, i); });
+  for (var j = Math.max(rows.length, 1); j < 8; j++) { var e1 = document.getElementById('serieschips' + j), e2 = document.getElementById('seriescrossings' + j); if (e1) e1.remove(); if (e2) e2.remove(); }
+}
+function renderSeriesRow(sb, ri) {   // the run's row: cloned from renderSideBlock for the fit maintainers' checkpoint-series block (22 Sep)
+  var sfx = ri ? String(ri) : ''; var seriesSel = seriesSelFor(ri);
+
   var chipsBox = document.getElementById('chips'), crossBox = document.getElementById('crossings');
-  var sc = document.getElementById('serieschips'), st = document.getElementById('seriescrossings');
+  var sc = document.getElementById('serieschips' + sfx), st = document.getElementById('seriescrossings' + sfx);
   if (!sb || state.src !== 'bayes') { if (sc) sc.remove(); if (st) st.remove(); return; }
-  if (!seriesSel) { seriesSel = new Set(); }   // off by default (the project maintainers' word of 22 Sep, via the coordination): the page opens on the served set's models; the group's all button or a chip turns them on
+     // off by default (the project maintainers' word of 22 Sep, via the coordination): the page opens on the served set's models; the group's all button or a chip turns them on
   var runName = (sb.arms[0] && sb.arms[0].run) || headingShort(sb);
   if (SERIES_MERGED[runName]) { if (sc) { sc.remove(); } sc = null; }   // one row per run: the chips live in the served set's run row (buildChips); only the checkpoints' table is drawn here
   else {
-  if (!sc) { sc = document.createElement('div'); sc.id = 'serieschips'; sc.className = 'chips'; var after = document.getElementById('sidechips') || document.getElementById('offpanelline') || chipsBox; after.parentNode.insertBefore(sc, after.nextSibling); }
+  if (!sc) { sc = document.createElement('div'); sc.id = 'serieschips' + sfx; sc.className = 'chips'; var after = (ri ? document.getElementById('serieschips' + (ri - 1)) || document.getElementById('serieschips') : null) || document.getElementById('sidechips') || document.getElementById('offpanelline') || chipsBox; if (ri && after && after.id.indexOf('serieschips') === 0) { after.parentNode.insertBefore(sc, after.nextSibling); after = null; } after.parentNode.insertBefore(sc, after.nextSibling); }
   sc.textContent = '';
   var head = document.createElement('span'); head.className = 'fam'; head.textContent = (sb.arms[0] && sb.arms[0].run) || headingShort(sb);   // the run's full name from the labels row of record, else the pointer's heading
   if (sb.membership) head.title = oneSentence(noSpecTags(sb.membership));
   sc.appendChild(head);
   // all / none for this group as the served set has them (the project maintainers' word of 22 Sep, via the coordination: every model group carries the two buttons)
-  ['all', 'none'].forEach(function (w) { var ab = document.createElement('button'); ab.className = 'util'; ab.textContent = w; ab.onclick = function () { seriesSel = new Set(); if (w === 'all') sb.arms.forEach(function (_, k) { seriesSel.add(k); }); render(); }; sc.appendChild(ab); });
+  ['all', 'none'].forEach(function (w) { var ab = document.createElement('button'); ab.className = 'util'; ab.textContent = w; ab.onclick = function () { seriesSel.clear(); if (w === 'all') sb.arms.forEach(function (_, k) { seriesSel.add(k); }); render(); }; sc.appendChild(ab); });
   sb.arms.forEach(function (a, k) {
     var b = document.createElement('button');
     b.className = 'chip' + (seriesSel.has(k) ? '' : ' off') + (a.disclosure ? ' disclosed' : '');
     b.style.color = a.color; b.style.borderColor = a.color;
-    b.textContent = a.short_label || a.label; b.dataset.label = b.textContent; b.dataset.series = String(k);   // the short form of record ('RL-Zero Code · 0/32', '· final') from the labels row, never composed
+    b.textContent = a.short_label || a.label; b.dataset.label = b.textContent; b.dataset.series = String(k); b.dataset.row = String(ri);   // the short form of record ('RL-Zero Code · 0/32', '· final') from the labels row, never composed
     var parts = [];
     if (a.disclosure) parts.push(a.disclosure);
     if (a.set_label) parts.push('fitted on ' + a.set_label);
@@ -1034,7 +1047,7 @@ function renderSeriesBlock() {   // the run's row: cloned from renderSideBlock f
     sc.appendChild(b);
   });
   }
-  if (!st) { st = document.createElement('div'); st.id = 'seriescrossings'; var afterT = document.getElementById('sidecrossings') || crossBox; afterT.parentNode.insertBefore(st, afterT.nextSibling); }
+  if (!st) { st = document.createElement('div'); st.id = 'seriescrossings' + sfx; var afterT = (ri ? document.getElementById('seriescrossings' + (ri - 1 || '')) : null) || document.getElementById('sidecrossings') || crossBox; afterT.parentNode.insertBefore(st, afterT.nextSibling); }
   st.textContent = '';
   var p = document.createElement('p'); p.className = 'sub';
   p.textContent = ((sb.arms[0] && sb.arms[0].run) || headingShort(sb)) + ' — ' + headingShort(sb); if (sb.heading) p.title = oneSentence(noSpecTags(String(sb.heading)));   // the plain heading; the fit's set label as the hover
@@ -1243,16 +1256,15 @@ function render() {
     });
   }
   // the training run's checkpoints (the fit maintainers' series pointer): their own curves the same way, keyed on the series row's selection (22 Sep)
-  var srC = seriesBlock();
-  if (srC && state.src === 'bayes') {
-    if (!seriesSel) { seriesSel = new Set(); }
+  if (state.src === 'bayes') seriesRows().forEach(function (srC) {   // every run row's checkpoints (24 Sep), keyed on that row's selection
+    var seriesSel = seriesSelFor(srC._row);
     srC.arms.forEach(function (a, k) {
       if (!seriesSel.has(k)) return;
       var cvR = sideCurve(a); if (!cvR) return;
-      if (cvR.lo) bands += '<path d="' + pathBand(cvR.zs, cvR.lo, cvR.hi) + '" fill="' + a.color + '" fill-opacity="0.10" data-chain-val data-series="' + k + '"/>';
-      curves += '<path d="' + pathLine(cvR.zs, cvR.mid) + '" fill="none" stroke="' + a.color + '" stroke-width="1.6" data-chain-val data-series="' + k + '" data-label="' + String(a.short_label || a.label).replace(/"/g, '&quot;') + ' — ' + String((a.run || headingShort(srC))).replace(/"/g, '&quot;') + '"/>';
+      if (cvR.lo) bands += '<path d="' + pathBand(cvR.zs, cvR.lo, cvR.hi) + '" fill="' + a.color + '" fill-opacity="0.10" data-chain-val data-series="' + k + '" data-row="' + srC._row + '"/>';
+      curves += '<path d="' + pathLine(cvR.zs, cvR.mid) + '" fill="none" stroke="' + a.color + '" stroke-width="1.6" data-chain-val data-series="' + k + '" data-row="' + srC._row + '" data-label="' + String(a.short_label || a.label).replace(/"/g, '&quot;') + ' — ' + String((a.run || headingShort(srC))).replace(/"/g, '&quot;') + '"/>';
     });
-  }
+  });
   chart.innerHTML = '<defs><clipPath id="plotclip"><rect x="' + ML + '" y="' + MT + '" width="' + PW + '" height="' + PH + '"/></clipPath></defs>'
     + grid + '<g clip-path="url(#plotclip)"><g>' + dotsSvg + '</g><g>' + bands
     + '</g><g id="curveg">' + curves + '</g></g>';   // the data layers stay inside the plot area (a fit grid wider than the axis had run under the y labels)
@@ -1276,7 +1288,7 @@ function renderArmStates() {   // the full state line behind each chip, one line
 }
 function paintChips() {
   seriesChips.forEach(function (b) {   // the run row's checkpoint chips: on/off from seriesSel; greyed and unselectable when the checkpoints do not draw (no series block for this set, or a source other than the Bayesian fits)
-    var k = +b.dataset.series, live = !!seriesBlock() && state.src === 'bayes';
+    var k = +b.dataset.series, ri = +(b.dataset.row || 0), live = seriesRows().length > ri && state.src === 'bayes'; var seriesSel = seriesSelFor(ri);
     b.classList.toggle('off', !(seriesSel && seriesSel.has(k))); b.classList.toggle('partial-hidden', !live); b.disabled = !live; b.setAttribute('aria-disabled', String(!live));
   });
   chips.forEach(function (b) {
@@ -1351,7 +1363,7 @@ function narrate(visible, dotsOn, unfitted) {
     var bf = D.shared.frame && D.shared.frame.bayes_fits;
     var drawnN = visible.length - (state.src === 'bayes' ? unfitted.length : 0);
     fp.textContent = (state.src === 'bayes' ? 'Bayesian posterior' : houseName()) + ' · ' + drawnN + ' of ' + visible.length + ' models drawn'
-      + (state.src === 'bayes' && bf ? ((D.shared.frame || {}).dataset_label_head ? ' · fitted on ' + (D.shared.frame || {}).dataset_label_head : '') + (bf.newer && bf.newer.drawn_interim ? ' · ' + bf.newer.drawn_interim + ' interim' : '') : '')   // the set by its label of record, never its sha
+      + (state.src === 'bayes' && bf ? ((D.shared.frame || {}).dataset_label_head ? ' · fitted on ' + String((D.shared.frame || {}).dataset_label_head).replace(/\s*\([\d,]+ tasks\)/, '') : '') + (bf.newer && bf.newer.drawn_interim ? ' · ' + bf.newer.drawn_interim + ' interim' : '') : '')   // the set by its label of record, never its sha
       + (state.band === 'off' ? '' : ' · ' + state.band + '% bands')
       + (visible.length === 1 ? ' · ' + covText(visible[0]) : '');
   }
@@ -1786,7 +1798,7 @@ function setDefinition(f, isPool) {   // the set's definition once, in the Defin
   var li = document.getElementById('defset');
   var label = '';
   try { label = String(freshCounts(tasksUsedLabel(f, isPool)) || '').replace(/<[^>]*>/g, '').trim(); } catch (e) { label = ''; }
-  label = label.replace(/\s*·\s*wave 2 parked.*$/, '').trim();   // the parked clause is a note, not the definition
+  label = label.split(' \u00b7 ')[0].replace(/\s*;\s*wave 2 parked[\s\S]*$/, '').trim();   // the definition alone: the parked clause and the positioned-today counts are notes, not the definition
   if (!label) { if (li) li.remove(); return; }
   if (!li) { li = document.createElement('li'); li.id = 'defset'; ul.insertBefore(li, ul.firstChild); }
   li.textContent = ''; var b = document.createElement('b'); b.textContent = 'Tasks used'; li.appendChild(b); li.appendChild(document.createTextNode(' \u2014 ' + label));
@@ -2004,11 +2016,11 @@ function exportLegend() {   // one row per drawn model, in the plot's order
     if ((sideSel && !sideSel.has(k)) || !sideCurve(a)) return;
     rows.push({ label: a.label, family: a.family || undefined, color: a.color, dash: curveDash(a), width: 1.6, marker: 'none' });
   });
-  var srL = seriesBlock();
-  if (srL && state.src === 'bayes') srL.arms.forEach(function (a, k) {
+  if (state.src === 'bayes') seriesRows().forEach(function (srL) { var seriesSel = seriesSelFor(srL._row);
+  srL.arms.forEach(function (a, k) {
     if ((seriesSel && !seriesSel.has(k)) || !sideCurve(a)) return;
     rows.push({ label: a.short_label || a.label, family: a.run || a.family || undefined, color: a.color, dash: curveDash(a), width: 1.6, marker: 'none' });
-  });
+  }); });
   return rows;
 }
 function exportView(nDrawn) {   // the controls' state in words for the stamp line
