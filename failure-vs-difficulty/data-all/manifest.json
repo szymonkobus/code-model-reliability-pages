@@ -1,5 +1,5 @@
 {
- "fingerprint": "a92800fd245b",
+ "fingerprint": "dd331aac59fd",
  "frame": {
   "dataset": "all",
   "dataset_label": "wave 1+2 (2,153 tasks): 431 of wave 1 + 1,693 of wave 2 + 29 tasks outside both waves, the list kept on 3 September 2026",
@@ -19,7 +19,7 @@
   "difficulty_population_M": 61,
   "tasks": 2167,
   "keep_set_hash": "60ede5d24001",
-  "inputs_content_sha": "a88b2a47ed5d",
+  "inputs_content_sha": "462bc1ba670a",
   "tasks_on_axis": 2167,
   "tasks_kept": 2167,
   "tasks_awaiting_axis": 0,
@@ -29,10 +29,10 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "f0e073a13a40",
+  "runs_fingerprint": "115935b38e4f",
   "axis_wave": "unified-live",
   "build_date": "2026-09-24",
-  "stamp": "2026-09-24T17:45:23Z",
+  "stamp": "2026-09-24T18:41:17Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -45,7 +45,7 @@
    "olmo-3-7b-think-step0200-Thinking": 430,
    "olmo-3-7b-think-step0400-Thinking": 430,
    "olmo-3-7b-think-step0800-Thinking": 430,
-   "olmo-3-7b-think-step1375-Thinking": 214,
+   "olmo-3-7b-think-step1375-Thinking": 430,
    "olmo-3.1-7b-rl-zero-code-final_completion": 430,
    "olmo-3.1-7b-rl-zero-code-step0050_completion": 430,
    "olmo-3.1-7b-rl-zero-code-step0100_completion": 430,
@@ -68,7 +68,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-24T17:13:53Z",
+   "unified_built_at": "2026-09-24T18:13:07Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -613,7 +613,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-24T17:24:18Z",
+   "_stamp": "2026-09-24T18:24:11Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -779,9 +779,9 @@
   }
  },
  "files": {
-  "shared": "shared.a92800fd245b.json",
-  "chain_average": "chain_average.a92800fd245b.json",
-  "chain_median": "chain_median.a92800fd245b.json",
-  "dots": "dots.a92800fd245b.json"
+  "shared": "shared.dd331aac59fd.json",
+  "chain_average": "chain_average.dd331aac59fd.json",
+  "chain_median": "chain_median.dd331aac59fd.json",
+  "dots": "dots.dd331aac59fd.json"
  }
 }
