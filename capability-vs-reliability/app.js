@@ -1306,6 +1306,10 @@ function buildChips() {
         note.textContent = 'Not shown: ' + groups.map(function (k) { return byReason[k].join(', ') + ' \u2014 ' + k; }).join('; ') + '.';
         line.appendChild(note);
       }
+      // fitting's face_note leaf (24 Sep ): one caveat sentence on a drawn checkpoint — a prose line under the run's chips after the Not shown words,
+      // never inside the figure or the hover (the hover keeps the gate sentence whole)
+      R.idx.forEach(function (i) { var c = D.shared.configs[i]; if (!c || !c.face_note) return;
+        var fn = document.createElement('span'); fn.className = 'runnote'; fn.setAttribute('data-critical-text', ''); fn.textContent = (c.display_name || c.label) + ' \u2014 ' + c.face_note; line.appendChild(fn); });
       if (R.pending && !R.idx.length) { var pn = document.createElement('span'); pn.className = 'runnote'; pn.setAttribute('data-critical-text', ''); pn.textContent = R.pending; line.appendChild(pn); }   // a run named but not yet fitted: its row says so in words
       line.hidden = !runOnPlane(R);
       rbox.appendChild(line);
