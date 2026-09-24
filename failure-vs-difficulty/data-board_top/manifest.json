@@ -1,5 +1,5 @@
 {
- "fingerprint": "af2c0959c31c",
+ "fingerprint": "945e50b9ea0e",
  "frame": {
   "dataset": "board_top",
   "dataset_label": "wave 1+2 (1,297 tasks): 431 of wave 1 + 866 of wave 2, the list kept on 10 September 2026; wave 2 parked (879 tasks) left out \u00b7 positioned on this axis today: 430 of wave 1, 858 of wave 2",
@@ -19,7 +19,7 @@
   "difficulty_population_M": 61,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "722a5422aa2c",
+  "inputs_content_sha": "4a958c521971",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -29,10 +29,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "d47f37078d14",
+  "runs_fingerprint": "97d42388155b",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-09-24",
-  "stamp": "2026-09-24T01:44:44Z",
+  "stamp": "2026-09-24T02:49:16Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -51,6 +51,7 @@
    "olmo-3.1-7b-rl-zero-code-step0150_completion": 430,
    "olmo-3.1-7b-rl-zero-code-step0250_completion": 430,
    "olmo-3.1-7b-rl-zero-code-step0450_completion": 430,
+   "olmo-3.1-7b-rl-zero-code-step0900_completion": 430,
    "olmo-3.1-7b-rl-zero-code-step1950_completion": 430,
    "qwen3-8b-4k32": 430,
    "qwen3-8b-code-rl": 430,
@@ -66,7 +67,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-24T01:12:47Z",
+   "unified_built_at": "2026-09-24T02:13:19Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -24767,17 +24768,17 @@
   },
   "series_arms": {
    "served": true,
-   "serving_word": "Definitions' word of 24 September 2026 (00:52 UTC) on staging 806cee5b6414, implemented by that staging: a text-only emission on Definitions' words of 00:34Z, 00:44Z and 00:52Z (the frame's default; five self-disagreeing judgings of the 21 September window being judged again since 01:33 UK): checkpoint 1's disclosure gains '28 of its wave 2 results are being judged again since 01:33 UK; the position may move when they land'; checkpoints 4 and 16 gain the fact alone (four / 60 of their wave 2 results being judged again since 01:33 UK) after the hour clause; the same sentences as a face_note leaf on those three arms for the run page; the plural unchanged",
+   "serving_word": "Definitions' word of 24 September 2026 (02:22 UTC) on staging a72c44201d6b, implemented by that staging: a text-only emission on Definitions' word of 02:22Z: checkpoint 16 re-cut again on census 249 (wave olmo-board_top-20260924T0147Z), its leaf in Definitions' re-fit form with the hour beside the floor and the plural with both re-fit clauses; checkpoint 1's wave 2 clause in the partial-count form (of its 28 wave 2 results judged again, 15 are in the count since 03:11 UK and 13 are still being judged; the position stands on the earlier judgings until all are in and may move then), on its disclosure and face note",
    "wave_id": "olmo-board_top-20260922T0453Z",
    "n_arms": 8,
    "heading": "checkpoints of one training run",
-   "heading_note": "label = plain words for what the group is (the project owner's word of 22 September 2026 via the post-training lead, ruled by Definitions the same day): no task count or composition in the label; the composition sits in group_composition, the counts in the count fields and membership (the kept set at 24 Sep 01:24 UK: 430 of wave 1, 858 of wave 2 on the served axis; the set's members at 24 Sep 01:24 UK: 430 of wave 1, 869 of wave 2), fitted figures beside it \u2014 a task that left the kept set after a cut stays in that fit as cut (the ruling of 8 Sep) and is named in its model's membership_lag",
+   "heading_note": "label = plain words for what the group is (the project owner's word of 22 September 2026 via the post-training lead, ruled by Definitions the same day): no task count or composition in the label; the composition sits in group_composition, the counts in the count fields and membership (the kept set at 24 Sep 02:24 UK: 430 of wave 1, 858 of wave 2 on the served axis; the set's members at 24 Sep 02:24 UK: 430 of wave 1, 869 of wave 2), fitted figures beside it \u2014 a task that left the kept set after a cut stays in that fit as cut (the ruling of 8 Sep) and is named in its model's membership_lag",
    "membership": "results for at least one of these models on all 1,288 kept tasks of the set (1,299 members); positions from the served axis, unchanged",
    "axis_rule": "the served wave 1+2 axis unchanged: study models are positioned on an axis they did not shape (ruling of 17 Sep); positions are comparable with the served set's",
    "axis_pinned_to_served": true,
    "cut_at": "2026-09-22T04:53:28Z",
    "completed_at": "2026-09-23T22:43:27Z",
-   "updated_at": "2026-09-24T01:44:42Z",
+   "updated_at": "2026-09-24T02:44:43Z",
    "pointer": "definitions/fitting/serving_series_olmo31_rlzero_code.json",
    "arms": [
     {
@@ -34958,7 +34959,7 @@
      "n_tasks_positioned": 1288,
      "n_cells": 1288,
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 22 September 2026",
-     "disclosure": "position withheld: two judgings of its answers disagree and they are being judged again; held out until that judging is in the count; back by 12:30 UK Thursday at the latest; 60 of its wave 2 results are being judged again since 01:33 UK",
+     "disclosure": "position withheld: two judgings of its answers disagreed and the answers judged again are in the count since 02:31 UK; its position is being fitted again since 02:49 UK; back about 07:34 UK, by 12:30 UK Thursday at the latest; 60 of its wave 2 results are being judged again since 01:33 UK",
      "gates_failed": false,
      "gate_face": null,
      "withheld": true,
@@ -34991,7 +34992,7 @@
      "n_tasks_positioned": 1288,
      "n_cells": 1288,
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 23 September 2026",
-     "disclosure": "a checkpoint of one training run (checkpoint 1), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 23 September 2026; the set has 1,299 members, 1,288 of them kept; 1,288 positioned in this fit (430 of wave 1 + 858 of wave 2); results as they stood at the cut (23 Sep 18:57 UK); each task's answers judged after judging restarted on 21 September, as counted at that hour; its position was fitted again from the judgings that stand and is unchanged; it counts on wave 1 since 18:53 UK; 28 of its wave 2 results are being judged again since 01:33 UK; the position may move when they land",
+     "disclosure": "a checkpoint of one training run (checkpoint 1), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 23 September 2026; the set has 1,299 members, 1,288 of them kept; 1,288 positioned in this fit (430 of wave 1 + 858 of wave 2); results as they stood at the cut (23 Sep 18:57 UK); each task's answers judged after judging restarted on 21 September, as counted at that hour; its position was fitted again from the judgings that stand and is unchanged; it counts on wave 1 since 18:53 UK; of its 28 wave 2 results judged again, 15 are in the count since 03:11 UK and 13 are still being judged; the position stands on the earlier judgings until all are in and may move then",
      "gates_failed": true,
      "gate_face": "every attempt failed on 38% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's interval is wider",
      "bayes_avg": {
@@ -37150,7 +37151,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-24T01:24:06Z",
+   "_stamp": "2026-09-24T02:24:10Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -37316,9 +37317,9 @@
   }
  },
  "files": {
-  "shared": "shared.af2c0959c31c.json",
-  "chain_average": "chain_average.af2c0959c31c.json",
-  "chain_median": "chain_median.af2c0959c31c.json",
-  "dots": "dots.af2c0959c31c.json"
+  "shared": "shared.945e50b9ea0e.json",
+  "chain_average": "chain_average.945e50b9ea0e.json",
+  "chain_median": "chain_median.945e50b9ea0e.json",
+  "dots": "dots.945e50b9ea0e.json"
  }
 }
