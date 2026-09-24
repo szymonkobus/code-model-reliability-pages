@@ -25,15 +25,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "dc5cbadfe267",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "98bcb48a0652",
+  "runs_fingerprint": "7219038d044b",
   "axis_wave": "aime-live",
-  "build_date": "2026-09-23",
-  "stamp": "2026-09-23T05:01:24Z",
+  "build_date": "2026-09-24",
+  "stamp": "2026-09-24T18:03:14Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/aime",
-   "unified_built_at": "2026-09-22T14:20:54Z",
+   "unified_built_at": "2026-09-24T14:14:12Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.aime.csv"
@@ -131,19 +131,11 @@
     "tasks": 60,
     "of": 60
    },
-   "Qwen/Qwen3-1.7B": {
-    "tasks": 60,
-    "of": 60
-   },
-   "Qwen/Qwen3-32B": {
-    "tasks": 60,
-    "of": 60
-   },
-   "qwen3-8b-sft-maths": {
-    "tasks": 60,
-    "of": 60
-   },
    "Qwen/Qwen3-0.6B-Thinking": {
+    "tasks": 60,
+    "of": 60
+   },
+   "Qwen/Qwen3-1.7B": {
     "tasks": 60,
     "of": 60
    },
@@ -163,7 +155,15 @@
     "tasks": 60,
     "of": 60
    },
+   "Qwen/Qwen3-32B": {
+    "tasks": 60,
+    "of": 60
+   },
    "Qwen/Qwen3-32B-Thinking": {
+    "tasks": 60,
+    "of": 60
+   },
+   "qwen3-8b-sft-maths": {
     "tasks": 60,
     "of": 60
    },
@@ -225,7 +225,7 @@
   "interim": "kernel fits on all results available at build; refit hourly as results land",
   "side_arms": {
    "served": true,
-   "serving_word": "Definitions' word of 18 Sep 22:0x UK: the two maths fine-tunes' fits on aime serve alongside the set on the served aime axis unchanged, each model's figures in its own entry; nothing replaced",
+   "serving_word": "Definitions' word of 18 Sep 22:0x: the two maths fine-tunes' fits on aime serve alongside the set on the served aime axis unchanged, each model's figures in its own entry; nothing replaced",
    "wave_id": "sft-nb-aime-20260918T2037Z",
    "n_arms": 2,
    "heading": "models fitted alongside the set, on AIME (60 problems); two post-training fine-tunes, positioned on the served AIME axis unchanged; 60 problems positioned for each model, each model's own figures in its entry",
@@ -235,7 +235,7 @@
    "axis_pinned_to_served": true,
    "cut_at": "2026-09-18T20:37:09Z",
    "completed_at": "2026-09-18T20:49:35Z",
-   "updated_at": "2026-09-19T09:45:48Z",
+   "updated_at": "2026-09-24T14:44:35Z",
    "pointer": "definitions/fitting/serving_sft_nb_aime.json",
    "arms": [
     {
@@ -261,7 +261,7 @@
      "n_tasks_positioned": 60,
      "n_cells": 60,
      "set_label": "AIME (60 problems)",
-     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served AIME axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 8,192 tokens); a completion SFT of Qwen3.5 9B Base; the base model, Qwen3.5 9B Base, has no run on this axis and does not vote on it; the fit stands on AIME (60 problems); 60 positioned in this fit (every problem of the set); results as they stood at the cut (18 Sep 21:37 UK, the maths sets' data of 18 Sep 03:00 UK); the sampler's checks pass for this model; the chains for this model do not agree on where it crosses the 1% level; the point is shown with that caveat; D99 is a bound: below the easiest task used (z < -1.228; more than half the draws lie below it)",
+     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served AIME axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 8,192 tokens); a completion SFT of Qwen3.5 9B Base; the base model, Qwen3.5 9B Base, has no run on this axis and does not vote on it; the fit stands on AIME (60 problems); 60 positioned in this fit (every problem of the set); results as they stood at the cut (18 Sep 21:37, the maths sets' data of 18 Sep 03:00); the sampler's checks pass for this model; the chains for this model do not agree on where it crosses the 1% level; the point is shown with that caveat; D99 is a bound: below the easiest task used (z < -1.228; more than half the draws lie below it)",
      "gates_failed": false,
      "gate_face": null,
      "bayes_avg": {
@@ -2285,7 +2285,7 @@
      "n_tasks_positioned": 60,
      "n_cells": 60,
      "set_label": "AIME (60 problems)",
-     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served AIME axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 8,192 tokens); a direct fine-tune of Qwen3 8B; the base model, Qwen3 8B, votes on this axis through its served run (Qwen--Qwen3-8B_think-t0.6); the fit stands on AIME (60 problems); 60 positioned in this fit (every problem of the set); results as they stood at the cut (18 Sep 21:37 UK, the maths sets' data of 18 Sep 03:00 UK); the sampler's checks pass for this model; the chains for this model do not agree on where it crosses the 1% level; the point is shown with that caveat; D99 is a bound: below the easiest task used (z < -1.228; more than half the draws lie below it)",
+     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served AIME axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 8,192 tokens); a direct fine-tune of Qwen3 8B; the base model, Qwen3 8B, votes on this axis through its served run (Qwen--Qwen3-8B_think-t0.6); the fit stands on AIME (60 problems); 60 positioned in this fit (every problem of the set); results as they stood at the cut (18 Sep 21:37, the maths sets' data of 18 Sep 03:00); the sampler's checks pass for this model; the chains for this model do not agree on where it crosses the 1% level; the point is shown with that caveat; D99 is a bound: below the easiest task used (z < -1.228; more than half the draws lie below it)",
      "gates_failed": false,
      "gate_face": null,
      "bayes_avg": {
@@ -4302,7 +4302,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-23T04:24:09Z",
+   "_stamp": "2026-09-24T17:24:18Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
