@@ -1,5 +1,5 @@
 {
- "fingerprint": "2845067ce738",
+ "fingerprint": "d21d803f88a6",
  "frame": {
   "dataset": "new",
   "dataset_label": "wave 2 (1,773 tasks): 1,761 of wave 2 + 12 tasks outside both waves, the list kept on 4 September 2026",
@@ -7,7 +7,7 @@
   "dataset_label_source": {
    "field": "label_of_record",
    "pointer": "serving_golden_pool.json",
-   "note": "label = set name + the count the figure stands on, at its stamp (the served wave's axis at the cut of 4 September 2026: 1,761 of wave 2, 12 tasks outside both waves); the kept lists of today (the kept set at 22 Sep 13:24 UK): 1,737 of wave 2 of this axis still kept \u2014 a task that left the kept set after the cut stays in the fit as cut (the ruling of 8 Sep); the count is the cut's, the split by the waves' membership of record today (the wave-1 pin of 10 September 2026 and the wave-2 list with its parked members); Definitions' rule of 22 September 2026: one string written by the fit's writer, printed by every composer, never a count composed on a page from two sources"
+   "note": "label = set name + the count the figure stands on, at its stamp (the served wave's axis at the cut of 4 September 2026: 1,761 of wave 2, 12 tasks outside both waves); the kept lists of today (the kept set at 22 Sep 13:24): 1,737 of wave 2 of this axis still kept \u2014 a task that left the kept set after the cut stays in the fit as cut (the ruling of 8 Sep); the count is the cut's, the split by the waves' membership of record today (the wave-1 pin of 10 September 2026 and the wave-2 list with its parked members); Definitions' rule of 22 September 2026: one string written by the fit's writer, printed by every composer, never a count composed on a page from two sources"
   },
   "population": "golden",
   "population_source": "definitions/difficulty/knowledge/golden_set.json",
@@ -19,7 +19,7 @@
   "difficulty_population_M": 12,
   "tasks": 1737,
   "keep_set_hash": "abc6c6e65227",
-  "inputs_content_sha": "45578cb9e88c",
+  "inputs_content_sha": "6f018f75c2d2",
   "tasks_on_axis": 1737,
   "tasks_kept": 1737,
   "tasks_awaiting_axis": 0,
@@ -29,17 +29,17 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "1ad23607c21d",
+  "runs_fingerprint": "3e94b3b88ead",
   "axis_wave": "golden-pool-20260904T1407Z",
   "build_date": "2026-09-24",
-  "stamp": "2026-09-24T13:02:26Z",
+  "stamp": "2026-09-24T16:01:36Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-24T12:13:49Z",
+   "unified_built_at": "2026-09-24T15:15:23Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.golden.pool.csv"
@@ -127,7 +127,7 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/golden-pool-20260904T1407Z-m100/results",
    "set_fingerprint": "f397260cc9fb",
-   "pointer_updated_at": "2026-09-19T08:43:32Z",
+   "pointer_updated_at": "2026-09-24T14:55:09Z",
    "n_fits": 12,
    "note": null,
    "gates": {
@@ -224,7 +224,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-24T12:24:29Z",
+   "_stamp": "2026-09-24T15:24:37Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -390,9 +390,9 @@
   }
  },
  "files": {
-  "shared": "shared.2845067ce738.json",
-  "chain_average": "chain_average.2845067ce738.json",
-  "chain_median": "chain_median.2845067ce738.json",
-  "dots": "dots.2845067ce738.json"
+  "shared": "shared.d21d803f88a6.json",
+  "chain_average": "chain_average.d21d803f88a6.json",
+  "chain_median": "chain_median.d21d803f88a6.json",
+  "dots": "dots.d21d803f88a6.json"
  }
 }

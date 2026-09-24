@@ -7,7 +7,7 @@
   "dataset_label_source": {
    "field": "label_of_record",
    "pointer": "serving_golden_board.json",
-   "note": "label = set name + the count the figure stands on, at its stamp (the served wave's axis at the cut of 4 September 2026: 431 of wave 1, seven tasks outside both waves); the kept lists of today (the kept set at 22 Sep 13:24 UK): 430 of wave 1 of this axis still kept \u2014 a task that left the kept set after the cut stays in the fit as cut (the ruling of 8 Sep); the count is the cut's, the split by the waves' membership of record today (the wave-1 pin of 10 September 2026 and the wave-2 list with its parked members); Definitions' rule of 22 September 2026: one string written by the fit's writer, printed by every composer, never a count composed on a page from two sources"
+   "note": "label = set name + the count the figure stands on, at its stamp (the served wave's axis at the cut of 4 September 2026: 431 of wave 1, seven tasks outside both waves); the kept lists of today (the kept set at 22 Sep 13:24): 430 of wave 1 of this axis still kept \u2014 a task that left the kept set after the cut stays in the fit as cut (the ruling of 8 Sep); the count is the cut's, the split by the waves' membership of record today (the wave-1 pin of 10 September 2026 and the wave-2 list with its parked members); Definitions' rule of 22 September 2026: one string written by the fit's writer, printed by every composer, never a count composed on a page from two sources"
   },
   "population": "golden",
   "population_source": "definitions/difficulty/knowledge/golden_set.json",
@@ -29,19 +29,19 @@
    "wave_2": 0,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "c93f7a8d96ec",
+  "runs_fingerprint": "3e94b3b88ead",
   "axis_wave": "golden-board-20260904T1407Z",
   "build_date": "2026-09-24",
-  "stamp": "2026-09-24T14:05:22Z",
+  "stamp": "2026-09-24T16:04:24Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-24T13:14:44Z",
+   "unified_built_at": "2026-09-24T15:15:23Z",
    "board_cells_source": "pages/failure-vs-difficulty/artifacts/fail_counts_matrix.csv",
-   "board_landing_id": "2026-09-24T12:44:07Z",
+   "board_landing_id": "2026-09-24T14:54:04Z",
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.golden.board.csv"
   },
   "withheld_configs": [],
@@ -122,7 +122,7 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/golden-board-20260904T1407Z/results",
    "set_fingerprint": "ffd6e0604cc9",
-   "pointer_updated_at": "2026-09-19T10:37:46Z",
+   "pointer_updated_at": "2026-09-24T14:44:34Z",
    "n_fits": 12,
    "note": null,
    "gates": {
@@ -142,7 +142,7 @@
      "class": "pending re-binding, not composed",
      "status": "",
      "scope": "",
-     "rule": "pending re-binding, not composed (ruled 5 Sep 13:4x UK): where a re-judged row from the second extractor wins a result's draw, the continuation overlay is not composed onto it, so the result carries that extractor's verdicts on the cut samples and none of the continuation's passes \u2192 pass rate biased low until the continued-overlay refresh re-emits; judged counts unaffected; the residue is measured"
+     "rule": "pending re-binding, not composed (ruled 5 Sep 13:4x): where a re-judged row from the second extractor wins a result's draw, the continuation overlay is not composed onto it, so the result carries that extractor's verdicts on the cut samples and none of the continuation's passes \u2192 pass rate biased low until the continued-overlay refresh re-emits; judged counts unaffected; the residue is measured ni"
     }
    ],
    "basis_truncation": {
@@ -209,7 +209,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-24T13:24:58Z",
+   "_stamp": "2026-09-24T15:24:37Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
