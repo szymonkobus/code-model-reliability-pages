@@ -521,7 +521,9 @@ function isCap() { return !!CAP_KEYS[state.xdef]; }
 function capBlock() { var k = CAP_KEYS[state.xdef]; return k ? k.block() : null; }
 function reading(i, levLogit, axis) {
   if (axis === 'x' && isCap()) {
-    var CB = capBlock(), bc = CB.by_cfg[D.shared.configs[i].id];
+    var CB = capBlock();
+    if (!CB) return { z: null, kind: 'none', lo: null, hi: null, extra: 'no ' + CAP_KEYS[state.xdef].name() + ' for this set yet' };   // difficulty publishes the view per set; every model waits alike
+    var bc = CB.by_cfg[D.shared.configs[i].id];
     if (!bc) {   // outside the Capability-C population: not drawn on this axis, named with difficulty's reason
       var why = (CB.excluded || {})[D.shared.configs[i].id] || 'not in the Capability-C population';
       return { z: null, kind: 'none', lo: null, hi: null, extra: 'excluded from the Capability-C population \u2014 ' + why };
@@ -666,7 +668,7 @@ function boot() {
   var row = Kit.filterRow('#controls');
   row.classList.add('kit-static'); // stays in the flow (the kit's opt-out): this row sits beside the chart on desktop and below it on narrow screens, and the chart is capped to the viewport, so nothing scrolls out of reach (page maintainers' read, 21 Sep)
   var dataSw = Kit.switchControl({ mount: row, key: 'data', label: 'Dataset',   // FIRST control in the row ("an option at the top")
-    options: Object.keys(DATASETS).map(function (k) { return { value: k, label: DATASETS[k].label }; }),
+    options: Object.keys(DATASETS).map(function (k) { return { value: k, label: String(DATASETS[k].label).replace(/\s*\([^)]*\)\s*$/, '') }; }),   // a control carries the record alone: the set's name, its count on the set line
     dflt: D.defaultData || (D.allDs.board_top ? 'board_top' : 'board'),
     onchange: function (v) {
       var ds = DATASETS[v] || DATASETS[D.defaultData] || DATASETS.board;
@@ -718,32 +720,20 @@ function boot() {
   var CAPC_REASON = 'Capability C is computed for wave 1 only; choose Dataset = wave 1 to use it';   // wave names only, no attribution (the project maintainers 2026-09-16)
   var xdefReady = false;   // the kit calls onchange once at construction: a D option then must not move the level (the level inputs are built later; a= carries the level)
   var xdefSw = Kit.switchControl({ mount: row, key: 'xdef', label: 'Capability axis',
-    options: [{ value: 'D90', label: 'D90' }, { value: 'D80', label: 'D80' }, { value: 'crossing', label: 'D50' }, { value: 'D25', label: 'D25' }, { value: 'D10', label: 'D10' },   // the capability axis as a switch (the project maintainers' question of 23 Sep 15:3x UK): the crossing at a level, D50 the lens of record
-              { value: 'capC', label: CAP_KEYS.capC.name() },
-              { value: 'capC_z', label: CAP_KEYS.capC_z.name() },
-              { value: 'capC_j', label: CAP_KEYS.capC_j.name() }],
+    // the project maintainers' word of 24 Sep 12:4x UK: the switch reads D, Uniform, Jeffreys, Haldane — D is the crossing at the level the page's level controls set
+    // (the D90…D10 buttons went: those controls exist already); the three distribution views for every model, never greyed
+    options: [{ value: 'crossing', label: 'D' }, { value: 'capC', label: 'Uniform' }, { value: 'capC_j', label: 'Jeffreys' }, { value: 'capC_z', label: 'Haldane' }],
     dflt: 'crossing',
     onchange: function (v) {
-      if (CAP_KEYS[v] && !CAP_KEYS[v].block()) { if (xdefSw) xdefSw.set('crossing'); return; }   // a greyed option reached by keyboard: stay on the crossing
-      if (v === 'crossing' || /^D\d+$/.test(v)) {   // a D option is the crossing at a level: it moves the horizontal level as the presets do; the URL carries the level (a=), not the option
-        state.xdef = 'crossing'; if (!xdefReady || typeof elA === 'undefined' || !elA) return;   // at construction, or when a deep link's fallback sets the crossing before the level inputs exist: the level stays as a= says
-        var N = v === 'crossing' ? 50 : +v.slice(1); Kit.state.set('xdef', null, null); syncXdefLock(); setLevels(100 - N, state.c); return;
-      }
+      if (v === 'crossing') { state.xdef = 'crossing'; Kit.state.set('xdef', null, null); syncXdefLock(); if (xdefReady && sel) render(); return; }   // D: the crossing at the level as set; the URL carries the level (a=), not the option
       state.xdef = v;
       syncXdefLock();
       if (sel) render();
     } });
   xdefReady = true;
-  ['D90', 'D80', 'crossing', 'D25', 'D10'].forEach(function (v) { var bD = row.querySelector('.kit-switch[data-key="xdef"] button[data-value="' + v + '"]'); var N = v === 'crossing' ? 50 : +v.slice(1); if (bD) bD.title = 'D' + N + ': the difficulty at which the model\u2019s solve chance is ' + N + '% (its failure rate ' + (100 - N) + '%)'; });
-  Object.keys(CAP_KEYS).forEach(function (k) {
-    var capBtn = row.querySelector('.kit-switch[data-key="xdef"] button[data-value="' + k + '"]');
-    if (CAP_KEYS[k].block()) { if (capBtn) capBtn.title = CAP_KEYS[k].clause(); return; }   // the two variants are told apart on hover by difficulty's plain clauses
-    var why = k === 'capC' ? CAPC_REASON : 'this view (' + CAP_KEYS[k].clause() + ') is not published for this set yet \u2014 difficulty\u2019s chain';
-    if (capBtn) { capBtn.disabled = true; capBtn.setAttribute('aria-disabled', 'true'); capBtn.title = why; }
-    if (Kit.state.get('xdef', 'crossing') === k) {   // a deep link to a Capability-C axis the set does not carry: fall back, say so, rewrite the URL
-      Kit.state.set('xdef', null, null); if (xdefSw) xdefSw.set('crossing');
-      dataNote = (dataNote ? dataNote + ' \u00b7 ' : '') + CAP_KEYS[k].name() + ' is not computed for this set (' + why + '); showing the fitted 50% crossing';
-    }
+  (function () { var bD = row.querySelector('.kit-switch[data-key="xdef"] button[data-value="crossing"]'); if (bD) bD.title = 'D: the crossing at the horizontal level the level controls set'; })();
+  Object.keys(CAP_KEYS).forEach(function (k) {   // every view pressable for every model (24 Sep 12:4x UK): the hover carries difficulty's clause; where a set has no file the points are not drawn and the frame line names it
+    var capBtn = row.querySelector('.kit-switch[data-key="xdef"] button[data-value="' + k + '"]'); if (capBtn) capBtn.title = CAP_KEYS[k].clause();
   });
   srcMount = document.createElement('span');
   row.appendChild(srcMount);
@@ -1342,7 +1332,7 @@ function phoneFold() {   // phone (<=600 px): short pill labels; the rarely touc
   var cc = document.getElementById('chartcontrols'); if (!cc) return;
   var more = document.getElementById('morecontrols');
   if (!more) {
-    var SHORT = { data: shortMap(), xdef: { crossing: 'D50', capC: CAP_KEYS.capC.short, capC_z: CAP_KEYS.capC_z.short, capC_j: CAP_KEYS.capC_j.short }, xs: { logit: 'logit', raw: 'linear' }, ys: { logit: 'logit', raw: 'linear' }, line: { off: 'Off', steps: 'logit', axes: 'axes as set' }, lw: { equal: 'each dot equal', bands: 'by the 80% bands' }, resid: { off: 'Off', on: 'On' }, src: { project: 'project', bayes: 'Bayesian' }, def: { average: 'average', median: 'median task' } };
+    var SHORT = { data: shortMap(), xdef: { crossing: 'D', capC: CAP_KEYS.capC.short, capC_z: CAP_KEYS.capC_z.short, capC_j: CAP_KEYS.capC_j.short }, xs: { logit: 'logit', raw: 'linear' }, ys: { logit: 'logit', raw: 'linear' }, line: { off: 'Off', steps: 'logit', axes: 'axes as set' }, lw: { equal: 'each dot equal', bands: 'by the 80% bands' }, resid: { off: 'Off', on: 'On' }, src: { project: 'project', bayes: 'Bayesian' }, def: { average: 'average', median: 'median task' } };
     Object.keys(SHORT).forEach(function (k) { document.querySelectorAll('.kit-switch[data-key="' + k + '"] button').forEach(function (b) { if (SHORT[k][b.dataset.value]) b.textContent = SHORT[k][b.dataset.value]; }); });
     more = document.createElement('details'); more.id = 'morecontrols'; more.className = 'about'; more.innerHTML = '<summary>More controls</summary>';
     var moreRow = document.createElement('div'); moreRow.className = 'kit-filter-row kit-static'; moreRow.id = 'moreswitches'; more.appendChild(moreRow);
@@ -1359,10 +1349,9 @@ function phoneFold() {   // phone (<=600 px): short pill labels; the rarely touc
   phoneFolded = true;
 }
 
-function syncXdefPressed() {   // the Capability axis switch shows the level as set (typed, a preset, the sweep): D<100 − a>; none pressed at a level off the list
+function syncXdefPressed() {   // one D button (24 Sep 12:4x UK): pressed under any crossing level; the views pressed by the kit on click
   if (isCap()) return;
-  var N = Math.round(100 - state.a), want = (N === 50 ? 'crossing' : 'D' + N);
-  document.querySelectorAll('.kit-switch[data-key="xdef"] button').forEach(function (b) { if (b.dataset.value === 'capC' || b.dataset.value === 'capC_z' || b.dataset.value === 'capC_j') { b.setAttribute('aria-pressed', 'false'); return; } b.setAttribute('aria-pressed', String(b.dataset.value === want)); });
+  document.querySelectorAll('.kit-switch[data-key="xdef"] button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.value === 'crossing' ? 'true' : 'false'); });
 }
 function paintChips() {
   syncXdefPressed();
@@ -2094,7 +2083,6 @@ function renderScatter() {
   // fixed-format, fixed-width readout: layout must not reflow as the
   // number's width changes mid-drag (2026-08-31 review: the K text
   // hopping lines made the whole page shake during x drags)
-  var xb = document.querySelector('.kit-switch[data-key="xdef"] button[data-value="crossing"]'); if (xb && xb.textContent !== dName('x')) xb.textContent = dName('x');   // the option is the name at the level as set
   document.getElementById('kOut').textContent =
     isCap() ? 'K n/a (the Capability view is level-free)'
       : 'K = ' + (k >= 100 ? k.toFixed(0) : k.toFixed(1));
@@ -2398,7 +2386,7 @@ function narrate(visible, nFull) {
            ? ' (band-inverted interim)' : ''))
     + ' · ' + src + (isCap() ? ' · horizontal: ' + CAP_KEYS[state.xdef].name() + ' (level-free)' : ' · horizontal level ' + state.a + '%') + ' · vertical level '
     + state.c + '% · hold ' + (isCap() ? 'n/a (the Capability view is level-free)' : ({ k: 'K', a: 'horizontal level', c: 'vertical level' })[state.hold]) + unfitNote
-    + (undrawn.length ? ' · ' + undrawn.length + ' not drawn: ' + undrawn.join('; ') : '')
+    + (undrawn.length ? (function () { var rs = undrawn.map(function (s) { var m = /\(([^()]*)\)$/.exec(s); return m ? m[1] : ''; }); var same = rs[0] && rs.every(function (r) { return r === rs[0]; }); return same && undrawn.length > 3 ? ' · ' + undrawn.length + ' of ' + D.shared.configs.length + ' models not drawn: ' + rs[0] : ' · ' + undrawn.length + ' not drawn: ' + undrawn.join('; '); })() : '')
     + (beyondArms.length ? ' \u00b7 not drawn, crossing beyond the hardest task at these levels: ' + beyondArms.map(function (i) { return D.shared.configs[i].label; }).join(', ') : '')
 
     + ' · whiskers ' + state.w
@@ -2598,10 +2586,9 @@ function setHeld(msg, kind) {
 function frameLine() {
   var el = document.getElementById('framebar'); if (!el || !D || !D.shared) return;
   var f = D.shared.frame || {};
-  var base = (D.golden ? 'golden set (12) \u00b7 ' : '') + (DATASETS[D.dataId] ? (DATASETS[D.dataId].frameLabel || DATASETS[D.dataId].label) + ': ' : '') + mainConfigs().length + ' models' + RUNS.filter(function (R) { return (R.idx.length || R.pending) && runOnPlane(R); }).map(function (R) { return ' \u00b7 ' + R.name + ': ' + R.clause + (R.idx.length ? '' : ' \u2014 ' + R.pending); }).join('') + ' \u00b7 as of ' + asOf(f.build_ts || f.build_date) + ', ' + CADENCE + '.';   // the ONE machinery line: stamp + declared refresh in plain words (the project maintainers 2026-09-07; the maintainers's freshness row reads it)
+  var base = (D.golden ? 'golden set (12) \u00b7 ' : '') + (DATASETS[D.dataId] ? (DATASETS[D.dataId].frameLabel || DATASETS[D.dataId].label) + ' \u00b7 ' : '') + mainConfigs().length + ' models';   // Definitions' form of record (24 Sep , the 12:2x UK word): the set's plain words and one count, nothing after — no run clauses, no cadence, no stamp
   // the Bayesian coverage sentence lives in the readout fold-out (bayesNote), not on the frame line (the maintainers 2026-09-05)
   el.textContent = base;
-  if (D.golden) { base += ' ' + String(f.golden_note || 'golden set: a data point, not the difficulty definition').replace(new RegExp('\\s*\\(' + String.fromCharCode(83, 122, 121, 109, 111, 110) + ' [0-9-]+\\)'), '') + '.'; el.textContent = base; }
   if (location.pathname === '/' || D.dsId !== 'board') return;   // the board-tool comparison is a board-dataset fact   // sibling tools exist only under the hub mount; a bare port has nothing to compare against (and a 404 would count as a page error)
   fetch('./fvd-data/manifest.json').then(function (r) { return r.ok ? r.json() : null; }).then(function (m) {
     var bf = m && (m.frame || m); if (!bf || bf.population_M == null) return;
@@ -2660,7 +2647,8 @@ function headline(nFit, fit, nFull, sweeping) {
     // information, it optimises nothing): the first screen states the fitted line's slope with its range and R, nothing more
     ans = 'The fitted line across the models, ' + dName('y') + ' against ' + xw + ': slope ' + fit.b.toFixed(2) + ' [' + fit.lo.toFixed(2) + ', ' + fit.hi.toFixed(2) + '], R ' + fit.r.toFixed(2) + (inAxes() ? ', in the axes as set' : '') + (state.lw === 'bands' ? ', each dot weighted by its bands' : '') + '.';
   } else ans = 'Too few fully measured models at these levels to fit a line (' + nFull + ' measured; the fit needs three).';
-  el.textContent = q + ' ' + ans;
+  if (isCap() && !capBlock()) { q = ''; ans = CAP_KEYS[state.xdef].name() + ' is not published for this set yet; no model is drawn.'; }   // the project maintainers' word of 24 Sep 12:4x UK: every view pressable; a missing file is said in the one sentence
+  el.textContent = (q + ' ' + ans).trim();
 }
 var frameLineDone = false;
 function disclosureLine() {   // one clause per disclosure the fit pointer carries (difficulty shows the same as a flag glyph + notes text, 2026-09-06)
