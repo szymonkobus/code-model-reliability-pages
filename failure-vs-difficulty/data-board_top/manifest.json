@@ -32,7 +32,7 @@
   "runs_fingerprint": "093670853557",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-09-24",
-  "stamp": "2026-09-24T07:46:12Z",
+  "stamp": "2026-09-24T08:45:55Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -67,7 +67,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-24T07:13:26Z",
+   "unified_built_at": "2026-09-24T08:12:36Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -24768,17 +24768,17 @@
   },
   "series_arms": {
    "served": true,
-   "serving_word": "Definitions' word of 24 September 2026 (07:05 UTC) on staging 0848fc48e52d, implemented by that staging: a text-only emission on Definitions' word of 07:05Z: the once-more clauses of checkpoints 16 and 1 say the position stays and when it may move (checkpoint 16's new fit, cut 08:00 UK on the Olmo run lead's word, landing about 12:45 UK, by 14:00 UK Thursday at the latest; checkpoint 1's landing about 10:42 UK, by 12:30 UK Thursday at the latest); no position moves; the rest as served at 07:56 UK",
+   "serving_word": "Definitions' word of 24 September 2026 (08:25 UTC) on staging a699a8942047, implemented by that staging: a text-only emission on Definitions' word of 08:25Z at the 09:22 UK count (sound on every leg judged again tonight): checkpoint 2 375 of its 430 wave 1 results in the count and 55 still to be judged again; checkpoint 8 all 288 in; checkpoint 32 all 216 in; checkpoint 4 all four of its wave 2 results in \u2014 each position stands on the earlier judgings until it is fitted once more; no position moves; 1 and 16 as served at 08:44 UK",
    "wave_id": "olmo-board_top-20260922T0453Z",
    "n_arms": 8,
    "heading": "checkpoints of one training run",
-   "heading_note": "label = plain words for what the group is (the project owner's word of 22 September 2026 via the post-training lead, ruled by Definitions the same day): no task count or composition in the label; the composition sits in group_composition, the counts in the count fields and membership (the kept set at 24 Sep 07:24 UK: 430 of wave 1, 858 of wave 2 on the served axis; the set's members at 24 Sep 07:24 UK: 430 of wave 1, 869 of wave 2), fitted figures beside it \u2014 a task that left the kept set after a cut stays in that fit as cut (the ruling of 8 Sep) and is named in its model's membership_lag",
+   "heading_note": "label = plain words for what the group is (the project owner's word of 22 September 2026 via the post-training lead, ruled by Definitions the same day): no task count or composition in the label; the composition sits in group_composition, the counts in the count fields and membership (the kept set at 24 Sep 09:24 UK: 430 of wave 1, 858 of wave 2 on the served axis; the set's members at 24 Sep 09:24 UK: 430 of wave 1, 869 of wave 2), fitted figures beside it \u2014 a task that left the kept set after a cut stays in that fit as cut (the ruling of 8 Sep) and is named in its model's membership_lag",
    "membership": "results for at least one of these models on all 1,288 kept tasks of the set (1,299 members); positions from the served axis, unchanged",
    "axis_rule": "the served wave 1+2 axis unchanged: study models are positioned on an axis they did not shape (ruling of 17 Sep); positions are comparable with the served set's",
    "axis_pinned_to_served": true,
    "cut_at": "2026-09-22T04:53:28Z",
    "completed_at": "2026-09-24T06:48:58Z",
-   "updated_at": "2026-09-24T07:44:37Z",
+   "updated_at": "2026-09-24T08:44:43Z",
    "pointer": "definitions/fitting/serving_series_olmo31_rlzero_code.json",
    "arms": [
     {
@@ -26830,7 +26830,7 @@
      "n_tasks_positioned": 1288,
      "n_cells": 1288,
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 22 September 2026",
-     "disclosure": "a checkpoint of one training run (checkpoint 2), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 22 September 2026; the set has 1,299 members, 1,288 of them kept; 1,288 positioned in this fit (430 of wave 1 + 858 of wave 2); results as they stood at the cut (22 Sep 07:51 UK); each task's answers judged after judging restarted on 21 September, as counted at that hour; of its 430 wave 1 results being judged again, 142 are in the count since 07:19 UK and 288 are still to be judged again; the position stands on the earlier judgings until all are in and may move then",
+     "disclosure": "a checkpoint of one training run (checkpoint 2), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 22 September 2026; the set has 1,299 members, 1,288 of them kept; 1,288 positioned in this fit (430 of wave 1 + 858 of wave 2); results as they stood at the cut (22 Sep 07:51 UK); each task's answers judged after judging restarted on 21 September, as counted at that hour; of its 430 wave 1 results being judged again, 375 are in the count since 09:22 UK and 55 are still to be judged again; the position stands on the earlier judgings until all are in and may move then",
      "gates_failed": false,
      "gate_face": null,
      "bayes_avg": {
@@ -30878,7 +30878,7 @@
      "n_tasks_positioned": 1288,
      "n_cells": 1288,
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 22 September 2026",
-     "disclosure": "a checkpoint of one training run (checkpoint 32), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 22 September 2026; the set has 1,299 members, 1,288 of them kept; 1,288 positioned in this fit (430 of wave 1 + 858 of wave 2); results as they stood at the cut (22 Sep 08:54 UK); each task's answers judged after judging restarted on 21 September, as counted at that hour; of its 216 wave 1 results being judged again, 72 are in the count since 03:52 UK and 144 are still to be judged again; the position stands on the earlier judgings until all are in and may move then",
+     "disclosure": "a checkpoint of one training run (checkpoint 32), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 22 September 2026; the set has 1,299 members, 1,288 of them kept; 1,288 positioned in this fit (430 of wave 1 + 858 of wave 2); results as they stood at the cut (22 Sep 08:54 UK); each task's answers judged after judging restarted on 21 September, as counted at that hour; all 216 of its wave 1 results judged again are in the count since 09:22 UK; the position stands on the earlier judgings until it is fitted once more and may move then",
      "gates_failed": false,
      "gate_face": null,
      "bayes_avg": {
@@ -32902,7 +32902,7 @@
      "n_tasks_positioned": 1288,
      "n_cells": 1288,
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 22 September 2026",
-     "disclosure": "a checkpoint of one training run (checkpoint 8), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 22 September 2026; the set has 1,299 members, 1,288 of them kept; 1,288 positioned in this fit (430 of wave 1 + 858 of wave 2); results as they stood at the cut (22 Sep 12:16 UK); each task's answers judged after judging restarted on 21 September, as counted at that hour; of its 288 wave 1 results being judged again, 143 are in the count since 07:19 UK and 145 are still to be judged again; the position stands on the earlier judgings until all are in and may move then",
+     "disclosure": "a checkpoint of one training run (checkpoint 8), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 22 September 2026; the set has 1,299 members, 1,288 of them kept; 1,288 positioned in this fit (430 of wave 1 + 858 of wave 2); results as they stood at the cut (22 Sep 12:16 UK); each task's answers judged after judging restarted on 21 September, as counted at that hour; all 288 of its wave 1 results judged again are in the count since 09:22 UK; the position stands on the earlier judgings until it is fitted once more and may move then",
      "gates_failed": true,
      "gate_face": "every attempt failed on 38% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's interval is wider",
      "bayes_avg": {
@@ -36950,7 +36950,7 @@
      "n_tasks_positioned": 1288,
      "n_cells": 1288,
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 24 September 2026",
-     "disclosure": "a checkpoint of one training run (checkpoint 4), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 24 September 2026; the set has 1,299 members, 1,288 of them kept; 1,288 positioned in this fit (430 of wave 1 + 858 of wave 2); results as they stood at the cut (24 Sep 00:48 UK); each task's answers judged after judging restarted on 21 September, as counted at that hour; its position was fitted again from the judgings that stand: D50 moved from 8.98% to 9.22%; fits of the same results differ by about 0.2 percentage points run to run; D99 stays below the easiest task; it counts on wave 1 since 00:23 UK; of its four wave 2 results judged again, three are in the count since 06:38 UK and one is not yet in the count; the position stands on the earlier judgings until all are in and may move then",
+     "disclosure": "a checkpoint of one training run (checkpoint 4), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 24 September 2026; the set has 1,299 members, 1,288 of them kept; 1,288 positioned in this fit (430 of wave 1 + 858 of wave 2); results as they stood at the cut (24 Sep 00:48 UK); each task's answers judged after judging restarted on 21 September, as counted at that hour; its position was fitted again from the judgings that stand: D50 moved from 8.98% to 9.22%; fits of the same results differ by about 0.2 percentage points run to run; D99 stays below the easiest task; it counts on wave 1 since 00:23 UK; all four of its wave 2 results judged again are in the count since 09:22 UK; the position stands on the earlier judgings until it is fitted once more and may move then",
      "gates_failed": false,
      "gate_face": null,
      "bayes_avg": {
@@ -41133,7 +41133,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-24T07:24:11Z",
+   "_stamp": "2026-09-24T08:24:22Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
