@@ -667,6 +667,8 @@ function chainCurve(i) {
     var cfgB = (state.def === 'average' ? D.avg : D.med).configs[id];
     var src = cfgB && cfgB.bayes;
     if (!src) {                       // not in the serving fit set (F014)
+      var ra = runFitFor(id);         // the training run's fit of record for this model (24 Sep)
+      if (ra) { var rc = sideCurve(ra); if (rc) { rc.form = 'line'; rc.runFit = true; return rc; } }
       var h = houseCurve(id, lvl);
       h.houseOnly = true; h.lo = null; h.hi = null;
       return h;
@@ -797,11 +799,18 @@ function noSpecTagsRaw(s) {   // "(the fit methods maintainers spec 04m)" / "(sp
     .replace(/\s+([;,.])/g, '$1');
 }
 function covText(i) { var cv = covOf(i); return 'attempts on ' + (cv.of ? Math.round(100 * cv.tasks / cv.of) + '% of the tasks' : 'the tasks'); }   // a share, never a task count (the project maintainers' word of 10 Sep); the partial rule keeps its 90% threshold
-function hasBayes(i) {
+function hasOwnBayes(i) {
   var id = D.shared.configs[i].id;
   var cfgB = (state.def === 'average' ? D.avg : D.med).configs[id];
   return !!(cfgB && cfgB.bayes);
 }
+function runFitFor(id) {   // the record of 24 Sep (13:0x UK): a served model without a Bayesian fit whose training run's pointer carries its fit of record draws that fit — the run's copy the row
+  // keeps aside (orderSeries: merged_arms); null when no run row carries the model or its copy has no posterior
+  var rows; try { rows = seriesRows(); } catch (e) { return null; }
+  for (var r = 0; r < rows.length; r++) { var a = rows[r].merged_arms && rows[r].merged_arms[id]; if (a && (a.bayes_avg || a.bayes_med)) return a; }
+  return null;
+}
+function hasBayes(i) { return hasOwnBayes(i) || !!runFitFor(D.shared.configs[i].id); }
 function houseCurve(id, lvl) {
   if (state.def === 'average') {
     var c = D.avg.configs[id];
@@ -910,7 +919,7 @@ function orderSeries(s) {   // the fit maintainers' checkpoint-series pointer (k
     // one row per run, one fit per model: an arm the served set already carries as a
     // config (the run's final, whose own fit shaped the axis) is not drawn a second time from the pointer's frozen-axis re-fit — its chip and fit stay the served set's; the ids dropped feed the line under the checkpoints' table
     var served = {}; (D.shared.configs || []).forEach(function (c) { served[c.id] = true; });
-    s.merged_ids = []; s.arms = s.arms.filter(function (a) { if (served[a.id]) { s.merged_ids.push(a.id); return false; } return true; });
+    s.merged_ids = []; s.merged_arms = {}; s.arms = s.arms.filter(function (a) { if (served[a.id]) { s.merged_ids.push(a.id); s.merged_arms[a.id] = a; return false; } return true; });
     // training order: by the step field, a final last (the pointer lists the final first)
     var stepKey = function (a) { return (a.final || a.step == null) ? 1e15 : Number(a.step); };
     s.arms.sort(function (a, b) { return stepKey(a) - stepKey(b); });
@@ -1334,6 +1343,7 @@ function paintChips() {
     if (bb && bb.axis_flag) parts.push(bb.axis_flag);   // served set on a newer task axis than this view: drawn with the note (never withheld)
     var nfn = notFittedNote(i); if (nfn) parts.push(nfn);   // the Opus-refusal decision: refused tasks are not failures; excluded from this arm's cells and fit
     if (unf && !c.excluded) parts.push('not yet in the Bayesian fit set — not drawn until its fit lands');
+    var _ra = (!unf && !hasOwnBayes(i)) ? runFitFor(c.id) : null; if (_ra && _ra.disclosure) parts.push(currentTruth(_ra.disclosure));   // the run's fit of record stands in (24 Sep)
     if (c.disclosure) parts.push('flag: ' + c.disclosure);
     if (c.continuation_flag) parts.push(c.continuation_flag);   // the task pool maintainers' continuation hover of record: this arm's answers in the view's waves changed from cut to continued (a basis change the project maintainers must see)
     parts.push(covText(i) + (isPartial(i) ? (shownArm(i) ? ' — partial model' : ' — partial model, hidden; the Partial models switch shows it') : ''));
