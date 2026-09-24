@@ -638,9 +638,9 @@ function buildChips() {
         var b = document.createElement('button'); b.className = 'chip serieschip'; b.style.color = a.color; b.style.borderColor = a.color;
         b.textContent = a.short_label || a.label; b.dataset.label = b.textContent; b.dataset.name = a.label || b.textContent; b.dataset.name = a.label || b.textContent; b.dataset.series = String(k); b.dataset.row = String(sbR._row);   // the short form of record ('RL-Zero Code · 0/32') from the labels row, never composed
         var parts = []; if (a.disclosure) parts.push(currentTruth(a.disclosure)); if (a.set_label) parts.push('fitted on ' + a.set_label);
-        if (a.gates_failed) parts.push(a.gate_face ? noSpecTags(String(a.gate_face)) : 'sampler gate flagged on this fit; drawn with the disclosure');
+        if (a.gates_failed) parts.push(a.gate_face ? noSpecTags(String(a.gate_face)) : 'this fit failed its own check; drawn lighter, with its disclosure');
         if (a.protocol) parts.push('read by ' + a.protocol + ': the base model continues the prompt, no chat turn');
-        b.dataset.state = noSpecTags(parts.join(' · ')); b.title = (a.withheld && a.disclosure) ? noSpecTags(currentTruth(String(a.disclosure))) : oneSentence(noSpecTags(parts[0] || a.label));   // a withheld checkpoint's hover is the fit maintainers' whole sentence with its held-out clause and floor, never cut (the pool pages lead  23 Sep)
+        b.dataset.state = noSpecTags(parts.join(' · ')); b.title = (a.withheld && a.disclosure) ? noSpecTags(currentTruth(String(a.disclosure))) : oneSentence(noSpecTags(parts[0] || a.label)); if (a.gates_failed) { b.title += ' \u00b7 this fit failed its own check and is drawn lighter'; b.classList.add('gated'); b.style.borderStyle = 'dashed'; }   // a withheld checkpoint's hover is the fit maintainers' whole sentence with its held-out clause and floor, never cut (the pool pages lead  23 Sep)      // a failed fit is not a plain position (the project maintainers' current-truth word of 24 Sep; the maintainers's read): the hover says so and the chip's border is dashed
         b.onclick = function () { if (seriesSel.has(k)) seriesSel.delete(k); else seriesSel.add(k); render(); };
         seriesChips.push(b); box.appendChild(b);
       });
@@ -789,10 +789,11 @@ function noStamps(s) {
   s = noBareDates(s);   // the project maintainers' NO STAMPS word: ISO times in a peer's sentence become relative times; "project state" reads "run state"
   return String(s).replace(/\b\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2})?Z?\b/g, function (m) { return relTime(m); }).replace(/project state/g, 'run state');
 }
+function bareClock(s) { return String(s == null ? '' : s).replace(/(\b\d{1,2}:\d{2}) UK\b/g, '$1'); }   // the project maintainers' word of 24 Sep (14:2x UK, via the maintainers): a time the project maintainers reads is UK time written bare — 14:50, never 14:50 UK, never Z or UTC
 function noSpecTags(s) {
   // hovers too: bare dates read as day-month (the pool pages lead)
   s = noBareDates(s);
-  return faceNumbers(noSpecTagsRaw(s)); }
+  return bareClock(faceNumbers(noSpecTagsRaw(s))); }
 function noSpecTagsRaw(s) {   // "(the fit methods maintainers spec 04m)" / "(spec 03g)" tags stay in the source files; a face carries the sentence only
   return String(s).replace(/\s*\((?:fit-methods\s+)?spec\s+[0-9]{2}[a-z]?[^)]*\)/g, '')
     .replace(/\(config\.n_tasks = [\d,]+ of the ([\d,]+)-task frame\)/g, '(of the $1-task frame)')   // field name in the fit maintainers' frame_disclosure strings ( 7 Sep)
@@ -976,10 +977,10 @@ function renderSideBlock() {
     var parts = [];
     if (a.disclosure) parts.push(currentTruth(a.disclosure));
     if (a.set_label) parts.push('fitted on ' + a.set_label);
-    if (a.gates_failed) parts.push(a.gate_face ? noSpecTags(String(a.gate_face)) : 'sampler gate flagged on this fit; drawn with the disclosure');   // the fit maintainers' own face sentence when the pointer carries it
+    if (a.gates_failed) parts.push(a.gate_face ? noSpecTags(String(a.gate_face)) : 'this fit failed its own check; drawn lighter, with its disclosure');   // the fit maintainers' own face sentence when the pointer carries it
     if (a.protocol) parts.push('read by ' + a.protocol + ': the base model continues the prompt, no chat turn');
     b.dataset.state = noSpecTags(parts.join(' · '));
-    b.title = oneSentence(noSpecTags(parts[0] || a.label)) + ((a.protocol && !/^read by /.test(parts[0] || '')) ? ' (read by ' + a.protocol + ')' : '');
+    b.title = oneSentence(noSpecTags(parts[0] || a.label)) + ((a.protocol && !/^read by /.test(parts[0] || '')) ? ' (read by ' + a.protocol + ')' : '');   if (a.gates_failed) { b.title += ' \u00b7 this fit failed its own check and is drawn lighter'; b.classList.add('gated'); b.style.borderStyle = 'dashed'; }   // a failed fit is not a plain position (the project maintainers' current-truth word of 24 Sep; the maintainers's read): the hover says so and the chip's border is dashed
     b.onclick = function () { if (sideSel.has(k)) sideSel.delete(k); else sideSel.add(k); render(); };
     sc.appendChild(b);
   });
@@ -1057,10 +1058,10 @@ function renderSeriesRow(sb, ri) {   // the run's row: cloned from renderSideBlo
     var parts = [];
     if (a.disclosure) parts.push(currentTruth(a.disclosure));
     if (a.set_label) parts.push('fitted on ' + a.set_label);
-    if (a.gates_failed) parts.push(a.gate_face ? noSpecTags(String(a.gate_face)) : 'sampler gate flagged on this fit; drawn with the disclosure');   // the fit maintainers' own face sentence when the pointer carries it
+    if (a.gates_failed) parts.push(a.gate_face ? noSpecTags(String(a.gate_face)) : 'this fit failed its own check; drawn lighter, with its disclosure');   // the fit maintainers' own face sentence when the pointer carries it
     if (a.protocol) parts.push('read by ' + a.protocol + ': the base model continues the prompt, no chat turn');
     b.dataset.state = noSpecTags(parts.join(' · '));
-    b.title = (a.withheld && a.disclosure ? noSpecTags(currentTruth(String(a.disclosure))) : oneSentence(noSpecTags(parts[0] || a.label))) + ((a.protocol && !/^read by /.test(parts[0] || '')) ? ' (read by ' + a.protocol + ')' : '');   // a withheld checkpoint's hover is the fit maintainers' whole sentence with its held-out clause and floor, never cut (the pool pages lead  23 Sep)
+    b.title = (a.withheld && a.disclosure ? noSpecTags(currentTruth(String(a.disclosure))) : oneSentence(noSpecTags(parts[0] || a.label))) + ((a.protocol && !/^read by /.test(parts[0] || '')) ? ' (read by ' + a.protocol + ')' : ''); if (a.gates_failed) { b.title += ' \u00b7 this fit failed its own check and is drawn lighter'; b.classList.add('gated'); b.style.borderStyle = 'dashed'; }   // a withheld checkpoint's hover is the fit maintainers' whole sentence with its held-out clause and floor, never cut (the pool pages lead  23 Sep)      // a failed fit is not a plain position (the project maintainers' current-truth word of 24 Sep; the maintainers's read): the hover says so and the chip's border is dashed
     b.onclick = function () { if (seriesSel.has(k)) seriesSel.delete(k); else seriesSel.add(k); render(); };
     sc.appendChild(b);
   });
@@ -1139,7 +1140,7 @@ function render() {
   ['80', '90', '95'].forEach(function (lv) {
     setDisabled(bandCtl && bandCtl.element.querySelector('button[data-value="' + lv + '"]'),
       state.src === 'bayes' && bayesLevels.indexOf(lv) < 0,
-      'Bayesian ribbons for the ' + DATASETS[DATASET].short + ' dataset carry ' + bayesLevels.join('% and ') + '% only; '
+      'Bayesian ribbons for the ' + setWord(DATASETS[DATASET].short) + ' dataset carry ' + bayesLevels.join('% and ') + '% only; '
       + lv + '% is available with the ' + houseName().toLowerCase());
   });
   setDisabled(dotsCtl && dotsCtl.element.querySelector('button[data-value="1"]'),
@@ -1268,7 +1269,7 @@ function render() {
       if (!sideSel.has(k)) return;
       var cvS = sideCurve(a); if (!cvS) return;
       if (cvS.lo) bands += '<path d="' + pathBand(cvS.zs, cvS.lo, cvS.hi) + '" fill="' + a.color + '" fill-opacity="0.10" data-chain-val data-side="' + k + '"/>';
-      curves += '<path d="' + pathLine(cvS.zs, cvS.mid) + '" fill="none" stroke="' + a.color + '" stroke-width="1.6"'
+      curves += '<path d="' + pathLine(cvS.zs, cvS.mid) + '" fill="none" stroke="' + a.color + '" stroke-width="1.6"' + (a.gates_failed ? ' stroke-opacity="0.55"' : '')
         + (a.variant_pattern === 'dash-dot' ? ' stroke-dasharray="4 1.5 1.5 1.5"' : (a.variant ? ' stroke-dasharray="1.5 2.5"' : ''))
         + ' data-chain-val data-side="' + k + '" data-label="' + String(a.label).replace(/"/g, '&quot;') + ' — ' + String(headingShort(sbC)).replace(/"/g, '&quot;') + '"/>';
     });
@@ -1280,7 +1281,7 @@ function render() {
       if (!seriesSel.has(k)) return;
       var cvR = sideCurve(a); if (!cvR) return;
       if (cvR.lo) bands += '<path d="' + pathBand(cvR.zs, cvR.lo, cvR.hi) + '" fill="' + a.color + '" fill-opacity="0.10" data-chain-val data-series="' + k + '" data-row="' + srC._row + '"/>';
-      curves += '<path d="' + pathLine(cvR.zs, cvR.mid) + '" fill="none" stroke="' + a.color + '" stroke-width="1.6" data-chain-val data-series="' + k + '" data-row="' + srC._row + '" data-label="' + String(a.short_label || a.label).replace(/"/g, '&quot;') + ' — ' + String((a.run || headingShort(srC))).replace(/"/g, '&quot;') + '"/>';
+      curves += '<path d="' + pathLine(cvR.zs, cvR.mid) + '" fill="none" stroke="' + a.color + '" stroke-width="1.6"' + (a.gates_failed ? ' stroke-opacity="0.55"' : '') + (curveDash(a) ? ' stroke-dasharray="' + curveDash(a) + '"' : '') + ' data-chain-val data-series="' + k + '" data-row="' + srC._row + '" data-label="' + String(a.short_label || a.label).replace(/"/g, '&quot;') + ' — ' + String((a.run || headingShort(srC))).replace(/"/g, '&quot;') + '"/>';
     });
   });
   chart.innerHTML = '<defs><clipPath id="plotclip"><rect x="' + ML + '" y="' + MT + '" width="' + PW + '" height="' + PH + '"/></clipPath></defs>'
@@ -1788,7 +1789,7 @@ function ukParts(d) {   // the project maintainers' word of 14 Sep (UK time, not
 }
 function humanTime(iso) {   // "9 Sep 09:53 UK" — the UK clock of an ISO/UTC stamp (the project maintainers' word of 14 Sep), the pool pages' form
   if (!iso) return null; var d = new Date(iso); if (isNaN(d)) return null;
-  var q = ukParts(d); return q.day + ' ' + String(q.month).replace(/\.$/, '').replace('Sept', 'Sep') + ' ' + q.hour + ':' + q.minute + ' UK';
+  var q = ukParts(d); return q.day + ' ' + String(q.month).replace(/\.$/, '').replace('Sept', 'Sep') + ' ' + q.hour + ':' + q.minute;   // a time the project maintainers reads is UK time written bare (the word of 24 Sep, 14:2x UK, via the maintainers): no suffix
 }
 function poolMachineryLine(f) {   // the pool pages lead 9 Sep, the sibling pages' form: "results store as of 9 Sep 08:53; page regenerated 11:08, every hour ‖"
   // store_newest = newest judged outcome in the results store; stamp = the bundle's build time (their page cadence: every hour);
@@ -1801,7 +1802,7 @@ function poolMachineryLine(f) {   // the pool pages lead 9 Sep, the sibling page
   if (ss.glyph) line += ' <span title="' + oneSentence(noStamps(String(ss.sentence || ''))).replace(/"/g, '&quot;') + '">' + ss.glyph + '</span>';
   return line;
 }
-function hhmm(iso) { if (!iso) return null; var d = new Date(iso); if (isNaN(d)) return null; var q = ukParts(d); return q.hour + ':' + q.minute + ' UK'; }   // the UK clock (the project maintainers' word of 14 Sep)
+function hhmm(iso) { if (!iso) return null; var d = new Date(iso); if (isNaN(d)) return null; var q = ukParts(d); return q.hour + ':' + q.minute; }   // the UK clock (the project maintainers' word of 14 Sep)
 function fitFrameClause(f) {   // the task pool maintainers DECISIONS 10 Sep (critic): a view standing on a pilot-inclusive fit names the pilot as a third set,
   // N from the fit maintainers' stamp; hover qualifiers kept-by-label / members. Silent when the fit's frame carries no pilot (the axis clause suffices).
   var b = f && f.bayes_fits, ff = b && b.fit_frame;
@@ -2020,7 +2021,8 @@ function mountExport() {   // once: the reference control under the chart; the f
   exportMounted = true;
   Kit.exportButton(box, exportOptions);
 }
-function curveDash(c) { return c.think ? '6 4' : (c.variant_pattern === 'dash-dot' ? '4 1.5 1.5 1.5' : (c.variant ? '1.5 2.5' : '')); }   // the same dashes render draws
+function isThinkArm(a) { return !!(a && (a.think || /think/i.test(String(a.id || a.stem || a.run || '')))); }   // a thinking variant's line is dashed, a run row's checkpoints included (the project maintainers' question of 24 Sep, 14:0x UK)
+function curveDash(c) { return (c.think || isThinkArm(c)) ? '6 4' : (c.variant_pattern === 'dash-dot' ? '4 1.5 1.5 1.5' : (c.variant ? '1.5 2.5' : '')); }   // the same dashes render draws
 function exportLegend() {   // one row per drawn model, in the plot's order
   var rows = [];
   var visible = Array.from(sel).filter(shownArm).sort(function (a, b) { return a - b; });

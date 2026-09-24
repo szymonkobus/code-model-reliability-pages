@@ -1,5 +1,5 @@
 {
- "fingerprint": "f1e1c95aca5e",
+ "fingerprint": "f4e89f91bf59",
  "frame": {
   "population_M": 58,
   "tasks": 430,
@@ -26,17 +26,17 @@
    "Qwen/Qwen3-30B-A3B-Thinking"
   ],
   "withheld_reasons": {
-   "Qwen/Qwen3-30B-A3B-Thinking": "held by ruling of 2 Sep 23:23 UK (kept off paid time (not counted in coverage or in the figures to finish); runs on the free machines after everything else; last in the free queue)"
+   "Qwen/Qwen3-30B-A3B-Thinking": "held by ruling of 2 Sep 23:23 (kept off paid time (not counted in coverage or in the figures to finish); runs on the free machines after everything else; last in the free queue)"
   },
   "keep_set_hash": "c3f08ea1a903",
   "axis_order_hash": "82b1968451ae",
-  "runs_fingerprint": "ee626204e1c7",
+  "runs_fingerprint": "9308b7e532f0",
   "runs_fingerprint_rule": "sha1 over path:mtime_ns:size of the consumed *.eval_results.json files (since 2026-09-02; before: every file under runs/)",
   "inputs_content_sha": "d5a4e3cd1533",
   "scorer": "plus_status (a sample counts as solved if its plus run passed; difficulty ruled base AND plus on 2026-09-02 \u2014 the switch of served numbers waits for Szymon's gate; under base AND plus a result can read differently, e.g. Mbpp/274 for Qwen3-30B-A3B: 128 passes here vs 127)",
   "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\\t<task>\\t<passes>\\t<attempts>\\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column verbatim; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) \u2014 reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
   "build_date": "2026-09-24",
-  "built_at": "2026-09-24T11:43:54Z",
+  "built_at": "2026-09-24T14:59:19Z",
   "vocab_ruled": "2026-08-27",
   "counts_of_record": {
    "original_kept": 430,
@@ -45,7 +45,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-24T11:24:17Z",
+   "_stamp": "2026-09-24T14:27:55Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -215,7 +215,7 @@
    "custody_dir": "definitions/fitting/waves/old-20260910T2211Z/results",
    "set_fingerprint": "63db7d7176e6",
    "set_sha256_method": "sha256 over sorted(basename + bytes) of the SERVED posterior_summary_*.json files (not_served stems excluded; n_arms counts the same files)",
-   "pointer_updated_at": "2026-09-19T09:58:51Z",
+   "pointer_updated_at": "2026-09-24T14:44:34Z",
    "note": null,
    "gates": {
     "convention": "0.5%-of-draws convention",
@@ -246,7 +246,7 @@
    "served_not_in_population": [
     {
      "model_id": "Qwen/Qwen3-30B-A3B-Thinking",
-     "reason": "held by ruling of 2 Sep 23:23 UK (kept off paid time (not counted in coverage or in the figures to finish); runs on the free machines after everything else; last in the free queue) \u2014 fitted on its partial board results only, a fraction of the frame"
+     "reason": "held by ruling of 2 Sep 23:23 (kept off paid time (not counted in coverage or in the figures to finish); runs on the free machines after everything else; last in the free queue) \u2014 fitted on its partial board results only, a fraction of the frame"
     }
    ],
    "provisional_classes": null,
@@ -305,12 +305,12 @@
    "openai/gpt-5-nano": "20260907T154051Z",
    "openai/gpt-5-mini": "20260907T154051Z"
   },
-  "newest_input_mtime": "2026-09-24T11:41:13Z"
+  "newest_input_mtime": "2026-09-24T14:58:56Z"
  },
  "files": {
-  "shared": "shared.f1e1c95aca5e.json",
-  "chain_average": "chain_average.f1e1c95aca5e.json",
-  "chain_median": "chain_median.f1e1c95aca5e.json",
-  "dots": "dots.f1e1c95aca5e.json"
+  "shared": "shared.f4e89f91bf59.json",
+  "chain_average": "chain_average.f4e89f91bf59.json",
+  "chain_median": "chain_median.f4e89f91bf59.json",
+  "dots": "dots.f4e89f91bf59.json"
  }
 }

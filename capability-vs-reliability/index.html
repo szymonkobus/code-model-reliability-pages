@@ -51,8 +51,8 @@ svg { width:100%; height:auto; display:block; touch-action:pan-y; }  /* plot bod
   border:1px solid; cursor:pointer; font:inherit; font-size:.78rem; }
 .chips .chip.off { opacity:.3; }
 .chips .chip.nofit { border-style:dotted; }
-.chips .chip.provisional { border-style:dashed; }   /* a provisional position: a fast estimate the fit of record replaces (23 Sep) */   /* awaiting its Bayesian fit: a dotted border, never a point (2026-09-04); the chip reads and toggles like every other (the project maintainers' word of 23 Sep 12:0x UK) */
-#armsbar .kit-switch { margin-right:.9rem; }   /* a space after every toggle: Models ⟨toggle⟩ Partial models ⟨toggle⟩ (the project maintainers' word of 23 Sep 12:0x UK) */
+.chips .chip.provisional { border-style:dashed; }   /* a provisional position: a fast estimate the fit of record replaces (23 Sep) */   /* awaiting its Bayesian fit: a dotted border, never a point (2026-09-04); the chip reads and toggles like every other (the project maintainers' word of 23 Sep 12:0x) */
+#armsbar .kit-switch { margin-right:.9rem; }   /* a space after every toggle: Models ⟨toggle⟩ Partial models ⟨toggle⟩ (the project maintainers' word of 23 Sep 12:0x) */
 .chips .chip.partial { opacity:.45; border-style:dotted; }   /* partial model (attempts on under 90% of the set's tasks): hidden by default, greyed when shown (the project maintainers' word, 2026-09-07) */
 .chips .chip[disabled] { cursor:default; }   /* a hidden partial model's chip is unselectable, in place with a hint (the project maintainers' word, 2026-09-07 ) */
 .chips .chip.partialshown { border-style:dotted; }   /* shown on request: a normal chip with the partial mark */
@@ -60,7 +60,7 @@ svg { width:100%; height:auto; display:block; touch-action:pan-y; }  /* plot bod
 .chips .util { border:1px solid var(--border2); border-radius:5px;
   background:none; padding:2px 9px; cursor:pointer; font:inherit;
   font-size:.78rem; color:var(--ink-2); }
-#notes { display:none; }   /* the project maintainers' word of 24 Sep 12:4x UK: the page states the current truth only — the warnings list under the plot (flag sentences, partial lists, method caveats) leaves the face; the flag stays on the chip and in its hover */
+#notes { display:none; }   /* the project maintainers' word of 24 Sep 12:4x: the page states the current truth only — the warnings list under the plot (flag sentences, partial lists, method caveats) leaves the face; the flag stays on the chip and in its hover */
 #framebar.tear { color:#7a4a12; }
 #vocabnote { font-size:.8rem; color:#8b8477; min-height:1.7em; line-height:1.6; margin:0 0 .3rem; }
 .chip.think { border-style:dashed; }
@@ -89,11 +89,11 @@ details.about summary { cursor:pointer; padding:.35rem 0; }
   font-variant-numeric:tabular-nums; }
 #stamp { color:var(--ink-3); font-size:.78rem; margin-top:1.2rem; }
 a { color:#0b57d0; }
-@media (max-width:600px) { #headline { min-height:10.2em; } #framebar { min-height:4.2em; } #kBound { display:block; min-width:0; min-height:2.6em; } #kOut { min-width:0; } #vocabnote { min-height:2.6em; } #narrate { min-height:10em; } #vocabnote { min-height:3.2em; } #fitline { min-height:9.6em; } #notes { min-height:2.8em; } #kBound { min-height:3.9em; } #chartcontrols .kit-switch, .chips-run { margin-top:.4rem; padding-top:.4rem; border-top:1px solid #e3ddd0; }   /* the run's own line of chips below the models' (the project maintainers' word of 22 Sep 11:46 UK) */
+@media (max-width:600px) { #headline { min-height:10.2em; } #framebar { min-height:4.2em; } #kBound { display:block; min-width:0; min-height:2.6em; } #kOut { min-width:0; } #vocabnote { min-height:2.6em; } #narrate { min-height:10em; } #vocabnote { min-height:3.2em; } #fitline { min-height:9.6em; } #notes { min-height:2.8em; } #kBound { min-height:3.9em; } #chartcontrols .kit-switch, .chips-run { margin-top:.4rem; padding-top:.4rem; border-top:1px solid #e3ddd0; }   /* the run's own line of chips below the models' (the project maintainers' word of 22 Sep 11:46) */
 .chips-run .runlabel { font-weight:600; font-size:.85rem; margin-right:.35rem; }
 .chips-run .runnote { font-size:.8rem; color:#52514e; margin-left:.35rem; }   /* a fail-closed hide says so on the face (difficulty, 22 Sep) */
 .chip .flag { margin-left:.3rem; color:#b3261e; font-size:.85em; }   /* a flagged fit carries its flag on the chip (Definitions, 22 Sep) */
-#armsbar { display:flex; flex-wrap:wrap; align-items:flex-start; gap:.35rem 1.1rem; }   /* a clear gap between the model sets in the row (the project maintainers' word, 22 Sep 11:1x UK: no gap between the first set's last chip and the next label) */
+#armsbar { display:flex; flex-wrap:wrap; align-items:flex-start; gap:.35rem 1.1rem; }   /* a clear gap between the model sets in the row (the project maintainers' word, 22 Sep 11:1x: no gap between the first set's last chip and the next label) */
 #armsbar .kit-switch { display:flex; flex-direction:column; align-items:flex-start; gap:.15rem; } #morecontrols .kit-filter-row { margin:.3rem 0; } }
 /* the export row and its buttons take the reference look from kit.css (.kit-export, .kit-export-btn): one look on every site (the maintainers, 21 Sep) */
 </style></head><body>
@@ -118,15 +118,15 @@ a { color:#0b57d0; }
 <div class="chips" id="chips"></div>
 <div id="chips-runs"></div>
 </section>
-<details class="about" id="fitfold" hidden><summary>What the fitted line means</summary>
-<p id="fitcaption" class="sub" data-chain-val="def src xdef fitci line xs ys s l sel lw" style="font-size:.86rem;color:#52514e;margin:.3rem 0 .4rem;line-height:1.45" hidden></p></details>
-<p class="sub" id="noteslink" style="margin:.6rem 0 0;font-size:.85rem">notes</p>
 <div id="offpage" hidden aria-hidden="true"><!-- mounts the script still writes; nothing here is displayed (the project maintainers' word, 21 Sep 2026: a pure display page for the graph; the prose moved to notes.html) -->
 <div id="narrate"></div><div id="fitline"></div><div id="vocabnote"></div>
 <details id="opusfold" hidden><div id="opusfig"></div><p id="opustext"></p></details>
 <p id="reliability-def" data-adopted="difficulty 2026-09-03"></p>
 <div id="notes"></div><div id="stamp" data-chrome></div>
 </div>
+<!-- the project structural clause of 24 Sep on the project maintainers' word:4x: the face is its slots — title, set line, one caption sentence, the figure, the controls, the models' chips, the Definitions fold last; #offpage above is the script's hidden mount (hidden, aria-hidden), never displayed -->
+<details class="about" id="fitfold" hidden><summary>What the fitted line means</summary>
+<p id="fitcaption" class="sub" data-chain-val="def src xdef fitci line xs ys s l sel lw" style="font-size:.86rem;color:#52514e;margin:.3rem 0 .4rem;line-height:1.45" hidden></p><p class="sub" id="noteslink" style="margin:.4rem 0 0;font-size:.85rem">notes</p><p id="machinery" class="sub" data-chrome style="font-size:.8rem;color:#8b8477;margin:.4rem 0 0"></p></details>
 <script src="./kit.js"></script>
 <script src="./kit-viz.js"></script>
 <script src="./kit-export.js"></script>

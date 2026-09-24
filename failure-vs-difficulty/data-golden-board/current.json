@@ -1,6 +1,6 @@
 {
- "checked_at": "2026-09-24T12:25:33Z",
- "built_at": "2026-09-24T11:58:00Z",
- "last_chain": "chain_bayes_all_board_top_20260924T120018Z.log",
+ "checked_at": "2026-09-24T13:46:07Z",
+ "built_at": "2026-09-24T13:02:18Z",
+ "last_chain": "chain_reland_20260924T124407Z.log",
  "rule": "written at the end of a watcher tick that found every consumed input unchanged since the last landing, no chain running and the last chain DONE rc=0; a stale stamp means the watcher stopped, a chain failed or an input moved without a landing"
 }

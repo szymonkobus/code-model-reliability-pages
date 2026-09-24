@@ -13,13 +13,13 @@
 
 var W = 860, H = 720, ML = 62, MR = 16, MT = 40, MB = 46;
 var PW = W - ML - MR, PH = H - MT - MB;
-/* EXPORT (the project maintainers' word of 18 Sep 12:1x UK: a button exports the plot with a legend of every model, showing what the plot
+/* EXPORT (the project maintainers' word of 18 Sep 12:1x: a button exports the plot with a legend of every model, showing what the plot
  * shows, rendered as the page renders it): the export is THIS render path run once more, at a fixed
  * desktop geometry, with per-axis limits tightened to the drawn extent (EXT: the dots, whiskers and move arrows of the last screen render);
  * the reference helper (kit-export.js, the maintainers 18 Sep) clones the chart and lays the legend beside it. The page's own frame (LIM) never moves. */
 var EXPORTING = false, LIMX = null, LIMY = null, EXT = null, NO_RATCHET = false;   // NO_RATCHET: the export's restore render leaves the text blocks' heights as they were
 var CHART_VH_GAP = 170;
-var EXPORT_TITLE_PX = 26, EXPORT_TICK_PX = 18;   // the export's type (the project maintainers 13:5x UK 18 Sep: axis names twice as big, tick numbers 50% bigger) — the reference export defaults, shared with the maintainers // CSS px kept above and below the chart by #chart { max-height: calc(100vh - 170px) } — the same number, so the type floors hold
+var EXPORT_TITLE_PX = 26, EXPORT_TICK_PX = 18;   // the export's type (the project maintainers 13:5x 18 Sep: axis names twice as big, tick numbers 50% bigger) — the reference export defaults, shared with the maintainers // CSS px kept above and below the chart by #chart { max-height: calc(100vh - 170px) } — the same number, so the type floors hold
 function extAdd(zx, zy) {
   if (!EXT) EXT = { x0: Infinity, x1: -Infinity, y0: Infinity, y1: -Infinity };
   if (zx != null && isFinite(zx)) { if (zx < EXT.x0) EXT.x0 = zx; if (zx > EXT.x1) EXT.x1 = zx; }
@@ -31,8 +31,8 @@ var NARROW = false, FS = 12, FT = 11, DR = 5, UPX = 1;   // UPX: viewBox units p
  * axis titles live in a top band; hit areas >= 24 CSS px. Desktop geometry unchanged. */
 function layout() {
   if (EXPORTING) {   // the export's fixed desktop geometry: one viewBox unit = one CSS px at 900 wide, the screen's type and dot sizes at 1:1
-    NARROW = false; W = 900; ML = 90; MR = 30; MT = 40; MB = 62; DR = 4.5; PW = W - ML - MR; UPX = 1; FS = EXPORT_TICK_PX; FT = 11;   // margins re-laid for the export's larger type (the project maintainers 13:5x UK 18 Sep)
-    // equal scale in the export too (the project maintainers' 13:03 UK word): with both axes on one spacing the plot's height follows the y span over the x span in
+    NARROW = false; W = 900; ML = 90; MR = 30; MT = 40; MB = 62; DR = 4.5; PW = W - ML - MR; UPX = 1; FS = EXPORT_TICK_PX; FT = 11;   // margins re-laid for the export's larger type (the project maintainers 13:5x 18 Sep)
+    // equal scale in the export too (the project maintainers' 13:03 word): with both axes on one spacing the plot's height follows the y span over the x span in
     // the axis coordinate, so one step spans the same pixels on x and y and y = x stays at 45 degrees inside the tightened limits; mixed
     // spacings have no common unit and keep the square
     var LX = limT(state.xs === 'raw', 'x'), LY = limT(state.ys === 'raw', 'y');
@@ -42,7 +42,7 @@ function layout() {
   var cb = document.getElementById('chartbox'), w = cb ? cb.clientWidth : 860;
   NARROW = w > 0 && w < 600;
   var deskW = Math.max(860, Math.min(1600, Math.round(w || 860)));   // desktop: 1 viewBox unit = 1 CSS px (the 860-unit box stretched to 1216 px made 14–17 px type and 14 px dots — the project maintainers 09-03)
-  // EQUAL SCALE (the project maintainers' word, 13:03 UK 18 Sep, via ops: the axes keep one proportion so y = x runs at 45 degrees): both axes span the same
+  // EQUAL SCALE (the project maintainers' word, 13:03 18 Sep, via ops: the axes keep one proportion so y = x runs at 45 degrees): both axes span the same
   // difficulty frame, so the plot area is SQUARE — one difficulty step spans the same pixels on x and y and the y = x guide runs at 45 degrees.
   // The chart is capped to the viewport height by CSS (#chart max-height), so the whole plot shows without scrolling; type sizes follow the
   // width the chart will actually render at.
@@ -55,9 +55,9 @@ function layout() {
   FS = NARROW ? 13 : Math.max(12, Math.ceil(11.5 * UPX)); FT = NARROW ? 13 : Math.max(11, Math.ceil(10.5 * UPX));   // ticks render >= 11.5 px at any desktop width (the maintainers 2nd read 09-04)
   TRK.x0 = ML; TRK.x1 = ML + PW; TRK.y = NARROW ? 22 : 18;
 }
-var LOGIT_TICKS = [0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50, 80, 90, 95, 98, 99, 99.5];   // both axes reach down to 0.1% with 0.2% and 0.1% ticks (the project maintainers' word of 22 Sep 15:2x UK: models sit there now)
+var LOGIT_TICKS = [0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50, 80, 90, 95, 98, 99, 99.5];   // both axes reach down to 0.1% with 0.2% and 0.1% ticks (the project maintainers' word of 22 Sep 15:2x: models sit there now)
 var AXIS_FLOOR_PCT = 0.1;   // the lowest position both axes show, as a percent of the scale
-var LOGIT_TICKS_EXPORT = [0.05, 0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50, 80, 90, 95, 98, 99, 99.5, 99.8, 99.9];   // the export continues an axis to the lowest drawn point with a tick there (the project maintainers 15:0x UK 18 Sep)
+var LOGIT_TICKS_EXPORT = [0.05, 0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50, 80, 90, 95, 98, 99, 99.5, 99.8, 99.9];   // the export continues an axis to the lowest drawn point with a tick there (the project maintainers 15:0x 18 Sep)
 /* /sweep fold (tools convergence blocking condition, ported 2026-09-02):
  * K = x level / y level is the FOLD; a, K and a/K carry two degrees of
  * freedom, so exactly one is HELD while the other two respond. */
@@ -199,14 +199,14 @@ function mirrorMap(m) { var o = {}; Object.keys(m).forEach(function (k) { var e 
 var DATASETS = window.MIRROR_DATASETS ? mirrorMap(window.MIRROR_DATASETS) : HOUSE_DATASETS;
 var CADENCE = window.MIRROR_CADENCE_PLAIN || 'rebuilds with every landing of new results and every Bayesian fit flip (checked every two minutes)';   // the machinery line's cadence clause; a mirror states its own loop's truth (the maintainers 2026-09-11)
 function shortMap() { var F = { board_top: 'original + new', top: 'first new', board: 'original', 'new': 'new', all: 'all' }, o = {}; Object.keys(DATASETS).forEach(function (k) { o[k] = DATASETS[k].short || F[k] || DATASETS[k].label; }); return o; }
-function plainTs(ts) {   // "7 Sep 03:23 UK" from an ISO stamp — plain words, never ISO-Z (the project maintainers' word of 2026-09-07), and every clock the project maintainers reads is the UK clock (the word of 2026-09-14: UK time only); a bare date stays a date
+function plainTs(ts) {   // "7 Sep 03:23" from an ISO stamp — plain words, never ISO-Z (the project maintainers' word of 2026-09-07), and every clock the project maintainers reads is the UK clock (the word of 2026-09-14: UK time only); a bare date stays a date
   var s = String(ts || ''), m = /^(\d{4})-(\d{2})-(\d{2})(?:[T ](\d{2}):(\d{2})(?::(\d{2}))?(Z|[+-]\d{2}:?\d{2})?)?/.exec(s), MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   if (!m) return s;
   if (!m[4]) return (+m[3]) + ' ' + MON[+m[2] - 1];
   var d = new Date(m[1] + '-' + m[2] + '-' + m[3] + 'T' + m[4] + ':' + m[5] + ':' + (m[6] || '00') + (m[7] || 'Z'));   // stamps without a zone are UTC (the files keep UTC)
   if (!isFinite(d)) return (+m[3]) + ' ' + MON[+m[2] - 1] + ' ' + m[4] + ':' + m[5];
   var g = {}; new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', day: 'numeric', month: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false }).formatToParts(d).forEach(function (x) { g[x.type] = x.value; });
-  return (+g.day) + ' ' + MON[+g.month - 1] + ' ' + g.hour + ':' + g.minute + ' UK';   // the month word from the fixed table (project form, the maintainers 18 Sep: "Sep", never the formatter's "Sept")
+  return (+g.day) + ' ' + MON[+g.month - 1] + ' ' + g.hour + ':' + g.minute;   // the clock is UK, written bare (the project maintainers' word of 24 Sep 14:2x)   // the month word from the fixed table (project form, the maintainers 18 Sep: "Sep", never the formatter's "Sept")
 }
 function relabel() {   // OFFICIAL SET NAMES with the count of record (the project maintainers' word of 2026-09-08 at 7pm: the sets renamed wave 1, wave 2 and wave 2 parked
   Object.keys(DATASETS).forEach(function (k) {   // sets outside the five coding keys (a mirror's newbench sets): the label of record bound at build, never typed
@@ -224,7 +224,7 @@ function relabel() {   // OFFICIAL SET NAMES with the count of record (the proje
     DATASETS.board_top.label = 'wave 1+2 (' + f(C.wave12) + ' tasks)'; DATASETS.board_top.short = 'wave 1+2';
     DATASETS['new'].label = 'wave 2 + parked (' + f(C.new_total) + ' tasks)'; DATASETS['new'].short = 'wave 2 + parked';
     DATASETS.all.label = 'wave 1+2 + parked (' + f(C.all) + ' tasks)'; DATASETS.all.short = 'all waves';
-    // SAY WAVE 1+2, NEVER THE SOURCE NAMES (the project maintainers' word of 16 Sep 2026 10:5x UK: the task sets are called wave 1 and wave 2 — no benchmark names, no new-task-pool
+    // SAY WAVE 1+2, NEVER THE SOURCE NAMES (the project maintainers' word of 16 Sep 2026 10:5x: the task sets are called wave 1 and wave 2 — no benchmark names, no new-task-pool
     // words, just wave 1+2): the sets are wave 1, wave 2, wave 1+2 and nothing else — no source names, no gloss
     DATASETS.board.hover = 'wave 1';
     DATASETS.top.hover = 'wave 2 (the parked tasks are not in it)';
@@ -260,7 +260,6 @@ function isWithheld(i) { var c = D.shared.configs[i]; return !!(c && WITHHELD[c.
 function isHidden(i) { return isWithheld(i) || (!partialShown() && isPartial(i)) || (isRun(i) && (!runShown(runOf(i)) || state.src !== 'bayes')); }   // the run's crossings exist as Bayesian fits only: off the plane under the reference chain   // hidden from the plane and the fit right now
 function withheldArms() { return D.shared.configs.map(function (c, i) { return i; }).filter(isWithheld); }
 function armNote(c) { var d = c && c.disclosure; return (d && !/^covers \d/.test(d)) ? d : ''; }
-function underCredit(c) { var u = D.bay && D.bay.disclosures && D.bay.disclosures.pool_cells_undercredit; if (!u || !c) return null; var ids = (u.affected_arms || []).map(function (k) { return String(k).replace(/\s*\(.*\)\s*$/, ''); }); var hit = ids.indexOf(c.id) >= 0 || ids.indexOf(String(c.id).split('/').pop()) >= 0 || (c.board_id && ids.indexOf(c.board_id) >= 0); return hit ? u : null; }   // entries may carry a note in parentheses ("… (about 2 points)")   // fitting 2026-09-07 : passes on the new tasks counted as failures at this cut for these arms
 function cleanedScope(c) { var sc = D.bay && D.bay.cleaned_scope; return (sc && c && sc[c.id]) || ''; }   // a cleaned fit whose cleaning is partial (fitting's cleaned_arms[arm].scope)
 function asGraded(c) { return !!(c && /removed before grading|cleaning/i.test(armNote(c)) && D.bay && !((D.bay.cleaned_arms || []).indexOf(c.id) >= 0)); }   // the reference chain carries the adopted cleaning but this arm's served Bayesian fit is still on the attempts as first graded (fitting's cleaned_arms lists the re-fitted ones)   // failure-vs-difficulty's per-arm disclosure (the gpt cleaning line when it lands); the coverage sentence is already the hover's coverage row
 function capTitle(t) {   // a hover stays within 300 characters (the maintainers's rule of 8 Sep): a long sentence of record is cut at its last clause boundary before the line, marked with an ellipsis; the whole sentence stays in the mark's tooltip and the legend
@@ -290,7 +289,7 @@ function showDataNote() { var el = document.getElementById('datanote'); if (el) 
 var state = { data: 'board', arms: 'all', view: 'scatter', def: 'average', src: 'project', xdef: 'crossing', move: 'off',
               line: 'steps', lw: 'equal', resid: 'off', hold: 'k', lad: 'off', fitci: 'plain',
               w: 'on', wd: 'adj', xs: 'logit', ys: 'logit',
-              a: 50, c: 1, kp: 'off', partial: 'hide', run: 'show' };   // K paths off by default on both versions (the project maintainers' word of 22 Sep 15:1x UK)
+              a: 50, c: 1, kp: 'off', partial: 'hide', run: 'show' };   // K paths off by default on both versions (the project maintainers' word of 22 Sep 15:1x)
 var sel = null, chips = [], srcMount = null, playTimer = null;
 var LIM = null;    // shared difficulty limits (logit) for both axes
 
@@ -546,7 +545,6 @@ function reading(i, levLogit, axis) {
       return { z: null, kind: 'none', lo: null, hi: null, extra: 'awaiting its Bayesian fit' };
     }
     var rb = readBayes(i, levLogit);
-    if (underCredit(D.shared.configs[i])) rb.extra = (rb.extra ? rb.extra + ' \u00b7 ' : '') + 'passes on wave 2 were counted as failures at this cut: crossings read less capable and less reliable until fitting\u2019s re-fit';
     if (cleanedScope(D.shared.configs[i])) rb.extra = (rb.extra ? rb.extra + ' \u00b7 ' : '') + 'cleaned fit, partial: ' + cleanedScope(D.shared.configs[i]);
     if (asGraded(D.shared.configs[i])) rb.extra = (rb.extra ? rb.extra + ' \u00b7 ' : '') + 'Bayesian fit on the attempts as first graded; the cleaned fit lands with fitting\u2019s next flip';
     return rb;
@@ -556,12 +554,12 @@ function reading(i, levLogit, axis) {
 }
 
 /* ---------------- boot ---------------- */
-// THE THIRD MODEL SET (the project maintainers' word of 22 Sep 2026 11:1x UK: a third model set, the Olmo run): the Olmo 3.1 7B RL-Zero Code
+// THE THIRD MODEL SET (the project maintainers' word of 22 Sep 2026 11:1x: a third model set, the Olmo run): the Olmo 3.1 7B RL-Zero Code
 // run's checkpoints, from fitting's fit files of record via build_olmo_set.py (data/olmo_run.json). Merged into the configs and the Bayesian rows
 // only when the loaded dataset sits on the run's axis (the board_top axis); its own switch in the model row, its own family group and colours
 // (the run's hue, lighter early to darker at the final model), each checkpoint labelled by its index in the maintainers' order; a run read along its
 // steps and placed on the scale without a vote (difficulty's rule): never in the fitted line, never in the set's model counts.
-var RUNS = [];   // the run sets merged on this dataset (the sidecar's sets, or its single set), each with its own line of chips and switch (the project maintainers' word of 22 Sep 12:1x UK: more Olmo runs are coming)
+var RUNS = [];   // the run sets merged on this dataset (the sidecar's sets, or its single set), each with its own line of chips and switch (the project maintainers' word of 22 Sep 12:1x: more Olmo runs are coming)
 var RUN = null;   // the first set, for one-set readers
 function runSets(raw) { if (!raw) return []; if (raw.sets && raw.sets.length) return raw.sets; return raw.configs ? [raw] : []; }
 function normId(id) { return String(id).replace(/_temp_[0-9.]+$/, '').replace(/_batch$/, '').replace(/--/g, '/').replace(/_think$/, '-Thinking'); }   // one model under its run forms (the palette registry's id rule); fitting's <stem>_think_temp_<t> is the board's <stem>-Thinking (failure-vs-difficulty's id form; the Think final: olmo-3-7b-think-final-Thinking, 23 Sep)
@@ -575,16 +573,16 @@ function mergeRunSet(raw) {
   runSets(raw).forEach(function (rs, k) {
     if (!rs || !rs.configs) return;
     var set = rs.set || {}; if (set.axis_id && axis && set.axis_id !== axis) return;   // merged only on the run's own axis
-    if (!rs.configs.length && !set.pending && !(set.withheld || []).length) return;   // a run with no fit of record yet has a row only when the sidecar says it is pending (23 Sep 12:0x UK)
+    if (!rs.configs.length && !set.pending && !(set.withheld || []).length) return;   // a run with no fit of record yet has a row only when the sidecar says it is pending (23 Sep 12:0x)
     // the run is keyed by the set's series slug (no field named key in the sidecar: a secret scanner read key":"<id> as an API key, 22 Sep)
     var R = { key: set.series || set.key || ('run' + k), name: set.name || 'run', clause: set.clause || 'a run read along its checkpoints, placed on the scale without a vote', tag: set.tag || '',
               hue: set.hue || null, ramp: set.ramp || [], dash: set.dash || '', think: !!set.think, withheld: set.withheld || [], stateKey: set.state_key || (k === 0 ? 'run' : 'run_' + String(set.key || k).replace(/[^a-z0-9]/gi, '')), idx: [], folded: [], dual: [],
-              order: (set.order == null ? 100 + k : set.order), pending: set.pending || '', finalOnBoard: !!set.final_on_board };   // order: the rows under the all-models rows (Think first, then RL-Zero Code); pending: no fit of record yet; finalOnBoard: the final keeps its chip among all models, duplicated in the run's row (23 Sep 12:0x UK)
+              order: (set.order == null ? 100 + k : set.order), pending: set.pending || '', finalOnBoard: !!set.final_on_board };   // order: the rows under the all-models rows (Think first, then RL-Zero Code); pending: no fit of record yet; finalOnBoard: the final keeps its chip among all models, duplicated in the run's row (23 Sep 12:0x)
     var rowsById = {}; (rs.rows || []).forEach(function (r) { rowsById[r.cfg] = r; });
     rs.configs.forEach(function (c) {
       if (have[c.id]) return;
       var twin = byNorm[normId(c.id)];
-      if (twin) {   // ONE MODEL, ONE MARK, IN THE RUN'S OWN ROW (the project maintainers' word of 22 Sep 15:1x UK: the run has no chip in the top column, it is the thing in its
+      if (twin) {   // ONE MODEL, ONE MARK, IN THE RUN'S OWN ROW (the project maintainers' word of 22 Sep 15:1x: the run has no chip in the top column, it is the thing in its
         var r = rowsById[c.id];   // bottom row): the board's twin config joins the run — the run's label, colour and mark, out of the top row and the fitted line; its series fit stands in under the Bayesian source when the board fit set has none
         if (r && !haveRow[twin.id]) { var r2 = {}; Object.keys(r).forEach(function (kk) { r2[kk] = r[kk]; }); r2.cfg = twin.id; r2.alongside = R.key; delete r2.run; D.bay.rows.push(r2); haveRow[twin.id] = true; if (D.bayById) D.bayById[twin.id] = r2; if (D.unfitted && D.unfitted[twin.id]) delete D.unfitted[twin.id]; }   // the series fit stands in for a board model the board fit set left unfitted (the Think final, 23 Sep)
         if (R.finalOnBoard) { var ti = D.shared.configs.indexOf(twin); twin.series = R.key; R.dualLabel = R.dualLabel || {}; R.dualLabel[ti] = c.label || twin.label; twin.gates_failed = twin.gates_failed || !!c.gates_failed; if (c.gates_failed && !twin.gate_flag) twin.gate_flag = c.gate_flag; R.idx.push(ti); R.dual.push(ti); R.folded.push(twin.id); return; }   // the board's chip stays; the run's row shows the same model again
@@ -599,13 +597,13 @@ function mergeRunSet(raw) {
     });
     if (R.idx.length || R.folded.length || R.withheld.length || R.pending) { RUNS.push(R); state.runs[R.stateKey] = 'show'; }
   });
-  RUNS.sort(function (a, b) { return a.order - b.order; });   // the Think run's row before the RL-Zero Code row (23 Sep 12:0x UK)
+  RUNS.sort(function (a, b) { return a.order - b.order; });   // the Think run's row before the RL-Zero Code row (23 Sep 12:0x)
   RUN = RUNS[0] || null;
 }
 function isRun(i) { var c = D.shared && D.shared.configs[i]; return !!(c && c.run); }
 function isDual(i) { for (var k = 0; k < RUNS.length; k++) if (RUNS[k].dual && RUNS[k].dual.indexOf(i) >= 0 && runOnPlane(RUNS[k])) return true; return false; }   // a board model that a run's row shows again (final_on_board) — inside the run's legend row only while the run is on the plane; under the reference chain it is a board model with its own row
 function runOf(i) { var c = D.shared && D.shared.configs[i]; if (!c || !c.run) return null; var ck = c.series || c.run_key; for (var k = 0; k < RUNS.length; k++) if (RUNS[k].key === ck) return RUNS[k]; return RUN; }
-function runShown(R) { R = R || RUN; return !!R; }   // no per-run switch since 23 Sep 12:0x UK: a run is on the plane whenever its source is
+function runShown(R) { R = R || RUN; return !!R; }   // no per-run switch since 23 Sep 12:0x: a run is on the plane whenever its source is
 function runOnPlane(R) { return runShown(R) && state.src === 'bayes'; }   // a run's checkpoints are read from Bayesian fits only: on the plane, in the frame line and in the caption under that source
 function anyRunOnPlane() { return RUNS.some(function (R) { return R.idx.length && runOnPlane(R); }); }
 function mainConfigs() { return D.shared.configs.filter(function (c) { return !c.run; }); }
@@ -620,7 +618,7 @@ function boot() {
     ? [D.shared.limits.lo - 0.15, D.shared.limits.hi + 0.15]
     : [D.shared.reachable.floor_z - 0.35,
        D.shared.reachable.top_z + 0.35];
-  var zFloor = logit(AXIS_FLOOR_PCT / 100) - 0.15;   // the project maintainers' word of 22 Sep 15:2x UK: both axes down to 0.1% (equal scale, so one window for x and y) — a run's bound marks sit inside the drawn range
+  var zFloor = logit(AXIS_FLOOR_PCT / 100) - 0.15;   // the project maintainers' word of 22 Sep 15:2x: both axes down to 0.1% (equal scale, so one window for x and y) — a run's bound marks sit inside the drawn range
   if (LIM[0] > zFloor) LIM[0] = zFloor;
 
   sel = new Set();
@@ -650,7 +648,7 @@ function boot() {
     }
     if (selRewrite) writeSel();   // the URL now carries arm ids (writeSel is a hoisted declaration)
   } else {
-    D.shared.configs.forEach(function (_, i) { if (!isWithheld(i) && !isRun(i)) sel.add(i); });   // the default selection never includes a withheld arm, nor a run's checkpoints: a run's row is deselected by default (the project maintainers' word of 22 Sep 15:1x UK)
+    D.shared.configs.forEach(function (_, i) { if (!isWithheld(i) && !isRun(i)) sel.add(i); });   // the default selection never includes a withheld arm, nor a run's checkpoints: a run's row is deselected by default (the project maintainers' word of 22 Sep 15:1x)
   }
   state.a = +Kit.state.get('a', 50);
   state.c = +Kit.state.get('c', 1);
@@ -668,7 +666,7 @@ function boot() {
   var row = Kit.filterRow('#controls');
   row.classList.add('kit-static'); // stays in the flow (the kit's opt-out): this row sits beside the chart on desktop and below it on narrow screens, and the chart is capped to the viewport, so nothing scrolls out of reach (page maintainers' read, 21 Sep)
   var dataSw = Kit.switchControl({ mount: row, key: 'data', label: 'Dataset',   // FIRST control in the row ("an option at the top")
-    options: Object.keys(DATASETS).map(function (k) { return { value: k, label: String(DATASETS[k].label).replace(/\s*\([^)]*\)\s*$/, '') }; }),   // a control carries the record alone: the set's name, its count on the set line
+    options: Object.keys(DATASETS).map(function (k) { return { value: k, label: String(DATASETS[k].label).replace(/\s*\([^)]*\)\s*$/, '') }; }),   // a control carries the project maintainers' words alone (23 Sep): the set's name, its count on the set line
     dflt: D.defaultData || (D.allDs.board_top ? 'board_top' : 'board'),
     onchange: function (v) {
       var ds = DATASETS[v] || DATASETS[D.defaultData] || DATASETS.board;
@@ -678,7 +676,7 @@ function boot() {
   if (dataSw.value() !== D.dataId) dataSw.set(D.dataId);   // a rejected deep-link value: the pressed button is the dataset rendered
   Object.keys(DATASETS).forEach(function (k) { if (DATASETS[k].hover && DATASETS[k].available) { var hb = document.querySelector('.kit-switch[data-key="data"] button[data-value="' + k + '"]'); var fr = D.allDs[k] && D.allDs[k].frame; if (hb) hb.title = DATASETS[k].hover; } });   // every Dataset button states its task set (critic 2026-09-05)
   var armsSw = Kit.switchControl({ mount: document.getElementById('armsbar') || row, key: 'arms', label: 'Models',   // right after Dataset (failure-vs-difficulty's decision for both official pages)
-    options: [{ value: 'all', label: 'all models' }, { value: 'golden', label: 'golden set (12)' }],
+    options: [{ value: 'all', label: 'all models' }, { value: 'golden', label: 'golden set' }],
     dflt: 'all',
     onchange: function (v) {
       if (v === 'golden' && !D.allDs['golden-' + D.dataId]) { if (armsSw) armsSw.set(state.arms); return; }
@@ -691,7 +689,7 @@ function boot() {
     dflt: 'hide',
     onchange: function (v) { state.partial = v === 'show' ? 'show' : 'hide'; Kit.state.set('partial', state.partial, 'hide'); refreshPartialChips(); render(); } });
   if (!partialArms().length) { var psw = document.querySelector('.kit-switch[data-key="partial"]'); if (psw) psw.style.display = 'none'; }   // no partial arm in this set: the switch is inert and hidden
-  // no shown/hidden switch per run: the run's own row (its all/none) is the mechanism (the project maintainers' word of 23 Sep 12:0x UK); a URL's <key>=hide no longer hides a run
+  // no shown/hidden switch per run: the run's own row (its all/none) is the mechanism (the project maintainers' word of 23 Sep 12:0x); a URL's <key>=hide no longer hides a run
   showDataNote();
   Object.keys(DATASETS).forEach(function (k) {
     if (DATASETS[k].available) return;
@@ -720,7 +718,7 @@ function boot() {
   var CAPC_REASON = 'Capability C is computed for wave 1 only; choose Dataset = wave 1 to use it';   // wave names only, no attribution (the project maintainers 2026-09-16)
   var xdefReady = false;   // the kit calls onchange once at construction: a D option then must not move the level (the level inputs are built later; a= carries the level)
   var xdefSw = Kit.switchControl({ mount: row, key: 'xdef', label: 'Capability axis',
-    // the project maintainers' word of 24 Sep 12:4x UK: the switch reads D, Uniform, Jeffreys, Haldane — D is the crossing at the level the page's level controls set
+    // the project maintainers' word of 24 Sep 12:4x: the switch reads D, Uniform, Jeffreys, Haldane — D is the crossing at the level the page's level controls set
     // (the D90…D10 buttons went: those controls exist already); the three distribution views for every model, never greyed
     options: [{ value: 'crossing', label: 'D' }, { value: 'capC', label: 'Uniform' }, { value: 'capC_j', label: 'Jeffreys' }, { value: 'capC_z', label: 'Haldane' }],
     dflt: 'crossing',
@@ -732,7 +730,7 @@ function boot() {
     } });
   xdefReady = true;
   (function () { var bD = row.querySelector('.kit-switch[data-key="xdef"] button[data-value="crossing"]'); if (bD) bD.title = 'D: the crossing at the horizontal level the level controls set'; })();
-  Object.keys(CAP_KEYS).forEach(function (k) {   // every view pressable for every model (24 Sep 12:4x UK): the hover carries difficulty's clause; where a set has no file the points are not drawn and the frame line names it
+  Object.keys(CAP_KEYS).forEach(function (k) {   // every view pressable for every model (24 Sep 12:4x): the hover carries difficulty's clause; where a set has no file the points are not drawn and the frame line names it
     var capBtn = row.querySelector('.kit-switch[data-key="xdef"] button[data-value="' + k + '"]'); if (capBtn) capBtn.title = CAP_KEYS[k].clause();
   });
   srcMount = document.createElement('span');
@@ -755,7 +753,7 @@ function boot() {
   Kit.switchControl({ mount: row, key: 'kp', label: 'K paths',
     options: [{ value: 'off', label: 'Off' },
               { value: 'on', label: 'On' }],
-    dflt: 'off',   // off by default on the live page and the public copy alike (the project maintainers' word of 22 Sep 15:1x UK)
+    dflt: 'off',   // off by default on the live page and the public copy alike (the project maintainers' word of 22 Sep 15:1x)
     onchange: function (v) { state.kp = v; if (sel) render(); } });
   Kit.switchControl({ mount: row, key: 'lad', label: 'K ladders',
     options: [{ value: 'off', label: 'Off' }, { value: 'on', label: 'On' }],
@@ -806,7 +804,7 @@ function boot() {
     moreDet.innerHTML = '<summary>More controls</summary><div class="kit-filter-row kit-static" id="moreswitches"></div><div class="kit-filter-row kit-static" id="morelevels"></div>';
     sb.parentNode.insertBefore(moreDet, sb); moreDet.appendChild(sb);
   }
-  [['xs', 'Horizontal scale'], ['ys', 'Vertical scale']].forEach(function (ax) {   // a scale is logit or linear, never 'equal difficulty steps' (the project maintainers 13:0x UK 18 Sep)
+  [['xs', 'Horizontal scale'], ['ys', 'Vertical scale']].forEach(function (ax) {   // a scale is logit or linear, never 'equal difficulty steps' (the project maintainers 13:0x 18 Sep)
     Kit.switchControl({ mount: sb,
       key: ax[0], label: ax[1],
       options: [{ value: 'logit', label: 'Logit' },
@@ -1193,7 +1191,7 @@ function writeSel() {
   var all = sel.size === D.shared.configs.length;
   Kit.state.set('sel', all ? null : Array.from(sel).sort(function (p, q) { return p - q; }).map(function (i) { var c = D.shared.configs[i]; return c.board_id || c.id; }).join(','), null);   // arm keys, stable across datasets (2026-09-04)
 }
-/* ONE ORDER (the project maintainers' word of 15 Sep 2026 12:2x UK: one ordering of all the models, by their capability, lowest to
+/* ONE ORDER (the project maintainers' word of 15 Sep 2026 12:2x: one ordering of all the models, by their capability, lowest to
  * highest, everywhere): every list of models on the page — the chips, the ridges — follows the capability
  * reading shown (the x axis as set, at the x level), lowest first; a bound sorts at the end it points to; an arm without a reading goes last */
 function capKey(i) {
@@ -1241,15 +1239,15 @@ function buildChips() {
   noneBtn.className = 'util'; noneBtn.textContent = 'none';
   noneBtn.onclick = function () { D.shared.configs.forEach(function (c, i) { if (!c.run) sel.delete(i); }); writeSel(); render(); };   // the run's chips keep their own selection
   box.appendChild(allBtn); box.appendChild(noneBtn);
-  // LEGEND ORDER (the project maintainers' word of 18 Sep 13:1x UK: the legend sorts by model family, not by capability, so the colours
+  // LEGEND ORDER (the project maintainers' word of 18 Sep 13:1x: the legend sorts by model family, not by capability, so the colours
   // make sense): family buttons in the colour scheme's family order, then every model grouped by family, within a
   // family by size — the dataset's own order; never by capability or any measured value
-  // MODEL ROW ORDER (the project maintainers' answer to the brief's call 7, 21 Sep 10:4x UK: the model list and the curves stay in capability order
+  // MODEL ROW ORDER (the project maintainers' answer to the brief's call 7, 21 Sep 10:4x: the model list and the curves stay in capability order
   // while the legend goes by family — "for now"; the export legend keeps the reference family order): family buttons in the order of the family's
   // most capable member, then every model in ONE flat row by capability, lowest first
   var mainIdx = [], runIdx = [];
   D.shared.configs.forEach(function (c, i) { (c.run ? runIdx : mainIdx).push(i); });
-  var ordered = capOrder(mainIdx);   // the main row; the run's checkpoints go to their own line below (the project maintainers' word of 22 Sep 11:46 UK)
+  var ordered = capOrder(mainIdx);   // the main row; the run's checkpoints go to their own line below (the project maintainers' word of 22 Sep 11:46)
   var famKey = function (f) { return Math.max.apply(null, f.members.map(function (i) { var k = capKey(i); return isFinite(k) ? k : -1e9; })); };
   var isRunFam = function (f) { return f.members.length && isRun(f.members[0]); };
   fams.filter(function (f) { return !isRunFam(f); }).sort(function (p, q) { return famKey(p) - famKey(q); }).forEach(function (f) {   // the run's family has its own line below
@@ -1276,7 +1274,7 @@ function buildChips() {
     chips.push(b); return b;
   };
   ordered.forEach(function (i) { box.appendChild(makeChip(i)); });
-  // THE RUN'S OWN LINE OF CHIPS (the project maintainers' word of 22 Sep 11:46 UK: a line of chips for the run below the models' row, shown when the
+  // THE RUN'S OWN LINE OF CHIPS (the project maintainers' word of 22 Sep 11:46: a line of chips for the run below the models' row, shown when the
   // run toggle is on, not bound to the all/none buttons above, with its own all/none, so the run's checkpoints compare with one another)
   var rbox = document.getElementById('chips-runs');
   if (rbox) {
@@ -1290,7 +1288,7 @@ function buildChips() {
         var rNone = document.createElement('button'); rNone.className = 'util'; rNone.textContent = 'none'; rNone.onclick = function () { R.idx.forEach(function (i) { sel.delete(i); }); writeSel(); render(); }; line.appendChild(rNone);
         R.idx.forEach(function (i) { var ch = makeChip(i); if (R.dual.indexOf(i) >= 0) { ch.classList.add('run'); ch.dataset.dual = '1'; var fl = ch.querySelector('.flag'); ch.textContent = (R.dualLabel || {})[i] || ch.textContent; if (fl) ch.appendChild(fl); ch.title = capTitle((D.shared.configs[i].display_name || D.shared.configs[i].label) + ' \u2014 a model of the all-models rows, shown here as the run\u2019s final too'); } line.appendChild(ch); });
       }
-      // the project maintainers' word of 24 Sep 12:4x UK: the page states the current truth only — no per-checkpoint notes about re-judging, counts, moves or hours under the run's chips
+      // the project maintainers' word of 24 Sep 12:4x: the page states the current truth only — no per-checkpoint notes about re-judging, counts, moves or hours under the run's chips
       if (R.pending && !R.idx.length) { var pn = document.createElement('span'); pn.className = 'runnote'; pn.setAttribute('data-critical-text', ''); pn.textContent = R.pending; line.appendChild(pn); }   // a run named but not yet fitted: its row says so in words
       line.hidden = !runOnPlane(R);
       rbox.appendChild(line);
@@ -1349,14 +1347,14 @@ function phoneFold() {   // phone (<=600 px): short pill labels; the rarely touc
   phoneFolded = true;
 }
 
-function syncXdefPressed() {   // one D button (24 Sep 12:4x UK): pressed under any crossing level; the views pressed by the kit on click
+function syncXdefPressed() {   // one D button (24 Sep 12:4x): pressed under any crossing level; the views pressed by the kit on click
   if (isCap()) return;
   document.querySelectorAll('.kit-switch[data-key="xdef"] button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.value === 'crossing' ? 'true' : 'false'); });
 }
 function paintChips() {
   syncXdefPressed();
   RUNS.forEach(function (R) { var rsw = document.querySelector('.kit-switch[data-key="' + R.stateKey + '"]'); if (rsw) rsw.style.display = state.src === 'bayes' ? '' : 'none'; });   // a run's switch only where its fits are read
-  var box = document.getElementById('chips'), byIdx = {}; chips.forEach(function (b) { if (b.parentNode === box) byIdx[+b.dataset.idx] = b; });   // the all-models chips only: a model shown again in a run's row has a second chip there, which must not shadow this one (the Think final sat first, unsorted, 23 Sep 13:4x UK)
+  var box = document.getElementById('chips'), byIdx = {}; chips.forEach(function (b) { if (b.parentNode === box) byIdx[+b.dataset.idx] = b; });   // the all-models chips only: a model shown again in a run's row has a second chip there, which must not shadow this one (the Think final sat first, unsorted, 23 Sep 13:4x)
   var idxs = chips.map(function (b) { return +b.dataset.idx; });
   capOrder(idxs.filter(function (i) { return !isRun(i); })).forEach(function (i) { if (byIdx[i] && byIdx[i].parentNode === box) box.appendChild(byIdx[i]); });   // the main row by capability; the run's line keeps the run's order
   RUNS.forEach(function (R) { var line = document.querySelector('.chips-run[data-run="' + R.key + '"]'); if (line) line.hidden = !runOnPlane(R); });   // the run's line shows only when the run is on the plane (the project maintainers' word of 22 Sep)   // capability order, re-read at every render (the brief's call 7, 21 Sep)   // one order, re-read at every render
@@ -1568,7 +1566,7 @@ function axisShort(axis) {   // the axis carries a short title; the long estimat
   // no method name on the figure (the project maintainers 2026-09-14 on the error bars, via the maintainers): the source is on the switch and in the provenance fold
   return dName(axis) + (state.def === 'median' ? ' (median task)' : '');
 }
-/* the axis names of record (the project maintainers' words of 18 Sep 12:1x UK and 13:0x UK: D50 and D99, D uppercase):
+/* the axis names of record (the project maintainers' words of 18 Sep 12:1x and 13:0x: D50 and D99, D uppercase):
  * DN = the difficulty at which the model's solve chance is N%, N = 100 minus the failure level as set (50% -> D50, 1% -> D99); printed bare */
 function dName(axis) {
   var lev = axis === 'x' ? +state.a : +state.c;
@@ -1997,7 +1995,7 @@ function renderScatter() {
       var modeTxt = state.lw === 'bands' ? 'weighted by the dots\u2019 80% bands on both axes (tighter counts more; the default line is the unweighted one)' + (f.widen > 1.05 ? '; interval widened ' + f.widen.toFixed(1) + '\u00d7 for scatter beyond the bands' : '') + droppedTxt
                   : state.fitci === 'honest' ? 'with each dot\u2019s measurement error' + droppedTxt : 'dots taken as exact';
       var spaceTxt = inAxes() ? 'in the axes as set' : (state.xs === 'raw' || state.ys === 'raw') ? 'in logit (drawn as the curve it maps to on the linear axis)' : 'in logit';
-      // few words on the linear fit (the project maintainers 2026-09-15 12:1x UK): slope, range, R; the misses only with the Misses switch on
+      // few words on the linear fit (the project maintainers 2026-09-15 12:1x): slope, range, R; the misses only with the Misses switch on
       fitTxt = 'line ' + spaceTxt + ' over ' + hx.length + (state.src === 'bayes' ? ' in-range posterior-median dots' : ' fully measured dots') + ': slope ' + f.b.toFixed(2) + ', range ' + f.lo.toFixed(2) + ' to ' + f.hi.toFixed(2) + ' (' + f.level + '%), R ' + f.r.toFixed(2) + '; band = pointwise ' + f.level + '% envelope; ' + modeTxt
         + (inAxes() ? '; intercept ' + fmtY(f.a) : '')
         + (state.resid === 'on' ? '; misses: typical ' + RS.rmsPct.toFixed(1) + '% of the y scale, largest ' + sgn(RS.bigPct) + '% (' + RS.bigLabel + '), ' + RS.w5 + ' of ' + RS.n + ' models within \u00b15%, ' + RS.w10 + ' within \u00b110%' : '')
@@ -2013,16 +2011,16 @@ function renderScatter() {
   refreshBeyondChips();
   var drawnN = visible.length - undrawn.length - beyondArms.length, totalN = D.shared.configs.length;
   // the label names the fit's space whenever it differs from the axes' display (the project maintainers  14 Sep: are the line's quantities computed honestly across spacings)
-  // PANEL (the project maintainers' word of 15 Sep 2026 12:1x UK: fewer words on the linear fit — the slope, its range and R, the
+  // PANEL (the project maintainers' word of 15 Sep 2026 12:1x: fewer words on the linear fit — the slope, its range and R, the
   // capital letter, nothing more): three short lines — the slope, its range, R (the correlation coefficient)
-  // ONE LINE (the project maintainers, 2026-09-15 13:2x UK: one line — slope x [y, z] and R: a — instead of three): the project maintainers' shape, an em space
+  // ONE LINE (the project maintainers, 2026-09-15 13:2x: one line — slope x [y, z] and R: a — instead of three): the project maintainers' shape, an em space
   // as the one gap, tabular figures, two decimals everywhere, the same on every view
   var pl1 = f ? 'slope ' + f.b.toFixed(2) + ' [' + f.lo.toFixed(2) + ', ' + f.hi.toFixed(2) + ']\u2003R: ' + f.r.toFixed(2) : (sweeping ? 'fit paused while the levels move' : NARROW ? 'no fit: under 3 fully measured models' : 'no fit: fewer than three fully measured models');
   var pl2 = f ? '' : (drawnN + ' of ' + totalN + ' models drawn');
   var pl3 = '';
   var plw = Math.max(pl1.length * pfs, pl2.length * pfs2, pl3.length * pfs2) * 0.56 + 18, plh = (pfs + 6) + ((pl2 || pl3) ? (pl3 ? 2 : 1) * (pfs2 + 4) : 0) + 8;
   var plMax = W - MR - plx - 4; if (plw > plMax) { var shrink = plMax / plw; pfs = Math.max(Math.ceil(11 * UPX), Math.floor(pfs * shrink)); pfs2 = Math.max(Math.ceil(11 * UPX), Math.floor(pfs2 * shrink)); plw = plMax; plh = (pfs + 6) + ((pl2 || pl3) ? (pl3 ? 2 : 1) * (pfs2 + 4) : 0) + 8; }
-  out += (true ? '' : '<g id="fitpanel" data-critical-text data-export="omit" data-chain-val="def src xdef fitci line xs ys s l sel" pointer-events="none">'   // FIGURES CARRY NO NOTES (the project maintainers' word of 23 Sep 17:1x UK): the fit box leaves the plane; its words stand in the headline (slope, its interval, R) and the frame line (the counts)
+  out += (true ? '' : '<g id="fitpanel" data-critical-text data-export="omit" data-chain-val="def src xdef fitci line xs ys s l sel" pointer-events="none">'   // FIGURES CARRY NO NOTES (the project maintainers' word of 23 Sep 17:1x): the fit box leaves the plane; its words stand in the headline (slope, its interval, R) and the frame line (the counts)
     + '<rect x="' + plx + '" y="' + ply + '" width="' + plw.toFixed(0) + '" height="' + plh + '" rx="6" fill="#fcfaf3" fill-opacity="0.94" stroke="#d9d2c2"/>'
     + '<text x="' + (plx + 9) + '" y="' + (ply + pfs + 4) + '" font-size="' + pfs + '" fill="#1f1e1b" font-weight="600" style="font-variant-numeric:tabular-nums">' + pl1 + '</text>'
     + (pl2 ? '<text x="' + (plx + 9) + '" y="' + (ply + pfs + pfs2 + 9) + '" font-size="' + pfs2 + '" fill="#52514e" style="font-variant-numeric:tabular-nums">' + pl2 + '</text>' : '')
@@ -2036,9 +2034,9 @@ function renderScatter() {
   // (source parenthetical), and are exempt from other keys' runs
   if (EXPORTING) out = out.slice(0, clipAt) + '<clipPath id="expclip"><rect x="' + ML + '" y="' + MT + '" width="' + PW + '" height="' + PH + '"/></clipPath>'
     + '<g clip-path="url(#expclip)">' + out.slice(clipAt) + '</g>';   // the export's tight limits: trails, ladders, the band and the line stop at the plot box
-  // the titles are the project maintainers' names, bare (the project maintainers' word of 18 Sep 13:0x UK: the axis titles read D50 and D99 alone — the percent numbers on the
+  // the titles are the project maintainers' names, bare (the project maintainers' word of 18 Sep 13:0x: the axis titles read D50 and D99 alone — the percent numbers on the
   // ticks say the unit and the spacing shows itself): no unit word, no spacing word, on every width
-  var tyx = EXPORTING ? 20 : NARROW ? 11 : 15, tfs = EXPORTING ? EXPORT_TITLE_PX : NARROW ? 13 : Math.max(FS + 1, Math.ceil(13 * UPX));   // the titles render at 13 px or more, never under the tick type (the project maintainers 13:2x UK 18 Sep); twice that in the export (13:5x UK)
+  var tyx = EXPORTING ? 20 : NARROW ? 11 : 15, tfs = EXPORTING ? EXPORT_TITLE_PX : NARROW ? 13 : Math.max(FS + 1, Math.ceil(13 * UPX));   // the titles render at 13 px or more, never under the tick type (the project maintainers 13:2x 18 Sep); twice that in the export (13:5x)
   out += '<text x="' + (ML + PW / 2) + '" y="' + (H - 6)
     + '" text-anchor="middle" fill="#52514e" font-size="' + tfs + '" data-role="axis-title" '
     + 'data-chain-val="def src">' + fitTitle(axisShort('x'), W - 20, tfs) + '</text>'
@@ -2048,12 +2046,7 @@ function renderScatter() {
   if (moveN) out += '<text x="' + (ML + 8) + '" y="' + (MT + PH - 8 - (beyondFrame ? 14 : 0)) + '" font-size="' + (NARROW ? 12 : 11) + '" fill="#52514e" data-chain-val="src move">arrows: moves from ' + prevFitName() + '</text>';
   var body = (moveN ? '<g id="moves">' + moves + '</g>' : '') + '<g id="marks">' + marks + '</g>';
   document.getElementById('plotg').innerHTML = out + (EXPORTING ? '<g clip-path="url(#expclip)">' + body + '</g>' : body);
-  (function () {   // the fit's words beside the plot, off the figure (the project maintainers' word of 23 Sep 17:1x UK: figures carry no notes): slope, its interval and R as before; gone when the line is off
-    var fp = document.getElementById('fitpanel'), row = document.getElementById('exportrow');
-    if (state.line === 'off' || !row) { if (fp) fp.remove(); return; }
-    if (!fp) { fp = document.createElement('div'); fp.id = 'fitpanel'; fp.className = 'fitwords'; fp.setAttribute('data-critical-text', ''); fp.setAttribute('data-chain-val', 'def src xdef fitci line xs ys s l sel'); row.insertAdjacentElement('beforebegin', fp); }
-    fp.textContent = pl1;
-  })();
+  (function () { var fp = document.getElementById('fitpanel'); if (fp) fp.remove(); })();   // the maintainers's slots (24 Sep): one caption sentence per figure — the headline carries the line's slope and R; no fit words under the plot
   updateTrack();
 
   // while the levels move, every text block whose wrapping depends on the numbers keeps its height
@@ -2068,7 +2061,7 @@ function renderScatter() {
       var h = el.offsetHeight; if (h > (el._ratchet || 0)) { el._ratchet = h; el.style.minHeight = h + 'px'; }
     }
   });
-  var fitEl = document.getElementById('fitline');
+  var fitEl = document.getElementById('fitline') || document.createElement('div');   // no prose mount on the page (24 Sep): the words are composed for the export and the maintainer files only
   fitEl.innerHTML =
     '<span data-chain-val="def src xdef">' + fitTxt + '</span>'
     + ' <span style="color:#8b8477">· open triangles point toward '
@@ -2105,12 +2098,12 @@ function exportView() {   // the controls' state in words for the export's stamp
   parts.push(axisShort('y') + ' against ' + axisShort('x'));
   var sp = function (v) { return v === 'raw' ? 'linear' : 'logit'; };
   parts.push(state.xs === state.ys ? sp(state.xs) + ' axes' : 'horizontal ' + sp(state.xs) + ', vertical ' + sp(state.ys));
-  // no estimator or method words in a shared image (the coordination on the project maintainers' standing words, 23 Sep 15:1x UK): the estimator's name lives on the page's switch
+  // no estimator or method words in a shared image (the coordination on the project maintainers' standing words, 23 Sep 15:1x): the estimator's name lives on the page's switch
   return parts.join(' \u00b7 ');
 }
-function exportLegend() {   // every drawn model grouped by family in the colour scheme's order, within a family by size (the project maintainers 13:1x UK 18 Sep), its mark exactly as drawn
+function exportLegend() {   // every drawn model grouped by family in the colour scheme's order, within a family by size (the project maintainers 13:1x 18 Sep), its mark exactly as drawn
   var rows = [];
-  famOrder(Array.from(sel).filter(function (i) { return !isHidden(i); })).forEach(function (i) {   // one row per drawn model by its name of record, a run's checkpoints like every other model (the project maintainers' word of 23 Sep 15:0x UK: no grouped run row, no fit-quality note in the export)
+  famOrder(Array.from(sel).filter(function (i) { return !isHidden(i); })).forEach(function (i) {   // one row per drawn model by its name of record, a run's checkpoints like every other model (the project maintainers' word of 23 Sep 15:0x: no grouped run row, no fit-quality note in the export)
     var m = document.querySelector('#marks path[data-mark][data-i="' + i + '"]'); if (!m) return;   // not drawn: no crossing at this pair, or beyond the frame
     var c = D.shared.configs[i], grey = isPartial(i);
     var d = m.getAttribute('d') || '', fill = m.getAttribute('fill') || 'none', stroke = m.getAttribute('stroke') || c.color, sw = m.getAttribute('stroke-width') || '1.3';
@@ -2120,13 +2113,13 @@ function exportLegend() {   // every drawn model grouped by family in the colour
     };
     rows.push({ label: (c.display_name || c.label) + (grey ? ' (partial)' : '') + (c.provisional ? ' (provisional)' : ''), family: c.fam, color: grey ? '#8b8477' : c.color, line: false, marker: mark });   // no fit-quality words in the export: the flag lives in the page's hover and tooltip   // legends carry the full display name of record (the labels rows' maintainers, 22 Sep)
   });
-  // no grouped run row in the export (23 Sep 15:0x UK): each checkpoint drawn is its own row above
+  // no grouped run row in the export (23 Sep 15:0x): each checkpoint drawn is its own row above
   return rows;
 }
 function exportOptions() {
   var chart = document.getElementById('chart'), f = D.shared.frame || {}, ds = DATASETS[state.data] || {};
   var tight = state.view !== 'ridges' && EXT && isFinite(EXT.x0) && isFinite(EXT.y0) && EXT.x1 > EXT.x0 && EXT.y1 > EXT.y0;
-  if (tight) {   // the limits close on the drawn extent plus a small margin (2% of the span, at least 0.05 steps; the project maintainers 15:0x UK 18 Sep: tighter at both ends), never beyond the frame
+  if (tight) {   // the limits close on the drawn extent plus a small margin (2% of the span, at least 0.05 steps; the project maintainers 15:0x 18 Sep: tighter at both ends), never beyond the frame
     var padX = Math.max(0.05, (EXT.x1 - EXT.x0) * 0.02), padY = Math.max(0.05, (EXT.y1 - EXT.y0) * 0.02);
     LIMX = [Math.max(LIM[0], EXT.x0 - padX), Math.min(LIM[1], EXT.x1 + padX)];
     LIMY = [Math.max(LIM[0], EXT.y0 - padY), Math.min(LIM[1], EXT.y1 + padY)];
@@ -2154,7 +2147,7 @@ function exportOptions() {
   var parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date());
   var pick = function (t) { return (parts.find(function (q) { return q.type === t; }) || {}).value || ''; };
   var slug = String(ds.label || state.data || 'view').split(' (')[0].replace(/\+/g, '-').replace(/[^\w-]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
-  return { svg: chart, legend: legend, title: '', page: '', view: exportView(),   // no page title and no page name in the exported figure: the axes, the points and the legend, with one muted line of the view's words and the data stamp (the project maintainers' word of 23 Sep 15:1x UK)
+  return { svg: chart, legend: legend, title: '', page: '', view: exportView(),   // no page title and no page name in the exported figure: the axes, the points and the legend, with one muted line of the view's words and the data stamp (the project maintainers' word of 23 Sep 15:1x)
     stamp: (f.build_ts || f.runs_window) ? 'data as of ' + plainTs(f.build_ts || f.runs_window) : '', fileBase: 'capability-vs-reliability_' + slug + '_' + pick('year') + '-' + pick('month') + '-' + pick('day'), crop: null };   // the helper groups the rows by family in the reference order; the page's model row uses the same call (one order)
 }
 
@@ -2194,7 +2187,7 @@ function renderOpusFold() {
   [10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 98].forEach(function (v) { var z = logit(v / 100); if (z < zlo || z > zhi) return;
     out += '<line x1="' + X(z).toFixed(1) + '" y1="' + MT2 + '" x2="' + X(z).toFixed(1) + '" y2="' + (MT2 + 2 * RH) + '" stroke="#e0d9c8" stroke-width="0.6"/>'
          + '<text x="' + X(z).toFixed(1) + '" y="' + (MT2 + 2 * RH + 16) + '" text-anchor="middle" font-size="11" fill="#52514e">' + v + '%</text>'; });
-  out += '<text x="' + (ML2 + xw / 2) + '" y="' + (H - 6) + '" text-anchor="middle" font-size="12" fill="#52514e">difficulty at which failures reach 1% (percent of the scale); further right = more reliable</text>';
+  out += '<text x="' + (ML2 + xw / 2) + '" y="' + (H - 6) + '" text-anchor="middle" font-size="12" fill="#52514e">difficulty at which failures reach 1% (percent of the scale)</text>';
   arms.forEach(function (a, k) {
     var y0 = MT2 + (k + 1) * RH - 12, col = a.c.color, dash = a.c.think ? ' stroke-dasharray="5 3"' : '';
     var kd = a.ridge.kde, mx = Math.max.apply(null, kd) || 1, d = '', pen = false;
@@ -2328,13 +2321,13 @@ function renderRidges() {
   });
   document.getElementById('plotg').innerHTML = out;
   document.getElementById('trackg').style.display = 'none';
-  document.getElementById('fitline').textContent = '';
+  (document.getElementById('fitline') || document.createElement('div')).textContent = '';
   var bakedX = Math.abs(state.a - 50) < 1e-9, bakedY = Math.abs(state.c - 1) < 1e-9;
   var anyShape = rows.some(function (row) { return avgDef ? (row.r.d50_avg && row.r.d1_avg) : (row.r.d50 && row.r.d1); });
   var shapeNote = (bakedX && bakedY && anyShape) ? 'true posterior shapes (crossing draws)'
     : (!anyShape ? 'the 80% band with its median from the fitted tables (this set has no crossing draws)'
        : 'the 80% band with its median at levels other than 50% and 1% (a shape there would need draws fitting does not export); shapes at 50% and 1%');
-  document.getElementById('narrate').textContent = 'the spread of the same crossings the dots mark, across the fitted draws (' + (avgDef ? 'average-rate' : 'median-task') + ' definition): filled = the crossing at the x level ' + state.a + '%, outlined = at the y level ' + state.c + '% — ' + shapeNote + ' · ' + visible.length + ' of ' + D.shared.configs.length + ' models · move x or y and the view follows' + (bakedX && bakedY && anyShape ? ' · censored draws are not in a shape (the label notes the fraction)' : '');
+  (document.getElementById('narrate') || document.createElement('div')).textContent = 'the spread of the same crossings the dots mark, across the fitted draws (' + (avgDef ? 'average-rate' : 'median-task') + ' definition): filled = the crossing at the x level ' + state.a + '%, outlined = at the y level ' + state.c + '% — ' + shapeNote + ' · ' + visible.length + ' of ' + D.shared.configs.length + ' models · move x or y and the view follows' + (bakedX && bakedY && anyShape ? ' · censored draws are not in a shape (the label notes the fraction)' : '');
   notes();
   stamp();
   paintChips();
@@ -2374,7 +2367,7 @@ function narrate(visible, nFull) {
     if (worst !== null)
       medNote = ' · bootstrap support at this pair: down to ' + Math.round(worst * 100) + '% of resamples for some models (per-dot fractions on hover)';   // no arm singled out (the project maintainers 2026-09-16: no ordering of things)
   }
-  document.getElementById('narrate').textContent = (bayesNote() ? bayesNote() + ' \u00b7 ' : '')
+  (document.getElementById('narrate') || document.createElement('div')).textContent = (bayesNote() ? bayesNote() + ' \u00b7 ' : '')
     + (isCap()
       ? 'x = Capability C (metrics-report definition, difficulty\u2019s '
         + 'counting chain) · y: ' : '')
@@ -2407,7 +2400,7 @@ function narrate(visible, nFull) {
 }
 var CAPC_CHECKS_RUNNING = false;  // gate battery green 2026-09-01 (walk + user-session + value identity)
 function notes() {
-  var el = document.getElementById('notes');
+  var el = document.getElementById('notes') || document.createElement('div');   // no warnings list on the face (24 Sep)
   el.textContent = '';
   function warn(html) {
     var w = document.createElement('div');
@@ -2415,7 +2408,6 @@ function notes() {
     w.innerHTML = html;
     el.appendChild(w);
   }
-  if (state.src === 'bayes') { var uc = D.shared.configs.filter(underCredit); if (uc.length) warn('Under-credited at this cut: passes on wave 2 were counted as failures for ' + uc.map(function (c) { return c.label; }).join(', ') + ' \u2014 their crossings read less capable and less reliable until the re-fit on corrected counts.'); }
   if (state.src === 'bayes') { var cs = D.shared.configs.filter(cleanedScope); if (cs.length) warn('Cleaned fits with a partial scope: ' + cs.map(function (c) { return c.label + ' \u2014 ' + cleanedScope(c); }).join('; ') + '.'); }
   if (state.src === 'bayes') { var ag = D.shared.configs.filter(asGraded); if (ag.length) warn('The fitted curves use the attempts as first graded (the cleaned fits land with fitting\u2019s next flip): ' + ag.map(function (c) { return c.label; }).join(', ') + '. the reference estimator already carries the adopted cleaning.'); }
   var ab = D.bay && D.bay.disclosures && D.bay.disclosures.abandoned_cut;   // difficulty 2026-09-10: a cancelled cut's fits are not drawn; the served cut stands
@@ -2586,9 +2578,10 @@ function setHeld(msg, kind) {
 function frameLine() {
   var el = document.getElementById('framebar'); if (!el || !D || !D.shared) return;
   var f = D.shared.frame || {};
-  var base = (D.golden ? 'golden set (12) \u00b7 ' : '') + (DATASETS[D.dataId] ? (DATASETS[D.dataId].frameLabel || DATASETS[D.dataId].label) + ' \u00b7 ' : '') + mainConfigs().length + ' models';   // Definitions' form of record (24 Sep , the 12:2x UK word): the set's plain words and one count, nothing after — no run clauses, no cadence, no stamp
+  var base = (D.golden ? 'golden set (12) \u00b7 ' : '') + (DATASETS[D.dataId] ? (DATASETS[D.dataId].frameLabel || DATASETS[D.dataId].label) + ' \u00b7 ' : '') + mainConfigs().length + ' models';   // Definitions' form of record (24 Sep , the project maintainers' 12:2x word): the set's plain words and one count, nothing after — no run clauses, no cadence, no stamp
   // the Bayesian coverage sentence lives in the readout fold-out (bayesNote), not on the frame line (the maintainers 2026-09-05)
   el.textContent = base;
+  var mc = document.getElementById('machinery'); if (mc) mc.textContent = 'as of ' + asOf(f.build_ts || f.build_date) + ', ' + CADENCE + '.';   // the ONE machinery line, its own element under the set line: stamp + declared refresh (the maintainers's freshness row reads it; the set line itself stays words and counts)
   if (location.pathname === '/' || D.dsId !== 'board') return;   // the board-tool comparison is a board-dataset fact   // sibling tools exist only under the hub mount; a bare port has nothing to compare against (and a 404 would count as a page error)
   fetch('./fvd-data/manifest.json').then(function (r) { return r.ok ? r.json() : null; }).then(function (m) {
     var bf = m && (m.frame || m); if (!bf || bf.population_M == null) return;
@@ -2613,7 +2606,7 @@ function reliabilityDefinition() {
 /* FIRST SCREEN (WRITING.md §1; the maintainers's roster read 2026-09-03): line 1 the question, lines 2–3 the answer
  * with ONE metric (the drawn slope) and at most three supporting numbers (arm count, interval ends) — rendered from state */
 // the figure's caption under the chart: fitting's words (21 Sep, with difficulty's corrections; reworded the same evening without log-odds words under the project maintainers' 6 Sep rule), every figure rendered from the fit's state, never typed
-// (the project maintainers' question of 21 Sep 18:2x UK: what the straight line fitted to D99 against D50 means). Shown for the line of
+// (the project maintainers' question of 21 Sep 18:2x: what the straight line fitted to D99 against D50 means). Shown for the line of
 // record only: the unweighted least-squares line in the scale's own steps (In logit, or In the axes as set with both axes on the logit scale).
 function fitCaption(fit, n) {
   var el = document.getElementById('fitcaption'); if (!el) return;
@@ -2628,7 +2621,7 @@ function fitCaption(fit, n) {
   var runDrawn = anyRunOnPlane() && Array.from(sel).some(function (i) { return isRun(i) && !isHidden(i); });
   var outs = [state.partial === 'show' ? 'the faded partial models' : null, runDrawn ? 'the run\u2019s checkpoints' : null].filter(Boolean);
   var drawnTxt = outs.length ? 'across the fitted models (' + outs.join(' and ') + ' drawn are not in the fit)' : 'across the drawn models';   // exact in every state (the maintainers 21 Sep; the run set 22 Sep)
-  el.hidden = false; if (fold) fold.hidden = false;   // a fold at the very end of the page (the project maintainers' word of 22 Sep 11:43 UK: nothing between the plot and its controls; the summary carries the opening words)
+  el.hidden = false; if (fold) fold.hidden = false;   // a fold at the very end of the page (the project maintainers' word of 22 Sep 11:43: nothing between the plot and its controls; the summary carries the opening words)
   el.textContent = 'Both axes are positions on the difficulty scale. A task’s position is its failure rate averaged over the models that shape the scale (one vote per model), smoothed toward one half by the Jeffreys step on the total attempts, placed on the scale by its odds: one step on the scale multiplies the odds of failure by about 2.7, and positions print as shares (a difficulty of 70% is a task those models fail on 70% of their attempts on average). '
     + xn + ' is the difficulty at which a model’s fitted failure curve crosses ' + xl + ', ' + yn + ' the difficulty at which the same curve crosses ' + yl + '. A straight line is fitted through the models in scale steps ' + drawnTxt + ' (ordinary least squares, every dot equal; equal axes): it gives ' + yn + ' as an intercept a plus a slope b times ' + xn + '. The slope b is how many steps ' + yn + ' moves for each step of ' + xn + ' across models; with b near one the intercept a is a constant gap: every model’s ' + yn + ' sits a steps below its ' + xn + ' (the size of a), the same gap for every model, and the odds of failure at the ' + yn + ' position are e to the power a times those at the ' + xn + ' position. With b away from one the gap changes by (b − 1) steps per step of ' + xn + ', so the intercept alone is the gap at the scale’s 50% mark. '
     + 'Today: slope ' + b.toFixed(2) + ' [' + fit.lo.toFixed(2) + ', ' + fit.hi.toFixed(2) + '], intercept ' + a.toFixed(2) + aRange + ' steps (e to the power ' + a.toFixed(2) + ', about ' + eaTxt + '), R ' + fit.r.toFixed(2) + ', ' + n + ' models on ' + set + '.';
@@ -2639,26 +2632,25 @@ function headline(nFit, fit, nFull, sweeping) {
   var capC = isCap();
   var q = capC ? 'Does a model that solves more of the pool also stay reliable further up the difficulty scale?'
                : 'Does a more capable model also stay reliable further up the difficulty scale?';
-  var est = state.src === 'bayes' ? 'estimates from the fitted failure curves' : 'estimates from the smoothed failure trend';   // plain words, no method name on the figure (the project maintainers 2026-09-14); the parenthetical left the headline on the project maintainers' word of 22 Sep 20:1x UK — the estimator switch names the source
+  var est = state.src === 'bayes' ? 'estimates from the fitted failure curves' : 'estimates from the smoothed failure trend';   // plain words, no method name on the figure (the project maintainers 2026-09-14); the parenthetical left the headline on the project maintainers' word of 22 Sep 20:1x — the estimator switch names the source
   var xw = capC ? CAP_KEYS[state.xdef].name() : dName('x');
   var ans;
   if (fit) {
-    // no verdict, no direction word (the project maintainers' word of 16 Sep 2026 17:4x UK: never a ranking — who is best, who is what — the page gives
+    // no verdict, no direction word (the project maintainers' word of 16 Sep 2026 17:4x: never a ranking — who is best, who is what — the page gives
     // information, it optimises nothing): the first screen states the fitted line's slope with its range and R, nothing more
     ans = 'The fitted line across the models, ' + dName('y') + ' against ' + xw + ': slope ' + fit.b.toFixed(2) + ' [' + fit.lo.toFixed(2) + ', ' + fit.hi.toFixed(2) + '], R ' + fit.r.toFixed(2) + (inAxes() ? ', in the axes as set' : '') + (state.lw === 'bands' ? ', each dot weighted by its bands' : '') + '.';
   } else ans = 'Too few fully measured models at these levels to fit a line (' + nFull + ' measured; the fit needs three).';
-  if (isCap() && !capBlock()) { q = ''; ans = CAP_KEYS[state.xdef].name() + ' is not published for this set yet; no model is drawn.'; }   // the project maintainers' word of 24 Sep 12:4x UK: every view pressable; a missing file is said in the one sentence
+  if (isCap() && !capBlock()) { q = ''; ans = CAP_KEYS[state.xdef].name() + ' is not published for this set yet; no model is drawn.'; }   // the project maintainers' word of 24 Sep 12:4x: every view pressable; a missing file is said in the one sentence
   el.textContent = (q + ' ' + ans).trim();
 }
 var frameLineDone = false;
 function disclosureLine() {   // one clause per disclosure the fit pointer carries (difficulty shows the same as a flag glyph + notes text, 2026-09-06)
   var dz = D.bay && D.bay.disclosures; if (!dz) return '';
-  var out = '', bt = dz.basis_truncation;
-  if (bt && bt.disclosure) out += ' \u00b7 basis: ' + bt.disclosure;   // fitting's measured sentence (fit-methods spec 06w: shown only beyond the measured no-move band)
-  if (dz.cut_flag && Object.keys(dz.cut_flag).length) out += ' \u00b7 cut flag: ' + Object.keys(dz.cut_flag).map(function (k) { return k.split('/').pop(); }).join(', ') + ' \u2014 answers cut at the 768-token cap on a small share of cells; a flag beside the model, never failures to claim';
-  if (dz.pool_cells_undercredit && dz.pool_cells_undercredit.disclosure) out += ' \u00b7 under-credit at this cut: ' + dz.pool_cells_undercredit.disclosure + (dz.pool_cells_undercredit.affected_arms && dz.pool_cells_undercredit.affected_arms.length ? ' (models: ' + dz.pool_cells_undercredit.affected_arms.map(function (k) { return String(k).split('/').pop(); }).join(', ') + ')' : '');
-  if (dz.pool_cells_undercredit && dz.pool_cells_undercredit.pending_plain) out += ' \u2014 pending: ' + dz.pool_cells_undercredit.pending_plain;   // fitting's plain sentence on what is still to come (additive key, 2026-09-08)
-  if (dz.provisional_classes && dz.provisional_classes.length) out += ' \u00b7 provisional: ' + dz.provisional_classes.map(function (c) { return c['class'] || c; }).join(', ');
+  var out = '';
+  // the under-credit clause, its hover sentence and its warning left the face on Definitions' word of 24 Sep 15:5x: a may-move note with an interpretation of the curves; the truth of the fit is the fit, the leaf is a record leaf
+  // Definitions' word of 24 Sep 16:04: the basis-truncation sentence (a served-with-a-flag-until note) and the cut-flag clause left the face — record leaves in fitting's pointers; the provisional classes stay only as the legend of what is drawn
+  var provisionalDrawn = (D.shared && D.shared.configs || []).some(function (c) { return c.provisional; }) || !!document.querySelector('[data-mark][data-provisional="1"]');
+  if (provisionalDrawn && dz.provisional_classes && dz.provisional_classes.length) out += ' \u00b7 provisional: ' + dz.provisional_classes.map(function (c) { return c['class'] || c; }).join(', ');
   return out;
 }
 function fitSetCount() {   // rows = served arms + interim arms of the wave in flight (two fit sets); say both, never 'N of M' with N > M (read '59 of 34 arms served' 2026-09-11)
@@ -2671,13 +2663,13 @@ function stamp() {
   // CHROME LENGTH (the maintainers's conventions row, 2026-09-11): the machinery line is ONE muted line under 40 words — the arms drawn, the data
   // identifiers and the manifest link; the estimator versions, the sampler gate, Capability C's method and fitting's disclosures move to a plain
   // sibling (#stampmore) inside the same provenance fold, where every conventions row applies to them.
-  document.getElementById('stamp').innerHTML =   // provenance only (the project maintainers 2026-09-03): no held / withheld / queue / custody words
+  (document.getElementById('stamp') || document.createElement('div')).innerHTML =   // no machinery line on the face (24 Sep); provenance only (the project maintainers 2026-09-03): no held / withheld / queue / custody words
     '<span data-chain-inv>' + mainConfigs().length + ' models · keep-set ' + f.keep_set_hash + ' · data fingerprint ' + f.runs_fingerprint + (f.runs_window ? ' · runs window ' + plainTs(f.runs_window) : '')
     + ' · axis ' + D.shared.axis.axis_id + (D.golden ? ' · ' + String(f.golden_note || 'golden set: a data point, not the difficulty definition').replace(new RegExp('\\s*\\((' + String.fromCharCode(83, 122, 121, 109, 111, 110) + ' [0-9-]+|as adopted)\\)'), '') : '') + '</span>'
     + (D.bay && D.bay.fit_set && D.bay.fit_set.sha12 ? ' · Bayesian fit set <span data-fit-set>' + D.bay.fit_set.sha12 + '</span> (' + fitSetCount() + ')' : '')
     + ' · <a href="' + MOUNT + 'data/manifest.json">data manifest</a>';
   var more = document.getElementById('stampmore');
-  if (!more) { more = document.createElement('div'); more.id = 'stampmore'; more.className = 'sub'; more.style.cssText = 'font-size:.8rem;color:#8b8477;margin:.2rem 0'; var st = document.getElementById('stamp'); st.parentNode.insertBefore(more, st.nextSibling); }
+  if (!more) { more = document.createElement('div'); }   // no stamp on the face (24 Sep): the provenance lines are composed for the maintainer files only
   more.innerHTML = (D.bay ? 'estimators: <span data-chain-val="def src">median-task ' + D.bay.estimator_version + ' · average-rate ' + D.bay.estimator_version_avg + '</span>' : 'estimator: project average-rate chain (crossing rows from the pool curves; no posterior tables yet)')
     + (D.shared.capC ? ' · ' + CAP_KEYS.capC.name() + ' <span data-chain-val="xdef">' + D.shared.capC.method_version + '</span>' + (D.shared.capC.frame && D.shared.capC.frame.population_M ? ' (population ' + D.shared.capC.frame.population_M + ')' : '') : '')
     + (D.shared.capC_z ? ' · ' + CAP_KEYS.capC_z.name() + ' <span data-chain-val="xdef">' + D.shared.capC_z.method_version + '</span>' : '')

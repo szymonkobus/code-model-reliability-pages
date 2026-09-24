@@ -1,5 +1,5 @@
 {
- "fingerprint": "84d842642e97",
+ "fingerprint": "8834a7da2753",
  "frame": {
   "dataset": "all",
   "dataset_label": "wave 1+2 (2,153 tasks): 431 of wave 1 + 1,693 of wave 2 + 29 tasks outside both waves, the list kept on 3 September 2026",
@@ -7,7 +7,7 @@
   "dataset_label_source": {
    "field": "label_of_record",
    "pointer": "serving_combined.json",
-   "note": "label = set name + the count the figure stands on, at its stamp (the served wave's axis at the cut of 3 September 2026: 431 of wave 1, 1,693 of wave 2, 29 tasks outside both waves); the kept lists of today (the kept set at 22 Sep 13:24 UK): 430 of wave 1, 1,674 of wave 2 of this axis still kept \u2014 a task that left the kept set after the cut stays in the fit as cut (the ruling of 8 Sep); the count is the cut's, the split by the waves' membership of record today (the wave-1 pin of 10 September 2026 and the wave-2 list with its parked members); Definitions' rule of 22 September 2026: one string written by the fit's writer, printed by every composer, never a count composed on a page from two sources"
+   "note": "label = set name + the count the figure stands on, at its stamp (the served wave's axis at the cut of 3 September 2026: 431 of wave 1, 1,693 of wave 2, 29 tasks outside both waves); the kept lists of today (the kept set at 22 Sep 13:24): 430 of wave 1, 1,674 of wave 2 of this axis still kept \u2014 a task that left the kept set after the cut stays in the fit as cut (the ruling of 8 Sep); the count is the cut's, the split by the waves' membership of record today (the wave-1 pin of 10 September 2026 and the wave-2 list with its parked members); Definitions' rule of 22 September 2026: one string written by the fit's writer, printed by every composer, never a count composed on a page from two sources"
   },
   "population": "all",
   "population_source": null,
@@ -19,7 +19,7 @@
   "difficulty_population_M": 61,
   "tasks": 2167,
   "keep_set_hash": "60ede5d24001",
-  "inputs_content_sha": "bbee4b04d939",
+  "inputs_content_sha": "e4683e9849c4",
   "tasks_on_axis": 2167,
   "tasks_kept": 2167,
   "tasks_awaiting_axis": 0,
@@ -29,10 +29,10 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "a2251395d01a",
+  "runs_fingerprint": "ac498d75f4dc",
   "axis_wave": "unified-live",
   "build_date": "2026-09-24",
-  "stamp": "2026-09-24T11:46:21Z",
+  "stamp": "2026-09-24T15:01:55Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -67,7 +67,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-24T11:28:17Z",
+   "unified_built_at": "2026-09-24T14:28:55Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -380,7 +380,7 @@
    "served_not_drawn": "Bayesian curves for 55 models exist for this dataset but were fitted on a different difficulty axis than this view uses; they draw when a fit set cut on this view's axis is served (local-logistic curves shown meanwhile)",
    "custody_dir": null,
    "set_fingerprint": null,
-   "pointer_updated_at": "2026-09-20T09:58:51Z",
+   "pointer_updated_at": "2026-09-24T14:55:08Z",
    "n_fits": 0,
    "note": "Bayesian curves for 55 models exist for this dataset but were fitted on a different difficulty axis than this view uses; they draw when a fit set cut on this view's axis is served",
    "gates": null,
@@ -607,7 +607,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-24T11:24:17Z",
+   "_stamp": "2026-09-24T14:27:55Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -773,9 +773,9 @@
   }
  },
  "files": {
-  "shared": "shared.84d842642e97.json",
-  "chain_average": "chain_average.84d842642e97.json",
-  "chain_median": "chain_median.84d842642e97.json",
-  "dots": "dots.84d842642e97.json"
+  "shared": "shared.8834a7da2753.json",
+  "chain_average": "chain_average.8834a7da2753.json",
+  "chain_median": "chain_median.8834a7da2753.json",
+  "dots": "dots.8834a7da2753.json"
  }
 }

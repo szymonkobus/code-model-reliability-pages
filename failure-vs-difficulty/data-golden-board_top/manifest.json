@@ -1,5 +1,5 @@
 {
- "fingerprint": "1c8ad7d24665",
+ "fingerprint": "c5c09ed74c07",
  "frame": {
   "dataset": "board_top",
   "dataset_label": "wave 1+2 (1,292 tasks): 431 of wave 1 + 861 of wave 2, the list kept on 13 September 2026; wave 2 parked (879 tasks) left out \u00b7 positioned on this axis today: 430 of wave 1, 858 of wave 2",
@@ -7,7 +7,7 @@
   "dataset_label_source": {
    "field": "label_of_record",
    "pointer": "serving_golden_board_top.json",
-   "note": "label = set name + the count the figure stands on, at its stamp (the served wave's axis at the cut of 13 September 2026: 431 of wave 1, 861 of wave 2); the kept lists of today (the kept set at 22 Sep 13:24 UK): 430 of wave 1, 858 of wave 2 of this axis still kept \u2014 a task that left the kept set after the cut stays in the fit as cut (the ruling of 8 Sep); the count is the cut's, the split by the waves' membership of record today (the wave-1 pin of 10 September 2026 and the wave-2 list with its parked members); Definitions' rule of 22 September 2026: one string written by the fit's writer, printed by every composer, never a count composed on a page from two sources"
+   "note": "label = set name + the count the figure stands on, at its stamp (the served wave's axis at the cut of 13 September 2026: 431 of wave 1, 861 of wave 2); the kept lists of today (the kept set at 22 Sep 13:24): 430 of wave 1, 858 of wave 2 of this axis still kept \u2014 a task that left the kept set after the cut stays in the fit as cut (the ruling of 8 Sep); the count is the cut's, the split by the waves' membership of record today (the wave-1 pin of 10 September 2026 and the wave-2 list with its parked members); Definitions' rule of 22 September 2026: one string written by the fit's writer, printed by every composer, never a count composed on a page from two sources"
   },
   "population": "golden",
   "population_source": "definitions/difficulty/knowledge/golden_set.json",
@@ -19,7 +19,7 @@
   "difficulty_population_M": 12,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "98b6f970b1f3",
+  "inputs_content_sha": "66e30b7bbb62",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -29,17 +29,17 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "a2251395d01a",
+  "runs_fingerprint": "ac498d75f4dc",
   "axis_wave": "combined-20260913T1641Z",
   "build_date": "2026-09-24",
-  "stamp": "2026-09-24T11:49:04Z",
+  "stamp": "2026-09-24T15:04:48Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-24T11:28:17Z",
+   "unified_built_at": "2026-09-24T14:28:55Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.golden.board_top.csv"
@@ -130,7 +130,7 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/golden-board_top-20260913T1641Z/results",
    "set_fingerprint": "b8c1e660acdf",
-   "pointer_updated_at": "2026-09-19T10:37:46Z",
+   "pointer_updated_at": "2026-09-24T14:55:09Z",
    "n_fits": 12,
    "note": null,
    "gates": {
@@ -157,7 +157,7 @@
     {
      "class": "claude_twin_reused",
      "status": "provisional until the twin draws are re-bound",
-     "scope": "Claude wave 2 results inherited by key from golden-top-20260905T1420Z (its 5 Sep 15:20 UK snapshot)",
+     "scope": "Claude wave 2 results inherited by key from golden-top-20260905T1420Z (its 5 Sep 15:20 snapshot)",
      "rule": "one raw source counts as one draw (the raw-draw identity join; regex-bridge legs demoted at grading)"
     },
     {
@@ -228,7 +228,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-24T11:24:17Z",
+   "_stamp": "2026-09-24T14:27:55Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -394,9 +394,9 @@
   }
  },
  "files": {
-  "shared": "shared.1c8ad7d24665.json",
-  "chain_average": "chain_average.1c8ad7d24665.json",
-  "chain_median": "chain_median.1c8ad7d24665.json",
-  "dots": "dots.1c8ad7d24665.json"
+  "shared": "shared.c5c09ed74c07.json",
+  "chain_average": "chain_average.c5c09ed74c07.json",
+  "chain_median": "chain_median.c5c09ed74c07.json",
+  "dots": "dots.c5c09ed74c07.json"
  }
 }
