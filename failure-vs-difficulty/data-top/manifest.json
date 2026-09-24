@@ -1,5 +1,5 @@
 {
- "fingerprint": "651c5ec64e1d",
+ "fingerprint": "12195a718848",
  "frame": {
   "dataset": "top",
   "dataset_label": "wave 2 (866 tasks), the list kept on 10 September 2026; wave 2 parked (879 tasks) left out",
@@ -19,7 +19,7 @@
   "difficulty_population_M": 58,
   "tasks": 858,
   "keep_set_hash": "532d0efad8a5",
-  "inputs_content_sha": "8910d77f6052",
+  "inputs_content_sha": "2d93c3c4f6b2",
   "tasks_on_axis": 858,
   "tasks_kept": 858,
   "tasks_awaiting_axis": 0,
@@ -29,17 +29,17 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "a220cd4d3f3f",
+  "runs_fingerprint": "b398fee79a64",
   "axis_wave": "pool-20260910T2244Z",
   "build_date": "2026-09-24",
-  "stamp": "2026-09-24T23:02:13Z",
+  "stamp": "2026-09-24T23:52:23Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-24T22:19:06Z",
+   "unified_built_at": "2026-09-24T23:13:11Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.top.csv"
@@ -328,7 +328,7 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/top-20260910T2211Z/results",
    "set_fingerprint": "3fa1dd2406a1",
-   "pointer_updated_at": "2026-09-24T22:45:26Z",
+   "pointer_updated_at": "2026-09-24T23:13:13Z",
    "n_fits": 55,
    "note": null,
    "gates": {
@@ -578,7 +578,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-24T22:26:42Z",
+   "_stamp": "2026-09-24T23:24:44Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -744,9 +744,9 @@
   }
  },
  "files": {
-  "shared": "shared.651c5ec64e1d.json",
-  "chain_average": "chain_average.651c5ec64e1d.json",
-  "chain_median": "chain_median.651c5ec64e1d.json",
-  "dots": "dots.651c5ec64e1d.json"
+  "shared": "shared.12195a718848.json",
+  "chain_average": "chain_average.12195a718848.json",
+  "chain_median": "chain_median.12195a718848.json",
+  "dots": "dots.12195a718848.json"
  }
 }
