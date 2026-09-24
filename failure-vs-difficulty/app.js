@@ -1363,7 +1363,7 @@ function narrate(visible, dotsOn, unfitted) {
     var bf = D.shared.frame && D.shared.frame.bayes_fits;
     var drawnN = visible.length - (state.src === 'bayes' ? unfitted.length : 0);
     fp.textContent = (state.src === 'bayes' ? 'Bayesian posterior' : houseName()) + ' · ' + drawnN + ' of ' + visible.length + ' models drawn'
-      + (state.src === 'bayes' && bf ? ((D.shared.frame || {}).dataset_label_head ? ' · fitted on ' + String((D.shared.frame || {}).dataset_label_head).replace(/\s*\([\d,]+ tasks\)/, '') : '') + (bf.newer && bf.newer.drawn_interim ? ' · ' + bf.newer.drawn_interim + ' interim' : '') : '')   // the set by its label of record, never its sha
+      + (state.src === 'bayes' && bf ? ((D.shared.frame || {}).dataset_label_head ? ' · fitted on ' + String((D.shared.frame || {}).dataset_label_head).replace(/\s*[(:].*$/, '') : '') + (bf.newer && bf.newer.drawn_interim ? ' · ' + bf.newer.drawn_interim + ' interim' : '') : '')   // the set by its label of record, never its sha
       + (state.band === 'off' ? '' : ' · ' + state.band + '% bands')
       + (visible.length === 1 ? ' · ' + covText(visible[0]) : '');
   }
