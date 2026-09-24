@@ -1,5 +1,5 @@
 {
- "fingerprint": "4f3ced524e13",
+ "fingerprint": "5f18e646d008",
  "frame": {
   "dataset": "board_top",
   "dataset_label": "wave 1+2 (1,297 tasks): 431 of wave 1 + 866 of wave 2, the list kept on 10 September 2026; wave 2 parked (879 tasks) left out \u00b7 positioned on this axis today: 430 of wave 1, 858 of wave 2",
@@ -19,7 +19,7 @@
   "difficulty_population_M": 61,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "b843758d3f15",
+  "inputs_content_sha": "73e5df0b812f",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -29,10 +29,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "19ab32d39d66",
+  "runs_fingerprint": "093670853557",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-09-24",
-  "stamp": "2026-09-24T06:57:58Z",
+  "stamp": "2026-09-24T07:46:12Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -67,7 +67,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-24T06:48:09Z",
+   "unified_built_at": "2026-09-24T07:13:26Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -24768,7 +24768,7 @@
   },
   "series_arms": {
    "served": true,
-   "serving_word": "Definitions' word of 24 September 2026 (06:52 UTC) on staging 1b7a90f7d59b, implemented by that staging: a data emission on Definitions' word of 06:52Z: checkpoint 16 positioned again from the fit that landed at 07:50 UK (D50 moved from 9.65% to 9.82%; fits of the same results differ by about 0.2 percentage points run to run; D99 below the easiest task; it counts on wave 1 since 02:31 UK; all 60 of its wave 2 results judged again in the count since 05:14 UK, the position fitted once more when ordered); no checkpoint withheld; eight of eight positioned; checkpoints 2 and 8 at the 07:19 UK count as served",
+   "serving_word": "Definitions' word of 24 September 2026 (07:05 UTC) on staging 0848fc48e52d, implemented by that staging: a text-only emission on Definitions' word of 07:05Z: the once-more clauses of checkpoints 16 and 1 say the position stays and when it may move (checkpoint 16's new fit, cut 08:00 UK on the Olmo run lead's word, landing about 12:45 UK, by 14:00 UK Thursday at the latest; checkpoint 1's landing about 10:42 UK, by 12:30 UK Thursday at the latest); no position moves; the rest as served at 07:56 UK",
    "wave_id": "olmo-board_top-20260922T0453Z",
    "n_arms": 8,
    "heading": "checkpoints of one training run",
@@ -24778,7 +24778,7 @@
    "axis_pinned_to_served": true,
    "cut_at": "2026-09-22T04:53:28Z",
    "completed_at": "2026-09-24T06:48:58Z",
-   "updated_at": "2026-09-24T06:56:21Z",
+   "updated_at": "2026-09-24T07:44:37Z",
    "pointer": "definitions/fitting/serving_series_olmo31_rlzero_code.json",
    "arms": [
     {
@@ -34926,7 +34926,7 @@
      "n_tasks_positioned": 1288,
      "n_cells": 1288,
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 23 September 2026",
-     "disclosure": "a checkpoint of one training run (checkpoint 1), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 23 September 2026; the set has 1,299 members, 1,288 of them kept; 1,288 positioned in this fit (430 of wave 1 + 858 of wave 2); results as they stood at the cut (23 Sep 18:57 UK); each task's answers judged after judging restarted on 21 September, as counted at that hour; its position was fitted again from the judgings that stand and is unchanged; it counts on wave 1 since 18:53 UK; a second run at double length (four chains of 16,000 draws after 4,000 warm-up draws each) passes the gates and reads the same D50 and D99 positions, its bands overlapping; all 28 of its wave 2 results judged again are in the count since 05:14 UK; the position stands on the earlier judgings and is fitted once more, back about 10:42 UK, by 12:30 UK Thursday at the latest",
+     "disclosure": "a checkpoint of one training run (checkpoint 1), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 23 September 2026; the set has 1,299 members, 1,288 of them kept; 1,288 positioned in this fit (430 of wave 1 + 858 of wave 2); results as they stood at the cut (23 Sep 18:57 UK); each task's answers judged after judging restarted on 21 September, as counted at that hour; its position was fitted again from the judgings that stand and is unchanged; it counts on wave 1 since 18:53 UK; a second run at double length (four chains of 16,000 draws after 4,000 warm-up draws each) passes the gates and reads the same D50 and D99 positions, its bands overlapping; all 28 of its wave 2 results judged again are in the count since 05:14 UK; the position stands on the earlier judgings and is fitted once more, the new fit landing about 10:42 UK, by 12:30 UK Thursday at the latest; the position may move then",
      "gates_failed": true,
      "gate_face": "every attempt failed on 38% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's interval is wider",
      "bayes_avg": {
@@ -38974,7 +38974,7 @@
      "n_tasks_positioned": 1288,
      "n_cells": 1288,
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 24 September 2026",
-     "disclosure": "a checkpoint of one training run (checkpoint 16), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 24 September 2026; the set has 1,299 members, 1,288 of them kept; 1,288 positioned in this fit (430 of wave 1 + 858 of wave 2); results as they stood at the cut (24 Sep 02:47 UK); each task's answers judged after judging restarted on 21 September, as counted at that hour; its position was fitted again from the judgings that stand: D50 moved from 9.65% to 9.82%; fits of the same results differ by about 0.2 percentage points run to run; D99 stays below the easiest task; it counts on wave 1 since 02:31 UK; all 60 of its wave 2 results judged again are in the count since 05:14 UK; the position stands on the earlier judgings until it is fitted once more and may move then",
+     "disclosure": "a checkpoint of one training run (checkpoint 16), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 24 September 2026; the set has 1,299 members, 1,288 of them kept; 1,288 positioned in this fit (430 of wave 1 + 858 of wave 2); results as they stood at the cut (24 Sep 02:47 UK); each task's answers judged after judging restarted on 21 September, as counted at that hour; its position was fitted again from the judgings that stand: D50 moved from 9.65% to 9.82%; fits of the same results differ by about 0.2 percentage points run to run; D99 stays below the easiest task; it counts on wave 1 since 02:31 UK; all 60 of its wave 2 results judged again are in the count since 05:14 UK; the position stands on the earlier judgings and is fitted once more, the new fit landing about 12:45 UK, by 14:00 UK Thursday at the latest; the position may move then",
      "gates_failed": false,
      "gate_face": null,
      "bayes_avg": {
@@ -41133,7 +41133,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-24T06:24:19Z",
+   "_stamp": "2026-09-24T07:24:11Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -41299,9 +41299,9 @@
   }
  },
  "files": {
-  "shared": "shared.4f3ced524e13.json",
-  "chain_average": "chain_average.4f3ced524e13.json",
-  "chain_median": "chain_median.4f3ced524e13.json",
-  "dots": "dots.4f3ced524e13.json"
+  "shared": "shared.5f18e646d008.json",
+  "chain_average": "chain_average.5f18e646d008.json",
+  "chain_median": "chain_median.5f18e646d008.json",
+  "dots": "dots.5f18e646d008.json"
  }
 }
