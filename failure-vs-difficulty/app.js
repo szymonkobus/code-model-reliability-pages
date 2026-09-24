@@ -637,10 +637,10 @@ function buildChips() {
       sbR.arms.forEach(function (a, k) {
         var b = document.createElement('button'); b.className = 'chip serieschip'; b.style.color = a.color; b.style.borderColor = a.color;
         b.textContent = a.short_label || a.label; b.dataset.label = b.textContent; b.dataset.name = a.label || b.textContent; b.dataset.name = a.label || b.textContent; b.dataset.series = String(k); b.dataset.row = String(sbR._row);   // the short form of record ('RL-Zero Code · 0/32') from the labels row, never composed
-        var parts = []; if (a.disclosure) parts.push(a.disclosure); if (a.set_label) parts.push('fitted on ' + a.set_label);
+        var parts = []; if (a.disclosure) parts.push(currentTruth(a.disclosure)); if (a.set_label) parts.push('fitted on ' + a.set_label);
         if (a.gates_failed) parts.push(a.gate_face ? noSpecTags(String(a.gate_face)) : 'sampler gate flagged on this fit; drawn with the disclosure');
         if (a.protocol) parts.push('read by ' + a.protocol + ': the base model continues the prompt, no chat turn');
-        b.dataset.state = noSpecTags(parts.join(' · ')); b.title = (a.withheld && a.disclosure) ? noSpecTags(String(a.disclosure)) : oneSentence(noSpecTags(parts[0] || a.label));   // a withheld checkpoint's hover is the fit maintainers' whole sentence with its held-out clause and floor, never cut (the pool pages lead  23 Sep)
+        b.dataset.state = noSpecTags(parts.join(' · ')); b.title = (a.withheld && a.disclosure) ? noSpecTags(currentTruth(String(a.disclosure))) : oneSentence(noSpecTags(parts[0] || a.label));   // a withheld checkpoint's hover is the fit maintainers' whole sentence with its held-out clause and floor, never cut (the pool pages lead  23 Sep)
         b.onclick = function () { if (seriesSel.has(k)) seriesSel.delete(k); else seriesSel.add(k); render(); };
         seriesChips.push(b); box.appendChild(b);
       });
@@ -754,6 +754,15 @@ function faceNumbers(s) {   // the project maintainers 8 Sep: one to three signi
     var out = v.toPrecision(3);
     return (out.indexOf('e') >= 0) ? m : String(Number(out));
   });
+}
+function currentTruth(t) {   // the record of 24 Sep (12:4x UK, via the maintainers): a page states the current truth only — no re-judging counts, no hours of fits to come, no may-move notes; the
+  // clauses of a fit maintainers' disclosure that speak of history or of fits to come leave the line here as well as at their source (clause boundaries only: '; ' and ' · ')
+  var HIST = /judg|fitted again|fitted once more|new fit|may move|moved from|\bsince \d|\buntil\b|landing about|at the latest|a second run|double length|re-run|in the count|count on their|stood at|as they stood|checked fit|the check\b|noise floor/i;
+  return String(t || '').split(/(; | \u00b7 )/).reduce(function (acc, piece, i, arr) {   // keep separators only when the clause after them is kept
+    if (i % 2 === 1) return acc;   // a separator: handled with its clause
+    if (HIST.test(piece)) return acc;
+    return acc + (acc && i > 0 ? (arr[i - 1] || '; ') : '') + piece;
+  }, '').replace(/^[;\s\u00b7]+|[;\s\u00b7]+$/g, '');
 }
 function oneSentence(s) {   // the project maintainers' 8 Sep bounce (the tooltips read as a wall of text); rule of record: hovers one sentence
   s = String(s || '').trim(); if (!s) return '';
@@ -956,7 +965,7 @@ function renderSideBlock() {
     b.style.color = a.color; b.style.borderColor = a.color;
     b.textContent = a.label; b.dataset.label = a.label; b.dataset.name = a.label; b.dataset.side = String(k);
     var parts = [];
-    if (a.disclosure) parts.push(a.disclosure);
+    if (a.disclosure) parts.push(currentTruth(a.disclosure));
     if (a.set_label) parts.push('fitted on ' + a.set_label);
     if (a.gates_failed) parts.push(a.gate_face ? noSpecTags(String(a.gate_face)) : 'sampler gate flagged on this fit; drawn with the disclosure');   // the fit maintainers' own face sentence when the pointer carries it
     if (a.protocol) parts.push('read by ' + a.protocol + ': the base model continues the prompt, no chat turn');
@@ -1037,12 +1046,12 @@ function renderSeriesRow(sb, ri) {   // the run's row: cloned from renderSideBlo
     b.style.color = a.color; b.style.borderColor = a.color;
     b.textContent = a.short_label || a.label; b.dataset.label = b.textContent; b.dataset.name = a.label || b.textContent; b.dataset.name = a.label || b.textContent; b.dataset.series = String(k); b.dataset.row = String(ri);   // the short form of record ('RL-Zero Code · 0/32', '· final') from the labels row, never composed
     var parts = [];
-    if (a.disclosure) parts.push(a.disclosure);
+    if (a.disclosure) parts.push(currentTruth(a.disclosure));
     if (a.set_label) parts.push('fitted on ' + a.set_label);
     if (a.gates_failed) parts.push(a.gate_face ? noSpecTags(String(a.gate_face)) : 'sampler gate flagged on this fit; drawn with the disclosure');   // the fit maintainers' own face sentence when the pointer carries it
     if (a.protocol) parts.push('read by ' + a.protocol + ': the base model continues the prompt, no chat turn');
     b.dataset.state = noSpecTags(parts.join(' · '));
-    b.title = (a.withheld && a.disclosure ? noSpecTags(String(a.disclosure)) : oneSentence(noSpecTags(parts[0] || a.label))) + ((a.protocol && !/^read by /.test(parts[0] || '')) ? ' (read by ' + a.protocol + ')' : '');   // a withheld checkpoint's hover is the fit maintainers' whole sentence with its held-out clause and floor, never cut (the pool pages lead  23 Sep)
+    b.title = (a.withheld && a.disclosure ? noSpecTags(currentTruth(String(a.disclosure))) : oneSentence(noSpecTags(parts[0] || a.label))) + ((a.protocol && !/^read by /.test(parts[0] || '')) ? ' (read by ' + a.protocol + ')' : '');   // a withheld checkpoint's hover is the fit maintainers' whole sentence with its held-out clause and floor, never cut (the pool pages lead  23 Sep)
     b.onclick = function () { if (seriesSel.has(k)) seriesSel.delete(k); else seriesSel.add(k); render(); };
     sc.appendChild(b);
   });
