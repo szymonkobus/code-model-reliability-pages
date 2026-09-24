@@ -1,5 +1,5 @@
 {
- "fingerprint": "8c131084f0c3",
+ "fingerprint": "0dd0f84bdff3",
  "frame": {
   "dataset": "board_top",
   "dataset_label": "wave 1+2 (1,297 tasks): 431 of wave 1 + 866 of wave 2, the list kept on 10 September 2026; wave 2 parked (879 tasks) left out \u00b7 positioned on this axis today: 430 of wave 1, 858 of wave 2",
@@ -19,7 +19,7 @@
   "difficulty_population_M": 61,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "a9e96c6e7540",
+  "inputs_content_sha": "45c430af535c",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -29,10 +29,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "5fd060a4d553",
+  "runs_fingerprint": "e47d6b98dd6e",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-09-24",
-  "stamp": "2026-09-24T08:56:21Z",
+  "stamp": "2026-09-24T09:46:07Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -67,7 +67,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-24T08:47:30Z",
+   "unified_built_at": "2026-09-24T09:12:57Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -24768,17 +24768,17 @@
   },
   "series_arms": {
    "served": true,
-   "serving_word": "Definitions' word of 24 September 2026 (08:49 UTC) on staging 6ca4c1d3a45a, implemented by that staging: a text-only emission on the Olmo run lead's word of 09:49 UK and Definitions' form: the once-more fits of checkpoints 4 and 8 cut at 09:48 UK and 09:49 UK on the count of 09:22 UK \u2014 their notes take the hour from each cut's clock and the run lead's floor rule (checkpoint 4 the new fit landing about 14:38 UK, checkpoint 8 about 14:39 UK, both by 15:30 UK Thursday at the latest); no position moves; the rest as served at 09:44 UK",
+   "serving_word": "Definitions' word of 24 September 2026 (09:32 UTC) correcting their 09:26 UTC sentence on checkpoint 2 (the set still being judged again), covering staging df111f3ee3fe; their ten-minute word: flip at once, implemented by that staging: a text-only emission on Definitions' correction of 09:32Z: checkpoint 2's set of 430 wave 1 results is still being judged again until its last 27 are in (403 in the count since 10:01 UK, 27 still to be judged again); no position moves; the rest as served at 10:29 UK",
    "wave_id": "olmo-board_top-20260922T0453Z",
    "n_arms": 8,
    "heading": "checkpoints of one training run",
-   "heading_note": "label = plain words for what the group is (the project owner's word of 22 September 2026 via the post-training lead, ruled by Definitions the same day): no task count or composition in the label; the composition sits in group_composition, the counts in the count fields and membership (the kept set at 24 Sep 09:24 UK: 430 of wave 1, 858 of wave 2 on the served axis; the set's members at 24 Sep 09:24 UK: 430 of wave 1, 869 of wave 2), fitted figures beside it \u2014 a task that left the kept set after a cut stays in that fit as cut (the ruling of 8 Sep) and is named in its model's membership_lag",
+   "heading_note": "label = plain words for what the group is (the project owner's word of 22 September 2026 via the post-training lead, ruled by Definitions the same day): no task count or composition in the label; the composition sits in group_composition, the counts in the count fields and membership (the kept set at 24 Sep 10:24 UK: 430 of wave 1, 858 of wave 2 on the served axis; the set's members at 24 Sep 10:24 UK: 430 of wave 1, 869 of wave 2), fitted figures beside it \u2014 a task that left the kept set after a cut stays in that fit as cut (the ruling of 8 Sep) and is named in its model's membership_lag",
    "membership": "results for at least one of these models on all 1,288 kept tasks of the set (1,299 members); positions from the served axis, unchanged",
    "axis_rule": "the served wave 1+2 axis unchanged: study models are positioned on an axis they did not shape (ruling of 17 Sep); positions are comparable with the served set's",
    "axis_pinned_to_served": true,
    "cut_at": "2026-09-22T04:53:28Z",
    "completed_at": "2026-09-24T06:48:58Z",
-   "updated_at": "2026-09-24T08:54:04Z",
+   "updated_at": "2026-09-24T09:31:58Z",
    "pointer": "definitions/fitting/serving_series_olmo31_rlzero_code.json",
    "arms": [
     {
@@ -26830,7 +26830,7 @@
      "n_tasks_positioned": 1288,
      "n_cells": 1288,
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 22 September 2026",
-     "disclosure": "a checkpoint of one training run (checkpoint 2), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 22 September 2026; the set has 1,299 members, 1,288 of them kept; 1,288 positioned in this fit (430 of wave 1 + 858 of wave 2); results as they stood at the cut (22 Sep 07:51 UK); each task's answers judged after judging restarted on 21 September, as counted at that hour; of its 430 wave 1 results being judged again, 375 are in the count since 09:22 UK and 55 are still to be judged again; the position stands on the earlier judgings until all are in and may move then",
+     "disclosure": "a checkpoint of one training run (checkpoint 2), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2, the list kept on 22 September 2026; the set has 1,299 members, 1,288 of them kept; 1,288 positioned in this fit (430 of wave 1 + 858 of wave 2); results as they stood at the cut (22 Sep 07:51 UK); each task's answers judged after judging restarted on 21 September, as counted at that hour; of its 430 wave 1 results being judged again, 403 are in the count since 10:01 UK and 27 are still to be judged again; the position stands on the earlier judgings until all are in and may move then",
      "gates_failed": false,
      "gate_face": null,
      "bayes_avg": {
@@ -41133,7 +41133,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-24T08:24:22Z",
+   "_stamp": "2026-09-24T09:24:16Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -41299,9 +41299,9 @@
   }
  },
  "files": {
-  "shared": "shared.8c131084f0c3.json",
-  "chain_average": "chain_average.8c131084f0c3.json",
-  "chain_median": "chain_median.8c131084f0c3.json",
-  "dots": "dots.8c131084f0c3.json"
+  "shared": "shared.0dd0f84bdff3.json",
+  "chain_average": "chain_average.0dd0f84bdff3.json",
+  "chain_median": "chain_median.0dd0f84bdff3.json",
+  "dots": "dots.0dd0f84bdff3.json"
  }
 }
