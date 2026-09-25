@@ -25,15 +25,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "326e66dcd9ab",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "7219038d044b",
+  "runs_fingerprint": "285029f69179",
   "axis_wave": "math500-live",
-  "build_date": "2026-09-24",
-  "stamp": "2026-09-24T18:59:30Z",
+  "build_date": "2026-09-25",
+  "stamp": "2026-09-25T13:57:52Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/math500",
-   "unified_built_at": "2026-09-24T14:14:12Z",
+   "unified_built_at": "2026-09-25T13:53:06Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.math500.csv"
@@ -247,7 +247,7 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/nb-math500-20260914T1118Z/results",
    "set_fingerprint": "8c3375661f69",
-   "pointer_updated_at": "2026-09-19T09:45:48Z",
+   "pointer_updated_at": "2026-09-25T13:19:11Z",
    "n_fits": 39,
    "note": null,
    "gates": {
@@ -305,7 +305,7 @@
    "axis_pinned_to_served": true,
    "cut_at": "2026-09-18T20:37:09Z",
    "completed_at": "2026-09-18T20:50:24Z",
-   "updated_at": "2026-09-24T14:44:35Z",
+   "updated_at": "2026-09-25T13:19:12Z",
    "pointer": "definitions/fitting/serving_sft_nb_math500.json",
    "arms": [
     {
@@ -319,7 +319,7 @@
       "served_runs": []
      },
      "baseline_id": "qwen35_9b_base_sft_maths_completion",
-     "label": "Qwen3.5 9B Base (maths fine-tune)",
+     "label": "Qwen3.5 9B Base \u00b7 maths fine-tune",
      "family": "Qwen3.5",
      "color": "#1b94e4",
      "variant": "maths fine-tune",
@@ -2344,7 +2344,7 @@
       ]
      },
      "baseline_id": "qwen3-8b-sft-maths",
-     "label": "Qwen3 8B (maths fine-tune)",
+     "label": "Qwen3 8B \u00b7 maths fine-tune",
      "family": "Qwen3",
      "color": "#1a1fb2",
      "variant": "maths fine-tune",
@@ -4373,7 +4373,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-24T18:24:11Z",
+   "_stamp": "2026-09-25T13:28:16Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
