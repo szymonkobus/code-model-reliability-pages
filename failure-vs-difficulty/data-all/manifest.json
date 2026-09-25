@@ -1,5 +1,5 @@
 {
- "fingerprint": "1b4b29975860",
+ "fingerprint": "e7837a0b1313",
  "frame": {
   "dataset": "all",
   "dataset_label": "wave 1+2 (2,153 tasks): 431 of wave 1 + 1,693 of wave 2 + 29 tasks outside both waves, the list kept on 3 September 2026",
@@ -19,7 +19,7 @@
   "difficulty_population_M": 61,
   "tasks": 2167,
   "keep_set_hash": "60ede5d24001",
-  "inputs_content_sha": "35fcc9a1d052",
+  "inputs_content_sha": "65e895c2caa5",
   "tasks_on_axis": 2167,
   "tasks_kept": 2167,
   "tasks_awaiting_axis": 0,
@@ -29,10 +29,10 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "fd037a4469a6",
+  "runs_fingerprint": "ffc268d74aaf",
   "axis_wave": "unified-live",
   "build_date": "2026-09-25",
-  "stamp": "2026-09-25T07:44:10Z",
+  "stamp": "2026-09-25T09:44:17Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -68,7 +68,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-25T07:12:39Z",
+   "unified_built_at": "2026-09-25T09:13:39Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -613,7 +613,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-25T07:41:13Z",
+   "_stamp": "2026-09-25T09:24:19Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -779,9 +779,9 @@
   }
  },
  "files": {
-  "shared": "shared.1b4b29975860.json",
-  "chain_average": "chain_average.1b4b29975860.json",
-  "chain_median": "chain_median.1b4b29975860.json",
-  "dots": "dots.1b4b29975860.json"
+  "shared": "shared.e7837a0b1313.json",
+  "chain_average": "chain_average.e7837a0b1313.json",
+  "chain_median": "chain_median.e7837a0b1313.json",
+  "dots": "dots.e7837a0b1313.json"
  }
 }
