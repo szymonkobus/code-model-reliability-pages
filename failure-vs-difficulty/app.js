@@ -929,9 +929,9 @@ function orderSeries(s) {   // the fit maintainers' checkpoint-series pointer (k
   return s.arms.length ? s : null;
 }
 // NAMES OF RECORD for the team's trained models (the project maintainers' word of 25 Sep 2026, via the coordination: a trained model is named by its base and what was done, a base's chip is its plain name, the chips grouped by base with the base first;
-// the post-training lead's file research/training/post-training-lead/NAMES.md of 25 Sep 13:50, corrected 13:5x: a base's plain name as the labels row prints it, the thinking twin 'Qwen3 8B (thinking)') — carried here until the bundle carries them, then dead code, removed at the next cut
+// the post-training lead's file research/training/post-training-lead/NAMES.md of 25 Sep 13:50, corrected 13:5x: a base's plain name as the labels row prints it, the thinking twin 'Qwen3 8B (thinking)'; 14:0x, NAMES.md a8c44add: the fine-tunes' like-for-like control reads "Qwen3 8B · at the fine-tunes' settings" and heads its group, the families list's Qwen3 8B being the reference run) — carried here until the bundle carries them, then dead code, removed at the next cut
 var NAMES_OF_RECORD = {
-  'Qwen3 8B (raw, re-run)': 'Qwen3 8B',
+  'Qwen3 8B (raw, re-run)': "Qwen3 8B · at the fine-tunes' settings",
   'Qwen3 8B (maths fine-tune)': 'Qwen3 8B · maths fine-tune',
   'Qwen3 8B (code fine-tune)': 'Qwen3 8B · code fine-tune',
   "Qwen3 8B (code fine-tune, other models' solutions)": "Qwen3 8B · code fine-tune on other models' solutions",
@@ -954,10 +954,12 @@ function sideBlock() {
   if (!s._named) {   // once, in place, so the chip indices hold across renders (as orderSeries)
     var groups = BASES_OF_RECORD.slice();
     s.arms.forEach(function (a, i) {
-      var n = nameOfRecord(a.label); if (n !== a.label) { a.label_pointer = a.label; a.label = n; }
+      var n = nameOfRecord(a.label);
+      if (n === 'Qwen3 8B' && a.id === 'qwen3-8b-4k32') n = "Qwen3 8B · at the fine-tunes' settings";   // the like-for-like control by its id while the labels row still prints it plain (the names maintainers' word of 25 Sep 14:0x; the row's next round carries it)
+      if (n !== a.label) { a.label_pointer = a.label; a.label = n; }
       var p = String(a.label).split(' · '), g = p[0], k = p.slice(1).join(' · ');
       if (groups.indexOf(g) < 0) groups.push(g);
-      var kr = k === '' ? 0 : (KINDS_OF_RECORD.indexOf(k) >= 0 ? 1 + KINDS_OF_RECORD.indexOf(k) : 1 + KINDS_OF_RECORD.length);
+      var kr = (k === '' || k === "at the fine-tunes' settings") ? 0 : (KINDS_OF_RECORD.indexOf(k) >= 0 ? 1 + KINDS_OF_RECORD.indexOf(k) : 1 + KINDS_OF_RECORD.length);   // the control at the fine-tunes' settings heads its group as its base
       a._order = (groups.indexOf(g) * 100 + kr) * 1000 + i;
     });
     s.arms.sort(function (x, y) { return x._order - y._order; });
