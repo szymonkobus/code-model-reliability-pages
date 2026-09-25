@@ -1,5 +1,5 @@
 {
- "fingerprint": "b0dfd7087602",
+ "fingerprint": "794883fe892b",
  "frame": {
   "dataset": "board_top",
   "dataset_label": "wave 1+2 (1,297 tasks): 431 of wave 1 + 866 of wave 2; wave 2 parked (879 tasks) left out \u00b7 positioned on this axis today: 430 of wave 1, 858 of wave 2",
@@ -19,7 +19,7 @@
   "difficulty_population_M": 61,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "bb033b933dc4",
+  "inputs_content_sha": "03673889f9d8",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -29,10 +29,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "9ff13f1fadef",
+  "runs_fingerprint": "fd037a4469a6",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-09-25",
-  "stamp": "2026-09-25T06:48:37Z",
+  "stamp": "2026-09-25T07:48:10Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -68,7 +68,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-25T06:13:34Z",
+   "unified_built_at": "2026-09-25T07:12:39Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -24769,17 +24769,17 @@
   },
   "series_arms": {
    "served": true,
-   "serving_word": "Definitions' standing word of 24 September 2026 (16:01Z, amended 16:05Z) for the pure landing form (knowledge/definitions_standing_word_landing_form_20260924T1601Z.txt, sha 7f4a3fa0fa0a) on staging 2884853d907a, classified PURE LANDING FORM by tools/landing_form_check.py; the fits critic's read: the fits critic's read of 17:1xZ on ae4d1898a44d asked for these words; its read of the served bytes follows; Definitions' read follows on the served bytes, implemented by that staging: record-only emission: checkpoint 8 (olmo3.1-7b-rlzc-s0450) lift note corrected in face_note_record / notes_record (the earlier words named a passing gate; the flag alone is as before) and its pending_refit record added (the longer run olmo-rerun-s0450x2-20260924T1713Z under spec 19.2); no data leaf and no face-bound leaf moves",
+   "serving_word": "Definitions' standing word of 24 September 2026 (16:01Z, amended 16:05Z) for the pure landing form (knowledge/definitions_standing_word_landing_form_20260924T1601Z.txt, sha 7f4a3fa0fa0a) on staging eca622fcde40, classified PURE LANDING FORM by tools/landing_form_check.py; the fits critic's read: the fits critic's read follows on the served bytes (pre-written 07:26Z); Definitions' read follows on the served bytes, implemented by that staging: record-only emission: checkpoints 32 (s1950) and 8 (s0450) pending_refit.reading_of_record and status re-written under fit-methods' 19.3a \u2014 the served D99 is the bound row on both, read bound to bound (the same grid point -7.902065; left-censored shares 0.9745 vs 0.9750 and 0.9691 vs 0.9706, within 0.05); the uncensored median named as that statistic with its n_uncensored; both STAND; gates_failed True stands; no data leaf and no face-bound leaf moves",
    "wave_id": "olmo-board_top-20260922T0453Z",
    "n_arms": 8,
    "heading": "checkpoints of one training run",
-   "heading_note": "label = plain words for what the group is (the project owner's word of 22 September 2026 via the post-training lead, ruled by Definitions the same day): no task count or composition in the label; the composition sits in group_composition, the counts in the count fields and membership (the kept set at 24 Sep 17:24: 430 of wave 1, 858 of wave 2 on the served axis; the set's members at 24 Sep 17:24: 430 of wave 1, 869 of wave 2), fitted figures beside it \u2014 a task that left the kept set after a cut stays in that fit as cut (the ruling of 8 Sep) and is named in its model's membership_lag",
+   "heading_note": "label = plain words for what the group is (the project owner's word of 22 September 2026 via the post-training lead, ruled by Definitions the same day): no task count or composition in the label; the composition sits in group_composition, the counts in the count fields and membership (the kept set at 25 Sep 07:24: 430 of wave 1, 858 of wave 2 on the served axis; the set's members at 25 Sep 07:24: 430 of wave 1, 869 of wave 2), fitted figures beside it \u2014 a task that left the kept set after a cut stays in that fit as cut (the ruling of 8 Sep) and is named in its model's membership_lag",
    "membership": "results for at least one of these models on all 1,288 kept tasks of the set (1,299 members); positions from the served axis, unchanged",
    "axis_rule": "the served wave 1+2 axis unchanged: study models are positioned on an axis they did not shape (ruling of 17 Sep); positions are comparable with the served set's",
    "axis_pinned_to_served": true,
    "cut_at": "2026-09-22T04:53:28Z",
    "completed_at": "2026-09-24T17:05:12Z",
-   "updated_at": "2026-09-24T17:17:48Z",
+   "updated_at": "2026-09-25T07:25:38Z",
    "pointer": "definitions/fitting/serving_series_olmo31_rlzero_code.json",
    "arms": [
     {
@@ -40980,17 +40980,17 @@
   "series_rows": [
    {
     "served": true,
-    "serving_word": "Definitions' standing word of 24 September 2026 (16:01Z, amended 16:05Z) for the pure landing form (knowledge/definitions_standing_word_landing_form_20260924T1601Z.txt, sha 7f4a3fa0fa0a) on staging 2884853d907a, classified PURE LANDING FORM by tools/landing_form_check.py; the fits critic's read: the fits critic's read of 17:1xZ on ae4d1898a44d asked for these words; its read of the served bytes follows; Definitions' read follows on the served bytes, implemented by that staging: record-only emission: checkpoint 8 (olmo3.1-7b-rlzc-s0450) lift note corrected in face_note_record / notes_record (the earlier words named a passing gate; the flag alone is as before) and its pending_refit record added (the longer run olmo-rerun-s0450x2-20260924T1713Z under spec 19.2); no data leaf and no face-bound leaf moves",
+    "serving_word": "Definitions' standing word of 24 September 2026 (16:01Z, amended 16:05Z) for the pure landing form (knowledge/definitions_standing_word_landing_form_20260924T1601Z.txt, sha 7f4a3fa0fa0a) on staging eca622fcde40, classified PURE LANDING FORM by tools/landing_form_check.py; the fits critic's read: the fits critic's read follows on the served bytes (pre-written 07:26Z); Definitions' read follows on the served bytes, implemented by that staging: record-only emission: checkpoints 32 (s1950) and 8 (s0450) pending_refit.reading_of_record and status re-written under fit-methods' 19.3a \u2014 the served D99 is the bound row on both, read bound to bound (the same grid point -7.902065; left-censored shares 0.9745 vs 0.9750 and 0.9691 vs 0.9706, within 0.05); the uncensored median named as that statistic with its n_uncensored; both STAND; gates_failed True stands; no data leaf and no face-bound leaf moves",
     "wave_id": "olmo-board_top-20260922T0453Z",
     "n_arms": 8,
     "heading": "checkpoints of one training run",
-    "heading_note": "label = plain words for what the group is (the project owner's word of 22 September 2026 via the post-training lead, ruled by Definitions the same day): no task count or composition in the label; the composition sits in group_composition, the counts in the count fields and membership (the kept set at 24 Sep 17:24: 430 of wave 1, 858 of wave 2 on the served axis; the set's members at 24 Sep 17:24: 430 of wave 1, 869 of wave 2), fitted figures beside it \u2014 a task that left the kept set after a cut stays in that fit as cut (the ruling of 8 Sep) and is named in its model's membership_lag",
+    "heading_note": "label = plain words for what the group is (the project owner's word of 22 September 2026 via the post-training lead, ruled by Definitions the same day): no task count or composition in the label; the composition sits in group_composition, the counts in the count fields and membership (the kept set at 25 Sep 07:24: 430 of wave 1, 858 of wave 2 on the served axis; the set's members at 25 Sep 07:24: 430 of wave 1, 869 of wave 2), fitted figures beside it \u2014 a task that left the kept set after a cut stays in that fit as cut (the ruling of 8 Sep) and is named in its model's membership_lag",
     "membership": "results for at least one of these models on all 1,288 kept tasks of the set (1,299 members); positions from the served axis, unchanged",
     "axis_rule": "the served wave 1+2 axis unchanged: study models are positioned on an axis they did not shape (ruling of 17 Sep); positions are comparable with the served set's",
     "axis_pinned_to_served": true,
     "cut_at": "2026-09-22T04:53:28Z",
     "completed_at": "2026-09-24T17:05:12Z",
-    "updated_at": "2026-09-24T17:17:48Z",
+    "updated_at": "2026-09-25T07:25:38Z",
     "pointer": "definitions/fitting/serving_series_olmo31_rlzero_code.json",
     "arms": [
      {
@@ -71538,7 +71538,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-25T06:24:17Z",
+   "_stamp": "2026-09-25T07:41:13Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -71704,9 +71704,9 @@
   }
  },
  "files": {
-  "shared": "shared.b0dfd7087602.json",
-  "chain_average": "chain_average.b0dfd7087602.json",
-  "chain_median": "chain_median.b0dfd7087602.json",
-  "dots": "dots.b0dfd7087602.json"
+  "shared": "shared.794883fe892b.json",
+  "chain_average": "chain_average.794883fe892b.json",
+  "chain_median": "chain_median.794883fe892b.json",
+  "dots": "dots.794883fe892b.json"
  }
 }
