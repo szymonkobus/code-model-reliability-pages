@@ -3,6 +3,11 @@
  "frame": {
   "dataset": "ifeval",
   "dataset_label": "IFEval (541 tasks): every problem of the set",
+  "dataset_label_head": null,
+  "dataset_label_source": {
+   "field": "composed",
+   "pointer": "serving_nb_ifeval.json"
+  },
   "population": "all",
   "population_source": null,
   "population_label": "all models",
@@ -19,15 +24,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ea009d5c6cd1",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "98bcb48a0652",
+  "runs_fingerprint": "285029f69179",
   "axis_wave": "ifeval-live",
-  "build_date": "2026-09-22",
-  "stamp": "2026-09-22T15:27:52Z",
+  "build_date": "2026-09-25",
+  "stamp": "2026-09-25T14:02:55Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/ifeval",
-   "unified_built_at": "2026-09-22T14:20:54Z",
+   "unified_built_at": "2026-09-25T13:53:06Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.ifeval.csv"
@@ -129,11 +134,23 @@
     "tasks": 541,
     "of": 541
    },
+   "Qwen/Qwen3-0.6B-Thinking": {
+    "tasks": 541,
+    "of": 541
+   },
    "Qwen/Qwen3-1.7B": {
     "tasks": 541,
     "of": 541
    },
+   "Qwen/Qwen3-1.7B-Thinking": {
+    "tasks": 541,
+    "of": 541
+   },
    "Qwen/Qwen3-4B": {
+    "tasks": 541,
+    "of": 541
+   },
+   "Qwen/Qwen3-4B-Thinking": {
     "tasks": 541,
     "of": 541
    },
@@ -145,31 +162,19 @@
     "tasks": 541,
     "of": 541
    },
-   "Qwen/Qwen3-14B": {
-    "tasks": 541,
-    "of": 541
-   },
-   "Qwen/Qwen3-32B": {
-    "tasks": 541,
-    "of": 541
-   },
-   "Qwen/Qwen3-0.6B-Thinking": {
-    "tasks": 541,
-    "of": 541
-   },
-   "Qwen/Qwen3-1.7B-Thinking": {
-    "tasks": 541,
-    "of": 541
-   },
-   "Qwen/Qwen3-4B-Thinking": {
-    "tasks": 541,
-    "of": 541
-   },
    "Qwen/Qwen3-8B-Thinking": {
     "tasks": 541,
     "of": 541
    },
+   "Qwen/Qwen3-14B": {
+    "tasks": 541,
+    "of": 541
+   },
    "Qwen/Qwen3-14B-Thinking": {
+    "tasks": 541,
+    "of": 541
+   },
+   "Qwen/Qwen3-32B": {
     "tasks": 541,
     "of": 541
    },
@@ -205,7 +210,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-22T15:25:12Z",
+   "_stamp": "2026-09-25T13:28:16Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",

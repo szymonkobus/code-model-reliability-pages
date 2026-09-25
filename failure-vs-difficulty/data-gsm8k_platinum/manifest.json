@@ -3,6 +3,11 @@
  "frame": {
   "dataset": "gsm8k_platinum",
   "dataset_label": "GSM8K-Platinum (1,209 problems): every problem of the set",
+  "dataset_label_head": null,
+  "dataset_label_source": {
+   "field": "composed",
+   "pointer": "serving_nb_gsm8k_platinum.json"
+  },
   "population": "all",
   "population_source": null,
   "population_label": "all models",
@@ -19,15 +24,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ff1457decdf7",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "98bcb48a0652",
+  "runs_fingerprint": "285029f69179",
   "axis_wave": "gsm8k_platinum-live",
-  "build_date": "2026-09-22",
-  "stamp": "2026-09-22T15:26:09Z",
+  "build_date": "2026-09-25",
+  "stamp": "2026-09-25T14:01:37Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/gsm8k_platinum",
-   "unified_built_at": "2026-09-22T14:20:54Z",
+   "unified_built_at": "2026-09-25T13:53:06Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.gsm8k_platinum.csv"
@@ -133,7 +138,15 @@
     "tasks": 1209,
     "of": 1209
    },
+   "Qwen/Qwen3-0.6B-Thinking": {
+    "tasks": 1209,
+    "of": 1209
+   },
    "Qwen/Qwen3-1.7B": {
+    "tasks": 1209,
+    "of": 1209
+   },
+   "Qwen/Qwen3-1.7B-Thinking": {
     "tasks": 1209,
     "of": 1209
    },
@@ -145,7 +158,15 @@
     "tasks": 1209,
     "of": 1209
    },
+   "Qwen/Qwen3-4B-Thinking": {
+    "tasks": 1209,
+    "of": 1209
+   },
    "Qwen/Qwen3-8B": {
+    "tasks": 1209,
+    "of": 1209
+   },
+   "Qwen/Qwen3-8B-Thinking": {
     "tasks": 1209,
     "of": 1209
    },
@@ -153,7 +174,15 @@
     "tasks": 1209,
     "of": 1209
    },
+   "Qwen/Qwen3-14B-Thinking": {
+    "tasks": 1209,
+    "of": 1209
+   },
    "Qwen/Qwen3-32B": {
+    "tasks": 1209,
+    "of": 1209
+   },
+   "Qwen/Qwen3-32B-Thinking": {
     "tasks": 1209,
     "of": 1209
    },
@@ -162,30 +191,6 @@
     "of": 1209
    },
    "qwen3-8b-sft-maths": {
-    "tasks": 1209,
-    "of": 1209
-   },
-   "Qwen/Qwen3-0.6B-Thinking": {
-    "tasks": 1209,
-    "of": 1209
-   },
-   "Qwen/Qwen3-1.7B-Thinking": {
-    "tasks": 1209,
-    "of": 1209
-   },
-   "Qwen/Qwen3-4B-Thinking": {
-    "tasks": 1209,
-    "of": 1209
-   },
-   "Qwen/Qwen3-8B-Thinking": {
-    "tasks": 1209,
-    "of": 1209
-   },
-   "Qwen/Qwen3-14B-Thinking": {
-    "tasks": 1209,
-    "of": 1209
-   },
-   "Qwen/Qwen3-32B-Thinking": {
     "tasks": 1209,
     "of": 1209
    },
@@ -229,7 +234,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-22T15:25:12Z",
+   "_stamp": "2026-09-25T13:28:16Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
