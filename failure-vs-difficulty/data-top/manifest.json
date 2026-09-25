@@ -29,17 +29,17 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "79a93f436af7",
+  "runs_fingerprint": "ee399429c2cc",
   "axis_wave": "pool-20260910T2244Z",
   "build_date": "2026-09-25",
-  "stamp": "2026-09-25T11:56:42Z",
+  "stamp": "2026-09-25T13:52:18Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-25T11:14:33Z",
+   "unified_built_at": "2026-09-25T12:56:33Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.top.csv"
@@ -328,7 +328,7 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/top-20260910T2211Z/results",
    "set_fingerprint": "3fa1dd2406a1",
-   "pointer_updated_at": "2026-09-24T23:13:13Z",
+   "pointer_updated_at": "2026-09-25T13:19:13Z",
    "n_fits": 55,
    "note": null,
    "gates": {
@@ -509,37 +509,37 @@
     {
      "id": "qwen3-8b-sft-code-think-Thinking",
      "arm_id": "q3-8B-sft-code-think",
-     "label": "Qwen3 8B (thinking, code fine-tune, other models' traces)"
+     "label": "Qwen3 8B (thinking) \u00b7 code fine-tune on other models' traces"
     },
     {
      "id": "qwen3-8b-4k32",
      "arm_id": "q3-8B-4k32",
-     "label": "Qwen3 8B (raw, re-run)"
+     "label": "Qwen3 8B \u00b7 at the fine-tunes' settings"
     },
     {
      "id": "qwen3-8b-sft-code",
      "arm_id": "q3-8B-sft-code",
-     "label": "Qwen3 8B (code fine-tune)"
+     "label": "Qwen3 8B \u00b7 code fine-tune"
     },
     {
      "id": "qwen3-8b-sft-maths",
      "arm_id": "q3-8B-sft-maths",
-     "label": "Qwen3 8B (maths fine-tune)"
+     "label": "Qwen3 8B \u00b7 maths fine-tune"
     },
     {
      "id": "qwen3-8b-sft-code-harder",
      "arm_id": "q3-8B-sft-code-harder",
-     "label": "Qwen3 8B (code fine-tune, other models' solutions)"
+     "label": "Qwen3 8B \u00b7 code fine-tune on other models' solutions"
     },
     {
      "id": "qwen3-8b-sft-code-coverage",
      "arm_id": "q3-8B-sft-code-coverage",
-     "label": "Qwen3 8B (code fine-tune, coverage set)"
+     "label": "Qwen3 8B \u00b7 code fine-tune on the coverage set"
     },
     {
      "id": "qwen3-8b-code-rl",
      "arm_id": "q3-8B-code-rl",
-     "label": "Qwen3 8B (code fine-tune by RL)"
+     "label": "Qwen3 8B \u00b7 code RL"
     },
     {
      "id": "Qwen/Qwen3.5-9B-Base_completion",
@@ -549,17 +549,17 @@
     {
      "id": "qwen35_9b_base_sft_code_completion",
      "arm_id": "q35-9B-base-sft-code",
-     "label": "Qwen3.5 9B Base (code fine-tune)"
+     "label": "Qwen3.5 9B Base \u00b7 code fine-tune"
     },
     {
      "id": "qwen35_9b_base_sft_maths_completion",
      "arm_id": "q35-9B-base-sft-maths",
-     "label": "Qwen3.5 9B Base (maths fine-tune)"
+     "label": "Qwen3.5 9B Base \u00b7 maths fine-tune"
     },
     {
      "id": "qwen35_9b_base_sft_code_harder_completion",
      "arm_id": "q35-9B-base-sft-code-harder",
-     "label": "Qwen3.5 9B Base (code fine-tune, other models' solutions)"
+     "label": "Qwen3.5 9B Base \u00b7 code fine-tune on other models' solutions"
     }
    ],
    "unregistered": [],
@@ -578,7 +578,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-25T11:25:14Z",
+   "_stamp": "2026-09-25T13:28:16Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
