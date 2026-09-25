@@ -928,9 +928,42 @@ function orderSeries(s) {   // the fit maintainers' checkpoint-series pointer (k
   }
   return s.arms.length ? s : null;
 }
+// NAMES OF RECORD for the team's trained models (the project maintainers' word of 25 Sep 2026, via the coordination: a trained model is named by its base and what was done, a base's chip is its plain name, the chips grouped by base with the base first;
+// the post-training lead's file research/training/post-training-lead/NAMES.md of 25 Sep 13:50, corrected 13:5x: a base's plain name as the labels row prints it, the thinking twin 'Qwen3 8B (thinking)') — carried here until the bundle carries them, then dead code, removed at the next cut
+var NAMES_OF_RECORD = {
+  'Qwen3 8B (raw, re-run)': 'Qwen3 8B',
+  'Qwen3 8B (maths fine-tune)': 'Qwen3 8B · maths fine-tune',
+  'Qwen3 8B (code fine-tune)': 'Qwen3 8B · code fine-tune',
+  "Qwen3 8B (code fine-tune, other models' solutions)": "Qwen3 8B · code fine-tune on other models' solutions",
+  'Qwen3 8B (code fine-tune, coverage set)': 'Qwen3 8B · code fine-tune on the coverage set',
+  'Qwen3 8B (code fine-tune by RL)': 'Qwen3 8B · code RL',
+  'Qwen3 8B (thinking, re-run)': 'Qwen3 8B (thinking)',
+  'Qwen3 8B thinking': 'Qwen3 8B (thinking)',
+  "Qwen3 8B (thinking, code fine-tune, other models' traces)": "Qwen3 8B (thinking) · code fine-tune on other models' traces",
+  "Qwen3 8B thinking · code fine-tune on other models' traces": "Qwen3 8B (thinking) · code fine-tune on other models' traces",
+  'Qwen3.5 9B Base (maths fine-tune)': 'Qwen3.5 9B Base · maths fine-tune',
+  'Qwen3.5 9B Base (code fine-tune)': 'Qwen3.5 9B Base · code fine-tune',
+  "Qwen3.5 9B Base (code fine-tune, other models' solutions)": "Qwen3.5 9B Base · code fine-tune on other models' solutions"
+};
+var BASES_OF_RECORD = ['Qwen3 8B', 'Qwen3 8B (thinking)', 'Qwen3.5 4B', 'Qwen3.5 9B Base', 'DeepSeek-Coder 6.7B Instruct'];   // the groups' order on a page (the same file); a base the file does not name follows, in the pointer's order
+var KINDS_OF_RECORD = ['maths fine-tune', 'code fine-tune', "code fine-tune on other models' solutions", "code fine-tune on other models' traces", 'code fine-tune on the coverage set', 'code RL'];   // inside a group, after the base itself
+function nameOfRecord(label) { var l = String(label || ''); return NAMES_OF_RECORD[l] || NAMES_OF_RECORD[l.replace(/’/g, "'")] || l; }
 function sideBlock() {
   var f = D.shared.frame || {}; var s = f.side_arms;
-  return (s && s.served && s.arms && s.arms.length) ? s : null;
+  if (!(s && s.served && s.arms && s.arms.length)) return null;
+  if (!s._named) {   // once, in place, so the chip indices hold across renders (as orderSeries)
+    var groups = BASES_OF_RECORD.slice();
+    s.arms.forEach(function (a, i) {
+      var n = nameOfRecord(a.label); if (n !== a.label) { a.label_pointer = a.label; a.label = n; }
+      var p = String(a.label).split(' · '), g = p[0], k = p.slice(1).join(' · ');
+      if (groups.indexOf(g) < 0) groups.push(g);
+      var kr = k === '' ? 0 : (KINDS_OF_RECORD.indexOf(k) >= 0 ? 1 + KINDS_OF_RECORD.indexOf(k) : 1 + KINDS_OF_RECORD.length);
+      a._order = (groups.indexOf(g) * 100 + kr) * 1000 + i;
+    });
+    s.arms.sort(function (x, y) { return x._order - y._order; });
+    s._named = true;
+  }
+  return s;
 }
 // TRANSITIONAL LITERALS OF RECORD (the project maintainers' 21 Sep rule via the coordination, 22 Sep 15:5x UK: a text change serves at once, the record's rebuild behind it): the fit maintainers' plain
 // group heading (their pre-write under Definitions' decision) and the newbench lead's zero-indexed short form for the run's chips (labels_cells.jsonl),
