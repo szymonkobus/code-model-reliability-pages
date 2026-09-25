@@ -1,5 +1,5 @@
 {
- "fingerprint": "e49f0ad4e8d4",
+ "fingerprint": "b32c9e2cf9eb",
  "frame": {
   "population_M": 58,
   "tasks": 430,
@@ -36,7 +36,7 @@
   "scorer": "plus_status (a sample counts as solved if its plus run passed; difficulty ruled base AND plus on 2026-09-02 \u2014 the switch of served numbers waits for Szymon's gate; under base AND plus a result can read differently, e.g. Mbpp/274 for Qwen3-30B-A3B: 128 passes here vs 127)",
   "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\\t<task>\\t<passes>\\t<attempts>\\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column verbatim; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) \u2014 reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
   "build_date": "2026-09-24",
-  "built_at": "2026-09-24T22:51:10Z",
+  "built_at": "2026-09-24T23:56:44Z",
   "vocab_ruled": "2026-08-27",
   "counts_of_record": {
    "original_kept": 430,
@@ -45,7 +45,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-24T22:26:42Z",
+   "_stamp": "2026-09-24T23:24:44Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -215,7 +215,7 @@
    "custody_dir": "definitions/fitting/waves/old-20260910T2211Z/results",
    "set_fingerprint": "63db7d7176e6",
    "set_sha256_method": "sha256 over sorted(basename + bytes) of the SERVED posterior_summary_*.json files (not_served stems excluded; n_arms counts the same files)",
-   "pointer_updated_at": "2026-09-24T22:45:27Z",
+   "pointer_updated_at": "2026-09-24T23:13:14Z",
    "note": null,
    "gates": {
     "convention": "0.5%-of-draws convention",
@@ -305,12 +305,12 @@
    "openai/gpt-5-nano": "20260907T154051Z",
    "openai/gpt-5-mini": "20260907T154051Z"
   },
-  "newest_input_mtime": "2026-09-24T22:51:08Z"
+  "newest_input_mtime": "2026-09-24T23:46:09Z"
  },
  "files": {
-  "shared": "shared.e49f0ad4e8d4.json",
-  "chain_average": "chain_average.e49f0ad4e8d4.json",
-  "chain_median": "chain_median.e49f0ad4e8d4.json",
-  "dots": "dots.e49f0ad4e8d4.json"
+  "shared": "shared.b32c9e2cf9eb.json",
+  "chain_average": "chain_average.b32c9e2cf9eb.json",
+  "chain_median": "chain_median.b32c9e2cf9eb.json",
+  "dots": "dots.b32c9e2cf9eb.json"
  }
 }
