@@ -1208,11 +1208,34 @@ function capKey(i) {
   return Infinity;
 }
 function capOrder(indices) {
-  return indices.slice().sort(function (a, b) {
+  var out = indices.slice().sort(function (a, b) {
     var ka = capKey(a), kb = capKey(b); ka = isFinite(ka) ? ka : 1e9; kb = isFinite(kb) ? kb : 1e9;
     if (ka !== kb) return ka - kb;
     return D.shared.configs[a].label < D.shared.configs[b].label ? -1 : 1;
   });
+  return variantsAfterBase(out);
+}
+// A VARIANT SITS RIGHT AFTER ITS BASE (the project maintainers' word of 25 Sep 13:4x: on every chip row the base first, then its variants and fine-tunes, so the
+// comparison is visible before a toggle; the reference LADDER ORDER row reads it so): the row keeps the capability order, and a label that names a base present
+// in the row followed by a parenthesis or a variant clause ('Opus 5 (thinking)', 'Qwen3 4B (2507)', 'Qwen3 8B · code RL') moves to directly after that base,
+// variants of one base keeping their capability order among themselves; a checkpoint chip '(checkpoint k)' is a series, not a variant, and a variant whose
+// plain base is not in the row stays where the capability order put it
+function variantBase(label) {
+  var s = String(label || '');
+  if (/\((?:checkpoint|step)/i.test(s)) return null;
+  var m = s.match(/^(.*?)\s*(?:\(|\u00b7|\u2014|\u2013|:|\|)/);
+  return m && m[1].trim() ? m[1].trim() : null;
+}
+function variantsAfterBase(order) {
+  var byLabel = {}; order.forEach(function (i) { byLabel[D.shared.configs[i].label] = i; });
+  var after = {}, placed = {};
+  order.forEach(function (i) {
+    var base = variantBase(D.shared.configs[i].label);
+    if (base && base !== D.shared.configs[i].label && byLabel[base] !== undefined && byLabel[base] !== i) { (after[byLabel[base]] = after[byLabel[base]] || []).push(i); placed[i] = true; }
+  });
+  var out = [];
+  order.forEach(function (i) { if (placed[i]) return; out.push(i); (after[i] || []).forEach(function (v) { out.push(v); }); });
+  return out;
 }
 function famOrder(indices) {   // the reference family order (kit-export.js registry: the order the hues run), the dataset's order within a family; the dataset's order when the helper is absent
   if (window.Kit && Kit.legendByFamily) {
