@@ -1421,7 +1421,7 @@ function narrate(visible, dotsOn, unfitted) {
     var bf = D.shared.frame && D.shared.frame.bayes_fits;
     var drawnN = visible.length - (state.src === 'bayes' ? unfitted.length : 0);
     // the project maintainers' word of 25 Sep 2026 (via the coordination): nothing on the figure that a control on the page already states — the estimator, the set and the bands went off this line; the figure keeps its title, axes, legend and the quiet count of models drawn (the project maintainers' 17 Sep word)
-    fp.textContent = drawnN + ' of ' + visible.length + ' models drawn';
+    fp.textContent = drawnN + (drawnN === 1 ? ' model' : ' models');   // the quiet count alone
   }
 }
 
