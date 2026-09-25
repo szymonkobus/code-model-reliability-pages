@@ -1,5 +1,5 @@
 {
- "fingerprint": "12195a718848",
+ "fingerprint": "894042c9255e",
  "frame": {
   "dataset": "top",
   "dataset_label": "wave 2 (866 tasks), the list kept on 10 September 2026; wave 2 parked (879 tasks) left out",
@@ -19,7 +19,7 @@
   "difficulty_population_M": 58,
   "tasks": 858,
   "keep_set_hash": "532d0efad8a5",
-  "inputs_content_sha": "2d93c3c4f6b2",
+  "inputs_content_sha": "2b74ed3ec337",
   "tasks_on_axis": 858,
   "tasks_kept": 858,
   "tasks_awaiting_axis": 0,
@@ -29,17 +29,17 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "b398fee79a64",
+  "runs_fingerprint": "fcc1ad71d8d1",
   "axis_wave": "pool-20260910T2244Z",
-  "build_date": "2026-09-24",
-  "stamp": "2026-09-24T23:52:23Z",
+  "build_date": "2026-09-25",
+  "stamp": "2026-09-25T00:52:01Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-24T23:13:11Z",
+   "unified_built_at": "2026-09-25T00:13:19Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.top.csv"
@@ -578,7 +578,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-24T23:24:44Z",
+   "_stamp": "2026-09-25T00:24:34Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -744,9 +744,9 @@
   }
  },
  "files": {
-  "shared": "shared.12195a718848.json",
-  "chain_average": "chain_average.12195a718848.json",
-  "chain_median": "chain_median.12195a718848.json",
-  "dots": "dots.12195a718848.json"
+  "shared": "shared.894042c9255e.json",
+  "chain_average": "chain_average.894042c9255e.json",
+  "chain_median": "chain_median.894042c9255e.json",
+  "dots": "dots.894042c9255e.json"
  }
 }
