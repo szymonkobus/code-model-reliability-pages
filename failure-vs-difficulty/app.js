@@ -4,6 +4,9 @@
  * chain-derived element carries data-chain-val; chain-invariant
  * facts carry data-chain-inv (gauntlet contract). */
 (function () {
+// bundle fetches revalidate with the server on every load (cache: 'no-cache' → a 304 when unchanged): the bundle's file names hash the served set's cells alone, so a bundle
+// that changes only its trained-models block, its run rows or its labels keeps its names, and the server sends no cache directive — a stale copy would show a chip that has left (25 Sep 2026)
+function fetchFresh(u) { return fetch(u, { cache: 'no-cache' }); }
 'use strict';
 
 /* ---------------- geometry + axis vocabulary ---------------- */
@@ -149,11 +152,11 @@ function extraDir(k) { return String(DATASETS[k].src || '').replace(/\/?manifest
 var DATASET = (typeof Kit !== 'undefined' && Kit.state) ? Kit.state.get('data', DEFAULT_DATASET) : DEFAULT_DATASET;   // default: board + top half (the project maintainers' word,)
 if (!DATASETS[DATASET]) DATASET = FALLBACK_DATASET;
 function loadBundle(dir, label) {   // board-schema bundle (board: data/, all tasks: data-all/)
-  return fetch(dir + '/manifest.json').then(function (r) { if (!r.ok) throw new Error('no bundle at ' + dir); return r.json(); })
+  return fetchFresh(dir + '/manifest.json').then(function (r) { if (!r.ok) throw new Error('no bundle at ' + dir); return r.json(); })
     .then(function (man) {
       D.man = man;
       return Promise.all(['shared', 'chain_average', 'chain_median', 'dots']
-        .map(function (k) { return fetch(dir + '/' + man.files[k]).then(function (r) { return r.json(); }); }));
+        .map(function (k) { return fetchFresh(dir + '/' + man.files[k]).then(function (r) { return r.json(); }); }));
     }).then(function (all) {
       D.shared = all[0]; D.avg = all[1]; D.med = all[2]; D.dots = all[3];
       D.shared.frame.dataset = D.shared.frame.dataset || 'board';
@@ -162,23 +165,23 @@ function loadBundle(dir, label) {   // board-schema bundle (board: data/, all ta
       // every bundle carries the watcher's currency stamp (write_current.py: the newbench sets by input signature, the built-ins by the
       // watcher's own no-change verdict at the end of a quiet tick, 13 Sep); a missing stamp leaves the plain HELD rule in force
       var key = D.shared.frame.dataset;
-      if (key) return fetch(dir + '/current.json').then(function (r) { return r.ok ? r.json() : null; }).then(function (c) { D.shared.current = c; }).catch(function () { D.shared.current = null; });
+      if (key) return fetchFresh(dir + '/current.json').then(function (r) { return r.ok ? r.json() : null; }).then(function (c) { D.shared.current = c; }).catch(function () { D.shared.current = null; });
     });
 }
 function loadBoard() {
-  return fetch('data/manifest.json').then(function (r) { return r.json(); })
+  return fetchFresh('data/manifest.json').then(function (r) { return r.json(); })
     .then(function (man) {
       D.man = man;
       return Promise.all(['shared', 'chain_average', 'chain_median', 'dots']
         .map(function (k) {
-          return fetch('data/' + man.files[k]).then(function (r) {
+          return fetchFresh('data/' + man.files[k]).then(function (r) {
             return r.json();
           });
         }));
     }).then(function (all) {
       D.shared = all[0]; D.avg = all[1]; D.med = all[2]; D.dots = all[3];
       D.shared.frame.dataset = 'board'; D.shared.frame.dataset_label = DATASETS.board ? DATASETS.board.label : 'wave 1';
-      return fetch('data/current.json').then(function (r) { return r.ok ? r.json() : null; }).then(function (c) { D.shared.current = c; }).catch(function () { D.shared.current = null; });   // the watcher's currency stamp (quiet ticks)
+      return fetchFresh('data/current.json').then(function (r) { return r.ok ? r.json() : null; }).then(function (c) { D.shared.current = c; }).catch(function () { D.shared.current = null; });   // the watcher's currency stamp (quiet ticks)
     });
 }
 function loadPoolGolden() {
@@ -186,9 +189,9 @@ function loadPoolGolden() {
  * the golden arms only); when present the new-tasks golden view reads it through the same adapter as
  * ?data=new, so both share one source and axis. Until it lands, my data-golden-new bundle stands. */
   return Promise.all([
-    fetch(DATASETS['new'].src).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }),
-    fetch('data/manifest.json').then(function (r) { return r.json(); })
-      .then(function (man) { return fetch('data/' + man.files.shared).then(function (r) { return r.json(); }); })
+    fetchFresh(DATASETS['new'].src).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }),
+    fetchFresh('data/manifest.json').then(function (r) { return r.json(); })
+      .then(function (man) { return fetchFresh('data/' + man.files.shared).then(function (r) { return r.json(); }); })
       .then(function (sh) { return sh.vocab || {}; }).catch(function () { return {}; })
   ]).then(function (all) {
     var P = all[0];
@@ -197,7 +200,7 @@ function loadPoolGolden() {
     // pointer's newer[] only; the served golden-pool set of sits in the serving block) but my own golden
     // bundle draws served fits, take my bundle until the block catches up
     var blockHasBayes = !!(P.golden.bayes && P.golden.bayes.available && (P.golden.bayes.arms || []).length);
-    return fetch(goldenDir('new') + '/manifest.json').then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; })
+    return fetchFresh(goldenDir('new') + '/manifest.json').then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; })
       .then(function (man) {
         var bf = man && man.frame && man.frame.bayes_fits;
         var drawn = bf && bf.drawn;
@@ -223,9 +226,9 @@ function loadPoolGolden() {
 
 function loadPool() {
   return Promise.all([
-    fetch(DATASETS['new'].src).then(function (r) { return r.json(); }),
-    fetch('data/manifest.json').then(function (r) { return r.json(); })
-      .then(function (man) { return fetch('data/' + man.files.shared).then(function (r) { return r.json(); }); })
+    fetchFresh(DATASETS['new'].src).then(function (r) { return r.json(); }),
+    fetchFresh('data/manifest.json').then(function (r) { return r.json(); })
+      .then(function (man) { return fetchFresh('data/' + man.files.shared).then(function (r) { return r.json(); }); })
       .then(function (sh) { return sh.vocab || {}; }).catch(function () { return {}; })
   ]).then(function (all) {
     var B = PoolDataset.toBoard(all[0]);
@@ -236,11 +239,11 @@ function loadPool() {
 Promise.all([
   (DATASETS.all ? fetch('data-all/manifest.json', { method: 'HEAD' }).then(function (r) { ALL_AVAILABLE = r.ok; }).catch(function () { ALL_AVAILABLE = false; }) : Promise.resolve(ALL_AVAILABLE = false))
 ].concat(['board_top', 'top'].filter(function (ds) { return !!DATASETS[ds]; }).map(function (ds) {
-  return fetch(DATASETS[ds].src, { method: 'HEAD' }).then(function (r) { TOP_AVAILABLE[ds] = r.ok; }).catch(function () { TOP_AVAILABLE[ds] = false; });
+  return fetchFresh(DATASETS[ds].src, { method: 'HEAD' }).then(function (r) { TOP_AVAILABLE[ds] = r.ok; }).catch(function () { TOP_AVAILABLE[ds] = false; });
 })).concat(Object.keys(DATASETS).filter(isExtra).map(function (ds) {
-  return fetch(DATASETS[ds].src, { method: 'HEAD' }).then(function (r) { EXTRA_AVAILABLE[ds] = r.ok; }).catch(function () { EXTRA_AVAILABLE[ds] = false; });
+  return fetchFresh(DATASETS[ds].src, { method: 'HEAD' }).then(function (r) { EXTRA_AVAILABLE[ds] = r.ok; }).catch(function () { EXTRA_AVAILABLE[ds] = false; });
 })).concat(['board', 'new', 'all', 'board_top', 'top'].filter(function (ds) { return !!DATASETS[ds]; }).map(function (ds) {
-  return fetch(goldenDir(ds) + '/manifest.json', { method: 'HEAD' }).then(function (r) { GOLDEN_AVAILABLE[ds] = r.ok; }).catch(function () { GOLDEN_AVAILABLE[ds] = false; });
+  return fetchFresh(goldenDir(ds) + '/manifest.json', { method: 'HEAD' }).then(function (r) { GOLDEN_AVAILABLE[ds] = r.ok; }).catch(function () { GOLDEN_AVAILABLE[ds] = false; });
 }))).then(function () {
     if (DATASET === 'all' && !ALL_AVAILABLE) DATASET = FALLBACK_DATASET;
     if ((DATASET === 'board_top' || DATASET === 'top') && !TOP_AVAILABLE[DATASET]) DATASET = FALLBACK_DATASET;
