@@ -1,5 +1,5 @@
 {
- "fingerprint": "5c81515f1cc4",
+ "fingerprint": "c0be963b40c8",
  "frame": {
   "population_M": 58,
   "tasks": 430,
@@ -9,7 +9,7 @@
    "Qwen/Qwen3-30B-A3B-Thinking"
   ],
   "withheld_reasons": {
-   "Qwen/Qwen3-30B-A3B-Thinking": "held by ruling of 2 Sep 23:23 (kept off paid time (not counted in coverage or in the figures to finish); runs on the free machines after everything else; last in the free queue)"
+   "Qwen/Qwen3-30B-A3B-Thinking": "held by ruling of 2 Sep 23:23 (kept off the cloud machines (not counted in coverage or in the figures to finish); runs on the free machines after everything else; last in the free queue)"
   },
   "keep_set_hash": "c3f08ea1a903",
   "axis_order_hash": "82b1968451ae",
@@ -18,8 +18,8 @@
   "inputs_content_sha": "d5a4e3cd1533",
   "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\t<task>\t<passes>\t<attempts>\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column verbatim; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) \u2014 reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
   "scorer": "plus_status",
-  "build_date": "2026-09-24",
-  "build_ts": "2026-09-24T23:27:16Z",
+  "build_date": "2026-09-25",
+  "build_ts": "2026-09-25T13:25:53Z",
   "rebuild_condition": "re-pulls when failure-vs-difficulty's board handoff changes (each landing) or the Bayesian/capability_C chains re-emit; frame is a snapshot at build_ts",
   "vocab_ruled": "2026-08-27",
   "fitted_M": 58,
@@ -27,23 +27,23 @@
   "fit_excluded": []
  },
  "files": {
-  "shared": "shared.5c81515f1cc4.json",
-  "chain_average": "chain_average.5c81515f1cc4.json",
-  "chain_median": "chain_median.5c81515f1cc4.json",
-  "bayes": "bayes.5c81515f1cc4-63db7d7176e6.json",
+  "shared": "shared.c0be963b40c8.json",
+  "chain_average": "chain_average.c0be963b40c8.json",
+  "chain_median": "chain_median.c0be963b40c8.json",
+  "bayes": "bayes.c0be963b40c8-63db7d7176e6.json",
   "bayes_prev": "bayes.d5fc7b013c92.json"
  },
  "datasets": {
   "board": {
    "files": {
-    "shared": "shared.5c81515f1cc4.json",
-    "chain_average": "chain_average.5c81515f1cc4.json",
-    "chain_median": "chain_median.5c81515f1cc4.json",
-    "bayes": "bayes.5c81515f1cc4-63db7d7176e6.json",
+    "shared": "shared.c0be963b40c8.json",
+    "chain_average": "chain_average.c0be963b40c8.json",
+    "chain_median": "chain_median.c0be963b40c8.json",
+    "bayes": "bayes.c0be963b40c8-63db7d7176e6.json",
     "bayes_prev": "bayes.d5fc7b013c92.json"
    },
    "label": "wave 1",
-   "fingerprint": "5c81515f1cc4",
+   "fingerprint": "c0be963b40c8",
    "frame": {
     "population_M": 58,
     "tasks": 430,
@@ -53,7 +53,7 @@
      "Qwen/Qwen3-30B-A3B-Thinking"
     ],
     "withheld_reasons": {
-     "Qwen/Qwen3-30B-A3B-Thinking": "held by ruling of 2 Sep 23:23 (kept off paid time (not counted in coverage or in the figures to finish); runs on the free machines after everything else; last in the free queue)"
+     "Qwen/Qwen3-30B-A3B-Thinking": "held by ruling of 2 Sep 23:23 (kept off the cloud machines (not counted in coverage or in the figures to finish); runs on the free machines after everything else; last in the free queue)"
     },
     "keep_set_hash": "c3f08ea1a903",
     "axis_order_hash": "82b1968451ae",
@@ -62,8 +62,8 @@
     "inputs_content_sha": "d5a4e3cd1533",
     "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\t<task>\t<passes>\t<attempts>\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column verbatim; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) \u2014 reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
     "scorer": "plus_status",
-    "build_date": "2026-09-24",
-    "build_ts": "2026-09-24T23:27:16Z",
+    "build_date": "2026-09-25",
+    "build_ts": "2026-09-25T13:25:53Z",
     "rebuild_condition": "re-pulls when failure-vs-difficulty's board handoff changes (each landing) or the Bayesian/capability_C chains re-emit; frame is a snapshot at build_ts",
     "vocab_ruled": "2026-08-27",
     "fitted_M": 58,
@@ -108,7 +108,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-09-25T12:48:43Z"
+   "updated_at": "2026-09-25T13:28:57Z"
   },
   "all": {
    "files": {
