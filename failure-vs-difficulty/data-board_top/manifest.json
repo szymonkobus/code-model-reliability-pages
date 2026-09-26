@@ -1,5 +1,5 @@
 {
- "fingerprint": "11726791525c",
+ "fingerprint": "e3ed335cac2e",
  "frame": {
   "dataset": "board_top",
   "dataset_label": "wave 1+2 (1,297 tasks): 431 of wave 1 + 866 of wave 2; wave 2 parked (879 tasks) left out \u00b7 positioned on this axis today: 430 of wave 1, 858 of wave 2",
@@ -19,7 +19,7 @@
   "difficulty_population_M": 61,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "050ec2e2bac7",
+  "inputs_content_sha": "c645a03729c7",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -29,16 +29,17 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "3fefc03fab79",
+  "runs_fingerprint": "d8cd7017e6e5",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-09-26",
-  "stamp": "2026-09-26T10:48:57Z",
+  "stamp": "2026-09-26T11:48:57Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": {
    "Qwen/Qwen3.5-9B-Base_completion": 430,
    "deepseek-coder-6.7b-rl-night1-step250": 430,
+   "deepseek-coder-6.7b-rl-night1-step500": 358,
    "deepseek-coder-6.7b-rl-night2-step250": 430,
    "deepseek-coder-6.7b-rl-night2-step500": 430,
    "olmo-3-7b-think-final-Thinking": 430,
@@ -67,12 +68,11 @@
    "qwen3-8b-think-w1x32-Thinking": 430,
    "qwen35_9b_base_sft_code_completion": 430,
    "qwen35_9b_base_sft_code_harder_completion": 430,
-   "qwen35_9b_base_sft_maths_completion": 430,
-   "deepseek-coder-6.7b-rl-night1-step500": 144
+   "qwen35_9b_base_sft_maths_completion": 430
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-26T10:14:32Z",
+   "unified_built_at": "2026-09-26T11:13:41Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -147,7 +147,7 @@
     "of": 1288
    },
    "deepseek-ai/DeepSeek-V3-0324": {
-    "tasks": 609,
+    "tasks": 630,
     "of": 1288
    },
    "deepseek-ai/DeepSeek-R1-0528": {
@@ -71600,7 +71600,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-26T10:24:30Z",
+   "_stamp": "2026-09-26T11:24:24Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -71766,9 +71766,9 @@
   }
  },
  "files": {
-  "shared": "shared.11726791525c.json",
-  "chain_average": "chain_average.11726791525c.json",
-  "chain_median": "chain_median.11726791525c.json",
-  "dots": "dots.11726791525c.json"
+  "shared": "shared.e3ed335cac2e.json",
+  "chain_average": "chain_average.e3ed335cac2e.json",
+  "chain_median": "chain_median.e3ed335cac2e.json",
+  "dots": "dots.e3ed335cac2e.json"
  }
 }
