@@ -1,5 +1,5 @@
 {
- "fingerprint": "7b34440ef571",
+ "fingerprint": "e581a56288e7",
  "frame": {
   "dataset": "all",
   "dataset_label": "wave 1+2 (2,153 tasks): 431 of wave 1 + 1,693 of wave 2 + 29 tasks outside both waves, the list kept on 3 September 2026",
@@ -19,7 +19,7 @@
   "difficulty_population_M": 61,
   "tasks": 2167,
   "keep_set_hash": "60ede5d24001",
-  "inputs_content_sha": "6ef05e84bdcc",
+  "inputs_content_sha": "6f090fd2b35a",
   "tasks_on_axis": 2167,
   "tasks_kept": 2167,
   "tasks_awaiting_axis": 0,
@@ -29,16 +29,16 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "87a331badb29",
+  "runs_fingerprint": "800db008788e",
   "axis_wave": "unified-live",
   "build_date": "2026-09-26",
-  "stamp": "2026-09-26T05:48:47Z",
+  "stamp": "2026-09-26T06:43:43Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": {
    "Qwen/Qwen3.5-9B-Base_completion": 430,
-   "deepseek-coder-6.7b-rl-night1-step250": 358,
+   "deepseek-coder-6.7b-rl-night1-step250": 430,
    "deepseek-coder-6.7b-rl-night2-step250": 430,
    "olmo-3-7b-think-final-Thinking": 430,
    "olmo-3-7b-think-step0025-Thinking": 430,
@@ -70,7 +70,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-26T05:13:50Z",
+   "unified_built_at": "2026-09-26T06:13:30Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -121,7 +121,7 @@
     "of": 2167
    },
    "deepseek-ai/DeepSeek-Coder-V2-Instruct": {
-    "tasks": 586,
+    "tasks": 605,
     "of": 2167
    },
    "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B": {
@@ -625,7 +625,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-26T05:25:27Z",
+   "_stamp": "2026-09-26T06:24:31Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -791,9 +791,9 @@
   }
  },
  "files": {
-  "shared": "shared.7b34440ef571.json",
-  "chain_average": "chain_average.7b34440ef571.json",
-  "chain_median": "chain_median.7b34440ef571.json",
-  "dots": "dots.7b34440ef571.json"
+  "shared": "shared.e581a56288e7.json",
+  "chain_average": "chain_average.e581a56288e7.json",
+  "chain_median": "chain_median.e581a56288e7.json",
+  "dots": "dots.e581a56288e7.json"
  }
 }
