@@ -1,5 +1,5 @@
 {
- "fingerprint": "a060cc887736",
+ "fingerprint": "02b3955f8d55",
  "frame": {
   "dataset": "board_top",
   "dataset_label": "wave 1+2 (1,297 tasks): 431 of wave 1 + 866 of wave 2; wave 2 parked (879 tasks) left out \u00b7 positioned on this axis today: 430 of wave 1, 858 of wave 2",
@@ -19,7 +19,7 @@
   "difficulty_population_M": 61,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "4f76a60fd198",
+  "inputs_content_sha": "e2f2f18b0736",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -29,16 +29,16 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "87a331badb29",
+  "runs_fingerprint": "800db008788e",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-09-26",
-  "stamp": "2026-09-26T05:53:36Z",
+  "stamp": "2026-09-26T06:50:16Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": {
    "Qwen/Qwen3.5-9B-Base_completion": 430,
-   "deepseek-coder-6.7b-rl-night1-step250": 358,
+   "deepseek-coder-6.7b-rl-night1-step250": 430,
    "deepseek-coder-6.7b-rl-night2-step250": 430,
    "olmo-3-7b-think-final-Thinking": 430,
    "olmo-3-7b-think-step0025-Thinking": 430,
@@ -70,7 +70,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-26T05:13:50Z",
+   "unified_built_at": "2026-09-26T06:13:30Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -121,7 +121,7 @@
     "of": 1288
    },
    "deepseek-ai/DeepSeek-Coder-V2-Instruct": {
-    "tasks": 586,
+    "tasks": 605,
     "of": 1288
    },
    "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B": {
@@ -71380,6 +71380,40 @@
      }
     ],
     "row": 1
+   },
+   {
+    "served": true,
+    "serving_word": "Definitions' GO of 26 September 2026 (04:4x UTC) on staging sha f62acc0dbc2d: served before the run's first checkpoint is whole so the run's chips sit in their own row off by default (the project owner's word of 22 September 2026); kind checkpoint series, arms [], group_composition 'checkpoints of one training run, none positioned'; the first whole arm's fit lands as the first position under the standing word for the form",
+    "wave_id": null,
+    "n_arms": 0,
+    "heading": "checkpoints of one training run",
+    "heading_note": "label = plain words for what the group is (the project owner's word of 22 September 2026 via the post-training lead, ruled by Definitions the same day): no task count or composition in the label; the composition sits in group_composition, the counts in the count fields and membership (the kept set of record (19 September 2026): 430 of wave 1, 858 of wave 2 on the served axis; the set's members (19 September 2026): 430 of wave 1, 869 of wave 2), fitted figures beside it \u2014 a task that left the kept set after a cut stays in that fit as cut (the ruling of 8 Sep) and is named in its model's membership_lag",
+    "membership": null,
+    "axis_rule": "the served wave 1+2 axis unchanged: study models are positioned on an axis they did not shape (ruling of 17 Sep); positions are comparable with the served set's",
+    "axis_pinned_to_served": true,
+    "cut_at": null,
+    "completed_at": null,
+    "updated_at": "2026-09-26T04:40:30Z",
+    "pointer": "definitions/fitting/serving_series_dsc6.7b-rl-night1.json",
+    "arms": [],
+    "row": 2
+   },
+   {
+    "served": true,
+    "serving_word": "Definitions' GO of 26 September 2026 (04:4x UTC) on staging sha 9fc7c56c7431: served before the run's first checkpoint is whole so the run's chips sit in their own row off by default (the project owner's word of 22 September 2026); kind checkpoint series, arms [], group_composition 'checkpoints of one training run, none positioned'; the first whole arm's fit lands as the first position under the standing word for the form",
+    "wave_id": null,
+    "n_arms": 0,
+    "heading": "checkpoints of one training run",
+    "heading_note": "label = plain words for what the group is (the project owner's word of 22 September 2026 via the post-training lead, ruled by Definitions the same day): no task count or composition in the label; the composition sits in group_composition, the counts in the count fields and membership (the kept set of record (19 September 2026): 430 of wave 1, 858 of wave 2 on the served axis; the set's members (19 September 2026): 430 of wave 1, 869 of wave 2), fitted figures beside it \u2014 a task that left the kept set after a cut stays in that fit as cut (the ruling of 8 Sep) and is named in its model's membership_lag",
+    "membership": null,
+    "axis_rule": "the served wave 1+2 axis unchanged: study models are positioned on an axis they did not shape (ruling of 17 Sep); positions are comparable with the served set's",
+    "axis_pinned_to_served": true,
+    "cut_at": null,
+    "completed_at": null,
+    "updated_at": "2026-09-26T04:40:30Z",
+    "pointer": "definitions/fitting/serving_series_dsc6.7b-rl-night2.json",
+    "arms": [],
+    "row": 3
    }
   ],
   "off_panel": {
@@ -71554,7 +71588,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-26T05:25:27Z",
+   "_stamp": "2026-09-26T06:24:31Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -71720,9 +71754,9 @@
   }
  },
  "files": {
-  "shared": "shared.a060cc887736.json",
-  "chain_average": "chain_average.a060cc887736.json",
-  "chain_median": "chain_median.a060cc887736.json",
-  "dots": "dots.a060cc887736.json"
+  "shared": "shared.02b3955f8d55.json",
+  "chain_average": "chain_average.02b3955f8d55.json",
+  "chain_median": "chain_median.02b3955f8d55.json",
+  "dots": "dots.02b3955f8d55.json"
  }
 }
