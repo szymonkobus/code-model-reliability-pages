@@ -1,5 +1,5 @@
 {
- "fingerprint": "90ca9864d4f9",
+ "fingerprint": "4f51e318433e",
  "frame": {
   "dataset": "top",
   "dataset_label": "wave 2 (866 tasks), the list kept on 10 September 2026; wave 2 parked (879 tasks) left out",
@@ -19,7 +19,7 @@
   "difficulty_population_M": 58,
   "tasks": 858,
   "keep_set_hash": "532d0efad8a5",
-  "inputs_content_sha": "6a06b0caeadd",
+  "inputs_content_sha": "c4a3e160124c",
   "tasks_on_axis": 858,
   "tasks_kept": 858,
   "tasks_awaiting_axis": 0,
@@ -29,17 +29,17 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "d8cd7017e6e5",
+  "runs_fingerprint": "27cb36062f0b",
   "axis_wave": "pool-20260910T2244Z",
   "build_date": "2026-09-26",
-  "stamp": "2026-09-26T11:53:00Z",
+  "stamp": "2026-09-26T12:52:36Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-26T11:13:41Z",
+   "unified_built_at": "2026-09-26T12:13:20Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.top.csv"
@@ -114,7 +114,7 @@
     "of": 858
    },
    "deepseek-ai/DeepSeek-V3-0324": {
-    "tasks": 200,
+    "tasks": 213,
     "of": 858
    },
    "deepseek-ai/DeepSeek-V3.2": {
@@ -598,7 +598,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-26T11:24:24Z",
+   "_stamp": "2026-09-26T12:24:36Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -764,9 +764,9 @@
   }
  },
  "files": {
-  "shared": "shared.90ca9864d4f9.json",
-  "chain_average": "chain_average.90ca9864d4f9.json",
-  "chain_median": "chain_median.90ca9864d4f9.json",
-  "dots": "dots.90ca9864d4f9.json"
+  "shared": "shared.4f51e318433e.json",
+  "chain_average": "chain_average.4f51e318433e.json",
+  "chain_median": "chain_median.4f51e318433e.json",
+  "dots": "dots.4f51e318433e.json"
  }
 }
