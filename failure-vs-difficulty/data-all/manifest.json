@@ -1,5 +1,5 @@
 {
- "fingerprint": "720238896178",
+ "fingerprint": "1f6987b41ff7",
  "frame": {
   "dataset": "all",
   "dataset_label": "wave 1+2 (2,153 tasks): 431 of wave 1 + 1,693 of wave 2 + 29 tasks outside both waves, the list kept on 3 September 2026",
@@ -19,7 +19,7 @@
   "difficulty_population_M": 61,
   "tasks": 2167,
   "keep_set_hash": "60ede5d24001",
-  "inputs_content_sha": "e6a0e815ac8e",
+  "inputs_content_sha": "929e2912024d",
   "tasks_on_axis": 2167,
   "tasks_kept": 2167,
   "tasks_awaiting_axis": 0,
@@ -29,16 +29,17 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "3fefc03fab79",
+  "runs_fingerprint": "d8cd7017e6e5",
   "axis_wave": "unified-live",
   "build_date": "2026-09-26",
-  "stamp": "2026-09-26T10:44:38Z",
+  "stamp": "2026-09-26T11:43:50Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": {
    "Qwen/Qwen3.5-9B-Base_completion": 430,
    "deepseek-coder-6.7b-rl-night1-step250": 430,
+   "deepseek-coder-6.7b-rl-night1-step500": 358,
    "deepseek-coder-6.7b-rl-night2-step250": 430,
    "deepseek-coder-6.7b-rl-night2-step500": 430,
    "olmo-3-7b-think-final-Thinking": 430,
@@ -67,12 +68,11 @@
    "qwen3-8b-think-w1x32-Thinking": 430,
    "qwen35_9b_base_sft_code_completion": 430,
    "qwen35_9b_base_sft_code_harder_completion": 430,
-   "qwen35_9b_base_sft_maths_completion": 430,
-   "deepseek-coder-6.7b-rl-night1-step500": 144
+   "qwen35_9b_base_sft_maths_completion": 430
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-26T10:14:32Z",
+   "unified_built_at": "2026-09-26T11:13:41Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -147,7 +147,7 @@
     "of": 2167
    },
    "deepseek-ai/DeepSeek-V3-0324": {
-    "tasks": 609,
+    "tasks": 630,
     "of": 2167
    },
    "deepseek-ai/DeepSeek-R1-0528": {
@@ -637,7 +637,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-26T10:24:30Z",
+   "_stamp": "2026-09-26T11:24:24Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -803,9 +803,9 @@
   }
  },
  "files": {
-  "shared": "shared.720238896178.json",
-  "chain_average": "chain_average.720238896178.json",
-  "chain_median": "chain_median.720238896178.json",
-  "dots": "dots.720238896178.json"
+  "shared": "shared.1f6987b41ff7.json",
+  "chain_average": "chain_average.1f6987b41ff7.json",
+  "chain_median": "chain_median.1f6987b41ff7.json",
+  "dots": "dots.1f6987b41ff7.json"
  }
 }
