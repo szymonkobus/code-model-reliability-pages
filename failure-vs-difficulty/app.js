@@ -258,6 +258,7 @@ Promise.all([
   }).then(boot);
 
 /* ---------------- state ---------------- */
+var ROW_KEPT = {};   // 26 Sep : served configs that a run row keeps (a checkpoint the registry admits to the panel whose only fit of record is the run pointer's) — no chip in the bulk, the row draws it
 var state = { def: 'average', src: 'project', band: '90',
               xs: 'logit', ys: 'logit', dots: '0', rm: '0', trend: 'on', partial: 'hide' };
 var PARTIAL_MIN = 0.90;   // an arm with attempts on fewer than 90% of the dataset's tasks is partial (the project maintainers 7 Sep 2026)
@@ -572,13 +573,19 @@ function isRunConfig(c) {   // a checkpoint of a training run (the project maint
   return /olmo-?3(\.1)?-7b-(rl-?zero-?(code|math)|rlz[cm]|think)/i.test(String(c.id || '') + ' ' + String(c.arm_key || ''));
 }
 function runNameOf(c) {   // the run's full name: the bundle's run field, else the checkpoint label without its step or final qualifier
-  return c.run || String(c.label || '').replace(/\s*\((step \d+|final)\)\s*$/, '').trim() || String(c.label || '');
+  // 26 Sep : the label of record without its checkpoint qualifier is the run's name when it carries the 'base · what was done' form (decision 135); the builder's run field
+  // for a served config names the base (the labels row's family) for the training loop's runs, the same fault the run rows' heading had at 15:0x on 26 Sep
+  var fromLabel = String(c.label || '').replace(/\s*\(((checkpoint|position|step)\s+\d+|final)\)\s*$/i, '').trim();
+  if (fromLabel && fromLabel.indexOf(' · ') > 0) return fromLabel;
+  return c.run || fromLabel || String(c.label || '');
 }
 function buildChips() {
   nameFamilies(D.shared);   // the family labels of record before the rows are grouped and headed (buildChips runs at load, before the first render)
   var box = document.getElementById('chips');
   var fams = [], runs = [];
+  try { seriesRows(); } catch (e) { }   // orders the run rows in place first, so ROW_KEPT names the served twins the rows keep before the bulk is grouped (26 Sep )
   D.shared.configs.forEach(function (c, i) {
+    if (ROW_KEPT[c.id]) return;   // a served twin a run row keeps: no chip here, no group membership (26 Sep )
     if (isRunConfig(c)) { var r = runs.find(function (x) { return x.name === runNameOf(c); }); if (!r) { r = { name: runNameOf(c), members: [] }; runs.push(r); } r.members.push(i); return; }
     var f = fams.find(function (x) { return x.name === c.family; });
     if (!f) { f = { name: c.family, members: [] }; fams.push(f); }
@@ -926,7 +933,12 @@ function orderSeries(s) {   // the fit maintainers' checkpoint-series pointer (k
     // one row per run, one fit per model: an arm the served set already carries as a
     // config (the run's final, whose own fit shaped the axis) is not drawn a second time from the pointer's frozen-axis re-fit — its chip and fit stay the served set's; the ids dropped feed the line under the checkpoints' table
     var served = {}; (D.shared.configs || []).forEach(function (c) { served[c.id] = true; });
-    s.merged_ids = []; s.merged_arms = {}; s.arms = s.arms.filter(function (a) { if (served[a.id]) { s.merged_ids.push(a.id); s.merged_arms[a.id] = a; return false; } return true; });
+    // 26 Sep : the served set's copy yields to the row only when it carries a fit of its own (the run's final, whose fit shaped the axis); a served twin WITHOUT a
+    // Bayesian fit under either definition (the registry's board arm set admitted the training loop's checkpoints on 26 Sep, unfitted in the frame) leaves the arm in the row and is hidden
+    var ownFit = function (id) { var A = (D.avg && D.avg.configs && D.avg.configs[id]) || null, M = (D.med && D.med.configs && D.med.configs[id]) || null; return !!((A && A.bayes) || (M && M.bayes)); };
+    // : a released final (no training step: the outside series' '(final)', the served set's member of record since 22 Sep) stays the served set's and draws through runFitFor as before (24 Sep 13:0x);
+    // a CHECKPOINT (a numeric step) whose served twin has no fit of its own stays in its run's row and the twin is hidden
+    s.merged_ids = []; s.merged_arms = {}; s.arms = s.arms.filter(function (a) { if (served[a.id]) { if (ownFit(a.id) || a.step == null) { s.merged_ids.push(a.id); s.merged_arms[a.id] = a; return false; } ROW_KEPT[a.id] = true; } return true; });
     // training order: by the step field, a final last (the pointer lists the final first)
     var stepKey = function (a) { return (a.final || a.step == null) ? 1e15 : Number(a.step); };
     s.arms.sort(function (a, b) { return stepKey(a) - stepKey(b); });
