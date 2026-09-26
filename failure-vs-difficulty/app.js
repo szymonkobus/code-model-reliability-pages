@@ -367,12 +367,14 @@ function boot() {
   if (selParam !== null && selParam !== '') {
     var ids = D.shared.configs.map(function (c) { return c.id; });
     var keys = D.shared.configs.map(function (c) { return c.arm_key || c.id; });   // cross-dataset identity
+    var slugs = D.shared.configs.map(function (c) { return slugOfRecord(c.label); });   // the keys of record (26 Sep); a legacy link's ids still resolve below and are rewritten as slugs
     if (/^[0-9.]+$/.test(selParam)) {
       legacySel = true;
       selParam.split('.').forEach(function (i) { if (ids[+i] !== undefined) sel.add(+i); });
     } else {
       selParam.split(',').forEach(function (raw) {
-        var id = decodeURIComponent(raw); var k = keys.indexOf(id);
+        var id = decodeURIComponent(raw); var k = slugs.indexOf(id);
+        if (k < 0) k = keys.indexOf(id);
         if (k < 0) k = ids.indexOf(id);
         if (k >= 0) sel.add(k);
       });
@@ -562,7 +564,7 @@ var legacySel = false;
 function writeSel() {
   var all = sel.size === D.shared.configs.length;
   Kit.state.set('sel', all ? null
-    : Array.from(sel).sort(function (a, b) { return a - b; }).map(function (i) { return D.shared.configs[i].arm_key || D.shared.configs[i].id; }).join(','),
+    : Array.from(sel).sort(function (a, b) { return a - b; }).map(function (i) { return slugOfRecord(D.shared.configs[i].label) || D.shared.configs[i].arm_key || D.shared.configs[i].id; }).join(','),   // slugs of the names of record (26 Sep)
     null);
 }
 function isRunConfig(c) {   // a checkpoint of a training run (the project maintainers' word of 22 Sep, via the coordination: the run's checkpoints are their own row, out of the bulk list): the runs' stems today; the builder's explicit run field takes over when it lands
@@ -951,6 +953,12 @@ var NAMES_OF_RECORD = {
 var BASES_OF_RECORD = ['Qwen3 8B', 'Qwen3 8B (thinking)', 'Qwen3.5 4B', 'Qwen3.5 9B Base', 'DeepSeek-Coder 6.7B Instruct'];   // the groups' order on a page (the same file); a base the file does not name follows, in the pointer's order
 var KINDS_OF_RECORD = ['maths fine-tune', 'code fine-tune', "code fine-tune on other models' solutions", "code fine-tune on other models' traces", 'code fine-tune on the coverage set', 'code RL'];   // inside a group, after the base itself
 function nameOfRecord(label) { var l = String(label || ''); return NAMES_OF_RECORD[l] || NAMES_OF_RECORD[l.replace(/’/g, "'")] || l; }
+// the KEY the page writes for a model or checkpoint (the project maintainers' word of 26 Sep via the post-training lead, decision 135): the slug of its name of record —
+// lower case, '(checkpoint N)' as '-N', every other run of non-alphanumerics one hyphen — never a step, a form or a temperature: deepseek-coder-6-7b-rl-on-all-tasks-4, sonnet-5-thinking
+function slugOfRecord(label) {
+  var n = nameOfRecord(label).replace(/\((?:checkpoint|position)\s+(\d+)\)/i, ' $1');
+  return n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
 function sideBlock() {
   var f = D.shared.frame || {}; var s = f.side_arms;
   if (!(s && s.served && s.arms && s.arms.length)) return null;
