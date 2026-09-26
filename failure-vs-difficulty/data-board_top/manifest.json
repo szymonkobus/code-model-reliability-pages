@@ -32,7 +32,7 @@
   "runs_fingerprint": "797e9501ac18",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-09-26",
-  "stamp": "2026-09-26T14:58:10Z",
+  "stamp": "2026-09-26T15:15:43Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -71398,6 +71398,7 @@
     "updated_at": "2026-09-26T04:40:30Z",
     "pointer": "definitions/fitting/serving_series_dsc6.7b-rl-night1.json",
     "arms": [],
+    "run_name": "DeepSeek-Coder 6.7B \u00b7 code RL, all tasks alike",
     "row": 2
    },
    {
@@ -71424,7 +71425,7 @@
       "label": "DeepSeek-Coder 6.7B \u00b7 code RL, against the mean (checkpoint 4)",
       "family": "DeepSeek-Coder",
       "color": "#601773",
-      "run": "DeepSeek-Coder 6.7B",
+      "run": "DeepSeek-Coder 6.7B \u00b7 code RL, against the mean",
       "short_label": "code RL, against the mean \u00b7 4/9",
       "step": 250,
       "final": false,
@@ -73440,6 +73441,7 @@
       }
      }
     ],
+    "run_name": "DeepSeek-Coder 6.7B \u00b7 code RL, against the mean",
     "row": 3
    }
   ],
