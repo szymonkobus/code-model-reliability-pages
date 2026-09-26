@@ -573,11 +573,11 @@ function mergeRunSet(raw) {
   runSets(raw).forEach(function (rs, k) {
     if (!rs || !rs.configs) return;
     var set = rs.set || {}; if (set.axis_id && axis && set.axis_id !== axis) return;   // merged only on the run's own axis
-    if (!rs.configs.length && !set.pending && !(set.withheld || []).length) return;   // a run with no fit of record yet has a row only when the sidecar says it is pending (23 Sep 12:0x)
+    if (!rs.configs.length && !(set.withheld || []).length) return;   // 26 Sep: a set with nothing drawn and nothing withheld has no row   // a run with no fit of record yet has a row only when the sidecar says it is pending (23 Sep 12:0x)
     // the run is keyed by the set's series slug (no field named key in the sidecar: a secret scanner read key":"<id> as an API key, 22 Sep)
     var R = { key: set.series || set.key || ('run' + k), name: set.name || 'run', clause: set.clause || 'a run read along its checkpoints, placed on the scale without a vote', tag: set.tag || '',
               hue: set.hue || null, ramp: set.ramp || [], dash: set.dash || '', think: !!set.think, withheld: set.withheld || [], stateKey: set.state_key || (k === 0 ? 'run' : 'run_' + String(set.key || k).replace(/[^a-z0-9]/gi, '')), idx: [], folded: [], dual: [],
-              order: (set.order == null ? 100 + k : set.order), pending: set.pending || '', finalOnBoard: !!set.final_on_board };   // order: the rows under the all-models rows (Think first, then RL-Zero Code); pending: no fit of record yet; finalOnBoard: the final keeps its chip among all models, duplicated in the run's row (23 Sep 12:0x)
+              order: (set.order == null ? 100 + k : set.order), finalOnBoard: !!set.final_on_board };   // order: the rows under the all-models rows (Think first, then RL-Zero Code); pending: no fit of record yet; finalOnBoard: the final keeps its chip among all models, duplicated in the run's row (23 Sep 12:0x)
     var rowsById = {}; (rs.rows || []).forEach(function (r) { rowsById[r.cfg] = r; });
     rs.configs.forEach(function (c) {
       if (have[c.id]) return;
@@ -1303,7 +1303,7 @@ function buildChips() {
   if (rbox) {
     rbox.innerHTML = '';
     RUNS.forEach(function (R) {   // one line per run set: its name, its own all/none, its checkpoints in the run's order, and the checkpoints not shown said in words
-      if (!R.idx.length && !R.withheld.length && !R.pending) return;
+      if (!R.idx.length && !R.withheld.length) return;
       var line = document.createElement('div'); line.className = 'chips chips-run'; line.id = 'chips-run-' + R.key.replace(/[^a-z0-9]/gi, '-'); line.dataset.run = R.key; line.dataset.stateKey = R.stateKey;
       var lab = document.createElement('span'); lab.className = 'runlabel'; lab.style.color = R.hue || (R.idx.length ? D.shared.configs[R.idx[0]].color : '#52514e'); lab.textContent = R.name; lab.title = R.clause; line.appendChild(lab);
       if (R.idx.length) {
@@ -1312,7 +1312,6 @@ function buildChips() {
         R.idx.forEach(function (i) { var ch = makeChip(i); if (R.dual.indexOf(i) >= 0) { ch.classList.add('run'); ch.dataset.dual = '1'; var fl = ch.querySelector('.flag'); ch.textContent = (R.dualLabel || {})[i] || ch.textContent; if (fl) ch.appendChild(fl); ch.title = capTitle((D.shared.configs[i].display_name || D.shared.configs[i].label) + ' \u2014 a model of the all-models rows, shown here as the run\u2019s final too'); } line.appendChild(ch); });
       }
       // the project maintainers' word of 24 Sep 12:4x: the page states the current truth only — no per-checkpoint notes about re-judging, counts, moves or hours under the run's chips
-      if (R.pending && !R.idx.length) { var pn = document.createElement('span'); pn.className = 'runnote'; pn.setAttribute('data-critical-text', ''); pn.textContent = R.pending; line.appendChild(pn); }   // a run named but not yet fitted: its row says so in words
       line.hidden = !runOnPlane(R);
       rbox.appendChild(line);
     });
