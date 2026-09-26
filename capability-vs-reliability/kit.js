@@ -1,4 +1,4 @@
-/* kit.js — the reference kit, served form 3d03181b, built 23 Sep 2026 from source 27cf95564768. */
+/* kit.js — the reference kit, served form 3d03181b, built 26 Sep 2026 from source 1b0f61149cbb. */
 (function (global) {
   'use strict';
   var Kit = {};
@@ -186,10 +186,10 @@
     return n;
   };
 
-  var LADDER_FAMILIES = [['Qwen2.5-Coder', /qwen[-\s]?2\.5[-\s]?coder/i], ['Qwen2.5-Instruct', /qwen[-\s]?2\.5(?![-\s]?coder)/i], ['Qwen3.5', /qwen[-\s]?3\.5/i], ['Qwen3', /qwen[-\s]?3(?![.\d])/i]   /* Qwen3-Coder is Qwen3 in the palette registry (an appended rung), one family here too */,
+  var LADDER_FAMILIES = [['Qwen2.5-Coder', /qwen[-\s]?2\.5[-\s]?coder/i], ['Qwen2.5', /qwen[-\s]?2\.5(?![-\s]?coder)/i], ['Qwen3.5', /qwen[-\s]?3\.5/i], ['Qwen3', /qwen[-\s]?3(?![.\d])/i]   /* Qwen3-Coder is Qwen3 in the palette registry (an appended rung), one family here too */,
     ['Claude', /claude|\bhaiku\b|\bsonnet\b|\bopus\b|\bfable\b/i], ['GLM', /\bglm\b/i], ['Kimi', /\bkimi\b|moonshot|moonlight/i], ['DeepSeek-Coder-V2', /deepseek[-\s]?coder[-\s]?v2/i], ['DeepSeek-Coder', /deepseek[-\s]?coder/i],
     ['DeepSeek-R1-Distill', /r1[-\s]?distill|\bds[-\s]?r1d\b/i], ['DeepSeek-V3', /deepseek[-\s]?v3|deepseek[-\s]?r1[-\s]?0528/i], ['GPT-5', /\bgpt[-\s]?5/i], ['Gemini', /\bgemini\b/i], ['Gemma-4', /\bgemma\b/i], ['OLMo-2', /\bolmo[-\s]?2\b/i], ['Olmo 3', /\bolmo[-\s]?3(?:\.\d+)?\b/i]];
-  var LADDERS = { 'Qwen3': [0.6, 1.7, 4, 8, 14, 32], 'Qwen2.5-Instruct': [0.5, 1.5, 3, 7, 14, 32], 'Qwen2.5-Coder': [0.5, 1.5, 3, 7, 14, 32] };
+  var LADDERS = { 'Qwen3': [0.6, 1.7, 4, 8, 14, 32], 'Qwen2.5': [0.5, 1.5, 3, 7, 14, 32], 'Qwen2.5-Coder': [0.5, 1.5, 3, 7, 14, 32] };
   Kit.ladderFamily = function (label) { for (var i = 0; i < LADDER_FAMILIES.length; i++) if (LADDER_FAMILIES[i][1].test(label)) return LADDER_FAMILIES[i][0]; return null; };
   Kit.ladderRank = function (label) {
     var fam = Kit.ladderFamily(label); if (!fam) return { family: null, familyIndex: LADDER_FAMILIES.length, rank: null };
@@ -201,13 +201,14 @@
     else if (fam === 'Gemini') { m = s.match(/\b(\d\.\d)\b/); base = (m ? parseFloat(m[1]) * 10 : 0) + (/flash[-\s]?lite/.test(s) ? 1 : /flash/.test(s) ? 2 : /pro/.test(s) ? 3 : 2); }
     else { m = s.match(/(\d+(?:\.\d+)?)\s?b\b/); if (m) { base = parseFloat(m[1]); var lad = LADDERS[fam]; if (lad && lad.indexOf(base) >= 0) base = lad.indexOf(base); else if (lad) base = lad.length + base / 1000; } }
     if (base === null) return { family: fam, familyIndex: fi, rank: null };
-    m = s.match(/\((?:checkpoint|step)\s*(\d+)\)/); if (m) base += parseInt(m[1], 10) / 1e6;
-    return { family: fam, familyIndex: fi, rank: base };
+    m = s.match(/\((?:checkpoint|step)\s*(\d+)\s*[);]/); if (m) base += parseInt(m[1], 10) / 1e6;
+    var variant = !m && /\(|\b(?:thinking|think|chat|fine-?tune[sd]?|arm|rl|re-?run|rerun|raw|coverage|solutions?|code|maths?|math|sft|dpo|grpo|lora|tuned|trained)\b/i.test(s.replace(/\b\d+(?:\.\d+)?\s?b\b/, ''));
+    return { family: fam, familyIndex: fi, rank: base, variant: variant };
   };
   Kit.sortByLadder = function (labels, labelOf) {
     labelOf = labelOf || function (x) { return String(x); };
-    return labels.map(function (x, i) { var r = Kit.ladderRank(labelOf(x)); return { x: x, i: i, fi: r.familyIndex, rank: r.rank }; })
-      .sort(function (a, b) { if (a.fi !== b.fi) return a.fi - b.fi; if (a.rank === null && b.rank === null) return a.i - b.i; if (a.rank === null) return 1; if (b.rank === null) return -1; if (a.rank !== b.rank) return a.rank - b.rank; return a.i - b.i; })
+    return labels.map(function (x, i) { var r = Kit.ladderRank(labelOf(x)); return { x: x, i: i, fi: r.familyIndex, rank: r.rank, variant: !!r.variant }; })
+      .sort(function (a, b) { if (a.fi !== b.fi) return a.fi - b.fi; if (a.rank === null && b.rank === null) return a.i - b.i; if (a.rank === null) return 1; if (b.rank === null) return -1; if (a.rank !== b.rank) return a.rank - b.rank; if (a.variant !== b.variant) return a.variant ? 1 : -1; return a.i - b.i; })
       .map(function (o) { return o.x; });
   };
 

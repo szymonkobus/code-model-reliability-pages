@@ -1,4 +1,4 @@
-/* kit-viz.js — the reference kit, served form 395151b8, built 23 Sep 2026 from source 62f8769d22ad. */
+/* kit-viz.js — the reference kit, served form 395151b8, built 26 Sep 2026 from source 62f8769d22ad. */
 (function (global) {
   'use strict';
   var Kit = global.Kit = global.Kit || {};
