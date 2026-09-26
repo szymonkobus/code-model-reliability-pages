@@ -1,4 +1,4 @@
-/* kit-export.js — the reference kit, served form v6.1.3, built 23 Sep 2026 from source 7a21ff3d2a55. */
+/* kit-export.js — the reference kit, served form v6.1.3, built 26 Sep 2026 from source 3f27a1815f35. */
 (function (global) {
   'use strict';
   var Kit = global.Kit = global.Kit || {};
@@ -10,7 +10,7 @@
   Kit.exportTextSizes = function (pageAxisTitlePx, pageTickPx) { return { axisTitle: Math.round(2 * pageAxisTitlePx), tick: Math.round(1.5 * pageTickPx) }; };
   var FAMILIES = Kit.FAMILIES = [
     ['Qwen2.5-Coder', /qwen[-\s]?2\.5[-\s]?coder/i],
-    ['Qwen2.5-Instruct', /qwen[-\s]?2\.5(?![-\s]?coder)/i],
+    ['Qwen2.5', /qwen[-\s]?2\.5(?![-\s]?coder)/i],
     ['Qwen3', /qwen[-\s]?3(?![.\d])/i],
     ['Qwen3.5', /qwen[-\s]?3\.5/i],
     ['Claude', /claude|\bhaiku\b|\bsonnet\b|\bopus\b|\bfable\b/i],
