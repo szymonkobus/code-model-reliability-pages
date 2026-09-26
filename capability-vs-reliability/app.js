@@ -567,6 +567,22 @@ function mergeRunSet(raw) {
   RUNS = []; RUN = null; state.runs = state.runs || {};
   if (!raw || !D.shared || !D.bay || !D.bay.rows) return;
   var axis = D.shared.axis && D.shared.axis.axis_id;
+  // 26 Sep (the curves page's default bundle began carrying a run's checkpoints as configs): a board config that is a CHECKPOINT of a run this page
+  // draws — its id is a run set's stem plus a step suffix — and has no twin in the run's set is not of record on this page yet (the series pointer of
+  // record has not served it): it leaves the set before anything indexes it — no standalone mark, no chip, no row, no count. A checkpoint with a twin
+  // folds into its run below (one model, one mark, in the run's own row). A run's start model keeps its plain id and is untouched here.
+  var ckStem = function (id) { var s = String(id).toLowerCase().replace(/_temp_[0-9.]+$/, '').replace(/_batch$/, '').replace(/_think$/, ''); var m = /^(.*)-(?:step|ckpt|checkpoint)-?0*\d+$/.exec(s); return m ? m[1] : null; };
+  var runStems = {}, runTwins = {};
+  runSets(raw).forEach(function (rs) { ((rs && rs.configs) || []).forEach(function (c) { if (c.base) return; var st = ckStem(c.id); if (st) runStems[st] = true; runTwins[normId(c.id)] = true; }); });
+  var gone = {};
+  D.shared.configs = D.shared.configs.filter(function (c) { var st = c.run ? null : ckStem(c.id); if (st && runStems[st] && !runTwins[normId(c.id)]) { gone[c.id] = true; return false; } return true; });
+  if (Object.keys(gone).length) {
+    var notGone = function (r) { return !gone[r.cfg]; }; var dropKeys = function (o) { if (o) Object.keys(gone).forEach(function (k) { delete o[k]; }); };
+    D.bay.rows = D.bay.rows.filter(notGone); dropKeys(D.bayById);
+    if (D.avg && Array.isArray(D.avg.rows)) D.avg.rows = D.avg.rows.filter(notGone); dropKeys(D.avgById);
+    if (D.med && Array.isArray(D.med.rows)) D.med.rows = D.med.rows.filter(notGone); dropKeys(D.medById);
+    if (Array.isArray(D.bay.unfitted)) D.bay.unfitted = D.bay.unfitted.filter(function (u) { return !gone[typeof u === 'string' ? u : (u && (u.cfg || u.id))]; });
+  }
   var byNorm = {}; D.shared.configs.forEach(function (c) { if (!c.run) byNorm[normId(c.id)] = c; });
   var have = {}; D.shared.configs.forEach(function (c) { have[c.id] = true; });
   var haveRow = {}; D.bay.rows.forEach(function (r) { haveRow[r.cfg] = true; });
