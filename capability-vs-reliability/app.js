@@ -595,7 +595,7 @@ function mergeRunSet(raw) {
       have[c.id] = true; D.shared.configs.push(c); R.idx.push(D.shared.configs.length - 1);
       var row = rowsById[c.id]; if (row && !haveRow[c.id]) { row.run = true; row.series = R.key; D.bay.rows.push(row); haveRow[c.id] = true; if (D.bayById) D.bayById[c.id] = row; }   // the row index is built at load; the run's rows join it here
     });
-    if (R.idx.length || R.folded.length || R.withheld.length || R.pending) { RUNS.push(R); state.runs[R.stateKey] = 'show'; }
+    if (R.idx.length || R.folded.length || R.withheld.length) { RUNS.push(R); state.runs[R.stateKey] = 'show'; }   // 26 Sep: a set with no checkpoint drawn or withheld has no row — a pending sentence is a note (the project maintainers' word of 24 Sep 12:4x); the builder emits no such set since v7.19, this is the belt
   });
   RUNS.sort(function (a, b) { return a.order - b.order; });   // the Think run's row before the RL-Zero Code row (23 Sep 12:0x)
   RUN = RUNS[0] || null;
