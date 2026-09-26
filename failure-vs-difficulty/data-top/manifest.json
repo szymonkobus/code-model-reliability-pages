@@ -1,5 +1,5 @@
 {
- "fingerprint": "e7e263d191aa",
+ "fingerprint": "f0033ac4b474",
  "frame": {
   "dataset": "top",
   "dataset_label": "wave 2 (866 tasks), the list kept on 10 September 2026; wave 2 parked (879 tasks) left out",
@@ -19,7 +19,7 @@
   "difficulty_population_M": 58,
   "tasks": 858,
   "keep_set_hash": "532d0efad8a5",
-  "inputs_content_sha": "965a313e4276",
+  "inputs_content_sha": "13f500f5bfc7",
   "tasks_on_axis": 858,
   "tasks_kept": 858,
   "tasks_awaiting_axis": 0,
@@ -29,17 +29,17 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "87a331badb29",
+  "runs_fingerprint": "800db008788e",
   "axis_wave": "pool-20260910T2244Z",
   "build_date": "2026-09-26",
-  "stamp": "2026-09-26T05:57:55Z",
+  "stamp": "2026-09-26T06:55:09Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-26T05:13:50Z",
+   "unified_built_at": "2026-09-26T06:13:30Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.top.csv"
@@ -90,7 +90,7 @@
     "of": 858
    },
    "deepseek-ai/DeepSeek-Coder-V2-Instruct": {
-    "tasks": 156,
+    "tasks": 175,
     "of": 858
    },
    "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B": {
@@ -588,7 +588,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-26T05:25:27Z",
+   "_stamp": "2026-09-26T06:24:31Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -754,9 +754,9 @@
   }
  },
  "files": {
-  "shared": "shared.e7e263d191aa.json",
-  "chain_average": "chain_average.e7e263d191aa.json",
-  "chain_median": "chain_median.e7e263d191aa.json",
-  "dots": "dots.e7e263d191aa.json"
+  "shared": "shared.f0033ac4b474.json",
+  "chain_average": "chain_average.f0033ac4b474.json",
+  "chain_median": "chain_median.f0033ac4b474.json",
+  "dots": "dots.f0033ac4b474.json"
  }
 }
