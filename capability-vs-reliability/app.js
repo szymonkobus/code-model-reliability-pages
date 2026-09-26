@@ -580,7 +580,13 @@ function mergeRunSet(raw) {
               order: (set.order == null ? 100 + k : set.order), finalOnBoard: !!set.final_on_board };   // order: the rows under the all-models rows (Think first, then RL-Zero Code); pending: no fit of record yet; finalOnBoard: the final keeps its chip among all models, duplicated in the run's row (23 Sep 12:0x)
     var rowsById = {}; (rs.rows || []).forEach(function (r) { rowsById[r.cfg] = r; });
     rs.configs.forEach(function (c) {
-      if (have[c.id]) return;
+      if (have[c.id]) {   // 26 Sep (Definitions' word of ): a run's START MODEL is one config shared by the runs' sets — one fit, one mark, one legend row; the second row's
+        if (c.base) {     // position-0 chip folds onto the first row's config (a dual, like the board final's chip in the Think row), labelled by the labels row ('start model')
+          var ei = -1; for (var q = 0; q < D.shared.configs.length; q++) if (D.shared.configs[q].id === c.id) { ei = q; break; }
+          if (ei >= 0 && D.shared.configs[ei].run && D.shared.configs[ei].base) { R.idx.push(ei); R.dual.push(ei); R.dualLabel = R.dualLabel || {}; R.dualLabel[ei] = c.label || D.shared.configs[ei].label; }
+        }
+        return;
+      }
       var twin = byNorm[normId(c.id)];
       if (twin) {   // ONE MODEL, ONE MARK, IN THE RUN'S OWN ROW (the project maintainers' word of 22 Sep 15:1x: the run has no chip in the top column, it is the thing in its
         var r = rowsById[c.id];   // bottom row): the board's twin config joins the run — the run's label, colour and mark, out of the top row and the fitted line; its series fit stands in under the Bayesian source when the board fit set has none
