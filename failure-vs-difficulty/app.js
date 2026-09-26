@@ -575,6 +575,7 @@ function runNameOf(c) {   // the run's full name: the bundle's run field, else t
   return c.run || String(c.label || '').replace(/\s*\((step \d+|final)\)\s*$/, '').trim() || String(c.label || '');
 }
 function buildChips() {
+  nameFamilies(D.shared);   // the family labels of record before the rows are grouped and headed (buildChips runs at load, before the first render)
   var box = document.getElementById('chips');
   var fams = [], runs = [];
   D.shared.configs.forEach(function (c, i) {
@@ -1159,7 +1160,22 @@ function renderSeriesRow(sb, ri) {   // the run's row: cloned from renderSideBlo
 }
 
 
+// FAMILY LABELS OF RECORD (the names maintainers' decision of 26 Sep, 20:2x UK, on decision 126's reasoning): a family prints under its name of record — 'Qwen2.5' for the
+// configurations the registry files under 'Qwen2.5-Instruct' (the maker's collection name; the sibling families print without the post-training word); the registry
+// key stays in the ids and the builder's tables, the printed field moves once, in place, before anything groups or prints by family
+var FAMILIES_OF_RECORD = { 'Qwen2.5-Instruct': 'Qwen2.5' };
+function nameFamilies(shared) {
+  if (!shared || shared._fam_named) return;
+  var fix = function (a) { if (a && FAMILIES_OF_RECORD[a.family]) a.family = FAMILIES_OF_RECORD[a.family]; };
+  (shared.configs || []).forEach(fix);
+  var f = shared.frame || {};
+  if (f.side_arms && f.side_arms.arms) f.side_arms.arms.forEach(fix);
+  if (f.series_arms && f.series_arms.arms) f.series_arms.arms.forEach(fix);
+  (f.series_rows || []).forEach(function (r) { (r && r.arms || []).forEach(fix); });
+  shared._fam_named = true;
+}
 function render() {
+  nameFamilies(D.shared);   // the family labels of record before anything groups or prints by family (26 Sep)
   var chart = document.getElementById('chart');
   mountExport();
   relabelDataset(D.shared.frame);   // the set names with their counts of record are applied BEFORE any text of this render reads them (the site design maintainers 18 Sep: the 95% hover carried the count only on a re-render)

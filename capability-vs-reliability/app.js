@@ -1260,9 +1260,13 @@ function variantsAfterBase(order) {
   order.forEach(function (i) { if (placed[i]) return; out.push(i); (after[i] || []).forEach(function (v) { out.push(v); }); });
   return out;
 }
+// FAMILY LABELS OF RECORD (models, the names maintainers, 26 Sep 20:3x: the project coinage 'Qwen2.5-Instruct' retires on the faces — the family's name is 'Qwen2.5', the coder line
+// 'Qwen2.5-Coder'; 'Instruct' stays in ids and data fields): the dataset's fam key is kept for grouping and ordering, the printed label maps here until the shared builder writes the name
+var FAMILY_LABEL = { 'Qwen2.5-Instruct': 'Qwen2.5' };
+function famLabel(f) { return FAMILY_LABEL[f] || f; }
 function famOrder(indices) {   // the reference family order (kit-export.js registry: the order the hues run), the dataset's order within a family; the dataset's order when the helper is absent
   if (window.Kit && Kit.legendByFamily) {
-    var rows = indices.map(function (i) { var c = D.shared.configs[i]; return { i: i, label: c.label, family: c.fam }; });
+    var rows = indices.map(function (i) { var c = D.shared.configs[i]; return { i: i, label: c.label, family: famLabel(c.fam) }; });
     return Kit.legendByFamily(rows).map(function (r) { return r.i; });
   }
   return indices.slice().sort(function (a, b) { return a - b; });
@@ -1298,7 +1302,7 @@ function buildChips() {
   var isRunFam = function (f) { return f.members.length && isRun(f.members[0]); };
   fams.filter(function (f) { return !isRunFam(f); }).sort(function (p, q) { return famKey(p) - famKey(q); }).forEach(function (f) {   // the run's family has its own line below
     var nm = document.createElement('button');
-    nm.className = 'fam'; nm.style.color = D.shared.configs[f.members[0]].color; nm.textContent = f.name; nm.title = 'select or clear every ' + f.name + ' model';
+    nm.className = 'fam'; nm.style.color = D.shared.configs[f.members[0]].color; nm.textContent = famLabel(f.name); nm.title = 'select or clear every ' + famLabel(f.name) + ' model';
     nm.onclick = function () {
       var anyOff = f.members.some(function (i) { return !sel.has(i) && (!isHidden(i)); });
       f.members.forEach(function (i) { if (anyOff) { if (!isHidden(i)) sel.add(i); } else sel.delete(i); });   // family clicks skip hidden partial arms
@@ -2156,7 +2160,7 @@ function exportLegend() {   // every drawn model grouped by family in the colour
     var mark = function (cx, cy) {   // the drawn path is an absolute M followed by relative commands: re-anchor it on the legend row
       return '<path d="' + d.replace(/^M[-\d.]+ [-\d.]+/, 'M' + cx + ' ' + cy) + '" fill="' + fill + '" stroke="' + stroke + '" stroke-width="' + sw + '"' + (op && +op < 1 ? ' opacity="' + op + '"' : '') + '/>';
     };
-    rows.push({ label: (c.display_name || c.label) + (grey ? ' (partial)' : '') + (c.provisional ? ' (provisional)' : ''), family: c.fam, color: grey ? '#8b8477' : c.color, line: false, marker: mark });   // no fit-quality words in the export: the flag lives in the page's hover and tooltip   // legends carry the full display name of record (the labels rows' maintainers, 22 Sep)
+    rows.push({ label: (c.display_name || c.label) + (grey ? ' (partial)' : '') + (c.provisional ? ' (provisional)' : ''), family: famLabel(c.fam), color: grey ? '#8b8477' : c.color, line: false, marker: mark });   // no fit-quality words in the export: the flag lives in the page's hover and tooltip   // legends carry the full display name of record (the labels rows' maintainers, 22 Sep)
   });
   // no grouped run row in the export (23 Sep 15:0x): each checkpoint drawn is its own row above
   return rows;
