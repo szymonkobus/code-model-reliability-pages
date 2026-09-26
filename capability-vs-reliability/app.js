@@ -633,8 +633,10 @@ function boot() {
     // SELECTION BY ARM IDENTITY (the project maintainers' word of 4 Sep 2026: the page remembered chip positions, which differ between datasets — a bug
     // to fix): the URL carries arm keys (the board id an arm shares across datasets), never chip positions;
     // a legacy positional link (digits and dots) is re-bound to keys once and the URL rewritten, with a note
+    slugIndex();
     var keyOf = function (c) { return c.board_id || c.id; };
-    var byKey = {}; D.shared.configs.forEach(function (c, i) { byKey[keyOf(c)] = i; byKey[c.id] = i; });
+    var byKey = {}; D.shared.configs.forEach(function (c, i) { byKey[keyOf(c)] = i; byKey[c.id] = i; byKey[SLUG_OF[i]] = i; byKey[slugify(c.display_name || c.label)] = i; });   // 26 Sep: slugs first; the old keys (board ids, ids, stems) read on for links it holds
+    D.shared.configs.forEach(function (c, i) { if (byKey[normId(c.id)] === undefined) byKey[normId(c.id)] = i; });
     if (/^[\d.]+$/.test(selParam)) {
       var rebound = [];
       selParam.split('.').forEach(function (t) { var i = +t; if (i >= 0 && i < D.shared.configs.length) { sel.add(i); rebound.push(keyOf(D.shared.configs[i])); } });
@@ -642,7 +644,7 @@ function boot() {
       selRewrite = true;
     } else {
       var bad = [];
-      selParam.split(',').forEach(function (k) { if (byKey[k] !== undefined) sel.add(byKey[k]); else if (k) bad.push(k); });
+      selParam.split(',').forEach(function (k) { if (byKey[k] !== undefined) { sel.add(byKey[k]); if (SLUG_OF[byKey[k]] !== k) selRewrite = true; } else if (k) bad.push(k); });   // an old key read: the URL is rewritten to the slugs
       if (bad.length) { dataNote = (dataNote ? dataNote + ' \u00b7 ' : '') + 'sel: ' + bad.length + ' entr' + (bad.length > 1 ? 'ies are' : 'y is') + ' not a model of this dataset (' + bad.slice(0, 4).join(', ') + ') \u2014 dropped'; selRewrite = true; }
     }
     var dropped = withheldArms().filter(function (i) { return sel.has(i); });
@@ -1193,9 +1195,24 @@ function syncWdLock() {
 }
 
 /* ---------------- chips (same pattern as CURVES) --------------- */
+// URL KEYS ARE THE SLUGS OF THE NAMES OF RECORD (the project maintainers' word of 26 Sep 16:5x via the coordination: a link's keys read as clear standard vocabulary — the run and its
+// index, 'olmo-3-7b-think-0', never a step, a form or a temperature; post-training-lead's decision 135 and the maintainers's name_slug field derive the same way): the slug is
+// the name of record lowercased, '(checkpoint k)' → '-k', '(final)' → '-final', every other run of non-alphanumerics one hyphen. Old keys (ids, stems, board ids) read on.
+function slugify(name) {
+  var s = String(name || '').trim().toLowerCase();
+  s = s.replace(/\s*\((?:checkpoint|step)\s*(\d+)\)\s*$/, '-$1').replace(/\s*\(final\)\s*$/, '-final');
+  s = s.replace(/[\u00b7()]/g, ' ').replace(/[^a-z0-9]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+  return s;
+}
+var SLUG_OF = {}, IDX_OF_SLUG = {};
+function slugIndex() {   // built once the run sets are merged; a slug taken twice (two names of record alike would break the 22 Sep uniqueness word) keeps the first and gives the second its id
+  SLUG_OF = {}; IDX_OF_SLUG = {};
+  D.shared.configs.forEach(function (c, i) { var s = c.slug || slugify(c.display_name || c.label); if (IDX_OF_SLUG[s] !== undefined) { s = c.board_id || c.id; } SLUG_OF[i] = s; IDX_OF_SLUG[s] = i; });
+}
 function writeSel() {
+  if (!Object.keys(SLUG_OF).length) slugIndex();
   var all = sel.size === D.shared.configs.length;
-  Kit.state.set('sel', all ? null : Array.from(sel).sort(function (p, q) { return p - q; }).map(function (i) { var c = D.shared.configs[i]; return c.board_id || c.id; }).join(','), null);   // arm keys, stable across datasets (2026-09-04)
+  Kit.state.set('sel', all ? null : Array.from(sel).sort(function (p, q) { return p - q; }).map(function (i) { return SLUG_OF[i] || D.shared.configs[i].id; }).join(','), null);   // the slugs of the names of record (26 Sep); before: arm keys (2026-09-04)
 }
 /* ONE ORDER (the project maintainers' word of 15 Sep 2026 12:2x: one ordering of all the models, by their capability, lowest to
  * highest, everywhere): every list of models on the page — the chips, the ridges — follows the capability
