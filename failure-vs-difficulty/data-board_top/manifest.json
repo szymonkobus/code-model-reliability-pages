@@ -1,5 +1,5 @@
 {
- "fingerprint": "1f6d17b7d319",
+ "fingerprint": "a060cc887736",
  "frame": {
   "dataset": "board_top",
   "dataset_label": "wave 1+2 (1,297 tasks): 431 of wave 1 + 866 of wave 2; wave 2 parked (879 tasks) left out \u00b7 positioned on this axis today: 430 of wave 1, 858 of wave 2",
@@ -19,7 +19,7 @@
   "difficulty_population_M": 61,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "a4cf247eb3ba",
+  "inputs_content_sha": "4f76a60fd198",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -29,15 +29,17 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "be123ed7c0fc",
+  "runs_fingerprint": "87a331badb29",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-09-26",
-  "stamp": "2026-09-26T00:52:39Z",
+  "stamp": "2026-09-26T05:53:36Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": {
    "Qwen/Qwen3.5-9B-Base_completion": 430,
+   "deepseek-coder-6.7b-rl-night1-step250": 358,
+   "deepseek-coder-6.7b-rl-night2-step250": 430,
    "olmo-3-7b-think-final-Thinking": 430,
    "olmo-3-7b-think-step0025-Thinking": 430,
    "olmo-3-7b-think-step0050-Thinking": 430,
@@ -68,7 +70,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-26T00:14:07Z",
+   "unified_built_at": "2026-09-26T05:13:50Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -119,7 +121,7 @@
     "of": 1288
    },
    "deepseek-ai/DeepSeek-Coder-V2-Instruct": {
-    "tasks": 585,
+    "tasks": 586,
     "of": 1288
    },
    "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B": {
@@ -71381,8 +71383,18 @@
    }
   ],
   "off_panel": {
-   "n_with_cells": 26,
+   "n_with_cells": 28,
    "arms": [
+    {
+     "id": "deepseek-coder-6.7b-rl-night1-step250",
+     "arm_id": "dsc6.7b-rl-night1-s250",
+     "label": "DeepSeek-Coder 6.7B \u00b7 code RL, all tasks alike (checkpoint 4)"
+    },
+    {
+     "id": "deepseek-coder-6.7b-rl-night2-step250",
+     "arm_id": "dsc6.7b-rl-night2-s250",
+     "label": "DeepSeek-Coder 6.7B \u00b7 code RL, against the mean (checkpoint 4)"
+    },
     {
      "id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
      "arm_id": "olmo3.1-7b-rlzc-s0050",
@@ -71529,7 +71541,7 @@
     "qwen35_9b_base_sft_maths_completion"
    ],
    "panel_conflicts": [],
-   "line": "15 study models with results are off the panel; their fits appear in their own block when served"
+   "line": "17 study models with results are off the panel; their fits appear in their own block when served"
   },
   "cleaned_arms_unified": [
    "openai/gpt-5-mini",
@@ -71542,7 +71554,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-26T00:24:36Z",
+   "_stamp": "2026-09-26T05:25:27Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -71708,9 +71720,9 @@
   }
  },
  "files": {
-  "shared": "shared.1f6d17b7d319.json",
-  "chain_average": "chain_average.1f6d17b7d319.json",
-  "chain_median": "chain_median.1f6d17b7d319.json",
-  "dots": "dots.1f6d17b7d319.json"
+  "shared": "shared.a060cc887736.json",
+  "chain_average": "chain_average.a060cc887736.json",
+  "chain_median": "chain_median.a060cc887736.json",
+  "dots": "dots.a060cc887736.json"
  }
 }
