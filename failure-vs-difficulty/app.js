@@ -506,7 +506,7 @@ function boot() {
   srcMount = document.createElement('span');
   row.appendChild(srcMount);
   buildSrcSwitch();
-  bandCtl = Kit.switchControl({ mount: row, key: 'band', label: 'Bands',
+  bandCtl = Kit.switchControl({ mount: row, key: 'band', label: 'Uncertainty bands',
     options: [{ value: 'off', label: 'Off' },
               { value: '80', label: '80%' },
               { value: '90', label: '90%' },
@@ -1070,7 +1070,7 @@ function renderSideBlock() {
   st.appendChild(t);
   if (sideUnresolved) {   // the same legend line as the main table, only when a side row carries the mark
     var slg = document.createElement('p'); slg.className = 'sub';
-    slg.textContent = '~ not resolved: the 80% band of D99 is wider than one difficulty step (the reference bandwidth)';
+    slg.textContent = '~ not resolved: the 80% uncertainty band of D99 is wider than one difficulty step (the reference bandwidth)';
     st.appendChild(slg);
   }
   if (sb.membership) { var m = document.createElement('p'); m.className = 'sub'; m.textContent = noSpecTags(sb.membership); st.appendChild(m); }
@@ -1153,7 +1153,7 @@ function renderSeriesRow(sb, ri) {   // the run's row: cloned from renderSideBlo
   st.appendChild(t);
   if (sideUnresolved) {   // the same legend line as the main table, only when a side row carries the mark
     var slg = document.createElement('p'); slg.className = 'sub';
-    slg.textContent = '~ not resolved: the 80% band of D99 is wider than one difficulty step (the reference bandwidth)';
+    slg.textContent = '~ not resolved: the 80% uncertainty band of D99 is wider than one difficulty step (the reference bandwidth)';
     st.appendChild(slg);
   }
   if (sb.membership) { var m = document.createElement('p'); m.className = 'sub'; m.textContent = noSpecTags(sb.membership); st.appendChild(m); }
@@ -1202,7 +1202,7 @@ function render() {
   ['80', '90', '95'].forEach(function (lv) {
     setDisabled(bandCtl && bandCtl.element.querySelector('button[data-value="' + lv + '"]'),
       state.src === 'bayes' && bayesLevels.indexOf(lv) < 0,
-      'Bayesian ribbons for the ' + setWord(DATASETS[DATASET].short) + ' dataset carry ' + bayesLevels.join('% and ') + '% only; '
+      'The Bayesian uncertainty bands for the ' + setWord(DATASETS[DATASET].short) + ' dataset carry ' + bayesLevels.join('% and ') + '% only; '
       + lv + '% is available with the ' + houseName().toLowerCase());
   });
   setDisabled(dotsCtl && dotsCtl.element.querySelector('button[data-value="1"]'),
@@ -1306,7 +1306,7 @@ function render() {
         var zsT = [], ysT = [];
         for (var tt = 0; tt <= 40; tt++) { var zzT = lfa.zrange[0] + (lfa.zrange[1] - lfa.zrange[0]) * tt / 40; zsT.push(zzT); ysT.push(icT + slT * (zzT - zmT)); }
         curves += '<path d="' + pathLine(zsT, ysT) + '" fill="none" stroke="' + c.color + '" stroke-width="1.2" opacity="0.9" stroke-dasharray="7 4" data-trend="1" data-i="' + i
-          + '" data-label="' + c.label + ' — linear trend (' + (state.def === 'average' ? 'average rate' : 'median task') + '): slope ' + slT + ' logit per z, 80% interval [' + lfk.slope_q10_q50_q90[0] + ', ' + lfk.slope_q10_q50_q90[2] + ']'
+          + '" data-label="' + c.label + ' — linear trend (' + (state.def === 'average' ? 'average rate' : 'median task') + '): slope ' + slT + ' logit per z, 80% uncertainty band [' + lfk.slope_q10_q50_q90[0] + ', ' + lfk.slope_q10_q50_q90[2] + ']'
           + (lfk.rms_dev_q50 != null ? ' · rms deviation of the curve from its own line ' + lfk.rms_dev_q50 + ' logit' : '')
           + ' · fitted range z in [' + lfa.zrange[0] + ', ' + lfa.zrange[1] + ']' + (lfa.n_draws ? ' (' + lfa.n_draws + ' draws)' : '') + '"/>';
       }
@@ -1386,7 +1386,7 @@ function paintChips() {
     // chip hover: additive parts (an earlier if/else chain dropped the gate hover when the last else cleared the title)
     var parts = [];
     if (notShown(i)) parts.push(NOT_SHOWN.note);   // the project maintainers' word of 9 Sep: not shown, with the one note
-    if (c.excluded) parts.push('out of the fit population — ' + (c.exclusion || 'excluded') + ' (drawn greyed, no band; the decision of 3 Sep)');
+    if (c.excluded) parts.push('out of the fit population — ' + (c.exclusion || 'excluded') + ' (drawn greyed, no uncertainty band; the decision of 3 Sep)');
     if (bb && bb.interim) parts.push('interim fit (newer fit' + (bb.interim.landed_at ? ', landed ' + relTime(bb.interim.landed_at) : '') + (bb.interim.axis_note ? '; ' + bb.interim.axis_note : '') + ')');
     if (bb && bb.alongside && bb.alongside.flag) parts.push(String(bb.alongside.flag).replace(/\s*\((?:wave|set)\s+[a-z_-]*\d{8}T\d{4}Z(?:-m\d+)?\)/gi, ''));   // 22 Sep: an arm admitted as adopted, fitted alongside the set (the fit maintainers' side pointer), says so on its chip; the set is named by its label of record or not at all — a wave id in the flag is dropped
     if (bb && bb.gate_flag) parts.push(bb.gate_flag);
@@ -1431,7 +1431,7 @@ function narrate(visible, dotsOn, unfitted) {
           + ' models not yet in the fit set — not drawn until their fit lands)'
         : '')
     : houseName().toLowerCase();
-  var bandTxt = state.band === 'off' ? 'bands off' : state.band + '% bands';
+  var bandTxt = state.band === 'off' ? 'uncertainty bands off' : state.band + '% uncertainty bands';
   var dotTxt = dotsOn ? 'task dots on'
     : 'task dots off' + (visible.length > DOTS_MAX
         ? ' (available for ' + DOTS_MAX + ' or fewer models)' : '');
@@ -1528,8 +1528,8 @@ function notes(visible, unfitted) {
   }
   if (state.src === 'bayes' && DATASET === 'new') {
     var wl = document.createElement('div');
-    wl.innerHTML = 'Bayesian ribbons for the new-tasks dataset carry the 80% interval only (the bundle stores q10/q50/q90), '
-      + 'so Bands reads 80% under this source; 90% and 95% return with the local-logistic fit. The table below stays the '
+    wl.innerHTML = 'The Bayesian uncertainty bands for the new-tasks dataset carry the 80% level only, '
+      + 'so Uncertainty bands reads 80% under this source; 90% and 95% return with the local-logistic fit. The table below stays the '
       + 'local-logistic reading — the Bayesian crossings live on Capability vs reliability.';   // F119 (22 Sep): a page named by its served title, as a link
     el.appendChild(wl);
   }
@@ -1590,7 +1590,7 @@ function notes(visible, unfitted) {
   if (state.def === 'average' && state.band !== 'off'
       && state.src === 'project') {
     var w3 = document.createElement('div');
-    w3.textContent = 'Band assumptions (stated, unchanged per the '
+    w3.textContent = 'Uncertainty band assumptions (stated, unchanged per the '
       + '28 Aug decision): ' + String(D.avg.band_note || D.shared.frame.band_rule || 'band rule stated in the bundle').split(';')[0] + '.';
     el.appendChild(w3);
   }
@@ -1676,10 +1676,10 @@ function crossingsTable(visible) {
     + (voc[k1] || hov1.replace(/^D99 — /, ''))
     + (isB
       ? '. Readings from the Bayesian posterior median curve for the estimator picked (first upward crossing); brackets are where the '
-        + 'ribbon edges cross the same level (95% where the fit set carries it, else 80%); models without a posterior read "awaiting fit"; '
-        + 'the served crossings with their own intervals live on Capability vs reliability.'
+        + 'uncertainty band\'s edges cross the same level (95% where the fit set carries it, else 80%); models without a posterior read "awaiting fit"; '
+        + 'the served crossings with their own uncertainty bands live on Capability vs reliability.'
       : '. Readings from the ' + houseName().toLowerCase() + ' for the active '
-        + 'chain; brackets are 95% intervals from the trend\'s band (the Bands switch changes the drawn ribbons, not this table); '
+        + 'chain; brackets are the 95% uncertainty band of the trend (the Uncertainty bands switch changes the drawn bands, not this table); '
         + 'the Bayesian crossings live on Capability vs reliability.');
   box.appendChild(h);
   var t = document.createElement('table');
@@ -1749,7 +1749,7 @@ function crossingsTable(visible) {
   if (anyUnresolved) {   // one legend line per table, only when a drawn arm carries the mark (the difficulty maintainers' S1 convention, no arm list)
     var lg = document.createElement('p');
     lg.className = 'sub';
-    lg.textContent = '~ not resolved: the 80% band of D99 is wider than one difficulty step (the reference bandwidth)';
+    lg.textContent = '~ not resolved: the 80% uncertainty band of D99 is wider than one difficulty step (the reference bandwidth)';
     box.appendChild(lg);
   }
   if (anyMixing) {   // one legend line per table, only when a drawn arm carries the mark
@@ -1986,7 +1986,7 @@ function bayesSourceLine(f) {
     + (b.served_axis_note ? '; this page\'s axis: ' + here + ' — ' + b.served_axis_note.replace(/^Bayesian curve fitted/, 'the fit set was cut')   // newer axis than the view's: drawn with the note
        : same ? ' (the same models and tasks as this page\'s axis)'
             : wider ? '; this page\'s axis: ' + here + ' — every model here is drawn; ' + extraN + ' fitted model' + (extraN === 1 ? '' : 's') + ' of the set ' + (extraN === 1 ? 'has' : 'have') + ' no model on this page'
-            : '; this page\'s axis: ' + here + ' — the fit set is OLDER than the axis; the ribbons refit with the next fit wave');
+            : '; this page\'s axis: ' + here + ' — the fit set is OLDER than the axis; the uncertainty bands refit with the next fit wave');
   if (b.note && /interim/.test(b.note)) txt += ' · ' + noStamps(noWaveIds(String(b.note).replace(/from wave \S+/g, 'from the newer fit wave')));   // no wave ids or stamps in the fold either
   txt += gateClause(b) + provisionalClause(b) + notDrawnClause(b) + basisClause(b) + coverageClause(b) + membershipClause(b);
   return '<span style="color:' + ((same || wider) && !b.served_axis_note ? 'inherit' : '#9a5b00') + '">' + txt + '</span>';
@@ -2110,7 +2110,7 @@ function exportView(nDrawn) {   // the controls' state in words for the stamp li
   if (ARMS === 'golden') parts.push('golden set');
   parts.push(state.def === 'average' ? 'average rate' : 'median task');
   parts.push(state.src === 'bayes' ? 'Bayesian curves' : houseName().toLowerCase());
-  parts.push(state.band === 'off' ? 'bands off' : state.band + '% bands');
+  parts.push(state.band === 'off' ? 'uncertainty bands off' : state.band + '% uncertainty bands');
   if (state.src === 'bayes' && state.trend !== 'off') parts.push('linear trends');
   if (state.dots === '1') parts.push('task dots');
   if (state.xs === 'raw' || state.ys === 'raw') parts.push((state.xs === 'raw' ? 'x' : '') + (state.xs === 'raw' && state.ys === 'raw' ? ' and ' : '') + (state.ys === 'raw' ? 'y' : '') + ' in raw percent spacing');

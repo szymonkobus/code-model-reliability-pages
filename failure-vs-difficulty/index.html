@@ -82,11 +82,11 @@ a { color:#0b57d0; }
 <ul class="defs">
 <li><b>Failure rate</b> — a model's share of failed attempts on a task; each curve is one model's failure rate against task difficulty, benchmarks pooled; a thinking variant counts as its own model.</li>
 <li><b>Task difficulty</b> — a task's position on the shared difficulty axis, the axis the outcome-distributions page shares, in logit units unless the X scale reads Raw.</li>
-<li><b>Average rate / Median task</b> — the definition switch picks one estimator: the average failure rate over the tasks, or the median task's failure rate; the trend, the bands and the crossings follow it.</li>
+<li><b>Average rate / Median task</b> — the definition switch picks one estimator: the average failure rate over the tasks, or the median task's failure rate; the trend, the uncertainty bands and the crossings follow it.</li>
 <li><b>D50</b> — the difficulty at which the curve first crosses a 50% failure rate upward.</li>
 <li><b>D99</b> — the difficulty at which the curve first crosses 1%, a 99% solve chance.</li>
-<li><b>Band</b> — the posterior interval of the fitted curve at the chosen level (80% or 90%; 95% where available); the bracket beside a crossing is where the band's edges cross the same level.</li>
-<li><b>Curve estimator</b> — Bayesian: the served Gaussian-task-effect posterior, its median curve drawn, a model without a posterior not drawn; Local-logistic fit: the descriptive fit, the curve and its band carry the measurement.</li>
+<li><b>Uncertainty band</b> — the range of the fitted curve at the chosen level (80% or 90%; 95% where available); the bracket beside a crossing is where the band's edges cross the same level.</li>
+<li><b>Curve estimator</b> — Bayesian: the served Gaussian-task-effect posterior, its median curve drawn, a model without a posterior not drawn; Local-logistic fit: the descriptive fit, the curve and its uncertainty band carry the measurement.</li>
 </ul></details>
 <div id="controls"></div>
 <div id="chartbox" aria-label="failure rate vs difficulty">
@@ -107,13 +107,13 @@ a { color:#0b57d0; }
 <p class="sub" id="intro-more">One curve per model — a thinking variant counts as its own model; benchmarks
 pooled. The Dataset switch picks the tasks used: wave 1 (<span data-count="board">…</span> tasks), wave 2 (<span data-count="wave2">…</span> tasks), wave 1+2, wave 2 and wave 2 parked (<span data-count="newtotal">…</span> tasks), or all waves; the Models switch restricts everything to the golden set of 12 models as a data point. The definition
 switch picks one estimator — the average failure rate over the tasks or the median task's — and the trend,
-the bands and the crossings follow it. The model behind the Bayesian source
+the uncertainty bands and the crossings follow it. The model behind the Bayesian source
 is explained once, on
 the Bayesian-model explanation site (long form)
 and in the canonical embedded
 exposition — this page does not re-explain it.</p>
 <div id="narrate" role="status"></div>
-<p class="sub" id="linekey" style="font-size:.8rem;margin:.3rem 0 .4rem">Line key: solid = standard mode, dashed = thinking mode (a thinking model keeps its base model’s colour). Long-dashed straight line = linear trend through a model’s Bayesian curve over its fitted range (Trend switch; slope and its 80% interval on hover; descriptive — the curve and its band carry the measurement). § on a chip marks a flag on that model; hover or long-press the chip to read it. Under the Bayesian estimator a model without a posterior is not drawn (its chip is greyed) .</p>
+<p class="sub" id="linekey" style="font-size:.8rem;margin:.3rem 0 .4rem">Line key: solid = standard mode, dashed = thinking mode (a thinking model keeps its base model’s colour). Long-dashed straight line = linear trend through a model’s Bayesian curve over its fitted range (Trend switch; slope and its 80% interval on hover; descriptive — the curve and its uncertainty band carry the measurement). § on a chip marks a flag on that model; hover or long-press the chip to read it. Under the Bayesian estimator a model without a posterior is not drawn (its chip is greyed) .</p>
 <div id="notes"></div>
 <div id="flaglist"></div>
 <div id="stamp" data-chrome></div>
