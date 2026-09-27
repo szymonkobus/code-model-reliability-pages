@@ -1,9 +1,9 @@
 {
- "fingerprint": "6f5f3415b67e",
+ "fingerprint": "5b7b2e61cfc5",
  "fingerprint_inputs": {
-  "content": "0078cb0cf725",
+  "content": "e604880f3106",
   "wave": "pool-20260910T2244Z",
-  "body": "60bd51e3464e"
+  "body": "c884a74c56df"
  },
  "frame": {
   "dataset": "top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 58,
   "tasks": 858,
   "keep_set_hash": "532d0efad8a5",
-  "inputs_content_sha": "0078cb0cf725",
+  "inputs_content_sha": "e604880f3106",
   "tasks_on_axis": 858,
   "tasks_kept": 858,
   "tasks_awaiting_axis": 0,
@@ -34,17 +34,17 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "1dd16d589819",
+  "runs_fingerprint": "3745c7af664c",
   "axis_wave": "pool-20260910T2244Z",
   "build_date": "2026-09-27",
-  "stamp": "2026-09-27T15:21:49Z",
+  "stamp": "2026-09-27T18:09:49Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-27T15:18:41Z",
+   "unified_built_at": "2026-09-27T17:16:29Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.top.csv"
@@ -439,7 +439,7 @@
   "vocab_ruled": "2026-08-27",
   "interim": "kernel fits on all results available at build; refit hourly as results land",
   "off_panel": {
-   "n_with_cells": 33,
+   "n_with_cells": 34,
    "arms": [
     {
      "id": "deepseek-coder-6.7b-rl-night1-step250",
@@ -480,6 +480,11 @@
      "id": "deepseek-coder-6.7b-rl-night5-step250",
      "arm_id": "dsc6.7b-rl-night5-s250",
      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8 (checkpoint 5)"
+    },
+    {
+     "id": "deepseek-coder-6.7b-rl-night5-step500",
+     "arm_id": "dsc6.7b-rl-night5-s500",
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8 (checkpoint 10)"
     },
     {
      "id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
@@ -610,7 +615,7 @@
    "unregistered": [],
    "in_side_block": [],
    "panel_conflicts": [],
-   "line": "33 study models with results are off the panel; their fits appear in their own block when served"
+   "line": "34 study models with results are off the panel; their fits appear in their own block when served"
   },
   "cleaned_arms_unified": [
    "openai/gpt-5-mini",
@@ -623,7 +628,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-27T14:28:45Z",
+   "_stamp": "2026-09-27T17:25:46Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -789,9 +794,9 @@
   }
  },
  "files": {
-  "shared": "shared.6f5f3415b67e.json",
-  "chain_average": "chain_average.6f5f3415b67e.json",
-  "chain_median": "chain_median.6f5f3415b67e.json",
-  "dots": "dots.6f5f3415b67e.json"
+  "shared": "shared.5b7b2e61cfc5.json",
+  "chain_average": "chain_average.5b7b2e61cfc5.json",
+  "chain_median": "chain_median.5b7b2e61cfc5.json",
+  "dots": "dots.5b7b2e61cfc5.json"
  }
 }
