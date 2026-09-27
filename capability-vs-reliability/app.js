@@ -1256,7 +1256,7 @@ function capOrder(indices) {
 }
 // A VARIANT SITS RIGHT AFTER ITS BASE (the project maintainers' word of 25 Sep 13:4x: on every chip row the base first, then its variants and fine-tunes, so the
 // comparison is visible before a toggle; the reference LADDER ORDER row reads it so): the row keeps the capability order, and a label that names a base present
-// in the row followed by a parenthesis or a variant clause ('Opus 5 (thinking)', 'Qwen3 4B (2507)', 'Qwen3 8B · code RL') moves to directly after that base,
+// in the row followed by a parenthesis or a variant clause ('Opus 5 (thinking)', 'Qwen3 4B (2507)', 'DeepSeek-Coder 6.7B · RL on all tasks') moves to directly after that base,
 // variants of one base keeping their capability order among themselves; a checkpoint chip '(checkpoint k)' is a series, not a variant, and a variant whose
 // plain base is not in the row stays where the capability order put it
 function variantBase(label) {
@@ -1276,7 +1276,7 @@ function variantsAfterBase(order) {
   order.forEach(function (i) { if (placed[i]) return; out.push(i); (after[i] || []).forEach(function (v) { out.push(v); }); });
   return out;
 }
-// FAMILY LABELS OF RECORD (models, the names maintainers, 26 Sep 20:3x: the project coinage 'Qwen2.5-Instruct' retires on the faces — the family's name is 'Qwen2.5', the coder line
+// FAMILY LABELS OF RECORD (models, the names maintainers, 26 Sep 20:3x: the coinage 'Qwen2.5-Instruct' retires on the faces — the family's name is 'Qwen2.5', the coder line
 // 'Qwen2.5-Coder'; 'Instruct' stays in ids and data fields): the dataset's fam key is kept for grouping and ordering, the printed label maps here until the shared builder writes the name
 var FAMILY_LABEL = { 'Qwen2.5-Instruct': 'Qwen2.5' };
 function famLabel(f) { return FAMILY_LABEL[f] || f; }
@@ -2752,7 +2752,7 @@ function hoverWire() {
   function showFor(ev) {
     var g = ev.target.closest ? ev.target.closest('[data-i]') : null;
     if (!g || state.view !== 'scatter') { if (ev.type === 'pointerdown' || !tipPinned) { tipPinned = false; Kit.tooltip.hide(); } return; }
-    if (ev.type === 'pointerdown' && ev.pointerType === 'touch') tipPinned = true;   // TAP = pinned readout (project phone rule)
+    if (ev.type === 'pointerdown' && ev.pointerType === 'touch') tipPinned = true;   // TAP = pinned readout (the phone rule)
     var i = +g.dataset.i;
     var c = D.shared.configs[i];
     var la = logit(state.a / 100), lc = logit(state.c / 100);
