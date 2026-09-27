@@ -1,5 +1,10 @@
 {
- "fingerprint": "2170daa5ba76",
+ "fingerprint": "29e76d8d3e27",
+ "fingerprint_inputs": {
+  "content": "c076522ff536",
+  "wave": "golden-board-20260904T1407Z",
+  "body": "65179d724078"
+ },
  "frame": {
   "dataset": "board",
   "dataset_label": "wave 1 (438 tasks): 431 of wave 1 + seven tasks outside both waves, the list kept on 4 September 2026",
@@ -29,17 +34,17 @@
    "wave_2": 0,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "acba0165d96f",
+  "runs_fingerprint": "1dd16d589819",
   "axis_wave": "golden-board-20260904T1407Z",
   "build_date": "2026-09-27",
-  "stamp": "2026-09-27T12:06:56Z",
+  "stamp": "2026-09-27T15:24:58Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-27T11:15:03Z",
+   "unified_built_at": "2026-09-27T15:18:41Z",
    "board_cells_source": "pages/failure-vs-difficulty/artifacts/fail_counts_matrix.csv",
    "board_landing_id": "2026-09-25T14:50:00Z",
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.golden.board.csv"
@@ -209,7 +214,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-27T11:24:53Z",
+   "_stamp": "2026-09-27T14:28:45Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -375,9 +380,9 @@
   }
  },
  "files": {
-  "shared": "shared.2170daa5ba76.json",
-  "chain_average": "chain_average.2170daa5ba76.json",
-  "chain_median": "chain_median.2170daa5ba76.json",
-  "dots": "dots.2170daa5ba76.json"
+  "shared": "shared.29e76d8d3e27.json",
+  "chain_average": "chain_average.29e76d8d3e27.json",
+  "chain_median": "chain_median.29e76d8d3e27.json",
+  "dots": "dots.29e76d8d3e27.json"
  }
 }

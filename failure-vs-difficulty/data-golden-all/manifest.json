@@ -1,5 +1,10 @@
 {
- "fingerprint": "d284bfc0fa1e",
+ "fingerprint": "636b49f7077c",
+ "fingerprint_inputs": {
+  "content": "6fca361f08d0",
+  "wave": "combined-20260909T1322Z",
+  "body": "fa14eadfa843"
+ },
  "frame": {
   "dataset": "all",
   "dataset_label": "wave 1+2 (2,284 tasks): 431 of wave 1 + 1,751 of wave 2 + 102 tasks outside both waves, the list kept on 9 September 2026",
@@ -29,17 +34,17 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "acba0165d96f",
+  "runs_fingerprint": "1dd16d589819",
   "axis_wave": "combined-20260909T1322Z",
   "build_date": "2026-09-27",
-  "stamp": "2026-09-27T12:08:15Z",
+  "stamp": "2026-09-27T15:26:49Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-27T11:15:03Z",
+   "unified_built_at": "2026-09-27T15:18:41Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.golden.all.csv"
@@ -227,7 +232,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-27T11:24:53Z",
+   "_stamp": "2026-09-27T15:25:18Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -393,9 +398,9 @@
   }
  },
  "files": {
-  "shared": "shared.d284bfc0fa1e.json",
-  "chain_average": "chain_average.d284bfc0fa1e.json",
-  "chain_median": "chain_median.d284bfc0fa1e.json",
-  "dots": "dots.d284bfc0fa1e.json"
+  "shared": "shared.636b49f7077c.json",
+  "chain_average": "chain_average.636b49f7077c.json",
+  "chain_median": "chain_median.636b49f7077c.json",
+  "dots": "dots.636b49f7077c.json"
  }
 }
