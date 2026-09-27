@@ -1,9 +1,9 @@
 {
- "fingerprint": "327c25caa504",
+ "fingerprint": "6a6547dcbd2a",
  "fingerprint_inputs": {
-  "content": "ffbb64c5198f",
+  "content": "0b9e9c5aaad7",
   "wave": "combined-20260910T2209Z",
-  "body": "216fd07151c5"
+  "body": "2e519493f60f"
  },
  "frame": {
   "dataset": "board_top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 61,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "ffbb64c5198f",
+  "inputs_content_sha": "0b9e9c5aaad7",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "56e9d422a73a",
+  "runs_fingerprint": "1dd16d589819",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-09-27",
-  "stamp": "2026-09-27T12:46:27Z",
+  "stamp": "2026-09-27T15:14:07Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -48,7 +48,7 @@
    "deepseek-coder-6.7b-rl-night2-step250": 430,
    "deepseek-coder-6.7b-rl-night2-step500": 430,
    "deepseek-coder-6.7b-rl-night3-step250": 430,
-   "deepseek-coder-6.7b-rl-night3-step500": 358,
+   "deepseek-coder-6.7b-rl-night3-step500": 430,
    "deepseek-coder-6.7b-rl-night4-step250": 430,
    "deepseek-coder-6.7b-rl-night5-step250": 430,
    "olmo-3-7b-think-final-Thinking": 430,
@@ -81,7 +81,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-27T12:14:22Z",
+   "unified_built_at": "2026-09-27T14:29:16Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -18741,7 +18741,7 @@
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "disclosure": "a model fitted alongside the set, outside the axis panel, positioned on the served wave 1+2 axis unchanged; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "gates_failed": true,
-     "gate_face": "every attempt failed on 24% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's interval is wider",
+     "gate_face": "every attempt failed on 24% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's uncertainty band is wider",
      "bayes_avg": {
       "zgrid": [
        -7.9021,
@@ -24829,7 +24829,7 @@
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "disclosure": "a checkpoint of one training run (checkpoint 0), positioned on the served wave 1+2 axis unchanged; the earliest checkpoint read, the one the others are shown beside; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "gates_failed": true,
-     "gate_face": "every attempt failed on 37% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's interval is wider",
+     "gate_face": "every attempt failed on 37% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's uncertainty band is wider",
      "bayes_avg": {
       "zgrid": [
        -7.9021,
@@ -26854,7 +26854,7 @@
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "disclosure": "a checkpoint of one training run (checkpoint 1), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "gates_failed": true,
-     "gate_face": "every attempt failed on 38% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's interval is wider",
+     "gate_face": "every attempt failed on 38% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's uncertainty band is wider",
      "bayes_avg": {
       "zgrid": [
        -7.9021,
@@ -32929,7 +32929,7 @@
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "disclosure": "a checkpoint of one training run (checkpoint 32), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "gates_failed": true,
-     "gate_face": "every attempt failed on 36% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's interval is wider",
+     "gate_face": "every attempt failed on 36% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's uncertainty band is wider",
      "bayes_avg": {
       "zgrid": [
        -7.9021,
@@ -36979,7 +36979,7 @@
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "disclosure": "a checkpoint of one training run (checkpoint 8), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "gates_failed": true,
-     "gate_face": "every attempt failed on 38% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's interval is wider",
+     "gate_face": "every attempt failed on 38% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's uncertainty band is wider",
      "bayes_avg": {
       "zgrid": [
        -7.9021,
@@ -41048,7 +41048,7 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (checkpoint 0), positioned on the served wave 1+2 axis unchanged; the earliest checkpoint read, the one the others are shown beside; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": true,
-      "gate_face": "every attempt failed on 37% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's interval is wider",
+      "gate_face": "every attempt failed on 37% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's uncertainty band is wider",
       "bayes_avg": {
        "zgrid": [
         -7.9021,
@@ -43073,7 +43073,7 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (checkpoint 1), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": true,
-      "gate_face": "every attempt failed on 38% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's interval is wider",
+      "gate_face": "every attempt failed on 38% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's uncertainty band is wider",
       "bayes_avg": {
        "zgrid": [
         -7.9021,
@@ -49148,7 +49148,7 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (checkpoint 32), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": true,
-      "gate_face": "every attempt failed on 36% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's interval is wider",
+      "gate_face": "every attempt failed on 36% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's uncertainty band is wider",
       "bayes_avg": {
        "zgrid": [
         -7.9021,
@@ -53198,7 +53198,7 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (checkpoint 8), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": true,
-      "gate_face": "every attempt failed on 38% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's interval is wider",
+      "gate_face": "every attempt failed on 38% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's uncertainty band is wider",
       "bayes_avg": {
        "zgrid": [
         -7.9021,
@@ -57266,7 +57266,7 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (checkpoint 0), positioned on the served wave 1+2 axis unchanged; the earliest checkpoint read, the one the others are shown beside; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": true,
-      "gate_face": "every attempt failed on 14% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's interval is wider",
+      "gate_face": "every attempt failed on 14% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's uncertainty band is wider",
       "bayes_avg": {
        "zgrid": [
         -7.9021,
@@ -63341,7 +63341,7 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (checkpoint 1), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": true,
-      "gate_face": "every attempt failed on 14% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's interval is wider",
+      "gate_face": "every attempt failed on 14% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's uncertainty band is wider",
       "bayes_avg": {
        "zgrid": [
         -7.9021,
@@ -65366,7 +65366,7 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (checkpoint 3), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": true,
-      "gate_face": "every attempt failed on 14% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's interval is wider",
+      "gate_face": "every attempt failed on 14% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's uncertainty band is wider",
       "bayes_avg": {
        "zgrid": [
         -7.9021,
@@ -83867,7 +83867,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-27T12:24:39Z",
+   "_stamp": "2026-09-27T14:28:45Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -84033,9 +84033,9 @@
   }
  },
  "files": {
-  "shared": "shared.327c25caa504.json",
-  "chain_average": "chain_average.327c25caa504.json",
-  "chain_median": "chain_median.327c25caa504.json",
-  "dots": "dots.327c25caa504.json"
+  "shared": "shared.6a6547dcbd2a.json",
+  "chain_average": "chain_average.6a6547dcbd2a.json",
+  "chain_median": "chain_median.6a6547dcbd2a.json",
+  "dots": "dots.6a6547dcbd2a.json"
  }
 }
