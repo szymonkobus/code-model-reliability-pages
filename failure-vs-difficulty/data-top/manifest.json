@@ -1,5 +1,10 @@
 {
- "fingerprint": "4abe941c8364",
+ "fingerprint": "6f5f3415b67e",
+ "fingerprint_inputs": {
+  "content": "0078cb0cf725",
+  "wave": "pool-20260910T2244Z",
+  "body": "60bd51e3464e"
+ },
  "frame": {
   "dataset": "top",
   "dataset_label": "wave 2 (866 tasks), the list kept on 10 September 2026; wave 2 parked (879 tasks) left out",
@@ -19,7 +24,7 @@
   "difficulty_population_M": 58,
   "tasks": 858,
   "keep_set_hash": "532d0efad8a5",
-  "inputs_content_sha": "2d888a577a12",
+  "inputs_content_sha": "0078cb0cf725",
   "tasks_on_axis": 858,
   "tasks_kept": 858,
   "tasks_awaiting_axis": 0,
@@ -29,17 +34,17 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "acba0165d96f",
+  "runs_fingerprint": "1dd16d589819",
   "axis_wave": "pool-20260910T2244Z",
   "build_date": "2026-09-27",
-  "stamp": "2026-09-27T12:04:55Z",
+  "stamp": "2026-09-27T15:21:49Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-27T11:15:03Z",
+   "unified_built_at": "2026-09-27T15:18:41Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.top.csv"
@@ -376,7 +381,7 @@
     "min_ell_arm": "deepseek-ai--DeepSeek-R1-Distill-Qwen-32B_think_temp_0.6",
     "min_ell_median": 0.386,
     "r_at_min_ell": 0.1529,
-    "disclosure": "basis beyond the measured no-move band (r 0.15; band to 0.129): whether the served crossings moved is measured at this set's re-fit, not yet landed",
+    "disclosure": "basis beyond the measured no-move band (r 0.15; band to 0.129): whether the served crossings moved is measured at this set's re-fit",
     "disclosure_rule": "a served fit's basis is adequate when its re-fit at the ruled basis moves none of the served crossings beyond the run-to-run noise floor (measured no-move band); the 1% design criterion applies to new cuts only",
     "computed_at": "2026-09-13T06:54:37Z",
     "rule": "design rule for new cuts: adequate iff r(min ell) <= 1e-2, r = exp(-1/4(ell w_M)^2)/exp(-1/4(ell w_1)^2), w_j = j*pi/(2L); served fits are judged by the measured no-move band (see the disclosure rule)"
@@ -618,7 +623,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-27T11:24:53Z",
+   "_stamp": "2026-09-27T14:28:45Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -784,9 +789,9 @@
   }
  },
  "files": {
-  "shared": "shared.4abe941c8364.json",
-  "chain_average": "chain_average.4abe941c8364.json",
-  "chain_median": "chain_median.4abe941c8364.json",
-  "dots": "dots.4abe941c8364.json"
+  "shared": "shared.6f5f3415b67e.json",
+  "chain_average": "chain_average.6f5f3415b67e.json",
+  "chain_median": "chain_median.6f5f3415b67e.json",
+  "dots": "dots.6f5f3415b67e.json"
  }
 }
