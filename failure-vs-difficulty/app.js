@@ -2094,7 +2094,7 @@ function mountExport() {   // once: the reference control under the chart; the f
   Kit.exportButton(box, exportOptions);
 }
 function isThinkArm(a) { return !!(a && (a.think || /think/i.test(String(a.id || a.stem || a.run || '')))); }   // a thinking variant's line is dashed, a run row's checkpoints included (the project maintainers' question of 24 Sep, 14:0x UK)
-function curveDash(c) { return (c.think || isThinkArm(c)) ? '6 4' : (c.variant_pattern === 'dash-dot' ? '4 1.5 1.5 1.5' : (c.variant ? '1.5 2.5' : '')); }   // the same dashes render draws
+function curveDash(c) { if (c && c.run_dash != null) return String(c.run_dash); return (c.think || isThinkArm(c)) ? '6 4' : (c.variant_pattern === 'dash-dot' ? '4 1.5 1.5 1.5' : (c.variant ? '1.5 2.5' : '')); }   // a training run's arms carry the run's own pattern from the bundle (27 Sep: five runs of one base share one hue)   // the same dashes render draws
 function exportLegend() {   // one row per drawn model, in the plot's order
   var rows = [];
   var visible = Array.from(sel).filter(shownArm).sort(function (a, b) { return a - b; });
