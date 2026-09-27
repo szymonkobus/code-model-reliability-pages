@@ -1,5 +1,10 @@
 {
- "fingerprint": "432b3ab771b1",
+ "fingerprint": "bc712281d0cf",
+ "fingerprint_inputs": {
+  "content": "d779986f5ec7",
+  "wave": "aime-live",
+  "body": "5dbe6aa3b72d"
+ },
  "frame": {
   "dataset": "aime",
   "dataset_label": "AIME (60 problems)",
@@ -25,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "dc5cbadfe267",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "9a2e472729f7",
+  "runs_fingerprint": "c18c922e6c96",
   "axis_wave": "aime-live",
   "build_date": "2026-09-27",
-  "stamp": "2026-09-27T10:54:53Z",
+  "stamp": "2026-09-27T14:00:53Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/aime",
-   "unified_built_at": "2026-09-27T10:02:53Z",
+   "unified_built_at": "2026-09-27T13:05:27Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.aime.csv"
@@ -4303,7 +4308,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-27T10:25:02Z",
+   "_stamp": "2026-09-27T13:27:09Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -4469,9 +4474,9 @@
   }
  },
  "files": {
-  "shared": "shared.432b3ab771b1.json",
-  "chain_average": "chain_average.432b3ab771b1.json",
-  "chain_median": "chain_median.432b3ab771b1.json",
-  "dots": "dots.432b3ab771b1.json"
+  "shared": "shared.bc712281d0cf.json",
+  "chain_average": "chain_average.bc712281d0cf.json",
+  "chain_median": "chain_median.bc712281d0cf.json",
+  "dots": "dots.bc712281d0cf.json"
  }
 }

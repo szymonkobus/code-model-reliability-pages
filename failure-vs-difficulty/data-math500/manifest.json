@@ -1,5 +1,10 @@
 {
- "fingerprint": "0746b70c6ca7",
+ "fingerprint": "4f1e74a244b7",
+ "fingerprint_inputs": {
+  "content": "2fa15b6f5117",
+  "wave": "math500-live",
+  "body": "a259422dc967"
+ },
  "frame": {
   "dataset": "math500",
   "dataset_label": "MATH-500 (500 problems)",
@@ -25,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "326e66dcd9ab",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "9a2e472729f7",
+  "runs_fingerprint": "c18c922e6c96",
   "axis_wave": "math500-live",
   "build_date": "2026-09-27",
-  "stamp": "2026-09-27T10:53:42Z",
+  "stamp": "2026-09-27T13:57:43Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/math500",
-   "unified_built_at": "2026-09-27T10:02:53Z",
+   "unified_built_at": "2026-09-27T13:05:27Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.math500.csv"
@@ -4374,7 +4379,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-27T10:25:02Z",
+   "_stamp": "2026-09-27T13:27:09Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -4540,9 +4545,9 @@
   }
  },
  "files": {
-  "shared": "shared.0746b70c6ca7.json",
-  "chain_average": "chain_average.0746b70c6ca7.json",
-  "chain_median": "chain_median.0746b70c6ca7.json",
-  "dots": "dots.0746b70c6ca7.json"
+  "shared": "shared.4f1e74a244b7.json",
+  "chain_average": "chain_average.4f1e74a244b7.json",
+  "chain_median": "chain_median.4f1e74a244b7.json",
+  "dots": "dots.4f1e74a244b7.json"
  }
 }
