@@ -1,9 +1,9 @@
 {
- "fingerprint": "371feaff0e3d",
+ "fingerprint": "87d80a41dddd",
  "fingerprint_inputs": {
-  "content": "ee37b56d9cb3",
+  "content": "a95091bd285d",
   "wave": "combined-20260910T2209Z",
-  "body": "5ec7b3d5becf"
+  "body": "ac597e72c428"
  },
  "frame": {
   "dataset": "board_top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 61,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "ee37b56d9cb3",
+  "inputs_content_sha": "a95091bd285d",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "0ebe08dc37dc",
+  "runs_fingerprint": "1aa1662f8f02",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-09-27",
-  "stamp": "2026-09-27T18:53:30Z",
+  "stamp": "2026-09-27T20:52:03Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -50,6 +50,7 @@
    "deepseek-coder-6.7b-rl-night3-step250": 430,
    "deepseek-coder-6.7b-rl-night3-step500": 430,
    "deepseek-coder-6.7b-rl-night4-step250": 430,
+   "deepseek-coder-6.7b-rl-night4-step500": 288,
    "deepseek-coder-6.7b-rl-night5-step250": 430,
    "deepseek-coder-6.7b-rl-night5-step500": 430,
    "olmo-3-7b-think-final-Thinking": 430,
@@ -82,7 +83,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-27T18:17:04Z",
+   "unified_built_at": "2026-09-27T20:14:43Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -91757,7 +91758,7 @@
    }
   ],
   "off_panel": {
-   "n_with_cells": 35,
+   "n_with_cells": 36,
    "arms": [
     {
      "id": "deepseek-coder-6.7b-rl-night1-step250",
@@ -91793,6 +91794,11 @@
      "id": "deepseek-coder-6.7b-rl-night4-step250",
      "arm_id": "dsc6.7b-rl-night4-s250",
      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8 (checkpoint 5)"
+    },
+    {
+     "id": "deepseek-coder-6.7b-rl-night4-step500",
+     "arm_id": "dsc6.7b-rl-night4-s500",
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8 (checkpoint 10)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night5-step250",
@@ -91950,7 +91956,7 @@
     "qwen35_9b_base_sft_maths_completion"
    ],
    "panel_conflicts": [],
-   "line": "24 study models with results are off the panel; their fits appear in their own block when served"
+   "line": "25 study models with results are off the panel; their fits appear in their own block when served"
   },
   "cleaned_arms_unified": [
    "openai/gpt-5-mini",
@@ -91963,7 +91969,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-27T18:25:38Z",
+   "_stamp": "2026-09-27T20:24:42Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -92129,9 +92135,9 @@
   }
  },
  "files": {
-  "shared": "shared.371feaff0e3d.json",
-  "chain_average": "chain_average.371feaff0e3d.json",
-  "chain_median": "chain_median.371feaff0e3d.json",
-  "dots": "dots.371feaff0e3d.json"
+  "shared": "shared.87d80a41dddd.json",
+  "chain_average": "chain_average.87d80a41dddd.json",
+  "chain_median": "chain_median.87d80a41dddd.json",
+  "dots": "dots.87d80a41dddd.json"
  }
 }
