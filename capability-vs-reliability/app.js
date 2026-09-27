@@ -480,7 +480,7 @@ function readBayesRow(r, levLogit, B) {   // B = the artifact the row belongs to
            hi_open: lt.hi_open[j0] || lt.hi_open[j],
            lo_open: lt.lo_open[j0] || lt.lo_open[j],
            extra: (interimNote ? interimNote + ' \u00b7 ' : '') + (state.def === 'average'
-               ? (r.avg_source === 'exact' ? '80% credible band (crossing draws, average-rate)' : B.whisker_label_avg) : B.whisker_label)
+               ? (r.avg_source === 'exact' ? '80% uncertainty band (crossing draws, average-rate)' : B.whisker_label_avg) : B.whisker_label)
              + (pc !== null
                 ? ' · ' + Math.round(pc * 100) + '% of draws censored'
                 : '')
@@ -534,7 +534,7 @@ function reading(i, levLogit, axis) {
              extra: 'Capability C = ' + bc.C
                + (bc.ci80_C
                   ? ' [' + bc.ci80_C[0] + ', ' + bc.ci80_C[1]
-                    + '] 80% bootstrap interval (difficulty\u2019s chain)'
+                    + '] 80% uncertainty band (bootstrap, difficulty\u2019s chain)'
                   : ' (mean solve chance, calibrated pool), placed at '
                     + 'its capability C position on the difficulty scale \u2014 uncertainty chain requested, '
                     + 'whiskers land with difficulty\u2019s bootstrap') };
@@ -2407,9 +2407,9 @@ function vocabNote() {   // reserved slot (#vocabnote, fixed height): the adopte
 }
 function avgWhiskerLabel() {   // the average-rate whisker label follows what the drawn arms carry, not the artifact-level default
   var rows = (D.bay && D.bay.rows) || [], nEx = rows.filter(function (r) { return r.avg_source === 'exact'; }).length;
-  if (rows.length && nEx === rows.length) return '80% credible band (crossing draws, average-rate)';
+  if (rows.length && nEx === rows.length) return '80% uncertainty band (crossing draws, average-rate)';
   if (!nEx) return D.bay ? D.bay.whisker_label_avg : '';
-  return '80% credible band (crossing draws where exported; band-inverted otherwise)';
+  return '80% uncertainty band (crossing draws where exported; band-inverted otherwise)';
 }
 function narrate(visible, nFull) {
   var src = state.src === 'bayes'
@@ -2520,7 +2520,7 @@ function notes() {
   if (isCap()) {
     var capw = capBlock() && capBlock().by_cfg[
       D.shared.configs[0].id].ci80_z
-      ? ' Whiskers: 80% bootstrap interval (task draw, finite attempts, '
+      ? ' Whiskers: 80% uncertainty band (bootstrap: task draw, finite attempts, '
         + 'and level re-estimation captured jointly; the model roster is '
         + 'held fixed by construction \u2014 asymmetric whiskers near the '
         + 'floor/ceiling are real, not an error).'
