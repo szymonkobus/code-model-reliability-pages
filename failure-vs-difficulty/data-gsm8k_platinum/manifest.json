@@ -1,5 +1,5 @@
 {
- "fingerprint": "f92b219a7e32",
+ "fingerprint": "c9fa6ee7a270",
  "frame": {
   "dataset": "gsm8k_platinum",
   "dataset_label": "GSM8K-Platinum (1,209 problems): every problem of the set",
@@ -11,28 +11,28 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 41,
-  "fitted_M": 41,
-  "complete_M": 41,
-  "sampled_M": 41,
-  "difficulty_population_M": 41,
+  "population_M": 39,
+  "fitted_M": 39,
+  "complete_M": 39,
+  "sampled_M": 39,
+  "difficulty_population_M": 39,
   "tasks": 1209,
   "keep_set_hash": "ff1457decdf7",
-  "inputs_content_sha": "4f73fc55564b",
+  "inputs_content_sha": "725c72b5657a",
   "tasks_on_axis": 1209,
   "tasks_kept": 1209,
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ff1457decdf7",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "9a2e472729f7",
+  "runs_fingerprint": "e988bcaed78a",
   "axis_wave": "gsm8k_platinum-live",
   "build_date": "2026-09-27",
-  "stamp": "2026-09-27T10:57:06Z",
+  "stamp": "2026-09-27T11:50:27Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/gsm8k_platinum",
-   "unified_built_at": "2026-09-27T10:02:53Z",
+   "unified_built_at": "2026-09-27T11:48:34Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.gsm8k_platinum.csv"
@@ -122,10 +122,6 @@
     "tasks": 1209,
     "of": 1209
    },
-   "Qwen/Qwen2.5-7B-Instruct_t1.0": {
-    "tasks": 1209,
-    "of": 1209
-   },
    "Qwen/Qwen2.5-14B-Instruct": {
     "tasks": 1209,
     "of": 1209
@@ -151,10 +147,6 @@
     "of": 1209
    },
    "Qwen/Qwen3-4B": {
-    "tasks": 1209,
-    "of": 1209
-   },
-   "Qwen/Qwen3-4B_t1.0": {
     "tasks": 1209,
     "of": 1209
    },
@@ -234,7 +226,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-27T10:25:02Z",
+   "_stamp": "2026-09-27T11:24:53Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -400,9 +392,9 @@
   }
  },
  "files": {
-  "shared": "shared.f92b219a7e32.json",
-  "chain_average": "chain_average.f92b219a7e32.json",
-  "chain_median": "chain_median.f92b219a7e32.json",
-  "dots": "dots.f92b219a7e32.json"
+  "shared": "shared.c9fa6ee7a270.json",
+  "chain_average": "chain_average.c9fa6ee7a270.json",
+  "chain_median": "chain_median.c9fa6ee7a270.json",
+  "dots": "dots.c9fa6ee7a270.json"
  }
 }

@@ -1,5 +1,5 @@
 {
- "fingerprint": "ccffea7bbdf9",
+ "fingerprint": "a3ba2a43697e",
  "frame": {
   "dataset": "ifeval",
   "dataset_label": "IFEval (541 tasks): every problem of the set",
@@ -11,28 +11,28 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 35,
-  "fitted_M": 35,
-  "complete_M": 35,
-  "sampled_M": 35,
-  "difficulty_population_M": 35,
+  "population_M": 33,
+  "fitted_M": 33,
+  "complete_M": 33,
+  "sampled_M": 33,
+  "difficulty_population_M": 33,
   "tasks": 541,
   "keep_set_hash": "ea009d5c6cd1",
-  "inputs_content_sha": "4f0a66868eb4",
+  "inputs_content_sha": "a85ef44d4e2a",
   "tasks_on_axis": 541,
   "tasks_kept": 541,
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ea009d5c6cd1",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "9a2e472729f7",
+  "runs_fingerprint": "e988bcaed78a",
   "axis_wave": "ifeval-live",
   "build_date": "2026-09-27",
-  "stamp": "2026-09-27T10:58:01Z",
+  "stamp": "2026-09-27T11:52:19Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/ifeval",
-   "unified_built_at": "2026-09-27T10:02:53Z",
+   "unified_built_at": "2026-09-27T11:48:34Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.ifeval.csv"
@@ -118,10 +118,6 @@
     "tasks": 541,
     "of": 541
    },
-   "Qwen/Qwen2.5-7B-Instruct_t1.0": {
-    "tasks": 541,
-    "of": 541
-   },
    "Qwen/Qwen2.5-14B-Instruct": {
     "tasks": 541,
     "of": 541
@@ -155,10 +151,6 @@
     "of": 541
    },
    "Qwen/Qwen3-8B": {
-    "tasks": 541,
-    "of": 541
-   },
-   "Qwen/Qwen3-8B_t1.0": {
     "tasks": 541,
     "of": 541
    },
@@ -210,7 +202,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-27T10:25:02Z",
+   "_stamp": "2026-09-27T11:24:53Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -376,9 +368,9 @@
   }
  },
  "files": {
-  "shared": "shared.ccffea7bbdf9.json",
-  "chain_average": "chain_average.ccffea7bbdf9.json",
-  "chain_median": "chain_median.ccffea7bbdf9.json",
-  "dots": "dots.ccffea7bbdf9.json"
+  "shared": "shared.a3ba2a43697e.json",
+  "chain_average": "chain_average.a3ba2a43697e.json",
+  "chain_median": "chain_median.a3ba2a43697e.json",
+  "dots": "dots.a3ba2a43697e.json"
  }
 }
