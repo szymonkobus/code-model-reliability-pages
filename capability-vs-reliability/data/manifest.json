@@ -143,7 +143,7 @@
    },
    "source_stamp": "2026-09-27T17:59:47Z",
    "source_fp": "a78db09dbd4e",
-   "updated_at": "2026-09-27T18:19:43Z",
+   "updated_at": "2026-09-27T18:34:21Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -191,7 +191,7 @@
    },
    "source_stamp": "2026-09-27T18:13:44Z",
    "source_fp": "9061e9b24fb4",
-   "updated_at": "2026-09-27T18:19:55Z",
+   "updated_at": "2026-09-27T18:34:33Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -240,7 +240,7 @@
    },
    "source_stamp": "2026-09-27T18:14:10Z",
    "source_fp": "4f1eab493528",
-   "updated_at": "2026-09-27T18:20:09Z",
+   "updated_at": "2026-09-27T18:34:49Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -289,7 +289,7 @@
    },
    "source_stamp": "2026-09-27T18:15:24Z",
    "source_fp": "4fe79e4156ba",
-   "updated_at": "2026-09-27T18:20:27Z",
+   "updated_at": "2026-09-27T18:35:04Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -339,7 +339,7 @@
    },
    "source_stamp": "2026-09-27T18:04:49Z",
    "source_fp": "35b6659f61c8",
-   "updated_at": "2026-09-27T18:21:57Z",
+   "updated_at": "2026-09-27T18:36:25Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -357,8 +357,7 @@
     "declared": true
    },
    "missing": {
-    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
-    "capC_z": "Capability C names neither a row nor an exclusion for 2 arm(s) (olmo-3.1-7b-rl-zero-code-final_completion, olmo-3-7b-think-final-Thinking) \u2014 waits for difficulty's re-emit"
+    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry"
    }
   },
   "top": {
@@ -395,7 +394,7 @@
    },
    "source_stamp": "2026-09-27T18:09:49Z",
    "source_fp": "5b7b2e61cfc5",
-   "updated_at": "2026-09-27T18:23:08Z",
+   "updated_at": "2026-09-27T18:37:48Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -452,7 +451,7 @@
    },
    "source_stamp": "2026-09-27T18:03:24Z",
    "source_fp": "bdf36b5fba4a",
-   "updated_at": "2026-09-27T18:23:24Z",
+   "updated_at": "2026-09-27T18:38:03Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -509,7 +508,7 @@
    },
    "source_stamp": "2026-09-27T18:04:08Z",
    "source_fp": "e14cc9551ba8",
-   "updated_at": "2026-09-27T18:23:42Z",
+   "updated_at": "2026-09-27T18:38:15Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -535,5 +534,9 @@
   "new_total": 1762,
   "all": 2192,
   "source": "task-pool/knowledge/counts_of_record.json (original_kept, new_focused, new_parked, new_total)"
+ },
+ "run_sets": {
+  "file": "olmo_run.json",
+  "note": "the checkpoint series and training runs, one set per run: the row heading (set.name), the printed chips (configs[].label), the names of record (display_name), the registry colour and marker; the page reads it at this path beside the datasets"
  }
 }
