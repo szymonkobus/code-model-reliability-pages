@@ -272,7 +272,7 @@ function refreshPartialChips() {   // the project maintainers 2026-09-07  (via f
   chips.forEach(function (b) { var i = +b.dataset.idx, c = D.shared.configs[i]; if (!c) return;
     var words = [];   // the chip's hover, in order: the mark, the run and its clause, the board twin's standing, the flag, then the coverage
     if (c.think) words.push('thinking mode \u2014 open marker on the chart');
-    if (c.run) { var Rw = runOf(i) || RUN; words.push(c.display_name || (Rw ? Rw.name + ' \u2014 ' : '') + c.label); }   // the full display name of record on hover (the labels rows' maintainers, 22 Sep); the run's clause is on the run line's label and the frame line, not on every chip (the maintainers F133, 23 Sep: hovers within 300 characters)
+    if (c.run) { var Rw = runOf(i) || RUN; words.push(c.shared_page_label || c.display_name || (Rw ? Rw.name + ' \u2014 ' : '') + c.label); }   // 27 Sep: outside its run's row a checkpoint is named by the labels rows' shared_page_label (run · k/N), the name of record with the checkpoint tail as fallback   // the full display name of record on hover (the labels rows' maintainers, 22 Sep); the run's clause is on the run line's label and the frame line, not on every chip (the maintainers F133, 23 Sep: hovers within 300 characters)
     if (c.alongside) words.push('positioned on the served axis, not shaping it \u2014 its fit from the ' + c.alongside + ' series, read alongside the board fit set');   // difficulty's word of 22 Sep
     if (c.provisional) words.push(c.provisional_note || 'provisional position: a fast estimate; the fit of record replaces it');
     if (c.gates_failed) words.push('flagged fit: ' + (c.gate_flag || 'the fit failed a sampler gate'));   // a flagged fit is shown with its flag and its sentence, never plain (Definitions, 22 Sep); the sentence of record follows the word
@@ -608,7 +608,7 @@ function mergeRunSet(raw) {
         var r = rowsById[c.id];   // bottom row): the board's twin config joins the run — the run's label, colour and mark, out of the top row and the fitted line; its series fit stands in under the Bayesian source when the board fit set has none
         if (r && !haveRow[twin.id]) { var r2 = {}; Object.keys(r).forEach(function (kk) { r2[kk] = r[kk]; }); r2.cfg = twin.id; r2.alongside = R.key; delete r2.run; D.bay.rows.push(r2); haveRow[twin.id] = true; if (D.bayById) D.bayById[twin.id] = r2; if (D.unfitted && D.unfitted[twin.id]) delete D.unfitted[twin.id]; }   // the series fit stands in for a board model the board fit set left unfitted (the Think final, 23 Sep)
         if (R.finalOnBoard) { var ti = D.shared.configs.indexOf(twin); twin.series = R.key; R.dualLabel = R.dualLabel || {}; R.dualLabel[ti] = c.label || twin.label; twin.gates_failed = twin.gates_failed || !!c.gates_failed; if (c.gates_failed && !twin.gate_flag) twin.gate_flag = c.gate_flag; R.idx.push(ti); R.dual.push(ti); R.folded.push(twin.id); return; }   // the board's chip stays; the run's row shows the same model again
-        twin.run = true; twin.series = R.key; twin.board_label = twin.label; twin.label = c.label || twin.label; twin.display_name = c.display_name || twin.display_name; twin.fam = c.fam || twin.fam;
+        twin.run = true; twin.series = R.key; twin.board_label = twin.label; twin.label = c.label || twin.label; twin.display_name = c.display_name || twin.display_name; twin.shared_page_label = c.shared_page_label || twin.shared_page_label; twin.fam = c.fam || twin.fam;
         twin.step = c.step; twin.index = c.index; if (c.color) twin.color = c.color; twin.think = !!c.think; twin.alongside = R.name;
         if (c.gates_failed) { twin.gates_failed = true; twin.gate_flag = c.gate_flag; if (!twin.disclosure) twin.disclosure = c.gate_flag; }
         R.idx.push(D.shared.configs.indexOf(twin)); R.folded.push(twin.id); return;
@@ -2199,7 +2199,7 @@ function exportLegend() {   // every drawn model grouped by family in the colour
     var mark = function (cx, cy) {   // the drawn path is an absolute M followed by relative commands: re-anchor it on the legend row
       return '<path d="' + d.replace(/^M[-\d.]+ [-\d.]+/, 'M' + cx + ' ' + cy) + '" fill="' + fill + '" stroke="' + stroke + '" stroke-width="' + sw + '"' + (op && +op < 1 ? ' opacity="' + op + '"' : '') + '/>';
     };
-    rows.push({ label: (c.display_name || c.label) + (grey ? ' (partial)' : '') + (c.provisional ? ' (provisional)' : ''), family: famLabel(c.fam), color: grey ? '#8b8477' : c.color, line: false, marker: mark });   // no fit-quality words in the export: the flag lives in the page's hover and tooltip   // legends carry the full display name of record (the labels rows' maintainers, 22 Sep)
+    rows.push({ label: ((c.run && c.shared_page_label) || c.display_name || c.label) + (grey ? ' (partial)' : '') + (c.provisional ? ' (provisional)' : ''), family: famLabel(c.fam), color: grey ? '#8b8477' : c.color, line: false, marker: mark });   // no fit-quality words in the export: the flag lives in the page's hover and tooltip   // legends carry the full display name of record (the labels rows' maintainers, 22 Sep)
   });
   // no grouped run row in the export (23 Sep 15:0x): each checkpoint drawn is its own row above
   return rows;
