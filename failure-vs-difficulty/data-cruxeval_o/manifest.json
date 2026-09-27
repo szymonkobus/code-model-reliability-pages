@@ -1,5 +1,5 @@
 {
- "fingerprint": "12731d5e6ed5",
+ "fingerprint": "3c340512e5b1",
  "frame": {
   "dataset": "cruxeval_o",
   "dataset_label": "CRUXEval-O (800 tasks): every problem of the set",
@@ -11,14 +11,14 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 42,
-  "fitted_M": 42,
-  "complete_M": 42,
-  "sampled_M": 42,
-  "difficulty_population_M": 42,
+  "population_M": 40,
+  "fitted_M": 40,
+  "complete_M": 40,
+  "sampled_M": 40,
+  "difficulty_population_M": 40,
   "tasks": 800,
   "keep_set_hash": "ceaae2d92751",
-  "inputs_content_sha": "05d9d987fc6b",
+  "inputs_content_sha": "879bf4101b16",
   "tasks_on_axis": 800,
   "tasks_kept": 800,
   "tasks_awaiting_axis": 0,
@@ -27,7 +27,7 @@
   "runs_fingerprint": "9a2e472729f7",
   "axis_wave": "cruxeval_o-live",
   "build_date": "2026-09-27",
-  "stamp": "2026-09-27T10:56:22Z",
+  "stamp": "2026-09-27T11:49:04Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
@@ -122,10 +122,6 @@
     "tasks": 800,
     "of": 800
    },
-   "Qwen/Qwen2.5-Coder-7B-Instruct_t1.0": {
-    "tasks": 800,
-    "of": 800
-   },
    "Qwen/Qwen2.5-Coder-14B-Instruct": {
     "tasks": 800,
     "of": 800
@@ -175,10 +171,6 @@
     "of": 800
    },
    "Qwen/Qwen3-8B": {
-    "tasks": 800,
-    "of": 800
-   },
-   "Qwen/Qwen3-8B_t1.0": {
     "tasks": 800,
     "of": 800
    },
@@ -238,7 +230,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-27T10:25:02Z",
+   "_stamp": "2026-09-27T11:24:53Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -404,9 +396,9 @@
   }
  },
  "files": {
-  "shared": "shared.12731d5e6ed5.json",
-  "chain_average": "chain_average.12731d5e6ed5.json",
-  "chain_median": "chain_median.12731d5e6ed5.json",
-  "dots": "dots.12731d5e6ed5.json"
+  "shared": "shared.3c340512e5b1.json",
+  "chain_average": "chain_average.3c340512e5b1.json",
+  "chain_median": "chain_median.3c340512e5b1.json",
+  "dots": "dots.3c340512e5b1.json"
  }
 }

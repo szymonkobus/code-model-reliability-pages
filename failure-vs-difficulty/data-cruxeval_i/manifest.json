@@ -1,5 +1,5 @@
 {
- "fingerprint": "b2331f050d22",
+ "fingerprint": "45f3e1ad80f2",
  "frame": {
   "dataset": "cruxeval_i",
   "dataset_label": "CRUXEval-I (800 tasks): every problem of the set",
@@ -11,14 +11,14 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 36,
-  "fitted_M": 36,
-  "complete_M": 36,
-  "sampled_M": 36,
-  "difficulty_population_M": 36,
+  "population_M": 35,
+  "fitted_M": 35,
+  "complete_M": 35,
+  "sampled_M": 35,
+  "difficulty_population_M": 35,
   "tasks": 800,
   "keep_set_hash": "ceaae2d92751",
-  "inputs_content_sha": "1ce36e9d97b8",
+  "inputs_content_sha": "7a27b32ad86a",
   "tasks_on_axis": 800,
   "tasks_kept": 800,
   "tasks_awaiting_axis": 0,
@@ -27,7 +27,7 @@
   "runs_fingerprint": "9a2e472729f7",
   "axis_wave": "cruxeval_i-live",
   "build_date": "2026-09-27",
-  "stamp": "2026-09-27T10:55:46Z",
+  "stamp": "2026-09-27T11:47:46Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
@@ -99,10 +99,6 @@
     "of": 800
    },
    "Qwen/Qwen2.5-Coder-7B-Instruct": {
-    "tasks": 800,
-    "of": 800
-   },
-   "Qwen/Qwen2.5-Coder-7B-Instruct_t1.0": {
     "tasks": 800,
     "of": 800
    },
@@ -214,7 +210,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-27T10:25:02Z",
+   "_stamp": "2026-09-27T11:24:53Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -380,9 +376,9 @@
   }
  },
  "files": {
-  "shared": "shared.b2331f050d22.json",
-  "chain_average": "chain_average.b2331f050d22.json",
-  "chain_median": "chain_median.b2331f050d22.json",
-  "dots": "dots.b2331f050d22.json"
+  "shared": "shared.45f3e1ad80f2.json",
+  "chain_average": "chain_average.45f3e1ad80f2.json",
+  "chain_median": "chain_median.45f3e1ad80f2.json",
+  "dots": "dots.45f3e1ad80f2.json"
  }
 }
