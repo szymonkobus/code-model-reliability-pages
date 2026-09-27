@@ -2626,7 +2626,8 @@ function heldCheck() {
   fetch(MOUNT + 'liveness.txt', { cache: 'no-store' }).then(function (r) { return r.ok ? r.text() : Promise.reject(r.status); })
     .then(function (t) {
       var ts = Date.parse(String(t).trim()), age = isFinite(ts) ? (Date.now() - ts) / 60000 : Infinity;
-      setHeld(age > 10 ? 'Held: the rebuild loop last ticked ' + (isFinite(ts) ? plainTs(new Date(ts).toISOString()) + ' (' + (age > 120 ? Math.round(age / 60) + ' hours' : Math.round(age) + ' minutes') + ' ago)' : 'at an unreadable time') + '; the numbers stand as built and refresh when it returns.' : '');
+      // 27 Sep (the project maintainers' word of 24 Sep: no hours, history or counts on a face): the held line names the state and the reader, never the minute or the age
+      setHeld(age > 10 ? 'Held: the rebuild loop is not ticking; the numbers stand as built and refresh when it returns.' : '');
     })
     .catch(function () { /* standalone copy: no rebuild loop, no held line */ });
 }
