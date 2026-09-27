@@ -1,5 +1,10 @@
 {
- "fingerprint": "a3ba2a43697e",
+ "fingerprint": "d9524fb1e00d",
+ "fingerprint_inputs": {
+  "content": "a85ef44d4e2a",
+  "wave": "ifeval-live",
+  "body": "4acbe021420b"
+ },
  "frame": {
   "dataset": "ifeval",
   "dataset_label": "IFEval (541 tasks): every problem of the set",
@@ -24,15 +29,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ea009d5c6cd1",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "e988bcaed78a",
+  "runs_fingerprint": "c18c922e6c96",
   "axis_wave": "ifeval-live",
   "build_date": "2026-09-27",
-  "stamp": "2026-09-27T11:52:19Z",
+  "stamp": "2026-09-27T15:03:51Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/ifeval",
-   "unified_built_at": "2026-09-27T11:48:34Z",
+   "unified_built_at": "2026-09-27T13:05:27Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.ifeval.csv"
@@ -202,7 +207,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-27T11:24:53Z",
+   "_stamp": "2026-09-27T14:28:45Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -368,9 +373,9 @@
   }
  },
  "files": {
-  "shared": "shared.a3ba2a43697e.json",
-  "chain_average": "chain_average.a3ba2a43697e.json",
-  "chain_median": "chain_median.a3ba2a43697e.json",
-  "dots": "dots.a3ba2a43697e.json"
+  "shared": "shared.d9524fb1e00d.json",
+  "chain_average": "chain_average.d9524fb1e00d.json",
+  "chain_median": "chain_median.d9524fb1e00d.json",
+  "dots": "dots.d9524fb1e00d.json"
  }
 }
