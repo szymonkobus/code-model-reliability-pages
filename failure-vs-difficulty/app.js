@@ -1073,7 +1073,7 @@ function renderSideBlock() {
       } else if (rr && rr.z != null && lvl === '50') {
         td.textContent = pct(rr.z).toFixed(1) + '%';
       } else {
-        td.textContent = cv ? fmtBayesCross(cv.src, lvl) : 'awaiting fit';
+        if (cv) { var fbc = fmtBayesCross(cv.src, lvl); td.textContent = fbc.cell; if (fbc.hover) td.title = fbc.hover; } else { td.textContent = '*'; td.title = 'no fit of record'; }   // the approved table form (27 Sep): one number per cell, * where not yet in
       }
       tr.appendChild(td);
     });
@@ -1156,7 +1156,7 @@ function renderSeriesRow(sb, ri) {   // the run's row: cloned from renderSideBlo
       } else if (rr && rr.z != null && lvl === '50') {
         td.textContent = pct(rr.z).toFixed(1) + '%';
       } else {
-        td.textContent = cv ? fmtBayesCross(cv.src, lvl) : 'awaiting fit';
+        if (cv) { var fbc = fmtBayesCross(cv.src, lvl); td.textContent = fbc.cell; if (fbc.hover) td.title = fbc.hover; } else { td.textContent = '*'; td.title = 'no fit of record'; }   // the approved table form (27 Sep): one number per cell, * where not yet in
       }
       tr.appendChild(td);
     });
@@ -1625,47 +1625,40 @@ function fmtBayesCross(bb, lvl) {   // lvl '50' | '1' (per cent); mid = q row 3,
   var zm = firstUp(bb.zgrid, bb.q[3], L);
   if (zm == null) {
     var top = Math.max.apply(null, bb.q[3].filter(function (v) { return v != null; }));
-    return top < L ? '≥ ' + pct(bb.zgrid[bb.zgrid.length - 1]).toFixed(1) + '% (never reached on the grid)' : '≤ ' + pct(bb.zgrid[0]).toFixed(1) + '%';
+    return top < L ? { cell: '>' + pct(bb.zgrid[bb.zgrid.length - 1]).toFixed(1), hover: 'bound: the level is never reached on the grid' } : { cell: '<' + pct(bb.zgrid[0]).toFixed(1), hover: 'bound: the level is reached at or before the lowest grid point' };
   }
   var zEarly = firstUp(bb.zgrid, bb.q[rows[1]], L);   // upper ribbon edge crosses first
   var zLate = firstUp(bb.zgrid, bb.q[rows[0]], L);    // lower ribbon edge crosses last
-  var br = (zEarly != null && zLate != null) ? ' [' + pct(zEarly).toFixed(1) + ', ' + pct(zLate).toFixed(1) + ']' : '';
-  return pct(zm).toFixed(1) + '%' + br;
+  var br = (zEarly != null && zLate != null) ? 'uncertainty band ' + pct(zEarly).toFixed(1) + ' to ' + pct(zLate).toFixed(1) + ' (difficulty %)' : '';
+  return { cell: pct(zm).toFixed(1), hover: br };   // the approved table form (27 Sep): the value alone in the cell, the band in the hover
 }
 function boundPct(x) {   // a bound face never rounds to "0.0%": one to three decimals, the first non-zero digit kept
   x = Number(x); if (!(x > 0)) return x.toFixed(1);
   return x.toFixed(x >= 0.05 ? 1 : (x >= 0.005 ? 2 : 3));
 }
 function fmtAvgCell(cr) {
-  if (!cr) return '— (not computed)';
+  if (!cr) return { cell: '*', hover: 'not computed' };
   if (cr.value_pct == null) {   // a bound, shown as one like the other estimators' bound rows (the hover says which range and why); the pool pages lead 10 Sep
     var b = cr.plain95_pct || [];
-    var side = cr.censored === 'left' ? '≤ ' : '≥ ';
+    var side = cr.censored === 'left' ? '<' : '>';
     var bound = cr.censored === 'left' ? b[1] : b[0];
-    return bound != null ? side + boundPct(bound) + '%' : side + 'bound (outside the observed range)';
+    return bound != null ? { cell: side + boundPct(bound), hover: 'bound (outside the observed range)' } : { cell: '*', hover: 'bound outside the observed range, no value' };
   }
   var lo = cr.plain95_pct[0], hi = cr.plain95_pct[1];
-  return cr.value_pct.toFixed(1) + '%'
-    + (lo != null && hi != null
-       ? ' [' + lo.toFixed(1) + ', ' + hi.toFixed(1) + ']' : '');
+  return { cell: cr.value_pct.toFixed(1), hover: (lo != null && hi != null ? 'uncertainty band ' + lo.toFixed(1) + ' to ' + hi.toFixed(1) + ' (difficulty %)' : (hi != null ? 'uncertainty band up to ' + hi.toFixed(1) + ' (difficulty %); its lower edge lies below the easiest task used' : (lo != null ? 'uncertainty band from ' + lo.toFixed(1) + ' (difficulty %); its upper edge lies above the hardest task used' : ''))) };   // the approved table form (27 Sep): a one-sided band says so
 }
 function fmtMedCell(cr) {
-  if (cr.value_z == null) return 'undefined (all bins censored)';
-  var v = fmtPct(cr.value_z);
+  if (cr.value_z == null) return { cell: '*', hover: 'undefined: every bin censored' };
+  var v = String(fmtPct(cr.value_z)).replace(/%$/, '');
   if (!cr.crossing_defined) {
     if (cr.kind === 'bound_at_first')
-      return '≤ ' + v + ' (bound: at or before the first '
-        + 'measurable bin)';
+      return { cell: '<' + v, hover: 'bound: at or before the first measurable bin' };
     if (cr.kind === 'bound_at_ceiling_bin')
-      return '≤ ' + v + ' (bound: at or before this bin the median '
-        + 'task already fails ALL attempts)';
-    return '≥ ' + v + ' (bound: level not reached within the '
-      + 'observed range)';
+      return { cell: '<' + v, hover: 'bound: at or before this bin the median task already fails every attempt' };
+    return { cell: '>' + v, hover: 'bound: the level is not reached within the observed range' };
   }
   var ci = cr.ci95_z;
-  return v + (ci ? ' [' + fmtPct(ci[0]) + ', ' + fmtPct(ci[1]) + ']'
-                 : '') + ' · defined in '
-    + Math.round(cr.boot_defined_frac * 100) + '% of resamples';
+  return { cell: v, hover: (ci ? 'uncertainty band ' + String(fmtPct(ci[0])).replace(/%$/, '') + ' to ' + String(fmtPct(ci[1])).replace(/%$/, '') + ' (difficulty %) · ' : '') + 'defined in ' + Math.round(cr.boot_defined_frac * 100) + '% of resamples' };   // the approved table form (27 Sep)
 }
 function crossingsTable(visible) {
   var anyUnresolved = false;   // S1 legend line only when a drawn arm carries the mark
@@ -1687,11 +1680,11 @@ function crossingsTable(visible) {
     + (voc[k50] || hov50.replace(/^D50 — /, '')) + '; ' + n1 + ' — '
     + (voc[k1] || hov1.replace(/^D99 — /, ''))
     + (isB
-      ? '. Readings from the Bayesian posterior median curve for the estimator picked (first upward crossing); brackets are where the '
-        + 'uncertainty band\'s edges cross the same level (95% where the fit set carries it, else 80%); models without a posterior read "awaiting fit"; '
+      ? '. Positions in difficulty %, from the Bayesian posterior median curve for the estimator picked (first upward crossing); each cell\'s hover carries its '
+        + 'uncertainty band (95% where the fit set carries it, else 80%); * where no fit of record is in; '
         + 'the served crossings with their own uncertainty bands live on Capability vs reliability.'
-      : '. Readings from the ' + houseName().toLowerCase() + ' for the active '
-        + 'chain; brackets are the 95% uncertainty band of the trend (the Uncertainty bands switch changes the drawn bands, not this table); '
+      : '. Positions in difficulty %, from the ' + houseName().toLowerCase() + ' for the active '
+        + 'chain; each cell\'s hover carries the 95% uncertainty band of the trend (the Uncertainty bands switch changes the drawn bands, not this table); '
         + 'the Bayesian crossings live on Capability vs reliability.');
   box.appendChild(h);
   var t = document.createElement('table');
@@ -1718,24 +1711,23 @@ function crossingsTable(visible) {
         if (rec && rec.status_kind === 'bound' && (rec.bound != null || rec.z != null)) {
           // fitting 9 Sep (DATA-CONTRACTS §crossings_of_record BOUND rows): the level was reached at or before the lowest grid point —
           // the record is a bound, shown as one, never as a point with a band (before this fix a bound row read like a crossing)
-          td.textContent = '≤ ' + boundPct(pct(rec.bound != null ? rec.bound : rec.z)) + '%';
+          td.textContent = '<' + boundPct(pct(rec.bound != null ? rec.bound : rec.z));   // the approved table form (27 Sep): one number per cell, a bound as '<' and the value, the unit in the column's hover
           td.title = oneSentence(faceNumbers(noSpecTags(rec.status || 'bound: the level was reached at or before the lowest grid point')));
         } else if (rec && rec.z != null && rec.lo != null && rec.hi != null && rec.status_kind !== 'bound') {
-          td.textContent = pct(rec.z).toFixed(1) + '% [' + pct(rec.lo).toFixed(1) + ', ' + pct(rec.hi).toFixed(1) + ']';
-          if (rec.status_kind === 'unresolved') {   // S1: "~" after the value and its band; hover = the status sentence + the bracketed reason
-            td.textContent += ' ~';
-            td.title = oneSentence(faceNumbers(noSpecTags((rec.status || 'not resolved') + (rec.reason_text ? ' ' + rec.reason_text : ''))));
+          td.textContent = pct(rec.z).toFixed(1);   // the approved table form (27 Sep): the crossing alone in the cell; its uncertainty band in the hover
+          td.title = 'uncertainty band ' + pct(rec.lo).toFixed(1) + ' to ' + pct(rec.hi).toFixed(1) + ' (difficulty %)';
+          if (rec.status_kind === 'unresolved') {   // not resolved: the sentence in the hover, no mark in the cell
+            td.title = oneSentence(faceNumbers(noSpecTags((rec.status || 'not resolved') + (rec.reason_text ? ' ' + rec.reason_text : '')))) + ' · ' + td.title;
             anyUnresolved = true;
           }
         } else {
-          td.textContent = bbT ? fmtBayesCross(bbT, lvl) : 'awaiting fit';
+          if (bbT) { var fb = fmtBayesCross(bbT, lvl); td.textContent = fb.cell; if (fb.hover) td.title = fb.hover; } else { td.textContent = '*'; td.title = 'no fit of record'; }   // the approved table form: * where a value is not yet in
         }
-        if (rec && rec.mixing_note) { td.textContent += ' ‡'; td.title = oneSentence(noNames(noSpecTags(String(rec.mixing_note)))); anyMixing = true; }
+        if (rec && rec.mixing_note) { td.title = oneSentence(noNames(noSpecTags(String(rec.mixing_note)))) + (td.title ? ' · ' + td.title : ''); anyMixing = true; }   // the caveat in the hover, no mark in the cell
         if (!bbT) td.style.color = '#8a8477';
       } else {
-        td.textContent = isAvg
-          ? fmtAvgCell(D.avg.configs[c.id].crossings[lvl])
-          : fmtMedCell(D.med.configs[c.id].crossings[lvl]);
+        var fh = isAvg ? fmtAvgCell(D.avg.configs[c.id].crossings[lvl]) : fmtMedCell(D.med.configs[c.id].crossings[lvl]);
+        td.textContent = fh.cell; if (fh.hover) td.title = fh.hover;
       }
       if (isAvg && !isB) {   // average-rate chain: an out-of-range crossing is a bound at the edge of the tasks used (the trend grid spans their difficulties)
         var crA = (D.avg.configs[c.id].crossings || {})[lvl];
@@ -1744,12 +1736,12 @@ function crossingsTable(visible) {
             ? 'bound: the fitted trend is already above this level at the easiest task used, so the crossing lies at or below the easiest difficulty on the axis'
             : 'bound: the fitted trend never reaches this level within the tasks used, so the crossing lies at or above the hardest difficulty on the axis';
       }
-      if (!isAvg && td.textContent.indexOf('≤') === 0)
+      if (!isAvg && td.textContent.indexOf('<') === 0)
         td.title = 'the crossing happened inside the censored easy '
           + 'region: every earlier bin’s median task has 0 '
           + 'failures in 128 attempts, so only this upper bound is '
           + 'measurable';
-      if (!isAvg && td.textContent.indexOf('≥') === 0)
+      if (!isAvg && td.textContent.indexOf('>') === 0)
         td.title = 'the binned-median trend never reaches this level '
           + 'inside the observed difficulty range, so only this '
           + 'lower bound is measurable';
@@ -1761,13 +1753,13 @@ function crossingsTable(visible) {
   if (anyUnresolved) {   // one legend line per table, only when a drawn arm carries the mark (the difficulty maintainers' S1 convention, no arm list)
     var lg = document.createElement('p');
     lg.className = 'sub';
-    lg.textContent = '~ not resolved: the 80% uncertainty band of D99 is wider than one difficulty step (the reference bandwidth)';
+    lg.textContent = 'a crossing whose 80% uncertainty band is wider than one difficulty step is not resolved; its hover says so';
     box.appendChild(lg);
   }
   if (anyMixing) {   // one legend line per table, only when a drawn arm carries the mark
     var lm = document.createElement('p');
     lm.className = 'sub';
-    lm.textContent = '‡ the fits for this model do not agree on where it crosses the level; the point is shown with that caveat (hover for the sentence)';
+    lm.textContent = 'where the fits for a model do not agree on the crossing, the cell\'s hover carries the fit maintainers\'s sentence';
     box.appendChild(lm);
   }
 }
