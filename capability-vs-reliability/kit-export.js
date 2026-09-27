@@ -1,4 +1,4 @@
-/* kit-export.js — the reference kit, served form v6.1.3, built 26 Sep 2026 from source 3f27a1815f35. */
+/* kit-export.js — the reference kit, served form v6.2, built 27 Sep 2026 from source 9b623dc5f0f8. */
 (function (global) {
   'use strict';
   var Kit = global.Kit = global.Kit || {};
@@ -83,6 +83,13 @@
     if (kind === 'triangle') return '<path d="M' + cx + ',' + (cy - r) + ' L' + (cx + r) + ',' + (cy + r) + ' L' + (cx - r) + ',' + (cy + r) + ' Z" fill="' + color + '"/>';
     if (kind === 'open-triangle') return '<path d="M' + cx + ',' + (cy - r) + ' L' + (cx + r) + ',' + (cy + r) + ' L' + (cx - r) + ',' + (cy + r) + ' Z" fill="' + ground + '" stroke="' + color + '" stroke-width="1.8"/>';
     if (kind === 'open-circle') return '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="' + ground + '" stroke="' + color + '" stroke-width="1.8"/>';
+    if (kind === 'triangle-down' || kind === 'v') return '<path d="M' + cx + ',' + (cy + r) + ' L' + (cx + r) + ',' + (cy - r) + ' L' + (cx - r) + ',' + (cy - r) + ' Z" fill="' + color + '"/>';
+    if (kind === 'diamond' || kind === 'D') return '<path d="M' + cx + ',' + (cy - r - 1) + ' L' + (cx + r + 1) + ',' + cy + ' L' + cx + ',' + (cy + r + 1) + ' L' + (cx - r - 1) + ',' + cy + ' Z" fill="' + color + '"/>';
+    if (kind === 'cross' || kind === 'x') return '<path d="M' + (cx - r) + ',' + (cy - r) + ' L' + (cx + r) + ',' + (cy + r) + ' M' + (cx - r) + ',' + (cy + r) + ' L' + (cx + r) + ',' + (cy - r) + '" stroke="' + color + '" stroke-width="2" fill="none"/>';
+    if (kind === 'plus' || kind === 'P') return '<path d="M' + cx + ',' + (cy - r - 1) + ' L' + cx + ',' + (cy + r + 1) + ' M' + (cx - r - 1) + ',' + cy + ' L' + (cx + r + 1) + ',' + cy + '" stroke="' + color + '" stroke-width="2.2" fill="none"/>';
+    if (kind === 'star' || kind === '*') { var pts = []; for (var k = 0; k < 10; k++) { var a = -Math.PI / 2 + k * Math.PI / 5, rr = k % 2 ? r * 0.45 : r + 1; pts.push((cx + rr * Math.cos(a)).toFixed(2) + ',' + (cy + rr * Math.sin(a)).toFixed(2)); } return '<polygon points="' + pts.join(' ') + '" fill="' + color + '"/>'; }
+    if (kind === 'hexagon' || kind === 'h' || kind === 'pentagon' || kind === 'p') { var n = (kind === 'hexagon' || kind === 'h') ? 6 : 5, q = []; for (var j = 0; j < n; j++) { var b = -Math.PI / 2 + j * 2 * Math.PI / n; q.push((cx + (r + 0.5) * Math.cos(b)).toFixed(2) + ',' + (cy + (r + 0.5) * Math.sin(b)).toFixed(2)); } return '<polygon points="' + q.join(' ') + '" fill="' + color + '"/>'; }
+    if (kind === 's') return markerSvg('square', cx, cy, color, bg); if (kind === '^') return markerSvg('triangle', cx, cy, color, bg); if (kind === 'o') return markerSvg('circle', cx, cy, color, bg);
     return '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="' + color + '"/>';
   }
 
@@ -100,6 +107,7 @@
         var gid = 'kit-ramp-' + i + '-' + Math.random().toString(36).slice(2, 7);
         out += '<defs><linearGradient id="' + gid + '" x1="0" y1="0" x2="1" y2="0">' + m.ramp.map(function (col, k) { return '<stop offset="' + (m.ramp.length === 1 ? 0 : k / (m.ramp.length - 1)) + '" stop-color="' + esc(col) + '"/>'; }).join('') + '</linearGradient></defs>';
         out += '<rect x="' + lx + '" y="' + (ly - 4) + '" width="26" height="8" rx="2" fill="url(#' + gid + ')"' + (m.dash ? ' stroke="' + esc(m.ramp[m.ramp.length - 1]) + '" stroke-dasharray="' + esc(m.dash) + '" stroke-width="1"' : '') + '/>';
+        if (m.marker && m.marker !== 'none') out += '<g stroke="' + esc(bg || '#fcfaf3') + '" stroke-width="0.8" paint-order="stroke">' + markerSvg(m.marker, lx + 13, ly, m.ramp[m.ramp.length - 1], bg) + '</g>';
         out += '<text class="kit-legend-row" data-family="' + esc(Kit.familyOf(m)) + '" x="' + (lx + 34) + '" y="' + (ly + 4) + '" font-family="' + FONT + '" font-size="12" fill="#1a1a1a">' + esc(m.label) + '</text>';
         return;
       }
