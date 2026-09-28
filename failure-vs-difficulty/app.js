@@ -1119,6 +1119,13 @@ function renderSeriesRow(sb, ri) {   // the run's row: cloned from renderSideBlo
     b.className = 'chip' + (seriesSel.has(k) ? '' : ' off') + (a.disclosure ? ' disclosed' : '');
     b.style.color = a.color; b.style.borderColor = a.color;
     b.textContent = a.short_label || a.label; b.dataset.label = b.textContent; b.dataset.name = a.label || b.textContent; b.dataset.name = a.label || b.textContent; b.dataset.series = String(k); b.dataset.row = String(ri);   // the short form of record ('RL-Zero Code · 0/32', '· final') from the labels row, never composed
+    if (sb.group_of_record) {   // one row of one model (28 Sep, decision 168): positions at one step share a shade and the run is told by its dash, so the dash gets its key on the chip — a
+      // short sample of the line as drawn (the maintainers's word : a mark with no key is decoration); the sample adds no text, so the chip's label and reads are unchanged
+      var smp = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); smp.setAttribute('width', '22'); smp.setAttribute('height', '8'); smp.setAttribute('aria-hidden', 'true'); smp.style.verticalAlign = 'middle'; smp.style.marginRight = '4px';
+      var smpLn = document.createElementNS('http://www.w3.org/2000/svg', 'line'); smpLn.setAttribute('x1', '1'); smpLn.setAttribute('y1', '4'); smpLn.setAttribute('x2', '21'); smpLn.setAttribute('y2', '4'); smpLn.setAttribute('stroke', a.color); smpLn.setAttribute('stroke-width', '1.8');
+      if (curveDash(a)) smpLn.setAttribute('stroke-dasharray', curveDash(a));
+      smp.appendChild(smpLn); b.insertBefore(smp, b.firstChild);
+    }
     var parts = [];
     if (a.disclosure) parts.push(currentTruth(a.disclosure));
     if (a.set_label) parts.push('fitted on ' + a.set_label);
