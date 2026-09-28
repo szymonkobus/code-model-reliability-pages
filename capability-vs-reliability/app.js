@@ -592,7 +592,7 @@ function mergeRunSet(raw) {
     if (!rs.configs.length && !(set.withheld || []).length) return;   // 26 Sep: a set with nothing drawn and nothing withheld has no row   // a run with no fit of record yet has a row only when the sidecar says it is pending (23 Sep 12:0x)
     // the run is keyed by the set's series slug (no field named key in the sidecar: a secret scanner read key":"<id> as an API key, 22 Sep)
     var R = { key: set.series || set.key || ('run' + k), name: set.name || 'run', clause: set.clause || 'a run read along its checkpoints, placed on the scale without a vote', tag: set.tag || '',
-              hue: set.hue || null, ramp: set.ramp || [], dash: set.dash || '', marker: set.marker || 'circle', think: !!set.think, withheld: set.withheld || [], stateKey: set.state_key || (k === 0 ? 'run' : 'run_' + String(set.key || k).replace(/[^a-z0-9]/gi, '')), idx: [], folded: [], dual: [],
+              hue: set.hue || null, ramp: set.ramp || [], dash: set.dash || '', marker: set.marker || null, think: !!set.think, withheld: set.withheld || [], stateKey: set.state_key || (k === 0 ? 'run' : 'run_' + String(set.key || k).replace(/[^a-z0-9]/gi, '')), idx: [], folded: [], dual: [],
               order: (set.order == null ? 100 + k : set.order), finalOnBoard: !!set.final_on_board };   // order: the rows under the all-models rows (Think first, then RL-Zero Code); pending: no fit of record yet; finalOnBoard: the final keeps its chip among all models, duplicated in the run's row (23 Sep 12:0x)
     var rowsById = {}; (rs.rows || []).forEach(function (r) { rowsById[r.cfg] = r; });
     rs.configs.forEach(function (c) {
@@ -644,7 +644,7 @@ function markPath(shape, X, Y, r) {
     default: return head + 'm-' + r + ' 0a' + r + ' ' + r + ' 0 1 0 ' + (2 * r) + ' 0a' + r + ' ' + r + ' 0 1 0 -' + (2 * r) + ' 0Z';
   }
 }
-function markShape(i) { var c = D.shared && D.shared.configs[i]; if (!c || !c.run || c.base) return 'circle'; var R = runOf(i); return (R && R.marker) || c.marker || 'circle'; }
+function markShape(i) { var c = D.shared && D.shared.configs[i]; if (!c || !c.run || c.base) return 'circle'; var R = runOf(i); return c.marker || (R && R.marker) || 'circle'; }   // 28 Sep: the checkpoint's own marker first (one group holds several runs, each with its marker of record)
 function isRun(i) { var c = D.shared && D.shared.configs[i]; return !!(c && c.run); }
 function isDual(i) { for (var k = 0; k < RUNS.length; k++) if (RUNS[k].dual && RUNS[k].dual.indexOf(i) >= 0 && runOnPlane(RUNS[k])) return true; return false; }   // a board model that a run's row shows again (final_on_board) — inside the run's legend row only while the run is on the plane; under the reference chain it is a board model with its own row
 function runOf(i) { var c = D.shared && D.shared.configs[i]; if (!c || !c.run) return null; var ck = c.series || c.run_key; for (var k = 0; k < RUNS.length; k++) if (RUNS[k].key === ck) return RUNS[k]; return RUN; }
@@ -1988,7 +1988,7 @@ function renderScatter() {
       mark = '<path d="' + markPath(shp, X, Y, DR) + '" fill="'
         + (c.think ? '#fcfaf3' : col) + '" stroke="'
         + (c.think ? col : '#fcfaf3')
-        + '" stroke-width="1.3" data-mark data-chain-val data-shape="' + shp + '"' + (c.run ? ' data-run="' + String(c.series || '').replace(/[^a-z0-9._-]/gi, '') + '"' : '') + ' data-i="' + i + '"' + (c.provisional ? ' stroke-dasharray="3 2" data-provisional="1"' : '') + '/>'
+        + '" stroke-width="1.3" data-mark data-chain-val data-shape="' + shp + '"' + (c.run ? ' data-run="' + String(c.series || '').replace(/[^a-z0-9._-]/gi, '') + '" data-arm="' + String(c.id).replace(/[^a-z0-9._\/-]/gi, '') + '"' : '') + ' data-i="' + i + '"' + (c.provisional ? ' stroke-dasharray="3 2" data-provisional="1"' : '') + '/>'
         + (flg ? '<circle cx="' + X + '" cy="' + Y + '" r="7" fill="none" '
             + 'stroke="#b3261e" stroke-dasharray="2 2" stroke-width="1.2" '
             + 'data-flag/>' : '')
@@ -2001,7 +2001,7 @@ function renderScatter() {
                                  : 'm-6 0l10 5l0 -10Z';
       mark = '<path d="M' + Xs + ' ' + Ys + pt
         + '" fill="none" stroke="' + col
-        + '" stroke-width="1.4" data-mark data-chain-val data-shape="bound"' + (c.run ? ' data-run="' + String(c.series || '').replace(/[^a-z0-9._-]/gi, '') + '"' : '') + ' data-i="' + i + '"' + (c.provisional ? ' stroke-dasharray="3 2" data-provisional="1"' : '') + '/>';
+        + '" stroke-width="1.4" data-mark data-chain-val data-shape="bound"' + (c.run ? ' data-run="' + String(c.series || '').replace(/[^a-z0-9._-]/gi, '') + '" data-arm="' + String(c.id).replace(/[^a-z0-9._\/-]/gi, '') + '"' : '') + ' data-i="' + i + '"' + (c.provisional ? ' stroke-dasharray="3 2" data-provisional="1"' : '') + '/>';
     }
     mark += (standIn ? '<circle cx="' + X + '" cy="' + Y + '" r="8" fill="none" stroke="#8b8477" stroke-dasharray="3 2" stroke-width="1.1" data-standin/>' : '')
       + (fitEx ? '<circle cx="' + X + '" cy="' + Y + '" r="9" fill="none" stroke="#8b8477" stroke-dasharray="1.5 2.5" stroke-width="1.2" data-fitexcluded/>' : '');   // on every mark shape
