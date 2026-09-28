@@ -1,9 +1,9 @@
 {
- "fingerprint": "f50f388ca6a7",
+ "fingerprint": "106a77df43f8",
  "fingerprint_inputs": {
   "content": "adbf45012f31",
   "wave": "unified-live",
-  "body": "956adc53c9fd"
+  "body": "8f7a2991fa70"
  },
  "frame": {
   "dataset": "all",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "1c1988ab59a4",
   "axis_wave": "unified-live",
   "build_date": "2026-09-28",
-  "stamp": "2026-09-28T13:59:48Z",
+  "stamp": "2026-09-28T14:44:59Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -85,7 +85,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-28T13:22:22Z",
+   "unified_built_at": "2026-09-28T14:19:07Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -506,32 +506,32 @@
     {
      "id": "deepseek-coder-6.7b-rl-night3-step250",
      "arm_id": "dsc6.7b-rl-night3-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8 (250 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8, fixed set (250 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night3-step500",
      "arm_id": "dsc6.7b-rl-night3-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8 (500 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8, fixed set (500 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night4-step250",
      "arm_id": "dsc6.7b-rl-night4-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8 (250 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8, fixed set (250 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night4-step500",
      "arm_id": "dsc6.7b-rl-night4-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8 (500 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8, fixed set (500 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night5-step250",
      "arm_id": "dsc6.7b-rl-night5-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8 (250 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8, fixed set (250 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night5-step500",
      "arm_id": "dsc6.7b-rl-night5-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8 (500 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8, fixed set (500 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night6-step100",
@@ -690,7 +690,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-28T13:25:36Z",
+   "_stamp": "2026-09-28T14:25:47Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -856,9 +856,9 @@
   }
  },
  "files": {
-  "shared": "shared.f50f388ca6a7.json",
-  "chain_average": "chain_average.f50f388ca6a7.json",
-  "chain_median": "chain_median.f50f388ca6a7.json",
-  "dots": "dots.f50f388ca6a7.json"
+  "shared": "shared.106a77df43f8.json",
+  "chain_average": "chain_average.106a77df43f8.json",
+  "chain_median": "chain_median.106a77df43f8.json",
+  "dots": "dots.106a77df43f8.json"
  }
 }
