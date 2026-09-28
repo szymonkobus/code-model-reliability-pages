@@ -1,9 +1,9 @@
 {
- "fingerprint": "2fd8ae8eac27",
+ "fingerprint": "96c1360573f7",
  "fingerprint_inputs": {
   "content": "4d48d9910b0c",
   "wave": "combined-20260910T2209Z",
-  "body": "5360aa1072ab"
+  "body": "5a0b4eaa759d"
  },
  "frame": {
   "dataset": "board_top",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "1c1988ab59a4",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-09-28",
-  "stamp": "2026-09-28T14:07:07Z",
+  "stamp": "2026-09-28T14:33:49Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -85,7 +85,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-28T13:22:22Z",
+   "unified_built_at": "2026-09-28T14:19:07Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -71435,7 +71435,7 @@
     "axis_pinned_to_served": true,
     "cut_at": "2026-09-26T14:14:36Z",
     "completed_at": "2026-09-27T02:07:46Z",
-    "updated_at": "2026-09-28T13:51:31Z+2026-09-28T13:51:31Z+2026-09-28T13:51:31Z+2026-09-28T13:51:31Z+2026-09-28T13:51:31Z+2026-09-28T14:01:44Z",
+    "updated_at": "2026-09-28T13:51:31Z+2026-09-28T13:51:31Z+2026-09-28T14:35:00Z+2026-09-28T14:35:00Z+2026-09-28T14:35:00Z+2026-09-28T14:01:44Z",
     "pointer": "definitions/fitting/serving_series_dsc6.7b-rl-night1.json",
     "arms": [
      {
@@ -81552,11 +81552,11 @@
       "arm_kind": "RL checkpoint (code): step 250 of the training loop's third run (RL on the tasks it fails 1\u20132 of 8), read on wave 1+2 at the base's card",
       "baseline_arm": "dsc6.7b-instruct-start",
       "baseline_id": "deepseek-coder-6.7b-instruct-start",
-      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8 (250 steps)",
+      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8, fixed set (250 steps)",
       "family": "DeepSeek-Coder",
       "color": "#561467",
       "run": "DeepSeek-Coder 6.7B",
-      "short_label": "RL on tasks it fails 1\u20132 of 8 \u00b7 250 steps",
+      "short_label": "RL on tasks it fails 1\u20132 of 8, fixed set \u00b7 250 steps",
       "run_dash": "2 2.5",
       "step": 250,
       "final": false,
@@ -83577,11 +83577,11 @@
       "arm_kind": "RL finish (code): step 500, the finish of the training loop's third run (RL on the tasks it fails 1\u20132 of 8), read on wave 1+2 at the base's card",
       "baseline_arm": "dsc6.7b-instruct-start",
       "baseline_id": "deepseek-coder-6.7b-instruct-start",
-      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8 (500 steps)",
+      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8, fixed set (500 steps)",
       "family": "DeepSeek-Coder",
       "color": "#2b0a33",
       "run": "DeepSeek-Coder 6.7B",
-      "short_label": "RL on tasks it fails 1\u20132 of 8 \u00b7 500 steps",
+      "short_label": "RL on tasks it fails 1\u20132 of 8, fixed set \u00b7 500 steps",
       "run_dash": "2 2.5",
       "step": 500,
       "final": true,
@@ -85602,11 +85602,11 @@
       "arm_kind": "RL checkpoint (code): step 250 of the training loop's fourth run (RL on the tasks it fails 6\u20137 of 8), read on wave 1+2 at the base's card",
       "baseline_arm": "dsc6.7b-instruct-start",
       "baseline_id": "deepseek-coder-6.7b-instruct-start",
-      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8 (250 steps)",
+      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8, fixed set (250 steps)",
       "family": "DeepSeek-Coder",
       "color": "#561467",
       "run": "DeepSeek-Coder 6.7B",
-      "short_label": "RL on tasks it fails 6\u20137 of 8 \u00b7 250 steps",
+      "short_label": "RL on tasks it fails 6\u20137 of 8, fixed set \u00b7 250 steps",
       "run_dash": "8 3 2 3",
       "step": 250,
       "final": false,
@@ -87627,11 +87627,11 @@
       "arm_kind": "RL finish (code): step 500, the finish of the training loop's fourth run (RL on the tasks it fails 6\u20137 of 8), read on wave 1+2 at the base's card",
       "baseline_arm": "dsc6.7b-instruct-start",
       "baseline_id": "deepseek-coder-6.7b-instruct-start",
-      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8 (500 steps)",
+      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8, fixed set (500 steps)",
       "family": "DeepSeek-Coder",
       "color": "#2b0a33",
       "run": "DeepSeek-Coder 6.7B",
-      "short_label": "RL on tasks it fails 6\u20137 of 8 \u00b7 500 steps",
+      "short_label": "RL on tasks it fails 6\u20137 of 8, fixed set \u00b7 500 steps",
       "run_dash": "8 3 2 3",
       "step": 500,
       "final": true,
@@ -89652,11 +89652,11 @@
       "arm_kind": "RL checkpoint (code): step 250 of the training loop's fifth run (RL on the tasks it fails 3\u20135 of 8), read on wave 1+2 at the base's card",
       "baseline_arm": "dsc6.7b-instruct-start",
       "baseline_id": "deepseek-coder-6.7b-instruct-start",
-      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8 (250 steps)",
+      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8, fixed set (250 steps)",
       "family": "DeepSeek-Coder",
       "color": "#561467",
       "run": "DeepSeek-Coder 6.7B",
-      "short_label": "RL on tasks it fails 3\u20135 of 8 \u00b7 250 steps",
+      "short_label": "RL on tasks it fails 3\u20135 of 8, fixed set \u00b7 250 steps",
       "run_dash": "12 3",
       "step": 250,
       "final": false,
@@ -91677,11 +91677,11 @@
       "arm_kind": "RL finish (code): step 500, the finish of the training loop's fifth run (RL on the tasks it fails 3\u20135 of 8), read on wave 1+2 at the base's card",
       "baseline_arm": "dsc6.7b-instruct-start",
       "baseline_id": "deepseek-coder-6.7b-instruct-start",
-      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8 (500 steps)",
+      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8, fixed set (500 steps)",
       "family": "DeepSeek-Coder",
       "color": "#2b0a33",
       "run": "DeepSeek-Coder 6.7B",
-      "short_label": "RL on tasks it fails 3\u20135 of 8 \u00b7 500 steps",
+      "short_label": "RL on tasks it fails 3\u20135 of 8, fixed set \u00b7 500 steps",
       "run_dash": "12 3",
       "step": 500,
       "final": true,
@@ -97790,32 +97790,32 @@
     {
      "id": "deepseek-coder-6.7b-rl-night3-step250",
      "arm_id": "dsc6.7b-rl-night3-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8 (250 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8, fixed set (250 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night3-step500",
      "arm_id": "dsc6.7b-rl-night3-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8 (500 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8, fixed set (500 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night4-step250",
      "arm_id": "dsc6.7b-rl-night4-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8 (250 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8, fixed set (250 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night4-step500",
      "arm_id": "dsc6.7b-rl-night4-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8 (500 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8, fixed set (500 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night5-step250",
      "arm_id": "dsc6.7b-rl-night5-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8 (250 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8, fixed set (250 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night5-step500",
      "arm_id": "dsc6.7b-rl-night5-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8 (500 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8, fixed set (500 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night6-step100",
@@ -97986,7 +97986,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-28T13:25:36Z",
+   "_stamp": "2026-09-28T14:25:47Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -98152,9 +98152,9 @@
   }
  },
  "files": {
-  "shared": "shared.2fd8ae8eac27.json",
-  "chain_average": "chain_average.2fd8ae8eac27.json",
-  "chain_median": "chain_median.2fd8ae8eac27.json",
-  "dots": "dots.2fd8ae8eac27.json"
+  "shared": "shared.96c1360573f7.json",
+  "chain_average": "chain_average.96c1360573f7.json",
+  "chain_median": "chain_median.96c1360573f7.json",
+  "dots": "dots.96c1360573f7.json"
  }
 }

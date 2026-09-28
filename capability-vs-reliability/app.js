@@ -17,7 +17,8 @@ var PW = W - ML - MR, PH = H - MT - MB;
  * shows, rendered as the page renders it): the export is THIS render path run once more, at a fixed
  * desktop geometry, with per-axis limits tightened to the drawn extent (EXT: the dots, whiskers and move arrows of the last screen render);
  * the reference helper (kit-export.js, the maintainers 18 Sep) clones the chart and lays the legend beside it. The page's own frame (LIM) never moves. */
-var EXPORTING = false, LIMX = null, LIMY = null, EXT = null, NO_RATCHET = false;   // NO_RATCHET: the export's restore render leaves the text blocks' heights as they were
+var EXPORTING = false, LIMX = null, LIMY = null, EXT = null, NO_RATCHET = false;
+var DUAL_TWINS = true;   // the project maintainers' word of 28 Sep 14:3x: a released or base model sits in the main model list AND as a chip in its series — one entity, one chip on every plot (the dual form for every twin; the same on the curves page)   // NO_RATCHET: the export's restore render leaves the text blocks' heights as they were
 var CHART_VH_GAP = 170;
 var EXPORT_TITLE_PX = 26, EXPORT_TICK_PX = 18;   // the export's type (the project maintainers 13:5x 18 Sep: axis names twice as big, tick numbers 50% bigger) — the reference export defaults, shared with the maintainers // CSS px kept above and below the chart by #chart { max-height: calc(100vh - 170px) } — the same number, so the type floors hold
 function extAdd(zx, zy) {
@@ -260,7 +261,7 @@ function partialArms() { return D.shared.configs.map(function (c, i) { return i;
 // performance is not measured): not drawn on any dataset, chip in place but unselectable, out of the fit, one note line; Gemma-4-31B stays.
 var WITHHELD = {};   // the project maintainers' word of 2026-09-10 ≈ (via ops + coordinator): Gemma 4 is no longer withheld — the 09-09 hide of Gemma-4-12B is lifted (its served cut share is 5.4% on wave 1+2, 14% on wave 2); the mechanism stays for a future word
 function isWithheld(i) { var c = D.shared.configs[i]; return !!(c && WITHHELD[c.id]); }
-function isHidden(i) { return isWithheld(i) || (!partialShown() && isPartial(i)) || (isRun(i) && (!runShown(runOf(i)) || state.src !== 'bayes')); }   // the run's crossings exist as Bayesian fits only: off the plane under the reference chain   // hidden from the plane and the fit right now
+function isHidden(i) { var c = D.shared.configs[i]; return isWithheld(i) || (!partialShown() && isPartial(i)) || (isRun(i) && (!runShown(runOf(i)) || state.src !== 'bayes')) || (!!(c && c.bayes_only) && state.src !== 'bayes'); }   // bayes_only: a base model the sidecar stands in the main list from the board's Bayesian read (28 Sep)   // the run's crossings exist as Bayesian fits only: off the plane under the reference chain   // hidden from the plane and the fit right now
 function withheldArms() { return D.shared.configs.map(function (c, i) { return i; }).filter(isWithheld); }
 function armNote(c) { var d = c && c.disclosure; return (d && !/^covers \d/.test(d)) ? d : ''; }
 function cleanedScope(c) { var sc = D.bay && D.bay.cleaned_scope; return (sc && c && sc[c.id]) || ''; }   // a cleaned fit whose cleaning is partial (fitting's cleaned_arms[arm].scope)
@@ -542,7 +543,7 @@ function reading(i, levLogit, axis) {
                     + 'its capability C position on the difficulty scale \u2014 uncertainty chain requested, '
                     + 'whiskers land with difficulty\u2019s bootstrap') };
   }
-  if (state.src === 'bayes') {
+  if (state.src === 'bayes' || bayesOnly(i)) {
     var cid = D.shared.configs[i].id;
     if (D.unfitted[cid] || !D.bayById[cid]) {   // the project maintainers' word of 2026-09-04: points without a Bayesian fit are not shown beside the fitted ones — one estimator per view: not drawn, its chip greyed, counted in the readout
       return { z: null, kind: 'none', lo: null, hi: null, extra: 'awaiting its Bayesian fit' };
@@ -607,12 +608,20 @@ function mergeRunSet(raw) {
           // Definitions' decision 169 (28 Sep, one printed position per model): a group's checkpoint 0 carries the board's own id — the board's model folds into the group's row as the twin below, at the board's read
         } else return;
       }
+      if (c.base && c.board_model && !byNorm[normId(c.id)]) {   // the project maintainers' word of 28 Sep 14:3x: our runs' checkpoint 0 IS the base model — one entity in the main model list (its plain name, its family) and at the head of its group's row as 'checkpoint 0'; the board set no longer lists it (the curves page's handoff moved it into the group), so the sidecar's board read stands it in the main list
+        var mc = {}; Object.keys(c).forEach(function (kk) { mc[kk] = c[kk]; });
+        // the plain name (the sidecar's board_label; an older sidecar's display name without its checkpoint clause); the board's family; a main-list model, Bayesian-only
+        mc.label = c.board_label || String(c.display_name || c.label).replace(/\s*\u00b7\s*checkpoint 0$/, ''); mc.display_name = mc.label; mc.shared_page_label = null; mc.fam = c.board_family || c.fam; mc.run = false; mc.series = null; mc.bayes_only = true;
+        D.shared.configs.push(mc); var mi = D.shared.configs.length - 1; have[c.id] = true; byNorm[normId(c.id)] = mc;
+        var mrow = rowsById[c.id]; if (mrow && !haveRow[c.id]) { var mr = {}; Object.keys(mrow).forEach(function (kk) { mr[kk] = mrow[kk]; }); delete mr.run; mr.cfg = c.id; D.bay.rows.push(mr); haveRow[c.id] = true; if (D.bayById) D.bayById[c.id] = mr; if (D.unfitted && D.unfitted[c.id]) delete D.unfitted[c.id]; }
+        R.idx.push(mi); R.dual.push(mi); R.dualLabel = R.dualLabel || {}; R.dualLabel[mi] = c.label; R.folded.push(c.id); return;
+      }
       var twin = byNorm[normId(c.id)];
       if (twin) {   // ONE MODEL, ONE MARK, IN THE RUN'S OWN ROW (the project maintainers' word of 22 Sep 15:1x: the run has no chip in the top column, it is the thing in its
         // — and a group's checkpoint 0 (Definitions' decision 169, 28 Sep: one printed position per model): the builder gives the start model the board's own id, so the board's model moves into the group's row as 'checkpoint 0' at the board's read, as on the curves page; the 32-answer base read stays a record leaf
         var r = rowsById[c.id], boardHas = !!haveRow[twin.id];   // bottom row): the board's twin config joins the run — the run's label, colour and mark, out of the top row and the fitted line; its series fit stands in under the Bayesian source when the board fit set has none
         if (r && !haveRow[twin.id]) { var r2 = {}; Object.keys(r).forEach(function (kk) { r2[kk] = r[kk]; }); r2.cfg = twin.id; r2.alongside = R.key; delete r2.run; D.bay.rows.push(r2); haveRow[twin.id] = true; if (D.bayById) D.bayById[twin.id] = r2; if (D.unfitted && D.unfitted[twin.id]) delete D.unfitted[twin.id]; }   // the series fit stands in for a board model the board fit set left unfitted (the Think final, 23 Sep)
-        if (R.finalOnBoard) { var ti = D.shared.configs.indexOf(twin); twin.series = R.key; R.dualLabel = R.dualLabel || {}; R.dualLabel[ti] = c.label || twin.label; twin.gates_failed = twin.gates_failed || !!c.gates_failed; if (c.gates_failed && !twin.gate_flag) twin.gate_flag = c.gate_flag; R.idx.push(ti); R.dual.push(ti); R.folded.push(twin.id); return; }   // the board's chip stays; the run's row shows the same model again
+        if (R.finalOnBoard || DUAL_TWINS) { var ti = D.shared.configs.indexOf(twin); twin.series = R.key; R.dualLabel = R.dualLabel || {}; R.dualLabel[ti] = c.label || twin.label; twin.gates_failed = twin.gates_failed || !!c.gates_failed; if (c.gates_failed && !twin.gate_flag) twin.gate_flag = c.gate_flag; R.idx.push(ti); R.dual.push(ti); R.folded.push(twin.id); return; }   // the board's chip stays; the run's row shows the same model again
         twin.run = true; twin.series = R.key; twin.board_label = twin.label; twin.label = c.label || twin.label; twin.display_name = c.display_name || twin.display_name; twin.shared_page_label = c.shared_page_label || twin.shared_page_label; twin.fam = c.fam || twin.fam;
         twin.step = c.step; twin.index = c.index; if (c.color) twin.color = c.color; twin.think = !!c.think; if (!boardHas) twin.alongside = R.name;   // a board model the board fit set positions itself (a group's checkpoint 0) is not 'alongside': its read is the board's own
         if (c.gates_failed) { twin.gates_failed = true; twin.gate_flag = c.gate_flag; if (!twin.disclosure) twin.disclosure = c.gate_flag; }
@@ -1261,8 +1270,9 @@ function writeSel() {
 /* ONE ORDER (the project maintainers' word of 15 Sep 2026 12:2x: one ordering of all the models, by their capability, lowest to
  * highest, everywhere): every list of models on the page — the chips, the ridges — follows the capability
  * reading shown (the x axis as set, at the x level), lowest first; a bound sorts at the end it points to; an arm without a reading goes last */
+function bayesOnly(i) { var c = D.shared.configs[i]; return isRun(i) || !!(c && c.bayes_only); }   // a run's checkpoint, or a base model stood in the main list from the board's Bayesian read (28 Sep): no project-chain row
 function capKey(i) {
-  if (isRun(i) && (state.src !== 'bayes' || !D.bayById || !D.bayById[D.shared.configs[i].id])) return -1e9;   // no project-chain row for the run's checkpoints
+  if (bayesOnly(i) && (state.src !== 'bayes' || !D.bayById || !D.bayById[D.shared.configs[i].id])) return -1e9;   // no project-chain row for the run's checkpoints, nor for a Bayesian-only base model
   if (state.view === 'ridges' && D.bay) {   // the ridges are drawn from the Bayesian artifact whatever estimator the scatter shows: their order is their own centres at the x level
     var rr = D.bayById[D.shared.configs[i].id]; if (!rr) return Infinity;
     var cz = ridgeCentre(rr, state.a / 100); return cz == null || !isFinite(cz) ? Infinity : cz;
@@ -1456,7 +1466,7 @@ function paintChips() {
     b.classList.toggle('off', !sel.has(+b.dataset.idx));
     b.setAttribute('aria-pressed', sel.has(+b.dataset.idx) ? 'true' : 'false');   // selection readable by probes (the maintainers 2nd read 09-04)
     var cfgId = D.shared.configs[+b.dataset.idx] && D.shared.configs[+b.dataset.idx].id;
-    var nofit = (state.src === 'bayes' && !!D.bay && !D.bayById[cfgId]) || (isRun(+b.dataset.idx) && state.src !== 'bayes');   // one estimator per view: an arm without a posterior is a greyed chip, never a point; the run's checkpoints are Bayesian fits only
+    var nofit = (state.src === 'bayes' && !!D.bay && !D.bayById[cfgId]) || ((isRun(+b.dataset.idx) || !!(cfgC && cfgC.bayes_only)) && state.src !== 'bayes');   // one estimator per view: an arm without a posterior is a greyed chip, never a point; the run's checkpoints are Bayesian fits only
     b.classList.toggle('nofit', nofit);
     var cfgC = D.shared.configs[+b.dataset.idx] || {};
     if (nofit) { b.title = capTitle((isRun(+b.dataset.idx) && state.src !== 'bayes' ? 'a run\u2019s checkpoints are Bayesian fits \u2014 not drawn under the reference chain' : 'awaiting its Bayesian fit \u2014 not drawn under the Bayesian estimator') + (cfgC.gates_failed ? ' \u00b7 flagged fit: ' + (cfgC.gate_flag || 'the fit failed a sampler gate') : '')); b.dataset.nofit = '1'; }   // the flag stays on the hover in every state (Definitions, 22 Sep)
