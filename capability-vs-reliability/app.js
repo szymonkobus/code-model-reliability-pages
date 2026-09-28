@@ -488,7 +488,7 @@ function readBayesRow(r, levLogit, B) {   // B = the artifact the row belongs to
                 ? ' · ' + Math.round(pc * 100) + '% of draws censored'
                 : '')
              + ((lt.hi_open[j0] || lt.hi_open[j])
-                ? ' · upper band end reaches the censored edge (open)'
+                ? ' · the uncertainty band\u2019s upper end reaches the censored edge (open)'
                 : '') };
 }
 function armFlag(i) {
@@ -602,17 +602,19 @@ function mergeRunSet(raw) {
       if (have[c.id]) {   // 26 Sep (Definitions' word of ): a run's START MODEL is one config shared by the runs' sets — one fit, one mark, one legend row; the second row's
         if (c.base) {     // position-0 chip folds onto the first row's config (a dual, like the board final's chip in the Think row), labelled by the labels row ('start model')
           var ei = -1; for (var q = 0; q < D.shared.configs.length; q++) if (D.shared.configs[q].id === c.id) { ei = q; break; }
-          if (ei >= 0 && D.shared.configs[ei].run && D.shared.configs[ei].base) { R.idx.push(ei); R.dual.push(ei); R.dualLabel = R.dualLabel || {}; R.dualLabel[ei] = c.label || D.shared.configs[ei].label; }
-        }
-        return;
+          if (ei >= 0 && D.shared.configs[ei].run && D.shared.configs[ei].base) { R.idx.push(ei); R.dual.push(ei); R.dualLabel = R.dualLabel || {}; R.dualLabel[ei] = c.label || D.shared.configs[ei].label; return; }
+          if (!(ei >= 0 && c.board_model && !D.shared.configs[ei].run)) return;
+          // Definitions' decision 169 (28 Sep, one printed position per model): a group's checkpoint 0 carries the board's own id — the board's model folds into the group's row as the twin below, at the board's read
+        } else return;
       }
       var twin = byNorm[normId(c.id)];
       if (twin) {   // ONE MODEL, ONE MARK, IN THE RUN'S OWN ROW (the project maintainers' word of 22 Sep 15:1x: the run has no chip in the top column, it is the thing in its
-        var r = rowsById[c.id];   // bottom row): the board's twin config joins the run — the run's label, colour and mark, out of the top row and the fitted line; its series fit stands in under the Bayesian source when the board fit set has none
+        // — and a group's checkpoint 0 (Definitions' decision 169, 28 Sep: one printed position per model): the builder gives the start model the board's own id, so the board's model moves into the group's row as 'checkpoint 0' at the board's read, as on the curves page; the 32-answer base read stays a record leaf
+        var r = rowsById[c.id], boardHas = !!haveRow[twin.id];   // bottom row): the board's twin config joins the run — the run's label, colour and mark, out of the top row and the fitted line; its series fit stands in under the Bayesian source when the board fit set has none
         if (r && !haveRow[twin.id]) { var r2 = {}; Object.keys(r).forEach(function (kk) { r2[kk] = r[kk]; }); r2.cfg = twin.id; r2.alongside = R.key; delete r2.run; D.bay.rows.push(r2); haveRow[twin.id] = true; if (D.bayById) D.bayById[twin.id] = r2; if (D.unfitted && D.unfitted[twin.id]) delete D.unfitted[twin.id]; }   // the series fit stands in for a board model the board fit set left unfitted (the Think final, 23 Sep)
         if (R.finalOnBoard) { var ti = D.shared.configs.indexOf(twin); twin.series = R.key; R.dualLabel = R.dualLabel || {}; R.dualLabel[ti] = c.label || twin.label; twin.gates_failed = twin.gates_failed || !!c.gates_failed; if (c.gates_failed && !twin.gate_flag) twin.gate_flag = c.gate_flag; R.idx.push(ti); R.dual.push(ti); R.folded.push(twin.id); return; }   // the board's chip stays; the run's row shows the same model again
         twin.run = true; twin.series = R.key; twin.board_label = twin.label; twin.label = c.label || twin.label; twin.display_name = c.display_name || twin.display_name; twin.shared_page_label = c.shared_page_label || twin.shared_page_label; twin.fam = c.fam || twin.fam;
-        twin.step = c.step; twin.index = c.index; if (c.color) twin.color = c.color; twin.think = !!c.think; twin.alongside = R.name;
+        twin.step = c.step; twin.index = c.index; if (c.color) twin.color = c.color; twin.think = !!c.think; if (!boardHas) twin.alongside = R.name;   // a board model the board fit set positions itself (a group's checkpoint 0) is not 'alongside': its read is the board's own
         if (c.gates_failed) { twin.gates_failed = true; twin.gate_flag = c.gate_flag; if (!twin.disclosure) twin.disclosure = c.gate_flag; }
         R.idx.push(D.shared.configs.indexOf(twin)); R.folded.push(twin.id); return;
       }
@@ -877,7 +879,7 @@ function boot() {
   // LINE WEIGHTING (fitting's proposal 2026-09-14 ; failure-vs-difficulty's decision : a selectable option beside the line of record, never the
   // default, labelled by construction; which line is of record follows the project maintainers' answer to the decision item): each dot weighted by its own 80% bands on both axes
   Kit.switchControl({ mount: sb, key: 'lw', label: 'Line weighting',
-    options: [{ value: 'equal', label: 'Each dot equal' }, { value: 'bands', label: 'By the 80% bands' }],
+    options: [{ value: 'equal', label: 'Each dot equal' }, { value: 'bands', label: 'By the 80% uncertainty bands' }],
     dflt: 'equal',
     onchange: function (v) { state.lw = v === 'bands' ? 'bands' : 'equal'; if (sel) render(); } });
   state.lw = Kit.state.get('lw', 'equal') === 'bands' ? 'bands' : 'equal';
@@ -1228,9 +1230,9 @@ function syncWdLock() {
   sw.title = capTitle(!inert ? ''
     : state.src === 'bayes'
       ? 'widths apply to the average-rate frequentist whiskers only '
-        + '— whiskers: the 80% band of the fit\u2019s uncertainty (finite attempts and the spread across tasks)'
+        + '— whiskers: the fit\u2019s 80% uncertainty band (finite attempts and the spread across tasks)'
       : 'widths apply to the average-rate chain only — median-task '
-        + 'whiskers are bootstrap band quantiles');
+        + 'whiskers are the quantiles of the bootstrap uncertainty band');
   sw.querySelectorAll('button').forEach(function (b) {
     b.disabled = inert;
   });
@@ -1421,7 +1423,7 @@ function phoneFold() {   // phone (<=600 px): short pill labels; the rarely touc
   var cc = document.getElementById('chartcontrols'); if (!cc) return;
   var more = document.getElementById('morecontrols');
   if (!more) {
-    var SHORT = { data: shortMap(), xdef: { crossing: 'D', capC: CAP_KEYS.capC.short, capC_z: CAP_KEYS.capC_z.short, capC_j: CAP_KEYS.capC_j.short }, xs: { logit: 'logit', raw: 'linear' }, ys: { logit: 'logit', raw: 'linear' }, line: { off: 'Off', steps: 'logit', axes: 'axes as set' }, lw: { equal: 'each dot equal', bands: 'by the 80% bands' }, resid: { off: 'Off', on: 'On' }, src: { project: 'project', bayes: 'Bayesian' }, def: { average: 'average', median: 'median task' } };
+    var SHORT = { data: shortMap(), xdef: { crossing: 'D', capC: CAP_KEYS.capC.short, capC_z: CAP_KEYS.capC_z.short, capC_j: CAP_KEYS.capC_j.short }, xs: { logit: 'logit', raw: 'linear' }, ys: { logit: 'logit', raw: 'linear' }, line: { off: 'Off', steps: 'logit', axes: 'axes as set' }, lw: { equal: 'each dot equal', bands: 'by the 80% uncertainty bands' }, resid: { off: 'Off', on: 'On' }, src: { project: 'project', bayes: 'Bayesian' }, def: { average: 'average', median: 'median task' } };
     Object.keys(SHORT).forEach(function (k) { document.querySelectorAll('.kit-switch[data-key="' + k + '"] button').forEach(function (b) { if (SHORT[k][b.dataset.value]) b.textContent = SHORT[k][b.dataset.value]; }); });
     more = document.createElement('details'); more.id = 'morecontrols'; more.className = 'about'; more.innerHTML = '<summary>More controls</summary>';
     var moreRow = document.createElement('div'); moreRow.className = 'kit-filter-row kit-static'; moreRow.id = 'moreswitches'; more.appendChild(moreRow);
@@ -1706,7 +1708,7 @@ function axisName(axis) {
       .indexOf('band inversion') >= 0;
     var bbase = 'average-rate ' + blev
       + '% crossing (posterior median'
-      + (interim ? ', band-inverted' : '') + ')';
+      + (interim ? ', read off the fit\u2019s curves' : '') + ')';
     if (blev === 50 && axis === 'x') return 'Capability: ' + bbase;
     if (blev === 1 && axis === 'y') return 'Reliability: ' + bbase;
     return bbase.charAt(0).toUpperCase() + bbase.slice(1);
@@ -2110,11 +2112,11 @@ function renderScatter() {
         + 'stroke-width="1.1" data-chain-val data-fitline/>';
       }
       var droppedTxt = dropped ? '; ' + dropped + ' dot' + (dropped > 1 ? 's' : '') + ' dropped (no usable whisker width)' : '';
-      var modeTxt = state.lw === 'bands' ? 'weighted by the dots\u2019 80% bands on both axes (tighter counts more; the default line is the unweighted one)' + (f.widen > 1.05 ? '; interval widened ' + f.widen.toFixed(1) + '\u00d7 for scatter beyond the bands' : '') + droppedTxt
+      var modeTxt = state.lw === 'bands' ? 'weighted by the dots\u2019 80% uncertainty bands on both axes (tighter counts more; the default line is the unweighted one)' + (f.widen > 1.05 ? '; interval widened ' + f.widen.toFixed(1) + '\u00d7 for scatter beyond the uncertainty bands' : '') + droppedTxt
                   : state.fitci === 'honest' ? 'with each dot\u2019s measurement error' + droppedTxt : 'dots taken as exact';
       var spaceTxt = inAxes() ? 'in the axes as set' : (state.xs === 'raw' || state.ys === 'raw') ? 'in logit (drawn as the curve it maps to on the linear axis)' : 'in logit';
       // few words on the linear fit (the project maintainers 2026-09-15 12:1x): slope, range, R; the misses only with the Misses switch on
-      fitTxt = 'line ' + spaceTxt + ' over ' + hx.length + (state.src === 'bayes' ? ' in-range posterior-median dots' : ' fully measured dots') + ': slope ' + f.b.toFixed(2) + ', range ' + f.lo.toFixed(2) + ' to ' + f.hi.toFixed(2) + ' (' + f.level + '%), R ' + f.r.toFixed(2) + '; band = pointwise ' + f.level + '% envelope; ' + modeTxt
+      fitTxt = 'line ' + spaceTxt + ' over ' + hx.length + (state.src === 'bayes' ? ' in-range posterior-median dots' : ' fully measured dots') + ': slope ' + f.b.toFixed(2) + ', range ' + f.lo.toFixed(2) + ' to ' + f.hi.toFixed(2) + ' (' + f.level + '%), R ' + f.r.toFixed(2) + '; uncertainty band = pointwise ' + f.level + '% envelope; ' + modeTxt
         + (inAxes() ? '; intercept ' + fmtY(f.a) : '')
         + (state.resid === 'on' ? '; misses: typical ' + RS.rmsPct.toFixed(1) + '% of the y scale, largest ' + sgn(RS.bigPct) + '% (' + RS.bigLabel + '), ' + RS.w5 + ' of ' + RS.n + ' models within \u00b15%, ' + RS.w10 + ' within \u00b110%' : '')
         + (state.line === 'off' ? ' (not drawn: Fitted line is Off)' : '');
@@ -2124,7 +2126,7 @@ function renderScatter() {
   headline(headN, headFit, fx.length, sweeping);
   fitCaption(headFit, headN);
   // FIT PANEL (the project maintainers 2026-09-04: the fit quality is shown as part of the chart, in the same place every time, never a
-  // sentence inside prose): a fixed box at the plot's top-left — slope with its interval, R with the arm count, the band's meaning
+  // sentence inside prose): a fixed box at the plot's top-left — slope with its interval, R with the arm count, the uncertainty band's meaning
   var pfs = NARROW ? 15 : Math.round(14 * Math.max(1, UPX)), pfs2 = NARROW ? 12 : Math.round(12 * Math.max(1, UPX)), plx = ML + 8, ply = MT + 8;   // the slope line is the largest type in the chart (the maintainers read 09-04)
   refreshBeyondChips();
   var drawnN = visible.length - undrawn.length - beyondArms.length, totalN = D.shared.configs.length;
@@ -2334,12 +2336,12 @@ function renderOpusFold() {
     out += '<text x="' + (ML2 - 8) + '" y="' + (y0 - 4) + '" text-anchor="end" font-size="12" fill="#52514e">' + a.c.label + '</text>'
          + '<line x1="' + ML2 + '" y1="' + y0 + '" x2="' + (W - MR2) + '" y2="' + y0 + '" stroke="#c9c2b2" stroke-width="0.6"/>';
   });
-  out += '<text x="' + ML2 + '" y="16" font-size="11" fill="#52514e">line = the spread of the median-task 1% crossing across the fitted draws · dot with bar = the dot drawn on the scatter view (average-rate 1% crossing, 80% band)</text></svg>';
+  out += '<text x="' + ML2 + '" y="16" font-size="11" fill="#52514e">line = the spread of the median-task 1% crossing across the fitted draws · dot with bar = the dot drawn on the scatter view (average-rate 1% crossing, 80% uncertainty band)</text></svg>';
   fig.innerHTML = out;
   var A = arms[0], B = arms[1];
   if (!A.avg || A.avg.z == null || !B.avg || B.avg.z == null) { txt.textContent = 'One of the two models has no average-rate 1% crossing inside its fitted range at this dataset, so the two readings cannot be compared here.'; return; }
   var P = function (z) { return fmtPct(z, 0); };
-  var band = function (a) { return a.lo != null && a.hi != null ? P(a.lo) + '–' + P(a.hi) : 'no band'; };
+  var band = function (a) { return a.lo != null && a.hi != null ? P(a.lo) + '–' + P(a.hi) : 'no uncertainty band'; };
   var moreAvg = A.avg.z > B.avg.z ? A : B, lessAvg = moreAvg === A ? B : A;
   var moreRidge = A.ridge.median_z > B.ridge.median_z ? A : B, lessRidge = moreRidge === A ? B : A;
   var overlap = A.avg.lo != null && B.avg.lo != null && Math.max(A.avg.lo, B.avg.lo) <= Math.min(A.avg.hi, B.avg.hi);
@@ -2353,10 +2355,10 @@ function renderOpusFold() {
   var cov = '';
   [A, B].forEach(function (a) { var cv = coverageOf(a.c); if (cv && cv.tasks < cv.of) cov += ' ' + a.c.label + ' has attempts on ' + Math.round(cv.share * 100) + '% of this set\u2019s tasks; the tasks it did not attempt (its refusals) are out of its fit, which favours it a little under the average-rate reading.'; });
   txt.textContent = 'Ridge here = the posterior of the median-task 1% crossing, the quantity the ridges view used to draw under every definition: the difficulty at which a typical task is failed less than once in a hundred. Scatter = the default point, the average-rate 1% crossing: the difficulty at which the average failure rate over tasks reaches 1%; that is the default reliability. '
-    + 'Under the default definition ' + A.c.label + ' reads ' + P(A.avg.z) + ' and ' + B.c.label + ' ' + P(B.avg.z) + ' (80% bands ' + band(A.avg) + ' and ' + band(B.avg) + '), so ' + moreAvg.c.label + ' is the more reliable' + (overlap ? ', and the two bands overlap: the ordering is suggestive, not settled.' : '.')
+    + 'Under the default definition ' + A.c.label + ' reads ' + P(A.avg.z) + ' and ' + B.c.label + ' ' + P(B.avg.z) + ' (80% uncertainty bands ' + band(A.avg) + ' and ' + band(B.avg) + '), so ' + moreAvg.c.label + ' is the more reliable' + (overlap ? ', and the two uncertainty bands overlap: the ordering is suggestive, not settled.' : ', and the two uncertainty bands do not overlap: the difference is statistically significant.')
     + ' On the ridges ' + moreRidge.c.label + ' is the higher (' + P(moreRidge.ridge.median_z) + ' against ' + P(lessRidge.ridge.median_z) + '): on a typical task it is the safer model.'
     + (moreAvg !== moreRidge ? ' Both readings are right about different things.' : '') + spread + cens + cov
-    + ' Trust the scatter for reliability, the default definition; read the median-task ridge as the typical-task view. The ridges view itself now follows the definition switch: under the average-rate definition it shows the 80% band of the same crossing the dot marks, so the two views agree; the median-task ridges remain under the Median definition where that chain is served.';
+    + ' Trust the scatter for reliability, the default definition; read the median-task ridge as the typical-task view. The ridges view itself now follows the definition switch: under the average-rate definition it shows the 80% uncertainty band of the same crossing the dot marks, so the two views agree; the median-task ridges remain under the Median definition where that chain is served.';
 }
 
 function ridgeCentre(r, lev) {   // the crossing median at the level shown, under the definition shown, for ordering the ridges
@@ -2454,8 +2456,8 @@ function renderRidges() {
   var bakedX = Math.abs(state.a - 50) < 1e-9, bakedY = Math.abs(state.c - 1) < 1e-9;
   var anyShape = rows.some(function (row) { return avgDef ? (row.r.d50_avg && row.r.d1_avg) : (row.r.d50 && row.r.d1); });
   var shapeNote = (bakedX && bakedY && anyShape) ? 'true posterior shapes (crossing draws)'
-    : (!anyShape ? 'the 80% band with its median from the fitted tables (this set has no crossing draws)'
-       : 'the 80% band with its median at levels other than 50% and 1% (a shape there would need draws fitting does not export); shapes at 50% and 1%');
+    : (!anyShape ? 'the 80% uncertainty band with its median from the fitted tables (this set has no crossing draws)'
+       : 'the 80% uncertainty band with its median at levels other than 50% and 1% (a shape there would need draws fitting does not export); shapes at 50% and 1%');
   (document.getElementById('narrate') || document.createElement('div')).textContent = 'the spread of the same crossings the dots mark, across the fitted draws (' + (avgDef ? 'average-rate' : 'median-task') + ' definition): filled = the crossing at the x level ' + state.a + '%, outlined = at the y level ' + state.c + '% — ' + shapeNote + ' · ' + visible.length + ' of ' + D.shared.configs.length + ' models · move x or y and the view follows' + (bakedX && bakedY && anyShape ? ' · censored draws are not in a shape (the label notes the fraction)' : '');
   notes();
   stamp();
@@ -2473,7 +2475,7 @@ function avgWhiskerLabel() {   // the average-rate whisker label follows what th
   var rows = (D.bay && D.bay.rows) || [], nEx = rows.filter(function (r) { return r.avg_source === 'exact'; }).length;
   if (rows.length && nEx === rows.length) return '80% uncertainty band (crossing draws, average-rate)';
   if (!nEx) return D.bay ? D.bay.whisker_label_avg : '';
-  return '80% uncertainty band (crossing draws where exported; band-inverted otherwise)';
+  return '80% uncertainty band (crossing draws where exported; read off the fit\u2019s average-rate curves otherwise)';
 }
 function narrate(visible, nFull) {
   var src = state.src === 'bayes'
@@ -2505,7 +2507,7 @@ function narrate(visible, nFull) {
         + (state.src === 'bayes'
            && (D.bay.estimator_version_avg || '')
               .indexOf('band inversion') >= 0
-           ? ' (band-inverted interim)' : ''))
+           ? ' (read off the fit\u2019s curves, interim)' : ''))
     + ' · ' + src + (isCap() ? ' · horizontal: ' + CAP_KEYS[state.xdef].name() + ' (level-free)' : ' · horizontal level ' + state.a + '%') + ' · vertical level '
     + state.c + '% · hold ' + (isCap() ? 'n/a (the Capability view is level-free)' : ({ k: 'K', a: 'horizontal level', c: 'vertical level' })[state.hold]) + unfitNote
     + (undrawn.length ? (function () { var rs = undrawn.map(function (s) { var m = /\(([^()]*)\)$/.exec(s); return m ? m[1] : ''; }); var same = rs[0] && rs.every(function (r) { return r === rs[0]; }); return same && undrawn.length > 3 ? ' · ' + undrawn.length + ' of ' + D.shared.configs.length + ' models not drawn: ' + rs[0] : ' · ' + undrawn.length + ' not drawn: ' + undrawn.join('; '); })() : '')
@@ -2555,7 +2557,7 @@ function notes() {
   if (state.src === 'bayes' && D.bay) {
     var nEx = D.bay.rows.filter(function (r) { return r.avg_source === 'exact'; }).length, nAll = D.bay.rows.length;
     warn(state.def === 'average'
-      ? 'Bayesian reliability shown = the average-rate 1% crossing (the default reliability): ' + (nEx === nAll ? 'exact crossing draws for every model.' : nEx ? 'exact crossing draws for ' + nEx + ' of ' + nAll + ' models; the rest band-inverted from the fit\u2019s average-rate curves (an interim estimator; the served set predates fitting\u2019s export switch \u2014 those numbers move at the switch, per model, announced).' : 'band-inverted from the fit\u2019s pointwise average-rate curves \u2014 an interim estimator until fitting exports exact average-rate crossing draws; the numbers move at that switch, per model, announced.')
+      ? 'Bayesian reliability shown = the average-rate 1% crossing (the default reliability): ' + (nEx === nAll ? 'exact crossing draws for every model.' : nEx ? 'exact crossing draws for ' + nEx + ' of ' + nAll + ' models; the rest read off the fit\u2019s average-rate curves (an interim estimator; the served set predates fitting\u2019s export switch \u2014 those numbers move at the switch, per model, announced).' : 'read off the fit\u2019s pointwise average-rate curves \u2014 an interim estimator until fitting exports exact average-rate crossing draws; the numbers move at that switch, per model, announced.')
       : 'Median-task definition: exact crossing draws from fitting\u2019s levels tables; the default reliability is the average-rate 1% crossing (the \u201cAverage rate\u201d definition), one to two steps of the difficulty scale easier for most models.');
   }
   // Definitions caveat (difficulty 2026-09-04, bound not typed; fit-methods spec 04m): the served fit's bias on arms with concentrated failures
@@ -2731,7 +2733,7 @@ function reliabilityDefinition() {
   el.textContent = 'Reliability: the difficulty up to which a model fails fewer than one attempt in a hundred. Its adopted name is the average-rate 1% crossing: '
     + 'the difficulty at which the model\u2019s fitted average failure rate first reaches 1%, on the kept tasks; ' + frameClause + '. '
     + 'Two estimators of this one quantity appear on this site and are named wherever a number is shown: the average-rate estimate (a local-logistic fit of failure rate against pooled task difficulty) '
-    + 'and the Bayesian estimate (the posterior-median crossing of the fitted model, band-inverted). They differ most in the 1% tail, so a figure is comparable only with its estimator and its task frame named.';
+    + 'and the Bayesian estimate (the posterior-median crossing of the fitted model, read off the fit\u2019s curves). They differ most in the 1% tail, so a figure is comparable only with its estimator and its task frame named.';
 }
 /* FIRST SCREEN (WRITING.md §1; the maintainers's roster read 2026-09-03): line 1 the question, lines 2–3 the answer
  * with ONE metric (the drawn slope) and at most three supporting numbers (arm count, interval ends) — rendered from state */
