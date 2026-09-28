@@ -1030,7 +1030,7 @@ function renderSideBlock() {
   var sc = document.getElementById('sidechips'), st = document.getElementById('sidecrossings');
   if (!sb || state.src !== 'bayes') { if (sc) sc.remove(); if (st) st.remove(); return; }
   if (!sideSel) { sideSel = new Set(); }   // off by default (the project maintainers' word of 22 Sep, via the coordination): the page opens on the served set's models; the group's all button or a chip turns them on
-  if (!sc) { sc = document.createElement('div'); sc.id = 'sidechips'; sc.className = 'chips'; var after = document.getElementById('offpanelline') || chipsBox; after.parentNode.insertBefore(sc, after.nextSibling); }
+  if (!sc) { sc = document.createElement('div'); sc.id = 'sidechips'; sc.className = 'chips'; var after = chipsBox; after.parentNode.insertBefore(sc, after.nextSibling); }   // after the chips box itself ( 28 Sep: the off-panel line now lives in the state fold, so it is no longer the anchor — anchored on it, the side block and the runs' row fell into the closed fold)
   sc.textContent = '';
   var head = document.createElement('span'); head.className = 'fam'; head.textContent = headingShort(sb);
   if (sb.membership) head.title = oneSentence(noSpecTags(sb.membership));
@@ -1111,7 +1111,7 @@ function renderSeriesRow(sb, ri) {   // the run's row: cloned from renderSideBlo
   var runName = (sb.arms[0] && sb.arms[0].run) || headingShort(sb);
   if (SERIES_MERGED[runName]) { if (sc) { sc.remove(); } sc = null; }   // one row per run: the chips live in the served set's run row (buildChips); only the checkpoints' table is drawn here
   else {
-  if (!sc) { sc = document.createElement('div'); sc.id = 'serieschips' + sfx; sc.className = 'chips'; var after = (ri ? document.getElementById('serieschips' + (ri - 1)) || document.getElementById('serieschips') : null) || document.getElementById('sidechips') || document.getElementById('offpanelline') || chipsBox; after.parentNode.insertBefore(sc, after.nextSibling); }   // 26 Sep : one insertion — the earlier two-branch form set `after` to null after inserting behind a previous own row and then dereferenced it, a TypeError thrown on the first render once a SECOND own row existed (the night-1 row, ); the row still appeared on the re-render, so only a page-error listener saw it
+  if (!sc) { sc = document.createElement('div'); sc.id = 'serieschips' + sfx; sc.className = 'chips'; var after = (ri ? document.getElementById('serieschips' + (ri - 1)) || document.getElementById('serieschips') : null) || document.getElementById('sidechips') || chipsBox; /* never the off-panel line: it lives in the state fold since  28 Sep */ after.parentNode.insertBefore(sc, after.nextSibling); }   // 26 Sep : one insertion — the earlier two-branch form set `after` to null after inserting behind a previous own row and then dereferenced it, a TypeError thrown on the first render once a SECOND own row existed (the night-1 row, ); the row still appeared on the re-render, so only a page-error listener saw it
   sc.textContent = '';
   var head = document.createElement('span'); head.className = 'fam'; head.textContent = (sb.arms[0] && sb.arms[0].run) || headingShort(sb);   // the run's full name from the labels row of record, else the pointer's heading
   if (sb.heading_hover) head.title = noSpecTags(String(sb.heading_hover));   // a group of one model's trained versions (post-training-lead's decision 168, 28 Sep): the builder's hover for the row's heading
