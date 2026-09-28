@@ -1,9 +1,9 @@
 {
- "fingerprint": "46b62ca6e818",
+ "fingerprint": "86dde279faef",
  "fingerprint_inputs": {
   "content": "4938fd4a9bf8",
   "wave": "unified-live",
-  "body": "c12f1225c29e"
+  "body": "65e760863248"
  },
  "frame": {
   "dataset": "all",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "aff80936f200",
   "axis_wave": "unified-live",
   "build_date": "2026-09-28",
-  "stamp": "2026-09-28T10:15:31Z",
+  "stamp": "2026-09-28T11:58:38Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -85,7 +85,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-28T09:14:46Z",
+   "unified_built_at": "2026-09-28T11:15:14Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -398,7 +398,7 @@
    "served_not_drawn": "Bayesian curves for 55 models exist for this dataset but were fitted on a different difficulty axis than this view uses; they draw when a fit set cut on this view's axis is served (local-logistic curves shown meanwhile)",
    "custody_dir": null,
    "set_fingerprint": null,
-   "pointer_updated_at": "2026-09-25T13:19:08Z",
+   "pointer_updated_at": "2026-09-28T11:56:25Z",
    "n_fits": 0,
    "note": "Bayesian curves for 55 models exist for this dataset but were fitted on a different difficulty axis than this view uses; they draw when a fit set cut on this view's axis is served",
    "gates": null,
@@ -421,7 +421,7 @@
     "min_ell_median": 0.662,
     "r_at_min_ell": 0.00342,
     "disclosure": null,
-    "disclosure_rule": "the measured no-move band; the design rule applies to new cuts only",
+    "disclosure_rule": "the measured no-move range; the design rule applies to new cuts only",
     "computed_at": "2026-09-07T05:23:52Z",
     "rule": "spec of 6 Sep (w): served fits with every arm's r at or below r_star carry no basis disclosure and are not re-fitted on this account; above r_star a neutral, direction-free disclosure until the set's re-fit lands; the design rule of 6 Sep (h) stays in force (M per rule) for new cuts"
    },
@@ -496,12 +496,12 @@
     {
      "id": "deepseek-coder-6.7b-rl-night2-step250",
      "arm_id": "dsc6.7b-rl-night2-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it solves sometimes (250 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20137 of 8 (250 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night2-step500",
      "arm_id": "dsc6.7b-rl-night2-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it solves sometimes (500 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20137 of 8 (500 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night3-step250",
@@ -690,7 +690,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-28T09:24:48Z",
+   "_stamp": "2026-09-28T11:24:51Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -856,9 +856,9 @@
   }
  },
  "files": {
-  "shared": "shared.46b62ca6e818.json",
-  "chain_average": "chain_average.46b62ca6e818.json",
-  "chain_median": "chain_median.46b62ca6e818.json",
-  "dots": "dots.46b62ca6e818.json"
+  "shared": "shared.86dde279faef.json",
+  "chain_average": "chain_average.86dde279faef.json",
+  "chain_median": "chain_median.86dde279faef.json",
+  "dots": "dots.86dde279faef.json"
  }
 }
