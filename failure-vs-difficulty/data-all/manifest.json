@@ -1,9 +1,9 @@
 {
- "fingerprint": "04169f44f010",
+ "fingerprint": "f773682886d5",
  "fingerprint_inputs": {
-  "content": "5959c38dae70",
+  "content": "fcf628471856",
   "wave": "unified-live",
-  "body": "c751d58797ef"
+  "body": "d6f5995cd06f"
  },
  "frame": {
   "dataset": "all",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 61,
   "tasks": 2167,
   "keep_set_hash": "60ede5d24001",
-  "inputs_content_sha": "5959c38dae70",
+  "inputs_content_sha": "fcf628471856",
   "tasks_on_axis": 2167,
   "tasks_kept": 2167,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "4bbcc322ed33",
+  "runs_fingerprint": "c7d2633a59ab",
   "axis_wave": "unified-live",
   "build_date": "2026-09-28",
-  "stamp": "2026-09-28T03:49:27Z",
+  "stamp": "2026-09-28T05:48:53Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -54,6 +54,7 @@
    "deepseek-coder-6.7b-rl-night5-step250": 430,
    "deepseek-coder-6.7b-rl-night5-step500": 430,
    "deepseek-coder-6.7b-rl-night6-step100": 430,
+   "deepseek-coder-6.7b-rl-night6-step250": 430,
    "olmo-3-7b-think-final-Thinking": 430,
    "olmo-3-7b-think-step0025-Thinking": 430,
    "olmo-3-7b-think-step0050-Thinking": 430,
@@ -84,7 +85,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-28T03:16:08Z",
+   "unified_built_at": "2026-09-28T05:14:28Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -689,7 +690,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-28T03:24:43Z",
+   "_stamp": "2026-09-28T05:24:54Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -855,9 +856,9 @@
   }
  },
  "files": {
-  "shared": "shared.04169f44f010.json",
-  "chain_average": "chain_average.04169f44f010.json",
-  "chain_median": "chain_median.04169f44f010.json",
-  "dots": "dots.04169f44f010.json"
+  "shared": "shared.f773682886d5.json",
+  "chain_average": "chain_average.f773682886d5.json",
+  "chain_median": "chain_median.f773682886d5.json",
+  "dots": "dots.f773682886d5.json"
  }
 }
