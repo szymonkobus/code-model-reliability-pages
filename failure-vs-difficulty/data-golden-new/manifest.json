@@ -1,9 +1,9 @@
 {
- "fingerprint": "8fb289c92403",
+ "fingerprint": "644bae87707f",
  "fingerprint_inputs": {
   "content": "85fc4b70080f",
   "wave": "golden-pool-20260904T1407Z",
-  "body": "7ac92a12fa9c"
+  "body": "3fafee5931df"
  },
  "frame": {
   "dataset": "new",
@@ -37,14 +37,14 @@
   "runs_fingerprint": "aff80936f200",
   "axis_wave": "golden-pool-20260904T1407Z",
   "build_date": "2026-09-28",
-  "stamp": "2026-09-28T08:57:48Z",
+  "stamp": "2026-09-28T12:22:35Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-28T08:14:11Z",
+   "unified_built_at": "2026-09-28T11:15:14Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.golden.pool.csv"
@@ -132,7 +132,7 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/golden-pool-20260904T1407Z-m100/results",
    "set_fingerprint": "f397260cc9fb",
-   "pointer_updated_at": "2026-09-25T13:19:10Z",
+   "pointer_updated_at": "2026-09-28T11:56:25Z",
    "n_fits": 12,
    "note": null,
    "gates": {
@@ -171,7 +171,7 @@
     "min_ell_median": 0.92,
     "r_at_min_ell": 7.37e-06,
     "disclosure": "re-fitted at the ruled basis on identical inputs (12 of 12 models): the served D50 (the 50% crossing) is unchanged within the run-to-run noise floor on every model; D99 (the 1% crossing) moved on one model, Qwen3-1.7B, later by about 0.05 on the difficulty scale (toward harder tasks, more reliable), and stayed within the noise floor on the other eleven",
-    "disclosure_rule": "the measured no-move band: the noise floor is two grid steps",
+    "disclosure_rule": "the measured no-move range: the noise floor is two grid steps",
     "computed_at": "2026-09-07T06:45:26Z",
     "rule": "spec of 6 Sep (h), item 2: adequate iff r(min ell) <= 1e-2, r = exp(-1/4(ell w_M)^2)/exp(-1/4(ell w_1)^2), w_j = j*pi/(2L)"
    },
@@ -229,7 +229,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-28T08:24:23Z",
+   "_stamp": "2026-09-28T11:24:51Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -395,9 +395,9 @@
   }
  },
  "files": {
-  "shared": "shared.8fb289c92403.json",
-  "chain_average": "chain_average.8fb289c92403.json",
-  "chain_median": "chain_median.8fb289c92403.json",
-  "dots": "dots.8fb289c92403.json"
+  "shared": "shared.644bae87707f.json",
+  "chain_average": "chain_average.644bae87707f.json",
+  "chain_median": "chain_median.644bae87707f.json",
+  "dots": "dots.644bae87707f.json"
  }
 }
