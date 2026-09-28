@@ -1,9 +1,9 @@
 {
- "fingerprint": "96c1360573f7",
+ "fingerprint": "01476cd2a117",
  "fingerprint_inputs": {
   "content": "4d48d9910b0c",
   "wave": "combined-20260910T2209Z",
-  "body": "5a0b4eaa759d"
+  "body": "94e9ef398d2d"
  },
  "frame": {
   "dataset": "board_top",
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "1c1988ab59a4",
+  "runs_fingerprint": "5e87cf0d6545",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-09-28",
-  "stamp": "2026-09-28T14:54:12Z",
+  "stamp": "2026-09-28T15:52:22Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -85,7 +85,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-28T14:19:07Z",
+   "unified_built_at": "2026-09-28T15:15:03Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -71435,7 +71435,7 @@
     "axis_pinned_to_served": true,
     "cut_at": "2026-09-26T14:14:36Z",
     "completed_at": "2026-09-27T02:07:46Z",
-    "updated_at": "2026-09-28T13:51:31Z+2026-09-28T13:51:31Z+2026-09-28T14:35:00Z+2026-09-28T14:35:00Z+2026-09-28T14:35:00Z+2026-09-28T14:44:12Z",
+    "updated_at": "2026-09-28T13:51:31Z+2026-09-28T13:51:31Z+2026-09-28T14:35:00Z+2026-09-28T14:35:00Z+2026-09-28T14:35:00Z+2026-09-28T14:58:22Z",
     "pointer": "definitions/fitting/serving_series_dsc6.7b-rl-night1.json",
     "arms": [
      {
@@ -95724,7 +95724,7 @@
      {
       "id": "deepseek-coder-6.7b-rl-night6-step250",
       "arm_id": "dsc6.7b-rl-night6-s250",
-      "arm_kind": "RL checkpoint (code): step 250 of the training loop's sixth run (RL on the tasks it fails 1\u20133 of 32, the soft draw; the run resumes to 500 by decision 170), read on wave 1+2 at the base's card",
+      "arm_kind": "RL checkpoint (code): step 250 of the training loop's sixth run (RL on the tasks it fails 1\u20133 of 32, the soft draw; its continuation to 500 was stopped before its first step by the project owner's word, decision 175 of 28 Sep; the 250-step checkpoint archived for a resumption on the project owner's word), read on wave 1+2 at the base's card",
       "baseline_arm": "dsc6.7b-instruct-start",
       "baseline_id": "deepseek-coder-6.7b-instruct-start",
       "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20133 of 32 (250 steps)",
@@ -97762,6 +97762,60 @@
      "positions": 12,
      "start": "the board's read of the model, every stored answer"
     }
+   },
+   {
+    "served": true,
+    "serving_word": "Definitions' GO (15:2xZ, 28 Sep) on staging sha16 71bc868d78d9f787, read whole against night 6's empty form of record: the EMPTY checkpoint-series pointer of the re-drawn run (decisions 171, 176 and 177: the plain name, the fleet's priority tonight) \u2014 kind 'checkpoint series', arms [], complete false; the first position (250 steps, index 5 of 11) comes as its own pre-write with base_of_record and the comparator clause",
+    "wave_id": null,
+    "n_arms": 0,
+    "heading": "checkpoints of one training run",
+    "heading_note": "label = plain words for what the group is (the project owner's word of 22 September 2026 via the post-training lead, ruled by Definitions the same day): no task count or composition in the label; the composition sits in group_composition, the counts in the count fields and membership (the kept set of record (19 September 2026): 430 of wave 1, 858 of wave 2 on the served axis; the set's members (19 September 2026): 430 of wave 1, 869 of wave 2), fitted figures beside it \u2014 a task that left the kept set after a cut stays in that fit as cut (the ruling of 8 Sep) and is named in its model's membership_lag",
+    "membership": null,
+    "axis_rule": "the served wave 1+2 axis unchanged: study models are positioned on an axis they did not shape (ruling of 17 Sep); positions are comparable with the served set's",
+    "axis_pinned_to_served": true,
+    "cut_at": null,
+    "completed_at": null,
+    "updated_at": "2026-09-28T15:24:10Z",
+    "pointer": "definitions/fitting/serving_series_dsc6.7b-rl-redraw-a.json",
+    "arms": [],
+    "run_name": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8",
+    "row": 3
+   },
+   {
+    "served": true,
+    "serving_word": "Definitions' GO (15:2xZ, 28 Sep) on staging sha16 a3fd572776c09938, read whole against night 6's empty form of record: the EMPTY checkpoint-series pointer of the re-drawn run (decisions 171, 176 and 177: the plain name, the fleet's priority tonight) \u2014 kind 'checkpoint series', arms [], complete false; the first position (250 steps, index 5 of 11) comes as its own pre-write with base_of_record and the comparator clause",
+    "wave_id": null,
+    "n_arms": 0,
+    "heading": "checkpoints of one training run",
+    "heading_note": "label = plain words for what the group is (the project owner's word of 22 September 2026 via the post-training lead, ruled by Definitions the same day): no task count or composition in the label; the composition sits in group_composition, the counts in the count fields and membership (the kept set of record (19 September 2026): 430 of wave 1, 858 of wave 2 on the served axis; the set's members (19 September 2026): 430 of wave 1, 869 of wave 2), fitted figures beside it \u2014 a task that left the kept set after a cut stays in that fit as cut (the ruling of 8 Sep) and is named in its model's membership_lag",
+    "membership": null,
+    "axis_rule": "the served wave 1+2 axis unchanged: study models are positioned on an axis they did not shape (ruling of 17 Sep); positions are comparable with the served set's",
+    "axis_pinned_to_served": true,
+    "cut_at": null,
+    "completed_at": null,
+    "updated_at": "2026-09-28T15:24:10Z",
+    "pointer": "definitions/fitting/serving_series_dsc6.7b-rl-redraw-b.json",
+    "arms": [],
+    "run_name": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8",
+    "row": 4
+   },
+   {
+    "served": true,
+    "serving_word": "Definitions' GO (15:2xZ, 28 Sep) on staging sha16 4f7e592ff917b6d2, read whole against arm A's empty pointer: the EMPTY checkpoint-series pointer of the re-drawn run (decisions 171, 176 and 177: the plain name, the fleet's priority tonight) \u2014 kind 'checkpoint series', arms [], complete false; the first position (250 steps, index 5 of 11) comes as its own pre-write with base_of_record and the comparator clause",
+    "wave_id": null,
+    "n_arms": 0,
+    "heading": "checkpoints of one training run",
+    "heading_note": "label = plain words for what the group is (the project owner's word of 22 September 2026 via the post-training lead, ruled by Definitions the same day): no task count or composition in the label; the composition sits in group_composition, the counts in the count fields and membership (the kept set of record (19 September 2026): 430 of wave 1, 858 of wave 2 on the served axis; the set's members (19 September 2026): 430 of wave 1, 869 of wave 2), fitted figures beside it \u2014 a task that left the kept set after a cut stays in that fit as cut (the ruling of 8 Sep) and is named in its model's membership_lag",
+    "membership": null,
+    "axis_rule": "the served wave 1+2 axis unchanged: study models are positioned on an axis they did not shape (ruling of 17 Sep); positions are comparable with the served set's",
+    "axis_pinned_to_served": true,
+    "cut_at": null,
+    "completed_at": null,
+    "updated_at": "2026-09-28T15:27:56Z",
+    "pointer": "definitions/fitting/serving_series_dsc6.7b-rl-redraw-c.json",
+    "arms": [],
+    "run_name": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8",
+    "row": 5
    }
   ],
   "off_panel": {
@@ -97986,7 +98040,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-28T14:25:47Z",
+   "_stamp": "2026-09-28T15:25:23Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -98152,9 +98206,9 @@
   }
  },
  "files": {
-  "shared": "shared.96c1360573f7.json",
-  "chain_average": "chain_average.96c1360573f7.json",
-  "chain_median": "chain_median.96c1360573f7.json",
-  "dots": "dots.96c1360573f7.json"
+  "shared": "shared.01476cd2a117.json",
+  "chain_average": "chain_average.01476cd2a117.json",
+  "chain_median": "chain_median.01476cd2a117.json",
+  "dots": "dots.01476cd2a117.json"
  }
 }
