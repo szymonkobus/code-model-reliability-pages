@@ -57,7 +57,10 @@ function layout() {
 }
 var LOGIT_TICKS = [0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50, 80, 90, 95, 98, 99, 99.5];   // both axes reach down to 0.1% with 0.2% and 0.1% ticks (the project maintainers' word of 22 Sep 15:2x: models sit there now)
 var AXIS_FLOOR_PCT = 0.1;   // the lowest position both axes show, as a percent of the scale
-var LOGIT_TICKS_EXPORT = [0.05, 0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50, 80, 90, 95, 98, 99, 99.5, 99.8, 99.9];   // the export continues an axis to the lowest drawn point with a tick there (the project maintainers 15:0x 18 Sep)
+var LOGIT_TICKS_EXPORT = [0.05, 0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50, 80, 90, 95, 98, 99, 99.5, 99.8, 99.9];
+var LOGIT_TICKS_FINE = [0.05, 0.07, 0.1, 0.15, 0.2, 0.3, 0.5, 0.7, 1, 1.5, 2, 3, 5, 7, 10, 15, 20, 30, 40, 50, 60, 70, 80, 85, 90, 93, 95, 97, 98, 99, 99.3, 99.5, 99.7, 99.8, 99.9];
+// the zoomed export's finer ladder (the project maintainers' word of 28 Sep: the zoomed view zooms tighter to the points shown): an axis whose window holds fewer than three project ticks prints a finer ladder, and the y axis's floor tick comes from the ladder it prints
+var EXPORT_TIER_Y = null, EXPORT_FLOOR_Y = null;   // the zoomed export's y ladder and its floor tick (percent), set by the export factory for the render   // the export continues an axis to the lowest drawn point with a tick there (the project maintainers 15:0x 18 Sep)
 /* /sweep fold (tools convergence blocking condition, ported 2026-09-02):
  * K = x level / y level is the FOLD; a, K and a/K carry two degrees of
  * freedom, so exactly one is HELD while the other two respond. */
@@ -1605,13 +1608,38 @@ function render() {
   renderScatter(); renderOpusFold();
 }
 
+function pctLadder(lo, hi) {   // percent ticks at the coarsest 1-2-5 step that puts three or more inside (lo, hi), for a window the reference ticks do not cover
+  var steps = [20, 10, 5, 2, 1, 0.5, 0.2, 0.1, 0.05, 0.02, 0.01], t = [];
+  for (var s = 0; s < steps.length; s++) {
+    var st = steps[s]; t = [];
+    for (var k = Math.floor(lo / st) + 1; k * st < hi; k++) { var v = +(k * st).toFixed(2); if (v > 0 && v < 100) t.push(v); }
+    if (t.length >= 3) return t;
+  }
+  return t;
+}
+function floorIn(tier, zmin, stepUnder) {   // the tier's largest tick at or below a logit value, as { z, v }; a percent ladder (stepUnder) continues one step under its first tick; the fixed sets have no tick under their floor
+  var fb = null;
+  tier.forEach(function (v) { var zt = logit(v / 100); if (zt <= zmin + 1e-9 && (fb === null || zt > fb.z)) fb = { z: zt, v: v }; });
+  if (fb === null && stepUnder && tier.length >= 2) { var st = +(tier[1] - tier[0]).toFixed(2), v0 = +(Math.floor(pct(zmin) / st) * st).toFixed(2); if (v0 > 0) fb = { z: logit(v0 / 100), v: v0 }; }
+  return fb;
+}
+function exportTicks(ax) {   // the zoomed export's ticks on one axis (the project maintainers' word of 28 Sep): the reference set when three or more fall inside the window, else the finer ladder, else percent steps; the y axis prints the ladder its floor tick came from
+  var raw = (ax === 'x' ? state.xs : state.ys) === 'raw', L = limT(raw, ax);
+  var lo = raw ? L[0] * 100 : pct(L[0]), hi = raw ? L[1] * 100 : pct(L[1]);
+  var inside = function (set) { return set.filter(function (v) { return v > lo && v < hi; }); };
+  var t;
+  if (ax === 'y' && !raw && EXPORT_TIER_Y) t = inside(EXPORT_TIER_Y);
+  else { t = inside(raw ? RAW_TICKS : LOGIT_TICKS_EXPORT); if (!raw && t.length < 3) t = inside(LOGIT_TICKS_FINE); if (t.length < 3) t = pctLadder(lo, hi); }
+  if (ax === 'y' && !raw && EXPORT_FLOOR_Y !== null && t.indexOf(EXPORT_FLOOR_Y) < 0 && EXPORT_FLOOR_Y > lo && EXPORT_FLOOR_Y < hi) t.push(EXPORT_FLOOR_Y);
+  return t;
+}
 function axisGrid(xOnly, hOverride) {
   var g = '';
   var plotBot = (hOverride ? hOverride - MB : MT + PH);
-  var LT = EXPORTING ? LOGIT_TICKS_EXPORT : LOGIT_TICKS;
-  var xt = state.xs === 'raw' ? RAW_TICKS : LT;
+  var LT = EXPORTING ? LOGIT_TICKS_EXPORT : LOGIT_TICKS, zoomed = EXPORTING && LIMX && LIMY;   // zoomed: the export tightened to the points shown (the project maintainers' word of 28 Sep)
+  var xt = zoomed ? exportTicks('x') : (state.xs === 'raw' ? RAW_TICKS : LT);
   var yt2 = xOnly ? []
-    : (state.ys === 'raw' ? RAW_TICKS : LT);
+    : (zoomed ? exportTicks('y') : (state.ys === 'raw' ? RAW_TICKS : LT));
   if (NARROW) {   // phone: fewer ticks so 13-unit labels never touch
     var keepL = [1, 5, 20, 50, 80, 95, 99];
     xt = xt.filter(function (v) { return state.xs === 'raw' ? (v % 20 === 0 && v > 0) : keepL.indexOf(v) >= 0; });
@@ -1828,7 +1856,9 @@ function renderScatter() {
   var clipAt = out.length; EXT = null;   // export: everything after the grid and tick labels is clipped to the plot box; the drawn extent restarts
   // y = x guide through data space (holds under any scale combo); under the export's per-axis limits it runs where both axes show it
   var dg = '', GX = LIMX || LIM, GY = LIMY || LIM, G0 = Math.max(GX[0], GY[0]), G1 = Math.min(GX[1], GY[1]);
-  for (var t = 0; t <= 40 && G1 > G0; t++) {
+  // the export's zoomed view carries no guide (the project maintainers' word of 28 Sep: the zoomed view keeps equal scale only, no diagonal through the figure); the page's plane keeps it
+  var zoomedExport = EXPORTING && LIMX && LIMY;
+  for (var t = 0; t <= 40 && G1 > G0 && !zoomedExport; t++) {
     var z = G0 + (G1 - G0) * t / 40;
     dg += (t ? 'L' : 'M') + sx(z).toFixed(1) + ' ' + sy(z).toFixed(1);
   }
@@ -2207,13 +2237,24 @@ function exportLegend() {   // every drawn model grouped by family in the colour
 function exportOptions() {
   var chart = document.getElementById('chart'), f = D.shared.frame || {}, ds = DATASETS[state.data] || {};
   var tight = state.view !== 'ridges' && EXT && isFinite(EXT.x0) && isFinite(EXT.y0) && EXT.x1 > EXT.x0 && EXT.y1 > EXT.y0;
+  EXPORT_TIER_Y = null; EXPORT_FLOOR_Y = null;
   if (tight) {   // the limits close on the drawn extent plus a small margin (2% of the span, at least 0.05 steps; the project maintainers 15:0x 18 Sep: tighter at both ends), never beyond the frame
     var padX = Math.max(0.05, (EXT.x1 - EXT.x0) * 0.02), padY = Math.max(0.05, (EXT.y1 - EXT.y0) * 0.02);
     LIMX = [Math.max(LIM[0], EXT.x0 - padX), Math.min(LIM[1], EXT.x1 + padX)];
     LIMY = [Math.max(LIM[0], EXT.y0 - padY), Math.min(LIM[1], EXT.y1 + padY)];
     // a logit axis continues down to the tick at or below its lowest drawn value, so no point sits without a tick below it ("0.1% on the graph as well, or 0.2%")
-    var tickBelow = function (zmin) { var best = null; LOGIT_TICKS_EXPORT.forEach(function (t) { var zt = logit(t / 100); if (zt <= zmin + 1e-9 && (best === null || zt > best)) best = zt; }); return best; };
-    if (state.ys !== 'raw') { var tb = tickBelow(EXT.y0); if (tb !== null) LIMY[0] = Math.max(LIM[0], Math.min(LIMY[0], tb - 0.06)); }
+    // the floor tick (the project maintainers' word of 18 Sep: a tick at or below the lowest point) comes from the ladder the y axis prints: the coarsest of the reference set, the finer set and percent steps
+    // that holds three ticks inside the window and reaches the floor within a quarter of the points' spread (at least 0.15 steps) — the zoomed view zooms tighter to the points shown (the project maintainers' word of 28 Sep)
+    if (state.ys !== 'raw') {
+      var lo = pct(LIMY[0]), hi = pct(LIMY[1]), tiers = [LOGIT_TICKS_EXPORT, LOGIT_TICKS_FINE, pctLadder(lo, hi)], pick = null, floor = null;
+      for (var ti = 0; ti < tiers.length && !pick; ti++) {
+        var isPct = ti === tiers.length - 1, tier = tiers[ti], n = tier.filter(function (v) { return v > lo && v < hi; }).length, fb = floorIn(tier, EXT.y0, isPct);
+        var reach = fb ? EXT.y0 - fb.z : 0;   // a point under the ladder's lowest tick has nothing to extend to
+        if ((n >= 3 && reach <= Math.max(0.15, 0.25 * (EXT.y1 - EXT.y0))) || isPct) { pick = tier; floor = fb; }
+      }
+      EXPORT_TIER_Y = pick;
+      if (floor) { LIMY[0] = Math.max(LIM[0], Math.min(LIMY[0], floor.z - 0.06)); EXPORT_FLOOR_Y = floor.v; }
+    }
     // the x axis keeps the tight margin only: snapping it to a tick re-opened the dead band left of the first point the project maintainers named on 18 Sep
     if (state.xs === state.ys) {   // equal scale: the plot's aspect follows the spans; kept between 1:2 and 2:1 by widening the shorter axis's limits inside the frame, never by unequal scales
       var rawB = state.xs === 'raw';
@@ -2230,7 +2271,7 @@ function exportOptions() {
   EXPORTING = true; render();
   var legend = state.view === 'ridges' ? [] : exportLegend();
   // the helper clones the chart synchronously in this same task; the page is drawn back before the browser paints (a microtask runs first)
-  var restore = function () { EXPORTING = false; LIMX = null; LIMY = null; NO_RATCHET = true; try { render(); } finally { NO_RATCHET = false; } };   // the page's HTML is exactly as before the click
+  var restore = function () { EXPORTING = false; LIMX = null; LIMY = null; EXPORT_TIER_Y = null; EXPORT_FLOOR_Y = null; NO_RATCHET = true; try { render(); } finally { NO_RATCHET = false; } };   // the page's HTML is exactly as before the click
   if (window.queueMicrotask) queueMicrotask(restore); else Promise.resolve().then(restore);
   var parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date());
   var pick = function (t) { return (parts.find(function (q) { return q.type === t; }) || {}).value || ''; };
