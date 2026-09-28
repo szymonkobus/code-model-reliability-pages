@@ -1331,7 +1331,7 @@ function render() {
       + (c.excluded ? ' data-excluded="1"' : '')
       + ' data-chain-val data-i="' + i + '" data-label="' + c.label
       + (c.excluded ? ' — out of the fit population: ' + (c.exclusion || 'excluded') : '')
-      + (cv.houseOnly ? ' — not yet in the Bayesian fit set; '
+      + (cv.houseOnly ? ' — outside the Bayesian fit set; '
                         + houseName().toLowerCase() + ' shown' : '')
       + '"/>';
     if (cv.form === 'bins')
@@ -1450,7 +1450,7 @@ function paintChips() {
     if (bb && bb.fit_asgraded_flag) parts.push(bb.fit_asgraded_flag);   // cells cleaned, served fit still as first graded (one arm can flip before the other)
     if (bb && bb.axis_flag) parts.push(bb.axis_flag);   // served set on a newer task axis than this view: drawn with the note (never withheld)
     var nfn = notFittedNote(i); if (nfn) parts.push(nfn);   // the Opus-refusal decision: refused tasks are not failures; excluded from this arm's cells and fit
-    if (unf && !c.excluded) parts.push('not yet in the Bayesian fit set — not drawn until its fit lands');
+    if (unf && !c.excluded) parts.push('outside the Bayesian fit set — no fit drawn');
     var _ra = (!unf && !hasOwnBayes(i)) ? runFitFor(c.id) : null; if (_ra && _ra.disclosure) parts.push(currentTruth(_ra.disclosure));   // the run's fit of record stands in (24 Sep)
     if (c.disclosure) parts.push('flag: ' + c.disclosure);
     if (c.continuation_flag) parts.push(c.continuation_flag);   // the task pool maintainers' continuation hover of record: this arm's answers in the view's waves changed from cut to continued (a basis change the project maintainers must see)
@@ -1473,7 +1473,7 @@ function narrate(visible, dotsOn, unfitted) {
   var srcName = state.src === 'bayes'
     ? 'Bayesian curves' + (unfitted.length
         ? ' (' + unfitted.length + ' of ' + visible.length
-          + ' models not yet in the fit set — not drawn until their fit lands)'
+          + ' models outside the fit set — no fit drawn)'
         : '')
     : houseName().toLowerCase();
   var bandTxt = state.band === 'off' ? 'uncertainty bands off' : state.band + '% uncertainty bands';
@@ -1502,11 +1502,11 @@ function notes(visible, unfitted) {
     wu.className = 'warn';
     wu.style.color = '#9a5b00';
     var b = D.man && D.man.frame && D.man.frame.bayes_fits;
-    wu.textContent = 'Not yet in the Bayesian fit set'
-      + (b ? (b.n_fits ? ' (' + b.n_fits + ' fitted models in the served set)' : ' (no served fit set yet; the fits land model by model)') : '')   // no fingerprint on a face (the project maintainers 7 Sep)
+    wu.textContent = 'Outside the Bayesian fit set'
+      + (b ? (b.n_fits ? ' (' + b.n_fits + ' fitted models in the served set)' : ' (no served fit set)') : '')   // no fingerprint on a face (the project maintainers 7 Sep)
       + ': ' + unfitted.map(function (i) { return D.shared.configs[i].label; }).join(', ')
-      + '. These models are not drawn until their Bayesian fit lands (one estimator per view); '
-      + 'their table rows read "awaiting fit".';
+      + '. These models have no Bayesian fit in this view (one estimator per view); '
+      + 'their table cells print * (no fit of record).';
     el.appendChild(wu);
   }
   var ns = D.shared.configs.map(function (_, i) { return i; }).filter(notShown);
@@ -1955,7 +1955,7 @@ function stamp() {
         + ' · run state ' + (f.sources_state.fleet_state ? relTime(f.sources_state.fleet_state) : '?')
         + (f.sources_state.hold === 'held' || (f.sources_state.stale && (f.sources_state.stale.store || f.sources_state.stale.fleet_state)) ? ' (inputs held: no new results since then)' : '') : '')
     + ' · axis: ' + axisWords(D.shared.axis.axis_id, D.shared.axis.axis_time, D.shared.axis.axis_basis) + (D.shared.axis.axis_basis === 'live' && D.shared.axis.axis_sha12 ? ' (axis ' + D.shared.axis.axis_sha12 + ')' : '')   // no wave id on the face (the project maintainers 09-07); the cut's day-month clock instead; the live axis names its content sha on this chrome line (Definitions 10 Sep)
-    + (isPool ? ' (' + noStamps(noWaveIds(D.shared.axis.definition)) + '; the wave 1 axis and the wave 2 axis are different populations — never one x-axis until the combined set)'
+    + (isPool ? ' (' + noStamps(noWaveIds(D.shared.axis.definition)) + '; the wave 1 axis and the wave 2 axis are different populations — never one x-axis)'
               : ((D.shared.axis.axis_basis === 'live' && D.shared.axis.axis_plain) ? ' (' + noStamps(noWaveIds(noNames(String(D.shared.axis.axis_plain)))).replace(/\.\s*$/, '') + '; both chains; reuse declared in the median artifact)'   // the live axis says what it is in Definitions' words (their 12 Sep 07:07 switch to every model with at least 90% of the set's tasks scored): a basis change reads on the face
                  : ' (both chains; reuse declared in the median artifact)')) + '</span>'
     + withheldLine(f)
@@ -2015,7 +2015,7 @@ function bayesSourceLine(f) {
     // no served set yet for this view (a fresh wave, e.g. the golden waves): the interim landings are the whole Bayesian layer
     txt = ' · Bayesian source: no served fit set yet for this view — newer fits, '
       + (b.newer.landed != null ? b.newer.landed + ' of ' + b.newer.of + ' models landed' : 'landing model by model')
-      + (b.newer.drawn_interim ? ', ' + b.newer.drawn_interim + ' drawn here as interim fits; the rest show the local-logistic fit' : '; kernel estimators until the first model lands');
+      + (b.newer.drawn_interim ? ', ' + b.newer.drawn_interim + ' drawn here as interim fits; the rest show the local-logistic fit' : '; kernel estimators (no Bayesian fit in the served set)');
     return '<span style="color:#9a5b00">' + txt + gateClause(b) + provisionalClause(b) + basisClause(b) + '</span>';
   }
   var fp = String(b.set_fingerprint || ''); fp = /\d+T\d{4}Z/.test(fp) ? 'the served set' : ('fit set ' + fp);   // a wave-id-shaped fingerprint never reaches the fold (the project maintainers 7 Sep: no code-names); a sha stays as the chrome's fingerprint
