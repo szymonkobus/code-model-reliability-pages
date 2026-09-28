@@ -1,9 +1,9 @@
 {
- "fingerprint": "29e9b3d30619",
+ "fingerprint": "46b62ca6e818",
  "fingerprint_inputs": {
   "content": "4938fd4a9bf8",
   "wave": "unified-live",
-  "body": "1649ae042102"
+  "body": "c12f1225c29e"
  },
  "frame": {
   "dataset": "all",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "aff80936f200",
   "axis_wave": "unified-live",
   "build_date": "2026-09-28",
-  "stamp": "2026-09-28T08:44:46Z",
+  "stamp": "2026-09-28T10:15:31Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -85,7 +85,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-28T08:14:11Z",
+   "unified_built_at": "2026-09-28T09:14:46Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -486,62 +486,62 @@
     {
      "id": "deepseek-coder-6.7b-rl-night1-step250",
      "arm_id": "dsc6.7b-rl-night1-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on all tasks (checkpoint 5)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on all tasks (250 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night1-step500",
      "arm_id": "dsc6.7b-rl-night1-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on all tasks (checkpoint 10)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on all tasks (500 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night2-step250",
      "arm_id": "dsc6.7b-rl-night2-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it solves sometimes (checkpoint 5)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it solves sometimes (250 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night2-step500",
      "arm_id": "dsc6.7b-rl-night2-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it solves sometimes (checkpoint 10)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it solves sometimes (500 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night3-step250",
      "arm_id": "dsc6.7b-rl-night3-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8 (checkpoint 5)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8 (250 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night3-step500",
      "arm_id": "dsc6.7b-rl-night3-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8 (checkpoint 10)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8 (500 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night4-step250",
      "arm_id": "dsc6.7b-rl-night4-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8 (checkpoint 5)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8 (250 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night4-step500",
      "arm_id": "dsc6.7b-rl-night4-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8 (checkpoint 10)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8 (500 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night5-step250",
      "arm_id": "dsc6.7b-rl-night5-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8 (checkpoint 5)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8 (250 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night5-step500",
      "arm_id": "dsc6.7b-rl-night5-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8 (checkpoint 10)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8 (500 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night6-step100",
      "arm_id": "dsc6.7b-rl-night6-s100",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20133 of 32 (checkpoint 2)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20133 of 32 (100 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night6-step250",
      "arm_id": "dsc6.7b-rl-night6-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20133 of 32 (checkpoint 5)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20133 of 32 (250 steps)"
     },
     {
      "id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
@@ -690,7 +690,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-28T08:24:23Z",
+   "_stamp": "2026-09-28T09:24:48Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -856,9 +856,9 @@
   }
  },
  "files": {
-  "shared": "shared.29e9b3d30619.json",
-  "chain_average": "chain_average.29e9b3d30619.json",
-  "chain_median": "chain_median.29e9b3d30619.json",
-  "dots": "dots.29e9b3d30619.json"
+  "shared": "shared.46b62ca6e818.json",
+  "chain_average": "chain_average.46b62ca6e818.json",
+  "chain_median": "chain_median.46b62ca6e818.json",
+  "dots": "dots.46b62ca6e818.json"
  }
 }
