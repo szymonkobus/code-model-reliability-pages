@@ -921,6 +921,7 @@ var RAW_TICKS = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 var sideSel = null, seriesSel = null;
 var SERIES_MERGED = {}, seriesChips = [];   // one row per run (22 Sep): the runs whose checkpoint-series chips live in the served set's run row, and those chips
 var seriesSels = [];   // one selection per run row (24 Sep: one row per training run); row 0 is the RL-Zero Code run, row 1 the Olmo 3 7B Think run
+function panelIndexOf(id) { var cs = D.shared.configs || []; for (var i = 0; i < cs.length; i++) if (cs[i].id === id) return i; return -1; }   // the family list's chip for an id (28 Sep: checkpoint 0 is the model's own chip, one entity)
 function seriesSelFor(i) { if (!seriesSels[i]) seriesSels[i] = new Set(); return seriesSels[i]; }   // off by default (the project maintainers' word of 22 Sep, via the coordination)
 function seriesRows() {   // every run row the bundle carries: frame.series_rows (24 Sep), else the single frame.series_arms block (22 Sep); each ordered once in place
   var f = D.shared.frame || {}; var rows = (f.series_rows && f.series_rows.length) ? f.series_rows : (f.series_arms ? [f.series_arms] : []);
@@ -938,7 +939,7 @@ function orderSeries(s) {   // the fit maintainers' checkpoint-series pointer (k
     var ownFit = function (id) { var A = (D.avg && D.avg.configs && D.avg.configs[id]) || null, M = (D.med && D.med.configs && D.med.configs[id]) || null; return !!((A && A.bayes) || (M && M.bayes)); };
     // : a released final (no training step: the outside series' '(final)', the served set's member of record since 22 Sep) stays the served set's and draws through runFitFor as before (24 Sep 13:0x);
     // a CHECKPOINT (a numeric step) whose served twin has no fit of its own stays in its run's row and the twin is hidden
-    s.merged_ids = []; s.merged_arms = {}; s.arms = s.arms.filter(function (a) { if (served[a.id]) { if (ownFit(a.id) || a.step == null) { s.merged_ids.push(a.id); s.merged_arms[a.id] = a; return false; } ROW_KEPT[a.id] = true; } return true; });
+    s.merged_ids = []; s.merged_arms = {}; s.arms = s.arms.filter(function (a) { if (served[a.id]) { if (s.group_of_record && a.step === 0) { a._twin = true; return true; }   /* the project maintainers' word 14:3x UK 28 Sep: checkpoint 0 of our runs is the base model in the family list, one entity — the row keeps its chip as a twin of the list's, drawn once by the panel */ if (ownFit(a.id) || a.step == null) { s.merged_ids.push(a.id); s.merged_arms[a.id] = a; return false; } ROW_KEPT[a.id] = true; } return true; });
     // training order: by the step field, a final last (the pointer lists the final first)
     var stepKey = function (a) { return (a.final || a.step == null) ? 1e15 : Number(a.step); };
     if (s.group_of_record) {   // one group per model of ours (post-training-lead's decision 168, 28 Sep): the chips keep the builder's run order — the approved table's, one run's positions adjacent —
@@ -1015,7 +1016,11 @@ function sideCurve(a) {   // {zs, mid, lo, hi} for one side arm under the active
 function renderOffPanelLine() {   // difficulty 18 Sep: off-panel arms with cells but no side block yet — one plain line under the served set, no chips, no rows
   var f = D.shared.frame || {}; var op = f.off_panel; var el = document.getElementById('offpanelline'); var chipsBox = document.getElementById('chips');
   if (!op || !op.line) { if (el) el.remove(); return; }
-  if (!el) { el = document.createElement('p'); el.id = 'offpanelline'; el.className = 'sub'; el.style.margin = '.2rem 0 .3rem'; chipsBox.parentNode.insertBefore(el, chipsBox.nextSibling); }
+  // the project maintainers' word 14:3x UK 28 Sep (via the coordination; decisions-2026-09-28.md: no sentences in the UI of a page, nothing in the controls but the controls): the line lives in the
+  // state fold, never between the chips and the blocks below them
+  var fold = document.getElementById('statefold'); if (!fold) { if (el) el.remove(); return; }
+  if (el && el.parentNode !== fold) { el.remove(); el = null; }
+  if (!el) { el = document.createElement('p'); el.id = 'offpanelline'; el.className = 'sub'; el.style.margin = '.2rem 0 .3rem'; fold.appendChild(el); }
   el.textContent = op.line;
 }
 function renderSideBlock() {
@@ -1113,10 +1118,11 @@ function renderSeriesRow(sb, ri) {   // the run's row: cloned from renderSideBlo
   else if (sb.membership) head.title = oneSentence(noSpecTags(sb.membership));
   sc.appendChild(head);
   // all / none for this group as the served set has them (the project maintainers' word of 22 Sep, via the coordination: every model group carries the two buttons)
-  ['all', 'none'].forEach(function (w) { var ab = document.createElement('button'); ab.className = 'util'; ab.textContent = w; ab.onclick = function () { seriesSel.clear(); if (w === 'all') sb.arms.forEach(function (_, k) { seriesSel.add(k); }); render(); }; sc.appendChild(ab); });
+  ['all', 'none'].forEach(function (w) { var ab = document.createElement('button'); ab.className = 'util'; ab.textContent = w; ab.onclick = function () { seriesSel.clear(); sb.arms.forEach(function (a, k) { if (a._twin) { var ti = panelIndexOf(a.id); if (ti >= 0) { if (w === 'all') sel.add(ti); else sel.delete(ti); } } else if (w === 'all') seriesSel.add(k); }); writeSel(); render(); }; sc.appendChild(ab); });
   sb.arms.forEach(function (a, k) {
     var b = document.createElement('button');
-    b.className = 'chip' + (seriesSel.has(k) ? '' : ' off') + (a.disclosure ? ' disclosed' : '');
+    var tiK = a._twin ? panelIndexOf(a.id) : -1;   // one entity with the family list's chip (28 Sep): the same selection, the panel draws the curve
+    b.className = 'chip' + ((tiK >= 0 ? sel.has(tiK) : seriesSel.has(k)) ? '' : ' off') + (a.disclosure ? ' disclosed' : '');
     b.style.color = a.color; b.style.borderColor = a.color;
     b.textContent = a.short_label || a.label; b.dataset.label = b.textContent; b.dataset.name = a.label || b.textContent; b.dataset.name = a.label || b.textContent; b.dataset.series = String(k); b.dataset.row = String(ri);   // the short form of record ('RL-Zero Code · 0/32', '· final') from the labels row, never composed
     if (sb.group_of_record) {   // one row of one model (28 Sep, decision 168): positions at one step share a shade and the run is told by its dash, so the dash gets its key on the chip — a
@@ -1133,7 +1139,7 @@ function renderSeriesRow(sb, ri) {   // the run's row: cloned from renderSideBlo
     if (a.protocol) parts.push('read by ' + a.protocol + ': the base model continues the prompt, no chat turn');
     b.dataset.state = noSpecTags(parts.join(' · '));
     b.title = (a.withheld && a.disclosure ? noSpecTags(currentTruth(String(a.disclosure))) : oneSentence(noSpecTags(parts[0] || a.label))) + ((a.protocol && !/^read by /.test(parts[0] || '')) ? ' (read by ' + a.protocol + ')' : ''); if (a.gates_failed) { b.title += ' \u00b7 this fit failed its own check and is drawn lighter'; b.classList.add('gated'); b.style.borderStyle = 'dashed'; }   // a withheld checkpoint's hover is the fit maintainers' whole sentence with its held-out clause and floor, never cut (the pool pages lead  23 Sep)      // a failed fit is not a plain position (the project maintainers' current-truth word of 24 Sep; the maintainers's read): the hover says so and the chip's border is dashed
-    b.onclick = function () { if (seriesSel.has(k)) seriesSel.delete(k); else seriesSel.add(k); render(); };
+    b.onclick = tiK >= 0 ? function () { if (sel.has(tiK)) sel.delete(tiK); else sel.add(tiK); writeSel(); render(); } : function () { if (seriesSel.has(k)) seriesSel.delete(k); else seriesSel.add(k); render(); };
     sc.appendChild(b);
   });
   }
@@ -1295,7 +1301,7 @@ function render() {
   if (state.dots === '1' && state.src === 'bayes' && D.dots && D.dots.configs && visible.length + nSeriesOn <= DOTS_MAX) seriesRows().forEach(function (srD) {   // the runs' task dots (28 Sep): the same dots, keyed by the arm's id, under the page's DOTS_MAX rule counted across the panel and the rows
     var ssD = seriesSelFor(srD._row); var zsD = D.shared.tasks.z;
     srD.arms.forEach(function (a, k) {
-      if (!ssD.has(k)) return;
+      if (a._twin || !ssD.has(k)) return;
       var ddD = D.dots.configs[a.id]; if (!ddD || !ddD.fails) return;
       for (var tD = 0; tD < zsD.length; tD++) {
         if (ddD.fails[tD] == null) continue;
@@ -1379,7 +1385,7 @@ function render() {
   if (state.src === 'bayes') seriesRows().forEach(function (srC) {   // every run row's checkpoints (24 Sep), keyed on that row's selection
     var seriesSel = seriesSelFor(srC._row);
     srC.arms.forEach(function (a, k) {
-      if (!seriesSel.has(k)) return;
+      if (a._twin || !seriesSel.has(k)) return;   // a twin of the family list's chip is drawn by the panel
       var cvR = sideCurve(a); if (!cvR) return;
       if (cvR.lo) bands += '<path d="' + pathBand(cvR.zs, cvR.lo, cvR.hi) + '" fill="' + a.color + '" fill-opacity="0.10" data-chain-val data-series="' + k + '" data-row="' + srC._row + '"/>';
       curves += '<path d="' + pathLine(cvR.zs, cvR.mid) + '" fill="none" stroke="' + a.color + '" stroke-width="1.6"' + (a.gates_failed ? ' stroke-opacity="0.55"' : '') + (curveDash(a) ? ' stroke-dasharray="' + curveDash(a) + '"' : '') + ' data-chain-val data-series="' + k + '" data-row="' + srC._row + '" data-label="' + String(a.short_label || a.label).replace(/"/g, '&quot;') + ' — ' + String((a.run || headingShort(srC))).replace(/"/g, '&quot;') + '"/>';
@@ -2130,7 +2136,7 @@ function exportLegend() {   // one row per drawn model, in the plot's order
   });
   if (state.src === 'bayes') seriesRows().forEach(function (srL) { var seriesSel = seriesSelFor(srL._row);
   srL.arms.forEach(function (a, k) {
-    if ((seriesSel && !seriesSel.has(k)) || !sideCurve(a)) return;
+    if (a._twin || (seriesSel && !seriesSel.has(k)) || !sideCurve(a)) return;
     rows.push({ label: a.short_label || a.label, family: a.run || a.family || undefined, color: a.color, dash: curveDash(a), width: 1.6, marker: 'none' });
   }); });
   return rows;
@@ -2238,7 +2244,7 @@ function buildCrosshair() {
         if (state.src === 'bayes') seriesRows().forEach(function (srH) {
           var ssH = seriesSelFor(srH._row);
           srH.arms.forEach(function (a, k) {
-            if (!ssH.has(k)) return;
+            if (a._twin || !ssH.has(k)) return;
             var cvH = sideCurve(a); if (!cvH) return;
             var vH = curveAt(cvH, z);
             rows.push({ key: a.color, value: vH == null ? 'censored/out of range' : fmtPct(vH),
