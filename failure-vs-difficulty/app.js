@@ -941,7 +941,11 @@ function orderSeries(s) {   // the fit maintainers' checkpoint-series pointer (k
     s.merged_ids = []; s.merged_arms = {}; s.arms = s.arms.filter(function (a) { if (served[a.id]) { if (ownFit(a.id) || a.step == null) { s.merged_ids.push(a.id); s.merged_arms[a.id] = a; return false; } ROW_KEPT[a.id] = true; } return true; });
     // training order: by the step field, a final last (the pointer lists the final first)
     var stepKey = function (a) { return (a.final || a.step == null) ? 1e15 : Number(a.step); };
-    s.arms.sort(function (a, b) { return stepKey(a) - stepKey(b); });
+    if (s.group_of_record) {   // one group per model of ours (post-training-lead's decision 168, 28 Sep): the chips keep the builder's run order — the approved table's, one run's positions adjacent —
+      var runOf = function (a) { return String(a.id).replace(/-step\d+.*$/, ''); }; var firstAt = {};   // and sort by step within a run, checkpoint 0 (the start model's own id) first
+      s.arms.forEach(function (a, i) { var k = runOf(a); if (!(k in firstAt)) firstAt[k] = i; });
+      s.arms.sort(function (a, b) { var ra = firstAt[runOf(a)], rb = firstAt[runOf(b)]; if (ra !== rb) return ra - rb; var sa = a.step == null ? 1e15 : Number(a.step), sb = b.step == null ? 1e15 : Number(b.step); return sa - sb; });
+    } else s.arms.sort(function (a, b) { return stepKey(a) - stepKey(b); });
     s._ordered = true;
   }
   return s.arms.length ? s : null;
@@ -1105,7 +1109,8 @@ function renderSeriesRow(sb, ri) {   // the run's row: cloned from renderSideBlo
   if (!sc) { sc = document.createElement('div'); sc.id = 'serieschips' + sfx; sc.className = 'chips'; var after = (ri ? document.getElementById('serieschips' + (ri - 1)) || document.getElementById('serieschips') : null) || document.getElementById('sidechips') || document.getElementById('offpanelline') || chipsBox; after.parentNode.insertBefore(sc, after.nextSibling); }   // 26 Sep : one insertion — the earlier two-branch form set `after` to null after inserting behind a previous own row and then dereferenced it, a TypeError thrown on the first render once a SECOND own row existed (the night-1 row, ); the row still appeared on the re-render, so only a page-error listener saw it
   sc.textContent = '';
   var head = document.createElement('span'); head.className = 'fam'; head.textContent = (sb.arms[0] && sb.arms[0].run) || headingShort(sb);   // the run's full name from the labels row of record, else the pointer's heading
-  if (sb.membership) head.title = oneSentence(noSpecTags(sb.membership));
+  if (sb.heading_hover) head.title = noSpecTags(String(sb.heading_hover));   // a group of one model's trained versions (post-training-lead's decision 168, 28 Sep): the builder's hover for the row's heading
+  else if (sb.membership) head.title = oneSentence(noSpecTags(sb.membership));
   sc.appendChild(head);
   // all / none for this group as the served set has them (the project maintainers' word of 22 Sep, via the coordination: every model group carries the two buttons)
   ['all', 'none'].forEach(function (w) { var ab = document.createElement('button'); ab.className = 'util'; ab.textContent = w; ab.onclick = function () { seriesSel.clear(); if (w === 'all') sb.arms.forEach(function (_, k) { seriesSel.add(k); }); render(); }; sc.appendChild(ab); });
@@ -1279,6 +1284,21 @@ function render() {
       }
     });
   }
+  var nSeriesOn = 0; seriesRows().forEach(function (srN) { nSeriesOn += seriesSelFor(srN._row).size; });
+  if (state.dots === '1' && state.src === 'bayes' && D.dots && D.dots.configs && visible.length + nSeriesOn <= DOTS_MAX) seriesRows().forEach(function (srD) {   // the runs' task dots (28 Sep): the same dots, keyed by the arm's id, under the page's DOTS_MAX rule counted across the panel and the rows
+    var ssD = seriesSelFor(srD._row); var zsD = D.shared.tasks.z;
+    srD.arms.forEach(function (a, k) {
+      if (!ssD.has(k)) return;
+      var ddD = D.dots.configs[a.id]; if (!ddD || !ddD.fails) return;
+      for (var tD = 0; tD < zsD.length; tD++) {
+        if (ddD.fails[tD] == null) continue;
+        var nD = Array.isArray(ddD.n) ? ddD.n[tD] : ddD.n;
+        var rateD = (ddD.fails[tD] + 0.5) / (nD + 1);
+        dotsSvg += '<circle cx="' + sx(zsD[tD]).toFixed(1) + '" cy="' + sy(clampY(logit(rateD))).toFixed(1)
+          + '" r="2" fill="#8b8477" fill-opacity="0.38" data-t="' + tD + '" data-row="' + srD._row + '" data-series="' + k + '"/>';
+      }
+    });
+  });
   visible.forEach(function (i) {
     var c = D.shared.configs[i];
     var cv = chainCurve(i);
@@ -2143,8 +2163,8 @@ function buildCrosshair() {
  * (the Definitions role's endpoint; the project maintainers' atlas request: the task's
  * text shown on hover) */
   var textCache = {}, dwellTimer = null;
-  function dotRows(ti, ci, extra) {
-    var c = D.shared.configs[ci];
+  function dotRows(ti, ci, extra, arm) {   // arm: a run row's arm (28 Sep) — its own colour, id and name; else the panel config at ci
+    var c = arm ? { color: arm.color, id: arm.id, label: String(arm.run || '') + (arm.run ? ' \u00b7 ' : '') + String(arm.short_label || arm.label) } : D.shared.configs[ci];
     var dd = D.dots.configs[c.id];
     var rows = [
       { key: c.color, value: dd.fails[ti] + ' of ' + (Array.isArray(dd.n) ? dd.n[ti] : dd.n),
@@ -2161,9 +2181,11 @@ function buildCrosshair() {
     var t = ev.target;
     if (t.tagName === 'circle' && t.dataset.t != null) {
       var ti = +t.dataset.t, ci = +t.dataset.i;
+      var armD = null;
+      if (t.dataset.row != null && t.dataset.series != null) { var rowsD = seriesRows(); var srT = rowsD.filter(function (r) { return String(r._row) === String(t.dataset.row); })[0]; armD = srT ? srT.arms[+t.dataset.series] : null; if (!armD) return; }
       var id = D.shared.tasks.id[ti];
       Kit.tooltip.show(ev.clientX, ev.clientY,
-        dotRows(ti, ci, textCache[id]), null);
+        dotRows(ti, ci, textCache[id], armD), null);
       clearTimeout(dwellTimer);
       if (!(id in textCache))
         dwellTimer = setTimeout(function () {
@@ -2172,7 +2194,7 @@ function buildCrosshair() {
             .then(function (j) {
               textCache[id] = j.text || '';
               Kit.tooltip.show(ev.clientX, ev.clientY,
-                dotRows(ti, ci, textCache[id]), null);
+                dotRows(ti, ci, textCache[id], armD), null);
             }).catch(function () { textCache[id] = ''; });
         }, 150);
       ev.stopPropagation();
@@ -2204,6 +2226,18 @@ function buildCrosshair() {
         if (visible.length > 12)
           rows.push({ key: null, value: '+' + (visible.length - 12),
                       label: 'more models (narrow the chips)' });
+        // the runs' curves under the cursor too (the project maintainers' 28 Sep review: no legend under the cursor for a run's line): every selected
+        // arm of every run row, named as its row and chip print it, in its own colour
+        if (state.src === 'bayes') seriesRows().forEach(function (srH) {
+          var ssH = seriesSelFor(srH._row);
+          srH.arms.forEach(function (a, k) {
+            if (!ssH.has(k)) return;
+            var cvH = sideCurve(a); if (!cvH) return;
+            var vH = curveAt(cvH, z);
+            rows.push({ key: a.color, value: vH == null ? 'censored/out of range' : fmtPct(vH),
+                        label: String((a.run || headingShort(srH))) + ' \u00b7 ' + String(a.short_label || a.label) });
+          });
+        });
         return { title: 'difficulty ' + fmtPct(z), rows: rows };
       },
     });
