@@ -1,9 +1,15 @@
 {
  "census_void": {
+  "pinned_stamp": "2026-09-29T10:56:32Z",
+  "checked_at": "2026-09-29T13:14:39Z",
+  "signals": {
+   "word_history_void": false,
+   "store_held_list": false,
+   "store_held_stamp": false
+  },
+  "word_bound_stamp": "2026-09-29T12:40:57Z",
+  "store_served_stamp": "2026-09-29T12:40:57Z",
   "voided": false,
-  "pinned_stamp": null,
-  "checked_at": "2026-09-29T13:01:04Z",
-  "line": "CENSUS VOID CHECK REPORT | the served bundle carries no frame.census_pinned.stamp yet; no PASS claimed",
-  "signals": {}
+  "line": "CENSUS VOID CHECK PASS | pinned 2026-09-29T10:56:32Z stands (the word binds 2026-09-29T12:40:57Z; the store serves 2026-09-29T12:40:57Z)"
  }
 }

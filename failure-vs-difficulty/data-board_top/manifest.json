@@ -1,9 +1,9 @@
 {
- "fingerprint": "c0ba321d1f44",
+ "fingerprint": "eb805278d093",
  "fingerprint_inputs": {
   "content": "af4fc0b1b0a4",
   "wave": "combined-20260910T2209Z",
-  "body": "cd284320792b"
+  "body": "ed8fc494a370"
  },
  "frame": {
   "dataset": "board_top",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "c143c942ffc9",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-09-29",
-  "stamp": "2026-09-29T12:33:52Z",
+  "stamp": "2026-09-29T13:10:55Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -100229,12 +100229,19 @@
      "never_includes": "any wave task; a situation is a new task id even when its parent is a wave-1 task"
     }
    }
+  },
+  "census_pinned": {
+   "stamp": "2026-09-29T10:56:32Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20260929T105632Z.json",
+   "sha16": "e68b7e3eae834a83",
+   "census_mtime": "2026-09-29T10:57:51Z",
+   "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.c0ba321d1f44.json",
-  "chain_average": "chain_average.c0ba321d1f44.json",
-  "chain_median": "chain_median.c0ba321d1f44.json",
-  "dots": "dots.c0ba321d1f44.json"
+  "shared": "shared.eb805278d093.json",
+  "chain_average": "chain_average.eb805278d093.json",
+  "chain_median": "chain_median.eb805278d093.json",
+  "dots": "dots.eb805278d093.json"
  }
 }

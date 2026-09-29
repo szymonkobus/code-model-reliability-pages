@@ -48,16 +48,16 @@ var DATASETS = {
   // NO counts — applyOfficialNames fills them from the freshest counts-of-record block once a manifest is read
   board_top: { label: 'wave 1+2', short: 'wave 1+2', src: 'data-board_top/manifest.json',
                hover: 'wave 1 plus wave 2 on one difficulty axis',
-               disabled: 'this dataset is not built yet' },
+               disabled: '' },
   top: { label: 'wave 2', short: 'wave 2', src: 'data-top/manifest.json',
          hover: 'wave 2 alone',
-         disabled: 'this dataset is not built yet' },
+         disabled: '' },
   board: { label: 'wave 1', short: 'wave 1', hover: 'wave 1 alone' },
   'new': { label: 'wave 2 and wave 2 parked', short: 'wave 2 and wave 2 parked', src: './pool/failure-vs-difficulty/data.json',
            hover: 'wave 2 and wave 2 parked together' },
   all: { label: 'all waves', short: 'all waves', src: 'data-all/manifest.json',
          hover: 'all waves on one difficulty axis',
-         disabled: 'this dataset is not built yet' }
+         disabled: '' }
   // the maths sets (MATH-500, AIME) left this switch on the project maintainers' word of 11 Sep (the maths sets do not belong on the capability-versus-difficulty
   // curves but may have a mirror page): coding sets only here; their bundles (data-math500/, data-aime/) stay built for the results browser's maintainers' mirror page
 };
@@ -275,7 +275,7 @@ function quietSet(ctl, v) { coercing = true; try { ctl.set(v); } finally { coerc
 function setDisabled(btn, off, why) {
   if (!btn) return;
   btn.disabled = off; btn.setAttribute('aria-disabled', String(off));
-  if (off) btn.title = why; else btn.removeAttribute('title');
+  if (off && why) btn.title = why; else btn.removeAttribute('title');   // a disabled control carries no sentence in its hover (the project maintainers' 28 Sep word; the maintainers  29 Sep)
 }
 
 /* the estimator's honest name per chain (the project maintainers' word of 28 Aug 2026: the
@@ -309,7 +309,7 @@ function buildSrcSwitch() {
     } });
   if (!hasBayesLayer) {
     setDisabled(srcCtl.element.querySelector('button[data-value="bayes"]'), true,
-      (_bf && _bf.note) ? oneSentence(noStamps(noWaveIds(String(_bf.note)))) : 'no Bayesian fit set for this dataset yet — the fits land model by model; local-logistic curves shown');   // hovers: one sentence, at most 160 characters
+      '');   // no sentence in the control; the state is the Definitions fold's prose   // hovers: one sentence, at most 160 characters
     if (state.src === 'bayes') { state.src = 'project'; quietSet(srcCtl, 'project'); }
   }
 }
@@ -405,7 +405,7 @@ function boot() {
   if (DATASETS.top) setDisabled(dsCtl.element.querySelector('button[data-value="top"]'), !TOP_AVAILABLE.top, DATASETS.top.disabled);
   Object.keys(DATASETS).filter(isExtra).forEach(function (ds) {   // a mirror's keys: greyed until built; named and sized from the bundle frame, never typed
     var bt = dsCtl.element.querySelector('button[data-value="' + ds + '"]');
-    setDisabled(bt, !EXTRA_AVAILABLE[ds], DATASETS[ds].disabled || 'this dataset is not built yet');
+    setDisabled(bt, !EXTRA_AVAILABLE[ds], '');
     if (!EXTRA_AVAILABLE[ds]) return;
     fetch(DATASETS[ds].src).then(function (r) { return r.json(); }).then(function (m) {
       var f = m.frame || {}; if (!bt || !f.dataset_label) return;
@@ -483,8 +483,7 @@ function boot() {
       if (v !== ARMS) window.location.reload();
     } });
   if (MIRROR && !Object.keys(DATASETS).some(function (k) { return !!GOLDEN_AVAILABLE[k]; })) armsRow.style.display = 'none';   // no golden bundle under this mount: no Arms switch (the results browser's maintainers 11 Sep)
-  setDisabled(armsCtl.element.querySelector('button[data-value="golden"]'), !GOLDEN_AVAILABLE[DATASET],
-    'the golden-set bundle for this dataset is not built yet');
+  setDisabled(armsCtl.element.querySelector('button[data-value="golden"]'), !GOLDEN_AVAILABLE[DATASET], '');
   if (ARMS === 'golden') { var _g = armsCtl.element.querySelector('button[data-value="golden"]'); if (_g) _g.title = 'golden set: Qwen3 0.6B/1.7B/4B/8B plain + thinking, Claude Haiku 4.5 + Sonnet 5 plain + thinking — axis and curves from these 12 models only; a data point, not the difficulty definition (as adopted of 3 Sep)'; }
   var partialCtl = Kit.switchControl({ mount: row, key: 'partial', label: 'Partial models',
     options: [{ value: 'hide', label: 'hidden' }, { value: 'show', label: 'show partial models' }],
@@ -545,8 +544,7 @@ function boot() {
     onchange: function (v) { state.trend = v; if (ready && !coercing) render(); } });
   if (!anyLinefit) {
     state.trend = 'off';
-    setDisabled(trendCtl.element.querySelector('button[data-value="on"]'), true,
-      'no linear-trend fit in this dataset\'s Bayesian posteriors (the trend ships with the new-task fits)');
+    setDisabled(trendCtl.element.querySelector('button[data-value="on"]'), true, '');
   }
 
   buildChips();
@@ -1231,9 +1229,7 @@ function render() {
     quietSet(dotsCtl, '0');
   ['80', '90', '95'].forEach(function (lv) {
     setDisabled(bandCtl && bandCtl.element.querySelector('button[data-value="' + lv + '"]'),
-      state.src === 'bayes' && bayesLevels.indexOf(lv) < 0,
-      'The Bayesian uncertainty bands for the ' + setWord(DATASETS[DATASET].short) + ' dataset carry ' + bayesLevels.join('% and ') + '% only; '
-      + lv + '% is available with the ' + houseName().toLowerCase());
+      state.src === 'bayes' && bayesLevels.indexOf(lv) < 0, '');
   });
   setDisabled(dotsCtl && dotsCtl.element.querySelector('button[data-value="1"]'),
     visible.length > DOTS_MAX, '');   // the cap's sentence left the control (nothing in the controls but the controls, 28 Sep)
@@ -1851,7 +1847,7 @@ function armPhrase(f) {
   if (fit === c) base = s > c ? c + ' complete / ' + s + ' sampled models' : c + ' models';
   else base = fit + ' fitted / ' + c + ' complete' + (s > c ? ' / ' + s + ' sampled' : '') + ' models';
   var op = f.off_panel_arms && f.off_panel_arms.length;   // Definitions decision 18 Sep: a registered arm off the board panel is named beside the counts, never inside them
-  if (op) { var w = {1: 'one', 2: 'two', 3: 'three'}[op] || String(op); base += ' · ' + w + ' model' + (op > 1 ? 's' : '') + ' of the registry ' + (op > 1 ? 'are' : 'is') + ' off the panel, ' + (op > 1 ? 'their' : 'its') + ' results in the frame and not on the plot'; }
+  if (op) { var w = {1: 'one', 2: 'two', 3: 'three'}[op] || String(op); base += ' · ' + w + ' model' + (op > 1 ? 's are' : ' is') + ' off the panel; ' + (op > 1 ? 'their' : 'its') + ' results are counted and not drawn'; }
   return base;   // no status words on the display (as adopted of 3 Sep); the manifest carries the facts
 }
 function isExcluded(i) { return !!D.shared.configs[i].excluded; }
