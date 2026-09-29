@@ -1,9 +1,9 @@
 {
- "fingerprint": "178d3f7ada3c",
+ "fingerprint": "440502878738",
  "fingerprint_inputs": {
-  "content": "526d81c52e49",
+  "content": "c33417a6d71c",
   "wave": "combined-20260910T2209Z",
-  "body": "02d6b0109aff"
+  "body": "aed0fb2e41de"
  },
  "frame": {
   "dataset": "board_top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 61,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "526d81c52e49",
+  "inputs_content_sha": "c33417a6d71c",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "ef9a163c05d5",
+  "runs_fingerprint": "599519601cfe",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-09-29",
-  "stamp": "2026-09-29T01:47:53Z",
+  "stamp": "2026-09-29T04:20:30Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -81,11 +81,12 @@
    "qwen3-8b-think-w1x32-Thinking": 430,
    "qwen35_9b_base_sft_code_completion": 430,
    "qwen35_9b_base_sft_code_harder_completion": 430,
-   "qwen35_9b_base_sft_maths_completion": 430
+   "qwen35_9b_base_sft_maths_completion": 430,
+   "deepseek-coder-6.7b-rl-redraw-a-step250": 72
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-29T01:15:43Z",
+   "unified_built_at": "2026-09-29T04:16:15Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -97819,7 +97820,7 @@
    }
   ],
   "off_panel": {
-   "n_with_cells": 38,
+   "n_with_cells": 39,
    "arms": [
     {
      "id": "deepseek-coder-6.7b-rl-night1-step250",
@@ -97880,6 +97881,11 @@
      "id": "deepseek-coder-6.7b-rl-night6-step250",
      "arm_id": "dsc6.7b-rl-night6-s250",
      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20133 of 32 (250 steps)"
+    },
+    {
+     "id": "deepseek-coder-6.7b-rl-redraw-a-step250",
+     "arm_id": "dsc6.7b-rl-redraw-a-s250",
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8 (250 steps)"
     },
     {
      "id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
@@ -98027,7 +98033,7 @@
     "qwen35_9b_base_sft_maths_completion"
    ],
    "panel_conflicts": [],
-   "line": "27 study models with results are off the panel; their fits appear in their own block when served"
+   "line": "28 study models with results are off the panel; their fits appear in their own block when served"
   },
   "cleaned_arms_unified": [
    "openai/gpt-5-mini",
@@ -98040,7 +98046,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-29T01:24:47Z",
+   "_stamp": "2026-09-29T03:25:13Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -98206,9 +98212,9 @@
   }
  },
  "files": {
-  "shared": "shared.178d3f7ada3c.json",
-  "chain_average": "chain_average.178d3f7ada3c.json",
-  "chain_median": "chain_median.178d3f7ada3c.json",
-  "dots": "dots.178d3f7ada3c.json"
+  "shared": "shared.440502878738.json",
+  "chain_average": "chain_average.440502878738.json",
+  "chain_median": "chain_median.440502878738.json",
+  "dots": "dots.440502878738.json"
  }
 }
