@@ -1,9 +1,9 @@
 {
- "fingerprint": "ab1a4e129390",
+ "fingerprint": "440a19716d31",
  "fingerprint_inputs": {
-  "content": "9e6525d81805",
+  "content": "8575d225b80c",
   "wave": "combined-20260910T2209Z",
-  "body": "e27c4dbabad7"
+  "body": "3359bb24f54b"
  },
  "frame": {
   "dataset": "board_top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 61,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "9e6525d81805",
+  "inputs_content_sha": "8575d225b80c",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "6c3e2eba13e3",
+  "runs_fingerprint": "674d75723b65",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-09-29",
-  "stamp": "2026-09-29T09:50:07Z",
+  "stamp": "2026-09-29T11:59:19Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -57,7 +57,7 @@
    "deepseek-coder-6.7b-rl-night6-step250": 430,
    "deepseek-coder-6.7b-rl-redraw-a-step250": 430,
    "deepseek-coder-6.7b-rl-redraw-b-step250": 430,
-   "deepseek-coder-6.7b-rl-redraw-c-step250": 288,
+   "deepseek-coder-6.7b-rl-redraw-c-step250": 430,
    "olmo-3-7b-think-final-Thinking": 430,
    "olmo-3-7b-think-step0025-Thinking": 430,
    "olmo-3-7b-think-step0050-Thinking": 430,
@@ -88,7 +88,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-29T09:19:12Z",
+   "unified_built_at": "2026-09-29T11:20:45Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -97822,7 +97822,7 @@
    }
   ],
   "off_panel": {
-   "n_with_cells": 41,
+   "n_with_cells": 42,
    "arms": [
     {
      "id": "deepseek-coder-6.7b-rl-night1-step250",
@@ -97888,6 +97888,11 @@
      "id": "deepseek-coder-6.7b-rl-redraw-a-step250",
      "arm_id": "dsc6.7b-rl-redraw-a-s250",
      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8 (250 steps)"
+    },
+    {
+     "id": "deepseek-coder-6.7b-rl-redraw-a-step500",
+     "arm_id": "dsc6.7b-rl-redraw-a-s500",
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8 (500 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-redraw-b-step250",
@@ -98045,7 +98050,7 @@
     "qwen35_9b_base_sft_maths_completion"
    ],
    "panel_conflicts": [],
-   "line": "30 study models with results are off the panel; their fits appear in their own block when served"
+   "line": "31 study models with results are off the panel; their fits appear in their own block when served"
   },
   "cleaned_arms_unified": [
    "openai/gpt-5-mini",
@@ -98058,7 +98063,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-29T09:25:05Z",
+   "_stamp": "2026-09-29T11:26:37Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -98224,9 +98229,9 @@
   }
  },
  "files": {
-  "shared": "shared.ab1a4e129390.json",
-  "chain_average": "chain_average.ab1a4e129390.json",
-  "chain_median": "chain_median.ab1a4e129390.json",
-  "dots": "dots.ab1a4e129390.json"
+  "shared": "shared.440a19716d31.json",
+  "chain_average": "chain_average.440a19716d31.json",
+  "chain_median": "chain_median.440a19716d31.json",
+  "dots": "dots.440a19716d31.json"
  }
 }
