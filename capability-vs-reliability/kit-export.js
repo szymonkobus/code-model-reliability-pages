@@ -1,4 +1,4 @@
-/* kit-export.js — the reference kit, served form v6.2, built 27 Sep 2026 from source 9b623dc5f0f8. */
+/* kit-export.js — the reference kit, served form v6.2.1, built 29 Sep 2026 from source 2af6a51b0487. */
 (function (global) {
   'use strict';
   var Kit = global.Kit = global.Kit || {};
@@ -89,6 +89,8 @@
     if (kind === 'plus' || kind === 'P') return '<path d="M' + cx + ',' + (cy - r - 1) + ' L' + cx + ',' + (cy + r + 1) + ' M' + (cx - r - 1) + ',' + cy + ' L' + (cx + r + 1) + ',' + cy + '" stroke="' + color + '" stroke-width="2.2" fill="none"/>';
     if (kind === 'star' || kind === '*') { var pts = []; for (var k = 0; k < 10; k++) { var a = -Math.PI / 2 + k * Math.PI / 5, rr = k % 2 ? r * 0.45 : r + 1; pts.push((cx + rr * Math.cos(a)).toFixed(2) + ',' + (cy + rr * Math.sin(a)).toFixed(2)); } return '<polygon points="' + pts.join(' ') + '" fill="' + color + '"/>'; }
     if (kind === 'hexagon' || kind === 'h' || kind === 'pentagon' || kind === 'p') { var n = (kind === 'hexagon' || kind === 'h') ? 6 : 5, q = []; for (var j = 0; j < n; j++) { var b = -Math.PI / 2 + j * 2 * Math.PI / n; q.push((cx + (r + 0.5) * Math.cos(b)).toFixed(2) + ',' + (cy + (r + 0.5) * Math.sin(b)).toFixed(2)); } return '<polygon points="' + q.join(' ') + '" fill="' + color + '"/>'; }
+    if (kind === 'triangle-left' || kind === '<') return '<path d="M' + (cx - r - 1) + ',' + cy + ' L' + (cx + r) + ',' + (cy - r) + ' L' + (cx + r) + ',' + (cy + r) + ' Z" fill="' + color + '"/>';
+    if (kind === 'triangle-right' || kind === '>') return '<path d="M' + (cx + r + 1) + ',' + cy + ' L' + (cx - r) + ',' + (cy - r) + ' L' + (cx - r) + ',' + (cy + r) + ' Z" fill="' + color + '"/>';
     if (kind === 's') return markerSvg('square', cx, cy, color, bg); if (kind === '^') return markerSvg('triangle', cx, cy, color, bg); if (kind === 'o') return markerSvg('circle', cx, cy, color, bg);
     return '<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="' + color + '"/>';
   }

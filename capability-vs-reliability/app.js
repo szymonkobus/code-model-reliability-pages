@@ -652,6 +652,8 @@ function markPath(shape, X, Y, r) {
     case 'square': { var s = r * 0.9; return head + 'm-' + f(s) + ' -' + f(s) + 'h' + f(2 * s) + 'v' + f(2 * s) + 'h-' + f(2 * s) + 'Z'; }
     case 'triangle': return head + 'm0 -' + f(r * 1.3) + 'l' + f(r * 1.15) + ' ' + f(r * 2) + 'l-' + f(r * 2.3) + ' 0Z';
     case 'triangle-down': return head + 'm0 ' + f(r * 1.3) + 'l' + f(r * 1.15) + ' -' + f(r * 2) + 'l-' + f(r * 2.3) + ' 0Z';
+    case 'triangle-left': return head + 'm-' + f(r * 1.3) + ' 0l' + f(r * 2) + ' -' + f(r * 1.15) + 'l0 ' + f(r * 2.3) + 'Z';   // the registry's '<' (the 25-step re-drawn run, 29 Sep)
+    case 'triangle-right': return head + 'm' + f(r * 1.3) + ' 0l-' + f(r * 2) + ' -' + f(r * 1.15) + 'l0 ' + f(r * 2.3) + 'Z';   // the registry's '>'
     case 'diamond': { var dd = r * 1.3; return head + 'm0 -' + f(dd) + 'l' + f(dd) + ' ' + f(dd) + 'l-' + f(dd) + ' ' + f(dd) + 'l-' + f(dd) + ' -' + f(dd) + 'Z'; }
     case 'star': return poly(star(5, r * 1.55, r * 0.65));
     case 'cross': return poly(plus(r * 1.45, r * 0.5, Math.PI / 4));
