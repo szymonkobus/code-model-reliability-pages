@@ -266,7 +266,7 @@ var sel = null;          // Set of selected config indices
 var XLIM = null, chips = [], crosshair = null;
 var srcMount = null;
 var ready = false;      // controls + chips built; render allowed
-var DOTS_MAX = 16;      // task dots draw for this many selected models or fewer, the panel and each run's row counted apart
+var DOTS_MAX = 24;      // task dots draw for this many selected models or fewer, the panel and each run's row counted apart
 var coercing = false;   // a control being re-set from render, no re-render
 var bandCtl = null, dotsCtl = null;
 var EXPORTING = false;  // export: render at the desktop geometry (K = 1, full axis titles) whatever the screen (the project maintainers' word of 18 Sep; project helper kit-export.js)
