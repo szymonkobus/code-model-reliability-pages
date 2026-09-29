@@ -2129,7 +2129,7 @@ function renderScatter() {
                   : state.fitci === 'honest' ? 'with each dot\u2019s measurement error' + droppedTxt : 'dots taken as exact';
       var spaceTxt = inAxes() ? 'in the axes as set' : (state.xs === 'raw' || state.ys === 'raw') ? 'in logit (drawn as the curve it maps to on the linear axis)' : 'in logit';
       // few words on the linear fit (the project maintainers 2026-09-15 12:1x): slope, range, R; the misses only with the Misses switch on
-      fitTxt = 'line ' + spaceTxt + ' over ' + hx.length + (state.src === 'bayes' ? ' in-range posterior-median dots' : ' fully measured dots') + ': slope ' + f.b.toFixed(2) + ', range ' + f.lo.toFixed(2) + ' to ' + f.hi.toFixed(2) + ' (' + f.level + '%), R ' + f.r.toFixed(2) + '; uncertainty band = pointwise ' + f.level + '% envelope; ' + modeTxt
+      fitTxt = 'line ' + spaceTxt + ' over ' + hx.length + (state.src === 'bayes' ? ' in-range posterior-median dots' : ' fully measured dots') + ': slope ' + f.b.toFixed(2) + ' [' + f.lo.toFixed(2) + ', ' + f.hi.toFixed(2) + '], R ' + f.r.toFixed(2) + '; ' + modeTxt
         + (inAxes() ? '; intercept ' + fmtY(f.a) : '')
         + (state.resid === 'on' ? '; misses: typical ' + RS.rmsPct.toFixed(1) + '% of the y scale, largest ' + sgn(RS.bigPct) + '% (' + RS.bigLabel + '), ' + RS.w5 + ' of ' + RS.n + ' models within \u00b15%, ' + RS.w10 + ' within \u00b110%' : '')
         + (state.line === 'off' ? ' (not drawn: Fitted line is Off)' : '');
@@ -2354,7 +2354,7 @@ function renderOpusFold() {
   var A = arms[0], B = arms[1];
   if (!A.avg || A.avg.z == null || !B.avg || B.avg.z == null) { txt.textContent = 'One of the two models has no average-rate 1% crossing inside its fitted range at this dataset, so the two readings cannot be compared here.'; return; }
   var P = function (z) { return fmtPct(z, 0); };
-  var band = function (a) { return a.lo != null && a.hi != null ? P(a.lo) + '–' + P(a.hi) : 'no uncertainty band'; };
+  var band = function (a) { return a.lo != null && a.hi != null ? ' [' + P(a.lo) + ', ' + P(a.hi) + ']' : ''; };   // the project maintainers' word of 29 Sep 20:0x: a number's interval prints bare as [x, y] after it, no label
   var moreAvg = A.avg.z > B.avg.z ? A : B, lessAvg = moreAvg === A ? B : A;
   var moreRidge = A.ridge.median_z > B.ridge.median_z ? A : B, lessRidge = moreRidge === A ? B : A;
   var overlap = A.avg.lo != null && B.avg.lo != null && Math.max(A.avg.lo, B.avg.lo) <= Math.min(A.avg.hi, B.avg.hi);
@@ -2368,7 +2368,7 @@ function renderOpusFold() {
   var cov = '';
   [A, B].forEach(function (a) { var cv = coverageOf(a.c); if (cv && cv.tasks < cv.of) cov += ' ' + a.c.label + ' has attempts on ' + Math.round(cv.share * 100) + '% of this set\u2019s tasks; the tasks it did not attempt (its refusals) are out of its fit, which favours it a little under the average-rate reading.'; });
   txt.textContent = 'Ridge here = the posterior of the median-task 1% crossing, the quantity the ridges view used to draw under every definition: the difficulty at which a typical task is failed less than once in a hundred. Scatter = the default point, the average-rate 1% crossing: the difficulty at which the average failure rate over tasks reaches 1%; that is the default reliability. '
-    + 'Under the default definition ' + A.c.label + ' reads ' + P(A.avg.z) + ' and ' + B.c.label + ' ' + P(B.avg.z) + ' (80% uncertainty bands ' + band(A.avg) + ' and ' + band(B.avg) + '), so ' + moreAvg.c.label + ' is the more reliable' + (overlap ? ', and the two uncertainty bands overlap: the ordering is suggestive, not settled.' : ', and the two uncertainty bands do not overlap: the difference is statistically significant.')
+    + 'Under the default definition ' + A.c.label + ' reads ' + P(A.avg.z) + band(A.avg) + ' and ' + B.c.label + ' ' + P(B.avg.z) + band(B.avg) + ', so ' + moreAvg.c.label + ' is the more reliable' + (overlap ? ', and the two uncertainty bands overlap: the ordering is suggestive, not settled.' : ', and the two uncertainty bands do not overlap: the difference is statistically significant.')
     + ' On the ridges ' + moreRidge.c.label + ' is the higher (' + P(moreRidge.ridge.median_z) + ' against ' + P(lessRidge.ridge.median_z) + '): on a typical task it is the safer model.'
     + (moreAvg !== moreRidge ? ' Both readings are right about different things.' : '') + spread + cens + cov
     + ' Trust the scatter for reliability, the default definition; read the median-task ridge as the typical-task view. The ridges view itself now follows the definition switch: under the average-rate definition it shows the 80% uncertainty band of the same crossing the dot marks, so the two views agree; the median-task ridges remain under the Median definition where that chain is served.';
@@ -2632,7 +2632,7 @@ function notes() {
       + 'prior-vs-posterior fan + HalfNormal(5) re-fit in '
       + 'the exposition. The '
       + 'physical content of this scatter is each model\'s '
-      + 'GAP between the two crossings: ' + glo + '–' + ghi
+      + 'GAP between the two crossings: [' + glo + ', ' + ghi + ']'
       + ' steps of the difficulty scale over the ' + gaps.length
       + ' models with <5% censored deep-crossing mass (' + nEx
       + ' censoring-heavy models excluded from the range; per-model '
