@@ -1548,7 +1548,7 @@ function notes(visible, unfitted) {
     // pool-page lines folded in: arms by cause (data facts; 'held' names the project maintainers' decision), the axis rule, the pool's own surfaces
     var cb = D.shared.frame.coverage_by_cause, cl = document.createElement('div');
     var parts = [];
-    if (cb.pending) parts.push(cb.pending + ' with no certified results on these tasks yet');
+    if (cb.pending) parts.push(cb.pending + ' without a result of record on these tasks');   // state form, no project word (29 Sep)
     if (cb.held) parts.push(cb.held + ' held');
     if (cb.subthreshold) parts.push(cb.subthreshold + ' below the fit floor');
     if (cb.frame_only) parts.push(cb.frame_only 
@@ -1969,12 +1969,12 @@ function withheldLine(f) {
     var r = f.withheld_reasons || {};
     // the project maintainers 3 Sep 2026: no decision words on the display — the data fact only; the
     // register's reason stays in the manifest (withheld_reasons) for consumers
-    out += ' · not on this panel (' + (DATASET === 'new' ? 'no certified results on these tasks yet' : 'one benchmark in canon') + '): ' + w.join('; ');
+    out += ' · not on this panel (' + (DATASET === 'new' ? 'no result of record on these tasks' : 'one benchmark in canon') + '): ' + w.join('; ');
   }
   // a landing in progress (the pool adapter's landing_hidden_n from the difficulty maintainers' flag of record, 20 Sep): the model is hidden whole, so the face
   // says the fact by count only — the project maintainers' what-is-happening form — and the name appears when the flag releases it; nothing printed at zero
   var ln = parseInt(f.landing_hidden_n || 0, 10);
-  if (ln > 0) out += ' · ' + (({ 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five' })[ln] || String(ln)) + (ln === 1 ? " model's results are still arriving" : " models' results are still arriving");
+  if (ln > 0) out += ' · ' + (({ 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five' })[ln] || String(ln)) + (ln === 1 ? " model with results and no fit of record" : " models with results and no fit of record");   // state form
   var ex = f.fit_excluded || [];
   if (ex.length) {
     var sh = f.fit_exclusion_short || {}, rw = f.fit_reversible_when || {};

@@ -1,9 +1,9 @@
 {
- "fingerprint": "cde7631fb024",
+ "fingerprint": "3da5a54db893",
  "fingerprint_inputs": {
   "content": "43b47d5a3307",
   "wave": "unified-live",
-  "body": "7c6eb1a020d9"
+  "body": "f49ef175e76b"
  },
  "frame": {
   "dataset": "all",
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "c143c942ffc9",
+  "runs_fingerprint": "e152f9ddf941",
   "axis_wave": "unified-live",
   "build_date": "2026-09-29",
-  "stamp": "2026-09-29T12:26:43Z",
+  "stamp": "2026-09-29T13:18:04Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -88,7 +88,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-29T12:17:25Z",
+   "unified_built_at": "2026-09-29T13:16:06Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -872,12 +872,19 @@
      "never_includes": "any wave task; a situation is a new task id even when its parent is a wave-1 task"
     }
    }
+  },
+  "census_pinned": {
+   "stamp": "2026-09-29T12:40:57Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20260929T124057Z.json",
+   "sha16": "540aa7c2aceb8a37",
+   "census_mtime": "2026-09-29T12:42:10Z",
+   "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.cde7631fb024.json",
-  "chain_average": "chain_average.cde7631fb024.json",
-  "chain_median": "chain_median.cde7631fb024.json",
-  "dots": "dots.cde7631fb024.json"
+  "shared": "shared.3da5a54db893.json",
+  "chain_average": "chain_average.3da5a54db893.json",
+  "chain_median": "chain_median.3da5a54db893.json",
+  "dots": "dots.3da5a54db893.json"
  }
 }
