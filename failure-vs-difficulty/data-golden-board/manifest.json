@@ -1,9 +1,9 @@
 {
- "fingerprint": "69348cc1a07d",
+ "fingerprint": "8a2cb53b313a",
  "fingerprint_inputs": {
   "content": "c076522ff536",
   "wave": "golden-board-20260904T1407Z",
-  "body": "ee9d9dec57a1"
+  "body": "7fad5d815650"
  },
  "frame": {
   "dataset": "board",
@@ -34,17 +34,17 @@
    "wave_2": 0,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "6c3e2eba13e3",
+  "runs_fingerprint": "c143c942ffc9",
   "axis_wave": "golden-board-20260904T1407Z",
   "build_date": "2026-09-29",
-  "stamp": "2026-09-29T09:21:11Z",
+  "stamp": "2026-09-29T12:47:51Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-29T09:19:12Z",
+   "unified_built_at": "2026-09-29T12:17:25Z",
    "board_cells_source": "pages/failure-vs-difficulty/artifacts/fail_counts_matrix.csv",
    "board_landing_id": "2026-09-25T14:50:00Z",
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.golden.board.csv"
@@ -198,6 +198,7 @@
   "off_panel": {
    "n_with_cells": 0,
    "arms": [],
+   "stopped_not_listed": [],
    "unregistered": [],
    "in_side_block": [],
    "panel_conflicts": [],
@@ -214,7 +215,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-29T08:25:06Z",
+   "_stamp": "2026-09-29T12:26:21Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -380,9 +381,9 @@
   }
  },
  "files": {
-  "shared": "shared.69348cc1a07d.json",
-  "chain_average": "chain_average.69348cc1a07d.json",
-  "chain_median": "chain_median.69348cc1a07d.json",
-  "dots": "dots.69348cc1a07d.json"
+  "shared": "shared.8a2cb53b313a.json",
+  "chain_average": "chain_average.8a2cb53b313a.json",
+  "chain_median": "chain_median.8a2cb53b313a.json",
+  "dots": "dots.8a2cb53b313a.json"
  }
 }

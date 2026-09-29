@@ -1,9 +1,9 @@
 {
- "fingerprint": "098db8afd7d2",
+ "fingerprint": "95d1bdfb3412",
  "fingerprint_inputs": {
-  "content": "e184f1de0913",
+  "content": "010c0b36ee9b",
   "wave": "pool-20260910T2244Z",
-  "body": "44e2f2d09c5a"
+  "body": "0b1447ae17e7"
  },
  "frame": {
   "dataset": "top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 58,
   "tasks": 858,
   "keep_set_hash": "532d0efad8a5",
-  "inputs_content_sha": "e184f1de0913",
+  "inputs_content_sha": "010c0b36ee9b",
   "tasks_on_axis": 858,
   "tasks_kept": 858,
   "tasks_awaiting_axis": 0,
@@ -34,17 +34,17 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "20aa556fdaba",
+  "runs_fingerprint": "c143c942ffc9",
   "axis_wave": "pool-20260910T2244Z",
   "build_date": "2026-09-29",
-  "stamp": "2026-09-29T09:18:26Z",
+  "stamp": "2026-09-29T12:43:28Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-29T08:15:07Z",
+   "unified_built_at": "2026-09-29T12:17:25Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.top.csv"
@@ -642,10 +642,11 @@
      "label": "Qwen3.5 9B Base \u00b7 code fine-tune on other models' solutions"
     }
    ],
+   "stopped_not_listed": [],
    "unregistered": [],
    "in_side_block": [],
    "panel_conflicts": [],
-   "line": "40 study models with results are off the panel; their fits appear in their own block when served"
+   "line": "40 study models with results are off the panel; the models with a fit appear in their own block"
   },
   "cleaned_arms_unified": [
    "openai/gpt-5-mini",
@@ -658,7 +659,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-29T08:25:06Z",
+   "_stamp": "2026-09-29T12:26:21Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -824,9 +825,9 @@
   }
  },
  "files": {
-  "shared": "shared.098db8afd7d2.json",
-  "chain_average": "chain_average.098db8afd7d2.json",
-  "chain_median": "chain_median.098db8afd7d2.json",
-  "dots": "dots.098db8afd7d2.json"
+  "shared": "shared.95d1bdfb3412.json",
+  "chain_average": "chain_average.95d1bdfb3412.json",
+  "chain_median": "chain_median.95d1bdfb3412.json",
+  "dots": "dots.95d1bdfb3412.json"
  }
 }
