@@ -1,9 +1,9 @@
 {
- "fingerprint": "d56d33b95820",
+ "fingerprint": "312d553a8131",
  "fingerprint_inputs": {
-  "content": "f11c14798fb1",
+  "content": "e786fd6c7a05",
   "wave": "combined-20260910T2209Z",
-  "body": "0f05c45ef967"
+  "body": "7fbcc7f0ef42"
  },
  "frame": {
   "dataset": "board_top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 61,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "f11c14798fb1",
+  "inputs_content_sha": "e786fd6c7a05",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "bce77ea2a2c7",
+  "runs_fingerprint": "20aa556fdaba",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-09-29",
-  "stamp": "2026-09-29T06:51:26Z",
+  "stamp": "2026-09-29T07:47:33Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -55,6 +55,8 @@
    "deepseek-coder-6.7b-rl-night5-step500": 430,
    "deepseek-coder-6.7b-rl-night6-step100": 430,
    "deepseek-coder-6.7b-rl-night6-step250": 430,
+   "deepseek-coder-6.7b-rl-redraw-a-step250": 358,
+   "deepseek-coder-6.7b-rl-redraw-b-step250": 216,
    "olmo-3-7b-think-final-Thinking": 430,
    "olmo-3-7b-think-step0025-Thinking": 430,
    "olmo-3-7b-think-step0050-Thinking": 430,
@@ -81,12 +83,11 @@
    "qwen3-8b-think-w1x32-Thinking": 430,
    "qwen35_9b_base_sft_code_completion": 430,
    "qwen35_9b_base_sft_code_harder_completion": 430,
-   "qwen35_9b_base_sft_maths_completion": 430,
-   "deepseek-coder-6.7b-rl-redraw-a-step250": 72
+   "qwen35_9b_base_sft_maths_completion": 430
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-29T06:14:58Z",
+   "unified_built_at": "2026-09-29T07:13:52Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -98056,7 +98057,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-29T06:25:19Z",
+   "_stamp": "2026-09-29T07:30:34Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -98222,9 +98223,9 @@
   }
  },
  "files": {
-  "shared": "shared.d56d33b95820.json",
-  "chain_average": "chain_average.d56d33b95820.json",
-  "chain_median": "chain_median.d56d33b95820.json",
-  "dots": "dots.d56d33b95820.json"
+  "shared": "shared.312d553a8131.json",
+  "chain_average": "chain_average.312d553a8131.json",
+  "chain_median": "chain_median.312d553a8131.json",
+  "dots": "dots.312d553a8131.json"
  }
 }
