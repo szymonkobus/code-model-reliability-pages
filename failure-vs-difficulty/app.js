@@ -266,7 +266,7 @@ var sel = null;          // Set of selected config indices
 var XLIM = null, chips = [], crosshair = null;
 var srcMount = null;
 var ready = false;      // controls + chips built; render allowed
-var DOTS_MAX = 12;      // task dots draw for this many selected arms or fewer (the golden set is 12)
+var DOTS_MAX = 16;      // task dots draw for this many selected models or fewer, the panel and each run's row counted apart
 var coercing = false;   // a control being re-set from render, no re-render
 var bandCtl = null, dotsCtl = null;
 var EXPORTING = false;  // export: render at the desktop geometry (K = 1, full axis titles) whatever the screen (the project maintainers' word of 18 Sep; project helper kit-export.js)
@@ -1222,8 +1222,8 @@ function render() {
   /* controls tell the truth about the drawing (drive 3 Sep 2026,
  * frictions 11 and 22): the Bayesian ribbons exist at 80/90 only, so
  * 95% under that source becomes 90% and the 95% button is disabled
- * with the reason on hover; task dots draw for DOTS_MAX (12) or fewer arms, so
- * above that the switch reads Off and On is disabled with the count. */
+ * with the reason on hover; task dots draw for DOTS_MAX or fewer selected panel models, so
+ * above that the switch reads Off and On is disabled (no sentence in the control: the project maintainers' 28 Sep word). */
   var bayesLevels = (DATASET === 'new') ? ['80'] : ['80', '90'];
   if (state.src === 'bayes' && bandCtl && state.band !== 'off' && bayesLevels.indexOf(state.band) < 0)
     quietSet(bandCtl, bayesLevels[bayesLevels.length - 1]);
@@ -1236,8 +1236,7 @@ function render() {
       + lv + '% is available with the ' + houseName().toLowerCase());
   });
   setDisabled(dotsCtl && dotsCtl.element.querySelector('button[data-value="1"]'),
-    visible.length > DOTS_MAX,
-    'task dots draw for ' + DOTS_MAX + ' or fewer selected models (' + visible.length + ' selected)');
+    visible.length > DOTS_MAX, '');   // the cap's sentence left the control (nothing in the controls but the controls, 28 Sep)
   var unfitted = state.src === 'bayes'
     ? visible.filter(function (i) { return !hasBayes(i); }) : [];
   var grid = '';
@@ -1298,7 +1297,8 @@ function render() {
     });
   }
   var nSeriesOn = 0; seriesRows().forEach(function (srN) { nSeriesOn += seriesSelFor(srN._row).size; });
-  if (state.dots === '1' && state.src === 'bayes' && D.dots && D.dots.configs && visible.length + nSeriesOn <= DOTS_MAX) seriesRows().forEach(function (srD) {   // the runs' task dots (28 Sep): the same dots, keyed by the arm's id, under the page's DOTS_MAX rule counted across the panel and the rows
+  if (state.dots === '1' && state.src === 'bayes' && D.dots && D.dots.configs) seriesRows().forEach(function (srD) {   // the cap counts per selected row ( 29 Sep)
+    if (seriesSelFor(srD._row).size > DOTS_MAX) return;   // the runs' task dots (28 Sep): the same dots, keyed by the arm's id, under the page's DOTS_MAX rule counted across the panel and the rows
     var ssD = seriesSelFor(srD._row); var zsD = D.shared.tasks.z;
     srD.arms.forEach(function (a, k) {
       if (a._twin || !ssD.has(k)) return;
@@ -1851,7 +1851,7 @@ function armPhrase(f) {
   if (fit === c) base = s > c ? c + ' complete / ' + s + ' sampled models' : c + ' models';
   else base = fit + ' fitted / ' + c + ' complete' + (s > c ? ' / ' + s + ' sampled' : '') + ' models';
   var op = f.off_panel_arms && f.off_panel_arms.length;   // Definitions decision 18 Sep: a registered arm off the board panel is named beside the counts, never inside them
-  if (op) { var w = {1: 'one', 2: 'two', 3: 'three'}[op] || String(op); base += ' · ' + w + ' registered model' + (op > 1 ? 's are' : ' is') + ' off the panel and enter' + (op > 1 ? '' : 's') + ' the unified frame only'; }
+  if (op) { var w = {1: 'one', 2: 'two', 3: 'three'}[op] || String(op); base += ' · ' + w + ' model' + (op > 1 ? 's' : '') + ' of the registry ' + (op > 1 ? 'are' : 'is') + ' off the panel, ' + (op > 1 ? 'their' : 'its') + ' results in the frame and not on the plot'; }
   return base;   // no status words on the display (as adopted of 3 Sep); the manifest carries the facts
 }
 function isExcluded(i) { return !!D.shared.configs[i].excluded; }
