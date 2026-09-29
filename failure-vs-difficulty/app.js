@@ -1969,7 +1969,7 @@ function withheldLine(f) {
     var r = f.withheld_reasons || {};
     // the project maintainers 3 Sep 2026: no decision words on the display — the data fact only; the
     // register's reason stays in the manifest (withheld_reasons) for consumers
-    out += ' · not on this panel (' + (DATASET === 'new' ? 'no result of record on these tasks' : 'one benchmark in canon') + '): ' + w.join('; ');
+    out += ' · not on this panel (' + (DATASET === 'new' ? 'no result of record on these tasks' : 'results on one task set only') + '): ' + w.join('; ');
   }
   // a landing in progress (the pool adapter's landing_hidden_n from the difficulty maintainers' flag of record, 20 Sep): the model is hidden whole, so the face
   // says the fact by count only — the project maintainers' what-is-happening form — and the name appears when the flag releases it; nothing printed at zero
