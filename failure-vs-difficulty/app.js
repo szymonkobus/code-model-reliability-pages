@@ -1448,14 +1448,14 @@ function paintChips() {
     var nfn = notFittedNote(i); if (nfn) parts.push(nfn);   // the Opus-refusal decision: refused tasks are not failures; excluded from this arm's cells and fit
     if (unf && !c.excluded) parts.push('outside the Bayesian fit set — no fit drawn');
     var _ra = (!unf && !hasOwnBayes(i)) ? runFitFor(c.id) : null; if (_ra && _ra.disclosure) parts.push(currentTruth(_ra.disclosure));   // the run's fit of record stands in (24 Sep)
-    if (c.disclosure) parts.push('flag: ' + c.disclosure);
+    if (c.disclosure) parts.push(String(c.disclosure));   // the state alone in the hover, no class word before it
     if (c.continuation_flag) parts.push(c.continuation_flag);   // the task pool maintainers' continuation hover of record: this arm's answers in the view's waves changed from cut to continued (a basis change the project maintainers must see)
     parts.push(covText(i) + (isPartial(i) ? (shownArm(i) ? ' — partial model' : ' — partial model, hidden; the Partial models switch shows it') : ''));
     if (c.protocol) parts.push('read by ' + c.protocol + ': the base model continues the prompt, no chat turn');   // protocol = a state-line fact, never the maintainers sentence and never in the label (the newbench figures maintainers 17 Sep); the hover carries it as the '(read by …)' parenthesis
     if (parts.length) {
       var full = noSpecTags(parts.join(' · ')); if (c.notes_flags && c.notes_flags.length) full += ' · ' + c.notes_flags.map(function (nf) { return noSpecTags(nf.hover || ''); }).join(' · '); b.dataset.state = full;   // the whole state line (incl. pool card flags) lives in the fold-out below the chart
       var lead = parts[0];   // parts are pushed in priority order: excluded, interim, gate, concentration, coverage, cut, cleaning, scope, undercredit, as-graded, unfitted, flag, coverage count
-      var pri = parts.filter(function (t) { return /^not shown:|^\d+ tasks? refused|^interim fit|^this fit did not pass|^R-hat|^out of the fit|^gpt-5 arms|^for the Claude|^Bayesian curve fitted|^not yet in the Bayesian|^flag: /.test(t); });
+      var pri = parts.filter(function (t) { return /^not shown:|^\d+ tasks? refused|^interim fit|^this fit did not pass|^R-hat|^out of the fit|^gpt-5 arms|^for the Claude|^Bayesian curve fitted|^outside the Bayesian/.test(t) || (c.disclosure && t === String(c.disclosure)); });   // the disclosure leads without its old 'flag:' prefix ( 29 Sep); the unfitted note's state form (28 Sep)
       if (pri.length) lead = pri[0];
       b.title = oneSentence(noSpecTags) + ((c.protocol && !/^read by /.test) ? ' (read by ' + c.protocol + ')' : '');   // no doubling when the protocol sentence itself leads // the protocol word rides the one-sentence hover as a short parenthesis (the newbench figures maintainers 17 Sep: never in the label)
     } else b.removeAttribute('title');   // spec tags are record-keeping, not for a face (the project maintainers 7 Sep: no code-names)
