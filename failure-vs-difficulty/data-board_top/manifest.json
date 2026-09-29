@@ -1,9 +1,9 @@
 {
- "fingerprint": "9d43f76208d9",
+ "fingerprint": "55f87a3c9124",
  "fingerprint_inputs": {
   "content": "af4fc0b1b0a4",
   "wave": "combined-20260910T2209Z",
-  "body": "f0c5f593962d"
+  "body": "7e88be56238f"
  },
  "frame": {
   "dataset": "board_top",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "e152f9ddf941",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-09-29",
-  "stamp": "2026-09-29T16:29:40Z",
+  "stamp": "2026-09-29T21:52:09Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -88,7 +88,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-29T16:18:19Z",
+   "unified_built_at": "2026-09-29T21:16:00Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -103840,6 +103840,24 @@
      "positions": 15,
      "start": "the board's read of the model, every stored answer"
     }
+   },
+   {
+    "served": true,
+    "serving_word": "GO \u2014 this GO covers 39ce6301c3b58f4a only (read whole at 20:40Z): run_name_of_record, what_was_done and chip exactly as newbench-lead's labels row spells them; kind checkpoint series, arms [], complete false, label_of_record and group_composition and base_of_record byte-identical to arm A's empty form; the word 'decision' only in the record leaf name_source; the scans clean. Flip outside tick minutes with this word; I read the served bytes after. Its 250-step position comes as a finish (the labels row's final true) by the standing form when its fit exists. \u2014 difficulty 20:4xZ",
+    "wave_id": null,
+    "n_arms": 0,
+    "heading": "checkpoints of one training run",
+    "heading_note": "label = plain words for what the group is (the project owner's word of 22 September 2026 via the post-training lead, ruled by Definitions the same day): no task count or composition in the label; the composition sits in group_composition, the counts in the count fields and membership (the kept set of record (19 September 2026): 430 of wave 1, 858 of wave 2 on the served axis; the set's members (19 September 2026): 430 of wave 1, 869 of wave 2), fitted figures beside it \u2014 a task that left the kept set after a cut stays in that fit as cut (the ruling of 8 Sep) and is named in its model's membership_lag",
+    "membership": null,
+    "axis_rule": "the served wave 1+2 axis unchanged: study models are positioned on an axis they did not shape (ruling of 17 Sep); positions are comparable with the served set's",
+    "axis_pinned_to_served": true,
+    "cut_at": null,
+    "completed_at": null,
+    "updated_at": "2026-09-29T20:43:05Z",
+    "pointer": "definitions/fitting/serving_series_dsc6.7b-rl-redraw25-a.json",
+    "arms": [],
+    "run_name": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8, re-drawn every 25 steps",
+    "row": 3
    }
   ],
   "off_panel": {
@@ -104080,7 +104098,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-29T16:24:58Z",
+   "_stamp": "2026-09-29T21:25:15Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -104253,9 +104271,9 @@
   }
  },
  "files": {
-  "shared": "shared.9d43f76208d9.json",
-  "chain_average": "chain_average.9d43f76208d9.json",
-  "chain_median": "chain_median.9d43f76208d9.json",
-  "dots": "dots.9d43f76208d9.json"
+  "shared": "shared.55f87a3c9124.json",
+  "chain_average": "chain_average.55f87a3c9124.json",
+  "chain_median": "chain_median.55f87a3c9124.json",
+  "dots": "dots.55f87a3c9124.json"
  }
 }
