@@ -577,6 +577,7 @@ function mergeRunSet(raw) {
   // folds into its run below (one model, one mark, in the run's own row). A run's start model keeps its plain id and is untouched here.
   var ckStem = function (id) { var s = String(id).toLowerCase().replace(/_temp_[0-9.]+$/, '').replace(/_batch$/, '').replace(/_think$/, ''); var m = /^(.*)-(?:step|ckpt|checkpoint)-?0*\d+$/.exec(s); return m ? m[1] : null; };
   var runStems = {}, runTwins = {};
+  ((raw && raw.run_stems) || []).forEach(function (st) { runStems[String(st).toLowerCase()] = true; });   // 29 Sep (the maintainers's line on a stopped read): every training family's checkpoint stems from the sidecar, so a checkpoint of a family with no set yet is caught too
   runSets(raw).forEach(function (rs) { ((rs && rs.configs) || []).forEach(function (c) { if (c.base) return; var st = ckStem(c.id); if (st) runStems[st] = true; runTwins[normId(c.id)] = true; }); });
   var gone = {};
   D.shared.configs = D.shared.configs.filter(function (c) { var st = c.run ? null : ckStem(c.id); if (st && runStems[st] && !runTwins[normId(c.id)]) { gone[c.id] = true; return false; } return true; });
