@@ -1,9 +1,9 @@
 {
- "fingerprint": "440a19716d31",
+ "fingerprint": "dc85c8086ada",
  "fingerprint_inputs": {
   "content": "8575d225b80c",
   "wave": "combined-20260910T2209Z",
-  "body": "3359bb24f54b"
+  "body": "296a1ce753c6"
  },
  "frame": {
   "dataset": "board_top",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "674d75723b65",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-09-29",
-  "stamp": "2026-09-29T11:59:19Z",
+  "stamp": "2026-09-29T12:15:30Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -97890,11 +97890,6 @@
      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8 (250 steps)"
     },
     {
-     "id": "deepseek-coder-6.7b-rl-redraw-a-step500",
-     "arm_id": "dsc6.7b-rl-redraw-a-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8 (500 steps)"
-    },
-    {
      "id": "deepseek-coder-6.7b-rl-redraw-b-step250",
      "arm_id": "dsc6.7b-rl-redraw-b-s250",
      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8 (250 steps)"
@@ -98035,6 +98030,12 @@
      "label": "Qwen3.5 9B Base \u00b7 code fine-tune on other models' solutions"
     }
    ],
+   "stopped_not_listed": [
+    {
+     "id": "deepseek-coder-6.7b-rl-redraw-a-step500",
+     "arm_id": "dsc6.7b-rl-redraw-a-s500"
+    }
+   ],
    "unregistered": [],
    "in_side_block": [
     "Qwen/Qwen3.5-9B-Base_completion",
@@ -98050,7 +98051,7 @@
     "qwen35_9b_base_sft_maths_completion"
    ],
    "panel_conflicts": [],
-   "line": "31 study models with results are off the panel; their fits appear in their own block when served"
+   "line": "30 study models with results are off the panel; the models with a fit appear in their own block"
   },
   "cleaned_arms_unified": [
    "openai/gpt-5-mini",
@@ -98229,9 +98230,9 @@
   }
  },
  "files": {
-  "shared": "shared.440a19716d31.json",
-  "chain_average": "chain_average.440a19716d31.json",
-  "chain_median": "chain_median.440a19716d31.json",
-  "dots": "dots.440a19716d31.json"
+  "shared": "shared.dc85c8086ada.json",
+  "chain_average": "chain_average.dc85c8086ada.json",
+  "chain_median": "chain_median.dc85c8086ada.json",
+  "dots": "dots.dc85c8086ada.json"
  }
 }
