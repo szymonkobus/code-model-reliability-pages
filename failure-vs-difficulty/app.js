@@ -19,8 +19,8 @@ var PW = W - ML - MR, PH = H - MT - MB;
 function fitGeometry(chart) {
   var cw = EXPORTING ? W : (chart.getBoundingClientRect().width || W);
   K = Math.min(2.4, Math.max(1, W / cw));
-  if (EXPORTING) { ML = 90; MB = 70; }   // room for the export's larger axis names and tick numbers (project defaults, kit-export v5.3)
-  else { ML = Math.round(58 + 40 * (K - 1)); MB = Math.round(44 + 20 * (K - 1)); }
+  if (EXPORTING) { ML = 90; MB = 70 + (pinOn() ? 22 : 0); }   // room for the export's larger axis names and tick numbers (project defaults, kit-export v5.3); the pin's second tick row
+  else { ML = Math.round(58 + 40 * (K - 1)); MB = Math.round(44 + 20 * (K - 1)) + (pinOn() ? Math.round(14 * K) : 0); }
   PW = W - ML - MR;
   // one common scale when both axes share units (equal distances on both axes): the plot height follows the y range at the x range's scale —
   // square when the ranges coincide, shorter since the y floor rose to the 0% representation (the project maintainers' word, 13:2x UK 18 Sep)
@@ -260,10 +260,33 @@ Promise.all([
 /* ---------------- state ---------------- */
 var ROW_KEPT = {};   // 26 Sep : served configs that a run row keeps (a checkpoint the registry admits to the panel whose only fit of record is the run pointer's) — no chip in the bulk, the row draws it
 var state = { def: 'average', src: 'project', band: '90',
-              xs: 'logit', ys: 'logit', dots: '0', rm: '0', trend: 'on', partial: 'hide' };
+              xs: 'logit', ys: 'logit', dots: '0', rm: '0', trend: 'on', partial: 'hide', pin: 'off' };
+/* the pin (the project maintainers' word of 30 Sep 2026, via the coordination): with the pin on, every model's curve moves along x by its own offset so that it
+ * crosses the pinned failure rate at the middle of the axis; the y axis is unchanged; the x axis becomes relative to the pin (logit steps under a logit x,
+ * percentage points under a raw x) with a second tick row reading each step as the failure rate it means when the middle is the pinned level
+ * (the maintainers's dual-tick form, 30 Sep). The level is a typed control value used exactly (the project maintainers' word of 22 Sep 2026). A display transform only: the fits of
+ * record, the crossings table and the chips are untouched; a curve that never rises through the level is not drawn while the pin is on. Off at the open. */
+var PIN_LEVEL = 50, PIN_LEVEL_LAST = '50', PIN_DX = 0, PIN_R_RAW = 0.515, pinCtl = null, pinBox = null;
+function pinOn() { return state.pin === 'on'; }
+function pinR() { return state.xs === 'raw' ? PIN_R_RAW : (YLIM[1] - YLIM[0] + Y_FLOOR_GAP) / 2; }   // the relative half-span: the y axis's own logit span (one unit one length on either axis, the project maintainers' word of 3 Sep 2026), the raw common limit's half-span under a raw x
+function pinCross(cv) {   // the difficulty (logit) where the curve's middle line first rises through the pinned level; null when it never does
+  if (!cv || !cv.zs || !cv.mid) return null;
+  var L = logit(PIN_LEVEL / 100), zs = cv.zs, ys = cv.mid;
+  for (var k = 1; k < zs.length; k++) {
+    if (ys[k - 1] == null || ys[k] == null) continue;
+    if (ys[k - 1] < L && ys[k] >= L) return zs[k - 1] + (L - ys[k - 1]) / (ys[k] - ys[k - 1]) * (zs[k] - zs[k - 1]);
+  }
+  return null;
+}
+function pinShift(cv) { if (!pinOn()) return 0; var zc = pinCross(cv); return zc == null ? null : xt(zc); }   // the curve's own x offset in the axis's units; null = not drawn under the pin
+function pinStepText(s) { var a = Math.abs(s), t = state.xs === 'raw' ? String(Math.round(a * 100)) : String(Math.round(a * 100) / 100); return s === 0 ? '0' : (s > 0 ? '+' : '\u2212') + t; }
+function pinSecondText(s) {   // the failure rate a step reads as when the middle is the pinned level
+  var p = state.xs === 'raw' ? Math.min(1, Math.max(0, PIN_LEVEL / 100 + s)) : 1 / (1 + Math.exp(-(logit(PIN_LEVEL / 100) + s)));
+  var v = 100 * p; return ((v > 0 && v < 10) || (v > 90 && v < 100) ? (Math.round(v * 10) / 10).toString() : String(Math.round(v))) + '%';
+}
 var PARTIAL_MIN = 0.90;   // an arm with attempts on fewer than 90% of the dataset's tasks is partial (the project maintainers 7 Sep 2026)
 var sel = null;          // Set of selected config indices
-var XLIM = null, chips = [], crosshair = null;
+var XLIM = null, chips = [], crosshair = null, rearmCrosshair = null;
 var srcMount = null;
 var ready = false;      // controls + chips built; render allowed
 var DOTS_MAX = 24;      // task dots draw for this many selected models or fewer, the panel and each run's row counted apart
@@ -331,6 +354,7 @@ function commonLim() {
   return [Math.min(XLIM[0], YLIM[0]), Math.max(XLIM[1], YLIM[1])];
 }
 function xlimT() {
+  if (pinOn()) { var rP = pinR(); return [-rP, rP]; }   // the relative axis, the pin at 0
   var c = commonLim();
   if (c) return c;
   return state.xs === 'raw'
@@ -340,13 +364,14 @@ function xlimT() {
 }
 var Y_FLOOR_GAP = 0.15;   // logit units between the axis line and the 0.2% level where zero-failure curves flatline (a hair, so the flatline is not on the axis)
 function ylimT() {
+  if (pinOn()) return state.ys === 'raw' ? [-0.015, 1.015] : [YLIM[0] - Y_FLOOR_GAP, YLIM[1]];   // the y axis unchanged by the pin: its own range
   var c = commonLim();
   if (c) return state.ys === 'raw' ? c : [YLIM[0] - Y_FLOOR_GAP, c[1]];   // the project maintainers' word, 13:2x UK 18 Sep: nothing is drawn below the 0% representation, so the y floor sits just under it; the x range keeps the common scale
   return state.ys === 'raw' ? [-0.015, 1.015] : YLIM;
 }
 function sx(z) {
   var L = xlimT();
-  return ML + (xt(z) - L[0]) / (L[1] - L[0]) * PW;
+  return ML + (xt(z) - PIN_DX - L[0]) / (L[1] - L[0]) * PW;   // PIN_DX: the curve being drawn moves by its own offset under the pin (0 otherwise)
 }
 function sy(z) {
   var L = ylimT();
@@ -523,6 +548,22 @@ function boot() {
               { value: 'raw', label: 'Raw' }],
     dflt: 'logit',
     onchange: function (v) { state.ys = v; if (ready && !coercing) render(); } });
+  pinCtl = Kit.switchControl({ mount: row, key: 'pin', label: 'Pin',
+    options: [{ value: 'off', label: 'Off' }, { value: 'on', label: 'On' }],
+    dflt: 'off',
+    onchange: function (v) { state.pin = v; if (pinBox) pinBox.style.display = v === 'on' ? '' : 'none'; if (ready && !coercing) render(); } });
+  if (Kit.state.get('pin', 'off') !== 'off') quietSet(pinCtl, 'off');   // off at the open, whatever a carried link says (the project maintainers' word of 30 Sep 2026)
+  state.pin = 'off';
+  pinBox = document.createElement('label'); pinBox.className = 'pinlevel'; pinBox.style.display = 'none';
+  var pinIn = document.createElement('input'); pinIn.type = 'text'; pinIn.inputMode = 'decimal'; pinIn.value = PIN_LEVEL_LAST; pinIn.size = 4; pinIn.setAttribute('aria-label', 'pinned failure rate, percent');
+  var pinUnit = document.createElement('span'); pinUnit.textContent = '%';
+  pinBox.appendChild(pinIn); pinBox.appendChild(pinUnit); row.appendChild(pinBox);
+  var takeLevel = function () {   // the typed value used exactly (the project maintainers' word of 22 Sep 2026); an entry that is not a rate between 0 and 100 keeps the last good level
+    var v = Number(String(pinIn.value).replace(',', '.').replace('%', '').trim());
+    if (isFinite(v) && v > 0 && v < 100) { PIN_LEVEL = v; PIN_LEVEL_LAST = pinIn.value; if (ready && pinOn()) render(); } else pinIn.value = PIN_LEVEL_LAST;
+  };
+  pinIn.addEventListener('change', takeLevel);
+  pinIn.addEventListener('keydown', function (e) { if (e.key === 'Enter') { takeLevel(); e.preventDefault(); } });
   dotsCtl = Kit.switchControl({ mount: row, key: 'dots', label: 'Task dots',
     options: [{ value: '0', label: 'Off' },
               { value: '1', label: 'On' }],
@@ -852,7 +893,7 @@ function curveAt(curve, z) {
 
 /* ---------------- render (everything from state) ------------- */
 function inX(z) {   // a grid point inside the view's x domain: a fit grid wider than the axis draws nothing outside the plot (its bounding box stays inside, not only its paint)
-  var L = xlimT(), v = xt(z); return v >= L[0] - 1e-9 && v <= L[1] + 1e-9;
+  var L = xlimT(), v = xt(z) - PIN_DX; return v >= L[0] - 1e-9 && v <= L[1] + 1e-9;
 }
 function pathLine(zs, ys) {
   var d = '', pen = false;
@@ -1203,6 +1244,7 @@ function nameFamilies(shared) {
   shared._fam_named = true;
 }
 function render() {
+  PIN_DX = 0;
   nameFamilies(D.shared);   // the family labels of record before anything groups or prints by family (26 Sep)
   var chart = document.getElementById('chart');
   mountExport();
@@ -1246,7 +1288,18 @@ function render() {
   var L0 = xlimT(), span = L0[1] - L0[0];
   var keep = (narrow && span > 8) ? [1, 10, 50, 90, 99] : [1, 5, 10, 20, 50, 80, 90, 95, 99];
   var thin = function (v) { return (narrow || EXPORTING) && keep.indexOf(v) < 0; };   // the export's larger tick numbers collide at the logit ends (98% 99% 99.5%): the same thinned set as a narrow screen
-  xticks.forEach(function (v) {
+  if (pinOn()) {   // the relative axis: first row the step from the pin, second row (muted) the failure rate that step reads as when the middle is the pinned level
+    var rT = pinR(), stepT = state.xs === 'raw' ? 0.1 : 1, nT = Math.floor(rT / stepT + 1e-9);
+    for (var qT = -nT; qT <= nT; qT++) {
+      var sT = qT * stepT, LT = xlimT();
+      if (sT <= LT[0] || sT >= LT[1]) continue;
+      var pxT = ML + (sT - LT[0]) / (LT[1] - LT[0]) * PW;
+      grid += '<line x1="' + pxT.toFixed(1) + '" y1="' + MT + '" x2="' + pxT.toFixed(1) + '" y2="' + (MT + PH) + '" stroke="' + (qT === 0 ? '#b9b2a1' : '#e0d9c8') + '" stroke-width="' + (qT === 0 ? '1' : '0.6') + '"/>';
+      if ((narrow || EXPORTING) && qT % 2 !== 0) continue;   // the thinned set on a phone and in the export: every second step
+      grid += '<text data-role="tick" x="' + pxT.toFixed(1) + '" y="' + (MT + PH + 6 + 11 * K * TK) + '" text-anchor="middle" fill="#52514e" font-size="' + (11 * K * TK) + '">' + pinStepText(sT) + '</text>'
+        + '<text data-role="tick" data-tick-second="1" x="' + pxT.toFixed(1) + '" y="' + (MT + PH + 6 + 11 * K * TK + 13 * K * TK) + '" text-anchor="middle" fill="#8b8477" font-size="' + (10 * K * TK) + '">' + pinSecondText(sT) + '</text>';
+    }
+  } else xticks.forEach(function (v) {
     var z = zOf(v), L = xlimT();
     if (xt(z) <= L[0] || xt(z) >= L[1]) return;
     grid += '<line x1="' + sx(z) + '" y1="' + MT + '" x2="' + sx(z)
@@ -1268,7 +1321,7 @@ function render() {
   });
   grid += '<text data-role="axis-title" x="' + (ML + PW / 2) + '" y="' + (H - 6)
     + '" text-anchor="middle" fill="#52514e" font-size="' + (12 * K * TS) + '" '
-    + 'data-chain-inv>task difficulty' + ((narrow || state.xs === 'raw') ? '' : ' (logit)') + '</text>'
+    + 'data-chain-inv>' + (pinOn() ? 'difficulty, relative to the pin' + (narrow ? '' : (state.xs === 'raw' ? ' (percentage points)' : ' (logit steps)')) : 'task difficulty' + ((narrow || state.xs === 'raw') ? '' : ' (logit)')) + '</text>'
     + '<text data-role="axis-title" transform="rotate(-90)" x="' + (-(MT + PH / 2)) + '" y="'
     + (12 * K * TS) + '" text-anchor="middle" fill="#52514e" font-size="'
     + (12 * K * TS) + '" data-chain-inv>failure rate' + ((narrow || state.ys === 'raw') ? '' : ' (logit)') + '</text>';
@@ -1281,6 +1334,7 @@ function render() {
     visible.forEach(function (i) {
       var id = D.shared.configs[i].id;
       var dd = D.dots.configs[id];
+      var shI = pinShift(chainCurve(i)); if (shI == null) return; PIN_DX = shI;   // under the pin the dots move with their model's curve; no crossing, no dots
       for (var t = 0; t < zs.length; t++) {
         if (dd.fails[t] == null) continue;   // task not attempted by this arm (pool coverage)
         var nT = Array.isArray(dd.n) ? dd.n[t] : dd.n;
@@ -1299,6 +1353,7 @@ function render() {
     srD.arms.forEach(function (a, k) {
       if (a._twin || !ssD.has(k)) return;
       var ddD = D.dots.configs[a.id]; if (!ddD || !ddD.fails) return;
+      var shD = pinShift(sideCurve(a)); if (shD == null) return; PIN_DX = shD;
       for (var tD = 0; tD < zsD.length; tD++) {
         if (ddD.fails[tD] == null) continue;
         var nD = Array.isArray(ddD.n) ? ddD.n[tD] : ddD.n;
@@ -1315,6 +1370,7 @@ function render() {
     // confuse): under the Bayesian estimator an arm without a posterior draws NOTHING — its chip stays
     // (greyed) and the status/notes count it; no project stand-in curve
     if (state.src === 'bayes' && cv.houseOnly) return;
+    var shC = pinShift(cv); if (shC == null) return; PIN_DX = shC;   // the pin: this curve's own offset for every path of its (curve, band, marks, trend, running median)
     if (c.excluded) { cv.lo = null; cv.hi = null; }   // greyed, no band (out of the fit population)
     if (cv.lo)
       bands += '<path d="' + pathBand(cv.zs, cv.lo, cv.hi)
@@ -1371,6 +1427,7 @@ function render() {
     sbC.arms.forEach(function (a, k) {
       if (!sideSel.has(k)) return;
       var cvS = sideCurve(a); if (!cvS) return;
+      var shS = pinShift(cvS); if (shS == null) return; PIN_DX = shS;
       if (cvS.lo) bands += '<path d="' + pathBand(cvS.zs, cvS.lo, cvS.hi) + '" fill="' + a.color + '" fill-opacity="0.10" data-chain-val data-side="' + k + '"/>';
       curves += '<path d="' + pathLine(cvS.zs, cvS.mid) + '" fill="none" stroke="' + a.color + '" stroke-width="1.6"' + (a.gates_failed ? ' stroke-opacity="0.55"' : '')
         + (a.variant_pattern === 'dash-dot' ? ' stroke-dasharray="4 1.5 1.5 1.5"' : (a.variant ? ' stroke-dasharray="1.5 2.5"' : ''))
@@ -1383,10 +1440,12 @@ function render() {
     srC.arms.forEach(function (a, k) {
       if (a._twin || !seriesSel.has(k)) return;   // a twin of the family list's chip is drawn by the panel
       var cvR = sideCurve(a); if (!cvR) return;
+      var shR = pinShift(cvR); if (shR == null) return; PIN_DX = shR;
       if (cvR.lo) bands += '<path d="' + pathBand(cvR.zs, cvR.lo, cvR.hi) + '" fill="' + a.color + '" fill-opacity="0.10" data-chain-val data-series="' + k + '" data-row="' + srC._row + '"/>';
       curves += '<path d="' + pathLine(cvR.zs, cvR.mid) + '" fill="none" stroke="' + a.color + '" stroke-width="1.6"' + (a.gates_failed ? ' stroke-opacity="0.55"' : '') + (curveDash(a) ? ' stroke-dasharray="' + curveDash(a) + '"' : '') + ' data-chain-val data-series="' + k + '" data-row="' + srC._row + '" data-label="' + String(a.short_label || a.label).replace(/"/g, '&quot;') + ' — ' + String((a.run || headingShort(srC))).replace(/"/g, '&quot;') + '"/>';
     });
   });
+  PIN_DX = 0;
   chart.innerHTML = '<defs><clipPath id="plotclip"><rect x="' + ML + '" y="' + MT + '" width="' + PW + '" height="' + PH + '"/></clipPath></defs>'
     + grid + '<g clip-path="url(#plotclip)"><g>' + dotsSvg + '</g><g>' + bands
     + '</g><g id="curveg">' + curves + '</g></g>';   // the data layers stay inside the plot area (a fit grid wider than the axis had run under the y labels)
@@ -1398,6 +1457,7 @@ function render() {
   renderSeriesBlock();   // the training run's own row and crossings rows from the fit maintainers' series pointer (22 Sep) // the side arms' own chips and crossings rows (never merged)
   stamp();
   paintChips();
+  if (rearmCrosshair) rearmCrosshair();   // the crosshair's snap positions follow the axis (the pin's relative axis; an axis scale change)
 }
 
 function renderArmStates() {   // the full state line behind each chip, one line per disclosed arm, in the fold-out (critic; the project maintainers' word of 8 Sep)
@@ -2146,6 +2206,7 @@ function exportView(nDrawn) {   // the controls' state in words for the stamp li
   parts.push(state.band === 'off' ? 'uncertainty bands off' : state.band + '% uncertainty bands');
   if (state.src === 'bayes' && state.trend !== 'off') parts.push('linear trends');
   if (state.dots === '1') parts.push('task dots');
+  if (pinOn()) parts.push('pinned at ' + PIN_LEVEL + '% failure');
   if (state.xs === 'raw' || state.ys === 'raw') parts.push((state.xs === 'raw' ? 'x' : '') + (state.xs === 'raw' && state.ys === 'raw' ? ' and ' : '') + (state.ys === 'raw' ? 'y' : '') + ' in raw percent spacing');
   parts.push(nDrawn + ' model' + (nDrawn === 1 ? '' : 's') + ' drawn');
   return parts.join(' \u00b7 ');
@@ -2217,19 +2278,25 @@ function buildCrosshair() {
     if (crosshair) crosshair.destroy();
     var r = box.getBoundingClientRect();
     var scale = r.width / W;
-    var xs = D.avg.trend_zs.map(function (z) { return sx(z) * scale; });
+    var gridP = null; if (pinOn()) { var rG = pinR(); gridP = []; for (var qG = 0; qG <= 48; qG++) gridP.push(-rG + 2 * rG * qG / 48); }   // under the pin: a relative grid across the axis
+    var xs = pinOn() ? gridP.map(function (s) { var LG = xlimT(); return (ML + (s - LG[0]) / (LG[1] - LG[0]) * PW) * scale; }) : D.avg.trend_zs.map(function (z) { return sx(z) * scale; });
     crosshair = Kit.crosshair({
       container: box, xs: xs,
       readout: function (k) {
-        var z = D.avg.trend_zs[k];
+        var z = pinOn() ? null : D.avg.trend_zs[k], sP = pinOn() ? gridP[k] : null;
+        var zFor = function (cv) {   // the difficulty this curve is read at: under the pin the relative step plus the curve's own offset, back in logit
+          if (!pinOn()) return z; var sh = pinShift(cv); if (sh == null) return null; var v = sP + sh;
+          return state.xs === 'raw' ? logit(Math.min(0.9999, Math.max(0.0001, v))) : v;
+        };
         var rows = [];
         var visible = Array.from(sel).filter(shownArm).sort(function (a, b) {
           return a - b;
         });
         visible.slice(0, 12).forEach(function (i) {
-          var v = curveAt(chainCurve(i), z);
+          var cvI = chainCurve(i), zI = zFor(cvI);
+          var v = zI == null ? null : curveAt(cvI, zI);
           rows.push({ key: D.shared.configs[i].color,
-            value: v == null ? 'censored/out of range' : fmtPct(v),
+            value: v == null ? 'outside the fitted range' : fmtPct(v),
             label: D.shared.configs[i].label });
         });
         if (visible.length > 12)
@@ -2242,15 +2309,16 @@ function buildCrosshair() {
           srH.arms.forEach(function (a, k) {
             if (a._twin || !ssH.has(k)) return;
             var cvH = sideCurve(a); if (!cvH) return;
-            var vH = curveAt(cvH, z);
-            rows.push({ key: a.color, value: vH == null ? 'censored/out of range' : fmtPct(vH),
+            var zH = zFor(cvH); var vH = zH == null ? null : curveAt(cvH, zH);
+            rows.push({ key: a.color, value: vH == null ? 'outside the fitted range' : fmtPct(vH),
                         label: String((a.run || headingShort(srH))) + ' \u00b7 ' + String(a.short_label || a.label) });
           });
         });
-        return { title: 'difficulty ' + fmtPct(z), rows: rows };
+        return { title: pinOn() ? 'from the pin ' + pinStepText(sP) + (state.xs === 'raw' ? ' points' : '') : 'difficulty ' + fmtPct(z), rows: rows };
       },
     });
   }
+  rearmCrosshair = arm;
   window.addEventListener('resize', arm);
   setTimeout(arm, 50);
 }
