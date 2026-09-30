@@ -143,7 +143,7 @@
    },
    "source_stamp": "2026-09-30T09:45:29Z",
    "source_fp": "7bdccb58a799",
-   "updated_at": "2026-09-30T18:12:11Z",
+   "updated_at": "2026-09-30T18:30:30Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -191,7 +191,7 @@
    },
    "source_stamp": "2026-09-30T09:55:46Z",
    "source_fp": "51bb3efd3c1e",
-   "updated_at": "2026-09-30T18:12:25Z",
+   "updated_at": "2026-09-30T18:31:16Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -240,7 +240,7 @@
    },
    "source_stamp": "2026-09-30T09:56:11Z",
    "source_fp": "351b373c4881",
-   "updated_at": "2026-09-30T18:12:44Z",
+   "updated_at": "2026-09-30T18:31:41Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -289,7 +289,7 @@
    },
    "source_stamp": "2026-09-30T09:56:54Z",
    "source_fp": "e6426acb133c",
-   "updated_at": "2026-09-30T18:13:02Z",
+   "updated_at": "2026-09-30T18:32:11Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -338,7 +338,7 @@
    },
    "source_stamp": "2026-09-30T17:49:20Z",
    "source_fp": "6c891d71830f",
-   "updated_at": "2026-09-30T18:14:00Z",
+   "updated_at": "2026-09-30T18:33:39Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -383,7 +383,7 @@
    },
    "source_stamp": "2026-09-30T09:54:05Z",
    "source_fp": "cbfa06e47472",
-   "updated_at": "2026-09-30T18:15:11Z",
+   "updated_at": "2026-09-30T18:34:58Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -431,7 +431,7 @@
    },
    "source_stamp": "2026-09-30T09:48:23Z",
    "source_fp": "85a125c97aa6",
-   "updated_at": "2026-09-30T18:15:34Z",
+   "updated_at": "2026-09-30T18:35:24Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -480,7 +480,7 @@
    },
    "source_stamp": "2026-09-30T09:48:56Z",
    "source_fp": "ff0c5b8149d8",
-   "updated_at": "2026-09-30T18:15:52Z",
+   "updated_at": "2026-09-30T18:35:42Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -498,20 +498,20 @@
   },
   "math500": {
    "files": {
-    "shared": "shared.math500.2f3a81f17aff.json",
-    "chain_average": "chain_average.math500.2f3a81f17aff.json",
-    "bayes": "bayes.math500.2f3a81f17aff-8c3375661f69.json"
+    "shared": "shared.math500.428647217b55.json",
+    "chain_average": "chain_average.math500.428647217b55.json",
+    "bayes": "bayes.math500.428647217b55-8c3375661f69.json"
    },
    "label": "MATH-500 (500 problems)",
    "arms": "all",
-   "fingerprint": "2f3a81f17aff",
+   "fingerprint": "428647217b55",
    "frame": {
-    "population_M": 41,
+    "population_M": 45,
     "tasks": 500,
     "keep_set_hash": "326e66dcd9ab",
-    "runs_fingerprint": "2be6c7a0571e",
+    "runs_fingerprint": "4e36e6b34ec5",
     "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T17:53:18Z",
+    "build_ts": "2026-09-30T18:31:57Z",
     "vocab_ruled": "2026-08-27",
     "set": "math500",
     "set_label": "MATH-500 (500 problems)",
@@ -522,20 +522,20 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "326e66dcd9ab",
     "tasks_used": "MATH-500 (500 problems) \u2014 500 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-math500 fp 6ae4eb903e9c (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "2fa15b6f5117",
+    "source": "failure-vs-difficulty data-math500 fp f84275739de1 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "47883bd17523",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T17:53:18Z",
-   "source_fp": "6ae4eb903e9c",
-   "updated_at": "2026-09-30T18:20:11Z",
+   "source_stamp": "2026-09-30T18:31:57Z",
+   "source_fp": "f84275739de1",
+   "updated_at": "2026-09-30T18:40:03Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
     "unfitted": 6,
     "served_wave": "nb-math500-20260914T1118Z",
-    "served_arms": 35
+    "served_arms": 39
    },
    "missing": {
     "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry"
@@ -543,20 +543,20 @@
   },
   "ifeval": {
    "files": {
-    "shared": "shared.ifeval.cebc2eeb89b2.json",
-    "chain_average": "chain_average.ifeval.cebc2eeb89b2.json",
-    "bayes": "bayes.ifeval.cebc2eeb89b2-5efc66ece9f8.json"
+    "shared": "shared.ifeval.75305283773a.json",
+    "chain_average": "chain_average.ifeval.75305283773a.json",
+    "bayes": "bayes.ifeval.75305283773a-5efc66ece9f8.json"
    },
    "label": "IFEval (541 problems)",
    "arms": "all",
-   "fingerprint": "cebc2eeb89b2",
+   "fingerprint": "75305283773a",
    "frame": {
-    "population_M": 33,
+    "population_M": 39,
     "tasks": 541,
     "keep_set_hash": "ea009d5c6cd1",
-    "runs_fingerprint": "7edf45cf53f6",
+    "runs_fingerprint": "4e36e6b34ec5",
     "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T18:02:15Z",
+    "build_ts": "2026-09-30T18:33:46Z",
     "vocab_ruled": "2026-08-27",
     "set": "ifeval",
     "set_label": "IFEval (541 problems)",
@@ -567,41 +567,44 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ea009d5c6cd1",
     "tasks_used": "IFEval (541 problems) \u2014 541 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-ifeval fp c0e26caf0fd9 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "a85ef44d4e2a",
+    "source": "failure-vs-difficulty data-ifeval fp bc3f142d79a2 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "2125e689c51e",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T18:02:15Z",
-   "source_fp": "c0e26caf0fd9",
-   "updated_at": "2026-09-30T18:21:34Z",
+   "source_stamp": "2026-09-30T18:33:46Z",
+   "source_fp": "bc3f142d79a2",
+   "updated_at": "2026-09-30T18:42:25Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
-    "unfitted": 21,
+    "unfitted": 26,
     "served_wave": "nb-ifeval-20260930T1448Z",
-    "served_arms": 12
+    "served_arms": 13
    },
    "missing": {
-    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry"
+    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
+    "capC": "Capability C names neither a row nor an exclusion for 2 arm(s) (claude-haiku-4-5, claude-haiku-4-5-thinking) \u2014 waits for difficulty's re-emit",
+    "capC_z": "Capability C names neither a row nor an exclusion for 2 arm(s) (claude-haiku-4-5, claude-haiku-4-5-thinking) \u2014 waits for difficulty's re-emit",
+    "capC_j": "Capability C names neither a row nor an exclusion for 2 arm(s) (claude-haiku-4-5, claude-haiku-4-5-thinking) \u2014 waits for difficulty's re-emit"
    }
   },
   "gsm8k_platinum": {
    "files": {
-    "shared": "shared.gsm8k_platinum.d1f2c7f9bd46.json",
-    "chain_average": "chain_average.gsm8k_platinum.d1f2c7f9bd46.json",
-    "bayes": "bayes.gsm8k_platinum.d1f2c7f9bd46-2d4f7fad170b.json"
+    "shared": "shared.gsm8k_platinum.5effe6805f80.json",
+    "chain_average": "chain_average.gsm8k_platinum.5effe6805f80.json",
+    "bayes": "bayes.gsm8k_platinum.5effe6805f80-2d4f7fad170b.json"
    },
    "label": "GSM8K-Platinum (1209 problems)",
    "arms": "all",
-   "fingerprint": "d1f2c7f9bd46",
+   "fingerprint": "5effe6805f80",
    "frame": {
-    "population_M": 39,
+    "population_M": 47,
     "tasks": 1209,
     "keep_set_hash": "ff1457decdf7",
-    "runs_fingerprint": "2be6c7a0571e",
+    "runs_fingerprint": "4e36e6b34ec5",
     "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T17:59:41Z",
+    "build_ts": "2026-09-30T18:35:55Z",
     "vocab_ruled": "2026-08-27",
     "set": "gsm8k_platinum",
     "set_label": "GSM8K-Platinum (1209 problems)",
@@ -612,41 +615,44 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ff1457decdf7",
     "tasks_used": "GSM8K-Platinum (1209 problems) \u2014 1209 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-gsm8k_platinum fp b93d525e85bb (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "725c72b5657a",
+    "source": "failure-vs-difficulty data-gsm8k_platinum fp ebc08161a59b (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "252bd5f2c6cc",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T17:59:41Z",
-   "source_fp": "b93d525e85bb",
-   "updated_at": "2026-09-30T18:04:50Z",
+   "source_stamp": "2026-09-30T18:35:55Z",
+   "source_fp": "ebc08161a59b",
+   "updated_at": "2026-09-30T18:41:52Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
-    "unfitted": 16,
+    "unfitted": 19,
     "served_wave": "nb-gsm8k_platinum-20260930T1448Z",
-    "served_arms": 23
+    "served_arms": 28
    },
    "missing": {
-    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry"
+    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
+    "capC": "Capability C names neither a row nor an exclusion for 4 arm(s) (claude-haiku-4-5, claude-haiku-4-5-thinking, claude-sonnet-5) \u2014 waits for difficulty's re-emit",
+    "capC_z": "Capability C names neither a row nor an exclusion for 4 arm(s) (claude-haiku-4-5, claude-haiku-4-5-thinking, claude-sonnet-5) \u2014 waits for difficulty's re-emit",
+    "capC_j": "Capability C names neither a row nor an exclusion for 4 arm(s) (claude-haiku-4-5, claude-haiku-4-5-thinking, claude-sonnet-5) \u2014 waits for difficulty's re-emit"
    }
   },
   "cruxeval_i": {
    "files": {
-    "shared": "shared.cruxeval_i.5af7f5741924.json",
-    "chain_average": "chain_average.cruxeval_i.5af7f5741924.json",
-    "bayes": "bayes.cruxeval_i.5af7f5741924-84ef848328cf.json"
+    "shared": "shared.cruxeval_i.2a8a0ca8f977.json",
+    "chain_average": "chain_average.cruxeval_i.2a8a0ca8f977.json",
+    "bayes": "bayes.cruxeval_i.2a8a0ca8f977-84ef848328cf.json"
    },
    "label": "CRUXEval \u00b7 input prediction (800 problems)",
    "arms": "all",
-   "fingerprint": "5af7f5741924",
+   "fingerprint": "2a8a0ca8f977",
    "frame": {
-    "population_M": 35,
+    "population_M": 41,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
-    "runs_fingerprint": "2be6c7a0571e",
+    "runs_fingerprint": "4e36e6b34ec5",
     "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T17:55:09Z",
+    "build_ts": "2026-09-30T18:25:46Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_i",
     "set_label": "CRUXEval \u00b7 input prediction (800 problems)",
@@ -657,41 +663,44 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
     "tasks_used": "CRUXEval \u00b7 input prediction (800 problems) \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_i fp 8eaf84154778 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "7a27b32ad86a",
+    "source": "failure-vs-difficulty data-cruxeval_i fp e0e872b64541 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "44fee9831a50",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T17:55:09Z",
-   "source_fp": "8eaf84154778",
-   "updated_at": "2026-09-30T18:20:36Z",
+   "source_stamp": "2026-09-30T18:25:46Z",
+   "source_fp": "e0e872b64541",
+   "updated_at": "2026-09-30T18:40:54Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
-    "unfitted": 28,
+    "unfitted": 35,
     "served_wave": "nb-cruxeval_i-20260930T1503Z",
-    "served_arms": 7
+    "served_arms": 6
    },
    "missing": {
-    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry"
+    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
+    "capC": "Capability C names neither a row nor an exclusion for 2 arm(s) (claude-haiku-4-5, claude-haiku-4-5-thinking) \u2014 waits for difficulty's re-emit",
+    "capC_z": "Capability C names neither a row nor an exclusion for 2 arm(s) (claude-haiku-4-5, claude-haiku-4-5-thinking) \u2014 waits for difficulty's re-emit",
+    "capC_j": "Capability C names neither a row nor an exclusion for 2 arm(s) (claude-haiku-4-5, claude-haiku-4-5-thinking) \u2014 waits for difficulty's re-emit"
    }
   },
   "cruxeval_o": {
    "files": {
-    "shared": "shared.cruxeval_o.8715e1012392.json",
-    "chain_average": "chain_average.cruxeval_o.8715e1012392.json",
-    "bayes": "bayes.cruxeval_o.8715e1012392-9798dd9af717.json"
+    "shared": "shared.cruxeval_o.38a0080430d0.json",
+    "chain_average": "chain_average.cruxeval_o.38a0080430d0.json",
+    "bayes": "bayes.cruxeval_o.38a0080430d0-9798dd9af717.json"
    },
    "label": "CRUXEval \u00b7 output prediction (800 problems)",
    "arms": "all",
-   "fingerprint": "8715e1012392",
+   "fingerprint": "38a0080430d0",
    "frame": {
-    "population_M": 40,
+    "population_M": 46,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
-    "runs_fingerprint": "2be6c7a0571e",
+    "runs_fingerprint": "4e36e6b34ec5",
     "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T17:57:15Z",
+    "build_ts": "2026-09-30T18:28:06Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_o",
     "set_label": "CRUXEval \u00b7 output prediction (800 problems)",
@@ -702,23 +711,26 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
     "tasks_used": "CRUXEval \u00b7 output prediction (800 problems) \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_o fp dcf1b49d3789 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "879bf4101b16",
+    "source": "failure-vs-difficulty data-cruxeval_o fp a48ea402b75f (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "3b0a9490a92a",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T17:57:15Z",
-   "source_fp": "dcf1b49d3789",
-   "updated_at": "2026-09-30T18:21:01Z",
+   "source_stamp": "2026-09-30T18:28:06Z",
+   "source_fp": "a48ea402b75f",
+   "updated_at": "2026-09-30T18:41:09Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
-    "unfitted": 30,
+    "unfitted": 42,
     "served_wave": "nb-cruxeval_o-20260930T1503Z",
-    "served_arms": 10
+    "served_arms": 4
    },
    "missing": {
-    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry"
+    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
+    "capC": "Capability C names neither a row nor an exclusion for 2 arm(s) (claude-haiku-4-5, claude-haiku-4-5-thinking) \u2014 waits for difficulty's re-emit",
+    "capC_z": "Capability C names neither a row nor an exclusion for 2 arm(s) (claude-haiku-4-5, claude-haiku-4-5-thinking) \u2014 waits for difficulty's re-emit",
+    "capC_j": "Capability C names neither a row nor an exclusion for 2 arm(s) (claude-haiku-4-5, claude-haiku-4-5-thinking) \u2014 waits for difficulty's re-emit"
    }
   },
   "aime": {
@@ -754,7 +766,7 @@
    },
    "source_stamp": "2026-09-30T17:54:20Z",
    "source_fp": "a2bfa6aba99a",
-   "updated_at": "2026-09-30T18:03:53Z",
+   "updated_at": "2026-09-30T18:40:41Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -768,7 +780,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-09-30T17:24:55Z",
+  "stamp": "2026-09-30T18:26:01Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,
