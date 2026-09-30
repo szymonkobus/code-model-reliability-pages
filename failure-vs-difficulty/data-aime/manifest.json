@@ -1,9 +1,9 @@
 {
- "fingerprint": "a2bfa6aba99a",
+ "fingerprint": "aaade820fe43",
  "fingerprint_inputs": {
-  "content": "d779986f5ec7",
+  "content": "694d3f833a19",
   "wave": "aime-live",
-  "body": "6375da255142"
+  "body": "11043528b6ad"
  },
  "frame": {
   "dataset": "aime",
@@ -17,28 +17,28 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 32,
-  "fitted_M": 32,
-  "complete_M": 32,
-  "sampled_M": 32,
-  "difficulty_population_M": 32,
+  "population_M": 34,
+  "fitted_M": 34,
+  "complete_M": 34,
+  "sampled_M": 34,
+  "difficulty_population_M": 34,
   "tasks": 60,
   "keep_set_hash": "dc5cbadfe267",
-  "inputs_content_sha": "d779986f5ec7",
+  "inputs_content_sha": "694d3f833a19",
   "tasks_on_axis": 60,
   "tasks_kept": 60,
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "dc5cbadfe267",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "2be6c7a0571e",
+  "runs_fingerprint": "4e36e6b34ec5",
   "axis_wave": "aime-live",
   "build_date": "2026-09-30",
-  "stamp": "2026-09-30T17:54:20Z",
+  "stamp": "2026-09-30T18:44:45Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/aime",
-   "unified_built_at": "2026-09-30T17:44:31Z",
+   "unified_built_at": "2026-09-30T18:15:56Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.aime.csv"
@@ -97,6 +97,14 @@
     "of": 60
    },
    "google/gemma-4-31B-it": {
+    "tasks": 60,
+    "of": 60
+   },
+   "mistralai/Mistral-7B-Instruct-v0.3": {
+    "tasks": 60,
+    "of": 60
+   },
+   "mistralai/Mistral-Small-24B-Instruct-2501": {
     "tasks": 60,
     "of": 60
    },
@@ -224,7 +232,7 @@
    "concentration_counts": {
     "inputs unavailable for this served set (pre-31g custody copy)": 31
    },
-   "drawn": 29
+   "drawn": 31
   },
   "vocab_ruled": "2026-08-27",
   "interim": "kernel fits on all results available at build; refit hourly as results land",
@@ -4309,7 +4317,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-30T17:24:55Z",
+   "_stamp": "2026-09-30T18:26:01Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -4482,9 +4490,9 @@
   }
  },
  "files": {
-  "shared": "shared.a2bfa6aba99a.json",
-  "chain_average": "chain_average.a2bfa6aba99a.json",
-  "chain_median": "chain_median.a2bfa6aba99a.json",
-  "dots": "dots.a2bfa6aba99a.json"
+  "shared": "shared.aaade820fe43.json",
+  "chain_average": "chain_average.aaade820fe43.json",
+  "chain_median": "chain_median.aaade820fe43.json",
+  "dots": "dots.aaade820fe43.json"
  }
 }
