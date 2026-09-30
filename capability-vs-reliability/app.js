@@ -2787,7 +2787,8 @@ function headline(nFit, fit, nFull, sweeping) {
   var el = document.getElementById('headline'); if (!el) return;
   if (sweeping && !fit) return; // the levels are moving: keep the last settled answer rather than flicker
   var capC = isCap();
-  var q = capC ? 'Does a model that solves more of the pool also stay reliable further up the difficulty scale?'
+  // 30 Sep: on a non-code set the Capability views' question names the set, not the pool (the pool is the coding waves' word)
+  var q = capC ? (DATASETS[D.dataId] && DATASETS[D.dataId].group ? 'Does a model that solves more of the set also stay reliable further up the difficulty scale?' : 'Does a model that solves more of the pool also stay reliable further up the difficulty scale?')
                : 'Does a more capable model also stay reliable further up the difficulty scale?';
   var est = state.src === 'bayes' ? 'estimates from the fitted failure curves' : 'estimates from the smoothed failure trend';   // plain words, no method name on the figure (the project maintainers 2026-09-14); the parenthetical left the headline on the project maintainers' word of 22 Sep 20:1x — the estimator switch names the source
   var xw = capC ? CAP_KEYS[state.xdef].name() : dName('x');
