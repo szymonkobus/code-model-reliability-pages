@@ -1,9 +1,9 @@
 {
- "fingerprint": "bf383b1a589f",
+ "fingerprint": "92a5c50c911f",
  "fingerprint_inputs": {
   "content": "694d3f833a19",
   "wave": "aime-live",
-  "body": "a56b63359957"
+  "body": "8b46043e8dbf"
  },
  "frame": {
   "dataset": "aime",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "dc5cbadfe267",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "32514da616a1",
+  "runs_fingerprint": "2ebdae74ccfc",
   "axis_wave": "aime-live",
   "build_date": "2026-09-30",
-  "stamp": "2026-09-30T21:01:13Z",
+  "stamp": "2026-09-30T23:26:26Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/aime",
-   "unified_built_at": "2026-09-30T20:56:03Z",
+   "unified_built_at": "2026-09-30T23:10:40Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.aime.csv"
@@ -207,7 +207,7 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/nb-aime-20260930T1910Z/view_v2/results",
    "set_fingerprint": "3faf6762a71b",
-   "pointer_updated_at": "2026-09-30T20:52:33Z",
+   "pointer_updated_at": "2026-09-30T21:30:53Z",
    "n_fits": 34,
    "note": null,
    "gates": {
@@ -242,28 +242,36 @@
      32
     ],
     "standard": 128,
-    "stem": "Qwen--Qwen2.5-1.5B-Instruct_t0.5"
+    "stem": "Qwen--Qwen2.5-1.5B-Instruct_t0.5",
+    "declared_n": 32,
+    "declared_n_max": 32
    },
    "claude-haiku-4-5": {
     "per_cell": [
      32
     ],
     "standard": 128,
-    "stem": "anthropic--claude-haiku-4-5"
+    "stem": "anthropic--claude-haiku-4-5",
+    "declared_n": 32,
+    "declared_n_max": 32
    },
    "claude-sonnet-5": {
     "per_cell": [
      32
     ],
     "standard": 128,
-    "stem": "anthropic--claude-sonnet-5"
+    "stem": "anthropic--claude-sonnet-5",
+    "declared_n": 32,
+    "declared_n_max": 32
    },
    "deepseek-ai/DeepSeek-V3-0324": {
     "per_cell": [
      32
     ],
     "standard": 128,
-    "stem": "deepseek-ai--DeepSeek-V3-0324_t0.5"
+    "stem": "deepseek-ai--DeepSeek-V3-0324_t0.5",
+    "declared_n": 32,
+    "declared_n_max": 32
    }
   },
   "side_arms": {
@@ -4357,7 +4365,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-30T20:28:44Z",
+   "_stamp": "2026-09-30T23:25:24Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -4522,17 +4530,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-09-30T19:46:31Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20260930T194631Z.json",
-   "sha16": "7add96f3b4d04c37",
-   "census_mtime": "2026-09-30T19:47:30Z",
+   "stamp": "2026-09-30T22:53:37Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20260930T225337Z.json",
+   "sha16": "3ac7f72047c70dc5",
+   "census_mtime": "2026-09-30T22:55:27Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.bf383b1a589f.json",
-  "chain_average": "chain_average.bf383b1a589f.json",
-  "chain_median": "chain_median.bf383b1a589f.json",
-  "dots": "dots.bf383b1a589f.json"
+  "shared": "shared.92a5c50c911f.json",
+  "chain_average": "chain_average.92a5c50c911f.json",
+  "chain_median": "chain_median.92a5c50c911f.json",
+  "dots": "dots.92a5c50c911f.json"
  }
 }

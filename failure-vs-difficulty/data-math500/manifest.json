@@ -1,9 +1,9 @@
 {
- "fingerprint": "1fcad635e3fd",
+ "fingerprint": "ddc698a0dce7",
  "fingerprint_inputs": {
   "content": "dd51cff4ec9d",
   "wave": "math500-live",
-  "body": "d42230f9db4b"
+  "body": "47bc044c5ab1"
  },
  "frame": {
   "dataset": "math500",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "326e66dcd9ab",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "32514da616a1",
+  "runs_fingerprint": "2ebdae74ccfc",
   "axis_wave": "math500-live",
   "build_date": "2026-09-30",
-  "stamp": "2026-09-30T21:07:17Z",
+  "stamp": "2026-09-30T23:24:00Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/math500",
-   "unified_built_at": "2026-09-30T20:56:03Z",
+   "unified_built_at": "2026-09-30T23:10:40Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.math500.csv"
@@ -265,7 +265,7 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/nb-math500-20260930T1910Z/view_v2/results",
    "set_fingerprint": "681462eaa26a",
-   "pointer_updated_at": "2026-09-30T20:52:32Z",
+   "pointer_updated_at": "2026-09-30T21:30:56Z",
    "n_fits": 45,
    "note": null,
    "gates": {
@@ -287,7 +287,7 @@
    },
    "provisional_classes": null,
    "basis_truncation": null,
-   "served_axis_note": "Bayesian curve fitted on this live axis as it stood at the cut; the axis has moved with results landing since, so positions may differ slightly",
+   "served_axis_note": null,
    "membership_lag": null,
    "partial_coverage_arms": [],
    "matches_axis": false,
@@ -8499,7 +8499,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-30T20:28:44Z",
+   "_stamp": "2026-09-30T23:25:24Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -8672,9 +8672,9 @@
   }
  },
  "files": {
-  "shared": "shared.1fcad635e3fd.json",
-  "chain_average": "chain_average.1fcad635e3fd.json",
-  "chain_median": "chain_median.1fcad635e3fd.json",
-  "dots": "dots.1fcad635e3fd.json"
+  "shared": "shared.ddc698a0dce7.json",
+  "chain_average": "chain_average.ddc698a0dce7.json",
+  "chain_median": "chain_median.ddc698a0dce7.json",
+  "dots": "dots.ddc698a0dce7.json"
  }
 }
