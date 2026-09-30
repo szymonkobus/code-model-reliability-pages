@@ -1,9 +1,9 @@
 {
- "fingerprint": "7bdccb58a799",
+ "fingerprint": "04dbbcd28ad9",
  "fingerprint_inputs": {
-  "content": "43b47d5a3307",
+  "content": "af8afe256652",
   "wave": "unified-live",
-  "body": "e504d64d7514"
+  "body": "ca3e1e21ab98"
  },
  "frame": {
   "dataset": "all",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 61,
   "tasks": 2167,
   "keep_set_hash": "60ede5d24001",
-  "inputs_content_sha": "43b47d5a3307",
+  "inputs_content_sha": "af8afe256652",
   "tasks_on_axis": 2167,
   "tasks_kept": 2167,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "3fd1dd622789",
+  "runs_fingerprint": "781b50df8233",
   "axis_wave": "unified-live",
   "build_date": "2026-09-30",
-  "stamp": "2026-09-30T09:45:29Z",
+  "stamp": "2026-09-30T19:49:52Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -58,6 +58,7 @@
    "deepseek-coder-6.7b-rl-redraw-a-step250": 430,
    "deepseek-coder-6.7b-rl-redraw-b-step250": 430,
    "deepseek-coder-6.7b-rl-redraw-c-step250": 430,
+   "deepseek-coder-6.7b-rl-redraw25-a-step250": 430,
    "olmo-3-7b-think-final-Thinking": 430,
    "olmo-3-7b-think-step0025-Thinking": 430,
    "olmo-3-7b-think-step0050-Thinking": 430,
@@ -88,7 +89,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-30T09:13:34Z",
+   "unified_built_at": "2026-09-30T19:23:30Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -484,7 +485,7 @@
   "vocab_ruled": "2026-08-27",
   "interim": "kernel fits on all results available at build; refit hourly as results land",
   "off_panel": {
-   "n_with_cells": 41,
+   "n_with_cells": 42,
    "arms": [
     {
      "id": "deepseek-coder-6.7b-rl-night1-step250",
@@ -560,6 +561,11 @@
      "id": "deepseek-coder-6.7b-rl-redraw-c-step250",
      "arm_id": "dsc6.7b-rl-redraw-c-s250",
      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8 (250 steps)"
+    },
+    {
+     "id": "deepseek-coder-6.7b-rl-redraw25-a-step250",
+     "arm_id": "dsc6.7b-rl-redraw25-a-s250",
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8, re-drawn every 25 steps (250 steps)"
     },
     {
      "id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
@@ -696,7 +702,7 @@
    "unregistered": [],
    "in_side_block": [],
    "panel_conflicts": [],
-   "line": "41 study models with results are off the panel; the models with a fit appear in their own block"
+   "line": "42 study models with results are off the panel; the models with a fit appear in their own block"
   },
   "cleaned_arms_unified": [
    "openai/gpt-5-mini",
@@ -709,7 +715,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-30T09:24:32Z",
+   "_stamp": "2026-09-30T19:27:21Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -874,17 +880,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-09-30T08:49:47Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20260930T084947Z.json",
-   "sha16": "c84d53dea6909520",
-   "census_mtime": "2026-09-30T08:50:49Z",
+   "stamp": "2026-09-30T16:36:40Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20260930T163640Z.json",
+   "sha16": "88de4f0c690cff9b",
+   "census_mtime": "2026-09-30T16:37:30Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.7bdccb58a799.json",
-  "chain_average": "chain_average.7bdccb58a799.json",
-  "chain_median": "chain_median.7bdccb58a799.json",
-  "dots": "dots.7bdccb58a799.json"
+  "shared": "shared.04dbbcd28ad9.json",
+  "chain_average": "chain_average.04dbbcd28ad9.json",
+  "chain_median": "chain_median.04dbbcd28ad9.json",
+  "dots": "dots.04dbbcd28ad9.json"
  }
 }
