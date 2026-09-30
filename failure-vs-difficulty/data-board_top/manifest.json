@@ -1,9 +1,9 @@
 {
- "fingerprint": "3f1f84eab95c",
+ "fingerprint": "ba79c3fc8811",
  "fingerprint_inputs": {
   "content": "99687e5c765f",
   "wave": "combined-20260910T2209Z",
-  "body": "beba5c484765"
+  "body": "05569b69f72f"
  },
  "frame": {
   "dataset": "board_top",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "781b50df8233",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-09-30",
-  "stamp": "2026-09-30T19:21:58Z",
+  "stamp": "2026-09-30T19:55:34Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -89,7 +89,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-09-30T18:18:11Z",
+   "unified_built_at": "2026-09-30T19:23:30Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -569,6 +569,11 @@
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "disclosure": "a re-run of Qwen3 8B, a model in the set, under another answer cap and attempt count; positioned on the served wave 1+2 axis, which it did not shape; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "gates_failed": false,
+     "partial": false,
+     "released": false,
+     "attempts_per_cell": [
+      32
+     ],
      "gate_face": null,
      "bayes_avg": {
       "zgrid": [
@@ -2589,6 +2594,11 @@
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "disclosure": "a model fitted alongside the set, outside the axis panel, positioned on the served wave 1+2 axis unchanged; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "gates_failed": false,
+     "partial": false,
+     "released": false,
+     "attempts_per_cell": [
+      32
+     ],
      "gate_face": null,
      "bayes_avg": {
       "zgrid": [
@@ -4609,6 +4619,11 @@
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "disclosure": "a model fitted alongside the set, outside the axis panel, positioned on the served wave 1+2 axis unchanged; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "gates_failed": false,
+     "partial": false,
+     "released": false,
+     "attempts_per_cell": [
+      32
+     ],
      "gate_face": null,
      "bayes_avg": {
       "zgrid": [
@@ -6629,6 +6644,11 @@
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "disclosure": "a model fitted alongside the set, outside the axis panel, positioned on the served wave 1+2 axis unchanged; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "gates_failed": false,
+     "partial": false,
+     "released": false,
+     "attempts_per_cell": [
+      32
+     ],
      "gate_face": null,
      "bayes_avg": {
       "zgrid": [
@@ -8649,6 +8669,11 @@
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "disclosure": "a model fitted alongside the set, outside the axis panel, positioned on the served wave 1+2 axis unchanged; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "gates_failed": false,
+     "partial": false,
+     "released": false,
+     "attempts_per_cell": [
+      32
+     ],
      "gate_face": null,
      "bayes_avg": {
       "zgrid": [
@@ -10669,6 +10694,11 @@
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "disclosure": "a model fitted alongside the set, outside the axis panel, positioned on the served wave 1+2 axis unchanged; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "gates_failed": false,
+     "partial": false,
+     "released": false,
+     "attempts_per_cell": [
+      32
+     ],
      "gate_face": null,
      "bayes_avg": {
       "zgrid": [
@@ -12689,6 +12719,11 @@
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "disclosure": "a fine-tune of Qwen3 8B on thinking traces, run at the thinking run's answer budget and attempt count; shown beside the Qwen3 8B thinking run, a model in the set that shaped the served axis through its served runs; positioned on the served wave 1+2 axis, which it did not shape; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "gates_failed": false,
+     "partial": false,
+     "released": false,
+     "attempts_per_cell": [
+      32
+     ],
      "gate_face": null,
      "bayes_avg": {
       "zgrid": [
@@ -14709,6 +14744,11 @@
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "disclosure": "a model fitted alongside the set, outside the axis panel, positioned on the served wave 1+2 axis unchanged; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "gates_failed": false,
+     "partial": false,
+     "released": false,
+     "attempts_per_cell": [
+      32
+     ],
      "gate_face": null,
      "bayes_avg": {
       "zgrid": [
@@ -16729,6 +16769,11 @@
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "disclosure": "a model fitted alongside the set, outside the axis panel, positioned on the served wave 1+2 axis unchanged; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "gates_failed": false,
+     "partial": false,
+     "released": false,
+     "attempts_per_cell": [
+      32
+     ],
      "gate_face": null,
      "bayes_avg": {
       "zgrid": [
@@ -18749,6 +18794,11 @@
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "disclosure": "a model fitted alongside the set, outside the axis panel, positioned on the served wave 1+2 axis unchanged; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "gates_failed": true,
+     "partial": false,
+     "released": false,
+     "attempts_per_cell": [
+      32
+     ],
      "gate_face": "every attempt failed on 24% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's uncertainty band is wider",
      "bayes_avg": {
       "zgrid": [
@@ -20769,6 +20819,11 @@
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "disclosure": "a model fitted alongside the set, outside the axis panel, positioned on the served wave 1+2 axis unchanged; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "gates_failed": false,
+     "partial": false,
+     "released": false,
+     "attempts_per_cell": [
+      32
+     ],
      "gate_face": null,
      "bayes_avg": {
       "zgrid": [
@@ -22815,6 +22870,11 @@
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "disclosure": "the final checkpoint of one training run, positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "gates_failed": false,
+     "partial": false,
+     "released": false,
+     "attempts_per_cell": [
+      32
+     ],
      "gate_face": null,
      "bayes_avg": {
       "zgrid": [
@@ -24840,6 +24900,11 @@
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "disclosure": "a checkpoint of one training run (checkpoint 0), positioned on the served wave 1+2 axis unchanged; the earliest checkpoint read, the one the others are shown beside; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "gates_failed": true,
+     "partial": false,
+     "released": false,
+     "attempts_per_cell": [
+      32
+     ],
      "gate_face": "every attempt failed on 37% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's uncertainty band is wider",
      "bayes_avg": {
       "zgrid": [
@@ -26865,6 +26930,11 @@
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "disclosure": "a checkpoint of one training run (checkpoint 1), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "gates_failed": true,
+     "partial": false,
+     "released": false,
+     "attempts_per_cell": [
+      32
+     ],
      "gate_face": "every attempt failed on 38% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's uncertainty band is wider",
      "bayes_avg": {
       "zgrid": [
@@ -28890,6 +28960,11 @@
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "disclosure": "a checkpoint of one training run (checkpoint 16), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "gates_failed": false,
+     "partial": false,
+     "released": false,
+     "attempts_per_cell": [
+      32
+     ],
      "gate_face": null,
      "bayes_avg": {
       "zgrid": [
@@ -30915,6 +30990,11 @@
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "disclosure": "a checkpoint of one training run (checkpoint 4), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "gates_failed": false,
+     "partial": false,
+     "released": false,
+     "attempts_per_cell": [
+      32
+     ],
      "gate_face": null,
      "bayes_avg": {
       "zgrid": [
@@ -32940,6 +33020,11 @@
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "disclosure": "a checkpoint of one training run (checkpoint 32), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "gates_failed": true,
+     "partial": false,
+     "released": false,
+     "attempts_per_cell": [
+      32
+     ],
      "gate_face": "every attempt failed on 36% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's uncertainty band is wider",
      "bayes_avg": {
       "zgrid": [
@@ -34965,6 +35050,11 @@
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "disclosure": "a checkpoint of one training run (checkpoint 2), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "gates_failed": false,
+     "partial": false,
+     "released": false,
+     "attempts_per_cell": [
+      32
+     ],
      "gate_face": null,
      "bayes_avg": {
       "zgrid": [
@@ -36990,6 +37080,11 @@
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "disclosure": "a checkpoint of one training run (checkpoint 8), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "gates_failed": true,
+     "partial": false,
+     "released": false,
+     "attempts_per_cell": [
+      32
+     ],
      "gate_face": "every attempt failed on 38% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's uncertainty band is wider",
      "bayes_avg": {
       "zgrid": [
@@ -39034,6 +39129,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "the final checkpoint of one training run, positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": false,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": null,
       "bayes_avg": {
        "zgrid": [
@@ -41059,6 +41159,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (checkpoint 0), positioned on the served wave 1+2 axis unchanged; the earliest checkpoint read, the one the others are shown beside; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": true,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": "every attempt failed on 37% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's uncertainty band is wider",
       "bayes_avg": {
        "zgrid": [
@@ -43084,6 +43189,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (checkpoint 1), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": true,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": "every attempt failed on 38% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's uncertainty band is wider",
       "bayes_avg": {
        "zgrid": [
@@ -45109,6 +45219,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (checkpoint 16), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": false,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": null,
       "bayes_avg": {
        "zgrid": [
@@ -47134,6 +47249,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (checkpoint 4), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": false,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": null,
       "bayes_avg": {
        "zgrid": [
@@ -49159,6 +49279,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (checkpoint 32), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": true,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": "every attempt failed on 36% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's uncertainty band is wider",
       "bayes_avg": {
        "zgrid": [
@@ -51184,6 +51309,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (checkpoint 2), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": false,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": null,
       "bayes_avg": {
        "zgrid": [
@@ -53209,6 +53339,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (checkpoint 8), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": true,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": "every attempt failed on 38% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's uncertainty band is wider",
       "bayes_avg": {
        "zgrid": [
@@ -55252,6 +55387,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "the final checkpoint of one training run, positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": false,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": null,
       "bayes_avg": {
        "zgrid": [
@@ -57277,6 +57417,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (checkpoint 0), positioned on the served wave 1+2 axis unchanged; the earliest checkpoint read, the one the others are shown beside; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": true,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": "every attempt failed on 14% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's uncertainty band is wider",
       "bayes_avg": {
        "zgrid": [
@@ -59302,6 +59447,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (checkpoint 7), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": false,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": null,
       "bayes_avg": {
        "zgrid": [
@@ -61327,6 +61477,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (checkpoint 31), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": false,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": null,
       "bayes_avg": {
        "zgrid": [
@@ -63352,6 +63507,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (checkpoint 1), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": true,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": "every attempt failed on 14% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's uncertainty band is wider",
       "bayes_avg": {
        "zgrid": [
@@ -65377,6 +65537,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (checkpoint 3), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": true,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": "every attempt failed on 14% of this model's tasks; each of those tasks counts in the fit as failures on every attempt; the data show only that such a task is at least that hard for this model; this model's uncertainty band is wider",
       "bayes_avg": {
        "zgrid": [
@@ -67402,6 +67567,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (checkpoint 15), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": false,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": null,
       "bayes_avg": {
        "zgrid": [
@@ -69427,6 +69597,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (checkpoint 54), positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": false,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": null,
       "bayes_avg": {
        "zgrid": [
@@ -73478,6 +73653,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (250 steps), positioned on the served wave 1+2 axis unchanged; each compared with the start model, read on the same tasks and attempts; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": false,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": null,
       "bayes_avg": {
        "zgrid": [
@@ -75503,6 +75683,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (500 steps), positioned on the served wave 1+2 axis unchanged; each compared with the start model, read on the same tasks and attempts; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": false,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": null,
       "bayes_avg": {
        "zgrid": [
@@ -77528,6 +77713,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (250 steps), positioned on the served wave 1+2 axis unchanged; each compared with the start model, read on the same tasks and attempts; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": false,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": null,
       "bayes_avg": {
        "zgrid": [
@@ -79553,6 +79743,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (500 steps), positioned on the served wave 1+2 axis unchanged; each compared with the start model, read on the same tasks and attempts; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": false,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": null,
       "bayes_avg": {
        "zgrid": [
@@ -81578,6 +81773,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (250 steps), positioned on the served wave 1+2 axis unchanged; each compared with the start model, read on the same tasks and attempts; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": false,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": null,
       "bayes_avg": {
        "zgrid": [
@@ -83603,6 +83803,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (500 steps), positioned on the served wave 1+2 axis unchanged; each compared with the start model, read on the same tasks and attempts; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": false,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": null,
       "bayes_avg": {
        "zgrid": [
@@ -85628,6 +85833,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (250 steps), positioned on the served wave 1+2 axis unchanged; each compared with the start model, read on the same tasks and attempts; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": false,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": null,
       "bayes_avg": {
        "zgrid": [
@@ -87653,6 +87863,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (500 steps), positioned on the served wave 1+2 axis unchanged; each compared with the start model, read on the same tasks and attempts; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": false,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": null,
       "bayes_avg": {
        "zgrid": [
@@ -89678,6 +89893,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (250 steps), positioned on the served wave 1+2 axis unchanged; each compared with the start model, read on the same tasks and attempts; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": false,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": null,
       "bayes_avg": {
        "zgrid": [
@@ -91703,6 +91923,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (500 steps), positioned on the served wave 1+2 axis unchanged; each compared with the start model, read on the same tasks and attempts; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": false,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": null,
       "bayes_avg": {
        "zgrid": [
@@ -93728,6 +93953,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (100 steps), positioned on the served wave 1+2 axis unchanged; each compared with the start model, read on the same tasks and attempts; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": false,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": null,
       "bayes_avg": {
        "zgrid": [
@@ -95753,6 +95983,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (250 steps), positioned on the served wave 1+2 axis unchanged; each compared with the start model, read on the same tasks and attempts; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": false,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": null,
       "bayes_avg": {
        "zgrid": [
@@ -97778,6 +98013,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (250 steps), positioned on the served wave 1+2 axis unchanged; each compared with the start model, read on the same tasks and attempts; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": false,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": null,
       "bayes_avg": {
        "zgrid": [
@@ -99803,6 +100043,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (250 steps), positioned on the served wave 1+2 axis unchanged; each compared with the start model, read on the same tasks and attempts; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": false,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": null,
       "bayes_avg": {
        "zgrid": [
@@ -101828,6 +102073,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (250 steps), positioned on the served wave 1+2 axis unchanged; each compared with the start model, read on the same tasks and attempts; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": false,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": null,
       "bayes_avg": {
        "zgrid": [
@@ -103853,6 +104103,11 @@
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "disclosure": "a checkpoint of one training run (250 steps), positioned on the served wave 1+2 axis unchanged; each compared with the start model, read on the same tasks and attempts; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": false,
+      "partial": false,
+      "released": false,
+      "attempts_per_cell": [
+       32
+      ],
       "gate_face": null,
       "bayes_avg": {
        "zgrid": [
@@ -106284,9 +106539,9 @@
   }
  },
  "files": {
-  "shared": "shared.3f1f84eab95c.json",
-  "chain_average": "chain_average.3f1f84eab95c.json",
-  "chain_median": "chain_median.3f1f84eab95c.json",
-  "dots": "dots.3f1f84eab95c.json"
+  "shared": "shared.ba79c3fc8811.json",
+  "chain_average": "chain_average.ba79c3fc8811.json",
+  "chain_median": "chain_median.ba79c3fc8811.json",
+  "dots": "dots.ba79c3fc8811.json"
  }
 }
