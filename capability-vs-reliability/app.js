@@ -95,7 +95,7 @@ fetch(MOUNT + 'data/manifest.json')
     D.defaultData = DEFAULT_DATA;
     var want = Kit.state.get('data', DEFAULT_DATA);
     var ALIASES = { boardfocused: 'board_top', focused: 'top' };
-    var RETIRED = { math500: 'MATH-500', aime: 'AIME' };   // dataset keys retired from this page on the project maintainers' word (2026-09-11): the note below says so in plain words // the 09-05  working names, kept as silent aliases for links
+    var RETIRED = {};   // no dataset key is retired since the 30 Sep word (the maths keys returned under the Dataset control) // the 09-05  working names, kept as silent aliases for links
     if (ALIASES[want]) { want = ALIASES[want]; Kit.state.set('data', want, null); }
     if (!DATASETS[want] && /^golden-/.test(want) && ds[want]) { want = want.slice(7); Kit.state.set('arms', 'golden', 'all'); Kit.state.set('data', want, DEFAULT_DATA); }   // datasets["golden-<set>"] named directly: that is <set> under arms=golden; a dataset value must be a switch option or the switch's init fire reloads for ever (2026-09-09)
     relabel();   // official set names before any note quotes a label (the fallback note below quoted the working name)
@@ -191,9 +191,16 @@ var HOUSE_DATASETS = {   // availability comes from manifest.datasets at load; t
   top: { label: 'wave 2', hover: 'wave 2 (the parked tasks are not in it)', available: false, reason: 'this set is not served yet' },
   'new': { label: 'wave 2 + parked', hover: 'wave 2 + parked', available: false, reason: 'crossing rows for wave 2 over the frozen level grid are not published yet' },
   all: { label: 'wave 1+2 + parked', hover: 'wave 1+2 + parked, on one difficulty axis', available: false, reason: 'no single axis covers the original and wave 2 yet (difficulty computes one over the combined set)' },
-  // CODING SETS ONLY (the project maintainers' word of 11 Sep 2026 : MATH and AIME do not belong on the capability-versus-difficulty curves;
-  // a mirror page may present all the new bench results in that form): the MATH-500 and AIME options of 09-10 are retired here;
-  // the maintainers's mirror page carries the newbench results in this form. A link that still says data=math500|aime falls back to the default set with a note.
+  // NON-CODE BENCHMARKS D99-D50 (the project maintainers' word of 30 Sep 15:5x, via the coordination; the work the maintainers owns, its name in capitals wherever the page names it to them):
+  // the six non-code sets browsable on this page under the Dataset control, in the order of preference — MATH-500 first, IFEval, then GSM8K-Platinum and the two CRUXEval sets, AIME last;
+  // each set's crossings from fitting's serving_nb_<set>.json on Definitions' per-set axis; a set without a bundle yet is greyed with its reason; the names of record as the results page prints them
+  math500: { label: 'MATH-500', hover: 'MATH-500, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'NON-CODE BENCHMARKS D99-D50' },
+  ifeval: { label: 'IFEval', hover: 'IFEval, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'NON-CODE BENCHMARKS D99-D50' },
+  gsm8k_platinum: { label: 'GSM8K-Platinum', hover: 'GSM8K-Platinum, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'NON-CODE BENCHMARKS D99-D50' },
+  cruxeval_i: { label: 'CRUXEval, input prediction', hover: 'CRUXEval, input prediction, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'NON-CODE BENCHMARKS D99-D50' },
+  cruxeval_o: { label: 'CRUXEval, output prediction', hover: 'CRUXEval, output prediction, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'NON-CODE BENCHMARKS D99-D50' },
+  aime: { label: 'AIME', hover: 'AIME, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'NON-CODE BENCHMARKS D99-D50' },
+  // (the 11 Sep word kept the maths sets off this page for a mirror; the 30 Sep word puts every non-code set on it under the one control — the mirror keeps serving too)
 };
 // MIRROR HOOKS (the maintainers 2026-09-11: the /nb-results/plane/ mirror runs this file unchanged; failure-vs-difficulty's curves page uses the same names):
 // window.MIRROR_MOUNT, window.MIRROR_DATASETS (ordered key -> {label, hover}) and window.MIRROR_DEFAULT, set in the mirror's index.html before app.js.
@@ -215,6 +222,8 @@ function plainTs(ts) {   // "7 Sep 03:23" from an ISO stamp — plain words, nev
 function relabel() {   // OFFICIAL SET NAMES with the count of record (the project maintainers' word of 2026-09-08 at 7pm: the sets renamed wave 1, wave 2 and wave 2 parked
   Object.keys(DATASETS).forEach(function (k) {   // sets outside the five coding keys (a mirror's newbench sets): the label of record bound at build, never typed
     if (CODING_KEYS.indexOf(k) >= 0) return; var e = D.man && D.man.datasets && D.man.datasets[k];
+    // 30 Sep: a set named on the reference list (the six non-code sets, names of record) keeps its project name in the control and the frame line; the bundle lends only its count in the parenthesis
+    if (e && e.label && DATASETS[k].group) { var par = /\(([^)]*)\)\s*$/.exec(String(e.label)); DATASETS[k].frameLabel = DATASETS[k].label + (par ? ' (' + par[1] + ')' : ''); DATASETS[k].short = DATASETS[k].label; return; }
     if (e && e.label) { DATASETS[k].label = e.label; DATASETS[k].frameLabel = e.label; DATASETS[k].short = String(e.label).split(' (')[0]; } });
   if (!CODING_KEYS.every(function (k) { return DATASETS[k]; })) return;   // a mirror without the coding sets: the wave names below do not apply
   // wave 2, and the rest to wave 2 parked … in important figures it should be wave 1 (430 tasks) … wave 2 (x tasks), and then combined wave 1+2 …
@@ -731,16 +740,22 @@ function boot() {
   relabel();
   var row = Kit.filterRow('#controls');
   row.classList.add('kit-static'); // stays in the flow (the kit's opt-out): this row sits beside the chart on desktop and below it on narrow screens, and the chart is capped to the viewport, so nothing scrolls out of reach (page maintainers' read, 21 Sep)
-  var dataSw = Kit.switchControl({ mount: row, key: 'data', label: 'Dataset',   // FIRST control in the row ("an option at the top")
-    options: Object.keys(DATASETS).map(function (k) { return { value: k, label: String(DATASETS[k].label).replace(/\s*\([^)]*\)\s*$/, '') }; }),   // a control carries the project maintainers' words alone (23 Sep): the set's name, its count on the set line
-    dflt: D.defaultData || (D.allDs.board_top ? 'board_top' : 'board'),
+  // THE DATASET CONTROL (the project maintainers' word of 30 Sep 15:5x: the sets browsable here under a control better than chips, the polished interface reused; the reference form agreed
+  // by the maintainers and failure-vs-difficulty : a native select in the kit's switch chrome, one control beside the other switches, the URL param data=<key> as before, two groups —
+  // the coding sets with wave 1+2 the default, then the six non-code sets under the heading NON-CODE BENCHMARKS D99-D50, a set without a fit greyed and unselectable). Kit.selectControl takes this over when the kit carries it.
+  var _dsDflt = D.defaultData || (D.allDs.board_top ? 'board_top' : 'board');
+  var _opt = function (k) { return { value: k, label: String(DATASETS[k].label).replace(/\s*\([^)]*\)\s*$/, ''), disabled: !DATASETS[k].available }; };   // a control carries the project maintainers' words alone (23 Sep): the set's name, its count on the set line
+  var dataSw = Kit.selectControl({ mount: row, key: 'data', label: 'Dataset',   // FIRST control in the row ("an option at the top"); the maintainers's Kit.selectControl  30 Sep
+    options: Object.keys(DATASETS).filter(function (k) { return !DATASETS[k].group; }).map(_opt),
+    groups: [{ label: 'NON-CODE BENCHMARKS D99-D50', options: Object.keys(DATASETS).filter(function (k) { return DATASETS[k].group === 'NON-CODE BENCHMARKS D99-D50'; }).map(_opt) }],
+    dflt: _dsDflt,
     onchange: function (v) {
-      var ds = DATASETS[v] || DATASETS[D.defaultData] || DATASETS.board;
-      if (!ds.available) { if (dataSw) dataSw.set(D.dataId); return; }   // a disabled option reached by keyboard: stay on the dataset rendered
+      var ds = DATASETS[v] || DATASETS[_dsDflt] || DATASETS.board;
+      if (!ds.available) { if (dataSw) dataSw.set(D.dataId); return; }
       if (v !== D.dataId && DATASETS[v]) location.reload();   // the URL now carries data=<set>; the whole state (arms, axis, chains, frame) is that dataset's artifact set
     } });
-  if (dataSw.value() !== D.dataId) dataSw.set(D.dataId);   // a rejected deep-link value: the pressed button is the dataset rendered
-  Object.keys(DATASETS).forEach(function (k) { if (DATASETS[k].hover && DATASETS[k].available) { var hb = document.querySelector('.kit-switch[data-key="data"] button[data-value="' + k + '"]'); var fr = D.allDs[k] && D.allDs[k].frame; if (hb) hb.title = DATASETS[k].hover; } });   // every Dataset button states its task set (critic 2026-09-05)
+  (function () { var sel = dataSw.element.querySelector('select'); [].forEach.call(sel.options, function (o) { var d = DATASETS[o.value]; if (!d) return; o.title = d.available ? (d.hover || '') : (d.label + ': ' + d.reason); }); })();   // the reason on hover for a set not served; the set's words for one served
+  if (dataSw.value() !== D.dataId) dataSw.set(D.dataId);   // a rejected deep-link value: the option shown is the dataset rendered
   var armsSw = Kit.switchControl({ mount: document.getElementById('armsbar') || row, key: 'arms', label: 'Models',   // right after Dataset (failure-vs-difficulty's decision for both official pages)
     options: [{ value: 'all', label: 'all models' }, { value: 'golden', label: 'golden set' }],
     dflt: 'all',
@@ -757,11 +772,6 @@ function boot() {
   if (!partialArms().length) { var psw = document.querySelector('.kit-switch[data-key="partial"]'); if (psw) psw.style.display = 'none'; }   // no partial arm in this set: the switch is inert and hidden
   // no shown/hidden switch per run: the run's own row (its all/none) is the mechanism (the project maintainers' word of 23 Sep 12:0x); a URL's <key>=hide no longer hides a run
   showDataNote();
-  Object.keys(DATASETS).forEach(function (k) {
-    if (DATASETS[k].available) return;
-    var b = row.querySelector('.kit-switch[data-key="data"] button[data-value="' + k + '"]');
-    if (b) { b.disabled = true; b.setAttribute('aria-disabled', 'true'); b.title = DATASETS[k].label + ': ' + DATASETS[k].reason; }
-  });
   Kit.switchControl({ mount: row, key: 'view', label: 'View',
     options: [{ value: 'scatter', label: 'Scatter' },
               { value: 'ridges', label: 'Posterior ridges' }],

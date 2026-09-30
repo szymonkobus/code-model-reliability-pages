@@ -108,7 +108,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-09-30T15:30:10Z"
+   "updated_at": "2026-09-30T15:47:40Z"
   },
   "all": {
    "files": {
@@ -488,6 +488,266 @@
     "unfitted": 0,
     "served_wave": "golden-top-20260905T1420Z-m100",
     "served_arms": 12
+   },
+   "missing": {
+    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
+    "capC": "Capability C is computed for wave 1 (the original tasks) only",
+    "capC_z": "this Capability C variant is computed for wave 1 and wave 1+2 only",
+    "capC_j": "this Capability C variant is computed for wave 1 and wave 1+2 only"
+   }
+  },
+  "math500": {
+   "files": {
+    "shared": "shared.math500.f1d3160e87f0.json",
+    "chain_average": "chain_average.math500.f1d3160e87f0.json",
+    "bayes": "bayes.math500.f1d3160e87f0-8c3375661f69.json"
+   },
+   "label": "MATH-500 (500 problems)",
+   "arms": "all",
+   "fingerprint": "f1d3160e87f0",
+   "frame": {
+    "population_M": 41,
+    "tasks": 500,
+    "keep_set_hash": "326e66dcd9ab",
+    "runs_fingerprint": "dd208f53e071",
+    "build_date": "2026-09-30",
+    "build_ts": "2026-09-30T15:05:33Z",
+    "vocab_ruled": "2026-08-27",
+    "set": "math500",
+    "set_label": "MATH-500 (500 problems)",
+    "arms": "all",
+    "golden_note": null,
+    "tasks_on_axis": 500,
+    "tasks_kept": 500,
+    "tasks_awaiting_axis": 0,
+    "axis_set_hash": "326e66dcd9ab",
+    "tasks_used": "MATH-500 (500 problems) \u2014 500 tasks, Definitions' live per-set axis",
+    "source": "failure-vs-difficulty data-math500 fp 3e60e9206687 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "2fa15b6f5117",
+    "withheld_configs": [],
+    "withdrawn": {}
+   },
+   "source_stamp": "2026-09-30T15:05:33Z",
+   "source_fp": "3e60e9206687",
+   "updated_at": "2026-09-30T15:12:35Z",
+   "bayes_interim": {
+    "wave": null,
+    "n": 0,
+    "unfitted": 6,
+    "served_wave": "nb-math500-20260914T1118Z",
+    "served_arms": 35
+   },
+   "missing": {
+    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
+    "capC": "Capability C is computed for wave 1 (the original tasks) only",
+    "capC_z": "this Capability C variant is computed for wave 1 and wave 1+2 only",
+    "capC_j": "this Capability C variant is computed for wave 1 and wave 1+2 only"
+   }
+  },
+  "ifeval": {
+   "files": {
+    "shared": "shared.ifeval.90a300fe48c4.json",
+    "chain_average": "chain_average.ifeval.90a300fe48c4.json"
+   },
+   "label": "IFEval (541 problems)",
+   "arms": "all",
+   "fingerprint": "90a300fe48c4",
+   "frame": {
+    "population_M": 33,
+    "tasks": 541,
+    "keep_set_hash": "ea009d5c6cd1",
+    "runs_fingerprint": "dd208f53e071",
+    "build_date": "2026-09-30",
+    "build_ts": "2026-09-30T15:07:45Z",
+    "vocab_ruled": "2026-08-27",
+    "set": "ifeval",
+    "set_label": "IFEval (541 problems)",
+    "arms": "all",
+    "golden_note": null,
+    "tasks_on_axis": 541,
+    "tasks_kept": 541,
+    "tasks_awaiting_axis": 0,
+    "axis_set_hash": "ea009d5c6cd1",
+    "tasks_used": "IFEval (541 problems) \u2014 541 tasks, Definitions' live per-set axis",
+    "source": "failure-vs-difficulty data-ifeval fp d6e3d226df7e (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "a85ef44d4e2a",
+    "withheld_configs": [],
+    "withdrawn": {}
+   },
+   "source_stamp": "2026-09-30T15:07:45Z",
+   "source_fp": "d6e3d226df7e",
+   "updated_at": "2026-09-30T15:14:27Z",
+   "missing": {
+    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
+    "bayes": "no Bayesian fit for this set yet: fitting's set-of-record wave for it is in flight and its pointer is not served; the Bayesian option lands with it",
+    "capC": "Capability C is computed for wave 1 (the original tasks) only",
+    "capC_z": "this Capability C variant is computed for wave 1 and wave 1+2 only",
+    "capC_j": "this Capability C variant is computed for wave 1 and wave 1+2 only"
+   }
+  },
+  "gsm8k_platinum": {
+   "files": {
+    "shared": "shared.gsm8k_platinum.348095c51b2d.json",
+    "chain_average": "chain_average.gsm8k_platinum.348095c51b2d.json"
+   },
+   "label": "GSM8K-Platinum (1,209 problems)",
+   "arms": "all",
+   "fingerprint": "348095c51b2d",
+   "frame": {
+    "population_M": 39,
+    "tasks": 1209,
+    "keep_set_hash": "ff1457decdf7",
+    "runs_fingerprint": "dd208f53e071",
+    "build_date": "2026-09-30",
+    "build_ts": "2026-09-30T15:09:15Z",
+    "vocab_ruled": "2026-08-27",
+    "set": "gsm8k_platinum",
+    "set_label": "GSM8K-Platinum (1,209 problems)",
+    "arms": "all",
+    "golden_note": null,
+    "tasks_on_axis": 1209,
+    "tasks_kept": 1209,
+    "tasks_awaiting_axis": 0,
+    "axis_set_hash": "ff1457decdf7",
+    "tasks_used": "GSM8K-Platinum (1,209 problems) \u2014 1209 tasks, Definitions' live per-set axis",
+    "source": "failure-vs-difficulty data-gsm8k_platinum fp f1f1fd80247a (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "725c72b5657a",
+    "withheld_configs": [],
+    "withdrawn": {}
+   },
+   "source_stamp": "2026-09-30T15:09:15Z",
+   "source_fp": "f1f1fd80247a",
+   "updated_at": "2026-09-30T15:14:21Z",
+   "missing": {
+    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
+    "bayes": "no Bayesian fit for this set yet: fitting's set-of-record wave for it is in flight and its pointer is not served; the Bayesian option lands with it",
+    "capC": "Capability C is computed for wave 1 (the original tasks) only",
+    "capC_z": "this Capability C variant is computed for wave 1 and wave 1+2 only",
+    "capC_j": "this Capability C variant is computed for wave 1 and wave 1+2 only"
+   }
+  },
+  "cruxeval_i": {
+   "files": {
+    "shared": "shared.cruxeval_i.0ce261108bc0.json",
+    "chain_average": "chain_average.cruxeval_i.0ce261108bc0.json"
+   },
+   "label": "CRUXEval, input prediction (800 problems)",
+   "arms": "all",
+   "fingerprint": "0ce261108bc0",
+   "frame": {
+    "population_M": 35,
+    "tasks": 800,
+    "keep_set_hash": "ceaae2d92751",
+    "runs_fingerprint": "dd208f53e071",
+    "build_date": "2026-09-30",
+    "build_ts": "2026-09-30T15:11:18Z",
+    "vocab_ruled": "2026-08-27",
+    "set": "cruxeval_i",
+    "set_label": "CRUXEval, input prediction (800 problems)",
+    "arms": "all",
+    "golden_note": null,
+    "tasks_on_axis": 800,
+    "tasks_kept": 800,
+    "tasks_awaiting_axis": 0,
+    "axis_set_hash": "ceaae2d92751",
+    "tasks_used": "CRUXEval, input prediction (800 problems) \u2014 800 tasks, Definitions' live per-set axis",
+    "source": "failure-vs-difficulty data-cruxeval_i fp ac5086e243a6 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "7a27b32ad86a",
+    "withheld_configs": [],
+    "withdrawn": {}
+   },
+   "source_stamp": "2026-09-30T15:11:18Z",
+   "source_fp": "ac5086e243a6",
+   "updated_at": "2026-09-30T15:13:57Z",
+   "missing": {
+    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
+    "bayes": "no Bayesian fit for this set yet: fitting's set-of-record wave for it is in flight and its pointer is not served; the Bayesian option lands with it",
+    "capC": "Capability C is computed for wave 1 (the original tasks) only",
+    "capC_z": "this Capability C variant is computed for wave 1 and wave 1+2 only",
+    "capC_j": "this Capability C variant is computed for wave 1 and wave 1+2 only"
+   }
+  },
+  "cruxeval_o": {
+   "files": {
+    "shared": "shared.cruxeval_o.80ff13638f94.json",
+    "chain_average": "chain_average.cruxeval_o.80ff13638f94.json"
+   },
+   "label": "CRUXEval-O (800 tasks)",
+   "arms": "all",
+   "fingerprint": "80ff13638f94",
+   "frame": {
+    "population_M": 40,
+    "tasks": 800,
+    "keep_set_hash": "ceaae2d92751",
+    "runs_fingerprint": "8553a58539c3",
+    "build_date": "2026-09-30",
+    "build_ts": "2026-09-30T13:55:44Z",
+    "vocab_ruled": "2026-08-27",
+    "set": "cruxeval_o",
+    "set_label": "CRUXEval-O (800 tasks)",
+    "arms": "all",
+    "golden_note": null,
+    "tasks_on_axis": 800,
+    "tasks_kept": 800,
+    "tasks_awaiting_axis": 0,
+    "axis_set_hash": "ceaae2d92751",
+    "tasks_used": "CRUXEval-O (800 tasks) \u2014 800 tasks, Definitions' live per-set axis",
+    "source": "failure-vs-difficulty data-cruxeval_o fp a0ac2c1b46fb (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "879bf4101b16",
+    "withheld_configs": [],
+    "withdrawn": {}
+   },
+   "source_stamp": "2026-09-30T13:55:44Z",
+   "source_fp": "a0ac2c1b46fb",
+   "updated_at": "2026-09-30T15:14:08Z",
+   "missing": {
+    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
+    "bayes": "no Bayesian fit for this set yet: fitting's set-of-record wave for it is in flight and its pointer is not served; the Bayesian option lands with it",
+    "capC": "Capability C is computed for wave 1 (the original tasks) only",
+    "capC_z": "this Capability C variant is computed for wave 1 and wave 1+2 only",
+    "capC_j": "this Capability C variant is computed for wave 1 and wave 1+2 only"
+   }
+  },
+  "aime": {
+   "files": {
+    "shared": "shared.aime.efb3a7fabaae.json",
+    "chain_average": "chain_average.aime.efb3a7fabaae.json",
+    "bayes": "bayes.aime.efb3a7fabaae-1a2b1fb8311c.json"
+   },
+   "label": "AIME (60 problems)",
+   "arms": "all",
+   "fingerprint": "efb3a7fabaae",
+   "frame": {
+    "population_M": 32,
+    "tasks": 60,
+    "keep_set_hash": "dc5cbadfe267",
+    "runs_fingerprint": "8553a58539c3",
+    "build_date": "2026-09-30",
+    "build_ts": "2026-09-30T13:54:12Z",
+    "vocab_ruled": "2026-08-27",
+    "set": "aime",
+    "set_label": "AIME (60 problems)",
+    "arms": "all",
+    "golden_note": null,
+    "tasks_on_axis": 60,
+    "tasks_kept": 60,
+    "tasks_awaiting_axis": 0,
+    "axis_set_hash": "dc5cbadfe267",
+    "tasks_used": "AIME (60 problems) \u2014 60 tasks, Definitions' live per-set axis",
+    "source": "failure-vs-difficulty data-aime fp 202fb76787a1 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "d779986f5ec7",
+    "withheld_configs": [],
+    "withdrawn": {}
+   },
+   "source_stamp": "2026-09-30T13:54:12Z",
+   "source_fp": "202fb76787a1",
+   "updated_at": "2026-09-30T15:13:42Z",
+   "bayes_interim": {
+    "wave": null,
+    "n": 0,
+    "unfitted": 3,
+    "served_wave": "nb-aime-20260914T1118Z",
+    "served_arms": 29
    },
    "missing": {
     "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",

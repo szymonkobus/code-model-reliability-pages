@@ -1,4 +1,4 @@
-/* kit.js — the reference kit, served form 3d03181b, built 26 Sep 2026 from source 1b0f61149cbb. */
+/* kit.js — the reference kit, served form v1, built 30 Sep 2026 from source 833204f51195. */
 (function (global) {
   'use strict';
   var Kit = {};
@@ -82,6 +82,33 @@
     if (cfg.onchange) cfg.onchange(current); // init fire: render from state
     return { value: function () { return current; },
              set: set, element: wrap };
+  };
+  Kit.selectControl = function (cfg) {
+    var el = typeof cfg.mount === 'string' ? document.querySelector(cfg.mount) : cfg.mount;
+    var all = (cfg.options || []).concat((cfg.groups || []).reduce(function (a, g) { return a.concat(g.options || []); }, []));
+    var current = Kit.state.get(cfg.key, cfg.dflt);
+    var found = all.filter(function (o) { return o.value === current; })[0];
+    if (!found || found.disabled) current = cfg.dflt;
+    var wrap = document.createElement('div');
+    wrap.className = 'kit-select'; wrap.dataset.key = cfg.key; wrap.setAttribute('role', 'group');
+    var lab = document.createElement('label'); lab.className = 'kit-switch-label'; lab.textContent = cfg.label;
+    var id = 'kit-select-' + cfg.key; lab.setAttribute('for', id); wrap.appendChild(lab);
+    var sel = document.createElement('select'); sel.id = id; sel.dataset.key = cfg.key;
+    function addOpt(parent, o) { var op = document.createElement('option'); op.value = o.value; op.textContent = o.label; if (o.disabled) op.disabled = true; parent.appendChild(op); }
+    (cfg.options || []).forEach(function (o) { addOpt(sel, o); });
+    (cfg.groups || []).forEach(function (g) { var og = document.createElement('optgroup'); og.label = g.label; (g.options || []).forEach(function (o) { addOpt(og, o); }); sel.appendChild(og); });
+    sel.value = current;
+    function set(value) {
+      var o = all.filter(function (x) { return x.value === value; })[0];
+      if (!o || o.disabled || value === current) { sel.value = current; return; }
+      current = value; sel.value = value;
+      Kit.state.set(cfg.key, value, cfg.dflt);
+      if (cfg.onchange) cfg.onchange(value);
+    }
+    sel.addEventListener('change', function () { set(sel.value); });
+    wrap.appendChild(sel); el.appendChild(wrap);
+    if (cfg.onchange) cfg.onchange(current); // init fire: render from state
+    return { value: function () { return current; }, set: set, element: wrap };
   };
   Kit.filterRow = function (mount) {
     var el = typeof mount === 'string' ? document.querySelector(mount) : mount;
