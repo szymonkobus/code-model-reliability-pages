@@ -65,8 +65,8 @@ var DATASETS = {
   math500: { label: 'MATH-500', short: 'MATH-500', src: 'data-math500/manifest.json', hover: 'MATH-500 on its own difficulty axis', nb: true },
   ifeval: { label: 'IFEval', short: 'IFEval', src: 'data-ifeval/manifest.json', hover: 'IFEval on its own difficulty axis', nb: true },
   gsm8k_platinum: { label: 'GSM8K-Platinum', short: 'GSM8K-Platinum', src: 'data-gsm8k_platinum/manifest.json', hover: 'GSM8K-Platinum on its own difficulty axis', nb: true },
-  cruxeval_i: { label: 'CRUXEval, input prediction', short: 'CRUXEval, input prediction', src: 'data-cruxeval_i/manifest.json', hover: 'CRUXEval, input prediction, on its own difficulty axis', nb: true },
-  cruxeval_o: { label: 'CRUXEval, output prediction', short: 'CRUXEval, output prediction', src: 'data-cruxeval_o/manifest.json', hover: 'CRUXEval, output prediction, on its own difficulty axis', nb: true },
+  cruxeval_i: { label: 'CRUXEval · input prediction', short: 'CRUXEval · input prediction', src: 'data-cruxeval_i/manifest.json', hover: 'CRUXEval · input prediction on its own difficulty axis', nb: true },
+  cruxeval_o: { label: 'CRUXEval · output prediction', short: 'CRUXEval · output prediction', src: 'data-cruxeval_o/manifest.json', hover: 'CRUXEval · output prediction on its own difficulty axis', nb: true },
   aime: { label: 'AIME', short: 'AIME', src: 'data-aime/manifest.json', hover: 'AIME on its own difficulty axis', nb: true }
 };
 var NB_GROUP_HEADING = 'NON-CODE BENCHMARKS D99-D50';   // the work's name of record, in capitals exactly, the selector's group heading over the six sets and nowhere else on the face (the maintainers 30 Sep)
@@ -145,7 +145,8 @@ if (ARMS !== 'golden') ARMS = 'all';
 var GOLDEN_AVAILABLE = { board: false, 'new': false, all: false };
 function goldenDir(ds) { return 'data-golden-' + ds; }
 // MIRROR HOOK (the project maintainers' word of 11 Sep: the newbench sets get a mirror page presented the same way): a page that mounts this
-// script under another path sets window.MIRROR_DATASETS = { key: { label, src, hover, disabled? }, … } (its own order) and
+// script under another path sets window.MIRROR_DATASETS = { key: { label, src, hover, disabled?, nb? }, … } (its own order; nb: true puts a key under
+// the select's NON-CODE BENCHMARKS D99-D50 group — a field of the hook since 30 Sep, the maintainers's mirror carries it) and
 // optionally window.MIRROR_DEFAULT; srcs resolve against that page's mount. Every key outside the five built-ins is served
 // generically: probed by src, routed to its bundle by src, named from its bundle frame.
 var BUILTIN_KEYS = { board_top: 1, top: 1, board: 1, 'new': 1, all: 1 };

@@ -1,13 +1,13 @@
 {
- "fingerprint": "07b75e8a68ba",
+ "fingerprint": "1e0931e94c96",
  "fingerprint_inputs": {
   "content": "879bf4101b16",
   "wave": "cruxeval_o-live",
-  "body": "c0303a3b1e4d"
+  "body": "c1aa783f4dd1"
  },
  "frame": {
   "dataset": "cruxeval_o",
-  "dataset_label": "CRUXEval, output prediction (800 problems): every problem of the set",
+  "dataset_label": "CRUXEval \u00b7 output prediction (800 problems): every problem of the set",
   "dataset_label_head": null,
   "dataset_label_source": {
    "field": "composed",
@@ -29,15 +29,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ceaae2d92751",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "dd208f53e071",
+  "runs_fingerprint": "ce79a8a5fda3",
   "axis_wave": "cruxeval_o-live",
   "build_date": "2026-09-30",
-  "stamp": "2026-09-30T15:13:19Z",
+  "stamp": "2026-09-30T16:10:07Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/cruxeval_o",
-   "unified_built_at": "2026-09-30T15:03:59Z",
+   "unified_built_at": "2026-09-30T15:57:08Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.cruxeval_o.csv"
@@ -214,8 +214,8 @@
    "n_fits": 0,
    "drawn": 0,
    "withheld_by_rule": false,
-   "served_not_drawn": "no Bayesian fit set for CRUXEval, output prediction on this axis: local-logistic curves shown",
-   "note": "no Bayesian fit set for CRUXEval, output prediction on this axis: local-logistic curves shown"
+   "served_not_drawn": "no Bayesian fit set for CRUXEval \u00b7 output prediction on this axis: local-logistic curves shown",
+   "note": "no Bayesian fit set for CRUXEval \u00b7 output prediction on this axis: local-logistic curves shown"
   },
   "vocab_ruled": "2026-08-27",
   "interim": "kernel fits on all results available at build; refit hourly as results land",
@@ -236,7 +236,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-30T14:26:23Z",
+   "_stamp": "2026-09-30T15:29:53Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -409,9 +409,9 @@
   }
  },
  "files": {
-  "shared": "shared.07b75e8a68ba.json",
-  "chain_average": "chain_average.07b75e8a68ba.json",
-  "chain_median": "chain_median.07b75e8a68ba.json",
-  "dots": "dots.07b75e8a68ba.json"
+  "shared": "shared.1e0931e94c96.json",
+  "chain_average": "chain_average.1e0931e94c96.json",
+  "chain_median": "chain_median.1e0931e94c96.json",
+  "dots": "dots.1e0931e94c96.json"
  }
 }
