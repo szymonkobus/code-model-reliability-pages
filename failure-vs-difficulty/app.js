@@ -1564,10 +1564,12 @@ function narrate(visible, dotsOn, unfitted) {
   var dotTxt = dotsOn ? 'task dots on'
     : 'task dots off' + (visible.length > DOTS_MAX
         ? ' (available for ' + DOTS_MAX + ' or fewer models)' : '');
-  document.getElementById('narrate').textContent =
+  var narrateEl = document.getElementById('narrate'); narrateEl.textContent =
     defName + ' · ' + srcName + ' · ' + bandTxt + ' · '
     + visible.length + ' of ' + D.shared.configs.filter(function (c, i) { return shownArm(i); }).length
     + ' models · ' + dotTxt;
+  var builtIso = D.shared.frame && D.shared.frame.stamp; var builtTxt = humanTime(builtIso);   // the build clock in the state line inside the closed fold, as the cadence line above it promises (the maintainers's project read  30 Sep: the clock had left with the chrome-clock move and the promise stayed) — the project maintainers' 27 Sep word: the stamp and cadence in a closed fold, never in the chrome; UK clock, bare
+  if (builtTxt) { var builtEl = document.createElement('span'); builtEl.setAttribute('data-generated', String(builtIso)); builtEl.textContent = ' · built ' + builtTxt; narrateEl.appendChild(builtEl); }
   // fixed panel ON the chart (the project maintainers 4 Sep 2026: fit quality shown on the chart, not buried in prose)
   var fp = document.getElementById('fitpanel');
   if (fp) {
