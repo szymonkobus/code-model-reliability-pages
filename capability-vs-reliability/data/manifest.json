@@ -498,20 +498,20 @@
   },
   "math500": {
    "files": {
-    "shared": "shared.math500.6dcb6c7ab500.json",
-    "chain_average": "chain_average.math500.6dcb6c7ab500.json",
-    "bayes": "bayes.math500.6dcb6c7ab500-8c3375661f69.json"
+    "shared": "shared.math500.356064c2d825.json",
+    "chain_average": "chain_average.math500.356064c2d825.json",
+    "bayes": "bayes.math500.356064c2d825-8c3375661f69.json"
    },
    "label": "MATH-500 (500 problems)",
    "arms": "all",
-   "fingerprint": "6dcb6c7ab500",
+   "fingerprint": "356064c2d825",
    "frame": {
     "population_M": 45,
     "tasks": 500,
     "keep_set_hash": "326e66dcd9ab",
-    "runs_fingerprint": "4e36e6b34ec5",
+    "runs_fingerprint": "f830f4554490",
     "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T18:46:18Z",
+    "build_ts": "2026-09-30T19:38:46Z",
     "vocab_ruled": "2026-08-27",
     "set": "math500",
     "set_label": "MATH-500 (500 problems)",
@@ -522,14 +522,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "326e66dcd9ab",
     "tasks_used": "MATH-500 (500 problems) \u2014 500 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-math500 fp b229e9aa968e (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-math500 fp 20d10cd881f7 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "47883bd17523",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T18:46:18Z",
-   "source_fp": "b229e9aa968e",
-   "updated_at": "2026-09-30T19:39:26Z",
+   "source_stamp": "2026-09-30T19:38:46Z",
+   "source_fp": "20d10cd881f7",
+   "updated_at": "2026-09-30T20:44:31Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
