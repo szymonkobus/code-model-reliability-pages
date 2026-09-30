@@ -1,9 +1,9 @@
 {
- "fingerprint": "c8c9ad6a9c26",
+ "fingerprint": "1fcad635e3fd",
  "fingerprint_inputs": {
   "content": "dd51cff4ec9d",
   "wave": "math500-live",
-  "body": "90454162aac0"
+  "body": "d42230f9db4b"
  },
  "frame": {
   "dataset": "math500",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "326e66dcd9ab",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "2233f5988c70",
+  "runs_fingerprint": "32514da616a1",
   "axis_wave": "math500-live",
   "build_date": "2026-09-30",
-  "stamp": "2026-09-30T20:53:05Z",
+  "stamp": "2026-09-30T21:07:17Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/math500",
-   "unified_built_at": "2026-09-30T20:05:28Z",
+   "unified_built_at": "2026-09-30T20:56:03Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.math500.csv"
@@ -309,35 +309,45 @@
      128
     ],
     "standard": 128,
-    "stem": "Qwen--Qwen3-32B_think-t0.6"
+    "stem": "Qwen--Qwen3-32B_think-t0.6",
+    "declared_n": 32,
+    "declared_n_max": 128
    },
    "claude-haiku-4-5": {
     "per_cell": [
      32
     ],
     "standard": 128,
-    "stem": "anthropic--claude-haiku-4-5"
+    "stem": "anthropic--claude-haiku-4-5",
+    "declared_n": 32,
+    "declared_n_max": 32
    },
    "claude-sonnet-5": {
     "per_cell": [
      32
     ],
     "standard": 128,
-    "stem": "anthropic--claude-sonnet-5"
+    "stem": "anthropic--claude-sonnet-5",
+    "declared_n": 32,
+    "declared_n_max": 32
    },
    "deepseek-ai/DeepSeek-V3-0324": {
     "per_cell": [
      32
     ],
     "standard": 128,
-    "stem": "deepseek-ai--DeepSeek-V3-0324_t0.5"
+    "stem": "deepseek-ai--DeepSeek-V3-0324_t0.5",
+    "declared_n": 32,
+    "declared_n_max": 32
    },
    "zai-org/GLM-4.7-Flash": {
     "per_cell": [
      32
     ],
     "standard": 128,
-    "stem": "zai-org--GLM-4.7-Flash_t0.5"
+    "stem": "zai-org--GLM-4.7-Flash_t0.5",
+    "declared_n": 32,
+    "declared_n_max": 32
    }
   },
   "side_arms": {
@@ -8662,9 +8672,9 @@
   }
  },
  "files": {
-  "shared": "shared.c8c9ad6a9c26.json",
-  "chain_average": "chain_average.c8c9ad6a9c26.json",
-  "chain_median": "chain_median.c8c9ad6a9c26.json",
-  "dots": "dots.c8c9ad6a9c26.json"
+  "shared": "shared.1fcad635e3fd.json",
+  "chain_average": "chain_average.1fcad635e3fd.json",
+  "chain_median": "chain_median.1fcad635e3fd.json",
+  "dots": "dots.1fcad635e3fd.json"
  }
 }
