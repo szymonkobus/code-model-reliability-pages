@@ -305,7 +305,7 @@ var EXPORTING = false;  // export: render at the desktop geometry (K = 1, full a
 var K = 1;              // axis-text scale: viewBox units per CSS px, capped
 function quietSet(ctl, v) { coercing = true; try { ctl.set(v); } finally { coercing = false; } }
 function dsEl(k) {   // the dataset control's element for a set key: the kit select's option (30 Sep), else the older switch's button
-  return document.querySelector('#controls .kit-select[data-key="data"] option[value="' + k + '"]') || dsEl(k);
+  return document.querySelector('#controls .kit-select[data-key="data"] option[value="' + k + '"]') || document.querySelector('#controls button[data-value="' + k + '"]');   // the fallback is the switch's button (or null) — never this function again (a self-call recursed without end on the mirror, 15:17– 30 Sep)
 }
 function setDisabled(btn, off, why) {
   if (btn && btn.tagName === 'OPTION') { btn.disabled = !!off; return; }   // a select's option: greyed and unselectable by the kit's rule
