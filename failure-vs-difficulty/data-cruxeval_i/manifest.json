@@ -1,9 +1,9 @@
 {
- "fingerprint": "85cafd6c79f4",
+ "fingerprint": "805a1ce07004",
  "fingerprint_inputs": {
   "content": "44fee9831a50",
   "wave": "cruxeval_i-live",
-  "body": "3280b1c328af"
+  "body": "befa4b91d322"
  },
  "frame": {
   "dataset": "cruxeval_i",
@@ -33,7 +33,7 @@
   "runs_fingerprint": "4e36e6b34ec5",
   "axis_wave": "cruxeval_i-live",
   "build_date": "2026-09-30",
-  "stamp": "2026-09-30T18:39:16Z",
+  "stamp": "2026-09-30T18:54:13Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
@@ -218,7 +218,7 @@
   "bayes_fits": {
    "serving_pointer": "definitions/fitting/serving_nb_cruxeval_i.json",
    "wave_id": "nb-cruxeval_i-20260930T1503Z",
-   "completed_at": "2026-09-30T15:56:53Z",
+   "completed_at": "2026-09-30T17:31:54Z",
    "gates_note": "flagged models whose crossings mix are SERVED with the disclosure; a flagged model whose d50 or d1 fails the crossing-level gate is HELD (held_arms, not_served_stems) until its longer run lands \u2014 fit-methods 19.8; gates_summary.py is the single source (12a per-model fields)",
    "fit_n_tasks": [
     800
@@ -247,17 +247,13 @@
     "Qwen/Qwen3-1.7B",
     "Qwen/Qwen3-1.7B-Thinking",
     "Qwen/Qwen3-14B",
-    "Qwen/Qwen3-14B-Thinking",
     "Qwen/Qwen3-14B_chat",
     "Qwen/Qwen3-32B",
     "Qwen/Qwen3-32B_chat",
     "Qwen/Qwen3-4B",
-    "Qwen/Qwen3-4B-Thinking",
     "Qwen/Qwen3-8B",
-    "Qwen/Qwen3-8B-Thinking",
     "allenai/OLMo-2-1124-13B-Instruct",
     "allenai/OLMo-2-1124-7B-Instruct",
-    "claude-haiku-4-5",
     "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct",
     "deepseek-ai/DeepSeek-V3-0324",
     "deepseek-ai/deepseek-coder-1.3b-instruct",
@@ -265,24 +261,60 @@
     "google/gemini-3.5-flash-lite",
     "mistralai/Mistral-7B-Instruct-v0.3",
     "mistralai/Mistral-Small-24B-Instruct-2501",
-    "moonshotai/Kimi-K2-Instruct",
-    "zai-org/GLM-4.7-Flash_chat"
+    "moonshotai/Kimi-K2-Instruct"
    ],
    "served_not_drawn": null,
-   "custody_dir": "definitions/fitting/waves/nb-cruxeval_i-20260930T1503Z/results",
-   "set_fingerprint": "84ef848328cf",
-   "pointer_updated_at": "2026-09-30T17:54:41Z",
+   "custody_dir": "definitions/fitting/waves/nb-cruxeval_i-20260930T1503Z/view_v2/results",
+   "set_fingerprint": "7be0234bfe4c",
+   "pointer_updated_at": "2026-09-30T18:43:27Z",
    "n_fits": 49,
    "note": null,
    "gates": {
     "convention": "0.5%-of-draws convention",
-    "n_pass": 6,
-    "n_arms": 6,
-    "max_divergence_share_pct": 0.0,
-    "rhat_max": 1.009,
-    "bulk_ess_min": 413,
-    "flagged": [],
-    "source": "definitions/fitting/waves/nb-cruxeval_i-20260930T1503Z/gates_summary.json"
+    "n_pass": 13,
+    "n_arms": 49,
+    "max_divergence_share_pct": 0.54,
+    "rhat_max": 1.077,
+    "bulk_ess_min": 43,
+    "flagged": [
+     "Qwen--Qwen2.5-1.5B-Instruct_t0.8",
+     "Qwen--Qwen2.5-14B-Instruct_t0.8",
+     "Qwen--Qwen2.5-32B-Instruct_t0.8",
+     "Qwen--Qwen2.5-7B-Instruct_t0.8",
+     "Qwen--Qwen2.5-Coder-0.5B-Instruct_t0.8",
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct_t0.2",
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct_t0.8",
+     "Qwen--Qwen2.5-Coder-14B-Instruct_t0.2",
+     "Qwen--Qwen2.5-Coder-14B-Instruct_t0.8",
+     "Qwen--Qwen2.5-Coder-32B-Instruct_t0.8",
+     "Qwen--Qwen2.5-Coder-7B-Instruct_t0.2",
+     "Qwen--Qwen2.5-Coder-7B-Instruct_t0.5",
+     "Qwen--Qwen2.5-Coder-7B-Instruct_t0.8",
+     "Qwen--Qwen2.5-Coder-7B-Instruct_t1.0",
+     "Qwen--Qwen3-0.6B_t0.2",
+     "Qwen--Qwen3-0.6B_t0.8",
+     "Qwen--Qwen3-0.6B_think-t0.6",
+     "Qwen--Qwen3-1.7B_t0.8",
+     "Qwen--Qwen3-1.7B_think-t0.6",
+     "Qwen--Qwen3-14B_chat-t0.8",
+     "Qwen--Qwen3-14B_t0.2",
+     "Qwen--Qwen3-14B_t0.8",
+     "Qwen--Qwen3-32B_chat-t0.8",
+     "Qwen--Qwen3-32B_t0.8",
+     "Qwen--Qwen3-4B_t0.2",
+     "Qwen--Qwen3-4B_t0.8",
+     "Qwen--Qwen3-8B_t0.8",
+     "allenai--OLMo-2-1124-13B-Instruct_t0.8",
+     "allenai--OLMo-2-1124-7B-Instruct_t0.8",
+     "deepseek-ai--DeepSeek-Coder-V2-Lite-Instruct_t0.8",
+     "deepseek-ai--DeepSeek-V3-0324_t0.8",
+     "deepseek-ai--deepseek-coder-1.3b-instruct_t0.8",
+     "gemini--gemini-3.5-flash-lite",
+     "mistralai--Mistral-7B-Instruct-v0.3_t0.8",
+     "mistralai--Mistral-Small-24B-Instruct-2501_t0.8",
+     "moonshotai--Kimi-K2-Instruct_t0.8"
+    ],
+    "source": "definitions/fitting/waves/nb-cruxeval_i-20260930T1503Z/view_v2/gates_summary.json"
    },
    "provisional_classes": null,
    "basis_truncation": null,
@@ -294,9 +326,9 @@
    "dataset": "cruxeval_i",
    "cleaned": {},
    "concentration_counts": {
-    "inputs unavailable for this served set (pre-31g custody copy)": 6
+    "inputs unavailable for this served set (pre-31g custody copy)": 41
    },
-   "drawn": 6
+   "drawn": 41
   },
   "vocab_ruled": "2026-08-27",
   "interim": "kernel fits on all results available at build; refit hourly as results land",
@@ -490,9 +522,9 @@
   }
  },
  "files": {
-  "shared": "shared.85cafd6c79f4.json",
-  "chain_average": "chain_average.85cafd6c79f4.json",
-  "chain_median": "chain_median.85cafd6c79f4.json",
-  "dots": "dots.85cafd6c79f4.json"
+  "shared": "shared.805a1ce07004.json",
+  "chain_average": "chain_average.805a1ce07004.json",
+  "chain_median": "chain_median.805a1ce07004.json",
+  "dots": "dots.805a1ce07004.json"
  }
 }
