@@ -591,20 +591,20 @@
   },
   "gsm8k_platinum": {
    "files": {
-    "shared": "shared.gsm8k_platinum.5effe6805f80.json",
-    "chain_average": "chain_average.gsm8k_platinum.5effe6805f80.json",
-    "bayes": "bayes.gsm8k_platinum.5effe6805f80-2d4f7fad170b.json"
+    "shared": "shared.gsm8k_platinum.96e95e4391d4.json",
+    "chain_average": "chain_average.gsm8k_platinum.96e95e4391d4.json",
+    "bayes": "bayes.gsm8k_platinum.96e95e4391d4-ef78d2729cad.json"
    },
    "label": "GSM8K-Platinum (1209 problems)",
    "arms": "all",
-   "fingerprint": "5effe6805f80",
+   "fingerprint": "96e95e4391d4",
    "frame": {
     "population_M": 47,
     "tasks": 1209,
     "keep_set_hash": "ff1457decdf7",
     "runs_fingerprint": "4e36e6b34ec5",
     "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T18:35:55Z",
+    "build_ts": "2026-09-30T18:50:56Z",
     "vocab_ruled": "2026-08-27",
     "set": "gsm8k_platinum",
     "set_label": "GSM8K-Platinum (1209 problems)",
@@ -615,20 +615,20 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ff1457decdf7",
     "tasks_used": "GSM8K-Platinum (1209 problems) \u2014 1209 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-gsm8k_platinum fp ebc08161a59b (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-gsm8k_platinum fp 95692cc9670b (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "252bd5f2c6cc",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T18:35:55Z",
-   "source_fp": "ebc08161a59b",
-   "updated_at": "2026-09-30T18:41:52Z",
+   "source_stamp": "2026-09-30T18:50:56Z",
+   "source_fp": "95692cc9670b",
+   "updated_at": "2026-09-30T19:10:55Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
-    "unfitted": 19,
+    "unfitted": 0,
     "served_wave": "nb-gsm8k_platinum-20260930T1448Z",
-    "served_arms": 28
+    "served_arms": 47
    },
    "missing": {
     "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
@@ -639,20 +639,20 @@
   },
   "cruxeval_i": {
    "files": {
-    "shared": "shared.cruxeval_i.2a8a0ca8f977.json",
-    "chain_average": "chain_average.cruxeval_i.2a8a0ca8f977.json",
-    "bayes": "bayes.cruxeval_i.2a8a0ca8f977-84ef848328cf.json"
+    "shared": "shared.cruxeval_i.b0f5ab4ffff0.json",
+    "chain_average": "chain_average.cruxeval_i.b0f5ab4ffff0.json",
+    "bayes": "bayes.cruxeval_i.b0f5ab4ffff0-7be0234bfe4c.json"
    },
    "label": "CRUXEval \u00b7 input prediction (800 problems)",
    "arms": "all",
-   "fingerprint": "2a8a0ca8f977",
+   "fingerprint": "b0f5ab4ffff0",
    "frame": {
     "population_M": 41,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
     "runs_fingerprint": "4e36e6b34ec5",
     "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T18:25:46Z",
+    "build_ts": "2026-09-30T18:54:13Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_i",
     "set_label": "CRUXEval \u00b7 input prediction (800 problems)",
@@ -663,20 +663,20 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
     "tasks_used": "CRUXEval \u00b7 input prediction (800 problems) \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_i fp e0e872b64541 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-cruxeval_i fp 805a1ce07004 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "44fee9831a50",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T18:25:46Z",
-   "source_fp": "e0e872b64541",
-   "updated_at": "2026-09-30T18:40:54Z",
+   "source_stamp": "2026-09-30T18:54:13Z",
+   "source_fp": "805a1ce07004",
+   "updated_at": "2026-09-30T19:13:56Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
-    "unfitted": 35,
+    "unfitted": 0,
     "served_wave": "nb-cruxeval_i-20260930T1503Z",
-    "served_arms": 6
+    "served_arms": 41
    },
    "missing": {
     "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
