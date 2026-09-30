@@ -873,7 +873,7 @@ function noSpecTagsRaw(s) {   // "(the fit methods maintainers spec 04m)" / "(sp
     .replace(/\s+([;,.])/g, '$1');
 }
 function covText(i) {
-  if (attemptsPartial(i)) { var pa = (D.shared.frame || {}).partial_attempts[D.shared.configs[i].id] || {}; return 'partial: ' + (Array.isArray(pa.per_cell) ? pa.per_cell.join(' / ') : String(pa.per_cell || '')) + ' answers a task' + (pa.standard ? ' against ' + pa.standard : ''); }   // the count (16b.9(c))
+  if (attemptsPartial(i)) { var pa = (D.shared.frame || {}).partial_attempts[D.shared.configs[i].id] || {}; var pc = Array.isArray(pa.per_cell) ? pa.per_cell.filter(function (v) { return typeof v === 'number'; }) : []; var cnt = (pa.declared_n != null) ? String(pa.declared_n) : (pc.length > 1 ? pc[0] + ' to ' + pc[pc.length - 1] : (pc.length === 1 ? String(pc[0]) : String(pa.per_cell || ''))); return 'partial: ' + cnt + ' answers a task' + (pa.standard ? ' against ' + pa.standard : ''); }   // the count (16b.9(c))
   var cv = covOf(i); return 'attempts on ' + (cv.of ? Math.round(100 * cv.tasks / cv.of) + '% of the tasks' : 'the tasks'); }   // a share, never a task count (the project maintainers' word of 10 Sep); the partial rule keeps its 90% threshold
 function hasOwnBayes(i) {
   var id = D.shared.configs[i].id;
@@ -1537,13 +1537,14 @@ function paintChips() {
     var _ra = (!unf && !hasOwnBayes(i)) ? runFitFor(c.id) : null; if (_ra && _ra.disclosure) parts.push(currentTruth(_ra.disclosure));   // the run's fit of record stands in (24 Sep)
     if (c.disclosure) parts.push(String(c.disclosure));   // the state alone in the hover, no class word before it
     if (c.continuation_flag) parts.push(c.continuation_flag);   // the task pool maintainers' continuation hover of record: this arm's answers in the view's waves changed from cut to continued (a basis change the project maintainers must see)
-    parts.push(covText(i) + (isPartial(i) ? (shownArm(i) ? ' — partial model' : ' — partial model, hidden; the Partial models switch shows it') : ''));
+    var covPart = covText(i) + (isPartial(i) ? (shownArm(i) ? ' — partial model' : ' — partial model, hidden; the Partial models switch shows it') : ''); parts.push(covPart);
     if (c.protocol) parts.push('read by ' + c.protocol + ': the base model continues the prompt, no chat turn');   // protocol = a state-line fact, never the maintainers sentence and never in the label (the newbench figures maintainers 17 Sep); the hover carries it as the '(read by …)' parenthesis
     if (parts.length) {
       var full = noSpecTags(parts.join(' · ')); if (c.notes_flags && c.notes_flags.length) full += ' · ' + c.notes_flags.map(function (nf) { return noSpecTags(nf.hover || ''); }).join(' · '); b.dataset.state = full;   // the whole state line (incl. pool card flags) lives in the fold-out below the chart
       var lead = parts[0];   // parts are pushed in priority order: excluded, interim, gate, concentration, coverage, cut, cleaning, scope, undercredit, as-graded, unfitted, flag, coverage count
       var pri = parts.filter(function (t) { return /^not shown:|^\d+ tasks? refused|^interim fit|^this fit did not pass|^R-hat|^out of the fit|^gpt-5 arms|^for the Claude|^Bayesian curve fitted|^outside the Bayesian/.test(t) || (c.disclosure && t === String(c.disclosure)); });   // the disclosure leads without its old 'flag:' prefix ( 29 Sep); the unfitted note's state form (28 Sep)
       if (pri.length) lead = pri[0];
+      if (hiddenPartial) lead = covPart;   // a greyed chip's hover says why it is grey — the partial state with its count (fitting's set form of 30 Sep) — while the fit's own state keeps the fold-out line; the axis note led the hover on MATH-500's five hidden arms in the 20:5x rehearsal
       b.title = oneSentence(noSpecTags) + ((c.protocol && !/^read by /.test) ? ' (read by ' + c.protocol + ')' : '');   // no doubling when the protocol sentence itself leads // the protocol word rides the one-sentence hover as a short parenthesis (the newbench figures maintainers 17 Sep: never in the label)
     } else b.removeAttribute('title');   // spec tags are record-keeping, not for a face (the project maintainers 7 Sep: no code-names)
   });
