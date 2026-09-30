@@ -262,9 +262,10 @@ function relabel() {   // OFFICIAL SET NAMES with the count of record (the proje
  * draws it greyed and marked, kept out of the fit; every hover carries "attempts on X of Y tasks (Z%)"; the notes name the hidden arms.
  * Coverage comes from failure-vs-difficulty's frames through the shared artifact (configs[].coverage {tasks, of}). */
 function coverageOf(c) { var cv = c && c.coverage; if (!cv || !cv.of) return null; return { tasks: Math.min(cv.tasks, cv.of), of: cv.of, share: Math.min(1, cv.tasks / cv.of) }; }
-function isPartial(i) { var cv = coverageOf(D.shared.configs[i]); return !!cv && cv.share < 0.9; }
+// 30 Sep: a Bayesian fit on 32 answers a task against a set's 128 is partial too (fitting's rule, the curves page's toggle): the builder flags the config partial_fit
+function isPartial(i) { var c = D.shared.configs[i]; var cv = coverageOf(c); return (!!cv && cv.share < 0.9) || !!(c && c.partial_fit); }
 function partialShown() { return state.partial === 'show'; }
-function coverageText(c) { var cv = coverageOf(c); return cv ? 'attempts on ' + Math.round(cv.share * 100) + '% of this set\u2019s tasks' : ''; }   // shares, never task counts (the project maintainers' word of 2026-09-10 ≈: task counts are not spoken of)
+function coverageText(c) { var cv = coverageOf(c); if (cv && cv.share < 0.9) return 'attempts on ' + Math.round(cv.share * 100) + '% of this set\u2019s tasks'; return (c && c.partial_fit && c.partial_note) ? c.partial_note : ''; }   // shares, never task counts (the project maintainers' word of 2026-09-10 ≈: task counts are not spoken of)
 function partialArms() { return D.shared.configs.map(function (c, i) { return i; }).filter(function (i) { return isPartial(i) && !isWithheld(i); }); }
 // WITHHELD ARMS (the project maintainers' word of 9 Sep 2026 : Gemma 4 12B is not shown — with a quarter of its tasks at the cap its
 // performance is not measured): not drawn on any dataset, chip in place but unselectable, out of the fit, one note line; Gemma-4-31B stays.

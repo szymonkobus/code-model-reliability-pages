@@ -498,20 +498,20 @@
   },
   "math500": {
    "files": {
-    "shared": "shared.math500.356064c2d825.json",
-    "chain_average": "chain_average.math500.356064c2d825.json",
-    "bayes": "bayes.math500.356064c2d825-8c3375661f69.json"
+    "shared": "shared.math500.6dcb6c7ab500.json",
+    "chain_average": "chain_average.math500.6dcb6c7ab500.json",
+    "bayes": "bayes.math500.6dcb6c7ab500-8c3375661f69.json"
    },
    "label": "MATH-500 (500 problems)",
    "arms": "all",
-   "fingerprint": "356064c2d825",
+   "fingerprint": "6dcb6c7ab500",
    "frame": {
     "population_M": 45,
     "tasks": 500,
     "keep_set_hash": "326e66dcd9ab",
-    "runs_fingerprint": "f830f4554490",
+    "runs_fingerprint": "4e36e6b34ec5",
     "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T19:38:46Z",
+    "build_ts": "2026-09-30T18:46:18Z",
     "vocab_ruled": "2026-08-27",
     "set": "math500",
     "set_label": "MATH-500 (500 problems)",
@@ -522,20 +522,20 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "326e66dcd9ab",
     "tasks_used": "MATH-500 (500 problems) \u2014 500 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-math500 fp 20d10cd881f7 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-math500 fp b229e9aa968e (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "47883bd17523",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T19:38:46Z",
-   "source_fp": "20d10cd881f7",
-   "updated_at": "2026-09-30T19:59:11Z",
+   "source_stamp": "2026-09-30T18:46:18Z",
+   "source_fp": "b229e9aa968e",
+   "updated_at": "2026-09-30T19:39:26Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
-    "unfitted": 6,
+    "unfitted": 0,
     "served_wave": "nb-math500-20260914T1118Z",
-    "served_arms": 39
+    "served_arms": 45
    },
    "missing": {
     "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry"
@@ -735,20 +735,20 @@
   },
   "aime": {
    "files": {
-    "shared": "shared.aime.8ddadfad63ad.json",
-    "chain_average": "chain_average.aime.8ddadfad63ad.json",
-    "bayes": "bayes.aime.8ddadfad63ad-1a2b1fb8311c.json"
+    "shared": "shared.aime.0a2df6af82c8.json",
+    "chain_average": "chain_average.aime.0a2df6af82c8.json",
+    "bayes": "bayes.aime.0a2df6af82c8-1a2b1fb8311c.json"
    },
    "label": "AIME (60 problems)",
    "arms": "all",
-   "fingerprint": "8ddadfad63ad",
+   "fingerprint": "0a2df6af82c8",
    "frame": {
     "population_M": 34,
     "tasks": 60,
     "keep_set_hash": "dc5cbadfe267",
     "runs_fingerprint": "f830f4554490",
     "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T19:42:48Z",
+    "build_ts": "2026-09-30T19:04:15Z",
     "vocab_ruled": "2026-08-27",
     "set": "aime",
     "set_label": "AIME (60 problems)",
@@ -759,20 +759,20 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "dc5cbadfe267",
     "tasks_used": "AIME (60 problems) \u2014 60 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-aime fp 3a4979f105a8 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-aime fp 7855b998f464 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "694d3f833a19",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T19:42:48Z",
-   "source_fp": "3a4979f105a8",
-   "updated_at": "2026-09-30T20:04:02Z",
+   "source_stamp": "2026-09-30T19:04:15Z",
+   "source_fp": "7855b998f464",
+   "updated_at": "2026-09-30T19:40:57Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
-    "unfitted": 3,
+    "unfitted": 0,
     "served_wave": "nb-aime-20260914T1118Z",
-    "served_arms": 31
+    "served_arms": 34
    },
    "missing": {
     "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry"
