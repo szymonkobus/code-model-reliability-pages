@@ -1,9 +1,9 @@
 {
- "fingerprint": "c0e26caf0fd9",
+ "fingerprint": "8274c95bcb62",
  "fingerprint_inputs": {
-  "content": "a85ef44d4e2a",
+  "content": "4b2773aa99ad",
   "wave": "ifeval-live",
-  "body": "990c0148c5ce"
+  "body": "fb4b322ee228"
  },
  "frame": {
   "dataset": "ifeval",
@@ -17,28 +17,28 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 33,
-  "fitted_M": 33,
-  "complete_M": 33,
-  "sampled_M": 33,
-  "difficulty_population_M": 33,
+  "population_M": 35,
+  "fitted_M": 35,
+  "complete_M": 35,
+  "sampled_M": 35,
+  "difficulty_population_M": 35,
   "tasks": 541,
   "keep_set_hash": "ea009d5c6cd1",
-  "inputs_content_sha": "a85ef44d4e2a",
+  "inputs_content_sha": "4b2773aa99ad",
   "tasks_on_axis": 541,
   "tasks_kept": 541,
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ea009d5c6cd1",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "7edf45cf53f6",
+  "runs_fingerprint": "4e36e6b34ec5",
   "axis_wave": "ifeval-live",
   "build_date": "2026-09-30",
-  "stamp": "2026-09-30T18:02:15Z",
+  "stamp": "2026-09-30T18:19:05Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/ifeval",
-   "unified_built_at": "2026-09-30T18:00:07Z",
+   "unified_built_at": "2026-09-30T18:15:56Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.ifeval.csv"
@@ -48,6 +48,14 @@
   "withdrawn": {},
   "fit_excluded": [],
   "coverage": {
+   "claude-haiku-4-5": {
+    "tasks": 541,
+    "of": 541
+   },
+   "claude-haiku-4-5-thinking": {
+    "tasks": 541,
+    "of": 541
+   },
    "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct": {
     "tasks": 541,
     "of": 541
@@ -258,7 +266,7 @@
    "concentration_counts": {
     "inputs unavailable for this served set (pre-31g custody copy)": 14
    },
-   "drawn": 12
+   "drawn": 13
   },
   "vocab_ruled": "2026-08-27",
   "interim": "kernel fits on all results available at build; refit hourly as results land",
@@ -452,9 +460,9 @@
   }
  },
  "files": {
-  "shared": "shared.c0e26caf0fd9.json",
-  "chain_average": "chain_average.c0e26caf0fd9.json",
-  "chain_median": "chain_median.c0e26caf0fd9.json",
-  "dots": "dots.c0e26caf0fd9.json"
+  "shared": "shared.8274c95bcb62.json",
+  "chain_average": "chain_average.8274c95bcb62.json",
+  "chain_median": "chain_median.8274c95bcb62.json",
+  "dots": "dots.8274c95bcb62.json"
  }
 }
