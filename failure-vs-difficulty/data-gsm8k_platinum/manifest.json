@@ -1,17 +1,18 @@
 {
- "fingerprint": "0f680a983d00",
+ "fingerprint": "b93d525e85bb",
  "fingerprint_inputs": {
   "content": "725c72b5657a",
   "wave": "gsm8k_platinum-live",
-  "body": "a16e363697c6"
+  "body": "7a15de2c71e9"
  },
  "frame": {
   "dataset": "gsm8k_platinum",
-  "dataset_label": "GSM8K-Platinum (1,209 problems): every problem of the set",
-  "dataset_label_head": null,
+  "dataset_label": "GSM8K-Platinum (1209 problems)",
+  "dataset_label_head": "GSM8K-Platinum (1209 problems)",
   "dataset_label_source": {
-   "field": "composed",
-   "pointer": "serving_nb_gsm8k_platinum.json"
+   "field": "label_of_record",
+   "pointer": "serving_nb_gsm8k_platinum.json",
+   "note": null
   },
   "population": "all",
   "population_source": null,
@@ -29,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ff1457decdf7",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "992bf3d13d6f",
+  "runs_fingerprint": "2be6c7a0571e",
   "axis_wave": "gsm8k_platinum-live",
   "build_date": "2026-09-30",
-  "stamp": "2026-09-30T16:59:26Z",
+  "stamp": "2026-09-30T17:59:41Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/gsm8k_platinum",
-   "unified_built_at": "2026-09-30T16:22:59Z",
+   "unified_built_at": "2026-09-30T17:44:31Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.gsm8k_platinum.csv"
@@ -207,11 +208,72 @@
   "scorer": "unified results: passes/n per configuration x task (board results under plus_status; pool results \u00a71b-valid), Definitions' unified frame",
   "estimators": "local-logistic trend with shipped bands (rho/deff), binned medians (15 bins) with bootstrap bands and crossings, raw running median; average-chain crossings read off the trend and its band (first upward crossing)",
   "bayes_fits": {
-   "n_fits": 0,
-   "drawn": 0,
-   "withheld_by_rule": false,
-   "served_not_drawn": "no Bayesian fit set for GSM8K-Platinum on this axis: local-logistic curves shown",
-   "note": "no Bayesian fit set for GSM8K-Platinum on this axis: local-logistic curves shown"
+   "serving_pointer": "definitions/fitting/serving_nb_gsm8k_platinum.json",
+   "wave_id": "nb-gsm8k_platinum-20260930T1448Z",
+   "completed_at": "2026-09-30T17:09:57Z",
+   "gates_note": "flagged models whose crossings mix are SERVED with the disclosure; a flagged model whose d50 or d1 fails the crossing-level gate is HELD (held_arms, not_served_stems) until its longer run lands \u2014 fit-methods 19.8; gates_summary.py is the single source (12a per-model fields)",
+   "fit_n_tasks": [
+    1209
+   ],
+   "fit_frame": {
+    "n_tasks": 1209,
+    "pilot_included": false,
+    "pilot_kept": null,
+    "name": null,
+    "label": null,
+    "qualifiers": null
+   },
+   "strict_gate_flagged": [
+    "Qwen/Qwen2.5-0.5B-Instruct",
+    "Qwen/Qwen2.5-1.5B-Instruct",
+    "Qwen/Qwen2.5-3B-Instruct",
+    "Qwen/Qwen2.5-7B-Instruct",
+    "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+    "Qwen/Qwen2.5-Coder-32B-Instruct",
+    "Qwen/Qwen2.5-Coder-7B-Instruct",
+    "Qwen/Qwen3-0.6B",
+    "Qwen/Qwen3-0.6B-Thinking",
+    "Qwen/Qwen3-1.7B",
+    "Qwen/Qwen3-1.7B-Thinking",
+    "Qwen/Qwen3-4B",
+    "allenai/OLMo-2-1124-7B-Instruct",
+    "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct",
+    "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
+    "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+    "mistralai/Mistral-7B-Instruct-v0.3",
+    "qwen3-8b-sft-maths",
+    "qwen35_9b_base_sft_maths_completion",
+    "zai-org/GLM-4.7-Flash"
+   ],
+   "served_not_drawn": null,
+   "custody_dir": "definitions/fitting/waves/nb-gsm8k_platinum-20260930T1448Z/results",
+   "set_fingerprint": "2d4f7fad170b",
+   "pointer_updated_at": "2026-09-30T17:54:43Z",
+   "n_fits": 57,
+   "note": null,
+   "gates": {
+    "convention": "0.5%-of-draws convention",
+    "n_pass": 31,
+    "n_arms": 31,
+    "max_divergence_share_pct": 0.01,
+    "rhat_max": 1.01,
+    "bulk_ess_min": 402,
+    "flagged": [],
+    "source": "definitions/fitting/waves/nb-gsm8k_platinum-20260930T1448Z/gates_summary.json"
+   },
+   "provisional_classes": null,
+   "basis_truncation": null,
+   "served_axis_note": null,
+   "membership_lag": null,
+   "partial_coverage_arms": [],
+   "matches_axis": false,
+   "population": "all",
+   "dataset": "gsm8k_platinum",
+   "cleaned": {},
+   "concentration_counts": {
+    "inputs unavailable for this served set (pre-31g custody copy)": 28
+   },
+   "drawn": 22
   },
   "vocab_ruled": "2026-08-27",
   "interim": "kernel fits on all results available at build; refit hourly as results land",
@@ -232,7 +294,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-30T16:25:17Z",
+   "_stamp": "2026-09-30T17:24:55Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -397,17 +459,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-09-30T13:30:12Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20260930T133012Z.json",
-   "sha16": "5d04d6888fadc364",
-   "census_mtime": "2026-09-30T13:31:08Z",
+   "stamp": "2026-09-30T16:36:40Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20260930T163640Z.json",
+   "sha16": "88de4f0c690cff9b",
+   "census_mtime": "2026-09-30T16:37:30Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.0f680a983d00.json",
-  "chain_average": "chain_average.0f680a983d00.json",
-  "chain_median": "chain_median.0f680a983d00.json",
-  "dots": "dots.0f680a983d00.json"
+  "shared": "shared.b93d525e85bb.json",
+  "chain_average": "chain_average.b93d525e85bb.json",
+  "chain_median": "chain_median.b93d525e85bb.json",
+  "dots": "dots.b93d525e85bb.json"
  }
 }
