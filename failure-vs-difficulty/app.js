@@ -764,7 +764,10 @@ function covOf(i) {
   if (dd && dd.fails) for (var t = 0; t < dd.fails.length; t++) if (dd.fails[t] != null) n++;
   return { tasks: n, of: of };
 }
-function isPartial(i) { var cv = covOf(i); return cv.of > 0 && cv.tasks / cv.of < PARTIAL_MIN; }
+function attemptsPartial(i) {   // fitting's set form of 30 Sep (fit-methods 16b.9(c)): the set pointer names the panel models at fewer answers a task than the set's standard (32 against 128) — partial by attempts, the same switch and greying as partial by coverage
+  var f = D.shared.frame || {}; var pa = f.partial_attempts; var c = D.shared.configs[i]; return !!(pa && c && pa[c.id]);
+}
+function isPartial(i) { var cv = covOf(i); return (cv.of > 0 && cv.tasks / cv.of < PARTIAL_MIN) || attemptsPartial(i); }
 // the project maintainers' word of 7 Sep 2026 (better not shown by default; a toggle whose default shows the partial arms):
 // partial arms are hidden unless the Partial arms switch shows them
 // the project maintainers 9 Sep 2026 (via the coordination): Gemma 4 12B is not shown while a quarter of its tasks hit the cap, because
@@ -869,7 +872,9 @@ function noSpecTagsRaw(s) {   // "(the fit methods maintainers spec 04m)" / "(sp
     .replace(/\(config\.n_tasks = [\d,]+ of the ([\d,]+)-task frame\)/g, '(of the $1-task frame)')   // field name in the fit maintainers' frame_disclosure strings ( 7 Sep)
     .replace(/\s+([;,.])/g, '$1');
 }
-function covText(i) { var cv = covOf(i); return 'attempts on ' + (cv.of ? Math.round(100 * cv.tasks / cv.of) + '% of the tasks' : 'the tasks'); }   // a share, never a task count (the project maintainers' word of 10 Sep); the partial rule keeps its 90% threshold
+function covText(i) {
+  if (attemptsPartial(i)) { var pa = (D.shared.frame || {}).partial_attempts[D.shared.configs[i].id] || {}; return 'partial: ' + (Array.isArray(pa.per_cell) ? pa.per_cell.join(' / ') : String(pa.per_cell || '')) + ' answers a task' + (pa.standard ? ' against ' + pa.standard : ''); }   // the count (16b.9(c))
+  var cv = covOf(i); return 'attempts on ' + (cv.of ? Math.round(100 * cv.tasks / cv.of) + '% of the tasks' : 'the tasks'); }   // a share, never a task count (the project maintainers' word of 10 Sep); the partial rule keeps its 90% threshold
 function hasOwnBayes(i) {
   var id = D.shared.configs[i].id;
   var cfgB = (state.def === 'average' ? D.avg : D.med).configs[id];
