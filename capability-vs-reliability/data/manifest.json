@@ -108,7 +108,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-09-30T18:25:40Z"
+   "updated_at": "2026-09-30T18:58:02Z"
   },
   "all": {
    "files": {
@@ -498,20 +498,20 @@
   },
   "math500": {
    "files": {
-    "shared": "shared.math500.428647217b55.json",
-    "chain_average": "chain_average.math500.428647217b55.json",
-    "bayes": "bayes.math500.428647217b55-8c3375661f69.json"
+    "shared": "shared.math500.6dcb6c7ab500.json",
+    "chain_average": "chain_average.math500.6dcb6c7ab500.json",
+    "bayes": "bayes.math500.6dcb6c7ab500-8c3375661f69.json"
    },
    "label": "MATH-500 (500 problems)",
    "arms": "all",
-   "fingerprint": "428647217b55",
+   "fingerprint": "6dcb6c7ab500",
    "frame": {
     "population_M": 45,
     "tasks": 500,
     "keep_set_hash": "326e66dcd9ab",
     "runs_fingerprint": "4e36e6b34ec5",
     "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T18:31:57Z",
+    "build_ts": "2026-09-30T18:46:18Z",
     "vocab_ruled": "2026-08-27",
     "set": "math500",
     "set_label": "MATH-500 (500 problems)",
@@ -522,14 +522,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "326e66dcd9ab",
     "tasks_used": "MATH-500 (500 problems) \u2014 500 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-math500 fp f84275739de1 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-math500 fp b229e9aa968e (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "47883bd17523",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T18:31:57Z",
-   "source_fp": "f84275739de1",
-   "updated_at": "2026-09-30T18:40:03Z",
+   "source_stamp": "2026-09-30T18:46:18Z",
+   "source_fp": "b229e9aa968e",
+   "updated_at": "2026-09-30T19:05:16Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -543,20 +543,20 @@
   },
   "ifeval": {
    "files": {
-    "shared": "shared.ifeval.75305283773a.json",
-    "chain_average": "chain_average.ifeval.75305283773a.json",
-    "bayes": "bayes.ifeval.75305283773a-5efc66ece9f8.json"
+    "shared": "shared.ifeval.3c80aba3f758.json",
+    "chain_average": "chain_average.ifeval.3c80aba3f758.json",
+    "bayes": "bayes.ifeval.3c80aba3f758-ce78b3b55b83.json"
    },
    "label": "IFEval (541 problems)",
    "arms": "all",
-   "fingerprint": "75305283773a",
+   "fingerprint": "3c80aba3f758",
    "frame": {
     "population_M": 39,
     "tasks": 541,
     "keep_set_hash": "ea009d5c6cd1",
     "runs_fingerprint": "4e36e6b34ec5",
     "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T18:33:46Z",
+    "build_ts": "2026-09-30T18:48:05Z",
     "vocab_ruled": "2026-08-27",
     "set": "ifeval",
     "set_label": "IFEval (541 problems)",
@@ -567,20 +567,20 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ea009d5c6cd1",
     "tasks_used": "IFEval (541 problems) \u2014 541 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-ifeval fp bc3f142d79a2 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-ifeval fp 5368c79990c9 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "2125e689c51e",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T18:33:46Z",
-   "source_fp": "bc3f142d79a2",
-   "updated_at": "2026-09-30T18:42:25Z",
+   "source_stamp": "2026-09-30T18:48:05Z",
+   "source_fp": "5368c79990c9",
+   "updated_at": "2026-09-30T19:08:06Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
-    "unfitted": 26,
+    "unfitted": 0,
     "served_wave": "nb-ifeval-20260930T1448Z",
-    "served_arms": 13
+    "served_arms": 39
    },
    "missing": {
     "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
