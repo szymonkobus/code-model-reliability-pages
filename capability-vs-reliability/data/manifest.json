@@ -574,7 +574,7 @@
    },
    "source_stamp": "2026-09-30T18:48:05Z",
    "source_fp": "5368c79990c9",
-   "updated_at": "2026-09-30T19:08:06Z",
+   "updated_at": "2026-09-30T20:46:47Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -622,7 +622,7 @@
    },
    "source_stamp": "2026-09-30T18:50:56Z",
    "source_fp": "95692cc9670b",
-   "updated_at": "2026-09-30T20:00:33Z",
+   "updated_at": "2026-09-30T20:48:54Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -670,7 +670,7 @@
    },
    "source_stamp": "2026-09-30T18:54:13Z",
    "source_fp": "805a1ce07004",
-   "updated_at": "2026-09-30T20:02:03Z",
+   "updated_at": "2026-09-30T20:50:49Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -718,7 +718,7 @@
    },
    "source_stamp": "2026-09-30T18:59:11Z",
    "source_fp": "1e8fe6e62d19",
-   "updated_at": "2026-09-30T20:03:41Z",
+   "updated_at": "2026-09-30T20:54:17Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -735,20 +735,21 @@
   },
   "aime": {
    "files": {
-    "shared": "shared.aime.0a2df6af82c8.json",
-    "chain_average": "chain_average.aime.0a2df6af82c8.json",
-    "bayes": "bayes.aime.0a2df6af82c8-1a2b1fb8311c.json"
+    "shared": "shared.aime.5610db06ea36.json",
+    "chain_average": "chain_average.aime.5610db06ea36.json",
+    "bayes": "bayes.aime.5610db06ea36-3faf6762a71b.json",
+    "bayes_prev": "bayes.aime.0a2df6af82c8-1a2b1fb8311c.json"
    },
    "label": "AIME (60 problems)",
    "arms": "all",
-   "fingerprint": "0a2df6af82c8",
+   "fingerprint": "5610db06ea36",
    "frame": {
     "population_M": 34,
     "tasks": 60,
     "keep_set_hash": "dc5cbadfe267",
-    "runs_fingerprint": "f830f4554490",
+    "runs_fingerprint": "2233f5988c70",
     "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T19:04:15Z",
+    "build_ts": "2026-09-30T20:26:39Z",
     "vocab_ruled": "2026-08-27",
     "set": "aime",
     "set_label": "AIME (60 problems)",
@@ -759,20 +760,28 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "dc5cbadfe267",
     "tasks_used": "AIME (60 problems) \u2014 60 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-aime fp 7855b998f464 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-aime fp a0b85c780e98 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "694d3f833a19",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T19:04:15Z",
-   "source_fp": "7855b998f464",
-   "updated_at": "2026-09-30T19:40:57Z",
+   "source_stamp": "2026-09-30T20:26:39Z",
+   "source_fp": "a0b85c780e98",
+   "updated_at": "2026-09-30T20:54:50Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
     "unfitted": 0,
-    "served_wave": "nb-aime-20260914T1118Z",
+    "served_wave": "nb-aime-20260930T1910Z",
     "served_arms": 34
+   },
+   "flip": {
+    "from_wave": "nb-aime-20260914T1118Z",
+    "to_wave": "nb-aime-20260930T1910Z",
+    "from_fit_set": "1a2b1fb8311c",
+    "to_fit_set": "3faf6762a71b",
+    "at": "2026-09-30T20:54:50Z",
+    "from_interim_n": 0
    },
    "missing": {
     "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry"
