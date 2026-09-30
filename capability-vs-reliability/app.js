@@ -197,8 +197,8 @@ var HOUSE_DATASETS = {   // availability comes from manifest.datasets at load; t
   math500: { label: 'MATH-500', hover: 'MATH-500, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'NON-CODE BENCHMARKS D99-D50' },
   ifeval: { label: 'IFEval', hover: 'IFEval, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'NON-CODE BENCHMARKS D99-D50' },
   gsm8k_platinum: { label: 'GSM8K-Platinum', hover: 'GSM8K-Platinum, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'NON-CODE BENCHMARKS D99-D50' },
-  cruxeval_i: { label: 'CRUXEval, input prediction', hover: 'CRUXEval, input prediction, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'NON-CODE BENCHMARKS D99-D50' },
-  cruxeval_o: { label: 'CRUXEval, output prediction', hover: 'CRUXEval, output prediction, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'NON-CODE BENCHMARKS D99-D50' },
+  cruxeval_i: { label: 'CRUXEval \u00b7 input prediction', hover: 'CRUXEval \u00b7 input prediction, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'NON-CODE BENCHMARKS D99-D50' },
+  cruxeval_o: { label: 'CRUXEval \u00b7 output prediction', hover: 'CRUXEval \u00b7 output prediction, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'NON-CODE BENCHMARKS D99-D50' },
   aime: { label: 'AIME', hover: 'AIME, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'NON-CODE BENCHMARKS D99-D50' },
   // (the 11 Sep word kept the maths sets off this page for a mirror; the 30 Sep word puts every non-code set on it under the one control — the mirror keeps serving too)
 };
