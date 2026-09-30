@@ -143,7 +143,7 @@
    },
    "source_stamp": "2026-09-30T09:45:29Z",
    "source_fp": "7bdccb58a799",
-   "updated_at": "2026-09-30T15:37:55Z",
+   "updated_at": "2026-09-30T16:22:57Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -191,7 +191,7 @@
    },
    "source_stamp": "2026-09-30T09:55:46Z",
    "source_fp": "51bb3efd3c1e",
-   "updated_at": "2026-09-30T15:38:07Z",
+   "updated_at": "2026-09-30T16:23:21Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -240,7 +240,7 @@
    },
    "source_stamp": "2026-09-30T09:56:11Z",
    "source_fp": "351b373c4881",
-   "updated_at": "2026-09-30T15:38:21Z",
+   "updated_at": "2026-09-30T16:23:39Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -289,7 +289,7 @@
    },
    "source_stamp": "2026-09-30T09:56:54Z",
    "source_fp": "e6426acb133c",
-   "updated_at": "2026-09-30T15:38:36Z",
+   "updated_at": "2026-09-30T16:23:54Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -338,7 +338,7 @@
    },
    "source_stamp": "2026-09-30T14:57:24Z",
    "source_fp": "79b9c29e13a7",
-   "updated_at": "2026-09-30T15:39:52Z",
+   "updated_at": "2026-09-30T16:25:11Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -383,7 +383,7 @@
    },
    "source_stamp": "2026-09-30T09:54:05Z",
    "source_fp": "cbfa06e47472",
-   "updated_at": "2026-09-30T15:41:22Z",
+   "updated_at": "2026-09-30T16:26:11Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -431,7 +431,7 @@
    },
    "source_stamp": "2026-09-30T09:48:23Z",
    "source_fp": "85a125c97aa6",
-   "updated_at": "2026-09-30T15:42:13Z",
+   "updated_at": "2026-09-30T16:26:24Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -480,7 +480,7 @@
    },
    "source_stamp": "2026-09-30T09:48:56Z",
    "source_fp": "ff0c5b8149d8",
-   "updated_at": "2026-09-30T15:42:40Z",
+   "updated_at": "2026-09-30T16:26:36Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -529,7 +529,7 @@
    },
    "source_stamp": "2026-09-30T15:05:33Z",
    "source_fp": "3e60e9206687",
-   "updated_at": "2026-09-30T15:52:17Z",
+   "updated_at": "2026-09-30T16:30:28Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -538,20 +538,17 @@
     "served_arms": 35
    },
    "missing": {
-    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
-    "capC": "Capability C is computed for wave 1 (the original tasks) only",
-    "capC_z": "this Capability C variant is computed for wave 1 and wave 1+2 only",
-    "capC_j": "this Capability C variant is computed for wave 1 and wave 1+2 only"
+    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry"
    }
   },
   "ifeval": {
    "files": {
-    "shared": "shared.ifeval.d6ebda057b84.json",
-    "chain_average": "chain_average.ifeval.d6ebda057b84.json"
+    "shared": "shared.ifeval.9936b387efaf.json",
+    "chain_average": "chain_average.ifeval.9936b387efaf.json"
    },
    "label": "IFEval (541 problems)",
    "arms": "all",
-   "fingerprint": "d6ebda057b84",
+   "fingerprint": "9936b387efaf",
    "frame": {
     "population_M": 33,
     "tasks": 541,
@@ -576,23 +573,20 @@
    },
    "source_stamp": "2026-09-30T15:07:45Z",
    "source_fp": "d6e3d226df7e",
-   "updated_at": "2026-09-30T15:52:53Z",
+   "updated_at": "2026-09-30T16:31:28Z",
    "missing": {
     "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
-    "bayes": "no Bayesian fit for this set yet: fitting's set-of-record wave for it is in flight and its pointer is not served; the Bayesian option lands with it",
-    "capC": "Capability C is computed for wave 1 (the original tasks) only",
-    "capC_z": "this Capability C variant is computed for wave 1 and wave 1+2 only",
-    "capC_j": "this Capability C variant is computed for wave 1 and wave 1+2 only"
+    "bayes": "no Bayesian fit for this set yet: fitting's set-of-record wave for it is in flight and its pointer is not served; the Bayesian option lands with it"
    }
   },
   "gsm8k_platinum": {
    "files": {
-    "shared": "shared.gsm8k_platinum.348095c51b2d.json",
-    "chain_average": "chain_average.gsm8k_platinum.348095c51b2d.json"
+    "shared": "shared.gsm8k_platinum.7884318c0612.json",
+    "chain_average": "chain_average.gsm8k_platinum.7884318c0612.json"
    },
    "label": "GSM8K-Platinum (1,209 problems)",
    "arms": "all",
-   "fingerprint": "348095c51b2d",
+   "fingerprint": "7884318c0612",
    "frame": {
     "population_M": 39,
     "tasks": 1209,
@@ -617,95 +611,86 @@
    },
    "source_stamp": "2026-09-30T15:09:15Z",
    "source_fp": "f1f1fd80247a",
-   "updated_at": "2026-09-30T15:14:21Z",
+   "updated_at": "2026-09-30T16:31:24Z",
    "missing": {
     "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
-    "bayes": "no Bayesian fit for this set yet: fitting's set-of-record wave for it is in flight and its pointer is not served; the Bayesian option lands with it",
-    "capC": "Capability C is computed for wave 1 (the original tasks) only",
-    "capC_z": "this Capability C variant is computed for wave 1 and wave 1+2 only",
-    "capC_j": "this Capability C variant is computed for wave 1 and wave 1+2 only"
+    "bayes": "no Bayesian fit for this set yet: fitting's set-of-record wave for it is in flight and its pointer is not served; the Bayesian option lands with it"
    }
   },
   "cruxeval_i": {
    "files": {
-    "shared": "shared.cruxeval_i.0ce261108bc0.json",
-    "chain_average": "chain_average.cruxeval_i.0ce261108bc0.json"
+    "shared": "shared.cruxeval_i.e77263978840.json",
+    "chain_average": "chain_average.cruxeval_i.e77263978840.json"
    },
-   "label": "CRUXEval, input prediction (800 problems)",
+   "label": "CRUXEval \u00b7 input prediction (800 problems)",
    "arms": "all",
-   "fingerprint": "0ce261108bc0",
+   "fingerprint": "e77263978840",
    "frame": {
     "population_M": 35,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
-    "runs_fingerprint": "dd208f53e071",
+    "runs_fingerprint": "ce79a8a5fda3",
     "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T15:11:18Z",
+    "build_ts": "2026-09-30T16:09:04Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_i",
-    "set_label": "CRUXEval, input prediction (800 problems)",
+    "set_label": "CRUXEval \u00b7 input prediction (800 problems)",
     "arms": "all",
     "golden_note": null,
     "tasks_on_axis": 800,
     "tasks_kept": 800,
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
-    "tasks_used": "CRUXEval, input prediction (800 problems) \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_i fp ac5086e243a6 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "tasks_used": "CRUXEval \u00b7 input prediction (800 problems) \u2014 800 tasks, Definitions' live per-set axis",
+    "source": "failure-vs-difficulty data-cruxeval_i fp 67410b88e81a (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "7a27b32ad86a",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T15:11:18Z",
-   "source_fp": "ac5086e243a6",
-   "updated_at": "2026-09-30T15:13:57Z",
+   "source_stamp": "2026-09-30T16:09:04Z",
+   "source_fp": "67410b88e81a",
+   "updated_at": "2026-09-30T16:31:04Z",
    "missing": {
     "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
-    "bayes": "no Bayesian fit for this set yet: fitting's set-of-record wave for it is in flight and its pointer is not served; the Bayesian option lands with it",
-    "capC": "Capability C is computed for wave 1 (the original tasks) only",
-    "capC_z": "this Capability C variant is computed for wave 1 and wave 1+2 only",
-    "capC_j": "this Capability C variant is computed for wave 1 and wave 1+2 only"
+    "bayes": "no Bayesian fit for this set yet: fitting's set-of-record wave for it is in flight and its pointer is not served; the Bayesian option lands with it"
    }
   },
   "cruxeval_o": {
    "files": {
-    "shared": "shared.cruxeval_o.80ff13638f94.json",
-    "chain_average": "chain_average.cruxeval_o.80ff13638f94.json"
+    "shared": "shared.cruxeval_o.776d99ffd29e.json",
+    "chain_average": "chain_average.cruxeval_o.776d99ffd29e.json"
    },
-   "label": "CRUXEval-O (800 tasks)",
+   "label": "CRUXEval \u00b7 output prediction (800 problems)",
    "arms": "all",
-   "fingerprint": "80ff13638f94",
+   "fingerprint": "776d99ffd29e",
    "frame": {
     "population_M": 40,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
-    "runs_fingerprint": "8553a58539c3",
+    "runs_fingerprint": "ce79a8a5fda3",
     "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T13:55:44Z",
+    "build_ts": "2026-09-30T16:10:07Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_o",
-    "set_label": "CRUXEval-O (800 tasks)",
+    "set_label": "CRUXEval \u00b7 output prediction (800 problems)",
     "arms": "all",
     "golden_note": null,
     "tasks_on_axis": 800,
     "tasks_kept": 800,
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
-    "tasks_used": "CRUXEval-O (800 tasks) \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_o fp a0ac2c1b46fb (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "tasks_used": "CRUXEval \u00b7 output prediction (800 problems) \u2014 800 tasks, Definitions' live per-set axis",
+    "source": "failure-vs-difficulty data-cruxeval_o fp 1e0931e94c96 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "879bf4101b16",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T13:55:44Z",
-   "source_fp": "a0ac2c1b46fb",
-   "updated_at": "2026-09-30T15:14:08Z",
+   "source_stamp": "2026-09-30T16:10:07Z",
+   "source_fp": "1e0931e94c96",
+   "updated_at": "2026-09-30T16:31:11Z",
    "missing": {
     "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
-    "bayes": "no Bayesian fit for this set yet: fitting's set-of-record wave for it is in flight and its pointer is not served; the Bayesian option lands with it",
-    "capC": "Capability C is computed for wave 1 (the original tasks) only",
-    "capC_z": "this Capability C variant is computed for wave 1 and wave 1+2 only",
-    "capC_j": "this Capability C variant is computed for wave 1 and wave 1+2 only"
+    "bayes": "no Bayesian fit for this set yet: fitting's set-of-record wave for it is in flight and its pointer is not served; the Bayesian option lands with it"
    }
   },
   "aime": {
@@ -741,7 +726,7 @@
    },
    "source_stamp": "2026-09-30T15:14:41Z",
    "source_fp": "4aea87b8c7a6",
-   "updated_at": "2026-09-30T15:52:49Z",
+   "updated_at": "2026-09-30T16:30:59Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -750,15 +735,12 @@
     "served_arms": 29
    },
    "missing": {
-    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
-    "capC": "Capability C is computed for wave 1 (the original tasks) only",
-    "capC_z": "this Capability C variant is computed for wave 1 and wave 1+2 only",
-    "capC_j": "this Capability C variant is computed for wave 1 and wave 1+2 only"
+    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry"
    }
   }
  },
  "counts_of_record": {
-  "stamp": "2026-09-30T15:29:53Z",
+  "stamp": "2026-09-30T16:25:17Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,
