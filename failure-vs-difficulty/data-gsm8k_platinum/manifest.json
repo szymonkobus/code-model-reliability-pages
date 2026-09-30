@@ -1,9 +1,9 @@
 {
- "fingerprint": "ebc08161a59b",
+ "fingerprint": "95692cc9670b",
  "fingerprint_inputs": {
   "content": "252bd5f2c6cc",
   "wave": "gsm8k_platinum-live",
-  "body": "2a26445ddbd7"
+  "body": "85d0eef149c5"
  },
  "frame": {
   "dataset": "gsm8k_platinum",
@@ -33,7 +33,7 @@
   "runs_fingerprint": "4e36e6b34ec5",
   "axis_wave": "gsm8k_platinum-live",
   "build_date": "2026-09-30",
-  "stamp": "2026-09-30T18:35:55Z",
+  "stamp": "2026-09-30T18:50:56Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
@@ -242,7 +242,7 @@
   "bayes_fits": {
    "serving_pointer": "definitions/fitting/serving_nb_gsm8k_platinum.json",
    "wave_id": "nb-gsm8k_platinum-20260930T1448Z",
-   "completed_at": "2026-09-30T17:09:57Z",
+   "completed_at": "2026-09-30T17:57:21Z",
    "gates_note": "flagged models whose crossings mix are SERVED with the disclosure; a flagged model whose d50 or d1 fails the crossing-level gate is HELD (held_arms, not_served_stems) until its longer run lands \u2014 fit-methods 19.8; gates_summary.py is the single source (12a per-model fields)",
    "fit_n_tasks": [
     1209
@@ -258,40 +258,45 @@
    "strict_gate_flagged": [
     "Qwen/Qwen2.5-0.5B-Instruct",
     "Qwen/Qwen2.5-1.5B-Instruct",
-    "Qwen/Qwen2.5-3B-Instruct",
-    "Qwen/Qwen2.5-7B-Instruct",
     "Qwen/Qwen2.5-Coder-1.5B-Instruct",
     "Qwen/Qwen2.5-Coder-32B-Instruct",
-    "Qwen/Qwen2.5-Coder-7B-Instruct",
     "Qwen/Qwen3-0.6B",
     "Qwen/Qwen3-0.6B-Thinking",
     "Qwen/Qwen3-1.7B",
-    "Qwen/Qwen3-1.7B-Thinking",
-    "Qwen/Qwen3-4B",
     "allenai/OLMo-2-1124-7B-Instruct",
     "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct",
-    "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
-    "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
     "mistralai/Mistral-7B-Instruct-v0.3",
-    "qwen3-8b-sft-maths",
-    "qwen35_9b_base_sft_maths_completion",
-    "zai-org/GLM-4.7-Flash"
+    "qwen3-8b-sft-maths"
    ],
    "served_not_drawn": null,
-   "custody_dir": "definitions/fitting/waves/nb-gsm8k_platinum-20260930T1448Z/results",
-   "set_fingerprint": "2d4f7fad170b",
-   "pointer_updated_at": "2026-09-30T17:54:43Z",
+   "custody_dir": "definitions/fitting/waves/nb-gsm8k_platinum-20260930T1448Z/view_v2/results",
+   "set_fingerprint": "ef78d2729cad",
+   "pointer_updated_at": "2026-09-30T18:43:28Z",
    "n_fits": 57,
    "note": null,
    "gates": {
     "convention": "0.5%-of-draws convention",
-    "n_pass": 31,
-    "n_arms": 31,
+    "n_pass": 44,
+    "n_arms": 57,
     "max_divergence_share_pct": 0.01,
-    "rhat_max": 1.01,
-    "bulk_ess_min": 402,
-    "flagged": [],
-    "source": "definitions/fitting/waves/nb-gsm8k_platinum-20260930T1448Z/gates_summary.json"
+    "rhat_max": 1.093,
+    "bulk_ess_min": 68,
+    "flagged": [
+     "Qwen--Qwen2.5-0.5B-Instruct_t0.5",
+     "Qwen--Qwen2.5-1.5B-Instruct_t0.5",
+     "Qwen--Qwen2.5-1.5B-Instruct_t0.8",
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct_t0.5",
+     "Qwen--Qwen2.5-Coder-32B-Instruct_t0.5",
+     "Qwen--Qwen3-0.6B_t0.5",
+     "Qwen--Qwen3-0.6B_t0.8",
+     "Qwen--Qwen3-0.6B_think-t0.6",
+     "Qwen--Qwen3-1.7B_t0.5",
+     "allenai--OLMo-2-1124-7B-Instruct_t0.5",
+     "deepseek-ai--DeepSeek-Coder-V2-Lite-Instruct_t0.5",
+     "mistralai--Mistral-7B-Instruct-v0.3_t0.5",
+     "qwen3-8b-sft-maths_t0.5"
+    ],
+    "source": "definitions/fitting/waves/nb-gsm8k_platinum-20260930T1448Z/view_v2/gates_summary.json"
    },
    "provisional_classes": null,
    "basis_truncation": null,
@@ -303,9 +308,9 @@
    "dataset": "gsm8k_platinum",
    "cleaned": {},
    "concentration_counts": {
-    "inputs unavailable for this served set (pre-31g custody copy)": 28
+    "inputs unavailable for this served set (pre-31g custody copy)": 47
    },
-   "drawn": 28
+   "drawn": 47
   },
   "vocab_ruled": "2026-08-27",
   "interim": "kernel fits on all results available at build; refit hourly as results land",
@@ -499,9 +504,9 @@
   }
  },
  "files": {
-  "shared": "shared.ebc08161a59b.json",
-  "chain_average": "chain_average.ebc08161a59b.json",
-  "chain_median": "chain_median.ebc08161a59b.json",
-  "dots": "dots.ebc08161a59b.json"
+  "shared": "shared.95692cc9670b.json",
+  "chain_average": "chain_average.95692cc9670b.json",
+  "chain_median": "chain_median.95692cc9670b.json",
+  "dots": "dots.95692cc9670b.json"
  }
 }
