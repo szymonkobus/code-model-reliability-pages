@@ -1,9 +1,9 @@
 {
- "fingerprint": "dcf1b49d3789",
+ "fingerprint": "a48ea402b75f",
  "fingerprint_inputs": {
-  "content": "879bf4101b16",
+  "content": "3b0a9490a92a",
   "wave": "cruxeval_o-live",
-  "body": "c1de65644428"
+  "body": "ba2c0a7d7a2c"
  },
  "frame": {
   "dataset": "cruxeval_o",
@@ -17,28 +17,28 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 40,
-  "fitted_M": 40,
-  "complete_M": 40,
-  "sampled_M": 40,
-  "difficulty_population_M": 40,
+  "population_M": 46,
+  "fitted_M": 46,
+  "complete_M": 46,
+  "sampled_M": 46,
+  "difficulty_population_M": 46,
   "tasks": 800,
   "keep_set_hash": "ceaae2d92751",
-  "inputs_content_sha": "879bf4101b16",
+  "inputs_content_sha": "3b0a9490a92a",
   "tasks_on_axis": 800,
   "tasks_kept": 800,
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ceaae2d92751",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "2be6c7a0571e",
+  "runs_fingerprint": "4e36e6b34ec5",
   "axis_wave": "cruxeval_o-live",
   "build_date": "2026-09-30",
-  "stamp": "2026-09-30T17:57:15Z",
+  "stamp": "2026-09-30T18:28:06Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/cruxeval_o",
-   "unified_built_at": "2026-09-30T17:44:31Z",
+   "unified_built_at": "2026-09-30T18:15:56Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.cruxeval_o.csv"
@@ -48,6 +48,14 @@
   "withdrawn": {},
   "fit_excluded": [],
   "coverage": {
+   "claude-haiku-4-5": {
+    "tasks": 800,
+    "of": 800
+   },
+   "claude-haiku-4-5-thinking": {
+    "tasks": 800,
+    "of": 800
+   },
    "deepseek-ai/deepseek-coder-1.3b-instruct": {
     "tasks": 800,
     "of": 800
@@ -109,6 +117,22 @@
     "of": 800
    },
    "moonshotai/Kimi-K2-Instruct_chat": {
+    "tasks": 800,
+    "of": 800
+   },
+   "mistralai/Mistral-7B-Instruct-v0.3": {
+    "tasks": 800,
+    "of": 800
+   },
+   "mistralai/Mistral-Small-24B-Instruct-2501": {
+    "tasks": 800,
+    "of": 800
+   },
+   "allenai/OLMo-2-1124-7B-Instruct": {
+    "tasks": 800,
+    "of": 800
+   },
+   "allenai/OLMo-2-1124-13B-Instruct": {
     "tasks": 800,
     "of": 800
    },
@@ -254,7 +278,7 @@
     "Qwen/Qwen3-8B-Thinking",
     "allenai/OLMo-2-1124-13B-Instruct",
     "allenai/OLMo-2-1124-7B-Instruct",
-    "anthropic/completions",
+    "claude-haiku-4-5",
     "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct",
     "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
     "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
@@ -320,7 +344,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-30T17:24:55Z",
+   "_stamp": "2026-09-30T18:26:01Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -493,9 +517,9 @@
   }
  },
  "files": {
-  "shared": "shared.dcf1b49d3789.json",
-  "chain_average": "chain_average.dcf1b49d3789.json",
-  "chain_median": "chain_median.dcf1b49d3789.json",
-  "dots": "dots.dcf1b49d3789.json"
+  "shared": "shared.a48ea402b75f.json",
+  "chain_average": "chain_average.a48ea402b75f.json",
+  "chain_median": "chain_median.a48ea402b75f.json",
+  "dots": "dots.a48ea402b75f.json"
  }
 }

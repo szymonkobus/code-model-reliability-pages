@@ -1,9 +1,9 @@
 {
- "fingerprint": "6ae4eb903e9c",
+ "fingerprint": "f84275739de1",
  "fingerprint_inputs": {
-  "content": "2fa15b6f5117",
+  "content": "47883bd17523",
   "wave": "math500-live",
-  "body": "0676e3ce39db"
+  "body": "4aaa37aa4c01"
  },
  "frame": {
   "dataset": "math500",
@@ -17,28 +17,28 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 41,
-  "fitted_M": 41,
-  "complete_M": 41,
-  "sampled_M": 41,
-  "difficulty_population_M": 41,
+  "population_M": 45,
+  "fitted_M": 45,
+  "complete_M": 45,
+  "sampled_M": 45,
+  "difficulty_population_M": 45,
   "tasks": 500,
   "keep_set_hash": "326e66dcd9ab",
-  "inputs_content_sha": "2fa15b6f5117",
+  "inputs_content_sha": "47883bd17523",
   "tasks_on_axis": 500,
   "tasks_kept": 500,
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "326e66dcd9ab",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "2be6c7a0571e",
+  "runs_fingerprint": "4e36e6b34ec5",
   "axis_wave": "math500-live",
   "build_date": "2026-09-30",
-  "stamp": "2026-09-30T17:53:18Z",
+  "stamp": "2026-09-30T18:31:57Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/math500",
-   "unified_built_at": "2026-09-30T17:44:31Z",
+   "unified_built_at": "2026-09-30T18:15:56Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.math500.csv"
@@ -101,6 +101,22 @@
     "of": 500
    },
    "google/gemma-4-31B-it": {
+    "tasks": 500,
+    "of": 500
+   },
+   "mistralai/Mistral-7B-Instruct-v0.3": {
+    "tasks": 500,
+    "of": 500
+   },
+   "mistralai/Mistral-Small-24B-Instruct-2501": {
+    "tasks": 500,
+    "of": 500
+   },
+   "allenai/OLMo-2-1124-7B-Instruct": {
+    "tasks": 500,
+    "of": 500
+   },
+   "allenai/OLMo-2-1124-13B-Instruct": {
     "tasks": 500,
     "of": 500
    },
@@ -294,7 +310,7 @@
    "concentration_counts": {
     "inputs unavailable for this served set (pre-31g custody copy)": 39
    },
-   "drawn": 35
+   "drawn": 39
   },
   "vocab_ruled": "2026-08-27",
   "interim": "kernel fits on all results available at build; refit hourly as results land",
@@ -4380,7 +4396,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-30T17:24:55Z",
+   "_stamp": "2026-09-30T18:26:01Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -4553,9 +4569,9 @@
   }
  },
  "files": {
-  "shared": "shared.6ae4eb903e9c.json",
-  "chain_average": "chain_average.6ae4eb903e9c.json",
-  "chain_median": "chain_median.6ae4eb903e9c.json",
-  "dots": "dots.6ae4eb903e9c.json"
+  "shared": "shared.f84275739de1.json",
+  "chain_average": "chain_average.f84275739de1.json",
+  "chain_median": "chain_median.f84275739de1.json",
+  "dots": "dots.f84275739de1.json"
  }
 }
