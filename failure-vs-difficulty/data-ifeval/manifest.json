@@ -1,9 +1,9 @@
 {
- "fingerprint": "8274c95bcb62",
+ "fingerprint": "bc3f142d79a2",
  "fingerprint_inputs": {
-  "content": "4b2773aa99ad",
+  "content": "2125e689c51e",
   "wave": "ifeval-live",
-  "body": "fb4b322ee228"
+  "body": "962a831a5798"
  },
  "frame": {
   "dataset": "ifeval",
@@ -17,14 +17,14 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 35,
-  "fitted_M": 35,
-  "complete_M": 35,
-  "sampled_M": 35,
-  "difficulty_population_M": 35,
+  "population_M": 39,
+  "fitted_M": 39,
+  "complete_M": 39,
+  "sampled_M": 39,
+  "difficulty_population_M": 39,
   "tasks": 541,
   "keep_set_hash": "ea009d5c6cd1",
-  "inputs_content_sha": "4b2773aa99ad",
+  "inputs_content_sha": "2125e689c51e",
   "tasks_on_axis": 541,
   "tasks_kept": 541,
   "tasks_awaiting_axis": 0,
@@ -33,7 +33,7 @@
   "runs_fingerprint": "4e36e6b34ec5",
   "axis_wave": "ifeval-live",
   "build_date": "2026-09-30",
-  "stamp": "2026-09-30T18:19:05Z",
+  "stamp": "2026-09-30T18:33:46Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
@@ -97,6 +97,22 @@
     "of": 541
    },
    "google/gemma-4-31B-it": {
+    "tasks": 541,
+    "of": 541
+   },
+   "mistralai/Mistral-7B-Instruct-v0.3": {
+    "tasks": 541,
+    "of": 541
+   },
+   "mistralai/Mistral-Small-24B-Instruct-2501": {
+    "tasks": 541,
+    "of": 541
+   },
+   "allenai/OLMo-2-1124-7B-Instruct": {
+    "tasks": 541,
+    "of": 541
+   },
+   "allenai/OLMo-2-1124-13B-Instruct": {
     "tasks": 541,
     "of": 541
    },
@@ -287,7 +303,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-30T17:24:55Z",
+   "_stamp": "2026-09-30T18:26:01Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -460,9 +476,9 @@
   }
  },
  "files": {
-  "shared": "shared.8274c95bcb62.json",
-  "chain_average": "chain_average.8274c95bcb62.json",
-  "chain_median": "chain_median.8274c95bcb62.json",
-  "dots": "dots.8274c95bcb62.json"
+  "shared": "shared.bc3f142d79a2.json",
+  "chain_average": "chain_average.bc3f142d79a2.json",
+  "chain_median": "chain_median.bc3f142d79a2.json",
+  "dots": "dots.bc3f142d79a2.json"
  }
 }

@@ -1,9 +1,9 @@
 {
- "fingerprint": "8c25d14ff20e",
+ "fingerprint": "ebc08161a59b",
  "fingerprint_inputs": {
-  "content": "ea29776bfe1e",
+  "content": "252bd5f2c6cc",
   "wave": "gsm8k_platinum-live",
-  "body": "0450c29e334c"
+  "body": "2a26445ddbd7"
  },
  "frame": {
   "dataset": "gsm8k_platinum",
@@ -17,14 +17,14 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 43,
-  "fitted_M": 43,
-  "complete_M": 43,
-  "sampled_M": 43,
-  "difficulty_population_M": 43,
+  "population_M": 47,
+  "fitted_M": 47,
+  "complete_M": 47,
+  "sampled_M": 47,
+  "difficulty_population_M": 47,
   "tasks": 1209,
   "keep_set_hash": "ff1457decdf7",
-  "inputs_content_sha": "ea29776bfe1e",
+  "inputs_content_sha": "252bd5f2c6cc",
   "tasks_on_axis": 1209,
   "tasks_kept": 1209,
   "tasks_awaiting_axis": 0,
@@ -33,7 +33,7 @@
   "runs_fingerprint": "4e36e6b34ec5",
   "axis_wave": "gsm8k_platinum-live",
   "build_date": "2026-09-30",
-  "stamp": "2026-09-30T18:21:59Z",
+  "stamp": "2026-09-30T18:35:55Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
@@ -109,6 +109,22 @@
     "of": 1209
    },
    "moonshotai/Kimi-K2-Instruct": {
+    "tasks": 1209,
+    "of": 1209
+   },
+   "mistralai/Mistral-7B-Instruct-v0.3": {
+    "tasks": 1209,
+    "of": 1209
+   },
+   "mistralai/Mistral-Small-24B-Instruct-2501": {
+    "tasks": 1209,
+    "of": 1209
+   },
+   "allenai/OLMo-2-1124-7B-Instruct": {
+    "tasks": 1209,
+    "of": 1209
+   },
+   "allenai/OLMo-2-1124-13B-Instruct": {
     "tasks": 1209,
     "of": 1209
    },
@@ -289,7 +305,7 @@
    "concentration_counts": {
     "inputs unavailable for this served set (pre-31g custody copy)": 28
    },
-   "drawn": 26
+   "drawn": 28
   },
   "vocab_ruled": "2026-08-27",
   "interim": "kernel fits on all results available at build; refit hourly as results land",
@@ -310,7 +326,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-30T17:24:55Z",
+   "_stamp": "2026-09-30T18:26:01Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -483,9 +499,9 @@
   }
  },
  "files": {
-  "shared": "shared.8c25d14ff20e.json",
-  "chain_average": "chain_average.8c25d14ff20e.json",
-  "chain_median": "chain_median.8c25d14ff20e.json",
-  "dots": "dots.8c25d14ff20e.json"
+  "shared": "shared.ebc08161a59b.json",
+  "chain_average": "chain_average.ebc08161a59b.json",
+  "chain_median": "chain_median.ebc08161a59b.json",
+  "dots": "dots.ebc08161a59b.json"
  }
 }
