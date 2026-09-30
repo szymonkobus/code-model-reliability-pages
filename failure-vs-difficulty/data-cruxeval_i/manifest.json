@@ -1,9 +1,9 @@
 {
- "fingerprint": "8eaf84154778",
+ "fingerprint": "e0e872b64541",
  "fingerprint_inputs": {
-  "content": "7a27b32ad86a",
+  "content": "44fee9831a50",
   "wave": "cruxeval_i-live",
-  "body": "4d50ea12b4cd"
+  "body": "70e2412c5949"
  },
  "frame": {
   "dataset": "cruxeval_i",
@@ -17,28 +17,28 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 35,
-  "fitted_M": 35,
-  "complete_M": 35,
-  "sampled_M": 35,
-  "difficulty_population_M": 35,
+  "population_M": 41,
+  "fitted_M": 41,
+  "complete_M": 41,
+  "sampled_M": 41,
+  "difficulty_population_M": 41,
   "tasks": 800,
   "keep_set_hash": "ceaae2d92751",
-  "inputs_content_sha": "7a27b32ad86a",
+  "inputs_content_sha": "44fee9831a50",
   "tasks_on_axis": 800,
   "tasks_kept": 800,
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ceaae2d92751",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "2be6c7a0571e",
+  "runs_fingerprint": "4e36e6b34ec5",
   "axis_wave": "cruxeval_i-live",
   "build_date": "2026-09-30",
-  "stamp": "2026-09-30T17:55:09Z",
+  "stamp": "2026-09-30T18:25:46Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/cruxeval_i",
-   "unified_built_at": "2026-09-30T17:44:31Z",
+   "unified_built_at": "2026-09-30T18:15:56Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.cruxeval_i.csv"
@@ -48,6 +48,14 @@
   "withdrawn": {},
   "fit_excluded": [],
   "coverage": {
+   "claude-haiku-4-5": {
+    "tasks": 800,
+    "of": 800
+   },
+   "claude-haiku-4-5-thinking": {
+    "tasks": 800,
+    "of": 800
+   },
    "deepseek-ai/deepseek-coder-1.3b-instruct": {
     "tasks": 800,
     "of": 800
@@ -89,6 +97,22 @@
     "of": 800
    },
    "moonshotai/Kimi-K2-Instruct": {
+    "tasks": 800,
+    "of": 800
+   },
+   "mistralai/Mistral-7B-Instruct-v0.3": {
+    "tasks": 800,
+    "of": 800
+   },
+   "mistralai/Mistral-Small-24B-Instruct-2501": {
+    "tasks": 800,
+    "of": 800
+   },
+   "allenai/OLMo-2-1124-7B-Instruct": {
+    "tasks": 800,
+    "of": 800
+   },
+   "allenai/OLMo-2-1124-13B-Instruct": {
     "tasks": 800,
     "of": 800
    },
@@ -233,7 +257,7 @@
     "Qwen/Qwen3-8B-Thinking",
     "allenai/OLMo-2-1124-13B-Instruct",
     "allenai/OLMo-2-1124-7B-Instruct",
-    "anthropic/completions",
+    "claude-haiku-4-5",
     "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct",
     "deepseek-ai/DeepSeek-V3-0324",
     "deepseek-ai/deepseek-coder-1.3b-instruct",
@@ -272,7 +296,7 @@
    "concentration_counts": {
     "inputs unavailable for this served set (pre-31g custody copy)": 6
    },
-   "drawn": 5
+   "drawn": 6
   },
   "vocab_ruled": "2026-08-27",
   "interim": "kernel fits on all results available at build; refit hourly as results land",
@@ -293,7 +317,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-30T17:24:55Z",
+   "_stamp": "2026-09-30T18:26:01Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -466,9 +490,9 @@
   }
  },
  "files": {
-  "shared": "shared.8eaf84154778.json",
-  "chain_average": "chain_average.8eaf84154778.json",
-  "chain_median": "chain_median.8eaf84154778.json",
-  "dots": "dots.8eaf84154778.json"
+  "shared": "shared.e0e872b64541.json",
+  "chain_average": "chain_average.e0e872b64541.json",
+  "chain_median": "chain_median.e0e872b64541.json",
+  "dots": "dots.e0e872b64541.json"
  }
 }

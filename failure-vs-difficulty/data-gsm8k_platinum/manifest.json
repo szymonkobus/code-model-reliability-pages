@@ -1,9 +1,9 @@
 {
- "fingerprint": "b93d525e85bb",
+ "fingerprint": "8c25d14ff20e",
  "fingerprint_inputs": {
-  "content": "725c72b5657a",
+  "content": "ea29776bfe1e",
   "wave": "gsm8k_platinum-live",
-  "body": "7a15de2c71e9"
+  "body": "0450c29e334c"
  },
  "frame": {
   "dataset": "gsm8k_platinum",
@@ -17,28 +17,28 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 39,
-  "fitted_M": 39,
-  "complete_M": 39,
-  "sampled_M": 39,
-  "difficulty_population_M": 39,
+  "population_M": 43,
+  "fitted_M": 43,
+  "complete_M": 43,
+  "sampled_M": 43,
+  "difficulty_population_M": 43,
   "tasks": 1209,
   "keep_set_hash": "ff1457decdf7",
-  "inputs_content_sha": "725c72b5657a",
+  "inputs_content_sha": "ea29776bfe1e",
   "tasks_on_axis": 1209,
   "tasks_kept": 1209,
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ff1457decdf7",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "2be6c7a0571e",
+  "runs_fingerprint": "4e36e6b34ec5",
   "axis_wave": "gsm8k_platinum-live",
   "build_date": "2026-09-30",
-  "stamp": "2026-09-30T17:59:41Z",
+  "stamp": "2026-09-30T18:21:59Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/gsm8k_platinum",
-   "unified_built_at": "2026-09-30T17:44:31Z",
+   "unified_built_at": "2026-09-30T18:15:56Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.gsm8k_platinum.csv"
@@ -48,6 +48,22 @@
   "withdrawn": {},
   "fit_excluded": [],
   "coverage": {
+   "claude-haiku-4-5": {
+    "tasks": 1209,
+    "of": 1209
+   },
+   "claude-haiku-4-5-thinking": {
+    "tasks": 1209,
+    "of": 1209
+   },
+   "claude-sonnet-5": {
+    "tasks": 1209,
+    "of": 1209
+   },
+   "claude-sonnet-5-thinking": {
+    "tasks": 1209,
+    "of": 1209
+   },
    "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct": {
     "tasks": 1209,
     "of": 1209
@@ -273,7 +289,7 @@
    "concentration_counts": {
     "inputs unavailable for this served set (pre-31g custody copy)": 28
    },
-   "drawn": 22
+   "drawn": 26
   },
   "vocab_ruled": "2026-08-27",
   "interim": "kernel fits on all results available at build; refit hourly as results land",
@@ -467,9 +483,9 @@
   }
  },
  "files": {
-  "shared": "shared.b93d525e85bb.json",
-  "chain_average": "chain_average.b93d525e85bb.json",
-  "chain_median": "chain_median.b93d525e85bb.json",
-  "dots": "dots.b93d525e85bb.json"
+  "shared": "shared.8c25d14ff20e.json",
+  "chain_average": "chain_average.8c25d14ff20e.json",
+  "chain_median": "chain_median.8c25d14ff20e.json",
+  "dots": "dots.8c25d14ff20e.json"
  }
 }
