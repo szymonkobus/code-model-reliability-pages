@@ -687,20 +687,20 @@
   },
   "cruxeval_o": {
    "files": {
-    "shared": "shared.cruxeval_o.38a0080430d0.json",
-    "chain_average": "chain_average.cruxeval_o.38a0080430d0.json",
-    "bayes": "bayes.cruxeval_o.38a0080430d0-9798dd9af717.json"
+    "shared": "shared.cruxeval_o.8ea091f9601e.json",
+    "chain_average": "chain_average.cruxeval_o.8ea091f9601e.json",
+    "bayes": "bayes.cruxeval_o.8ea091f9601e-34fa8bc890b4.json"
    },
    "label": "CRUXEval \u00b7 output prediction (800 problems)",
    "arms": "all",
-   "fingerprint": "38a0080430d0",
+   "fingerprint": "8ea091f9601e",
    "frame": {
     "population_M": 46,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
-    "runs_fingerprint": "4e36e6b34ec5",
+    "runs_fingerprint": "f830f4554490",
     "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T18:28:06Z",
+    "build_ts": "2026-09-30T18:59:11Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_o",
     "set_label": "CRUXEval \u00b7 output prediction (800 problems)",
@@ -711,20 +711,20 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
     "tasks_used": "CRUXEval \u00b7 output prediction (800 problems) \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_o fp a48ea402b75f (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-cruxeval_o fp 1e8fe6e62d19 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "3b0a9490a92a",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T18:28:06Z",
-   "source_fp": "a48ea402b75f",
-   "updated_at": "2026-09-30T18:41:09Z",
+   "source_stamp": "2026-09-30T18:59:11Z",
+   "source_fp": "1e8fe6e62d19",
+   "updated_at": "2026-09-30T19:16:37Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
-    "unfitted": 42,
+    "unfitted": 0,
     "served_wave": "nb-cruxeval_o-20260930T1503Z",
-    "served_arms": 4
+    "served_arms": 46
    },
    "missing": {
     "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
@@ -735,20 +735,20 @@
   },
   "aime": {
    "files": {
-    "shared": "shared.aime.3c7d5b43316b.json",
-    "chain_average": "chain_average.aime.3c7d5b43316b.json",
-    "bayes": "bayes.aime.3c7d5b43316b-1a2b1fb8311c.json"
+    "shared": "shared.aime.0a2df6af82c8.json",
+    "chain_average": "chain_average.aime.0a2df6af82c8.json",
+    "bayes": "bayes.aime.0a2df6af82c8-1a2b1fb8311c.json"
    },
    "label": "AIME (60 problems)",
    "arms": "all",
-   "fingerprint": "3c7d5b43316b",
+   "fingerprint": "0a2df6af82c8",
    "frame": {
-    "population_M": 32,
+    "population_M": 34,
     "tasks": 60,
     "keep_set_hash": "dc5cbadfe267",
-    "runs_fingerprint": "2be6c7a0571e",
+    "runs_fingerprint": "f830f4554490",
     "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T17:54:20Z",
+    "build_ts": "2026-09-30T19:04:15Z",
     "vocab_ruled": "2026-08-27",
     "set": "aime",
     "set_label": "AIME (60 problems)",
@@ -759,20 +759,20 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "dc5cbadfe267",
     "tasks_used": "AIME (60 problems) \u2014 60 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-aime fp a2bfa6aba99a (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "d779986f5ec7",
+    "source": "failure-vs-difficulty data-aime fp 7855b998f464 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "694d3f833a19",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T17:54:20Z",
-   "source_fp": "a2bfa6aba99a",
-   "updated_at": "2026-09-30T18:40:41Z",
+   "source_stamp": "2026-09-30T19:04:15Z",
+   "source_fp": "7855b998f464",
+   "updated_at": "2026-09-30T19:17:29Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
     "unfitted": 3,
     "served_wave": "nb-aime-20260914T1118Z",
-    "served_arms": 29
+    "served_arms": 31
    },
    "missing": {
     "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry"
