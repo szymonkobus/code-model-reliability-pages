@@ -498,20 +498,20 @@
   },
   "math500": {
    "files": {
-    "shared": "shared.math500.f1d3160e87f0.json",
-    "chain_average": "chain_average.math500.f1d3160e87f0.json",
-    "bayes": "bayes.math500.f1d3160e87f0-8c3375661f69.json"
+    "shared": "shared.math500.f8f5ac14ab69.json",
+    "chain_average": "chain_average.math500.f8f5ac14ab69.json",
+    "bayes": "bayes.math500.f8f5ac14ab69-8c3375661f69.json"
    },
    "label": "MATH-500 (500 problems)",
    "arms": "all",
-   "fingerprint": "f1d3160e87f0",
+   "fingerprint": "f8f5ac14ab69",
    "frame": {
     "population_M": 41,
     "tasks": 500,
     "keep_set_hash": "326e66dcd9ab",
-    "runs_fingerprint": "dd208f53e071",
+    "runs_fingerprint": "992bf3d13d6f",
     "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T15:05:33Z",
+    "build_ts": "2026-09-30T16:56:23Z",
     "vocab_ruled": "2026-08-27",
     "set": "math500",
     "set_label": "MATH-500 (500 problems)",
@@ -522,14 +522,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "326e66dcd9ab",
     "tasks_used": "MATH-500 (500 problems) \u2014 500 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-math500 fp 3e60e9206687 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-math500 fp 1a3317ed3bc4 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "2fa15b6f5117",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T15:05:33Z",
-   "source_fp": "3e60e9206687",
-   "updated_at": "2026-09-30T16:30:28Z",
+   "source_stamp": "2026-09-30T16:56:23Z",
+   "source_fp": "1a3317ed3bc4",
+   "updated_at": "2026-09-30T17:07:22Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -543,19 +543,19 @@
   },
   "ifeval": {
    "files": {
-    "shared": "shared.ifeval.9936b387efaf.json",
-    "chain_average": "chain_average.ifeval.9936b387efaf.json"
+    "shared": "shared.ifeval.611900a6372b.json",
+    "chain_average": "chain_average.ifeval.611900a6372b.json"
    },
    "label": "IFEval (541 problems)",
    "arms": "all",
-   "fingerprint": "9936b387efaf",
+   "fingerprint": "611900a6372b",
    "frame": {
     "population_M": 33,
     "tasks": 541,
     "keep_set_hash": "ea009d5c6cd1",
-    "runs_fingerprint": "dd208f53e071",
+    "runs_fingerprint": "992bf3d13d6f",
     "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T15:07:45Z",
+    "build_ts": "2026-09-30T17:00:28Z",
     "vocab_ruled": "2026-08-27",
     "set": "ifeval",
     "set_label": "IFEval (541 problems)",
@@ -566,14 +566,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ea009d5c6cd1",
     "tasks_used": "IFEval (541 problems) \u2014 541 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-ifeval fp d6e3d226df7e (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-ifeval fp e2669aeecfcc (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "a85ef44d4e2a",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T15:07:45Z",
-   "source_fp": "d6e3d226df7e",
-   "updated_at": "2026-09-30T16:31:28Z",
+   "source_stamp": "2026-09-30T17:00:28Z",
+   "source_fp": "e2669aeecfcc",
+   "updated_at": "2026-09-30T17:08:11Z",
    "missing": {
     "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
     "bayes": "no Bayesian fit for this set yet: fitting's set-of-record wave for it is in flight and its pointer is not served; the Bayesian option lands with it"
@@ -581,19 +581,19 @@
   },
   "gsm8k_platinum": {
    "files": {
-    "shared": "shared.gsm8k_platinum.7884318c0612.json",
-    "chain_average": "chain_average.gsm8k_platinum.7884318c0612.json"
+    "shared": "shared.gsm8k_platinum.dc03eea49aec.json",
+    "chain_average": "chain_average.gsm8k_platinum.dc03eea49aec.json"
    },
    "label": "GSM8K-Platinum (1,209 problems)",
    "arms": "all",
-   "fingerprint": "7884318c0612",
+   "fingerprint": "dc03eea49aec",
    "frame": {
     "population_M": 39,
     "tasks": 1209,
     "keep_set_hash": "ff1457decdf7",
-    "runs_fingerprint": "dd208f53e071",
+    "runs_fingerprint": "992bf3d13d6f",
     "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T15:09:15Z",
+    "build_ts": "2026-09-30T16:59:26Z",
     "vocab_ruled": "2026-08-27",
     "set": "gsm8k_platinum",
     "set_label": "GSM8K-Platinum (1,209 problems)",
@@ -604,14 +604,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ff1457decdf7",
     "tasks_used": "GSM8K-Platinum (1,209 problems) \u2014 1209 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-gsm8k_platinum fp f1f1fd80247a (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-gsm8k_platinum fp 0f680a983d00 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "725c72b5657a",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T15:09:15Z",
-   "source_fp": "f1f1fd80247a",
-   "updated_at": "2026-09-30T16:31:24Z",
+   "source_stamp": "2026-09-30T16:59:26Z",
+   "source_fp": "0f680a983d00",
+   "updated_at": "2026-09-30T17:08:08Z",
    "missing": {
     "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
     "bayes": "no Bayesian fit for this set yet: fitting's set-of-record wave for it is in flight and its pointer is not served; the Bayesian option lands with it"
@@ -619,19 +619,19 @@
   },
   "cruxeval_i": {
    "files": {
-    "shared": "shared.cruxeval_i.e77263978840.json",
-    "chain_average": "chain_average.cruxeval_i.e77263978840.json"
+    "shared": "shared.cruxeval_i.49a2b9710bf2.json",
+    "chain_average": "chain_average.cruxeval_i.49a2b9710bf2.json"
    },
    "label": "CRUXEval \u00b7 input prediction (800 problems)",
    "arms": "all",
-   "fingerprint": "e77263978840",
+   "fingerprint": "49a2b9710bf2",
    "frame": {
     "population_M": 35,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
-    "runs_fingerprint": "ce79a8a5fda3",
+    "runs_fingerprint": "992bf3d13d6f",
     "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T16:09:04Z",
+    "build_ts": "2026-09-30T16:58:18Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_i",
     "set_label": "CRUXEval \u00b7 input prediction (800 problems)",
@@ -642,14 +642,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
     "tasks_used": "CRUXEval \u00b7 input prediction (800 problems) \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_i fp 67410b88e81a (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-cruxeval_i fp 0bca32131252 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "7a27b32ad86a",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T16:09:04Z",
-   "source_fp": "67410b88e81a",
-   "updated_at": "2026-09-30T16:31:04Z",
+   "source_stamp": "2026-09-30T16:58:18Z",
+   "source_fp": "0bca32131252",
+   "updated_at": "2026-09-30T17:07:55Z",
    "missing": {
     "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
     "bayes": "no Bayesian fit for this set yet: fitting's set-of-record wave for it is in flight and its pointer is not served; the Bayesian option lands with it"
@@ -657,19 +657,19 @@
   },
   "cruxeval_o": {
    "files": {
-    "shared": "shared.cruxeval_o.776d99ffd29e.json",
-    "chain_average": "chain_average.cruxeval_o.776d99ffd29e.json"
+    "shared": "shared.cruxeval_o.9a28227869cc.json",
+    "chain_average": "chain_average.cruxeval_o.9a28227869cc.json"
    },
    "label": "CRUXEval \u00b7 output prediction (800 problems)",
    "arms": "all",
-   "fingerprint": "776d99ffd29e",
+   "fingerprint": "9a28227869cc",
    "frame": {
     "population_M": 40,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
-    "runs_fingerprint": "ce79a8a5fda3",
+    "runs_fingerprint": "992bf3d13d6f",
     "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T16:10:07Z",
+    "build_ts": "2026-09-30T16:58:49Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_o",
     "set_label": "CRUXEval \u00b7 output prediction (800 problems)",
@@ -680,14 +680,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
     "tasks_used": "CRUXEval \u00b7 output prediction (800 problems) \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_o fp 1e0931e94c96 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-cruxeval_o fp d79d3f0b3290 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "879bf4101b16",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T16:10:07Z",
-   "source_fp": "1e0931e94c96",
-   "updated_at": "2026-09-30T16:31:11Z",
+   "source_stamp": "2026-09-30T16:58:49Z",
+   "source_fp": "d79d3f0b3290",
+   "updated_at": "2026-09-30T17:08:00Z",
    "missing": {
     "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
     "bayes": "no Bayesian fit for this set yet: fitting's set-of-record wave for it is in flight and its pointer is not served; the Bayesian option lands with it"
@@ -695,20 +695,20 @@
   },
   "aime": {
    "files": {
-    "shared": "shared.aime.1bb43730bb6d.json",
-    "chain_average": "chain_average.aime.1bb43730bb6d.json",
-    "bayes": "bayes.aime.1bb43730bb6d-1a2b1fb8311c.json"
+    "shared": "shared.aime.8a7105d23760.json",
+    "chain_average": "chain_average.aime.8a7105d23760.json",
+    "bayes": "bayes.aime.8a7105d23760-1a2b1fb8311c.json"
    },
    "label": "AIME (60 problems)",
    "arms": "all",
-   "fingerprint": "1bb43730bb6d",
+   "fingerprint": "8a7105d23760",
    "frame": {
     "population_M": 32,
     "tasks": 60,
     "keep_set_hash": "dc5cbadfe267",
-    "runs_fingerprint": "dd208f53e071",
+    "runs_fingerprint": "992bf3d13d6f",
     "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T15:14:41Z",
+    "build_ts": "2026-09-30T16:57:27Z",
     "vocab_ruled": "2026-08-27",
     "set": "aime",
     "set_label": "AIME (60 problems)",
@@ -719,14 +719,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "dc5cbadfe267",
     "tasks_used": "AIME (60 problems) \u2014 60 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-aime fp 4aea87b8c7a6 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-aime fp ffbb97a9ac76 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "d779986f5ec7",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T15:14:41Z",
-   "source_fp": "4aea87b8c7a6",
-   "updated_at": "2026-09-30T16:30:59Z",
+   "source_stamp": "2026-09-30T16:57:27Z",
+   "source_fp": "ffbb97a9ac76",
+   "updated_at": "2026-09-30T17:07:48Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
