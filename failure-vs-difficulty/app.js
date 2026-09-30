@@ -57,10 +57,19 @@ var DATASETS = {
            hover: 'wave 2 and wave 2 parked together' },
   all: { label: 'all waves', short: 'all waves', src: 'data-all/manifest.json',
          hover: 'all waves on one difficulty axis',
-         disabled: '' }
-  // the maths sets (MATH-500, AIME) left this switch on the project maintainers' word of 11 Sep (the maths sets do not belong on the capability-versus-difficulty
-  // curves but may have a mirror page): coding sets only here; their bundles (data-math500/, data-aime/) stay built for the results browser's maintainers' mirror page
+         disabled: '' },
+  // the non-code sets (the work NON-CODE BENCHMARKS D99-D50, the maintainers's; the project maintainers' word of 30 Sep 2026 via the coordination: the results browsable
+  // in this viewer under a dataset control better than chips, no new page — superseding the 11 Sep word that kept the maths sets to a mirror page):
+  // the six sets under one group heading, in the maintainers's order (MATH-500 first, AIME last); the names of record are the maintainers's list of
+  // 30 Sep  and are re-read from each bundle's frame at load (named from the frame, never typed as a count); an unbuilt set greyed and unselectable
+  math500: { label: 'MATH-500', short: 'MATH-500', src: 'data-math500/manifest.json', hover: 'MATH-500 on its own difficulty axis', nb: true },
+  ifeval: { label: 'IFEval', short: 'IFEval', src: 'data-ifeval/manifest.json', hover: 'IFEval on its own difficulty axis', nb: true },
+  gsm8k_platinum: { label: 'GSM8K-Platinum', short: 'GSM8K-Platinum', src: 'data-gsm8k_platinum/manifest.json', hover: 'GSM8K-Platinum on its own difficulty axis', nb: true },
+  cruxeval_i: { label: 'CRUXEval, input prediction', short: 'CRUXEval, input prediction', src: 'data-cruxeval_i/manifest.json', hover: 'CRUXEval, input prediction, on its own difficulty axis', nb: true },
+  cruxeval_o: { label: 'CRUXEval, output prediction', short: 'CRUXEval, output prediction', src: 'data-cruxeval_o/manifest.json', hover: 'CRUXEval, output prediction, on its own difficulty axis', nb: true },
+  aime: { label: 'AIME', short: 'AIME', src: 'data-aime/manifest.json', hover: 'AIME on its own difficulty axis', nb: true }
 };
+var NB_GROUP_HEADING = 'NON-CODE BENCHMARKS D99-D50';   // the work's name of record, in capitals exactly, the selector's group heading over the six sets and nowhere else on the face (the maintainers 30 Sep)
 var TOP_COUNT = null;   // kept focused new tasks, read from the 877-task bundle's frame (never typed here)
 function topCount() { return TOP_COUNT ? Number(TOP_COUNT).toLocaleString('en-US') : 'wave 2'; }
 function setTopCount(n) {
@@ -108,7 +117,7 @@ function applyOfficialNames(C) {
   Array.prototype.forEach.call(document.querySelectorAll('[data-count="wave12"]'), function (el) { el.textContent = f2(C.original_kept + C.new_focused); });
   Object.keys(L).forEach(function (k) {
     if (!DATASETS[k]) return; DATASETS[k].label = L[k].label; DATASETS[k].short = L[k].label; DATASETS[k].hover = L[k].hover;
-    var bt = document.querySelector('#controls button[data-value="' + k + '"]'); if (bt) bt.textContent = setWord(L[k].label);   // the label of record carries its count; the switch reads the set name alone
+    var bt = dsEl(k); if (bt) bt.textContent = setWord(L[k].label);   // the label of record carries its count; the switch reads the set name alone
   });
   return true;
 }
@@ -117,7 +126,7 @@ function boardCount() { return BOARD_COUNT ? Number(BOARD_COUNT).toLocaleString(
 function setBoardCount(n) {
   BOARD_COUNT = n;
   if (!OFFICIAL && DATASETS.board) { var lb = boardCount() + ' tasks'; DATASETS.board.label = lb; DATASETS.board.short = lb;
-  var bt = document.querySelector('#controls button[data-value="board"]'); if (bt) bt.textContent = lb; }
+  var bt = dsEl('board'); if (bt) bt.textContent = lb; }
   Object.keys(DATASETS).forEach(function (k) { if (DATASETS[k].hover) DATASETS[k].hover = DATASETS[k].hover.replace('{board}', boardCount()); });
   Array.prototype.forEach.call(document.querySelectorAll('[data-count="board"]'), function (el) { el.textContent = boardCount(); });
   Array.prototype.forEach.call(document.querySelectorAll('#controls button[data-value]'), function (bt) {   // titles composed before the board manifest arrived
@@ -146,7 +155,7 @@ var DEFAULT_DATASET = (MIRROR && typeof window.MIRROR_DEFAULT === 'string' && DA
                       : (DATASETS.board_top ? 'board_top' : Object.keys(DATASETS)[0]);
 var FALLBACK_DATASET = DATASETS.board ? 'board' : DEFAULT_DATASET;
 var EXTRA_AVAILABLE = {};   // keys outside the built-ins: manifest present?
-function setWord(s) { return String(s == null ? '' : s).replace(/\s*\([\d,]+ tasks\)\s*$/, ''); }   // a set switch reads the project maintainers' set name alone: wave 1, wave 2, wave 1+2 … — the count stays in the status line and the hover (the project maintainers' word of 23 Sep, via the pool pages lead)
+function setWord(s) { return String(s == null ? '' : s).replace(/\s*\([\d,]+ (tasks|problems)\)\s*$/, ''); }   // a set switch reads the project maintainers' set name alone: wave 1, wave 2, wave 1+2 … — the count stays in the status line and the hover (the project maintainers' word of 23 Sep, via the pool pages lead)
 function isExtra(k) { return !!(DATASETS[k] && !BUILTIN_KEYS[k]); }
 function extraDir(k) { return String(DATASETS[k].src || '').replace(/\/?manifest\.json$/, '') || ('data-' + k); }
 var DATASET = (typeof Kit !== 'undefined' && Kit.state) ? Kit.state.get('data', DEFAULT_DATASET) : DEFAULT_DATASET;   // default: board + top half (the project maintainers' word,)
@@ -295,7 +304,11 @@ var bandCtl = null, dotsCtl = null;
 var EXPORTING = false;  // export: render at the desktop geometry (K = 1, full axis titles) whatever the screen (the project maintainers' word of 18 Sep; project helper kit-export.js)
 var K = 1;              // axis-text scale: viewBox units per CSS px, capped
 function quietSet(ctl, v) { coercing = true; try { ctl.set(v); } finally { coercing = false; } }
+function dsEl(k) {   // the dataset control's element for a set key: the kit select's option (30 Sep), else the older switch's button
+  return document.querySelector('#controls .kit-select[data-key="data"] option[value="' + k + '"]') || dsEl(k);
+}
 function setDisabled(btn, off, why) {
+  if (btn && btn.tagName === 'OPTION') { btn.disabled = !!off; return; }   // a select's option: greyed and unselectable by the kit's rule
   if (!btn) return;
   btn.disabled = off; btn.setAttribute('aria-disabled', String(off));
   if (off && why) btn.title = why; else btn.removeAttribute('title');   // a disabled control carries no sentence in its hover (the project maintainers' 28 Sep word; the maintainers  29 Sep)
@@ -414,22 +427,27 @@ function boot() {
   }
 
   var row = Kit.filterRow('#controls');
-  var dsCtl = Kit.switchControl({ mount: row, key: 'data', label: 'Dataset',
-    // the project maintainers' word of 10 Sep (coordinator note): wave 1+2 matters most, then wave 1 alone as a sanity check, then wave 2 alone,
-    // then the rest — the switch runs in that order; wave 1+2 stays the default
-    options: Object.keys(DATASETS).map(function (k) { return { value: k, label: setWord(DATASETS[k].label) }; }),   // the list's own order (the project maintainers' order on this page; a mirror's on its)
-    dflt: DEFAULT_DATASET,
-    onchange: function (v) {
+  // the project maintainers' word of 10 Sep (coordinator note): wave 1+2 matters most, then wave 1 alone as a sanity check, then wave 2 alone,
+  // then the rest — the list runs in that order; wave 1+2 stays the default. The project maintainers' word of 30 Sep 2026 (via the coordination): a dataset control better than
+  // chips for the sets now browsable here — the reference select (Kit.selectControl, the maintainers 30 Sep): the coding sets first, then the six
+  // non-code sets under the group heading NON-CODE BENCHMARKS D99-D50; an unbuilt set greyed and unselectable; the URL param ?data=<key> as before.
+  var dsAvail = function (k) { if (k === 'all') return ALL_AVAILABLE; if (k === 'board_top' || k === 'top') return !!TOP_AVAILABLE[k]; if (isExtra(k)) return !!EXTRA_AVAILABLE[k]; return true; };
+  var dsOpt = function (k) { return { value: k, label: setWord(DATASETS[k].label), disabled: !dsAvail(k) }; };
+  var dsOnChange = function (v) {
       if (!ready || coercing) return;
       if (v === 'all' && !ALL_AVAILABLE) { quietSet(dsCtl, DATASET); return; }
       if (isExtra(v) && !EXTRA_AVAILABLE[v]) { quietSet(dsCtl, DATASET); return; }
       if (v !== DATASET) window.location.reload();   // the whole data bundle changes
-    } });
-  if (DATASETS.all) setDisabled(dsCtl.element.querySelector('button[data-value="all"]'), !ALL_AVAILABLE, DATASETS.all.disabled);
-  if (DATASETS.board_top) setDisabled(dsCtl.element.querySelector('button[data-value="board_top"]'), !TOP_AVAILABLE.board_top, DATASETS.board_top.disabled);
-  if (DATASETS.top) setDisabled(dsCtl.element.querySelector('button[data-value="top"]'), !TOP_AVAILABLE.top, DATASETS.top.disabled);
+  };
+  var nbKeys = Object.keys(DATASETS).filter(function (k) { return DATASETS[k].nb; }), plainKeys = Object.keys(DATASETS).filter(function (k) { return !DATASETS[k].nb; });
+  var dsCtl = (Kit.selectControl && nbKeys.length)
+    ? Kit.selectControl({ mount: row, key: 'data', label: 'Dataset', options: plainKeys.map(dsOpt), groups: [{ label: NB_GROUP_HEADING, options: nbKeys.map(dsOpt) }], dflt: DEFAULT_DATASET, onchange: dsOnChange })
+    : Kit.switchControl({ mount: row, key: 'data', label: 'Dataset', options: Object.keys(DATASETS).map(function (k) { return { value: k, label: setWord(DATASETS[k].label) }; }), dflt: DEFAULT_DATASET, onchange: dsOnChange });   // a mount without the kit's select (an older vendored kit) keeps the switch
+  if (DATASETS.all) setDisabled(dsEl('all'), !ALL_AVAILABLE, DATASETS.all.disabled);
+  if (DATASETS.board_top) setDisabled(dsEl('board_top'), !TOP_AVAILABLE.board_top, DATASETS.board_top.disabled);
+  if (DATASETS.top) setDisabled(dsEl('top'), !TOP_AVAILABLE.top, DATASETS.top.disabled);
   Object.keys(DATASETS).filter(isExtra).forEach(function (ds) {   // a mirror's keys: greyed until built; named and sized from the bundle frame, never typed
-    var bt = dsCtl.element.querySelector('button[data-value="' + ds + '"]');
+    var bt = dsEl(ds);
     setDisabled(bt, !EXTRA_AVAILABLE[ds], '');
     if (!EXTRA_AVAILABLE[ds]) return;
     fetch(DATASETS[ds].src).then(function (r) { return r.json(); }).then(function (m) {
@@ -443,7 +461,7 @@ function boot() {
     ['board_top', 'top'].forEach(function (ds) {
       if (!TOP_AVAILABLE[ds]) return;
       fetch(DATASETS[ds].src).then(function (r) { return r.json(); }).then(function (m) {
-        var f = m.frame || {}, b = f.bayes_fits; var bt = dsCtl.element.querySelector('button[data-value="' + ds + '"]'); if (!bt) return;
+        var f = m.frame || {}, b = f.bayes_fits; var bt = dsEl(ds); if (!bt) return;
         var nk = f.tasks_kept || f.tasks_manifest || f.tasks;
         if (nk && !OFFICIAL) { var lb = Number(nk).toLocaleString('en-US') + ' tasks'; DATASETS[ds].label = lb; DATASETS[ds].short = lb; bt.textContent = lb; }
         if (ds === 'top' && nk) setTopCount(nk);
@@ -457,7 +475,7 @@ function boot() {
   // which estimator each dataset opens with (coordinator 4 Sep 2026 on the project maintainers' words; one estimator per view): read from the
   // bundles' frames where they exist, so the hover is a fact, not a promise
   (function () {
-    function setOpen(ds, txt) { var bt = dsCtl.element.querySelector('button[data-value="' + ds + '"]'); if (bt && !bt.disabled) { noteDataset(ds, txt); bt.title = oneSentence((OFFICIAL && OFFICIAL[ds]) ? OFFICIAL[ds].hover : txt); } }
+    function setOpen(ds, txt) { var bt = dsEl(ds); if (bt && !bt.disabled) { noteDataset(ds, txt); bt.title = oneSentence((OFFICIAL && OFFICIAL[ds]) ? OFFICIAL[ds].hover : txt); } }
     if (DATASETS.board) fetch('data/manifest.json').then(function (r) { return r.json(); }).then(function (m) {   // the board bundle's frame (counts of record, opening estimators): board pages only, never a mirror mount
       var b = m.frame && m.frame.bayes_fits;
       if (m.frame && m.frame.tasks) setBoardCount(m.frame.tasks);   // the kept benchmark-task count moves with task-audit's labels (438 -> 433 on 7 Sep)
@@ -467,7 +485,7 @@ function boot() {
     }).catch(function () {});
     if (ALL_AVAILABLE) fetch('data-all/manifest.json').then(function (r) { return r.json(); }).then(function (m) {
       var b = m.frame && m.frame.bayes_fits;
-      var nk = m.frame && (m.frame.tasks_kept || m.frame.tasks); var ab = dsCtl.element.querySelector('button[data-value="all"]');
+      var nk = m.frame && (m.frame.tasks_kept || m.frame.tasks); var ab = dsEl('all');
       if (nk && ab && !OFFICIAL) { var lb = Number(nk).toLocaleString('en-US') + ' tasks'; DATASETS.all.label = lb; DATASETS.all.short = lb; ab.textContent = lb; }
       setOpen('all', b && (b.drawn || b.n_fits) ? 'opens on the Bayesian estimator (' + (b.n_fits || 0) + ' served + ' + ((b.newer && b.newer.drawn_interim) || 0) + ' interim fits drawn; the rest await their fit)' : 'opens on the local-logistic fit (no Bayesian fit for this set yet)');
     }).catch(function () {});
@@ -1878,7 +1896,7 @@ function relTime(iso) {
 // dataset option label = the exact kept task count of the loaded frame (the project maintainers 7 Sep: counts, not code-names)
 function relabelDataset(f) {
   if (f && f.counts_of_record && applyOfficialNames(f.counts_of_record)) {   // the project maintainers' word of 7pm 8 Sep: official names with counts of record
-    var nk = f.tasks_kept || f.tasks_manifest || f.tasks; var bt0 = document.querySelector('#controls button[data-value="' + DATASET + '"]');
+    var nk = f.tasks_kept || f.tasks_manifest || f.tasks; var bt0 = dsEl(DATASET);
     if (bt0) bt0.title = DATASETS[DATASET].hover || '';   // no task counts beyond the set label (the project maintainers' word of 10 Sep)
     return;
   }
@@ -1886,7 +1904,7 @@ function relabelDataset(f) {
   if (!n) return;
   var lbl = (OFFICIAL && OFFICIAL[DATASET]) ? OFFICIAL[DATASET].label : (DATASETS[DATASET].label || DATASET);   // set label of record, never a bare count (the project maintainers' word of 10 Sep)
   DATASETS[DATASET].label = lbl; DATASETS[DATASET].short = lbl;
-  var btn = document.querySelector('#controls button[data-value="' + DATASET + '"]');
+  var btn = dsEl(DATASET);
   if (btn) btn.textContent = setWord(lbl);   // the label of record keeps its count for the status line; the switch reads the set name alone
 }
 
