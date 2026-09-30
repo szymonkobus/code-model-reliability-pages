@@ -1259,7 +1259,7 @@ function renderSeriesRow(sb, ri) {   // the run's row: cloned from renderSideBlo
 // FAMILY LABELS OF RECORD (the names maintainers' decision of 26 Sep, 20:2x UK, on decision 126's reasoning): a family prints under its name of record — 'Qwen2.5' for the
 // configurations the registry files under 'Qwen2.5-Instruct' (the maker's collection name; the sibling families print without the post-training word); the registry
 // key stays in the ids and the builder's tables, the printed field moves once, in place, before anything groups or prints by family
-var FAMILIES_OF_RECORD = { 'Qwen2.5-Instruct': 'Qwen2.5' };
+var FAMILIES_OF_RECORD = { 'Qwen2.5-Instruct': 'Qwen2.5', 'OLMo-2': 'OLMo 2' };   // models' decision 23:15 UK 30 Sep: the OLMo 2 line prints the maker's form, as Olmo 3 and Qwen2.5 do; the registry key 'OLMo-2' (the hue key, the join of every reader) stays in the ids and the builder's tables
 function nameFamilies(shared) {
   if (!shared || shared._fam_named) return;
   var fix = function (a) { if (a && FAMILIES_OF_RECORD[a.family]) a.family = FAMILIES_OF_RECORD[a.family]; };
