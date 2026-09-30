@@ -552,9 +552,8 @@ function boot() {
     options: [{ value: 'off', label: 'Off' }, { value: 'on', label: 'On' }],
     dflt: 'off',
     onchange: function (v) { state.pin = v; if (pinBox) pinBox.style.display = v === 'on' ? '' : 'none'; if (ready && !coercing) render(); } });
-  if (Kit.state.get('pin', 'off') !== 'off') quietSet(pinCtl, 'off');   // off at the open, whatever a carried link says (the project maintainers' word of 30 Sep 2026)
-  state.pin = 'off';
-  pinBox = document.createElement('label'); pinBox.className = 'pinlevel'; pinBox.style.display = 'none';
+  state.pin = Kit.state.get('pin', 'off') === 'on' ? 'on' : 'off';   // off at the open (the project maintainers' word of 30 Sep 2026); a link that carries ?pin=on opens pinned, as the other switches' params do (the maintainers's checker drives the pinned view by its URL, 30 Sep)
+  pinBox = document.createElement('label'); pinBox.className = 'pinlevel'; pinBox.style.display = state.pin === 'on' ? '' : 'none';
   var pinIn = document.createElement('input'); pinIn.type = 'text'; pinIn.inputMode = 'decimal'; pinIn.value = PIN_LEVEL_LAST; pinIn.size = 4; pinIn.setAttribute('aria-label', 'pinned failure rate, percent');
   var pinUnit = document.createElement('span'); pinUnit.textContent = '%';
   pinBox.appendChild(pinIn); pinBox.appendChild(pinUnit); row.appendChild(pinBox);
