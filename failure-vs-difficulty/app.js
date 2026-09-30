@@ -1063,6 +1063,7 @@ function headingShort(sb) {   // the group's heading: the bundle's label of reco
   if (/\(\s*[\d,]+\s+tasks?\)/.test(h) && sb && GROUP_HEADINGS_OF_RECORD[sb.pointer]) return GROUP_HEADINGS_OF_RECORD[sb.pointer];
   return h.split('; ')[0].replace(/\s*\(\s*[\d,]+\s+(?:tasks?|problems?)\)/g, '');   // no task or problem count on a heading (the project maintainers' 22 Sep word): a side pointer's heading that carries the set's count prints the set's name alone (30 Sep, the newbench sets' side blocks: 'on MATH-500 (500 problems)')
 }
+function sideHidden(a) { return !!(a && a.partial) && state.partial !== 'show'; }   // fitting's side form of 30 Sep (fit-methods 16b.9(c)): a partial side arm (32 answers against the set's 128) is hidden at the open and shown by the Partial models switch, like the panel's partial models (the project maintainers' word of 24 Sep)
 function sideCurve(a) {   // {zs, mid, lo, hi} for one side arm under the active chain and band level (same quantile rows as chainCurve)
   var src = state.def === 'average' ? a.bayes_avg : a.bayes_med;
   if (!src || !src.q) return null;
@@ -1093,20 +1094,23 @@ function renderSideBlock() {
   if (sb.membership) head.title = oneSentence(noSpecTags(sb.membership));
   sc.appendChild(head);
   // all / none for this group as the served set has them (the project maintainers' word of 22 Sep, via the coordination: every model group carries the two buttons)
-  ['all', 'none'].forEach(function (w) { var ab = document.createElement('button'); ab.className = 'util'; ab.textContent = w; ab.onclick = function () { sideSel = new Set(); if (w === 'all') sb.arms.forEach(function (_, k) { sideSel.add(k); }); render(); }; sc.appendChild(ab); });
+  ['all', 'none'].forEach(function (w) { var ab = document.createElement('button'); ab.className = 'util'; ab.textContent = w; ab.onclick = function () { sideSel = new Set(); if (w === 'all') sb.arms.forEach(function (a2, k2) { if (!sideHidden(a2)) sideSel.add(k2); }); render(); }; sc.appendChild(ab); });
   sb.arms.forEach(function (a, k) {
     var b = document.createElement('button');
-    b.className = 'chip' + (sideSel.has(k) ? '' : ' off') + (a.disclosure ? ' disclosed' : '');
+    var hiddenP = sideHidden(a);
+    b.className = 'chip' + (sideSel.has(k) && !hiddenP ? '' : ' off') + (a.disclosure ? ' disclosed' : '');
     b.style.color = a.color; b.style.borderColor = a.color;
     b.textContent = a.label; b.dataset.label = a.label; b.dataset.name = a.label; b.dataset.side = String(k);
+    if (hiddenP) { b.classList.add('partial-hidden'); b.disabled = true; b.setAttribute('aria-disabled', 'true'); }   // greyed and unselectable while hidden (the project maintainers' word of 7 Sep), shown by the Partial models switch
     var parts = [];
+    if (a.partial) parts.push('partial: ' + (Array.isArray(a.attempts_per_cell) ? a.attempts_per_cell.join(' / ') : String(a.attempts_per_cell || '')) + ' answers a task');   // the count on the state (fit-methods 16b.9(c))
     if (a.disclosure) parts.push(currentTruth(a.disclosure));
     if (a.set_label) parts.push('fitted on ' + a.set_label);
     if (a.gates_failed) parts.push(a.gate_face ? noSpecTags(String(a.gate_face)) : 'this fit failed its own check; drawn lighter, with its disclosure');   // the fit maintainers' own face sentence when the pointer carries it
     if (a.protocol) parts.push('read by ' + a.protocol + ': the base model continues the prompt, no chat turn');
     b.dataset.state = noSpecTags(parts.join(' · '));
     b.title = oneSentence(noSpecTags(parts[0] || a.label)) + ((a.protocol && !/^read by /.test(parts[0] || '')) ? ' (read by ' + a.protocol + ')' : '');   if (a.gates_failed) { b.title += ' \u00b7 this fit failed its own check and is drawn lighter'; b.classList.add('gated'); b.style.borderStyle = 'dashed'; }   // a failed fit is not a plain position (the project maintainers' current-truth word of 24 Sep; the maintainers's read): the hover says so and the chip's border is dashed
-    b.onclick = function () { if (sideSel.has(k)) sideSel.delete(k); else sideSel.add(k); render(); };
+    b.onclick = function () { if (sideHidden(a)) return; if (sideSel.has(k)) sideSel.delete(k); else sideSel.add(k); render(); };
     sc.appendChild(b);
   });
   if (!st) { st = document.createElement('div'); st.id = 'sidecrossings'; crossBox.parentNode.insertBefore(st, crossBox.nextSibling); }
@@ -1120,7 +1124,7 @@ function renderSideBlock() {
   var t = document.createElement('table');
   t.innerHTML = '<tr><th>model</th><th title="D50 — the difficulty at which the ' + (isAvg ? 'average failure rate' : 'median task&#39;s failure rate') + ' crosses 50% (' + (isAvg ? 'average rate' : 'median task') + ')">D50</th><th title="D99 — the difficulty at which the ' + (isAvg ? 'average failure rate' : 'median task&#39;s failure rate') + ' crosses 1%, a 99% solve chance (' + (isAvg ? 'average rate' : 'median task') + ')">D99</th></tr>';
   sb.arms.forEach(function (a, k) {
-    if (!sideSel.has(k)) return;
+    if (!sideSel.has(k) || sideHidden(a)) return;
     var cv = sideCurve(a); var rec = isAvg ? a.cross_record : null;
     var tr = document.createElement('tr'); var td0 = document.createElement('td'); td0.textContent = a.label; tr.appendChild(td0);
     ['50', '1'].forEach(function (lvl) {
@@ -1443,7 +1447,7 @@ function render() {
   if (sbC && state.src === 'bayes') {
     if (!sideSel) { sideSel = new Set(); }   // off by default (22 Sep)
     sbC.arms.forEach(function (a, k) {
-      if (!sideSel.has(k)) return;
+      if (!sideSel.has(k) || sideHidden(a)) return;
       var cvS = sideCurve(a); if (!cvS) return;
       var shS = pinShift(cvS); if (shS == null) return; PIN_DX = shS;
       if (cvS.lo) bands += '<path d="' + pathBand(cvS.zs, cvS.lo, cvS.hi) + '" fill="' + a.color + '" fill-opacity="0.10" data-chain-val data-side="' + k + '"/>';
@@ -2205,7 +2209,7 @@ function exportLegend() {   // one row per drawn model, in the plot's order
   });
   var sbC = sideBlock();
   if (sbC && state.src === 'bayes') sbC.arms.forEach(function (a, k) {
-    if ((sideSel && !sideSel.has(k)) || !sideCurve(a)) return;
+    if ((sideSel && !sideSel.has(k)) || sideHidden(a) || !sideCurve(a)) return;
     rows.push({ label: a.label, family: a.family || undefined, color: a.color, dash: curveDash(a), width: 1.6, marker: 'none' });
   });
   if (state.src === 'bayes') seriesRows().forEach(function (srL) { var seriesSel = seriesSelFor(srL._row);
