@@ -529,7 +529,7 @@
    },
    "source_stamp": "2026-09-30T15:05:33Z",
    "source_fp": "3e60e9206687",
-   "updated_at": "2026-09-30T15:12:35Z",
+   "updated_at": "2026-09-30T15:52:17Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -546,12 +546,12 @@
   },
   "ifeval": {
    "files": {
-    "shared": "shared.ifeval.90a300fe48c4.json",
-    "chain_average": "chain_average.ifeval.90a300fe48c4.json"
+    "shared": "shared.ifeval.d6ebda057b84.json",
+    "chain_average": "chain_average.ifeval.d6ebda057b84.json"
    },
    "label": "IFEval (541 problems)",
    "arms": "all",
-   "fingerprint": "90a300fe48c4",
+   "fingerprint": "d6ebda057b84",
    "frame": {
     "population_M": 33,
     "tasks": 541,
@@ -576,7 +576,7 @@
    },
    "source_stamp": "2026-09-30T15:07:45Z",
    "source_fp": "d6e3d226df7e",
-   "updated_at": "2026-09-30T15:14:27Z",
+   "updated_at": "2026-09-30T15:52:53Z",
    "missing": {
     "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
     "bayes": "no Bayesian fit for this set yet: fitting's set-of-record wave for it is in flight and its pointer is not served; the Bayesian option lands with it",
@@ -710,20 +710,20 @@
   },
   "aime": {
    "files": {
-    "shared": "shared.aime.efb3a7fabaae.json",
-    "chain_average": "chain_average.aime.efb3a7fabaae.json",
-    "bayes": "bayes.aime.efb3a7fabaae-1a2b1fb8311c.json"
+    "shared": "shared.aime.1bb43730bb6d.json",
+    "chain_average": "chain_average.aime.1bb43730bb6d.json",
+    "bayes": "bayes.aime.1bb43730bb6d-1a2b1fb8311c.json"
    },
    "label": "AIME (60 problems)",
    "arms": "all",
-   "fingerprint": "efb3a7fabaae",
+   "fingerprint": "1bb43730bb6d",
    "frame": {
     "population_M": 32,
     "tasks": 60,
     "keep_set_hash": "dc5cbadfe267",
-    "runs_fingerprint": "8553a58539c3",
+    "runs_fingerprint": "dd208f53e071",
     "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T13:54:12Z",
+    "build_ts": "2026-09-30T15:14:41Z",
     "vocab_ruled": "2026-08-27",
     "set": "aime",
     "set_label": "AIME (60 problems)",
@@ -734,14 +734,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "dc5cbadfe267",
     "tasks_used": "AIME (60 problems) \u2014 60 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-aime fp 202fb76787a1 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-aime fp 4aea87b8c7a6 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "d779986f5ec7",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T13:54:12Z",
-   "source_fp": "202fb76787a1",
-   "updated_at": "2026-09-30T15:13:42Z",
+   "source_stamp": "2026-09-30T15:14:41Z",
+   "source_fp": "4aea87b8c7a6",
+   "updated_at": "2026-09-30T15:52:49Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
