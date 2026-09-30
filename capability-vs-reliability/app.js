@@ -2797,7 +2797,8 @@ function headline(nFit, fit, nFull, sweeping) {
   if (fit) {
     // no verdict, no direction word (the project maintainers' word of 16 Sep 2026 17:4x: never a ranking — who is best, who is what — the page gives
     // information, it optimises nothing): the first screen states the fitted line's slope with its range and R, nothing more
-    ans = 'The fitted line across the models, ' + dName('y') + ' against ' + xw + ': slope ' + fit.b.toFixed(2) + ' [' + fit.lo.toFixed(2) + ', ' + fit.hi.toFixed(2) + '], R ' + fit.r.toFixed(2) + (inAxes() ? ', in the axes as set' : '') + (state.lw === 'bands' ? ', each dot weighted by its bands' : '') + '.';
+    // 30 Sep (the record of the day; the critic's F226): a stated slope says its space once — 'in logit space' by default, 'in the axes as set' under that option
+    ans = 'The fitted line across the models, ' + dName('y') + ' against ' + xw + ': slope ' + fit.b.toFixed(2) + ' [' + fit.lo.toFixed(2) + ', ' + fit.hi.toFixed(2) + '], R ' + fit.r.toFixed(2) + (inAxes() ? ', in the axes as set' : ', in logit space') + (state.lw === 'bands' ? ', each dot weighted by its bands' : '') + '.';
   } else ans = 'Too few fully measured models at these levels to fit a line (' + nFull + ' measured; the fit needs three).';
   if (isCap() && !capBlock()) { q = ''; ans = CAP_KEYS[state.xdef].name() + ' is not published for this set yet; no model is drawn.'; }   // the project maintainers' word of 24 Sep 12:4x: every view pressable; a missing file is said in the one sentence
   el.textContent = (q + ' ' + ans).trim();
