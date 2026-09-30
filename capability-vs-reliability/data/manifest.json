@@ -498,20 +498,21 @@
   },
   "math500": {
    "files": {
-    "shared": "shared.math500.356064c2d825.json",
-    "chain_average": "chain_average.math500.356064c2d825.json",
-    "bayes": "bayes.math500.356064c2d825-8c3375661f69.json"
+    "shared": "shared.math500.2d6d0c061bd0.json",
+    "chain_average": "chain_average.math500.2d6d0c061bd0.json",
+    "bayes": "bayes.math500.2d6d0c061bd0-681462eaa26a.json",
+    "bayes_prev": "bayes.math500.356064c2d825-8c3375661f69.json"
    },
    "label": "MATH-500 (500 problems)",
    "arms": "all",
-   "fingerprint": "356064c2d825",
+   "fingerprint": "2d6d0c061bd0",
    "frame": {
-    "population_M": 45,
+    "population_M": 46,
     "tasks": 500,
     "keep_set_hash": "326e66dcd9ab",
-    "runs_fingerprint": "f830f4554490",
+    "runs_fingerprint": "2233f5988c70",
     "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T19:38:46Z",
+    "build_ts": "2026-09-30T20:53:05Z",
     "vocab_ruled": "2026-08-27",
     "set": "math500",
     "set_label": "MATH-500 (500 problems)",
@@ -522,20 +523,28 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "326e66dcd9ab",
     "tasks_used": "MATH-500 (500 problems) \u2014 500 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-math500 fp 20d10cd881f7 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "47883bd17523",
+    "source": "failure-vs-difficulty data-math500 fp c8c9ad6a9c26 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "dd51cff4ec9d",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T19:38:46Z",
-   "source_fp": "20d10cd881f7",
-   "updated_at": "2026-09-30T20:44:31Z",
+   "source_stamp": "2026-09-30T20:53:05Z",
+   "source_fp": "c8c9ad6a9c26",
+   "updated_at": "2026-09-30T21:03:51Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
-    "unfitted": 0,
-    "served_wave": "nb-math500-20260914T1118Z",
+    "unfitted": 1,
+    "served_wave": "nb-math500-20260930T1910Z",
     "served_arms": 45
+   },
+   "flip": {
+    "from_wave": "nb-math500-20260914T1118Z",
+    "to_wave": "nb-math500-20260930T1910Z",
+    "from_fit_set": "8c3375661f69",
+    "to_fit_set": "681462eaa26a",
+    "at": "2026-09-30T21:03:51Z",
+    "from_interim_n": 0
    },
    "missing": {
     "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry"
