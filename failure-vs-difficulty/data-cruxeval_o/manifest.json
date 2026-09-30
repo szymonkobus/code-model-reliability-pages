@@ -1,13 +1,13 @@
 {
- "fingerprint": "a0ac2c1b46fb",
+ "fingerprint": "07b75e8a68ba",
  "fingerprint_inputs": {
   "content": "879bf4101b16",
   "wave": "cruxeval_o-live",
-  "body": "2bb200ec6180"
+  "body": "c0303a3b1e4d"
  },
  "frame": {
   "dataset": "cruxeval_o",
-  "dataset_label": "CRUXEval-O (800 tasks): every problem of the set",
+  "dataset_label": "CRUXEval, output prediction (800 problems): every problem of the set",
   "dataset_label_head": null,
   "dataset_label_source": {
    "field": "composed",
@@ -29,15 +29,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ceaae2d92751",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "8553a58539c3",
+  "runs_fingerprint": "dd208f53e071",
   "axis_wave": "cruxeval_o-live",
   "build_date": "2026-09-30",
-  "stamp": "2026-09-30T13:55:44Z",
+  "stamp": "2026-09-30T15:13:19Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/cruxeval_o",
-   "unified_built_at": "2026-09-30T13:22:38Z",
+   "unified_built_at": "2026-09-30T15:03:59Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.cruxeval_o.csv"
@@ -214,8 +214,8 @@
    "n_fits": 0,
    "drawn": 0,
    "withheld_by_rule": false,
-   "served_not_drawn": "no Bayesian fit set for CRUXEval-O on this axis yet: the maths wave is cut on the live axis; local-logistic curves shown meanwhile",
-   "note": "no Bayesian fit set for CRUXEval-O on this axis yet: the maths wave is cut on the live axis; local-logistic curves shown meanwhile"
+   "served_not_drawn": "no Bayesian fit set for CRUXEval, output prediction on this axis: local-logistic curves shown",
+   "note": "no Bayesian fit set for CRUXEval, output prediction on this axis: local-logistic curves shown"
   },
   "vocab_ruled": "2026-08-27",
   "interim": "kernel fits on all results available at build; refit hourly as results land",
@@ -236,7 +236,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-30T13:24:45Z",
+   "_stamp": "2026-09-30T14:26:23Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -401,17 +401,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-09-30T12:08:19Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20260930T120819Z.json",
-   "sha16": "d60fb53286c5ce52",
-   "census_mtime": "2026-09-30T12:09:00Z",
+   "stamp": "2026-09-30T13:30:12Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20260930T133012Z.json",
+   "sha16": "5d04d6888fadc364",
+   "census_mtime": "2026-09-30T13:31:08Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.a0ac2c1b46fb.json",
-  "chain_average": "chain_average.a0ac2c1b46fb.json",
-  "chain_median": "chain_median.a0ac2c1b46fb.json",
-  "dots": "dots.a0ac2c1b46fb.json"
+  "shared": "shared.07b75e8a68ba.json",
+  "chain_average": "chain_average.07b75e8a68ba.json",
+  "chain_median": "chain_median.07b75e8a68ba.json",
+  "dots": "dots.07b75e8a68ba.json"
  }
 }
