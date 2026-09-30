@@ -885,7 +885,7 @@ function boot() {
     Kit.switchControl({ mount: sb,
       key: ax[0], label: ax[1],
       options: [{ value: 'logit', label: 'Logit' },
-                { value: 'raw', label: 'Linear' }],   // the project maintainers 2026-09-15: the linear axis is the failure-level percent, not a share of tasks — 'task shares' was a false name
+                { value: 'raw', label: 'Normal' }],   // the 30 Sep word: the plain scale is 'normal' (logit | normal, each axis its own switch); 2026-09-15: the normal axis is the failure-level percent, not a share of tasks
       dflt: 'logit',
       onchange: function (v) {
         state[ax[0]] = v === 'raw' ? 'raw' : 'logit';
@@ -1449,7 +1449,7 @@ function phoneFold() {   // phone (<=600 px): short pill labels; the rarely touc
   var cc = document.getElementById('chartcontrols'); if (!cc) return;
   var more = document.getElementById('morecontrols');
   if (!more) {
-    var SHORT = { data: shortMap(), xdef: { crossing: 'D', capC: CAP_KEYS.capC.short, capC_z: CAP_KEYS.capC_z.short, capC_j: CAP_KEYS.capC_j.short }, xs: { logit: 'logit', raw: 'linear' }, ys: { logit: 'logit', raw: 'linear' }, line: { off: 'Off', steps: 'logit', axes: 'axes as set' }, lw: { equal: 'each dot equal', bands: 'by the 80% uncertainty bands' }, resid: { off: 'Off', on: 'On' }, src: { project: 'project', bayes: 'Bayesian' }, def: { average: 'average', median: 'median task' } };
+    var SHORT = { data: shortMap(), xdef: { crossing: 'D', capC: CAP_KEYS.capC.short, capC_z: CAP_KEYS.capC_z.short, capC_j: CAP_KEYS.capC_j.short }, xs: { logit: 'logit', raw: 'normal' }, ys: { logit: 'logit', raw: 'normal' }, line: { off: 'Off', steps: 'logit', axes: 'axes as set' }, lw: { equal: 'each dot equal', bands: 'by the 80% uncertainty bands' }, resid: { off: 'Off', on: 'On' }, src: { project: 'project', bayes: 'Bayesian' }, def: { average: 'average', median: 'median task' } };
     Object.keys(SHORT).forEach(function (k) { document.querySelectorAll('.kit-switch[data-key="' + k + '"] button').forEach(function (b) { if (SHORT[k][b.dataset.value]) b.textContent = SHORT[k][b.dataset.value]; }); });
     more = document.createElement('details'); more.id = 'morecontrols'; more.className = 'about'; more.innerHTML = '<summary>More controls</summary>';
     var moreRow = document.createElement('div'); moreRow.className = 'kit-filter-row kit-static'; moreRow.id = 'moreswitches'; more.appendChild(moreRow);
