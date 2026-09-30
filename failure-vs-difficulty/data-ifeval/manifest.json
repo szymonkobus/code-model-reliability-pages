@@ -1,13 +1,13 @@
 {
- "fingerprint": "f26059dc8114",
+ "fingerprint": "d6e3d226df7e",
  "fingerprint_inputs": {
   "content": "a85ef44d4e2a",
   "wave": "ifeval-live",
-  "body": "6e5b158de24c"
+  "body": "883edc18f689"
  },
  "frame": {
   "dataset": "ifeval",
-  "dataset_label": "IFEval (541 tasks): every problem of the set",
+  "dataset_label": "IFEval (541 problems): every problem of the set",
   "dataset_label_head": null,
   "dataset_label_source": {
    "field": "composed",
@@ -29,15 +29,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ea009d5c6cd1",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "8553a58539c3",
+  "runs_fingerprint": "dd208f53e071",
   "axis_wave": "ifeval-live",
   "build_date": "2026-09-30",
-  "stamp": "2026-09-30T13:57:22Z",
+  "stamp": "2026-09-30T15:07:45Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/ifeval",
-   "unified_built_at": "2026-09-30T13:22:38Z",
+   "unified_built_at": "2026-09-30T15:03:59Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.ifeval.csv"
@@ -186,8 +186,8 @@
    "n_fits": 0,
    "drawn": 0,
    "withheld_by_rule": false,
-   "served_not_drawn": "no Bayesian fit set for IFEval on this axis yet: the maths wave is cut on the live axis; local-logistic curves shown meanwhile",
-   "note": "no Bayesian fit set for IFEval on this axis yet: the maths wave is cut on the live axis; local-logistic curves shown meanwhile"
+   "served_not_drawn": "no Bayesian fit set for IFEval on this axis: local-logistic curves shown",
+   "note": "no Bayesian fit set for IFEval on this axis: local-logistic curves shown"
   },
   "vocab_ruled": "2026-08-27",
   "interim": "kernel fits on all results available at build; refit hourly as results land",
@@ -208,7 +208,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-30T13:24:45Z",
+   "_stamp": "2026-09-30T14:26:23Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -373,17 +373,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-09-30T12:08:19Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20260930T120819Z.json",
-   "sha16": "d60fb53286c5ce52",
-   "census_mtime": "2026-09-30T12:09:00Z",
+   "stamp": "2026-09-30T13:30:12Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20260930T133012Z.json",
+   "sha16": "5d04d6888fadc364",
+   "census_mtime": "2026-09-30T13:31:08Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.f26059dc8114.json",
-  "chain_average": "chain_average.f26059dc8114.json",
-  "chain_median": "chain_median.f26059dc8114.json",
-  "dots": "dots.f26059dc8114.json"
+  "shared": "shared.d6e3d226df7e.json",
+  "chain_average": "chain_average.d6e3d226df7e.json",
+  "chain_median": "chain_median.d6e3d226df7e.json",
+  "dots": "dots.d6e3d226df7e.json"
  }
 }
