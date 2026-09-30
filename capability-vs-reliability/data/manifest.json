@@ -143,7 +143,7 @@
    },
    "source_stamp": "2026-09-30T09:45:29Z",
    "source_fp": "7bdccb58a799",
-   "updated_at": "2026-09-30T17:00:45Z",
+   "updated_at": "2026-09-30T17:24:59Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -191,7 +191,7 @@
    },
    "source_stamp": "2026-09-30T09:55:46Z",
    "source_fp": "51bb3efd3c1e",
-   "updated_at": "2026-09-30T17:01:02Z",
+   "updated_at": "2026-09-30T17:25:12Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -240,7 +240,7 @@
    },
    "source_stamp": "2026-09-30T09:56:11Z",
    "source_fp": "351b373c4881",
-   "updated_at": "2026-09-30T17:01:14Z",
+   "updated_at": "2026-09-30T17:25:25Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -289,7 +289,7 @@
    },
    "source_stamp": "2026-09-30T09:56:54Z",
    "source_fp": "e6426acb133c",
-   "updated_at": "2026-09-30T17:01:25Z",
+   "updated_at": "2026-09-30T17:25:37Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -338,7 +338,7 @@
    },
    "source_stamp": "2026-09-30T16:52:22Z",
    "source_fp": "75a59970721a",
-   "updated_at": "2026-09-30T17:02:23Z",
+   "updated_at": "2026-09-30T17:26:43Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -383,7 +383,7 @@
    },
    "source_stamp": "2026-09-30T09:54:05Z",
    "source_fp": "cbfa06e47472",
-   "updated_at": "2026-09-30T17:03:24Z",
+   "updated_at": "2026-09-30T17:27:42Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -431,7 +431,7 @@
    },
    "source_stamp": "2026-09-30T09:48:23Z",
    "source_fp": "85a125c97aa6",
-   "updated_at": "2026-09-30T17:03:36Z",
+   "updated_at": "2026-09-30T17:27:57Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -480,7 +480,7 @@
    },
    "source_stamp": "2026-09-30T09:48:56Z",
    "source_fp": "ff0c5b8149d8",
-   "updated_at": "2026-09-30T17:03:47Z",
+   "updated_at": "2026-09-30T17:28:23Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -529,7 +529,7 @@
    },
    "source_stamp": "2026-09-30T16:56:23Z",
    "source_fp": "1a3317ed3bc4",
-   "updated_at": "2026-09-30T17:07:22Z",
+   "updated_at": "2026-09-30T17:32:32Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -581,12 +581,12 @@
   },
   "gsm8k_platinum": {
    "files": {
-    "shared": "shared.gsm8k_platinum.dc03eea49aec.json",
-    "chain_average": "chain_average.gsm8k_platinum.dc03eea49aec.json"
+    "shared": "shared.gsm8k_platinum.e8a4bab21bf4.json",
+    "chain_average": "chain_average.gsm8k_platinum.e8a4bab21bf4.json"
    },
    "label": "GSM8K-Platinum (1,209 problems)",
    "arms": "all",
-   "fingerprint": "dc03eea49aec",
+   "fingerprint": "e8a4bab21bf4",
    "frame": {
     "population_M": 39,
     "tasks": 1209,
@@ -611,7 +611,7 @@
    },
    "source_stamp": "2026-09-30T16:59:26Z",
    "source_fp": "0f680a983d00",
-   "updated_at": "2026-09-30T17:08:08Z",
+   "updated_at": "2026-09-30T17:33:34Z",
    "missing": {
     "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
     "bayes": "no Bayesian fit for this set yet: fitting's set-of-record wave for it is in flight and its pointer is not served; the Bayesian option lands with it"
@@ -657,12 +657,12 @@
   },
   "cruxeval_o": {
    "files": {
-    "shared": "shared.cruxeval_o.9a28227869cc.json",
-    "chain_average": "chain_average.cruxeval_o.9a28227869cc.json"
+    "shared": "shared.cruxeval_o.55e1bcf1cbcd.json",
+    "chain_average": "chain_average.cruxeval_o.55e1bcf1cbcd.json"
    },
    "label": "CRUXEval \u00b7 output prediction (800 problems)",
    "arms": "all",
-   "fingerprint": "9a28227869cc",
+   "fingerprint": "55e1bcf1cbcd",
    "frame": {
     "population_M": 40,
     "tasks": 800,
@@ -687,7 +687,7 @@
    },
    "source_stamp": "2026-09-30T16:58:49Z",
    "source_fp": "d79d3f0b3290",
-   "updated_at": "2026-09-30T17:08:00Z",
+   "updated_at": "2026-09-30T17:33:24Z",
    "missing": {
     "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
     "bayes": "no Bayesian fit for this set yet: fitting's set-of-record wave for it is in flight and its pointer is not served; the Bayesian option lands with it"
@@ -726,7 +726,7 @@
    },
    "source_stamp": "2026-09-30T16:57:27Z",
    "source_fp": "ffbb97a9ac76",
-   "updated_at": "2026-09-30T17:07:48Z",
+   "updated_at": "2026-09-30T17:33:15Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -740,7 +740,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-09-30T16:25:17Z",
+  "stamp": "2026-09-30T17:24:55Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,
