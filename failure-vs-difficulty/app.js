@@ -1060,7 +1060,7 @@ var SHORT_LABELS_OF_RECORD = { 'olmo-3.1-7b-rl-zero-code-final_completion': 'RL-
 function headingShort(sb) {   // the group's heading: the bundle's label of record when it is the plain group string; the fit maintainers' plain string of record while the bundle still carries a set label with a count (no task count on a heading, the project maintainers' 22 Sep word)
   var h = String((sb && sb.heading) || 'models fitted alongside the set');
   if (/\(\s*[\d,]+\s+tasks?\)/.test(h) && sb && GROUP_HEADINGS_OF_RECORD[sb.pointer]) return GROUP_HEADINGS_OF_RECORD[sb.pointer];
-  return h.split('; ')[0];
+  return h.split('; ')[0].replace(/\s*\(\s*[\d,]+\s+(?:tasks?|problems?)\)/g, '');   // no task or problem count on a heading (the project maintainers' 22 Sep word): a side pointer's heading that carries the set's count prints the set's name alone (30 Sep, the newbench sets' side blocks: 'on MATH-500 (500 problems)')
 }
 function sideCurve(a) {   // {zs, mid, lo, hi} for one side arm under the active chain and band level (same quantile rows as chainCurve)
   var src = state.def === 'average' ? a.bayes_avg : a.bayes_med;
