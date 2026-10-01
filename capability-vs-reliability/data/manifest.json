@@ -597,20 +597,20 @@
   },
   "gsm8k_platinum": {
    "files": {
-    "shared": "shared.gsm8k_platinum.681a70042899.json",
-    "chain_average": "chain_average.gsm8k_platinum.681a70042899.json",
-    "bayes": "bayes.gsm8k_platinum.681a70042899-ef78d2729cad.json"
+    "shared": "shared.gsm8k_platinum.21879ef7e68b.json",
+    "chain_average": "chain_average.gsm8k_platinum.21879ef7e68b.json",
+    "bayes": "bayes.gsm8k_platinum.21879ef7e68b-5bf8c7aa2f22.json"
    },
    "label": "GSM8K-Platinum (1209 problems)",
    "arms": "all",
-   "fingerprint": "681a70042899",
+   "fingerprint": "21879ef7e68b",
    "frame": {
     "population_M": 47,
     "tasks": 1209,
     "keep_set_hash": "ff1457decdf7",
-    "runs_fingerprint": "949df961b579",
+    "runs_fingerprint": "ce23b8873d86",
     "build_date": "2026-10-01",
-    "build_ts": "2026-10-01T02:24:44Z",
+    "build_ts": "2026-10-01T04:29:54Z",
     "vocab_ruled": "2026-08-27",
     "set": "gsm8k_platinum",
     "set_label": "GSM8K-Platinum (1209 problems)",
@@ -621,14 +621,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ff1457decdf7",
     "tasks_used": "GSM8K-Platinum (1209 problems) \u2014 1209 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-gsm8k_platinum fp 7ced848a72e7 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-gsm8k_platinum fp c26ad1946329 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "252bd5f2c6cc",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-01T02:24:44Z",
-   "source_fp": "7ced848a72e7",
-   "updated_at": "2026-10-01T02:44:31Z",
+   "source_stamp": "2026-10-01T04:29:54Z",
+   "source_fp": "c26ad1946329",
+   "updated_at": "2026-10-01T05:18:20Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
