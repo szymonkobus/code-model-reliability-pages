@@ -1,9 +1,9 @@
 {
- "fingerprint": "115fec10d01b",
+ "fingerprint": "36d661e52ac7",
  "fingerprint_inputs": {
-  "content": "818269ea8046",
+  "content": "cbb77c9eade7",
   "wave": "pool-20260910T2244Z",
-  "body": "e905d7a275ee"
+  "body": "6fd502970c4f"
  },
  "frame": {
   "dataset": "top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 58,
   "tasks": 858,
   "keep_set_hash": "532d0efad8a5",
-  "inputs_content_sha": "818269ea8046",
+  "inputs_content_sha": "cbb77c9eade7",
   "tasks_on_axis": 858,
   "tasks_kept": 858,
   "tasks_awaiting_axis": 0,
@@ -34,17 +34,17 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "223c7bd08acb",
+  "runs_fingerprint": "f795d4ce4ed2",
   "axis_wave": "pool-20260910T2244Z",
   "build_date": "2026-10-01",
-  "stamp": "2026-10-01T12:28:35Z",
+  "stamp": "2026-10-01T17:34:29Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-01T11:39:19Z",
+   "unified_built_at": "2026-10-01T15:34:26Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.top.csv"
@@ -465,32 +465,32 @@
     {
      "id": "deepseek-coder-6.7b-rl-night3-step250",
      "arm_id": "dsc6.7b-rl-night3-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8, fixed set (250 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8, fixed (250 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night3-step500",
      "arm_id": "dsc6.7b-rl-night3-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8, fixed set (500 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8, fixed (500 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night4-step250",
      "arm_id": "dsc6.7b-rl-night4-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8, fixed set (250 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8, fixed (250 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night4-step500",
      "arm_id": "dsc6.7b-rl-night4-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8, fixed set (500 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8, fixed (500 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night5-step250",
      "arm_id": "dsc6.7b-rl-night5-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8, fixed set (250 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8, fixed (250 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night5-step500",
      "arm_id": "dsc6.7b-rl-night5-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8, fixed set (500 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8, fixed (500 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night6-step100",
@@ -505,17 +505,17 @@
     {
      "id": "deepseek-coder-6.7b-rl-redraw-a-step250",
      "arm_id": "dsc6.7b-rl-redraw-a-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8 (250 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8, 1 redraw (250 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-redraw-b-step250",
      "arm_id": "dsc6.7b-rl-redraw-b-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8 (250 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8, 2 redraws (250 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-redraw-c-step250",
      "arm_id": "dsc6.7b-rl-redraw-c-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8 (250 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8, 1 redraw (250 steps)"
     },
     {
      "id": "deepseek-coder-6.7b-rl-redraw25-a-step250",
@@ -665,7 +665,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-01T12:28:39Z",
+   "_stamp": "2026-10-01T16:29:46Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -830,17 +830,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-01T10:44:25Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261001T104425Z.json",
-   "sha16": "560fc52c597665c0",
-   "census_mtime": "2026-10-01T10:45:49Z",
+   "stamp": "2026-10-01T14:20:09Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261001T142009Z.json",
+   "sha16": "92420b65d643dd06",
+   "census_mtime": "2026-10-01T14:22:54Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.115fec10d01b.json",
-  "chain_average": "chain_average.115fec10d01b.json",
-  "chain_median": "chain_median.115fec10d01b.json",
-  "dots": "dots.115fec10d01b.json"
+  "shared": "shared.36d661e52ac7.json",
+  "chain_average": "chain_average.36d661e52ac7.json",
+  "chain_median": "chain_median.36d661e52ac7.json",
+  "dots": "dots.36d661e52ac7.json"
  }
 }

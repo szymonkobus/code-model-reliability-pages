@@ -1,14 +1,14 @@
 {
- "fingerprint": "4a04577cd888",
+ "fingerprint": "cd8540915833",
  "fingerprint_inputs": {
-  "content": "a4e3800ed6c9",
+  "content": "e13457c5fccf",
   "wave": "cruxeval_i-live",
-  "body": "bba30a9fc5ad"
+  "body": "ab0e5344fec3"
  },
  "frame": {
   "dataset": "cruxeval_i",
-  "dataset_label": "CRUXEval \u00b7 input prediction (800 problems)",
-  "dataset_label_head": "CRUXEval \u00b7 input prediction (800 problems)",
+  "dataset_label": "CRUXEval input",
+  "dataset_label_head": "CRUXEval input",
   "dataset_label_source": {
    "field": "label_of_record",
    "pointer": "serving_nb_cruxeval_i.json",
@@ -17,28 +17,28 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 43,
-  "fitted_M": 43,
-  "complete_M": 43,
-  "sampled_M": 43,
-  "difficulty_population_M": 43,
+  "population_M": 44,
+  "fitted_M": 44,
+  "complete_M": 44,
+  "sampled_M": 44,
+  "difficulty_population_M": 44,
   "tasks": 800,
   "keep_set_hash": "ceaae2d92751",
-  "inputs_content_sha": "a4e3800ed6c9",
+  "inputs_content_sha": "e13457c5fccf",
   "tasks_on_axis": 800,
   "tasks_kept": 800,
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ceaae2d92751",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "595611d3a669",
+  "runs_fingerprint": "ca1031dd9643",
   "axis_wave": "cruxeval_i-live",
   "build_date": "2026-10-01",
-  "stamp": "2026-10-01T10:39:01Z",
+  "stamp": "2026-10-01T19:18:13Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/cruxeval_i",
-   "unified_built_at": "2026-10-01T10:35:47Z",
+   "unified_built_at": "2026-10-01T19:09:40Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.cruxeval_i.csv"
@@ -69,6 +69,10 @@
     "of": 800
    },
    "deepseek-ai/deepseek-coder-6.7b-instruct": {
+    "tasks": 800,
+    "of": 800
+   },
+   "dsc6.7b-rl-night4-s500": {
     "tasks": 800,
     "of": 800
    },
@@ -249,9 +253,9 @@
     "deepseek-ai/deepseek-coder-6.7b-instruct"
    ],
    "served_not_drawn": null,
-   "custody_dir": "definitions/fitting/waves/nb-cruxeval_i-20260930T1503Z/view_v4/results",
+   "custody_dir": "definitions/fitting/waves/nb-cruxeval_i-20260930T1503Z/view_v5/results",
    "set_fingerprint": "25cf9e981c9d",
-   "pointer_updated_at": "2026-10-01T08:11:00Z",
+   "pointer_updated_at": "2026-10-01T17:13:14Z",
    "n_fits": 49,
    "note": null,
    "gates": {
@@ -266,7 +270,7 @@
      "Qwen--Qwen2.5-Coder-7B-Instruct_t0.2",
      "Qwen--Qwen3-32B_chat-t0.8"
     ],
-    "source": "definitions/fitting/waves/nb-cruxeval_i-20260930T1503Z/view_v4/gates_summary.json"
+    "source": "definitions/fitting/waves/nb-cruxeval_i-20260930T1503Z/view_v5/gates_summary.json"
    },
    "provisional_classes": null,
    "basis_truncation": null,
@@ -302,7 +306,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-01T10:26:50Z",
+   "_stamp": "2026-10-01T18:26:29Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -467,17 +471,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-01T09:06:46Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261001T090646Z.json",
-   "sha16": "ea86d0f2ccd1599a",
-   "census_mtime": "2026-10-01T09:08:39Z",
+   "stamp": "2026-10-01T17:04:50Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261001T170450Z.json",
+   "sha16": "7bcf2ba9843e46ca",
+   "census_mtime": "2026-10-01T17:06:39Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.4a04577cd888.json",
-  "chain_average": "chain_average.4a04577cd888.json",
-  "chain_median": "chain_median.4a04577cd888.json",
-  "dots": "dots.4a04577cd888.json"
+  "shared": "shared.cd8540915833.json",
+  "chain_average": "chain_average.cd8540915833.json",
+  "chain_median": "chain_median.cd8540915833.json",
+  "dots": "dots.cd8540915833.json"
  }
 }

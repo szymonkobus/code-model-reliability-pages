@@ -22,7 +22,7 @@ h1 { font-size:1.45rem; margin:.2rem 0 .1rem; }
   background:var(--panel); padding:.14rem .6rem; cursor:pointer;
   font:inherit; font-size:.78rem; color:var(--ink-2); }
 #levels .preset:hover { color:var(--ink); }
-#levels .preset[aria-pressed="true"], #morelevels .preset[aria-pressed="true"] { background:var(--inset); color:var(--ink); box-shadow:inset 0 0 0 1px var(--border2); }   /* the preset in force reads pressed like a switch option (critic 2026-09-08) */
+#levels .preset[aria-pressed="true"], #morelevels .preset[aria-pressed="true"] { background:var(--inset); color:var(--ink); box-shadow:inset 0 0 0 1px var(--border2); }   /* the preset in force reads pressed like a switch option (the critic 2026-09-08) */
 #controls .kit-switch-seg { flex-wrap:wrap; max-width:100%; }   /* five Dataset options must wrap, not run off a phone (both official pages, 2026-09-05) */
 #sweeptools { margin:.35rem 0 0; } #sweeptools > summary { font-size:.85rem; color:#52514e; cursor:pointer; } #sweeprow { margin:.3rem 0 0; }
 #levels .kchip { padding:.1rem .45rem; }
@@ -95,14 +95,13 @@ a { color:#0b57d0; }
 .chip .flag { margin-left:.3rem; color:#b3261e; font-size:.85em; }   /* a flagged fit carries its flag on the chip (Definitions, 22 Sep) */
 #armsbar { display:flex; flex-wrap:wrap; align-items:flex-start; gap:.35rem 1.1rem; }   /* a clear gap between the model sets in the row (the project maintainers' word, 22 Sep 11:1x: no gap between the first set's last chip and the next label) */
 #armsbar .kit-switch { display:flex; flex-direction:column; align-items:flex-start; gap:.15rem; } #morecontrols .kit-filter-row { margin:.3rem 0; } }
-/* the export row and its buttons take the reference look from kit.css (.kit-export, .kit-export-btn): one look on every site (the maintainers, 21 Sep) */
+/* the export row and its buttons take the reference look from kit.css (.kit-export, .kit-export-btn): one look on every site (the reference designer, 21 Sep) */
 </style></head><body>
 <h1>Capability vs reliability</h1>
 <p id="headline" data-chain-val="def src xdef fitci">the answer loads with the data</p>
 <div id="framebar" data-critical-text class="sub" style="font-size:.8rem;margin:.2rem 0 .4rem;color:#52514e;min-height:1.2em" data-chain-inv>frame line loads with the data</div>
 <div id="chartrow">
 <div id="chartcol">
-<div id="datanote" class="sub" role="status" hidden></div>
 <div id="chartbox" aria-label="reliability vs capability scatter">
   <svg id="chart" viewBox="0 0 860 720" data-plot><g id="plotg"></g><g id="trackg" data-export="omit"></g></svg>
 </div>
@@ -116,6 +115,7 @@ a { color:#0b57d0; }
 </div>
 <section id="models" class="group" aria-label="model selection"><div class="grouplabel">Models shown</div><div id="armsbar"></div>
 <div class="chips" id="chips"></div>
+<div id="datanote" class="sub" role="status" hidden></div>
 <div id="chips-runs"></div>
 </section>
 <div id="offpage" hidden aria-hidden="true">

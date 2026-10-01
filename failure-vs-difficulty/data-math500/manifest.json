@@ -1,14 +1,14 @@
 {
- "fingerprint": "c780aa847fe3",
+ "fingerprint": "11cb887c235b",
  "fingerprint_inputs": {
-  "content": "065edaf597da",
+  "content": "e164e66d48cb",
   "wave": "math500-live",
-  "body": "4fdd3ee735b6"
+  "body": "a67329a0ae6e"
  },
  "frame": {
   "dataset": "math500",
-  "dataset_label": "MATH-500 (500 problems)",
-  "dataset_label_head": "MATH-500 (500 problems)",
+  "dataset_label": "MATH-500",
+  "dataset_label_head": "MATH-500",
   "dataset_label_source": {
    "field": "label_of_record",
    "pointer": "serving_nb_math500.json",
@@ -17,28 +17,28 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 48,
-  "fitted_M": 48,
-  "complete_M": 48,
-  "sampled_M": 48,
-  "difficulty_population_M": 48,
+  "population_M": 49,
+  "fitted_M": 49,
+  "complete_M": 49,
+  "sampled_M": 49,
+  "difficulty_population_M": 49,
   "tasks": 500,
   "keep_set_hash": "326e66dcd9ab",
-  "inputs_content_sha": "065edaf597da",
+  "inputs_content_sha": "e164e66d48cb",
   "tasks_on_axis": 500,
   "tasks_kept": 500,
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "326e66dcd9ab",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "e4758e21ce7f",
+  "runs_fingerprint": "ca1031dd9643",
   "axis_wave": "math500-live",
   "build_date": "2026-10-01",
-  "stamp": "2026-10-01T10:34:25Z",
+  "stamp": "2026-10-01T19:12:39Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/math500",
-   "unified_built_at": "2026-10-01T10:29:09Z",
+   "unified_built_at": "2026-10-01T19:09:40Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.math500.csv"
@@ -129,6 +129,10 @@
     "of": 500
    },
    "allenai/OLMo-2-1124-13B-Instruct": {
+    "tasks": 500,
+    "of": 500
+   },
+   "olmo-3-7b-think-step0025-Thinking": {
     "tasks": 500,
     "of": 500
    },
@@ -264,9 +268,9 @@
     "google/gemini-3.6-flash"
    ],
    "served_not_drawn": null,
-   "custody_dir": "definitions/fitting/waves/nb-math500-20261001T0143Z/view_v3/results",
+   "custody_dir": "definitions/fitting/waves/nb-math500-20261001T0143Z/view_v4/results",
    "set_fingerprint": "df43f13d9b8a",
-   "pointer_updated_at": "2026-10-01T08:10:59Z",
+   "pointer_updated_at": "2026-10-01T17:13:11Z",
    "n_fits": 47,
    "note": null,
    "gates": {
@@ -277,7 +281,7 @@
     "rhat_max": 1.01,
     "bulk_ess_min": 660,
     "flagged": [],
-    "source": "definitions/fitting/waves/nb-math500-20261001T0143Z/view_v3/gates_summary.json"
+    "source": "definitions/fitting/waves/nb-math500-20261001T0143Z/view_v4/gates_summary.json"
    },
    "provisional_classes": null,
    "basis_truncation": null,
@@ -345,17 +349,17 @@
   },
   "side_arms": {
    "served": true,
-   "serving_word": "GO (difficulty, 1 Oct 08:2xZ) \u2014 this GO covers three pointers, each flipped alone outside the tick's minutes, the set pointers unchanged: (1) serving_sft_nb_aime.rl.json sha12 499de757c05d (the GO on c26b3a5f4c2f void) \u2014 the same wave, fits, rows and figures as read (the two fine-tunes equal to the served side on every column; the RL arm's D50 and D99 both the bound below at \u22121.4045, all 32,000 draws censored), the label's kinds clause now two post-training fine-tunes and one RL checkpoint, arm_kind RL from the index row, arm_fit_settings_record on the three arms and divergence_counts with its note; (2) serving_sft_nb_math500.rl.json sha12 1afe7b1fd477 \u2014 the new side wave sft-nb-math500-20261001T0738Z on the served MATH-500 axis, bound to the set df43f13d9b8a, five arms positioned and never voting: the four fine-tunes' rows equal to the served side's on every column, and dsc6.7b-rl-night4-s500_t0.5 new with D50 a point at \u22123.855 [\u22124.089, \u22123.690] and p_left 0.041 disclosed, D99 the bound below at \u22124.359 (21 numeric draws of 32,000), depth 12 and the seed of record on four chains, the divergence gate pass, the label four post-training fine-tunes and one RL checkpoint, arm_kind RL, the per-arm settings record on the five; (3) serving_nb_cruxeval_o.v4.json sha12 2cddab60b5a1 \u2014 axis 85d4b406db38 SAME, the 57 fits hard-linked, no figure changed, no D50 bound, D99 bounds 5 as served, no hard-edge record, the picture 52 + 5, the scope note present, the columns and the class rule only. fit-critic 08:3x: all three clean, nothing holds any of the three.",
+   "serving_word": "difficulty's GO (16:5xZ 1 Oct, the eleven together): fit-methods' ruling (ff) re-tabled on the same fits \u2014 the D50 and D99 80% uncertainty bands as the censored quantile over every draw of the average-rate chain, the engine's in-span band beside as a maintainer column, the (ee) easy-edge record leaves, d1's right-censored share; no median moved \u2014 the eleven stagings by their shas: knowledge/drafts/nb_staging/serving_nb_aime.ff.json ed3106d2531d, knowledge/drafts/side_staging/serving_sft_nb_aime.ff.json 07c5c37c30dd, serving_nb_math500.ff.json a3eddb24b6cd, serving_sft_nb_math500.ff.json 482dd0f710b7, serving_nb_gsm8k_platinum.ff.json 62fcbfda4aba, serving_sft_nb_gsm8k_platinum.ff.json 776e49d48358, serving_nb_ifeval.ff.json 9726df6da43a, serving_sft_nb_ifeval.ff.json ad6a72ea2715, serving_nb_cruxeval_i.ff.json 7e57b56e549a, serving_nb_cruxeval_o.ff.json d54f5cfd708a, serving_sft_nb_cruxeval_o.ff.json 0c2ad82c8850 \u2014 flipped together after the 17:06 tick's dated end line; the GO covers the eleven shas alone and is void on a byte change (difficulty's read 16:56Z on these bytes; fit-critic and fit-methods with nothing against)",
    "wave_id": "sft-nb-math500-20261001T0738Z",
    "n_arms": 5,
-   "heading": "models fitted alongside the set, on MATH-500 (500 problems); four post-training fine-tunes and one RL checkpoint, positioned on the served MATH-500 axis unchanged; 500 problems positioned for each model, each model's own figures in its entry",
-   "heading_note": "label = the set's name and problem count as the set's own file names them (MATH-500 (500 problems)); fitted figures beside it in each entry",
+   "heading": "models fitted alongside the set, on MATH-500; four post-training fine-tunes and one RL checkpoint, positioned on the served MATH-500 axis unchanged; each model's own figures in its entry",
+   "heading_note": "label = the set's name as the dataset list gives it (MATH-500), no count in a label; the problem count in n_tasks and the figures' quiet count; fitted figures beside it in each entry",
    "membership": "every problem of the set has results for these models; positions come from the served axis, unchanged",
    "axis_rule": "the served MATH-500 axis unchanged: study models are positioned on an axis they did not shape (ruling of 17 Sep); the live axis holds these models as positioned, not voting; positions are comparable with the served set's",
    "axis_pinned_to_served": true,
    "cut_at": "2026-10-01T07:38:08Z",
    "completed_at": "2026-10-01T08:04:36Z",
-   "updated_at": "2026-10-01T09:19:01Z",
+   "updated_at": "2026-10-01T17:13:12Z",
    "pointer": "definitions/fitting/serving_sft_nb_math500.json",
    "arms": [
     {
@@ -383,8 +387,8 @@
      },
      "n_tasks_positioned": 500,
      "n_cells": 500,
-     "set_label": "MATH-500 (500 problems)",
-     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served MATH-500 axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 2,048 tokens); a partial result: 32 answers a problem where the set's models stand at 128; shown on the toggle with its count, never in a same-attempts headline; re-fitted when its answers reach 128; a direct fine-tune of Qwen3 8B; the base model, Qwen3 8B, votes on this axis through its served runs (Qwen--Qwen3-8B_think-t0.6, Qwen--Qwen3-8B_t0.5); the fit stands on MATH-500 (500 problems); 500 positioned in this fit (every problem of the set); results as they stood at the cut (1 Oct 08:38, the maths sets' data of 1 Oct 07:53); the sampler's checks pass for this model; D99 is a bound: below the easiest task used (z < -4.359; more than half the draws lie below it)",
+     "set_label": "MATH-500",
+     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served MATH-500 axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 2,048 tokens); a partial result: 32 answers a problem where the set's standard is 128 answers a problem; shown on the toggle with its count, never in a same-attempts headline; re-fitted when its answers reach 128; a direct fine-tune of Qwen3 8B; the base model, Qwen3 8B, votes on this axis through its served runs (Qwen--Qwen3-8B_think-t0.6, Qwen--Qwen3-8B_t0.5); the fit stands on MATH-500; 500 positioned in this fit (every problem of the set); results as they stood at the source fit's cut (1 Oct 02:49, the results page's data of 1 Oct 02:43; the fit carried from nb-math500-20261001T0143Z, the same results task by task); the sampler's checks pass for this model; D99 is a bound: below the easiest task used (z < -4.359; more than half the draws lie below it)",
      "gates_failed": false,
      "partial": true,
      "released": false,
@@ -2384,8 +2388,8 @@
       },
       "d1": {
        "z": -4.3589,
-       "lo": -4.337,
-       "hi": -4.0334,
+       "lo": -4.3589,
+       "hi": -4.2138,
        "status": "bound: below the easiest task used (z < -4.359; more than half the draws lie below it) \u2014 by the ruling of 4 Sep the served D99 is this bound with its z; an extrapolated point is a labelled option carrying its model, never the bare word; it resolves when a wave reaches easier tasks",
        "status_kind": "bound",
        "reason_text": null,
@@ -2420,8 +2424,8 @@
      },
      "n_tasks_positioned": 500,
      "n_cells": 500,
-     "set_label": "MATH-500 (500 problems)",
-     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served MATH-500 axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 8,192 tokens); a partial result: 32 answers a problem where the set's models stand at 128; shown on the toggle with its count, never in a same-attempts headline; re-fitted when its answers reach 128; a direct fine-tune of Qwen3 8B; the base model, Qwen3 8B, votes on this axis through its served runs (Qwen--Qwen3-8B_think-t0.6, Qwen--Qwen3-8B_t0.5); the fit stands on MATH-500 (500 problems); 500 positioned in this fit (every problem of the set); results as they stood at the cut (1 Oct 08:38, the maths sets' data of 1 Oct 07:53); the sampler's checks pass for this model; D99 is a unresolved: the 80% uncertainty band of D99 (the 1% crossing of the average-rate curve) spans 1.2148 on the difficulty scale, wider than the house bandwidth of 1.0; its value and uncertainty band are kept beside (floor rate 0.343%)",
+     "set_label": "MATH-500",
+     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served MATH-500 axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 8,192 tokens); a partial result: 32 answers a problem where the set's standard is 128 answers a problem; shown on the toggle with its count, never in a same-attempts headline; re-fitted when its answers reach 128; a direct fine-tune of Qwen3 8B; the base model, Qwen3 8B, votes on this axis through its served runs (Qwen--Qwen3-8B_think-t0.6, Qwen--Qwen3-8B_t0.5); the fit stands on MATH-500; 500 positioned in this fit (every problem of the set); results as they stood at the source fit's cut (1 Oct 02:49, the results page's data of 1 Oct 02:43; the fit carried from nb-math500-20261001T0143Z, the same results task by task); the sampler's checks pass for this model; D99 is a unresolved: the 80% uncertainty band of D99 (the 1% crossing of the average-rate curve) spans 1.6284 on the difficulty scale, wider than the house bandwidth of 1.0; its value and uncertainty band are kept beside (floor rate 0.343%)",
      "gates_failed": false,
      "partial": true,
      "released": false,
@@ -4421,9 +4425,9 @@
       },
       "d1": {
        "z": -2.822,
-       "lo": -3.7263,
-       "hi": -2.5115,
-       "status": "unresolved: the 80% uncertainty band of D99 (the 1% crossing of the average-rate curve) spans 1.2148 on the difficulty scale, wider than the house bandwidth of 1.0; its value and uncertainty band are kept beside (floor rate 0.343%)",
+       "lo": -4.1485,
+       "hi": -2.5202,
+       "status": "unresolved: the 80% uncertainty band of D99 (the 1% crossing of the average-rate curve) spans 1.6284 on the difficulty scale, wider than the house bandwidth of 1.0; its value and uncertainty band are kept beside (floor rate 0.343%)",
        "status_kind": "unresolved",
        "reason_text": null,
        "uncensored_median_z": -2.822,
@@ -4439,7 +4443,7 @@
      "baseline_arm": {
       "model": "Qwen3.5 9B Base",
       "id": "Qwen/Qwen3.5-9B-Base",
-      "standing_on_axis": "the base model, Qwen3.5 9B Base, has no run on this axis and does not vote on it",
+      "standing_on_axis": "the base model, Qwen3.5 9B Base, is not in the served set of this cut and does not vote on the cut's pinned axis",
       "served_runs": []
      },
      "baseline_id": "qwen35_9b_base_sft_maths_completion",
@@ -4454,8 +4458,8 @@
      },
      "n_tasks_positioned": 500,
      "n_cells": 500,
-     "set_label": "MATH-500 (500 problems)",
-     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served MATH-500 axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 2,048 tokens); a partial result: 32 answers a problem where the set's models stand at 128; shown on the toggle with its count, never in a same-attempts headline; re-fitted when its answers reach 128; a completion SFT of Qwen3.5 9B Base; the base model, Qwen3.5 9B Base, has no run on this axis and does not vote on it; the fit stands on MATH-500 (500 problems); 500 positioned in this fit (every problem of the set); results as they stood at the cut (1 Oct 08:38, the maths sets' data of 1 Oct 07:53); the sampler's checks pass for this model; D99 is a bound: below the easiest task used (z < -4.359; more than half the draws lie below it)",
+     "set_label": "MATH-500",
+     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served MATH-500 axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 2,048 tokens); a partial result: 32 answers a problem where the set's standard is 128 answers a problem; shown on the toggle with its count, never in a same-attempts headline; re-fitted when its answers reach 128; a completion SFT of Qwen3.5 9B Base; the base model, Qwen3.5 9B Base, is not in the served set of this cut and does not vote on the cut's pinned axis; the fit stands on MATH-500; 500 positioned in this fit (every problem of the set); results as they stood at the source fit's cut (1 Oct 02:49, the results page's data of 1 Oct 02:43; the fit carried from nb-math500-20261001T0143Z, the same results task by task); the sampler's checks pass for this model; D99 is a bound: below the easiest task used (z < -4.359; more than half the draws lie below it)",
      "gates_failed": false,
      "partial": true,
      "released": false,
@@ -6455,8 +6459,8 @@
       },
       "d1": {
        "z": -4.3589,
-       "lo": -4.3187,
-       "hi": -3.9039,
+       "lo": -4.3589,
+       "hi": -4.031,
        "status": "bound: below the easiest task used (z < -4.359; more than half the draws lie below it) \u2014 by the ruling of 4 Sep the served D99 is this bound with its z; an extrapolated point is a labelled option carrying its model, never the bare word; it resolves when a wave reaches easier tasks",
        "status_kind": "bound",
        "reason_text": null,
@@ -6473,7 +6477,7 @@
      "baseline_arm": {
       "model": "Qwen3.5 9B Base",
       "id": "Qwen/Qwen3.5-9B-Base",
-      "standing_on_axis": "the base model, Qwen3.5 9B Base, has no run on this axis and does not vote on it",
+      "standing_on_axis": "the base model, Qwen3.5 9B Base, is not in the served set of this cut and does not vote on the cut's pinned axis",
       "served_runs": []
      },
      "baseline_id": "qwen35_9b_base_sft_code_completion",
@@ -6488,8 +6492,8 @@
      },
      "n_tasks_positioned": 500,
      "n_cells": 500,
-     "set_label": "MATH-500 (500 problems)",
-     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served MATH-500 axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 8,192 tokens); a partial result: 32 answers a problem where the set's models stand at 128; shown on the toggle with its count, never in a same-attempts headline; re-fitted when its answers reach 128; a completion SFT of Qwen3.5 9B Base; the base model, Qwen3.5 9B Base, has no run on this axis and does not vote on it; the fit stands on MATH-500 (500 problems); 500 positioned in this fit (every problem of the set); results as they stood at the cut (1 Oct 08:38, the maths sets' data of 1 Oct 07:53); the sampler's checks pass for this model",
+     "set_label": "MATH-500",
+     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served MATH-500 axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 8,192 tokens); a partial result: 32 answers a problem where the set's standard is 128 answers a problem; shown on the toggle with its count, never in a same-attempts headline; re-fitted when its answers reach 128; a completion SFT of Qwen3.5 9B Base; the base model, Qwen3.5 9B Base, is not in the served set of this cut and does not vote on the cut's pinned axis; the fit stands on MATH-500; 500 positioned in this fit (every problem of the set); results as they stood at the source fit's cut (1 Oct 02:49, the results page's data of 1 Oct 02:43; the fit carried from nb-math500-20261001T0143Z, the same results task by task); the sampler's checks pass for this model",
      "gates_failed": false,
      "partial": true,
      "released": false,
@@ -8513,7 +8517,7 @@
       ]
      },
      "baseline_id": "dsc6.7b-rl-night4-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8, fixed set (500 steps)",
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8, fixed (500 steps)",
      "family": "DeepSeek-Coder",
      "color": "#2b0a33",
      "variant": null,
@@ -8524,8 +8528,8 @@
      },
      "n_tasks_positioned": 500,
      "n_cells": 500,
-     "set_label": "MATH-500 (500 problems)",
-     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served MATH-500 axis unchanged; results and attempts as they are (128 attempts per problem, answer cap 2,048 tokens); an RL checkpoint of DeepSeek-Coder 6.7B; the base model, DeepSeek-Coder 6.7B, votes on this axis through its served run (deepseek-ai--deepseek-coder-6.7b-instruct_t0.5); the fit stands on MATH-500 (500 problems); 500 positioned in this fit (every problem of the set); results as they stood at the cut (1 Oct 08:38, the maths sets' data of 1 Oct 07:53); the sampler's checks pass for this model; the chains for this model do not agree on where it crosses the 1% level; the point is shown with that caveat; D99 is a bound: below the easiest task used (z < -4.359; more than half the draws lie below it)",
+     "set_label": "MATH-500",
+     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served MATH-500 axis unchanged; results and attempts as they are (128 attempts per problem, answer cap 2,048 tokens); an RL checkpoint of DeepSeek-Coder 6.7B; the base model, DeepSeek-Coder 6.7B, votes on this axis through its served run (deepseek-ai--deepseek-coder-6.7b-instruct_t0.5); the fit stands on MATH-500; 500 positioned in this fit (every problem of the set); results as they stood at the cut (1 Oct 08:38, the results page's data of 1 Oct 07:53); the sampler's checks pass for this model; the chains for this model do not agree on where it crosses the 1% level; the point is shown with that caveat; D99 is a bound: below the easiest task used (z < -4.359; more than half the draws lie below it)",
      "gates_failed": false,
      "partial": false,
      "released": false,
@@ -10520,13 +10524,13 @@
        "bound": null,
        "reason_text": null,
        "uncensored_median_z": -3.8553,
-       "lo": -4.0897,
-       "hi": -3.6901
+       "lo": -4.1479,
+       "hi": -3.6925
       },
       "d1": {
        "z": -4.3589,
-       "lo": null,
-       "hi": null,
+       "lo": -4.3589,
+       "hi": -4.3589,
        "status": "bound: below the easiest task used (z < -4.359; more than half the draws lie below it) \u2014 by the ruling of 4 Sep the served D99 is this bound with its z; an extrapolated point is a labelled option carrying its model, never the bare word; it resolves when a wave reaches easier tasks",
        "status_kind": "bound",
        "reason_text": null,
@@ -10556,7 +10560,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-01T10:26:50Z",
+   "_stamp": "2026-10-01T18:26:29Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -10721,17 +10725,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-01T09:06:46Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261001T090646Z.json",
-   "sha16": "ea86d0f2ccd1599a",
-   "census_mtime": "2026-10-01T09:08:39Z",
+   "stamp": "2026-10-01T15:43:13Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261001T154313Z.json",
+   "sha16": "26bf6180e7fdbb63",
+   "census_mtime": "2026-10-01T15:45:38Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.c780aa847fe3.json",
-  "chain_average": "chain_average.c780aa847fe3.json",
-  "chain_median": "chain_median.c780aa847fe3.json",
-  "dots": "dots.c780aa847fe3.json"
+  "shared": "shared.11cb887c235b.json",
+  "chain_average": "chain_average.11cb887c235b.json",
+  "chain_median": "chain_median.11cb887c235b.json",
+  "dots": "dots.11cb887c235b.json"
  }
 }

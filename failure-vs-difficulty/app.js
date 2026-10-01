@@ -58,9 +58,9 @@ var DATASETS = {
   all: { label: 'all waves', short: 'all waves', src: 'data-all/manifest.json',
          hover: 'all waves on one difficulty axis',
          disabled: '' },
-  // the non-code sets (the work NON-CODE BENCHMARKS D99-D50, the maintainers's; the project maintainers' word of 30 Sep 2026 via the coordination: the results browsable
+  // the non-code sets (the work NON-CODE BENCHMARKS D99-D50; the project maintainers' word of 30 Sep 2026: the results browsable
   // in this viewer under a dataset control better than chips, no new page — superseding the 11 Sep word that kept the maths sets to a mirror page):
-  // the six sets under one group heading, in the maintainers's order (MATH-500 first, AIME last); the names of record are the maintainers's list of
+  // the six sets under one group heading, in the sets' maintainers' order (MATH-500 first, AIME last); the names of record are the sets' maintainers' list of
   // 30 Sep  and are re-read from each bundle's frame at load (named from the frame, never typed as a count); an unbuilt set greyed and unselectable
   math500: { label: 'MATH-500', short: 'MATH-500', src: 'data-math500/manifest.json', hover: 'MATH-500 on its own difficulty axis', nb: true },
   ifeval: { label: 'IFEval', short: 'IFEval', src: 'data-ifeval/manifest.json', hover: 'IFEval on its own difficulty axis', nb: true },
@@ -69,7 +69,13 @@ var DATASETS = {
   cruxeval_o: { label: 'CRUXEval · output prediction', short: 'CRUXEval · output prediction', src: 'data-cruxeval_o/manifest.json', hover: 'CRUXEval · output prediction on its own difficulty axis', nb: true },
   aime: { label: 'AIME', short: 'AIME', src: 'data-aime/manifest.json', hover: 'AIME on its own difficulty axis', nb: true }
 };
-var NB_GROUP_HEADING = 'NON-CODE BENCHMARKS D99-D50';   // the work's name of record, in capitals exactly, the selector's group heading over the six sets and nowhere else on the face (the maintainers 30 Sep)
+var NB_GROUP_HEADING = null;   // 1 Oct 2026: the switch carries no study name — the project maintainers' word of 1 Oct: the default sets, then Math, then Other;
+// the groups and labels are the sets' maintainers' leaf of record, served beside this page as datasets_of_record.json and fetched at load;
+// DS_GROUPS_FALLBACK is that leaf's content at this cut, so the switch prints the leaf's words even before the fetch answers (never a composed name, never a count)
+var DS_GROUPS_FALLBACK = [{ label: 'Math', keys: [['math500', 'MATH-500'], ['aime', 'AIME'], ['gsm8k_platinum', 'GSM8K-Platinum']] },
+                         { label: 'Other', keys: [['ifeval', 'IFEval'], ['cruxeval_i', 'CRUXEval input'], ['cruxeval_o', 'CRUXEval output']] }];
+var DS_GROUPS = DS_GROUPS_FALLBACK; var DS_LEAF_LABELS = {};
+DS_GROUPS_FALLBACK.forEach(function (g) { g.keys.forEach(function (kv) { DS_LEAF_LABELS[kv[0]] = kv[1]; if (DATASETS[kv[0]]) { DATASETS[kv[0]].label = kv[1]; DATASETS[kv[0]].short = kv[1]; } }); });
 var TOP_COUNT = null;   // kept focused new tasks, read from the 877-task bundle's frame (never typed here)
 function topCount() { return TOP_COUNT ? Number(TOP_COUNT).toLocaleString('en-US') : 'wave 2'; }
 function setTopCount(n) {
@@ -271,7 +277,7 @@ Promise.all([
 var ROW_KEPT = {};   // 26 Sep : served configs that a run row keeps (a checkpoint the registry admits to the panel whose only fit of record is the run pointer's) — no chip in the bulk, the row draws it
 var state = { def: 'average', src: 'project', band: '90',
               xs: 'logit', ys: 'logit', dots: '0', rm: '0', trend: 'on', partial: 'hide', pin: 'off' };
-/* the pin (the project maintainers' word of 30 Sep 2026, via the coordination): with the pin on, every model's curve moves along x by its own offset so that it
+/* the pin (the project maintainers' word of 30 Sep 2026): with the pin on, every model's curve moves along x by its own offset so that it
  * crosses the pinned failure rate at the middle of the axis; the y axis is unchanged; the x axis becomes relative to the pin (logit steps under a logit x,
  * percentage points under a raw x) with a second tick row reading each step as the failure rate it means when the middle is the pinned level
  * (the maintainers's dual-tick form, 30 Sep). The level is a typed control value used exactly (the project maintainers' word of 22 Sep 2026). A display transform only: the fits of
@@ -357,7 +363,7 @@ function xt(z) {           // difficulty logit -> axis coordinate
   return state.xs === 'raw' ? pct(z) / 100 : z;
 }
 function yt(z) { return state.ys === 'raw' ? pct(z) / 100 : z; }
-/* the project maintainers' word of 3 Sep 2026 (via the coordination): the two axes kept on one scale —
+/* the project maintainers' word of 3 Sep 2026: the two axes kept on one scale —
  * whenever x and y share units (both logit or both raw) both axes take ONE
  * common limit and the plot area is square, so one unit is one length on
  * either axis; mixed scales keep their own limits. */
@@ -419,17 +425,17 @@ function boot() {
         if (k >= 0) sel.add(k);
       });
     }
-    if (!sel.size) D.shared.configs.forEach(function (c, i) { if (!isRunConfig(c)) sel.add(i); });   // a run's checkpoints open deselected (22 Sep)
+    if (!sel.size) D.shared.configs.forEach(function (c, i) { if (!isSeriesRunConfig(c) && !isTrainedConfig(c)) sel.add(i); });   // a run's checkpoints open deselected (22 Sep)
     // a link naming only hidden partial arms would draw nothing (the project maintainers' word of 7 Sep: something shown rather than no output):
     // keep the ids in the address, grey the chips, and draw every shown arm
     if (!Array.from(sel).some(shownArm)) D.shared.configs.forEach(function (_, i) { if (shownArm(i)) sel.add(i); });
   } else {
-    D.shared.configs.forEach(function (c, i) { if (!isRunConfig(c)) sel.add(i); });   // a run's checkpoints open deselected (the project maintainers' word of 22 Sep)
+    D.shared.configs.forEach(function (c, i) { if (!isSeriesRunConfig(c) && !isTrainedConfig(c)) sel.add(i); });   // a run's checkpoints open deselected (the project maintainers' word of 22 Sep)
   }
 
   var row = Kit.filterRow('#controls');
   // the project maintainers' word of 10 Sep (coordinator note): wave 1+2 matters most, then wave 1 alone as a sanity check, then wave 2 alone,
-  // then the rest — the list runs in that order; wave 1+2 stays the default. The project maintainers' word of 30 Sep 2026 (via the coordination): a dataset control better than
+  // then the rest — the list runs in that order; wave 1+2 stays the default. The project maintainers' word of 30 Sep 2026: a dataset control better than
   // chips for the sets now browsable here — the reference select (Kit.selectControl, the maintainers 30 Sep): the coding sets first, then the six
   // non-code sets under the group heading NON-CODE BENCHMARKS D99-D50; an unbuilt set greyed and unselectable; the URL param ?data=<key> as before.
   var dsAvail = function (k) { if (k === 'all') return ALL_AVAILABLE; if (k === 'board_top' || k === 'top') return !!TOP_AVAILABLE[k]; if (isExtra(k)) return !!EXTRA_AVAILABLE[k]; return true; };
@@ -442,8 +448,16 @@ function boot() {
   };
   var nbKeys = Object.keys(DATASETS).filter(function (k) { return DATASETS[k].nb; }), plainKeys = Object.keys(DATASETS).filter(function (k) { return !DATASETS[k].nb; });
   var dsCtl = (Kit.selectControl && nbKeys.length)
-    ? Kit.selectControl({ mount: row, key: 'data', label: 'Dataset', options: plainKeys.map(dsOpt), groups: [{ label: NB_GROUP_HEADING, options: nbKeys.map(dsOpt) }], dflt: DEFAULT_DATASET, onchange: dsOnChange })
+    ? Kit.selectControl({ mount: row, key: 'data', label: 'Dataset', options: plainKeys.map(dsOpt), groups: DS_GROUPS.map(function (g) { return { label: g.label, options: g.keys.filter(function (kv) { return !!DATASETS[kv[0]]; }).map(function (kv) { var o = dsOpt(kv[0]); o.label = kv[1]; return o; }) }; }), dflt: DEFAULT_DATASET, onchange: dsOnChange })
     : Kit.switchControl({ mount: row, key: 'data', label: 'Dataset', options: Object.keys(DATASETS).map(function (k) { return { value: k, label: setWord(DATASETS[k].label) }; }), dflt: DEFAULT_DATASET, onchange: dsOnChange });   // a mount without the kit's select (an older vendored kit) keeps the switch
+  fetch('datasets_of_record.json').then(function (r) { return r.json(); }).then(function (leaf) {   // the leaf of record's words win over the cut's fallback (labels in place; a key the page lacks waits for its bundle)
+    var sel = row.querySelector('select'); if (!sel || !leaf || !leaf.groups) return;
+    var ogs = Array.prototype.slice.call(sel.querySelectorAll('optgroup'));
+    leaf.groups.filter(function (g) { return g.label; }).forEach(function (g, gi) {
+      if (ogs[gi] && ogs[gi].label !== g.label) ogs[gi].label = g.label;
+      (g.sets || []).forEach(function (st) { if (!st.key) return; var op = sel.querySelector('option[value="' + st.key + '"]'); if (op && st.label && op.textContent !== st.label) op.textContent = st.label; if (DATASETS[st.key] && st.label) { DATASETS[st.key].label = st.label; DATASETS[st.key].short = st.label; DS_LEAF_LABELS[st.key] = st.label; } });
+    });
+  }).catch(function () {});
   if (DATASETS.all) setDisabled(dsEl('all'), !ALL_AVAILABLE, DATASETS.all.disabled);
   if (DATASETS.board_top) setDisabled(dsEl('board_top'), !TOP_AVAILABLE.board_top, DATASETS.board_top.disabled);
   if (DATASETS.top) setDisabled(dsEl('top'), !TOP_AVAILABLE.top, DATASETS.top.disabled);
@@ -453,7 +467,7 @@ function boot() {
     if (!EXTRA_AVAILABLE[ds]) return;
     fetch(DATASETS[ds].src).then(function (r) { return r.json(); }).then(function (m) {
       var f = m.frame || {}; if (!bt || !f.dataset_label) return;
-      var nm = String(f.dataset_label).split(':')[0]; DATASETS[ds].label = nm; DATASETS[ds].short = nm; bt.textContent = setWord(nm);
+      var nm = String(f.dataset_label).split(':')[0]; if (!DS_LEAF_LABELS[ds]) { DATASETS[ds].label = nm; DATASETS[ds].short = nm; bt.textContent = setWord(nm); }   // 1 Oct: the switch's label is the leaf's where the leaf names the set
       var hv = DATASETS[ds].hover ? String(f.dataset_label) + ' — ' + DATASETS[ds].hover : String(f.dataset_label);
       noteDataset(ds, hv); bt.title = oneSentence(hv);
     }).catch(function () {});
@@ -625,7 +639,7 @@ function writeSel() {
     : Array.from(sel).sort(function (a, b) { return a - b; }).map(function (i) { return slugOfRecord(D.shared.configs[i].label) || D.shared.configs[i].arm_key || D.shared.configs[i].id; }).join(','),   // slugs of the names of record (26 Sep)
     null);
 }
-function isRunConfig(c) {   // a checkpoint of a training run (the project maintainers' word of 22 Sep, via the coordination: the run's checkpoints are their own row, out of the bulk list): the runs' stems today; the builder's explicit run field takes over when it lands
+function isRunConfig(c) {   // a checkpoint of a training run (the project maintainers' word of 22 Sep: the run's checkpoints are their own row, out of the bulk list): the runs' stems today; the builder's explicit run field takes over when it lands
   if (c.run) return true;   // the bundle's run field (the labels row's family for a checkpoint row) when the builder carries it
   return /olmo-?3(\.1)?-7b-(rl-?zero-?(code|math)|rlz[cm]|think)/i.test(String(c.id || '') + ' ' + String(c.arm_key || ''));
 }
@@ -636,27 +650,48 @@ function runNameOf(c) {   // the run's full name: the bundle's run field, else t
   if (fromLabel && fromLabel.indexOf(' · ') > 0) return fromLabel;
   return c.run || fromLabel || String(c.label || '');
 }
+// 1 Oct 2026 (the project maintainers' words of 1 Oct): the chip categories follow the main
+// page on every view — base models in the bulk by family, our fine-tunes under the fine-tune category that already exists (the trained models' block, chips grouped by their base),
+// a run never a category of its own (a run keeps its own row only when its checkpoints are on the view). A trained model is read from its name of record, 'base · what was done'.
+var TRAINED_HEADING = 'fine-tuned models and the base models they were trained from';   // the category's name on every view (the fit maintainers' plain group string of record for the board)
+var TRAINED_CONFIGS = [];   // configurations placed in the trained models' block (set by buildChips)
+var MERGED = {}, MERGED_REV = {};   // configuration index <-> side arm index for one model (one entity, one chip: the project maintainers' word of 28 Sep)
+function trainedParts(label) { var n = nameOfRecord(label); var i = n.indexOf(' · '); if (i <= 0) return null; return { base: n.slice(0, i), kind: n.slice(i + 3) }; }
+function runHasSeries(name) { var rs = []; try { rs = seriesRows(); } catch (e) { } return rs.some(function (sbR) { return !!sbR && (((sbR.arms && sbR.arms[0] && sbR.arms[0].run) || headingShort(sbR)) === name); }); }
+function isSeriesRunConfig(c) { return isRunConfig(c) && runHasSeries(runNameOf(c)); }   // a run with its checkpoints on this view keeps its own row (the project maintainers' word of 22 Sep)
+function isTrainedConfig(c) { return !!(c && trainedParts(c.label)) && !isSeriesRunConfig(c); }   // a fine-tune or a lone run final: the trained models' block, out of the bulk
+function computeMerged() { MERGED = {}; MERGED_REV = {}; var sb = sideBlock(); if (!sb || !sb.arms) return; var byId = {}; D.shared.configs.forEach(function (c, i) { byId[c.id] = i; }); sb.arms.forEach(function (a, k) { var i = byId[a.id]; if (i != null) { MERGED[i] = k; MERGED_REV[k] = i; } }); }
+function sideOn(k) { return (MERGED_REV[k] != null) ? sel.has(MERGED_REV[k]) : !!(sideSel && sideSel.has(k)); }
 function buildChips() {
   nameFamilies(D.shared);   // the family labels of record before the rows are grouped and headed (buildChips runs at load, before the first render)
   var box = document.getElementById('chips');
   var fams = [], runs = [];
   try { seriesRows(); } catch (e) { }   // orders the run rows in place first, so ROW_KEPT names the served twins the rows keep before the bulk is grouped (26 Sep )
+  var trained = [];
   D.shared.configs.forEach(function (c, i) {
     if (ROW_KEPT[c.id]) return;   // a served twin a run row keeps: no chip here, no group membership (26 Sep )
     if (isRunConfig(c)) { var r = runs.find(function (x) { return x.name === runNameOf(c); }); if (!r) { r = { name: runNameOf(c), members: [] }; runs.push(r); } r.members.push(i); return; }
+    if (trainedParts(c.label)) { trained.push(i); return; }   // 1 Oct: a fine-tune leaves the bulk for the trained models' block
     var f = fams.find(function (x) { return x.name === c.family; });
     if (!f) { f = { name: c.family, members: [] }; fams.push(f); }
     f.members.push(i);
   });
+  // 1 Oct: a run keeps its own row only when its checkpoints are on this view; a lone final goes where its kind belongs — trained to the trained models' block, released to the bulk
+  runs = runs.filter(function (r) {
+    if (r.members.length >= 2 || runHasSeries(r.name)) return true;
+    r.members.forEach(function (i) { var c = D.shared.configs[i]; if (trainedParts(c.label)) { trained.push(i); return; } var f = fams.find(function (x) { return x.name === c.family; }); if (!f) { f = { name: c.family, members: [] }; fams.push(f); } f.members.push(i); });
+    return false;
+  });
+  TRAINED_CONFIGS = trained; computeMerged();
   var allBtn = document.createElement('button');
   allBtn.className = 'util'; allBtn.textContent = 'all';
   allBtn.onclick = function () {
-    D.shared.configs.forEach(function (c, i) { if (!isRunConfig(c)) sel.add(i); });   // the bulk's buttons leave the runs' rows alone (22 Sep)
+    D.shared.configs.forEach(function (c, i) { if (!isSeriesRunConfig(c) && !isTrainedConfig(c)) sel.add(i); });   // the bulk's buttons leave the runs' rows alone (22 Sep)
     writeSel(); render();
   };
   var noneBtn = document.createElement('button');
   noneBtn.className = 'util'; noneBtn.textContent = 'none';
-  noneBtn.onclick = function () { D.shared.configs.forEach(function (c, i) { if (!isRunConfig(c)) sel.delete(i); }); writeSel(); render(); };   // the bulk's none leaves the runs' rows alone (22 Sep)
+  noneBtn.onclick = function () { D.shared.configs.forEach(function (c, i) { if (!isSeriesRunConfig(c) && !isTrainedConfig(c)) sel.delete(i); }); writeSel(); render(); };   // the bulk's none leaves the runs' rows alone (22 Sep)
   box.appendChild(allBtn); box.appendChild(noneBtn);
   // the project maintainers 3 Sep 2026: withdrawn results are absent from every display — no placeholder chips
   fams.forEach(function (f) {
@@ -691,7 +726,7 @@ function buildChips() {
       // record's line is the chip hover, and the per-arm flags with their notes links are listed in the fold-out
     });
   });
-  // the training runs' rows (the project maintainers' word of 22 Sep, via the coordination): each run its own row after the bulk, named by the run's full name,
+  // the training runs' rows (the project maintainers' word of 22 Sep): each run its own row after the bulk, named by the run's full name,
   // its checkpoints as chips, its own all and none, out of the bulk's buttons; the chips open deselected
   runs.forEach(function (r) {
     var br = document.createElement('div'); br.className = 'runrow'; br.style.flexBasis = '100%'; box.appendChild(br);
@@ -767,10 +802,11 @@ function covOf(i) {
 function attemptsPartial(i) {   // fitting's set form of 30 Sep (fit-methods 16b.9(c)): the set pointer names the panel models at fewer answers a task than the set's standard (32 against 128) — partial by attempts, the same switch and greying as partial by coverage
   var f = D.shared.frame || {}; var pa = f.partial_attempts; var c = D.shared.configs[i]; return !!(pa && c && pa[c.id]);
 }
-function isPartial(i) { var cv = covOf(i); return (cv.of > 0 && cv.tasks / cv.of < PARTIAL_MIN) || attemptsPartial(i); }
+function isPartial(i) { var cv = covOf(i); return (cv.of > 0 && cv.tasks / cv.of < PARTIAL_MIN) || attemptsPartial(i) || sidePartialOf(i); }
+function sidePartialOf(i) { if (MERGED[i] == null) return false; var sb = sideBlock(); var a = sb && sb.arms ? sb.arms[MERGED[i]] : null; return !!(a && a.partial); }   // 1 Oct: a configuration merged with a partial side arm is partial as one entity
 // the project maintainers' word of 7 Sep 2026 (better not shown by default; a toggle whose default shows the partial arms):
 // partial arms are hidden unless the Partial arms switch shows them
-// the project maintainers 9 Sep 2026 (via the coordination): Gemma 4 12B is not shown while a quarter of its tasks hit the cap, because
+// the project maintainers 9 Sep 2026: Gemma 4 12B is not shown while a quarter of its tasks hit the cap, because
 // its performance is then unmeasured — knob curves-site/not_shown_arms.json (the project maintainers' words inside): matching arms are not drawn and
 // unselectable on EVERY dataset (the pool bundle included); the Partial arms switch does not reveal them; one note line names them.
 var NOT_SHOWN = null;
@@ -987,7 +1023,7 @@ var sideSel = null, seriesSel = null;
 var SERIES_MERGED = {}, seriesChips = [];   // one row per run (22 Sep): the runs whose checkpoint-series chips live in the served set's run row, and those chips
 var seriesSels = [];   // one selection per run row (24 Sep: one row per training run); row 0 is the RL-Zero Code run, row 1 the Olmo 3 7B Think run
 function panelIndexOf(id) { var cs = D.shared.configs || []; for (var i = 0; i < cs.length; i++) if (cs[i].id === id) return i; return -1; }   // the family list's chip for an id (28 Sep: checkpoint 0 is the model's own chip, one entity)
-function seriesSelFor(i) { if (!seriesSels[i]) seriesSels[i] = new Set(); return seriesSels[i]; }   // off by default (the project maintainers' word of 22 Sep, via the coordination)
+function seriesSelFor(i) { if (!seriesSels[i]) seriesSels[i] = new Set(); return seriesSels[i]; }   // off by default (the project maintainers' word of 22 Sep)
 function seriesRows() {   // every run row the bundle carries: frame.series_rows (24 Sep), else the single frame.series_arms block (22 Sep); each ordered once in place
   var f = D.shared.frame || {}; var rows = (f.series_rows && f.series_rows.length) ? f.series_rows : (f.series_arms ? [f.series_arms] : []);
   var out = []; rows.forEach(function (s, i) { var o = orderSeries(s); if (o) { o._row = i; out.push(o); } }); return out;
@@ -1007,7 +1043,7 @@ function orderSeries(s) {   // the fit maintainers' checkpoint-series pointer (k
     s.merged_ids = []; s.merged_arms = {}; s.arms = s.arms.filter(function (a) { if (served[a.id]) { if (s.group_of_record && a.step === 0) { a._twin = true; return true; }   /* the project maintainers' word 14:3x UK 28 Sep: checkpoint 0 of our runs is the base model in the family list, one entity — the row keeps its chip as a twin of the list's, drawn once by the panel */ if (ownFit(a.id) || a.step == null) { s.merged_ids.push(a.id); s.merged_arms[a.id] = a; return false; } ROW_KEPT[a.id] = true; } return true; });
     // training order: by the step field, a final last (the pointer lists the final first)
     var stepKey = function (a) { return (a.final || a.step == null) ? 1e15 : Number(a.step); };
-    if (s.group_of_record) {   // one group per model of ours (post-training-lead's decision 168, 28 Sep): the chips keep the builder's run order — the approved table's, one run's positions adjacent —
+    if (s.group_of_record) {   // one group per model of ours (the training lead's decision of 28 Sep): the chips keep the builder's run order — the approved table's, one run's positions adjacent —
       var runOf = function (a) { return String(a.id).replace(/-step\d+.*$/, ''); }; var firstAt = {};   // and sort by step within a run, checkpoint 0 (the start model's own id) first
       s.arms.forEach(function (a, i) { var k = runOf(a); if (!(k in firstAt)) firstAt[k] = i; });
       s.arms.sort(function (a, b) { var ra = firstAt[runOf(a)], rb = firstAt[runOf(b)]; if (ra !== rb) return ra - rb; var sa = a.step == null ? 1e15 : Number(a.step), sb = b.step == null ? 1e15 : Number(b.step); return sa - sb; });
@@ -1016,8 +1052,8 @@ function orderSeries(s) {   // the fit maintainers' checkpoint-series pointer (k
   }
   return s.arms.length ? s : null;
 }
-// NAMES OF RECORD for the team's trained models (the project maintainers' word of 25 Sep 2026, via the coordination: a trained model is named by its base and what was done, a base's chip is its plain name, the chips grouped by base with the base first;
-// the post-training lead's file research/training/post-training-lead/NAMES.md of 25 Sep 13:50, corrected 13:5x: a base's plain name as the labels row prints it, the thinking twin 'Qwen3 8B (thinking)'; 14:0x, NAMES.md a8c44add: the fine-tunes' like-for-like control reads "Qwen3 8B · at the fine-tunes' settings" and heads its group, the families list's Qwen3 8B being the reference run) — carried here until the bundle carries them, then dead code, removed at the next cut
+// NAMES OF RECORD for the team's trained models (the project maintainers' word of 25 Sep 2026: a trained model is named by its base and what was done, a base's chip is its plain name, the chips grouped by base with the base first;
+// the training lead's names of record of 25 Sep: a base's plain name as the labels row prints it, the thinking twin 'Qwen3 8B (thinking)'; later that day: the fine-tunes' like-for-like control reads "Qwen3 8B · at the fine-tunes' settings" and heads its group, the families list's Qwen3 8B being the reference run) — carried here until the bundle carries them, then dead code, removed at the next cut
 var NAMES_OF_RECORD = {
   'Qwen3 8B (raw, re-run)': "Qwen3 8B · at the fine-tunes' settings",
   'Qwen3 8B (maths fine-tune)': 'Qwen3 8B · maths fine-tune',
@@ -1061,7 +1097,7 @@ function sideBlock() {
   }
   return s;
 }
-// TRANSITIONAL LITERALS OF RECORD (the project maintainers' 21 Sep rule via the coordination, 22 Sep 15:5x UK: a text change serves at once, the record's rebuild behind it): the fit maintainers' plain
+// TRANSITIONAL LITERALS OF RECORD (the project maintainers' rule of 21 Sep: a text change serves at once, the record's rebuild behind it): the fit maintainers' plain
 // group heading (their pre-write under Definitions' decision) and the newbench lead's zero-indexed short form for the run's chips (labels_cells.jsonl),
 // carried here by hand until the bundle carries them (label_of_record on the side pointer; short_label per config from the builder) — then dead code, removed at the next cut
 var GROUP_HEADINGS_OF_RECORD = { 'definitions/fitting/serving_sft_board_top.json': 'fine-tuned models and the base models they were trained from' };
@@ -1082,7 +1118,7 @@ function sideCurve(a) {   // {zs, mid, lo, hi} for one side arm under the active
 function renderOffPanelLine() {   // difficulty 18 Sep: off-panel arms with cells but no side block yet — one plain line under the served set, no chips, no rows
   var f = D.shared.frame || {}; var op = f.off_panel; var el = document.getElementById('offpanelline'); var chipsBox = document.getElementById('chips');
   if (!op || !op.line) { if (el) el.remove(); return; }
-  // the project maintainers' word 14:3x UK 28 Sep (via the coordination; decisions-2026-09-28.md: no sentences in the UI of a page, nothing in the controls but the controls): the line lives in the
+  // the project maintainers' word of 28 Sep (no sentences in the UI of a page, nothing in the controls but the controls): the line lives in the
   // state fold, never between the chips and the blocks below them
   var fold = document.getElementById('statefold'); if (!fold) { if (el) el.remove(); return; }
   if (el && el.parentNode !== fold) { el.remove(); el = null; }
@@ -1091,25 +1127,48 @@ function renderOffPanelLine() {   // difficulty 18 Sep: off-panel arms with cell
 }
 function renderSideBlock() {
   renderOffPanelLine();
-  var sb = sideBlock();
+  var sb = sideBlock();   // the fit maintainers' side arms (their curves and table in the Bayesian view, as before)
   var chipsBox = document.getElementById('chips'), crossBox = document.getElementById('crossings');
   var sc = document.getElementById('sidechips'), st = document.getElementById('sidecrossings');
-  if (!sb || state.src !== 'bayes') { if (sc) sc.remove(); if (st) st.remove(); return; }
-  if (!sideSel) { sideSel = new Set(); }   // off by default (the project maintainers' word of 22 Sep, via the coordination): the page opens on the served set's models; the group's all button or a chip turns them on
-  if (!sc) { sc = document.createElement('div'); sc.id = 'sidechips'; sc.className = 'chips'; var after = chipsBox; after.parentNode.insertBefore(sc, after.nextSibling); }   // after the chips box itself ( 28 Sep: the off-panel line now lives in the state fold, so it is no longer the anchor — anchored on it, the side block and the runs' row fell into the closed fold)
+  var sideArms = (sb && sb.arms) ? sb.arms : [], trainedIdx = TRAINED_CONFIGS || [];
+  if (!sideArms.length && !trainedIdx.length) { if (sc) sc.remove(); if (st) st.remove(); return; }
+  if (!sideSel) { sideSel = new Set(); }   // off by default (the project maintainers' word of 22 Sep): the page opens on the served set's models
+  computeMerged();
+  // 1 Oct 2026 (the project maintainers' words of 1 Oct): ONE block for the trained models on every view, in the main page's shape — the chips grouped by their base
+  // (the base's name as the group), each chip the kind of training as the name of record prints it after the base, never a run as a category of its own; a side arm whose id
+  // a configuration carries is one chip with it (the chip toggles the configuration; the side fit draws for it in the Bayesian view)
+  if (!sc) { sc = document.createElement('div'); sc.id = 'sidechips'; sc.className = 'chips'; chipsBox.parentNode.insertBefore(sc, chipsBox.nextSibling); }
   sc.textContent = '';
-  var head = document.createElement('span'); head.className = 'fam'; head.textContent = headingShort(sb);
-  if (sb.membership) head.title = oneSentence(noSpecTags(sb.membership));
+  var head = document.createElement('span'); head.className = 'fam'; head.textContent = TRAINED_HEADING;
+  if (sb && sb.membership) head.title = oneSentence(noSpecTags(sb.membership));
   sc.appendChild(head);
-  // all / none for this group as the served set has them (the project maintainers' word of 22 Sep, via the coordination: every model group carries the two buttons)
-  ['all', 'none'].forEach(function (w) { var ab = document.createElement('button'); ab.className = 'util'; ab.textContent = w; ab.onclick = function () { sideSel = new Set(); if (w === 'all') sb.arms.forEach(function (a2, k2) { if (!sideHidden(a2)) sideSel.add(k2); }); render(); }; sc.appendChild(ab); });
-  sb.arms.forEach(function (a, k) {
-    var b = document.createElement('button');
-    var hiddenP = sideHidden(a);
-    b.className = 'chip' + (sideSel.has(k) && !hiddenP ? '' : ' off') + (a.disclosure ? ' disclosed' : '');
-    b.style.color = a.color; b.style.borderColor = a.color;
-    b.textContent = a.label; b.dataset.label = a.label; b.dataset.name = a.label; b.dataset.side = String(k);
-    if (hiddenP) { b.classList.add('partial-hidden'); b.disabled = true; b.setAttribute('aria-disabled', 'true'); }   // greyed and unselectable while hidden (the project maintainers' word of 7 Sep), shown by the Partial models switch
+  var entries = [];
+  sideArms.forEach(function (a, k) { if (MERGED_REV[k] != null && !isTrainedConfig(D.shared.configs[MERGED_REV[k]])) return;   // a released model's side row is one chip with its bulk configuration (the bulk chip draws the side fit)
+    var tp = trainedParts(a.label) || { base: nameOfRecord(a.label), kind: '' }; entries.push({ base: tp.base, kind: tp.kind, side: k, cfg: (MERGED_REV[k] != null ? MERGED_REV[k] : null), label: nameOfRecord(a.label), color: a.color, arm: a }); });
+  trainedIdx.forEach(function (i) { if (MERGED[i] != null) return; var c = D.shared.configs[i]; var tp = trainedParts(c.label); if (!tp) return; entries.push({ base: tp.base, kind: tp.kind, side: null, cfg: i, label: nameOfRecord(c.label), color: c.color, arm: null }); });
+  var groups = BASES_OF_RECORD.slice(); entries.forEach(function (e) { if (groups.indexOf(e.base) < 0) groups.push(e.base); });
+  var kindRank = function (k) { return (k === '' || k === "at the fine-tunes' settings") ? 0 : (KINDS_OF_RECORD.indexOf(k) >= 0 ? 1 + KINDS_OF_RECORD.indexOf(k) : 1 + KINDS_OF_RECORD.length); };
+  entries.sort(function (x, y) { return (groups.indexOf(x.base) - groups.indexOf(y.base)) || (kindRank(x.kind) - kindRank(y.kind)) || x.label.localeCompare(y.label); });
+  var isOn = function (e) { return e.cfg != null ? sel.has(e.cfg) : sideSel.has(e.side); };
+  var isHidden = function (e) { return !!(e.arm && sideHidden(e.arm)) || (e.cfg != null && !shownArm(e.cfg)); };
+  var setOn = function (e, on) { if (e.cfg != null) { if (on) sel.add(e.cfg); else sel.delete(e.cfg); } if (e.side != null) { if (on) sideSel.add(e.side); else sideSel.delete(e.side); } };
+  // all / none for the block as the served set has them (the project maintainers' word of 22 Sep: every model group carries the two buttons)
+  ['all', 'none'].forEach(function (w) { var ab = document.createElement('button'); ab.className = 'util'; ab.textContent = w; ab.onclick = function () { entries.forEach(function (e) { if (isHidden(e)) return; setOn(e, w === 'all'); }); writeSel(); render(); }; sc.appendChild(ab); });
+  var lastBase = null;
+  entries.forEach(function (e) {
+    if (e.base !== lastBase) {
+      var gh = document.createElement('button'); gh.className = 'fam'; gh.textContent = e.base; gh.style.color = e.color; gh.title = 'the base model; its trained models follow';
+      var members = entries.filter(function (x) { return x.base === e.base; });
+      gh.onclick = function () { var anyOff = members.some(function (x) { return !isHidden(x) && !isOn(x); }); members.forEach(function (x) { if (!isHidden(x)) setOn(x, anyOff); }); writeSel(); render(); };
+      sc.appendChild(gh); lastBase = e.base;
+    }
+    var b = document.createElement('button'); var hiddenP = isHidden(e); var a = e.arm;
+    b.className = 'chip' + (isOn(e) && !hiddenP ? '' : ' off') + (a && a.disclosure ? ' disclosed' : '');
+    b.style.color = e.color; b.style.borderColor = e.color;
+    b.textContent = e.kind || e.label; b.dataset.label = b.textContent; b.dataset.name = e.label;   // the kind inside its base's group; the full name of record for readers (the maintainers's parity scan)
+    if (e.side != null) b.dataset.side = String(e.side); if (e.cfg != null) b.dataset.idx = String(e.cfg);
+    if (hiddenP) { b.classList.add('partial-hidden'); b.disabled = true; b.setAttribute('aria-disabled', 'true'); }   // greyed and unselectable while hidden (the project maintainers' word of 7 Sep)
+    if (a) {
     var parts = [];
     if (a.partial) parts.push('partial: ' + (Array.isArray(a.attempts_per_cell) ? a.attempts_per_cell.join(' / ') : String(a.attempts_per_cell || '')) + ' answers a task');   // the count on the state (fit-methods 16b.9(c))
     if (a.disclosure) parts.push(currentTruth(a.disclosure));
@@ -1117,10 +1176,17 @@ function renderSideBlock() {
     if (a.gates_failed) parts.push(a.gate_face ? noSpecTags(String(a.gate_face)) : 'this fit failed its own check; drawn lighter, with its disclosure');   // the fit maintainers' own face sentence when the pointer carries it
     if (a.protocol) parts.push('read by ' + a.protocol + ': the base model continues the prompt, no chat turn');
     b.dataset.state = noSpecTags(parts.join(' · '));
-    b.title = oneSentence(noSpecTags(parts[0] || a.label)) + ((a.protocol && !/^read by /.test(parts[0] || '')) ? ' (read by ' + a.protocol + ')' : '');   if (a.gates_failed) { b.title += ' \u00b7 this fit failed its own check and is drawn lighter'; b.classList.add('gated'); b.style.borderStyle = 'dashed'; }   // a failed fit is not a plain position (the project maintainers' current-truth word of 24 Sep; the maintainers's read): the hover says so and the chip's border is dashed
-    b.onclick = function () { if (sideHidden(a)) return; if (sideSel.has(k)) sideSel.delete(k); else sideSel.add(k); render(); };
+    b.title = oneSentence(noSpecTags(parts[0] || e.label)) + ((a.protocol && !/^read by /.test(parts[0] || '')) ? ' (read by ' + a.protocol + ')' : '');   if (a.gates_failed) { b.title += ' \u00b7 this fit failed its own check and is drawn lighter'; b.classList.add('gated'); b.style.borderStyle = 'dashed'; }   // a failed fit is not a plain position (the project maintainers' current-truth word of 24 Sep; the maintainers's read): the hover says so and the chip's border is dashed
+    } else {
+      var cc = D.shared.configs[e.cfg]; var parts = [];
+      if (e.cfg != null && isPartial(e.cfg)) parts.push('partial: fewer answers a task than the set\'s standard');
+      if (cc && cc.disclosure) parts.push(currentTruth(cc.disclosure));
+      b.dataset.state = noSpecTags(parts.join(' · ')); b.title = oneSentence(noSpecTags(parts[0] || e.label));
+    }
+    b.onclick = function () { if (hiddenP) return; setOn(e, !isOn(e)); writeSel(); render(); };
     sc.appendChild(b);
   });
+  if (!sb || state.src !== 'bayes') { if (st) st.remove(); return; }   // the side table and the side curves: the Bayesian view only, as before
   if (!st) { st = document.createElement('div'); st.id = 'sidecrossings'; crossBox.parentNode.insertBefore(st, crossBox.nextSibling); }
   st.textContent = '';
   var p = document.createElement('p'); p.className = 'sub';
@@ -1132,7 +1198,7 @@ function renderSideBlock() {
   var t = document.createElement('table');
   t.innerHTML = '<tr><th>model</th><th title="D50 — the difficulty at which the ' + (isAvg ? 'average failure rate' : 'median task&#39;s failure rate') + ' crosses 50% (' + (isAvg ? 'average rate' : 'median task') + ')">D50</th><th title="D99 — the difficulty at which the ' + (isAvg ? 'average failure rate' : 'median task&#39;s failure rate') + ' crosses 1%, a 99% solve chance (' + (isAvg ? 'average rate' : 'median task') + ')">D99</th></tr>';
   sb.arms.forEach(function (a, k) {
-    if (!sideSel.has(k) || sideHidden(a)) return;
+    if (!sideOn(k) || sideHidden(a)) return;
     var cv = sideCurve(a); var rec = isAvg ? a.cross_record : null;
     var tr = document.createElement('tr'); var td0 = document.createElement('td'); td0.textContent = a.label; tr.appendChild(td0);
     ['50', '1'].forEach(function (lvl) {
@@ -1176,17 +1242,17 @@ function renderSeriesRow(sb, ri) {   // the run's row: cloned from renderSideBlo
   var chipsBox = document.getElementById('chips'), crossBox = document.getElementById('crossings');
   var sc = document.getElementById('serieschips' + sfx), st = document.getElementById('seriescrossings' + sfx);
   if (!sb || state.src !== 'bayes') { if (sc) sc.remove(); if (st) st.remove(); return; }
-     // off by default (the project maintainers' word of 22 Sep, via the coordination): the page opens on the served set's models; the group's all button or a chip turns them on
+     // off by default (the project maintainers' word of 22 Sep): the page opens on the served set's models; the group's all button or a chip turns them on
   var runName = (sb.arms[0] && sb.arms[0].run) || headingShort(sb);
   if (SERIES_MERGED[runName]) { if (sc) { sc.remove(); } sc = null; }   // one row per run: the chips live in the served set's run row (buildChips); only the checkpoints' table is drawn here
   else {
   if (!sc) { sc = document.createElement('div'); sc.id = 'serieschips' + sfx; sc.className = 'chips'; var after = (ri ? document.getElementById('serieschips' + (ri - 1)) || document.getElementById('serieschips') : null) || document.getElementById('sidechips') || chipsBox; /* never the off-panel line: it lives in the state fold since  28 Sep */ after.parentNode.insertBefore(sc, after.nextSibling); }   // 26 Sep : one insertion — the earlier two-branch form set `after` to null after inserting behind a previous own row and then dereferenced it, a TypeError thrown on the first render once a SECOND own row existed (the night-1 row, ); the row still appeared on the re-render, so only a page-error listener saw it
   sc.textContent = '';
   var head = document.createElement('span'); head.className = 'fam'; head.textContent = (sb.arms[0] && sb.arms[0].run) || headingShort(sb);   // the run's full name from the labels row of record, else the pointer's heading
-  if (sb.heading_hover) head.title = noSpecTags(String(sb.heading_hover));   // a group of one model's trained versions (post-training-lead's decision 168, 28 Sep): the builder's hover for the row's heading
+  if (sb.heading_hover) head.title = noSpecTags(String(sb.heading_hover));   // a group of one model's trained versions (the training lead's decision of 28 Sep): the builder's hover for the row's heading
   else if (sb.membership) head.title = oneSentence(noSpecTags(sb.membership));
   sc.appendChild(head);
-  // all / none for this group as the served set has them (the project maintainers' word of 22 Sep, via the coordination: every model group carries the two buttons)
+  // all / none for this group as the served set has them (the project maintainers' word of 22 Sep: every model group carries the two buttons)
   ['all', 'none'].forEach(function (w) { var ab = document.createElement('button'); ab.className = 'util'; ab.textContent = w; ab.onclick = function () { seriesSel.clear(); sb.arms.forEach(function (a, k) { if (a._twin) { var ti = panelIndexOf(a.id); if (ti >= 0) { if (w === 'all') sel.add(ti); else sel.delete(ti); } } else if (w === 'all') seriesSel.add(k); }); writeSel(); render(); }; sc.appendChild(ab); });
   sb.arms.forEach(function (a, k) {
     var b = document.createElement('button');
@@ -1287,8 +1353,8 @@ function render() {
     else if (!hasVariant && vkEl) { vkEl.remove(); }
   }
   fitGeometry(chart);
-  var TS = EXPORTING ? 2 : 1, TK = EXPORTING ? 1.5 : 1;   // against the page's RENDERED text (12.0 / 11.0 px on a desktop, the 960-unit chart shown at 820 px): the export's 24 / 16.5 read twice and half again (the site design maintainers' pixel read) // the project maintainers' word, 13:5x UK 18 Sep (via the coordination and the site design maintainers): the export's axis names twice the page's size, its tick numbers half again; the page unchanged
-  var visible = Array.from(sel).filter(shownArm).sort(function (a, b) { return a - b; });
+  var TS = EXPORTING ? 2 : 1, TK = EXPORTING ? 1.5 : 1;   // against the page's RENDERED text (12.0 / 11.0 px on a desktop, the 960-unit chart shown at 820 px): the export's 24 / 16.5 read twice and half again (the site design maintainers' pixel read) // the project maintainers' word, 13:5x UK 18 Sep (with the site design maintainers): the export's axis names twice the page's size, its tick numbers half again; the page unchanged
+  var visible = Array.from(sel).filter(shownArm).filter(function (i) { return !(state.src === 'bayes' && MERGED[i] != null); }).sort(function (a, b) { return a - b; });   // 1 Oct: a configuration merged with a side arm draws through the side fit in the Bayesian view
   /* controls tell the truth about the drawing (drive 3 Sep 2026,
  * frictions 11 and 22): the Bayesian ribbons exist at 80/90 only, so
  * 95% under that source becomes 90% and the 95% button is disabled
@@ -1455,7 +1521,7 @@ function render() {
   if (sbC && state.src === 'bayes') {
     if (!sideSel) { sideSel = new Set(); }   // off by default (22 Sep)
     sbC.arms.forEach(function (a, k) {
-      if (!sideSel.has(k) || sideHidden(a)) return;
+      if (!sideOn(k) || sideHidden(a)) return;
       var cvS = sideCurve(a); if (!cvS) return;
       var shS = pinShift(cvS); if (shS == null) return; PIN_DX = shS;
       if (cvS.lo) bands += '<path d="' + pathBand(cvS.zs, cvS.lo, cvS.hi) + '" fill="' + a.color + '" fill-opacity="0.10" data-chain-val data-side="' + k + '"/>';
@@ -1519,7 +1585,7 @@ function paintChips() {
     if (notShown(i)) parts.push(NOT_SHOWN.note);   // the project maintainers' word of 9 Sep: not shown, with the one note
     if (c.excluded) parts.push('out of the fit population — ' + (c.exclusion || 'excluded') + ' (drawn greyed, no uncertainty band; the decision of 3 Sep)');
     if (bb && bb.interim) parts.push('interim fit (newer fit' + (bb.interim.landed_at ? ', landed ' + relTime(bb.interim.landed_at) : '') + (bb.interim.axis_note ? '; ' + bb.interim.axis_note : '') + ')');
-    if (bb && bb.alongside && bb.alongside.flag) parts.push(String(bb.alongside.flag).replace(/\s*\((?:wave|set)\s+[a-z_-]*\d{8}T\d{4}Z(?:-m\d+)?\)/gi, ''));   // 22 Sep: an arm admitted as adopted, fitted alongside the set (the fit maintainers' side pointer), says so on its chip; the set is named by its label of record or not at all — a wave id in the flag is dropped
+    if (bb && bb.alongside && bb.alongside.flag) parts.push(String(bb.alongside.flag).replace(/\s*\((?:wave|set)\s+[a-z_-]*\d{8}T\d{4}Z(?:-m\d+)?\)/gi, ''));   // 22 Sep: an arm admitted as adopted, fitted alongside the set (the fit maintainers' side pointer), says so on its chip; the set is named by its label of record or not at all — a wave id in the flag is dropped (the pool pages lead's read)
     if (bb && bb.gate_flag) parts.push(bb.gate_flag);
     // concentration regime (the fit maintainers' crossings table; the difficulty maintainers' caveat): hover only — extreme/concentrated arms are
     // where the Gaussian-task-effect fit misplaces the average-rate crossings (the fit methods maintainers 04m)
@@ -1578,7 +1644,7 @@ function narrate(visible, dotsOn, unfitted) {
   if (fp) {
     var bf = D.shared.frame && D.shared.frame.bayes_fits;
     var drawnN = visible.length - (state.src === 'bayes' ? unfitted.length : 0);
-    // the project maintainers' word of 25 Sep 2026 (via the coordination): nothing on the figure that a control on the page already states — the estimator, the set and the bands went off this line; the figure keeps its title, axes, legend and the quiet count of models drawn (the project maintainers' 17 Sep word)
+    // the project maintainers' word of 25 Sep 2026: nothing on the figure that a control on the page already states — the estimator, the set and the bands went off this line; the figure keeps its title, axes, legend and the quiet count of models drawn (the project maintainers' 17 Sep word)
     fp.textContent = drawnN + (drawnN === 1 ? ' model' : ' models');   // the quiet count alone
   }
 }
@@ -1792,7 +1858,7 @@ function crossingsTable(visible) {
   var isAvg = state.def === 'average';
   var k50 = isAvg ? 'average-rate 50% crossing' : 'median-task 50% crossing';   // the vocabulary keys of the frame's enforced sentences
   var k1 = isAvg ? 'average-rate 1% crossing' : 'median-task 1% crossing';
-  var n50 = 'D50', n1 = 'D99';   // the project maintainers' names (13:0x UK 18 Sep, via the coordination and the site design maintainers): D50 and D99, uppercase; the chain named in the hover
+  var n50 = 'D50', n1 = 'D99';   // the project maintainers' names (13:0x UK 18 Sep and the site design maintainers): D50 and D99, uppercase; the chain named in the hover
   var chainWord = isAvg ? 'average rate' : 'median task';
   var hov50 = 'D50 — the difficulty at which the ' + (isAvg ? 'average failure rate' : 'median task\'s failure rate') + ' crosses 50% (' + chainWord + ')';
   var hov1 = 'D99 — the difficulty at which the ' + (isAvg ? 'average failure rate' : 'median task\'s failure rate') + ' crosses 1%, a 99% solve chance (' + chainWord + ')';
@@ -1982,7 +2048,7 @@ function poolMachineryLine(f) {   // the pool pages lead 9 Sep, the sibling page
   // glyph + sentence = the hold mark and its hover when the feed is held. Day-month form, no ISO, no file names.
   var ss = f.sources_state || {}; var store = humanTime(ss.store_newest); var regen = hhmm(f.stamp || f.built_at);
   var parts = [];
-  if (store) parts.push('results as of ' + store);   // 'store' is a project word: plain words on the project maintainers' face (the the maintainers lead's census under the project maintainers' 14:5x UK rule, 22 Sep)
+  if (store) parts.push('results as of ' + store);   // 'store' is a project word: plain words on the project maintainers' face (the pool pages lead's read under the project maintainers' rule of 22 Sep)
   if (regen) parts.push('page regenerated ' + regen + ', every hour');
   var line = parts.join('; ');
   if (ss.glyph) line += ' <span title="' + oneSentence(noStamps(String(ss.sentence || ''))).replace(/"/g, '&quot;') + '">' + ss.glyph + '</span>';
@@ -2029,7 +2095,7 @@ function stamp() {
   var head = facts + ' · ' + machinery;
   var dl = document.getElementById('dataline'), fl = document.getElementById('frameline');
   head = noBareDates(head); facts = noBareDates(facts);   // day-month form for any bare date (the golden sentence's decision date); ISO 'built' stamps are untouched
-  // the project maintainers' word of 24 Sep (via the coordination, 12:2x UK): the facts block leaves the plot's face — no task counts as a caption, no build stamp, no cap-cut clause,
+  // the project maintainers' word of 24 Sep: the facts block leaves the plot's face — no task counts as a caption, no build stamp, no cap-cut clause,
   // no machinery under the chart; the set's definition sits once in the Definitions fold (setDefinition below); the frame's facts stay in the bundle (data/manifest.json), a maintainer file
   if (fl) fl.innerHTML = '';
   if (dl) { dl.setAttribute('data-chrome', ''); dl.innerHTML = ''; }
@@ -2196,7 +2262,7 @@ function gateClause(b) {
 }
 
 /* ---------------- export: the plot as drawn at the desktop geometry, a legend of every drawn model (project helper kit-export.js) ---- */
-/* The project maintainers' word, 12:1x UK 18 Sep (via the coordination and the site design maintainers): a button exports the plot with a legend of every drawn model,
+/* The project maintainers' word, 12:1x UK 18 Sep (with the site design maintainers): a button exports the plot with a legend of every drawn model,
  * showing whatever the plot shows, robustly — the default way to export these plots. The page keeps its own
  * rendering path: the factory redraws the chart at K = 1 (the desktop geometry, full axis titles), hands the live SVG to the helper with one
  * legend row per drawn model in the plot's order (the chips' order; side arms after the served set), and draws the screen back before paint. */
@@ -2211,7 +2277,7 @@ function isThinkArm(a) { return !!(a && (a.think || /think/i.test(String(a.id ||
 function curveDash(c) { if (c && c.run_dash != null) return String(c.run_dash); return (c.think || isThinkArm(c)) ? '6 4' : (c.variant_pattern === 'dash-dot' ? '4 1.5 1.5 1.5' : (c.variant ? '1.5 2.5' : '')); }   // a training run's arms carry the run's own pattern from the bundle (27 Sep: five runs of one base share one hue)   // the same dashes render draws
 function exportLegend() {   // one row per drawn model, in the plot's order
   var rows = [];
-  var visible = Array.from(sel).filter(shownArm).sort(function (a, b) { return a - b; });
+  var visible = Array.from(sel).filter(shownArm).filter(function (i) { return !(state.src === 'bayes' && MERGED[i] != null); }).sort(function (a, b) { return a - b; });   // 1 Oct: a configuration merged with a side arm draws through the side fit in the Bayesian view
   visible.forEach(function (i) {
     var c = D.shared.configs[i], cv = chainCurve(i);
     if (state.src === 'bayes' && cv.houseOnly) return;   // not drawn under the Bayesian estimator (no posterior)
@@ -2220,7 +2286,7 @@ function exportLegend() {   // one row per drawn model, in the plot's order
   });
   var sbC = sideBlock();
   if (sbC && state.src === 'bayes') sbC.arms.forEach(function (a, k) {
-    if ((sideSel && !sideSel.has(k)) || sideHidden(a) || !sideCurve(a)) return;
+    if (!sideOn(k) || sideHidden(a) || !sideCurve(a)) return;
     rows.push({ label: a.label, family: a.family || undefined, color: a.color, dash: curveDash(a), width: 1.6, marker: 'none' });
   });
   if (state.src === 'bayes') seriesRows().forEach(function (srL) { var seriesSel = seriesSelFor(srL._row);
@@ -2263,7 +2329,7 @@ function buildCrosshair() {
   var box = document.getElementById('chartbox');
   /* task-dot hover by delegation (dots can be thousands); the prompt
  * text lazy-loads from /difficulty/tasks/<id>.json on hover dwell
- * (the Definitions role's endpoint; the project maintainers' atlas request: the task's
+ * (the Definitions project's endpoint; the project maintainers' atlas request: the task's
  * text shown on hover) */
   var textCache = {}, dwellTimer = null;
   function dotRows(ti, ci, extra, arm) {   // arm: a run row's arm (28 Sep) — its own colour, id and name; else the panel config at ci
