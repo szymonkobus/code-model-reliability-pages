@@ -480,7 +480,7 @@
    },
    "source_stamp": "2026-10-01T12:03:06Z",
    "source_fp": "d5130433bf10",
-   "updated_at": "2026-10-01T12:57:15Z",
+   "updated_at": "2026-10-01T13:20:09Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -741,21 +741,21 @@
   },
   "aime": {
    "files": {
-    "shared": "shared.aime.de4faa1d8b28.json",
-    "chain_average": "chain_average.aime.de4faa1d8b28.json",
-    "bayes": "bayes.aime.de4faa1d8b28-b0592b132fd0.json",
+    "shared": "shared.aime.6da987e1f884.json",
+    "chain_average": "chain_average.aime.6da987e1f884.json",
+    "bayes": "bayes.aime.6da987e1f884-b0592b132fd0.json",
     "bayes_prev": "bayes.aime.8611da28bb44-3faf6762a71b.json"
    },
    "label": "AIME (60 problems)",
    "arms": "all",
-   "fingerprint": "de4faa1d8b28",
+   "fingerprint": "6da987e1f884",
    "frame": {
-    "population_M": 35,
+    "population_M": 36,
     "tasks": 60,
     "keep_set_hash": "dc5cbadfe267",
-    "runs_fingerprint": "595611d3a669",
+    "runs_fingerprint": "9a53377f53a3",
     "build_date": "2026-10-01",
-    "build_ts": "2026-10-01T10:37:46Z",
+    "build_ts": "2026-10-01T13:12:34Z",
     "vocab_ruled": "2026-08-27",
     "set": "aime",
     "set_label": "AIME (60 problems)",
@@ -766,20 +766,20 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "dc5cbadfe267",
     "tasks_used": "AIME (60 problems) \u2014 60 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-aime fp 5e34e996a692 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "b7a90a5df43b",
+    "source": "failure-vs-difficulty data-aime fp 3bab1c187fe2 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "0ec55fe6610a",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-01T10:37:46Z",
-   "source_fp": "5e34e996a692",
-   "updated_at": "2026-10-01T12:06:36Z",
+   "source_stamp": "2026-10-01T13:12:34Z",
+   "source_fp": "3bab1c187fe2",
+   "updated_at": "2026-10-01T13:27:41Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
     "unfitted": 0,
     "served_wave": "nb-aime-20261001T0150Z",
-    "served_arms": 35
+    "served_arms": 36
    },
    "flip": {
     "from_wave": "nb-aime-20260930T1910Z",
