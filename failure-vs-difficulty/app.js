@@ -844,6 +844,9 @@ function oneSentence(s) {   // the project maintainers' 8 Sep bounce (the toolti
   var cut = s.length;
   [' · ', '; ', '. ', ' — '].forEach(function (sep) { var i = s.indexOf(sep); if (i > 20 && i < cut) cut = i; });
   var out = s.slice(0, cut).trim();
+  var depth = 0, lastOpen = -1;   // 1 Oct: a cut that falls inside a parenthesis ends BEFORE it — the D50/D99 bound hover read 'bound: above the hardest task used (z > 4.01' with no closing paren (fitting's status carries '; ' inside its parenthetical)
+  for (var c = 0; c < out.length; c++) { if (out[c] === '(') { if (depth === 0) lastOpen = c; depth++; } else if (out[c] === ')') { depth = Math.max(0, depth - 1); } }
+  if (depth > 0 && lastOpen > 20) out = out.slice(0, lastOpen).trim();
   if (out.length > 160) { var j = out.lastIndexOf(' ', 157); out = out.slice(0, j > 60 ? j : 157) + '…'; }
   return out.replace(/[,;:]$/, '');
 }
