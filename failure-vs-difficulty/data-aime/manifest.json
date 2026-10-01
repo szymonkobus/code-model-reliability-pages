@@ -1,9 +1,9 @@
 {
- "fingerprint": "f682ce5b2e1c",
+ "fingerprint": "3bf9486b0ab4",
  "fingerprint_inputs": {
-  "content": "6fc59b8320f9",
+  "content": "b7a90a5df43b",
   "wave": "aime-live",
-  "body": "721aeb70ae8a"
+  "body": "007ef41865ad"
  },
  "frame": {
   "dataset": "aime",
@@ -17,28 +17,28 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 34,
-  "fitted_M": 34,
-  "complete_M": 34,
-  "sampled_M": 34,
-  "difficulty_population_M": 34,
+  "population_M": 35,
+  "fitted_M": 35,
+  "complete_M": 35,
+  "sampled_M": 35,
+  "difficulty_population_M": 35,
   "tasks": 60,
   "keep_set_hash": "dc5cbadfe267",
-  "inputs_content_sha": "6fc59b8320f9",
+  "inputs_content_sha": "b7a90a5df43b",
   "tasks_on_axis": 60,
   "tasks_kept": 60,
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "dc5cbadfe267",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "03da51e93107",
+  "runs_fingerprint": "c25a78ed616b",
   "axis_wave": "aime-live",
   "build_date": "2026-10-01",
-  "stamp": "2026-10-01T08:55:17Z",
+  "stamp": "2026-10-01T09:15:15Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/aime",
-   "unified_built_at": "2026-10-01T08:28:34Z",
+   "unified_built_at": "2026-10-01T09:02:46Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.aime.csv"
@@ -57,6 +57,10 @@
     "of": 60
    },
    "deepseek-ai/deepseek-coder-6.7b-instruct": {
+    "tasks": 60,
+    "of": 60
+   },
+   "dsc6.7b-rl-night4-s500": {
     "tasks": 60,
     "of": 60
    },
@@ -209,7 +213,7 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/nb-aime-20261001T0150Z/view_v3/results",
    "set_fingerprint": "b0592b132fd0",
-   "pointer_updated_at": "2026-10-01T07:12:24Z",
+   "pointer_updated_at": "2026-10-01T09:03:11Z",
    "n_fits": 34,
    "note": null,
    "gates": {
@@ -227,7 +231,7 @@
    "served_axis_note": null,
    "membership_lag": null,
    "partial_coverage_arms": [],
-   "matches_axis": true,
+   "matches_axis": false,
    "population": "all",
    "dataset": "aime",
    "cleaned": {},
@@ -6588,9 +6592,9 @@
   }
  },
  "files": {
-  "shared": "shared.f682ce5b2e1c.json",
-  "chain_average": "chain_average.f682ce5b2e1c.json",
-  "chain_median": "chain_median.f682ce5b2e1c.json",
-  "dots": "dots.f682ce5b2e1c.json"
+  "shared": "shared.3bf9486b0ab4.json",
+  "chain_average": "chain_average.3bf9486b0ab4.json",
+  "chain_median": "chain_median.3bf9486b0ab4.json",
+  "dots": "dots.3bf9486b0ab4.json"
  }
 }
