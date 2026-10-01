@@ -1,9 +1,9 @@
 {
- "fingerprint": "7f29d9e80160",
+ "fingerprint": "201982413f4b",
  "fingerprint_inputs": {
   "content": "99687e5c765f",
   "wave": "combined-20260910T2209Z",
-  "body": "107bff455d21"
+  "body": "457349197c7c"
  },
  "frame": {
   "dataset": "board_top",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "781b50df8233",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-01",
-  "stamp": "2026-10-01T06:18:03Z",
+  "stamp": "2026-10-01T11:26:33Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -89,7 +89,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-01T05:41:01Z",
+   "unified_built_at": "2026-10-01T10:21:07Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -22849,11 +22849,11 @@
      "arm_kind": "RL checkpoint (code): a released checkpoint of the Olmo 3.1 7B RL-Zero Code run, read on wave 1+2 at the completion cell",
      "baseline_arm": "olmo3.1-7b-rlzc-s0050",
      "baseline_id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
-     "label": "Olmo 3.1 7B RL-Zero Code (final)",
+     "label": "Olmo 3.1 7B RL-Zero Code (final release)",
      "family": "Olmo 3",
      "color": "#262e0f",
      "run": "Olmo 3.1 7B RL-Zero Code",
-     "short_label": "RL-Zero Code \u00b7 final",
+     "short_label": "RL-Zero Code \u00b7 final release",
      "run_dash": null,
      "step": null,
      "final": true,
@@ -39108,11 +39108,11 @@
       "arm_kind": "RL checkpoint (code): a released checkpoint of the Olmo 3.1 7B RL-Zero Code run, read on wave 1+2 at the completion cell",
       "baseline_arm": "olmo3.1-7b-rlzc-s0050",
       "baseline_id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
-      "label": "Olmo 3.1 7B RL-Zero Code (final)",
+      "label": "Olmo 3.1 7B RL-Zero Code (final release)",
       "family": "Olmo 3",
       "color": "#262e0f",
       "run": "Olmo 3.1 7B RL-Zero Code",
-      "short_label": "RL-Zero Code \u00b7 final",
+      "short_label": "RL-Zero Code \u00b7 final release",
       "run_dash": null,
       "step": null,
       "final": true,
@@ -55366,11 +55366,11 @@
       "arm_kind": "RL checkpoint (think): a released RL-stage checkpoint of the Olmo 3 7B Think run, read on wave 1+2 in the two-phase thinking chat form",
       "baseline_arm": "olmo3-7b-think-s0025",
       "baseline_id": "olmo-3-7b-think-step0025-Thinking",
-      "label": "Olmo 3 7B Think (final)",
+      "label": "Olmo 3 7B Think (final release)",
       "family": "Olmo 3",
       "color": "#262e0f",
       "run": "Olmo 3 7B Think",
-      "short_label": "Think \u00b7 final",
+      "short_label": "Think \u00b7 final release",
       "run_dash": null,
       "step": null,
       "final": true,
@@ -106367,7 +106367,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-01T06:27:50Z",
+   "_stamp": "2026-10-01T11:27:54Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -106532,17 +106532,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-01T03:11:05Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261001T031105Z.json",
-   "sha16": "c650460f3a948732",
-   "census_mtime": "2026-10-01T03:12:09Z",
+   "stamp": "2026-10-01T10:44:25Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261001T104425Z.json",
+   "sha16": "560fc52c597665c0",
+   "census_mtime": "2026-10-01T10:45:49Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.7f29d9e80160.json",
-  "chain_average": "chain_average.7f29d9e80160.json",
-  "chain_median": "chain_median.7f29d9e80160.json",
-  "dots": "dots.7f29d9e80160.json"
+  "shared": "shared.201982413f4b.json",
+  "chain_average": "chain_average.201982413f4b.json",
+  "chain_median": "chain_median.201982413f4b.json",
+  "dots": "dots.201982413f4b.json"
  }
 }
