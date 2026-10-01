@@ -1,9 +1,9 @@
 {
- "fingerprint": "21c8e905a034",
+ "fingerprint": "778aa9124918",
  "fingerprint_inputs": {
-  "content": "1a6df61f1033",
+  "content": "065edaf597da",
   "wave": "math500-live",
-  "body": "06eb58b92802"
+  "body": "11ef5bb09fca"
  },
  "frame": {
   "dataset": "math500",
@@ -17,14 +17,14 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 47,
-  "fitted_M": 47,
-  "complete_M": 47,
-  "sampled_M": 47,
-  "difficulty_population_M": 47,
+  "population_M": 48,
+  "fitted_M": 48,
+  "complete_M": 48,
+  "sampled_M": 48,
+  "difficulty_population_M": 48,
   "tasks": 500,
   "keep_set_hash": "326e66dcd9ab",
-  "inputs_content_sha": "1a6df61f1033",
+  "inputs_content_sha": "065edaf597da",
   "tasks_on_axis": 500,
   "tasks_kept": 500,
   "tasks_awaiting_axis": 0,
@@ -33,12 +33,12 @@
   "runs_fingerprint": "c25a78ed616b",
   "axis_wave": "math500-live",
   "build_date": "2026-10-01",
-  "stamp": "2026-10-01T08:56:53Z",
+  "stamp": "2026-10-01T09:17:16Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/math500",
-   "unified_built_at": "2026-10-01T08:54:21Z",
+   "unified_built_at": "2026-10-01T09:02:46Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.math500.csv"
@@ -65,6 +65,10 @@
     "of": 500
    },
    "deepseek-ai/deepseek-coder-6.7b-instruct": {
+    "tasks": 500,
+    "of": 500
+   },
+   "dsc6.7b-rl-night4-s500": {
     "tasks": 500,
     "of": 500
    },
@@ -280,7 +284,7 @@
    "served_axis_note": null,
    "membership_lag": null,
    "partial_coverage_arms": [],
-   "matches_axis": true,
+   "matches_axis": false,
    "population": "all",
    "dataset": "math500",
    "cleaned": {},
@@ -351,7 +355,7 @@
    "axis_pinned_to_served": true,
    "cut_at": "2026-10-01T07:38:08Z",
    "completed_at": "2026-10-01T08:04:36Z",
-   "updated_at": "2026-10-01T08:41:59Z",
+   "updated_at": "2026-10-01T09:19:01Z",
    "pointer": "definitions/fitting/serving_sft_nb_math500.json",
    "arms": [
     {
@@ -8501,10 +8505,12 @@
      "arm_id": "dsc6.7b-rl-night4-s500_t0.5",
      "arm_kind": "RL",
      "baseline_arm": {
-      "model": "deepseek-ai/deepseek-coder-6.7b-instruct",
+      "model": "DeepSeek-Coder 6.7B",
       "id": "deepseek-ai/deepseek-coder-6.7b-instruct",
-      "standing_on_axis": "the base model, deepseek-ai/deepseek-coder-6.7b-instruct, has no run on this axis and does not vote on it",
-      "served_runs": []
+      "standing_on_axis": "the base model, DeepSeek-Coder 6.7B, votes on this axis through its served run (deepseek-ai--deepseek-coder-6.7b-instruct_t0.5)",
+      "served_runs": [
+       "deepseek-ai--deepseek-coder-6.7b-instruct_t0.5"
+      ]
      },
      "baseline_id": "dsc6.7b-rl-night4-s500",
      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8, fixed set (500 steps)",
@@ -8519,7 +8525,7 @@
      "n_tasks_positioned": 500,
      "n_cells": 500,
      "set_label": "MATH-500 (500 problems)",
-     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served MATH-500 axis unchanged; results and attempts as they are (128 attempts per problem, answer cap 2,048 tokens); an RL checkpoint of deepseek-ai/deepseek-coder-6.7b-instruct; the base model, deepseek-ai/deepseek-coder-6.7b-instruct, has no run on this axis and does not vote on it; the fit stands on MATH-500 (500 problems); 500 positioned in this fit (every problem of the set); results as they stood at the cut (1 Oct 08:38, the maths sets' data of 1 Oct 07:53); the sampler's checks pass for this model; the chains for this model do not agree on where it crosses the 1% level; the point is shown with that caveat; D99 is a bound: below the easiest task used (z < -4.359; more than half the draws lie below it)",
+     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served MATH-500 axis unchanged; results and attempts as they are (128 attempts per problem, answer cap 2,048 tokens); an RL checkpoint of DeepSeek-Coder 6.7B; the base model, DeepSeek-Coder 6.7B, votes on this axis through its served run (deepseek-ai--deepseek-coder-6.7b-instruct_t0.5); the fit stands on MATH-500 (500 problems); 500 positioned in this fit (every problem of the set); results as they stood at the cut (1 Oct 08:38, the maths sets' data of 1 Oct 07:53); the sampler's checks pass for this model; the chains for this model do not agree on where it crosses the 1% level; the point is shown with that caveat; D99 is a bound: below the easiest task used (z < -4.359; more than half the draws lie below it)",
      "gates_failed": false,
      "partial": false,
      "released": false,
@@ -10723,9 +10729,9 @@
   }
  },
  "files": {
-  "shared": "shared.21c8e905a034.json",
-  "chain_average": "chain_average.21c8e905a034.json",
-  "chain_median": "chain_median.21c8e905a034.json",
-  "dots": "dots.21c8e905a034.json"
+  "shared": "shared.778aa9124918.json",
+  "chain_average": "chain_average.778aa9124918.json",
+  "chain_median": "chain_median.778aa9124918.json",
+  "dots": "dots.778aa9124918.json"
  }
 }
