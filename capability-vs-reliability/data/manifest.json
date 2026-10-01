@@ -499,21 +499,21 @@
   },
   "math500": {
    "files": {
-    "shared": "shared.math500.4ee924367d58.json",
-    "chain_average": "chain_average.math500.4ee924367d58.json",
-    "bayes": "bayes.math500.4ee924367d58-681462eaa26a.json",
+    "shared": "shared.math500.ed244fbb2315.json",
+    "chain_average": "chain_average.math500.ed244fbb2315.json",
+    "bayes": "bayes.math500.ed244fbb2315-681462eaa26a.json",
     "bayes_prev": "bayes.math500.356064c2d825-8c3375661f69.json"
    },
    "label": "MATH-500 (500 problems)",
    "arms": "all",
-   "fingerprint": "4ee924367d58",
+   "fingerprint": "ed244fbb2315",
    "frame": {
-    "population_M": 46,
+    "population_M": 47,
     "tasks": 500,
     "keep_set_hash": "326e66dcd9ab",
-    "runs_fingerprint": "2ebdae74ccfc",
-    "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T23:24:00Z",
+    "runs_fingerprint": "bd98987cb72a",
+    "build_date": "2026-10-01",
+    "build_ts": "2026-10-01T00:57:01Z",
     "vocab_ruled": "2026-08-27",
     "set": "math500",
     "set_label": "MATH-500 (500 problems)",
@@ -524,18 +524,18 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "326e66dcd9ab",
     "tasks_used": "MATH-500 (500 problems) \u2014 500 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-math500 fp ddc698a0dce7 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "dd51cff4ec9d",
+    "source": "failure-vs-difficulty data-math500 fp 094edf01756f (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "0b01931fdaa5",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T23:24:00Z",
-   "source_fp": "ddc698a0dce7",
-   "updated_at": "2026-10-01T00:36:59Z",
+   "source_stamp": "2026-10-01T00:57:01Z",
+   "source_fp": "094edf01756f",
+   "updated_at": "2026-10-01T01:28:14Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
-    "unfitted": 1,
+    "unfitted": 2,
     "served_wave": "nb-math500-20260930T1910Z",
     "served_arms": 45
    },
@@ -787,7 +787,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-10-01T00:25:27Z",
+  "stamp": "2026-10-01T01:25:10Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,
