@@ -1,9 +1,9 @@
 {
- "fingerprint": "cd2663d86fe6",
+ "fingerprint": "7f29d9e80160",
  "fingerprint_inputs": {
   "content": "99687e5c765f",
   "wave": "combined-20260910T2209Z",
-  "body": "1def13faa8ee"
+  "body": "107bff455d21"
  },
  "frame": {
   "dataset": "board_top",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "781b50df8233",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-01",
-  "stamp": "2026-10-01T05:07:36Z",
+  "stamp": "2026-10-01T06:18:03Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -89,7 +89,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-01T04:26:35Z",
+   "unified_built_at": "2026-10-01T05:41:01Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -22840,7 +22840,7 @@
    "axis_pinned_to_served": true,
    "cut_at": "2026-09-22T04:53:28Z",
    "completed_at": "2026-09-24T17:05:12Z",
-   "updated_at": "2026-09-28T12:04:46Z",
+   "updated_at": "2026-10-01T05:31:06Z",
    "pointer": "definitions/fitting/serving_series_olmo31_rlzero_code.json",
    "arms": [
     {
@@ -22869,7 +22869,7 @@
      "n_tasks_positioned": 1288,
      "n_cells": 1288,
      "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
-     "disclosure": "the final checkpoint of one training run, positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
+     "disclosure": "the released model of one training run, positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
      "gates_failed": false,
      "partial": false,
      "released": false,
@@ -39099,7 +39099,7 @@
     "axis_pinned_to_served": true,
     "cut_at": "2026-09-22T04:53:28Z",
     "completed_at": "2026-09-24T17:05:12Z",
-    "updated_at": "2026-09-28T12:04:46Z",
+    "updated_at": "2026-10-01T05:31:06Z",
     "pointer": "definitions/fitting/serving_series_olmo31_rlzero_code.json",
     "arms": [
      {
@@ -39128,7 +39128,7 @@
       "n_tasks_positioned": 1288,
       "n_cells": 1288,
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
-      "disclosure": "the final checkpoint of one training run, positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
+      "disclosure": "the released model of one training run, positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": false,
       "partial": false,
       "released": false,
@@ -55357,7 +55357,7 @@
     "axis_pinned_to_served": true,
     "cut_at": "2026-09-23T07:13:54Z",
     "completed_at": "2026-09-25T08:02:56Z",
-    "updated_at": "2026-09-28T12:04:46Z",
+    "updated_at": "2026-10-01T05:31:08Z",
     "pointer": "definitions/fitting/serving_series_olmo3-7b-think.json",
     "arms": [
      {
@@ -55386,7 +55386,7 @@
       "n_tasks_positioned": 1288,
       "n_cells": 1288,
       "set_label": "wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
-      "disclosure": "the final checkpoint of one training run, positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
+      "disclosure": "the released model of one training run, positioned on the served wave 1+2 axis unchanged; shown beside checkpoint 0, the earliest checkpoint read; results and attempts as they are (32 attempts per task); the fit stands on wave 1+2 (1,288 tasks): 430 of wave 1 + 858 of wave 2",
       "gates_failed": false,
       "partial": false,
       "released": false,
@@ -106367,7 +106367,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-01T04:27:47Z",
+   "_stamp": "2026-10-01T06:27:50Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -106540,9 +106540,9 @@
   }
  },
  "files": {
-  "shared": "shared.cd2663d86fe6.json",
-  "chain_average": "chain_average.cd2663d86fe6.json",
-  "chain_median": "chain_median.cd2663d86fe6.json",
-  "dots": "dots.cd2663d86fe6.json"
+  "shared": "shared.7f29d9e80160.json",
+  "chain_average": "chain_average.7f29d9e80160.json",
+  "chain_median": "chain_median.7f29d9e80160.json",
+  "dots": "dots.7f29d9e80160.json"
  }
 }
