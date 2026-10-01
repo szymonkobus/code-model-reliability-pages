@@ -1,9 +1,9 @@
 {
- "fingerprint": "6d954dc541ba",
+ "fingerprint": "fc020b883e47",
  "fingerprint_inputs": {
   "content": "9d6ea8b14b6c",
   "wave": "cruxeval_o-live",
-  "body": "54bc11ee377c"
+  "body": "3b40acb90e6f"
  },
  "frame": {
   "dataset": "cruxeval_o",
@@ -33,7 +33,7 @@
   "runs_fingerprint": "47efd6f7fff1",
   "axis_wave": "cruxeval_o-live",
   "build_date": "2026-10-01",
-  "stamp": "2026-10-01T21:09:10Z",
+  "stamp": "2026-10-01T21:17:50Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
@@ -2544,17 +2544,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-01T19:22:48Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261001T192248Z.json",
-   "sha16": "56a0e531a90ce2f4",
-   "census_mtime": "2026-10-01T19:23:54Z",
+   "stamp": "2026-10-01T20:28:39Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261001T202839Z.json",
+   "sha16": "e57484a0833c6925",
+   "census_mtime": "2026-10-01T20:29:23Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.6d954dc541ba.json",
-  "chain_average": "chain_average.6d954dc541ba.json",
-  "chain_median": "chain_median.6d954dc541ba.json",
-  "dots": "dots.6d954dc541ba.json"
+  "shared": "shared.fc020b883e47.json",
+  "chain_average": "chain_average.fc020b883e47.json",
+  "chain_median": "chain_median.fc020b883e47.json",
+  "dots": "dots.fc020b883e47.json"
  }
 }
