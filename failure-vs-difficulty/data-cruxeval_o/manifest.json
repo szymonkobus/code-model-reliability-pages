@@ -1,9 +1,9 @@
 {
- "fingerprint": "68fc684cb96c",
+ "fingerprint": "3660161d3823",
  "fingerprint_inputs": {
-  "content": "3b0a9490a92a",
+  "content": "5dd065fbfd8f",
   "wave": "cruxeval_o-live",
-  "body": "feda12cd052e"
+  "body": "0e95784ae4be"
  },
  "frame": {
   "dataset": "cruxeval_o",
@@ -17,28 +17,28 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 46,
-  "fitted_M": 46,
-  "complete_M": 46,
-  "sampled_M": 46,
-  "difficulty_population_M": 46,
+  "population_M": 47,
+  "fitted_M": 47,
+  "complete_M": 47,
+  "sampled_M": 47,
+  "difficulty_population_M": 47,
   "tasks": 800,
   "keep_set_hash": "ceaae2d92751",
-  "inputs_content_sha": "3b0a9490a92a",
+  "inputs_content_sha": "5dd065fbfd8f",
   "tasks_on_axis": 800,
   "tasks_kept": 800,
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ceaae2d92751",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "c25a78ed616b",
+  "runs_fingerprint": "e4758e21ce7f",
   "axis_wave": "cruxeval_o-live",
   "build_date": "2026-10-01",
-  "stamp": "2026-10-01T09:00:57Z",
+  "stamp": "2026-10-01T10:26:28Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/cruxeval_o",
-   "unified_built_at": "2026-10-01T08:54:21Z",
+   "unified_built_at": "2026-10-01T10:17:46Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.cruxeval_o.csv"
@@ -61,6 +61,10 @@
     "of": 800
    },
    "deepseek-ai/deepseek-coder-6.7b-instruct": {
+    "tasks": 800,
+    "of": 800
+   },
+   "dsc6.7b-rl-night4-s500": {
     "tasks": 800,
     "of": 800
    },
@@ -305,7 +309,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-01T08:29:11Z",
+   "_stamp": "2026-10-01T10:26:50Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -470,17 +474,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-01T05:48:55Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261001T054855Z.json",
-   "sha16": "7a22b54ec45064b5",
-   "census_mtime": "2026-10-01T05:50:22Z",
+   "stamp": "2026-10-01T09:06:46Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261001T090646Z.json",
+   "sha16": "ea86d0f2ccd1599a",
+   "census_mtime": "2026-10-01T09:08:39Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.68fc684cb96c.json",
-  "chain_average": "chain_average.68fc684cb96c.json",
-  "chain_median": "chain_median.68fc684cb96c.json",
-  "dots": "dots.68fc684cb96c.json"
+  "shared": "shared.3660161d3823.json",
+  "chain_average": "chain_average.3660161d3823.json",
+  "chain_median": "chain_median.3660161d3823.json",
+  "dots": "dots.3660161d3823.json"
  }
 }
