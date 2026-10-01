@@ -1,9 +1,9 @@
 {
- "fingerprint": "af6ebd778628",
+ "fingerprint": "29b654fe593d",
  "fingerprint_inputs": {
-  "content": "252bd5f2c6cc",
+  "content": "1d2a57301b7a",
   "wave": "gsm8k_platinum-live",
-  "body": "e70758dfdaec"
+  "body": "c4e5817876f7"
  },
  "frame": {
   "dataset": "gsm8k_platinum",
@@ -17,28 +17,28 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 47,
-  "fitted_M": 47,
-  "complete_M": 47,
-  "sampled_M": 47,
-  "difficulty_population_M": 47,
+  "population_M": 48,
+  "fitted_M": 48,
+  "complete_M": 48,
+  "sampled_M": 48,
+  "difficulty_population_M": 48,
   "tasks": 1209,
   "keep_set_hash": "ff1457decdf7",
-  "inputs_content_sha": "252bd5f2c6cc",
+  "inputs_content_sha": "1d2a57301b7a",
   "tasks_on_axis": 1209,
   "tasks_kept": 1209,
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ff1457decdf7",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "9d31bb7f9ae7",
+  "runs_fingerprint": "03da51e93107",
   "axis_wave": "gsm8k_platinum-live",
   "build_date": "2026-10-01",
-  "stamp": "2026-10-01T05:47:45Z",
+  "stamp": "2026-10-01T08:39:34Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/gsm8k_platinum",
-   "unified_built_at": "2026-10-01T05:34:20Z",
+   "unified_built_at": "2026-10-01T08:28:34Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.gsm8k_platinum.csv"
@@ -61,6 +61,10 @@
     "of": 1209
    },
    "claude-sonnet-5-thinking": {
+    "tasks": 1209,
+    "of": 1209
+   },
+   "deepseek-ai/deepseek-coder-6.7b-instruct": {
     "tasks": 1209,
     "of": 1209
    },
@@ -257,9 +261,9 @@
    },
    "strict_gate_flagged": [],
    "served_not_drawn": null,
-   "custody_dir": "definitions/fitting/waves/nb-gsm8k_platinum-20260930T1448Z/view_v3/results",
+   "custody_dir": "definitions/fitting/waves/nb-gsm8k_platinum-20260930T1448Z/view_v4/results",
    "set_fingerprint": "5bf8c7aa2f22",
-   "pointer_updated_at": "2026-10-01T05:10:33Z",
+   "pointer_updated_at": "2026-10-01T08:11:02Z",
    "n_fits": 57,
    "note": null,
    "gates": {
@@ -270,11 +274,11 @@
     "rhat_max": 1.01,
     "bulk_ess_min": 402,
     "flagged": [],
-    "source": "definitions/fitting/waves/nb-gsm8k_platinum-20260930T1448Z/view_v3/gates_summary.json"
+    "source": "definitions/fitting/waves/nb-gsm8k_platinum-20260930T1448Z/view_v4/gates_summary.json"
    },
    "provisional_classes": null,
    "basis_truncation": null,
-   "served_axis_note": null,
+   "served_axis_note": "Bayesian curve fitted on this live axis as it stood at the cut; the axis has moved with results landing since, so positions may differ slightly",
    "membership_lag": null,
    "partial_coverage_arms": [],
    "matches_axis": false,
@@ -306,7 +310,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-01T05:29:18Z",
+   "_stamp": "2026-10-01T08:29:11Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -471,17 +475,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-01T03:11:05Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261001T031105Z.json",
-   "sha16": "c650460f3a948732",
-   "census_mtime": "2026-10-01T03:12:09Z",
+   "stamp": "2026-10-01T05:48:55Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261001T054855Z.json",
+   "sha16": "7a22b54ec45064b5",
+   "census_mtime": "2026-10-01T05:50:22Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.af6ebd778628.json",
-  "chain_average": "chain_average.af6ebd778628.json",
-  "chain_median": "chain_median.af6ebd778628.json",
-  "dots": "dots.af6ebd778628.json"
+  "shared": "shared.29b654fe593d.json",
+  "chain_average": "chain_average.29b654fe593d.json",
+  "chain_median": "chain_median.29b654fe593d.json",
+  "dots": "dots.29b654fe593d.json"
  }
 }
