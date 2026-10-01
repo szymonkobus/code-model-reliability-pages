@@ -583,7 +583,7 @@
    },
    "source_stamp": "2026-10-01T08:35:21Z",
    "source_fp": "9e5f81e76306",
-   "updated_at": "2026-10-01T08:53:19Z",
+   "updated_at": "2026-10-01T10:06:54Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -597,20 +597,20 @@
   },
   "gsm8k_platinum": {
    "files": {
-    "shared": "shared.gsm8k_platinum.b5b9fe2e3e89.json",
-    "chain_average": "chain_average.gsm8k_platinum.b5b9fe2e3e89.json",
-    "bayes": "bayes.gsm8k_platinum.b5b9fe2e3e89-5bf8c7aa2f22.json"
+    "shared": "shared.gsm8k_platinum.ea97fc08ec16.json",
+    "chain_average": "chain_average.gsm8k_platinum.ea97fc08ec16.json",
+    "bayes": "bayes.gsm8k_platinum.ea97fc08ec16-5bf8c7aa2f22.json"
    },
    "label": "GSM8K-Platinum (1209 problems)",
    "arms": "all",
-   "fingerprint": "b5b9fe2e3e89",
+   "fingerprint": "ea97fc08ec16",
    "frame": {
     "population_M": 49,
     "tasks": 1209,
     "keep_set_hash": "ff1457decdf7",
     "runs_fingerprint": "addea60be691",
     "build_date": "2026-10-01",
-    "build_ts": "2026-10-01T09:23:50Z",
+    "build_ts": "2026-10-01T09:44:03Z",
     "vocab_ruled": "2026-08-27",
     "set": "gsm8k_platinum",
     "set_label": "GSM8K-Platinum (1209 problems)",
@@ -621,14 +621,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ff1457decdf7",
     "tasks_used": "GSM8K-Platinum (1209 problems) \u2014 1209 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-gsm8k_platinum fp 4a6a25f8773b (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-gsm8k_platinum fp cafbc666d81b (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "51d46e0f2f7d",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-01T09:23:50Z",
-   "source_fp": "4a6a25f8773b",
-   "updated_at": "2026-10-01T09:44:30Z",
+   "source_stamp": "2026-10-01T09:44:03Z",
+   "source_fp": "cafbc666d81b",
+   "updated_at": "2026-10-01T10:10:08Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -673,7 +673,7 @@
    },
    "source_stamp": "2026-10-01T08:27:09Z",
    "source_fp": "dad5fad7df43",
-   "updated_at": "2026-10-01T09:15:39Z",
+   "updated_at": "2026-10-01T10:12:19Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -718,7 +718,7 @@
    },
    "source_stamp": "2026-10-01T09:00:57Z",
    "source_fp": "68fc684cb96c",
-   "updated_at": "2026-10-01T09:48:16Z",
+   "updated_at": "2026-10-01T10:14:33Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
