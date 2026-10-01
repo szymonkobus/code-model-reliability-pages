@@ -1,9 +1,9 @@
 {
- "fingerprint": "16f7ff3100bd",
+ "fingerprint": "2f269ce52f0a",
  "fingerprint_inputs": {
   "content": "6fc59b8320f9",
   "wave": "aime-live",
-  "body": "075b1cdda45a"
+  "body": "f7ed5c0a29a7"
  },
  "frame": {
   "dataset": "aime",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "dc5cbadfe267",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "4f60c527c61e",
+  "runs_fingerprint": "398dc4536b69",
   "axis_wave": "aime-live",
   "build_date": "2026-10-01",
-  "stamp": "2026-10-01T06:49:03Z",
+  "stamp": "2026-10-01T07:52:07Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/aime",
-   "unified_built_at": "2026-10-01T06:36:25Z",
+   "unified_built_at": "2026-10-01T07:43:45Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.aime.csv"
@@ -207,9 +207,9 @@
     "mistralai/Mistral-7B-Instruct-v0.3"
    ],
    "served_not_drawn": null,
-   "custody_dir": "definitions/fitting/waves/nb-aime-20261001T0150Z/view_v2/results",
+   "custody_dir": "definitions/fitting/waves/nb-aime-20261001T0150Z/view_v3/results",
    "set_fingerprint": "b0592b132fd0",
-   "pointer_updated_at": "2026-10-01T04:43:49Z",
+   "pointer_updated_at": "2026-10-01T07:12:24Z",
    "n_fits": 34,
    "note": null,
    "gates": {
@@ -220,7 +220,7 @@
     "rhat_max": 1.001,
     "bulk_ess_min": 1997,
     "flagged": [],
-    "source": "definitions/fitting/waves/nb-aime-20261001T0150Z/view_v2/gates_summary.json"
+    "source": "definitions/fitting/waves/nb-aime-20261001T0150Z/view_v3/gates_summary.json"
    },
    "provisional_classes": null,
    "basis_truncation": null,
@@ -278,7 +278,7 @@
   },
   "side_arms": {
    "served": true,
-   "serving_word": "difficulty's GO of 1 October (03:3x) on the staged set pointer 08305ca94149 and side pointer 9ce8d54cc5e2: AIME re-served from the depth-12 cut nb-aime-20261001T0150Z on the axis 35de3c39c58f, every arm at depth 12 with the exact crossing, the two fine-tunes beside the set serving the set view's own fits (one fit per arm)",
+   "serving_word": "GO (difficulty, 1 Oct 06:5xZ) \u2014 this GO covers the set pointer serving_nb_aime.v3.json sha12 725277bb2f34 and the side pointer serving_sft_nb_aime.v4.json sha12 1d52614b3440 only, flipped together in the same minute outside the tick's minutes; the earlier ask on 4ade5768068d is void with those bytes. The read: set \u2014 axis 35de3c39c58f SAME, the 34 fits hard-linked to the served view's (nothing re-fitted), the D50 bound columns added, exactly the seven D50 cells changed (the five from their medians to the lower-edge bound and the two fully censored from empty to the bound's z), every other D50 and every D99 identical; side \u2014 a view v2 of sft-nb-aime-20261001T0319Z with the set view's own two files, its two rows equal to the set view v3's on every column.",
    "wave_id": "sft-nb-aime-20261001T0319Z",
    "n_arms": 2,
    "heading": "models fitted alongside the set, on AIME (60 problems); two post-training fine-tunes, positioned on the served AIME axis unchanged; 60 problems positioned for each model, each model's own figures in its entry",
@@ -288,7 +288,7 @@
    "axis_pinned_to_served": true,
    "cut_at": "2026-10-01T03:19:40Z",
    "completed_at": "2026-10-01T02:43:06Z",
-   "updated_at": "2026-10-01T03:46:57Z",
+   "updated_at": "2026-10-01T07:14:17Z",
    "pointer": "definitions/fitting/serving_sft_nb_aime.json",
    "arms": [
     {
@@ -316,7 +316,7 @@
      "n_tasks_positioned": 60,
      "n_cells": 60,
      "set_label": "AIME (60 problems)",
-     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served AIME axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 8,192 tokens); a partial result: 32 answers a problem where the set's models stand at 128; shown on the toggle with its count, never in a same-attempts headline; re-fitted when its answers reach 128; a direct fine-tune of Qwen3 8B; the base model, Qwen3 8B, votes on this axis through its served run (Qwen--Qwen3-8B_think-t0.6); the fit stands on AIME (60 problems); 60 positioned in this fit (every problem of the set); results as they stood at the cut (1 Oct 04:19, the maths sets' data of 1 Oct 03:20); the sampler's checks pass for this model; the chains for this model do not agree on where it crosses the 1% level; the point is shown with that caveat; D99 is a bound: below the easiest task used (z < -1.405; more than half the draws lie below it)",
+     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served AIME axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 8,192 tokens); a partial result: 32 answers a problem where the set's models stand at 128; shown on the toggle with its count, never in a same-attempts headline; re-fitted when its answers reach 128; a direct fine-tune of Qwen3 8B; the base model, Qwen3 8B, votes on this axis through its served run (Qwen--Qwen3-8B_think-t0.6); the fit stands on AIME (60 problems); 60 positioned in this fit (every problem of the set); results as they stood at the cut (1 Oct 04:19, the maths sets' data of 1 Oct 06:49); the sampler's checks pass for this model; the chains for this model do not agree on where it crosses the 1% level; the point is shown with that caveat; D99 is a bound: below the easiest task used (z < -1.405; more than half the draws lie below it)",
      "gates_failed": false,
      "partial": true,
      "released": false,
@@ -2304,8 +2304,15 @@
      "cut_at": "2026-10-01T03:19:40Z",
      "cross_record": {
       "d50": {
-       "z": -1.3467,
-       "mixing_note": null
+       "z": -1.4045,
+       "mixing_note": null,
+       "status": "bound: below the easiest task used (z < -1.405; more than half the draws lie below it, p_left_censored 0.949) \u2014 by the ruling of 4 Sep (per crossing) the served D50 is this bound with its z: below z = -1.405 (the easiest observed task of this fit); it resolves when a wave reaches easier tasks",
+       "status_kind": "bound",
+       "bound": null,
+       "reason_text": null,
+       "uncensored_median_z": -1.3467,
+       "lo": -1.3947,
+       "hi": -1.2385
       },
       "d1": {
        "z": -1.4045,
@@ -2343,7 +2350,7 @@
      "n_tasks_positioned": 60,
      "n_cells": 60,
      "set_label": "AIME (60 problems)",
-     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served AIME axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 8,192 tokens); a partial result: 32 answers a problem where the set's models stand at 128; shown on the toggle with its count, never in a same-attempts headline; re-fitted when its answers reach 128; a completion SFT of Qwen3.5 9B Base; the base model, Qwen3.5 9B Base, has no run on this axis and does not vote on it; the fit stands on AIME (60 problems); 60 positioned in this fit (every problem of the set); results as they stood at the cut (1 Oct 04:19, the maths sets' data of 1 Oct 03:20); the sampler's checks pass for this model; the chains for this model do not agree on where it crosses the 1% level; the point is shown with that caveat; D99 is a bound: below the easiest task used (z < -1.405; more than half the draws lie below it)",
+     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served AIME axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 8,192 tokens); a partial result: 32 answers a problem where the set's models stand at 128; shown on the toggle with its count, never in a same-attempts headline; re-fitted when its answers reach 128; a completion SFT of Qwen3.5 9B Base; the base model, Qwen3.5 9B Base, has no run on this axis and does not vote on it; the fit stands on AIME (60 problems); 60 positioned in this fit (every problem of the set); results as they stood at the cut (1 Oct 04:19, the maths sets' data of 1 Oct 06:49); the sampler's checks pass for this model; the chains for this model do not agree on where it crosses the 1% level; the point is shown with that caveat; D99 is a bound: below the easiest task used (z < -1.405; more than half the draws lie below it)",
      "gates_failed": false,
      "partial": true,
      "released": false,
@@ -4331,8 +4338,15 @@
      "cut_at": "2026-10-01T03:19:40Z",
      "cross_record": {
       "d50": {
-       "z": -1.3313,
-       "mixing_note": null
+       "z": -1.4045,
+       "mixing_note": null,
+       "status": "bound: below the easiest task used (z < -1.405; more than half the draws lie below it, p_left_censored 0.968) \u2014 by the ruling of 4 Sep (per crossing) the served D50 is this bound with its z: below z = -1.405 (the easiest observed task of this fit); it resolves when a wave reaches easier tasks",
+       "status_kind": "bound",
+       "bound": null,
+       "reason_text": null,
+       "uncensored_median_z": -1.3313,
+       "lo": -1.3926,
+       "hi": -1.2067
       },
       "d1": {
        "z": -1.4045,
@@ -4367,7 +4381,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-01T06:27:50Z",
+   "_stamp": "2026-10-01T07:29:04Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -4532,17 +4546,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-01T03:11:05Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261001T031105Z.json",
-   "sha16": "c650460f3a948732",
-   "census_mtime": "2026-10-01T03:12:09Z",
+   "stamp": "2026-10-01T05:48:55Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261001T054855Z.json",
+   "sha16": "7a22b54ec45064b5",
+   "census_mtime": "2026-10-01T05:50:22Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.16f7ff3100bd.json",
-  "chain_average": "chain_average.16f7ff3100bd.json",
-  "chain_median": "chain_median.16f7ff3100bd.json",
-  "dots": "dots.16f7ff3100bd.json"
+  "shared": "shared.2f269ce52f0a.json",
+  "chain_average": "chain_average.2f269ce52f0a.json",
+  "chain_median": "chain_median.2f269ce52f0a.json",
+  "dots": "dots.2f269ce52f0a.json"
  }
 }

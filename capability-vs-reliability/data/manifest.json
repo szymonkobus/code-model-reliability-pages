@@ -642,20 +642,20 @@
   },
   "cruxeval_i": {
    "files": {
-    "shared": "shared.cruxeval_i.ca65eba12b3f.json",
-    "chain_average": "chain_average.cruxeval_i.ca65eba12b3f.json",
-    "bayes": "bayes.cruxeval_i.ca65eba12b3f-25cf9e981c9d.json"
+    "shared": "shared.cruxeval_i.ee3d54c9bf76.json",
+    "chain_average": "chain_average.cruxeval_i.ee3d54c9bf76.json",
+    "bayes": "bayes.cruxeval_i.ee3d54c9bf76-25cf9e981c9d.json"
    },
    "label": "CRUXEval \u00b7 input prediction (800 problems)",
    "arms": "all",
-   "fingerprint": "ca65eba12b3f",
+   "fingerprint": "ee3d54c9bf76",
    "frame": {
-    "population_M": 41,
+    "population_M": 42,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
-    "runs_fingerprint": "ea654b44c540",
+    "runs_fingerprint": "fa9d3f69cf72",
     "build_date": "2026-10-01",
-    "build_ts": "2026-10-01T05:25:27Z",
+    "build_ts": "2026-10-01T07:30:09Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_i",
     "set_label": "CRUXEval \u00b7 input prediction (800 problems)",
@@ -666,18 +666,18 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
     "tasks_used": "CRUXEval \u00b7 input prediction (800 problems) \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_i fp 57addecddbd4 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "44fee9831a50",
+    "source": "failure-vs-difficulty data-cruxeval_i fp c5237145c51e (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "0437e82854ae",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-01T05:25:27Z",
-   "source_fp": "57addecddbd4",
-   "updated_at": "2026-10-01T05:45:58Z",
+   "source_stamp": "2026-10-01T07:30:09Z",
+   "source_fp": "c5237145c51e",
+   "updated_at": "2026-10-01T07:57:34Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
-    "unfitted": 0,
+    "unfitted": 1,
     "served_wave": "nb-cruxeval_i-20260930T1503Z",
     "served_arms": 41
    },
