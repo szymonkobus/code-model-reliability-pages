@@ -338,7 +338,7 @@
    },
    "source_stamp": "2026-10-01T06:18:03Z",
    "source_fp": "7f29d9e80160",
-   "updated_at": "2026-10-01T09:23:47Z",
+   "updated_at": "2026-10-01T09:45:38Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -383,7 +383,7 @@
    },
    "source_stamp": "2026-09-30T23:09:20Z",
    "source_fp": "45fb1ecc365b",
-   "updated_at": "2026-10-01T09:25:10Z",
+   "updated_at": "2026-10-01T09:48:20Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -431,7 +431,7 @@
    },
    "source_stamp": "2026-09-30T22:19:37Z",
    "source_fp": "2be3f5f66341",
-   "updated_at": "2026-10-01T09:25:39Z",
+   "updated_at": "2026-10-01T09:49:04Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -718,7 +718,7 @@
    },
    "source_stamp": "2026-10-01T09:00:57Z",
    "source_fp": "68fc684cb96c",
-   "updated_at": "2026-10-01T09:28:24Z",
+   "updated_at": "2026-10-01T09:48:16Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -732,21 +732,21 @@
   },
   "aime": {
    "files": {
-    "shared": "shared.aime.3b1ec5aeef21.json",
-    "chain_average": "chain_average.aime.3b1ec5aeef21.json",
-    "bayes": "bayes.aime.3b1ec5aeef21-b0592b132fd0.json",
+    "shared": "shared.aime.a5e939474ca2.json",
+    "chain_average": "chain_average.aime.a5e939474ca2.json",
+    "bayes": "bayes.aime.a5e939474ca2-b0592b132fd0.json",
     "bayes_prev": "bayes.aime.8611da28bb44-3faf6762a71b.json"
    },
    "label": "AIME (60 problems)",
    "arms": "all",
-   "fingerprint": "3b1ec5aeef21",
+   "fingerprint": "a5e939474ca2",
    "frame": {
     "population_M": 35,
     "tasks": 60,
     "keep_set_hash": "dc5cbadfe267",
-    "runs_fingerprint": "c25a78ed616b",
+    "runs_fingerprint": "addea60be691",
     "build_date": "2026-10-01",
-    "build_ts": "2026-10-01T09:15:15Z",
+    "build_ts": "2026-10-01T09:30:47Z",
     "vocab_ruled": "2026-08-27",
     "set": "aime",
     "set_label": "AIME (60 problems)",
@@ -757,14 +757,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "dc5cbadfe267",
     "tasks_used": "AIME (60 problems) \u2014 60 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-aime fp 3bf9486b0ab4 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-aime fp 748065e96013 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "b7a90a5df43b",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-01T09:15:15Z",
-   "source_fp": "3bf9486b0ab4",
-   "updated_at": "2026-10-01T09:29:51Z",
+   "source_stamp": "2026-10-01T09:30:47Z",
+   "source_fp": "748065e96013",
+   "updated_at": "2026-10-01T09:49:56Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
