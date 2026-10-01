@@ -687,20 +687,20 @@
   },
   "cruxeval_o": {
    "files": {
-    "shared": "shared.cruxeval_o.bd2a8c1fa0fa.json",
-    "chain_average": "chain_average.cruxeval_o.bd2a8c1fa0fa.json",
-    "bayes": "bayes.cruxeval_o.bd2a8c1fa0fa-56c3a01baf15.json"
+    "shared": "shared.cruxeval_o.962b9a882a93.json",
+    "chain_average": "chain_average.cruxeval_o.962b9a882a93.json",
+    "bayes": "bayes.cruxeval_o.962b9a882a93-56c3a01baf15.json"
    },
    "label": "CRUXEval \u00b7 output prediction (800 problems)",
    "arms": "all",
-   "fingerprint": "bd2a8c1fa0fa",
+   "fingerprint": "962b9a882a93",
    "frame": {
-    "population_M": 46,
+    "population_M": 47,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
-    "runs_fingerprint": "c25a78ed616b",
+    "runs_fingerprint": "e4758e21ce7f",
     "build_date": "2026-10-01",
-    "build_ts": "2026-10-01T09:00:57Z",
+    "build_ts": "2026-10-01T10:26:28Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_o",
     "set_label": "CRUXEval \u00b7 output prediction (800 problems)",
@@ -711,18 +711,18 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
     "tasks_used": "CRUXEval \u00b7 output prediction (800 problems) \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_o fp 68fc684cb96c (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "3b0a9490a92a",
+    "source": "failure-vs-difficulty data-cruxeval_o fp 3660161d3823 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "5dd065fbfd8f",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-01T09:00:57Z",
-   "source_fp": "68fc684cb96c",
-   "updated_at": "2026-10-01T10:14:33Z",
+   "source_stamp": "2026-10-01T10:26:28Z",
+   "source_fp": "3660161d3823",
+   "updated_at": "2026-10-01T10:41:01Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
-    "unfitted": 0,
+    "unfitted": 1,
     "served_wave": "nb-cruxeval_o-20260930T1503Z",
     "served_arms": 46
    },
