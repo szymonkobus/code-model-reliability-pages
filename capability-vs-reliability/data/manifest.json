@@ -552,20 +552,20 @@
   },
   "ifeval": {
    "files": {
-    "shared": "shared.ifeval.1b4a9fdc190c.json",
-    "chain_average": "chain_average.ifeval.1b4a9fdc190c.json",
-    "bayes": "bayes.ifeval.1b4a9fdc190c-f5c9ab51d8cc.json"
+    "shared": "shared.ifeval.e327c7d60309.json",
+    "chain_average": "chain_average.ifeval.e327c7d60309.json",
+    "bayes": "bayes.ifeval.e327c7d60309-f5c9ab51d8cc.json"
    },
    "label": "IFEval (541 problems)",
    "arms": "all",
-   "fingerprint": "1b4a9fdc190c",
+   "fingerprint": "e327c7d60309",
    "frame": {
-    "population_M": 42,
+    "population_M": 43,
     "tasks": 541,
     "keep_set_hash": "ea009d5c6cd1",
-    "runs_fingerprint": "03da51e93107",
+    "runs_fingerprint": "e4758e21ce7f",
     "build_date": "2026-10-01",
-    "build_ts": "2026-10-01T08:35:21Z",
+    "build_ts": "2026-10-01T10:10:38Z",
     "vocab_ruled": "2026-08-27",
     "set": "ifeval",
     "set_label": "IFEval (541 problems)",
@@ -576,18 +576,18 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ea009d5c6cd1",
     "tasks_used": "IFEval (541 problems) \u2014 541 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-ifeval fp 9e5f81e76306 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "02dc892cc547",
+    "source": "failure-vs-difficulty data-ifeval fp 0e85cf21dab0 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "18c1f92b7463",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-01T08:35:21Z",
-   "source_fp": "9e5f81e76306",
-   "updated_at": "2026-10-01T10:06:54Z",
+   "source_stamp": "2026-10-01T10:10:38Z",
+   "source_fp": "0e85cf21dab0",
+   "updated_at": "2026-10-01T10:25:59Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
-    "unfitted": 3,
+    "unfitted": 4,
     "served_wave": "nb-ifeval-20260930T1448Z",
     "served_arms": 39
    },
@@ -597,20 +597,20 @@
   },
   "gsm8k_platinum": {
    "files": {
-    "shared": "shared.gsm8k_platinum.ea97fc08ec16.json",
-    "chain_average": "chain_average.gsm8k_platinum.ea97fc08ec16.json",
-    "bayes": "bayes.gsm8k_platinum.ea97fc08ec16-5bf8c7aa2f22.json"
+    "shared": "shared.gsm8k_platinum.5d978047f88f.json",
+    "chain_average": "chain_average.gsm8k_platinum.5d978047f88f.json",
+    "bayes": "bayes.gsm8k_platinum.5d978047f88f-5bf8c7aa2f22.json"
    },
    "label": "GSM8K-Platinum (1209 problems)",
    "arms": "all",
-   "fingerprint": "ea97fc08ec16",
+   "fingerprint": "5d978047f88f",
    "frame": {
     "population_M": 49,
     "tasks": 1209,
     "keep_set_hash": "ff1457decdf7",
-    "runs_fingerprint": "addea60be691",
+    "runs_fingerprint": "e4758e21ce7f",
     "build_date": "2026-10-01",
-    "build_ts": "2026-10-01T09:44:03Z",
+    "build_ts": "2026-10-01T10:14:30Z",
     "vocab_ruled": "2026-08-27",
     "set": "gsm8k_platinum",
     "set_label": "GSM8K-Platinum (1209 problems)",
@@ -621,14 +621,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ff1457decdf7",
     "tasks_used": "GSM8K-Platinum (1209 problems) \u2014 1209 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-gsm8k_platinum fp cafbc666d81b (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-gsm8k_platinum fp 309300242e8b (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "51d46e0f2f7d",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-01T09:44:03Z",
-   "source_fp": "cafbc666d81b",
-   "updated_at": "2026-10-01T10:10:08Z",
+   "source_stamp": "2026-10-01T10:14:30Z",
+   "source_fp": "309300242e8b",
+   "updated_at": "2026-10-01T10:27:52Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -786,7 +786,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-10-01T09:25:31Z",
+  "stamp": "2026-10-01T10:26:50Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,
