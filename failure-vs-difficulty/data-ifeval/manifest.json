@@ -1,9 +1,9 @@
 {
- "fingerprint": "5a1c3624595d",
+ "fingerprint": "14ea95a78416",
  "fingerprint_inputs": {
-  "content": "3380cf562db8",
+  "content": "51f4703a1a7e",
   "wave": "ifeval-live",
-  "body": "8cad48626fad"
+  "body": "6098755f8723"
  },
  "frame": {
   "dataset": "ifeval",
@@ -24,21 +24,21 @@
   "difficulty_population_M": 41,
   "tasks": 541,
   "keep_set_hash": "ea009d5c6cd1",
-  "inputs_content_sha": "3380cf562db8",
+  "inputs_content_sha": "51f4703a1a7e",
   "tasks_on_axis": 541,
   "tasks_kept": 541,
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ea009d5c6cd1",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "62d72126c1f5",
+  "runs_fingerprint": "ce23b8873d86",
   "axis_wave": "ifeval-live",
   "build_date": "2026-10-01",
-  "stamp": "2026-10-01T02:18:38Z",
+  "stamp": "2026-10-01T04:25:14Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/ifeval",
-   "unified_built_at": "2026-10-01T01:50:38Z",
+   "unified_built_at": "2026-10-01T04:05:30Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.ifeval.csv"
@@ -218,7 +218,7 @@
   "bayes_fits": {
    "serving_pointer": "definitions/fitting/serving_nb_ifeval.json",
    "wave_id": "nb-ifeval-20260930T1448Z",
-   "completed_at": "2026-09-30T17:41:21Z",
+   "completed_at": "2026-10-01T04:05:23Z",
    "gates_note": "flagged models whose crossings mix are SERVED with the disclosure; a flagged model whose d50 or d1 fails the crossing-level gate is HELD (held_arms, not_served_stems) until its longer run lands \u2014 fit-methods 19.8; gates_summary.py is the single source (12a per-model fields)",
    "fit_n_tasks": [
     541
@@ -232,7 +232,6 @@
     "qualifiers": null
    },
    "strict_gate_flagged": [
-    "Qwen/Qwen2.5-0.5B-Instruct",
     "Qwen/Qwen2.5-1.5B-Instruct",
     "Qwen/Qwen2.5-14B-Instruct",
     "Qwen/Qwen2.5-3B-Instruct",
@@ -240,40 +239,27 @@
     "Qwen/Qwen2.5-Coder-14B-Instruct",
     "Qwen/Qwen2.5-Coder-7B-Instruct",
     "Qwen/Qwen3-0.6B",
-    "Qwen/Qwen3-1.7B",
     "Qwen/Qwen3-14B-Thinking",
-    "Qwen/Qwen3-4B-Thinking",
-    "Qwen/Qwen3-8B",
-    "allenai/OLMo-2-1124-13B-Instruct",
-    "allenai/OLMo-2-1124-7B-Instruct",
-    "mistralai/Mistral-Small-24B-Instruct-2501",
     "openai/gpt-5-nano"
    ],
    "served_not_drawn": null,
-   "custody_dir": "definitions/fitting/waves/nb-ifeval-20260930T1448Z/view_v2/results",
-   "set_fingerprint": "ce78b3b55b83",
-   "pointer_updated_at": "2026-09-30T21:30:55Z",
+   "custody_dir": "definitions/fitting/waves/nb-ifeval-20260930T1448Z/view_v3/results",
+   "set_fingerprint": "f5c9ab51d8cc",
+   "pointer_updated_at": "2026-10-01T04:21:30Z",
    "n_fits": 45,
    "note": null,
    "gates": {
     "convention": "0.5%-of-draws convention",
-    "n_pass": 36,
+    "n_pass": 43,
     "n_arms": 45,
     "max_divergence_share_pct": 0.31,
-    "rhat_max": 1.013,
-    "bulk_ess_min": 198,
+    "rhat_max": 1.012,
+    "bulk_ess_min": 376,
     "flagged": [
-     "Qwen--Qwen2.5-0.5B-Instruct_t0.8",
      "Qwen--Qwen2.5-3B-Instruct_t0.8",
-     "Qwen--Qwen2.5-Coder-1.5B-Instruct_t0.8",
-     "Qwen--Qwen3-1.7B_t0.8",
-     "Qwen--Qwen3-4B_think-t0.6",
-     "Qwen--Qwen3-8B_t0.8",
-     "allenai--OLMo-2-1124-13B-Instruct_t0.8",
-     "allenai--OLMo-2-1124-7B-Instruct_t0.8",
-     "mistralai--Mistral-Small-24B-Instruct-2501_t0.8"
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct_t0.8"
     ],
-    "source": "definitions/fitting/waves/nb-ifeval-20260930T1448Z/view_v2/gates_summary.json"
+    "source": "definitions/fitting/waves/nb-ifeval-20260930T1448Z/view_v3/gates_summary.json"
    },
    "provisional_classes": null,
    "basis_truncation": null,
@@ -309,7 +295,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-01T01:25:10Z",
+   "_stamp": "2026-10-01T04:27:47Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -474,17 +460,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-01T00:25:42Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261001T002542Z.json",
-   "sha16": "a3234bea836ef916",
-   "census_mtime": "2026-10-01T00:26:26Z",
+   "stamp": "2026-10-01T03:11:05Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261001T031105Z.json",
+   "sha16": "c650460f3a948732",
+   "census_mtime": "2026-10-01T03:12:09Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.5a1c3624595d.json",
-  "chain_average": "chain_average.5a1c3624595d.json",
-  "chain_median": "chain_median.5a1c3624595d.json",
-  "dots": "dots.5a1c3624595d.json"
+  "shared": "shared.14ea95a78416.json",
+  "chain_average": "chain_average.14ea95a78416.json",
+  "chain_median": "chain_median.14ea95a78416.json",
+  "dots": "dots.14ea95a78416.json"
  }
 }
