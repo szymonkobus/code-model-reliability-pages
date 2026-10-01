@@ -108,7 +108,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-01T20:47:38Z"
+   "updated_at": "2026-10-01T21:08:50Z"
   },
   "all": {
    "files": {
@@ -143,7 +143,7 @@
    },
    "source_stamp": "2026-10-01T20:41:31Z",
    "source_fp": "d43163629dcc",
-   "updated_at": "2026-10-01T20:59:04Z",
+   "updated_at": "2026-10-01T21:13:53Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -191,7 +191,7 @@
    },
    "source_stamp": "2026-10-01T20:56:22Z",
    "source_fp": "cd170ee49e5c",
-   "updated_at": "2026-10-01T20:59:14Z",
+   "updated_at": "2026-10-01T21:14:28Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -240,7 +240,7 @@
    },
    "source_stamp": "2026-10-01T20:56:47Z",
    "source_fp": "e204a0d21136",
-   "updated_at": "2026-10-01T20:59:25Z",
+   "updated_at": "2026-10-01T21:14:41Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -289,7 +289,7 @@
    },
    "source_stamp": "2026-10-01T20:57:51Z",
    "source_fp": "4249b8f9056e",
-   "updated_at": "2026-10-01T20:59:36Z",
+   "updated_at": "2026-10-01T21:14:53Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -705,21 +705,21 @@
   },
   "cruxeval_o": {
    "files": {
-    "shared": "shared.cruxeval_o.e31ebb1c2971.json",
-    "chain_average": "chain_average.cruxeval_o.e31ebb1c2971.json",
-    "bayes": "bayes.cruxeval_o.e31ebb1c2971-9daa0acd392c.json",
+    "shared": "shared.cruxeval_o.c75671f45acd.json",
+    "chain_average": "chain_average.cruxeval_o.c75671f45acd.json",
+    "bayes": "bayes.cruxeval_o.c75671f45acd-9daa0acd392c.json",
     "bayes_prev": "bayes.cruxeval_o.1a69e7f9d134-e5c6ad5205ea.json"
    },
    "label": "CRUXEval output",
    "arms": "all",
-   "fingerprint": "e31ebb1c2971",
+   "fingerprint": "c75671f45acd",
    "frame": {
     "population_M": 49,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
-    "runs_fingerprint": "ca1031dd9643",
+    "runs_fingerprint": "47efd6f7fff1",
     "build_date": "2026-10-01",
-    "build_ts": "2026-10-01T19:43:59Z",
+    "build_ts": "2026-10-01T21:09:10Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_o",
     "set_label": "CRUXEval output",
@@ -730,14 +730,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
     "tasks_used": "CRUXEval output \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_o fp 9db826496a85 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-cruxeval_o fp 6d954dc541ba (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "9d6ea8b14b6c",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-01T19:43:59Z",
-   "source_fp": "9db826496a85",
-   "updated_at": "2026-10-01T19:53:23Z",
+   "source_stamp": "2026-10-01T21:09:10Z",
+   "source_fp": "6d954dc541ba",
+   "updated_at": "2026-10-01T21:13:36Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,

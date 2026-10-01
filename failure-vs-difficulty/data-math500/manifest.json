@@ -1,9 +1,9 @@
 {
- "fingerprint": "11cb887c235b",
+ "fingerprint": "0cede665d59d",
  "fingerprint_inputs": {
-  "content": "e164e66d48cb",
+  "content": "0d1c330ef44d",
   "wave": "math500-live",
-  "body": "a67329a0ae6e"
+  "body": "b69a6b6526ae"
  },
  "frame": {
   "dataset": "math500",
@@ -17,28 +17,28 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 49,
-  "fitted_M": 49,
-  "complete_M": 49,
-  "sampled_M": 49,
-  "difficulty_population_M": 49,
+  "population_M": 50,
+  "fitted_M": 50,
+  "complete_M": 50,
+  "sampled_M": 50,
+  "difficulty_population_M": 50,
   "tasks": 500,
   "keep_set_hash": "326e66dcd9ab",
-  "inputs_content_sha": "e164e66d48cb",
+  "inputs_content_sha": "0d1c330ef44d",
   "tasks_on_axis": 500,
   "tasks_kept": 500,
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "326e66dcd9ab",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "ca1031dd9643",
+  "runs_fingerprint": "47efd6f7fff1",
   "axis_wave": "math500-live",
   "build_date": "2026-10-01",
-  "stamp": "2026-10-01T19:12:39Z",
+  "stamp": "2026-10-01T21:12:25Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/math500",
-   "unified_built_at": "2026-10-01T19:09:40Z",
+   "unified_built_at": "2026-10-01T21:01:50Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.math500.csv"
@@ -133,6 +133,10 @@
     "of": 500
    },
    "olmo-3-7b-think-step0025-Thinking": {
+    "tasks": 500,
+    "of": 500
+   },
+   "olmo-3-7b-think-final-Thinking": {
     "tasks": 500,
     "of": 500
    },
@@ -10560,7 +10564,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-01T18:26:29Z",
+   "_stamp": "2026-10-01T20:25:07Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -10725,17 +10729,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-01T15:43:13Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261001T154313Z.json",
-   "sha16": "26bf6180e7fdbb63",
-   "census_mtime": "2026-10-01T15:45:38Z",
+   "stamp": "2026-10-01T19:22:48Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261001T192248Z.json",
+   "sha16": "56a0e531a90ce2f4",
+   "census_mtime": "2026-10-01T19:23:54Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.11cb887c235b.json",
-  "chain_average": "chain_average.11cb887c235b.json",
-  "chain_median": "chain_median.11cb887c235b.json",
-  "dots": "dots.11cb887c235b.json"
+  "shared": "shared.0cede665d59d.json",
+  "chain_average": "chain_average.0cede665d59d.json",
+  "chain_median": "chain_median.0cede665d59d.json",
+  "dots": "dots.0cede665d59d.json"
  }
 }
