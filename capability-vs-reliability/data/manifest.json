@@ -642,20 +642,20 @@
   },
   "cruxeval_i": {
    "files": {
-    "shared": "shared.cruxeval_i.409f2674e6c2.json",
-    "chain_average": "chain_average.cruxeval_i.409f2674e6c2.json",
-    "bayes": "bayes.cruxeval_i.409f2674e6c2-7be0234bfe4c.json"
+    "shared": "shared.cruxeval_i.138ab758ee1a.json",
+    "chain_average": "chain_average.cruxeval_i.138ab758ee1a.json",
+    "bayes": "bayes.cruxeval_i.138ab758ee1a-25cf9e981c9d.json"
    },
    "label": "CRUXEval \u00b7 input prediction (800 problems)",
    "arms": "all",
-   "fingerprint": "409f2674e6c2",
+   "fingerprint": "138ab758ee1a",
    "frame": {
     "population_M": 41,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
-    "runs_fingerprint": "949df961b579",
+    "runs_fingerprint": "ac6776287caf",
     "build_date": "2026-10-01",
-    "build_ts": "2026-10-01T02:28:56Z",
+    "build_ts": "2026-10-01T04:36:28Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_i",
     "set_label": "CRUXEval \u00b7 input prediction (800 problems)",
@@ -666,14 +666,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
     "tasks_used": "CRUXEval \u00b7 input prediction (800 problems) \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_i fp ee88fe8eb4c5 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-cruxeval_i fp e2d4c1737d01 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "44fee9831a50",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-01T02:28:56Z",
-   "source_fp": "ee88fe8eb4c5",
-   "updated_at": "2026-10-01T02:57:12Z",
+   "source_stamp": "2026-10-01T04:36:28Z",
+   "source_fp": "e2d4c1737d01",
+   "updated_at": "2026-10-01T05:23:40Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
