@@ -687,20 +687,20 @@
   },
   "cruxeval_o": {
    "files": {
-    "shared": "shared.cruxeval_o.8ea091f9601e.json",
-    "chain_average": "chain_average.cruxeval_o.8ea091f9601e.json",
-    "bayes": "bayes.cruxeval_o.8ea091f9601e-34fa8bc890b4.json"
+    "shared": "shared.cruxeval_o.c3ed77be9e50.json",
+    "chain_average": "chain_average.cruxeval_o.c3ed77be9e50.json",
+    "bayes": "bayes.cruxeval_o.c3ed77be9e50-34fa8bc890b4.json"
    },
    "label": "CRUXEval \u00b7 output prediction (800 problems)",
    "arms": "all",
-   "fingerprint": "8ea091f9601e",
+   "fingerprint": "c3ed77be9e50",
    "frame": {
     "population_M": 46,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
-    "runs_fingerprint": "f830f4554490",
+    "runs_fingerprint": "2ebdae74ccfc",
     "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T18:59:11Z",
+    "build_ts": "2026-09-30T23:29:45Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_o",
     "set_label": "CRUXEval \u00b7 output prediction (800 problems)",
@@ -711,14 +711,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
     "tasks_used": "CRUXEval \u00b7 output prediction (800 problems) \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_o fp 1e8fe6e62d19 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-cruxeval_o fp 334cb12d3d7f (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "3b0a9490a92a",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T18:59:11Z",
-   "source_fp": "1e8fe6e62d19",
-   "updated_at": "2026-09-30T23:26:54Z",
+   "source_stamp": "2026-09-30T23:29:45Z",
+   "source_fp": "334cb12d3d7f",
+   "updated_at": "2026-10-01T00:26:30Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -732,21 +732,21 @@
   },
   "aime": {
    "files": {
-    "shared": "shared.aime.d6b30121ca10.json",
-    "chain_average": "chain_average.aime.d6b30121ca10.json",
-    "bayes": "bayes.aime.d6b30121ca10-3faf6762a71b.json",
+    "shared": "shared.aime.daf6f280b661.json",
+    "chain_average": "chain_average.aime.daf6f280b661.json",
+    "bayes": "bayes.aime.daf6f280b661-3faf6762a71b.json",
     "bayes_prev": "bayes.aime.0a2df6af82c8-1a2b1fb8311c.json"
    },
    "label": "AIME (60 problems)",
    "arms": "all",
-   "fingerprint": "d6b30121ca10",
+   "fingerprint": "daf6f280b661",
    "frame": {
     "population_M": 34,
     "tasks": 60,
     "keep_set_hash": "dc5cbadfe267",
-    "runs_fingerprint": "32514da616a1",
+    "runs_fingerprint": "2ebdae74ccfc",
     "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T21:01:13Z",
+    "build_ts": "2026-09-30T23:26:26Z",
     "vocab_ruled": "2026-08-27",
     "set": "aime",
     "set_label": "AIME (60 problems)",
@@ -757,14 +757,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "dc5cbadfe267",
     "tasks_used": "AIME (60 problems) \u2014 60 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-aime fp bf383b1a589f (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-aime fp 92a5c50c911f (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "694d3f833a19",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T21:01:13Z",
-   "source_fp": "bf383b1a589f",
-   "updated_at": "2026-09-30T23:27:22Z",
+   "source_stamp": "2026-09-30T23:26:26Z",
+   "source_fp": "92a5c50c911f",
+   "updated_at": "2026-10-01T00:26:53Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -786,7 +786,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-09-30T23:25:24Z",
+  "stamp": "2026-10-01T00:25:27Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,
