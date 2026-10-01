@@ -1,9 +1,9 @@
 {
- "fingerprint": "3bf9486b0ab4",
+ "fingerprint": "748065e96013",
  "fingerprint_inputs": {
   "content": "b7a90a5df43b",
   "wave": "aime-live",
-  "body": "007ef41865ad"
+  "body": "5d0b3bb26de4"
  },
  "frame": {
   "dataset": "aime",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "dc5cbadfe267",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "c25a78ed616b",
+  "runs_fingerprint": "addea60be691",
   "axis_wave": "aime-live",
   "build_date": "2026-10-01",
-  "stamp": "2026-10-01T09:15:15Z",
+  "stamp": "2026-10-01T09:30:47Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/aime",
-   "unified_built_at": "2026-10-01T09:02:46Z",
+   "unified_built_at": "2026-10-01T09:18:42Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.aime.csv"
@@ -292,7 +292,7 @@
    "axis_pinned_to_served": true,
    "cut_at": "2026-10-01T07:38:06Z",
    "completed_at": "2026-10-01T07:52:13Z",
-   "updated_at": "2026-10-01T08:41:59Z",
+   "updated_at": "2026-10-01T09:19:00Z",
    "pointer": "definitions/fitting/serving_sft_nb_aime.json",
    "arms": [
     {
@@ -4370,10 +4370,12 @@
      "arm_id": "dsc6.7b-rl-night4-s500_t0.5",
      "arm_kind": "RL",
      "baseline_arm": {
-      "model": "deepseek-ai/deepseek-coder-6.7b-instruct",
+      "model": "DeepSeek-Coder 6.7B",
       "id": "deepseek-ai/deepseek-coder-6.7b-instruct",
-      "standing_on_axis": "the base model, deepseek-ai/deepseek-coder-6.7b-instruct, has no run on this axis and does not vote on it",
-      "served_runs": []
+      "standing_on_axis": "the base model, DeepSeek-Coder 6.7B, votes on this axis through its served run (deepseek-ai--deepseek-coder-6.7b-instruct_t0.5)",
+      "served_runs": [
+       "deepseek-ai--deepseek-coder-6.7b-instruct_t0.5"
+      ]
      },
      "baseline_id": "dsc6.7b-rl-night4-s500",
      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8, fixed set (500 steps)",
@@ -4388,7 +4390,7 @@
      "n_tasks_positioned": 60,
      "n_cells": 60,
      "set_label": "AIME (60 problems)",
-     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served AIME axis unchanged; results and attempts as they are (128 attempts per problem, answer cap 8,192 tokens); an RL checkpoint of deepseek-ai/deepseek-coder-6.7b-instruct; the base model, deepseek-ai/deepseek-coder-6.7b-instruct, has no run on this axis and does not vote on it; the fit stands on AIME (60 problems); 60 positioned in this fit (every problem of the set); results as they stood at the cut (1 Oct 08:38, the maths sets' data of 1 Oct 07:53); the sampler's checks pass for this model; the chains for this model do not agree on where it crosses the 50% level and the 1% level; the point is shown with that caveat; D99 is a bound: below the easiest task used (z < -1.405; more than half the draws lie below it)",
+     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served AIME axis unchanged; results and attempts as they are (128 attempts per problem, answer cap 8,192 tokens); an RL checkpoint of DeepSeek-Coder 6.7B; the base model, DeepSeek-Coder 6.7B, votes on this axis through its served run (deepseek-ai--deepseek-coder-6.7b-instruct_t0.5); the fit stands on AIME (60 problems); 60 positioned in this fit (every problem of the set); results as they stood at the cut (1 Oct 08:38, the maths sets' data of 1 Oct 07:53); the sampler's checks pass for this model; the chains for this model do not agree on where it crosses the 50% level and the 1% level; the point is shown with that caveat; D99 is a bound: below the easiest task used (z < -1.405; more than half the draws lie below it)",
      "gates_failed": false,
      "partial": false,
      "released": false,
@@ -6419,7 +6421,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-01T08:29:11Z",
+   "_stamp": "2026-10-01T09:25:31Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -6584,17 +6586,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-01T05:48:55Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261001T054855Z.json",
-   "sha16": "7a22b54ec45064b5",
-   "census_mtime": "2026-10-01T05:50:22Z",
+   "stamp": "2026-10-01T07:31:30Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261001T073130Z.json",
+   "sha16": "90a7d235a0296964",
+   "census_mtime": "2026-10-01T07:33:54Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.3bf9486b0ab4.json",
-  "chain_average": "chain_average.3bf9486b0ab4.json",
-  "chain_median": "chain_median.3bf9486b0ab4.json",
-  "dots": "dots.3bf9486b0ab4.json"
+  "shared": "shared.748065e96013.json",
+  "chain_average": "chain_average.748065e96013.json",
+  "chain_median": "chain_median.748065e96013.json",
+  "dots": "dots.748065e96013.json"
  }
 }
