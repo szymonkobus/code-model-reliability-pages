@@ -383,7 +383,7 @@
    },
    "source_stamp": "2026-09-30T23:09:20Z",
    "source_fp": "45fb1ecc365b",
-   "updated_at": "2026-10-01T03:59:39Z",
+   "updated_at": "2026-10-01T04:57:29Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -431,7 +431,7 @@
    },
    "source_stamp": "2026-09-30T22:19:37Z",
    "source_fp": "2be3f5f66341",
-   "updated_at": "2026-10-01T03:59:58Z",
+   "updated_at": "2026-10-01T04:58:27Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -480,7 +480,7 @@
    },
    "source_stamp": "2026-09-30T22:28:11Z",
    "source_fp": "57a9fc324a1b",
-   "updated_at": "2026-10-01T04:00:20Z",
+   "updated_at": "2026-10-01T04:58:45Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -498,21 +498,21 @@
   },
   "math500": {
    "files": {
-    "shared": "shared.math500.550ef4530f22.json",
-    "chain_average": "chain_average.math500.550ef4530f22.json",
-    "bayes": "bayes.math500.550ef4530f22-df43f13d9b8a.json",
+    "shared": "shared.math500.cbc41a3daa54.json",
+    "chain_average": "chain_average.math500.cbc41a3daa54.json",
+    "bayes": "bayes.math500.cbc41a3daa54-df43f13d9b8a.json",
     "bayes_prev": "bayes.math500.fa28f99aaa60-681462eaa26a.json"
    },
    "label": "MATH-500 (500 problems)",
    "arms": "all",
-   "fingerprint": "550ef4530f22",
+   "fingerprint": "cbc41a3daa54",
    "frame": {
     "population_M": 47,
     "tasks": 500,
     "keep_set_hash": "326e66dcd9ab",
-    "runs_fingerprint": "cf2e8a2d9856",
+    "runs_fingerprint": "ce23b8873d86",
     "build_date": "2026-10-01",
-    "build_ts": "2026-10-01T03:50:23Z",
+    "build_ts": "2026-10-01T04:20:19Z",
     "vocab_ruled": "2026-08-27",
     "set": "math500",
     "set_label": "MATH-500 (500 problems)",
@@ -523,14 +523,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "326e66dcd9ab",
     "tasks_used": "MATH-500 (500 problems) \u2014 500 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-math500 fp 78a5aaa81ee7 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-math500 fp 0a080371d6c7 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "1a6df61f1033",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-01T03:50:23Z",
-   "source_fp": "78a5aaa81ee7",
-   "updated_at": "2026-10-01T04:06:02Z",
+   "source_stamp": "2026-10-01T04:20:19Z",
+   "source_fp": "0a080371d6c7",
+   "updated_at": "2026-10-01T05:05:48Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
