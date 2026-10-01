@@ -552,20 +552,20 @@
   },
   "ifeval": {
    "files": {
-    "shared": "shared.ifeval.2da710bb7647.json",
-    "chain_average": "chain_average.ifeval.2da710bb7647.json",
-    "bayes": "bayes.ifeval.2da710bb7647-f5c9ab51d8cc.json"
+    "shared": "shared.ifeval.260ce2a61647.json",
+    "chain_average": "chain_average.ifeval.260ce2a61647.json",
+    "bayes": "bayes.ifeval.260ce2a61647-f5c9ab51d8cc.json"
    },
    "label": "IFEval (541 problems)",
    "arms": "all",
-   "fingerprint": "2da710bb7647",
+   "fingerprint": "260ce2a61647",
    "frame": {
     "population_M": 41,
     "tasks": 541,
     "keep_set_hash": "ea009d5c6cd1",
-    "runs_fingerprint": "ce23b8873d86",
+    "runs_fingerprint": "959ccdf1e482",
     "build_date": "2026-10-01",
-    "build_ts": "2026-10-01T04:25:14Z",
+    "build_ts": "2026-10-01T06:01:37Z",
     "vocab_ruled": "2026-08-27",
     "set": "ifeval",
     "set_label": "IFEval (541 problems)",
@@ -576,14 +576,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ea009d5c6cd1",
     "tasks_used": "IFEval (541 problems) \u2014 541 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-ifeval fp 14ea95a78416 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-ifeval fp 199b36cff90b (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "51f4703a1a7e",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-01T04:25:14Z",
-   "source_fp": "14ea95a78416",
-   "updated_at": "2026-10-01T05:14:46Z",
+   "source_stamp": "2026-10-01T06:01:37Z",
+   "source_fp": "199b36cff90b",
+   "updated_at": "2026-10-01T07:48:14Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
