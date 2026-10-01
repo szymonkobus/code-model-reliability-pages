@@ -498,21 +498,21 @@
   },
   "math500": {
    "files": {
-    "shared": "shared.math500.c419ac268323.json",
-    "chain_average": "chain_average.math500.c419ac268323.json",
-    "bayes": "bayes.math500.c419ac268323-df43f13d9b8a.json",
+    "shared": "shared.math500.43cb2090382c.json",
+    "chain_average": "chain_average.math500.43cb2090382c.json",
+    "bayes": "bayes.math500.43cb2090382c-df43f13d9b8a.json",
     "bayes_prev": "bayes.math500.fa28f99aaa60-681462eaa26a.json"
    },
    "label": "MATH-500 (500 problems)",
    "arms": "all",
-   "fingerprint": "c419ac268323",
+   "fingerprint": "43cb2090382c",
    "frame": {
     "population_M": 47,
     "tasks": 500,
     "keep_set_hash": "326e66dcd9ab",
-    "runs_fingerprint": "4f60c527c61e",
+    "runs_fingerprint": "398dc4536b69",
     "build_date": "2026-10-01",
-    "build_ts": "2026-10-01T06:38:11Z",
+    "build_ts": "2026-10-01T08:16:49Z",
     "vocab_ruled": "2026-08-27",
     "set": "math500",
     "set_label": "MATH-500 (500 problems)",
@@ -523,14 +523,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "326e66dcd9ab",
     "tasks_used": "MATH-500 (500 problems) \u2014 500 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-math500 fp 884dc7096976 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-math500 fp e947776fa5bd (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "1a6df61f1033",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-01T06:38:11Z",
-   "source_fp": "884dc7096976",
-   "updated_at": "2026-10-01T07:44:50Z",
+   "source_stamp": "2026-10-01T08:16:49Z",
+   "source_fp": "e947776fa5bd",
+   "updated_at": "2026-10-01T08:48:50Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -583,7 +583,7 @@
    },
    "source_stamp": "2026-10-01T06:01:37Z",
    "source_fp": "199b36cff90b",
-   "updated_at": "2026-10-01T07:48:14Z",
+   "updated_at": "2026-10-01T08:31:19Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -628,7 +628,7 @@
    },
    "source_stamp": "2026-10-01T05:47:45Z",
    "source_fp": "af6ebd778628",
-   "updated_at": "2026-10-01T07:52:50Z",
+   "updated_at": "2026-10-01T08:34:35Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -673,7 +673,7 @@
    },
    "source_stamp": "2026-10-01T07:30:09Z",
    "source_fp": "c5237145c51e",
-   "updated_at": "2026-10-01T07:57:34Z",
+   "updated_at": "2026-10-01T08:37:05Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -718,7 +718,7 @@
    },
    "source_stamp": "2026-10-01T07:10:45Z",
    "source_fp": "0287df042e80",
-   "updated_at": "2026-10-01T08:03:36Z",
+   "updated_at": "2026-10-01T08:39:10Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -764,7 +764,7 @@
    },
    "source_stamp": "2026-10-01T07:52:07Z",
    "source_fp": "2f269ce52f0a",
-   "updated_at": "2026-10-01T08:06:42Z",
+   "updated_at": "2026-10-01T08:40:13Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -786,7 +786,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-10-01T07:29:04Z",
+  "stamp": "2026-10-01T08:29:11Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,
