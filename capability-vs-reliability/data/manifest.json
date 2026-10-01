@@ -143,7 +143,7 @@
    },
    "source_stamp": "2026-10-01T19:53:36Z",
    "source_fp": "d954c4924ae4",
-   "updated_at": "2026-10-01T20:18:41Z",
+   "updated_at": "2026-10-01T20:35:31Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -191,7 +191,7 @@
    },
    "source_stamp": "2026-10-01T20:09:53Z",
    "source_fp": "490e1d0c0926",
-   "updated_at": "2026-10-01T20:19:05Z",
+   "updated_at": "2026-10-01T20:35:49Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -240,7 +240,7 @@
    },
    "source_stamp": "2026-10-01T20:10:30Z",
    "source_fp": "b72e4ad353a1",
-   "updated_at": "2026-10-01T20:19:27Z",
+   "updated_at": "2026-10-01T20:36:06Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -289,7 +289,7 @@
    },
    "source_stamp": "2026-10-01T20:11:28Z",
    "source_fp": "95b9fd3a236f",
-   "updated_at": "2026-10-01T20:19:43Z",
+   "updated_at": "2026-10-01T20:36:31Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -338,7 +338,7 @@
    },
    "source_stamp": "2026-10-01T20:00:21Z",
    "source_fp": "50fcdf53ed0f",
-   "updated_at": "2026-10-01T20:21:07Z",
+   "updated_at": "2026-10-01T20:37:47Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -383,7 +383,7 @@
    },
    "source_stamp": "2026-10-01T20:06:29Z",
    "source_fp": "b66b6832c576",
-   "updated_at": "2026-10-01T20:22:21Z",
+   "updated_at": "2026-10-01T20:39:19Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -431,7 +431,7 @@
    },
    "source_stamp": "2026-10-01T19:58:51Z",
    "source_fp": "236d5c7d1e7f",
-   "updated_at": "2026-10-01T20:22:38Z",
+   "updated_at": "2026-10-01T20:39:49Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -480,7 +480,7 @@
    },
    "source_stamp": "2026-10-01T19:59:33Z",
    "source_fp": "2f54961e8d3d",
-   "updated_at": "2026-10-01T20:22:50Z",
+   "updated_at": "2026-10-01T20:40:07Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -552,21 +552,21 @@
   },
   "ifeval": {
    "files": {
-    "shared": "shared.ifeval.e8fced5bb4ba.json",
-    "chain_average": "chain_average.ifeval.e8fced5bb4ba.json",
-    "bayes": "bayes.ifeval.e8fced5bb4ba-4d19e19feede.json",
+    "shared": "shared.ifeval.fa2f74b579cf.json",
+    "chain_average": "chain_average.ifeval.fa2f74b579cf.json",
+    "bayes": "bayes.ifeval.fa2f74b579cf-4d19e19feede.json",
     "bayes_prev": "bayes.ifeval.e8fced5bb4ba-2ca271c93114.json"
    },
    "label": "IFEval",
    "arms": "all",
-   "fingerprint": "e8fced5bb4ba",
+   "fingerprint": "fa2f74b579cf",
    "frame": {
-    "population_M": 43,
+    "population_M": 44,
     "tasks": 541,
     "keep_set_hash": "ea009d5c6cd1",
-    "runs_fingerprint": "ca1031dd9643",
+    "runs_fingerprint": "6a61c950be55",
     "build_date": "2026-10-01",
-    "build_ts": "2026-10-01T19:33:38Z",
+    "build_ts": "2026-10-01T20:37:46Z",
     "vocab_ruled": "2026-08-27",
     "set": "ifeval",
     "set_label": "IFEval",
@@ -577,18 +577,18 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ea009d5c6cd1",
     "tasks_used": "IFEval \u2014 541 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-ifeval fp 20f0f6848419 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "e87b6a7549ad",
+    "source": "failure-vs-difficulty data-ifeval fp 03ec35e000ad (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "523d1e4de2cc",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-01T19:33:38Z",
-   "source_fp": "20f0f6848419",
-   "updated_at": "2026-10-01T20:02:55Z",
+   "source_stamp": "2026-10-01T20:37:46Z",
+   "source_fp": "03ec35e000ad",
+   "updated_at": "2026-10-01T20:42:33Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
-    "unfitted": 0,
+    "unfitted": 1,
     "served_wave": "nb-ifeval-20261001T1654Z",
     "served_arms": 43
    },
