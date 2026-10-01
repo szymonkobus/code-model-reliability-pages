@@ -143,7 +143,7 @@
    },
    "source_stamp": "2026-10-01T11:50:09Z",
    "source_fp": "a06f06cf385a",
-   "updated_at": "2026-10-01T12:21:29Z",
+   "updated_at": "2026-10-01T12:49:04Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -160,20 +160,20 @@
   },
   "golden-board": {
    "files": {
-    "shared": "shared.golden-board.561fb82cfa1a.json",
-    "chain_average": "chain_average.golden-board.561fb82cfa1a.json",
-    "bayes": "bayes.golden-board.561fb82cfa1a-ffd6e0604cc9.json"
+    "shared": "shared.golden-board.87cd59a2f592.json",
+    "chain_average": "chain_average.golden-board.87cd59a2f592.json",
+    "bayes": "bayes.golden-board.87cd59a2f592-ffd6e0604cc9.json"
    },
    "label": "wave 1",
    "arms": "golden",
-   "fingerprint": "561fb82cfa1a",
+   "fingerprint": "87cd59a2f592",
    "frame": {
     "population_M": 12,
     "tasks": 430,
     "keep_set_hash": "c3f08ea1a903",
-    "runs_fingerprint": "781b50df8233",
-    "build_date": "2026-09-30",
-    "build_ts": "2026-09-30T23:19:23Z",
+    "runs_fingerprint": "223c7bd08acb",
+    "build_date": "2026-10-01",
+    "build_ts": "2026-10-01T12:34:36Z",
     "vocab_ruled": "2026-08-27",
     "set": "board",
     "set_label": "wave 1",
@@ -184,14 +184,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "c3f08ea1a903",
     "tasks_used": "wave 1 \u2014 430 tasks, golden-set axis over the 12 arms",
-    "source": "failure-vs-difficulty data-golden-board fp 663a221f14f1 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-golden-board fp 3866cd3e9b86 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "c076522ff536",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-09-30T23:19:23Z",
-   "source_fp": "663a221f14f1",
-   "updated_at": "2026-10-01T12:22:07Z",
+   "source_stamp": "2026-10-01T12:34:36Z",
+   "source_fp": "3866cd3e9b86",
+   "updated_at": "2026-10-01T12:49:34Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
