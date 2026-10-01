@@ -1,9 +1,9 @@
 {
- "fingerprint": "ddc698a0dce7",
+ "fingerprint": "094edf01756f",
  "fingerprint_inputs": {
-  "content": "dd51cff4ec9d",
+  "content": "0b01931fdaa5",
   "wave": "math500-live",
-  "body": "47bc044c5ab1"
+  "body": "d6fdc4c5dcd1"
  },
  "frame": {
   "dataset": "math500",
@@ -17,28 +17,28 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 46,
-  "fitted_M": 46,
-  "complete_M": 46,
-  "sampled_M": 46,
-  "difficulty_population_M": 46,
+  "population_M": 47,
+  "fitted_M": 47,
+  "complete_M": 47,
+  "sampled_M": 47,
+  "difficulty_population_M": 47,
   "tasks": 500,
   "keep_set_hash": "326e66dcd9ab",
-  "inputs_content_sha": "dd51cff4ec9d",
+  "inputs_content_sha": "0b01931fdaa5",
   "tasks_on_axis": 500,
   "tasks_kept": 500,
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "326e66dcd9ab",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "2ebdae74ccfc",
+  "runs_fingerprint": "bd98987cb72a",
   "axis_wave": "math500-live",
-  "build_date": "2026-09-30",
-  "stamp": "2026-09-30T23:24:00Z",
+  "build_date": "2026-10-01",
+  "stamp": "2026-10-01T00:57:01Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/math500",
-   "unified_built_at": "2026-09-30T23:10:40Z",
+   "unified_built_at": "2026-10-01T00:56:12Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.math500.csv"
@@ -49,6 +49,10 @@
   "fit_excluded": [],
   "coverage": {
    "claude-haiku-4-5": {
+    "tasks": 500,
+    "of": 500
+   },
+   "claude-haiku-4-5-thinking": {
     "tasks": 500,
     "of": 500
    },
@@ -287,7 +291,7 @@
    },
    "provisional_classes": null,
    "basis_truncation": null,
-   "served_axis_note": null,
+   "served_axis_note": "Bayesian curve fitted on this live axis as it stood at the cut; the axis has moved with results landing since, so positions may differ slightly",
    "membership_lag": null,
    "partial_coverage_arms": [],
    "matches_axis": false,
@@ -8499,7 +8503,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-09-30T23:25:24Z",
+   "_stamp": "2026-10-01T00:25:27Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -8664,17 +8668,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-09-30T19:46:31Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20260930T194631Z.json",
-   "sha16": "7add96f3b4d04c37",
-   "census_mtime": "2026-09-30T19:47:30Z",
+   "stamp": "2026-09-30T22:53:37Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20260930T225337Z.json",
+   "sha16": "3ac7f72047c70dc5",
+   "census_mtime": "2026-09-30T22:55:27Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.ddc698a0dce7.json",
-  "chain_average": "chain_average.ddc698a0dce7.json",
-  "chain_median": "chain_median.ddc698a0dce7.json",
-  "dots": "dots.ddc698a0dce7.json"
+  "shared": "shared.094edf01756f.json",
+  "chain_average": "chain_average.094edf01756f.json",
+  "chain_median": "chain_median.094edf01756f.json",
+  "dots": "dots.094edf01756f.json"
  }
 }
