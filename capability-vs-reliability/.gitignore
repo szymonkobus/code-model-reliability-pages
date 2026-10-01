@@ -1,0 +1,5 @@
+# moved here from the root .gitignore 2026-10-01 07:28Z (infra, INCIDENTS 357; the 1 Oct clause): a root pattern is tested against every untracked entry on the box, here it applies only under this tree; the lines below this block are the owner's and decide last
+# capability-vs-reliability 30 Sep: the crossings page's built Bayesian layers and run-set sidecar are outputs over 1 MB rewritten at every landing — out of the index (the 28 Sep box rule; infra's skip-worktree flag on one of them at load 218)
+/data/bayes.*.json
+/data/olmo_run.json
+!/**/LOOPS.tsv
