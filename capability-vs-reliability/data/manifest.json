@@ -108,24 +108,24 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-01T21:23:40Z"
+   "updated_at": "2026-10-01T21:38:59Z"
   },
   "all": {
    "files": {
-    "shared": "shared.all.4e88c9ae3fd4.json",
-    "chain_average": "chain_average.all.4e88c9ae3fd4.json",
-    "bayes": "bayes.all.4e88c9ae3fd4-fcea34c566d7.json"
+    "shared": "shared.all.b8eb153b77b3.json",
+    "chain_average": "chain_average.all.b8eb153b77b3.json",
+    "bayes": "bayes.all.b8eb153b77b3-fcea34c566d7.json"
    },
    "label": "all waves",
    "arms": "all",
-   "fingerprint": "4e88c9ae3fd4",
+   "fingerprint": "b8eb153b77b3",
    "frame": {
     "population_M": 61,
     "tasks": 2167,
     "keep_set_hash": "60ede5d24001",
-    "runs_fingerprint": "a6cb2d15d267",
+    "runs_fingerprint": "0abc3c05ffbf",
     "build_date": "2026-10-01",
-    "build_ts": "2026-10-01T20:41:31Z",
+    "build_ts": "2026-10-01T21:34:33Z",
     "vocab_ruled": "2026-08-27",
     "set": "all",
     "set_label": "all waves",
@@ -136,14 +136,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "60ede5d24001",
     "tasks_used": "all waves \u2014 2167 tasks, axis wave unified-live",
-    "source": "failure-vs-difficulty data-all fp d43163629dcc (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "e0fcc069be71",
+    "source": "failure-vs-difficulty data-all fp 6f8c4164dc45 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "ce673ae2204a",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-01T20:41:31Z",
-   "source_fp": "d43163629dcc",
-   "updated_at": "2026-10-01T21:28:49Z",
+   "source_stamp": "2026-10-01T21:34:33Z",
+   "source_fp": "6f8c4164dc45",
+   "updated_at": "2026-10-01T21:44:13Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -191,7 +191,7 @@
    },
    "source_stamp": "2026-10-01T20:56:22Z",
    "source_fp": "cd170ee49e5c",
-   "updated_at": "2026-10-01T21:29:01Z",
+   "updated_at": "2026-10-01T21:44:25Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -240,7 +240,7 @@
    },
    "source_stamp": "2026-10-01T20:56:47Z",
    "source_fp": "e204a0d21136",
-   "updated_at": "2026-10-01T21:29:13Z",
+   "updated_at": "2026-10-01T21:44:43Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -289,7 +289,7 @@
    },
    "source_stamp": "2026-10-01T20:57:51Z",
    "source_fp": "4249b8f9056e",
-   "updated_at": "2026-10-01T21:29:30Z",
+   "updated_at": "2026-10-01T21:44:57Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
