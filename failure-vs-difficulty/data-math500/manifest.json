@@ -1,9 +1,9 @@
 {
- "fingerprint": "884dc7096976",
+ "fingerprint": "e947776fa5bd",
  "fingerprint_inputs": {
   "content": "1a6df61f1033",
   "wave": "math500-live",
-  "body": "376919c5a1cc"
+  "body": "22cdbc812be7"
  },
  "frame": {
   "dataset": "math500",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "326e66dcd9ab",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "4f60c527c61e",
+  "runs_fingerprint": "398dc4536b69",
   "axis_wave": "math500-live",
   "build_date": "2026-10-01",
-  "stamp": "2026-10-01T06:38:11Z",
+  "stamp": "2026-10-01T08:16:49Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/math500",
-   "unified_built_at": "2026-10-01T06:29:42Z",
+   "unified_built_at": "2026-10-01T07:43:45Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.math500.csv"
@@ -260,9 +260,9 @@
     "google/gemini-3.6-flash"
    ],
    "served_not_drawn": null,
-   "custody_dir": "definitions/fitting/waves/nb-math500-20261001T0143Z/view_v2/results",
+   "custody_dir": "definitions/fitting/waves/nb-math500-20261001T0143Z/view_v3/results",
    "set_fingerprint": "df43f13d9b8a",
-   "pointer_updated_at": "2026-10-01T03:49:47Z",
+   "pointer_updated_at": "2026-10-01T08:10:59Z",
    "n_fits": 47,
    "note": null,
    "gates": {
@@ -273,7 +273,7 @@
     "rhat_max": 1.01,
     "bulk_ess_min": 660,
     "flagged": [],
-    "source": "definitions/fitting/waves/nb-math500-20261001T0143Z/view_v2/gates_summary.json"
+    "source": "definitions/fitting/waves/nb-math500-20261001T0143Z/view_v3/gates_summary.json"
    },
    "provisional_classes": null,
    "basis_truncation": null,
@@ -341,7 +341,7 @@
   },
   "side_arms": {
    "served": true,
-   "serving_word": "difficulty's GO of 1 October (03:5x) on the staged set pointer 512a02add38d and side pointer 50ddf41df703: MATH-500 re-served from the depth-12 cut nb-math500-20261001T0143Z on the axis a89782b84a6f, every arm at depth 12 with the exact crossing, the four fine-tunes beside the set serving the set view's fits (one fit per arm)",
+   "serving_word": "GO (difficulty, 1 Oct 08:0xZ) \u2014 this GO covers the set pointer serving_nb_math500.v3.json sha12 53e3494ba640 and the side pointer serving_sft_nb_math500.v4.json sha12 8e37a34be3fb only, flipped together in the same minute outside the tick's minutes once capability-vs-reliability's read of the bound-above mark is in; the GO on 632dd1ca9411 is void with those bytes. The read: the axis a89782b84a6f SAME, the 47 fits hard-linked, exactly the one D50 cell changed (claude-sonnet-5-thinking to the bound above at 4.015), the picture's served_split unchanged and the new gates_picture_scope_note naming the wave's 47, the 43 served, the four side arms and the bound split 6 + 2, and the side unchanged. capability-vs-reliability's read 08:0x: the mark draws as an open bound mark at the fitted range's upper edge, pointing up the difficulty axis, the same code path and shape as the D99 bounds.",
    "wave_id": "sft-nb-math500-20261001T0322Z",
    "n_arms": 4,
    "heading": "models fitted alongside the set, on MATH-500 (500 problems); 4 post-training fine-tunes, positioned on the served MATH-500 axis unchanged; 500 problems positioned for each model, each model's own figures in its entry",
@@ -351,7 +351,7 @@
    "axis_pinned_to_served": true,
    "cut_at": "2026-10-01T03:22:39Z",
    "completed_at": "2026-10-01T03:09:52Z",
-   "updated_at": "2026-10-01T03:49:48Z",
+   "updated_at": "2026-10-01T08:11:00Z",
    "pointer": "definitions/fitting/serving_sft_nb_math500.json",
    "arms": [
     {
@@ -380,7 +380,7 @@
      "n_tasks_positioned": 500,
      "n_cells": 500,
      "set_label": "MATH-500 (500 problems)",
-     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served MATH-500 axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 2,048 tokens); a partial result: 32 answers a problem where the set's models stand at 128; shown on the toggle with its count, never in a same-attempts headline; re-fitted when its answers reach 128; a direct fine-tune of Qwen3 8B; the base model, Qwen3 8B, votes on this axis through its served runs (Qwen--Qwen3-8B_think-t0.6, Qwen--Qwen3-8B_t0.5); the fit stands on MATH-500 (500 problems); 500 positioned in this fit (every problem of the set); results as they stood at the cut (1 Oct 04:22, the maths sets' data of 1 Oct 03:20); the sampler's checks pass for this model; D99 is a bound: below the easiest task used (z < -4.359; more than half the draws lie below it)",
+     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served MATH-500 axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 2,048 tokens); a partial result: 32 answers a problem where the set's models stand at 128; shown on the toggle with its count, never in a same-attempts headline; re-fitted when its answers reach 128; a direct fine-tune of Qwen3 8B; the base model, Qwen3 8B, votes on this axis through its served runs (Qwen--Qwen3-8B_think-t0.6, Qwen--Qwen3-8B_t0.5); the fit stands on MATH-500 (500 problems); 500 positioned in this fit (every problem of the set); results as they stood at the cut (1 Oct 04:22, the maths sets' data of 1 Oct 07:53); the sampler's checks pass for this model; D99 is a bound: below the easiest task used (z < -4.359; more than half the draws lie below it)",
      "gates_failed": false,
      "partial": true,
      "released": false,
@@ -2369,7 +2369,14 @@
      "cross_record": {
       "d50": {
        "z": -1.4945,
-       "mixing_note": null
+       "mixing_note": null,
+       "status": "point",
+       "status_kind": "point",
+       "bound": null,
+       "reason_text": null,
+       "uncensored_median_z": -1.4945,
+       "lo": -1.5666,
+       "hi": -1.4229
       },
       "d1": {
        "z": -4.3589,
@@ -2410,7 +2417,7 @@
      "n_tasks_positioned": 500,
      "n_cells": 500,
      "set_label": "MATH-500 (500 problems)",
-     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served MATH-500 axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 8,192 tokens); a partial result: 32 answers a problem where the set's models stand at 128; shown on the toggle with its count, never in a same-attempts headline; re-fitted when its answers reach 128; a direct fine-tune of Qwen3 8B; the base model, Qwen3 8B, votes on this axis through its served runs (Qwen--Qwen3-8B_think-t0.6, Qwen--Qwen3-8B_t0.5); the fit stands on MATH-500 (500 problems); 500 positioned in this fit (every problem of the set); results as they stood at the cut (1 Oct 04:22, the maths sets' data of 1 Oct 03:20); the sampler's checks pass for this model; D99 is a unresolved: the 80% uncertainty band of D99 (the 1% crossing of the average-rate curve) spans 1.2148 on the difficulty scale, wider than the house bandwidth of 1.0; its value and uncertainty band are kept beside (floor rate 0.343%)",
+     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served MATH-500 axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 8,192 tokens); a partial result: 32 answers a problem where the set's models stand at 128; shown on the toggle with its count, never in a same-attempts headline; re-fitted when its answers reach 128; a direct fine-tune of Qwen3 8B; the base model, Qwen3 8B, votes on this axis through its served runs (Qwen--Qwen3-8B_think-t0.6, Qwen--Qwen3-8B_t0.5); the fit stands on MATH-500 (500 problems); 500 positioned in this fit (every problem of the set); results as they stood at the cut (1 Oct 04:22, the maths sets' data of 1 Oct 07:53); the sampler's checks pass for this model; D99 is a unresolved: the 80% uncertainty band of D99 (the 1% crossing of the average-rate curve) spans 1.2148 on the difficulty scale, wider than the house bandwidth of 1.0; its value and uncertainty band are kept beside (floor rate 0.343%)",
      "gates_failed": false,
      "partial": true,
      "released": false,
@@ -4399,7 +4406,14 @@
      "cross_record": {
       "d50": {
        "z": -0.2978,
-       "mixing_note": null
+       "mixing_note": null,
+       "status": "point",
+       "status_kind": "point",
+       "bound": null,
+       "reason_text": null,
+       "uncensored_median_z": -0.2978,
+       "lo": -0.3547,
+       "hi": -0.2391
       },
       "d1": {
        "z": -2.822,
@@ -4437,7 +4451,7 @@
      "n_tasks_positioned": 500,
      "n_cells": 500,
      "set_label": "MATH-500 (500 problems)",
-     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served MATH-500 axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 2,048 tokens); a partial result: 32 answers a problem where the set's models stand at 128; shown on the toggle with its count, never in a same-attempts headline; re-fitted when its answers reach 128; a completion SFT of Qwen3.5 9B Base; the base model, Qwen3.5 9B Base, has no run on this axis and does not vote on it; the fit stands on MATH-500 (500 problems); 500 positioned in this fit (every problem of the set); results as they stood at the cut (1 Oct 04:22, the maths sets' data of 1 Oct 03:20); the sampler's checks pass for this model; D99 is a bound: below the easiest task used (z < -4.359; more than half the draws lie below it)",
+     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served MATH-500 axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 2,048 tokens); a partial result: 32 answers a problem where the set's models stand at 128; shown on the toggle with its count, never in a same-attempts headline; re-fitted when its answers reach 128; a completion SFT of Qwen3.5 9B Base; the base model, Qwen3.5 9B Base, has no run on this axis and does not vote on it; the fit stands on MATH-500 (500 problems); 500 positioned in this fit (every problem of the set); results as they stood at the cut (1 Oct 04:22, the maths sets' data of 1 Oct 07:53); the sampler's checks pass for this model; D99 is a bound: below the easiest task used (z < -4.359; more than half the draws lie below it)",
      "gates_failed": false,
      "partial": true,
      "released": false,
@@ -6426,7 +6440,14 @@
      "cross_record": {
       "d50": {
        "z": -1.4714,
-       "mixing_note": null
+       "mixing_note": null,
+       "status": "point",
+       "status_kind": "point",
+       "bound": null,
+       "reason_text": null,
+       "uncensored_median_z": -1.4714,
+       "lo": -1.5554,
+       "hi": -1.388
       },
       "d1": {
        "z": -4.3589,
@@ -6464,7 +6485,7 @@
      "n_tasks_positioned": 500,
      "n_cells": 500,
      "set_label": "MATH-500 (500 problems)",
-     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served MATH-500 axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 8,192 tokens); a partial result: 32 answers a problem where the set's models stand at 128; shown on the toggle with its count, never in a same-attempts headline; re-fitted when its answers reach 128; a completion SFT of Qwen3.5 9B Base; the base model, Qwen3.5 9B Base, has no run on this axis and does not vote on it; the fit stands on MATH-500 (500 problems); 500 positioned in this fit (every problem of the set); results as they stood at the cut (1 Oct 04:22, the maths sets' data of 1 Oct 03:20); the sampler's checks pass for this model",
+     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served MATH-500 axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 8,192 tokens); a partial result: 32 answers a problem where the set's models stand at 128; shown on the toggle with its count, never in a same-attempts headline; re-fitted when its answers reach 128; a completion SFT of Qwen3.5 9B Base; the base model, Qwen3.5 9B Base, has no run on this axis and does not vote on it; the fit stands on MATH-500 (500 problems); 500 positioned in this fit (every problem of the set); results as they stood at the cut (1 Oct 04:22, the maths sets' data of 1 Oct 07:53); the sampler's checks pass for this model",
      "gates_failed": false,
      "partial": true,
      "released": false,
@@ -8453,7 +8474,14 @@
      "cross_record": {
       "d50": {
        "z": 0.7456,
-       "mixing_note": null
+       "mixing_note": null,
+       "status": "point",
+       "status_kind": "point",
+       "bound": null,
+       "reason_text": null,
+       "uncensored_median_z": 0.7456,
+       "lo": 0.6246,
+       "hi": 0.8816
       },
       "d1": {
        "z": -2.1123,
@@ -8488,7 +8516,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-01T06:27:50Z",
+   "_stamp": "2026-10-01T07:29:04Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -8653,17 +8681,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-01T03:11:05Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261001T031105Z.json",
-   "sha16": "c650460f3a948732",
-   "census_mtime": "2026-10-01T03:12:09Z",
+   "stamp": "2026-10-01T05:48:55Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261001T054855Z.json",
+   "sha16": "7a22b54ec45064b5",
+   "census_mtime": "2026-10-01T05:50:22Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.884dc7096976.json",
-  "chain_average": "chain_average.884dc7096976.json",
-  "chain_median": "chain_median.884dc7096976.json",
-  "dots": "dots.884dc7096976.json"
+  "shared": "shared.e947776fa5bd.json",
+  "chain_average": "chain_average.e947776fa5bd.json",
+  "chain_median": "chain_median.e947776fa5bd.json",
+  "dots": "dots.e947776fa5bd.json"
  }
 }
