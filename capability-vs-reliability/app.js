@@ -74,7 +74,7 @@ function fmtPct(z, d) { return pct(z).toFixed(d == null ? 1 : d) + '%'; }
 
 /* ---------------- data ---------------- */
 var D = {};
-var MOUNT = window.MIRROR_MOUNT || './';   // a mirror (the maintainers's /nb-results/plane/) sets window.MIRROR_MOUNT before this file; mount-absolute references (the maintainers F001: the slash-less address resolved relative assets against the root and rendered blank)
+var MOUNT = window.MIRROR_MOUNT || './';   // a mirror (the maintainers's /nb-results/plane/) sets window.MIRROR_MOUNT before this file; mount-absolute references (the project's critic the first finding: the slash-less address resolved relative assets against the root and rendered blank)
 fetch(MOUNT + 'data/manifest.json')
   .then(function (r) { if (!r.ok) throw new Error('manifest: HTTP ' + r.status); return r.json(); })
   .catch(function (e) {   // FAIL CLOSED (convention g): a missing or unreadable manifest is a held state, not a blank page (the maintainers 2026-09-11, the mirror before its first build)
@@ -95,7 +95,7 @@ fetch(MOUNT + 'data/manifest.json')
     D.defaultData = DEFAULT_DATA;
     var want = Kit.state.get('data', DEFAULT_DATA);
     var ALIASES = { boardfocused: 'board_top', focused: 'top' };
-    var RETIRED = {};   // no dataset key is retired since the 30 Sep word (the maths keys returned under the Dataset control) // the 09-05  working names, kept as silent aliases for links
+    var RETIRED = {};   // no dataset key is retired since the project maintainers' 30 Sep word (the maths keys returned under the Dataset control) // the 09-05  working names, kept as silent aliases for links
     if (ALIASES[want]) { want = ALIASES[want]; Kit.state.set('data', want, null); }
     if (!DATASETS[want] && /^golden-/.test(want) && ds[want]) { want = want.slice(7); Kit.state.set('arms', 'golden', 'all'); Kit.state.set('data', want, DEFAULT_DATA); }   // datasets["golden-<set>"] named directly: that is <set> under arms=golden; a dataset value must be a switch option or the switch's init fire reloads for ever (2026-09-09)
     relabel();   // official set names before any note quotes a label (the fallback note below quoted the working name)
@@ -192,7 +192,7 @@ var HOUSE_DATASETS = {   // availability comes from manifest.datasets at load; t
   'new': { label: 'wave 2 + parked', hover: 'wave 2 + parked', available: false, reason: 'crossing rows for wave 2 over the frozen level grid are not published yet' },
   all: { label: 'wave 1+2 + parked', hover: 'wave 1+2 + parked, on one difficulty axis', available: false, reason: 'no single axis covers the original and wave 2 yet (difficulty computes one over the combined set)' },
   // NON-CODE BENCHMARKS D99-D50 (the project maintainers' word of 30 Sep 15:5x, via the coordination; the work the maintainers owns, its name in capitals wherever the page names it to them):
-  // the six non-code sets browsable on this page under the Dataset control, in the order of preference — MATH-500 first, IFEval, then GSM8K-Platinum and the two CRUXEval sets, AIME last;
+  // the six non-code sets browsable on this page under the Dataset control, in the project maintainers' order of preference — MATH-500 first, IFEval, then GSM8K-Platinum and the two CRUXEval sets, AIME last;
   // each set's crossings from fitting's serving_nb_<set>.json on Definitions' per-set axis; a set without a bundle yet is greyed with its reason; the names of record as the results page prints them
   math500: { label: 'MATH-500', hover: 'MATH-500, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'NON-CODE BENCHMARKS D99-D50' },
   ifeval: { label: 'IFEval', hover: 'IFEval, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'NON-CODE BENCHMARKS D99-D50' },
@@ -200,7 +200,7 @@ var HOUSE_DATASETS = {   // availability comes from manifest.datasets at load; t
   cruxeval_i: { label: 'CRUXEval \u00b7 input prediction', hover: 'CRUXEval \u00b7 input prediction, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'NON-CODE BENCHMARKS D99-D50' },
   cruxeval_o: { label: 'CRUXEval \u00b7 output prediction', hover: 'CRUXEval \u00b7 output prediction, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'NON-CODE BENCHMARKS D99-D50' },
   aime: { label: 'AIME', hover: 'AIME, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'NON-CODE BENCHMARKS D99-D50' },
-  // (the 11 Sep word kept the maths sets off this page for a mirror; the 30 Sep word puts every non-code set on it under the one control — the mirror keeps serving too)
+  // (the project maintainers' 11 Sep word kept the maths sets off this page for a mirror; the project maintainers' 30 Sep word puts every non-code set on it under the one control — the mirror keeps serving too)
 };
 // MIRROR HOOKS (the maintainers 2026-09-11: the /nb-results/plane/ mirror runs this file unchanged; failure-vs-difficulty's curves page uses the same names):
 // window.MIRROR_MOUNT, window.MIRROR_DATASETS (ordered key -> {label, hover}) and window.MIRROR_DEFAULT, set in the mirror's index.html before app.js.
@@ -276,7 +276,7 @@ function withheldArms() { return D.shared.configs.map(function (c, i) { return i
 function armNote(c) { var d = c && c.disclosure; return (d && !/^covers \d/.test(d)) ? d : ''; }
 function cleanedScope(c) { var sc = D.bay && D.bay.cleaned_scope; return (sc && c && sc[c.id]) || ''; }   // a cleaned fit whose cleaning is partial (fitting's cleaned_arms[arm].scope)
 function asGraded(c) { return !!(c && /removed before grading|cleaning/i.test(armNote(c)) && D.bay && !((D.bay.cleaned_arms || []).indexOf(c.id) >= 0)); }   // the reference chain carries the adopted cleaning but this arm's served Bayesian fit is still on the attempts as first graded (fitting's cleaned_arms lists the re-fitted ones)   // failure-vs-difficulty's per-arm disclosure (the gpt cleaning line when it lands); the coverage sentence is already the hover's coverage row
-function capTitle(t) {   // a hover stays within 300 characters (the maintainers's rule of 8 Sep): a long sentence of record is cut at its last clause boundary before the line, marked with an ellipsis; the whole sentence stays in the mark's tooltip and the legend
+function capTitle(t) {   // a hover stays within 300 characters (the project's critic's rule of 8 Sep): a long sentence of record is cut at its last clause boundary before the line, marked with an ellipsis; the whole sentence stays in the mark's tooltip and the legend
   t = String(t || ''); if (t.length <= 300) return t;
   var cut = t.slice(0, 296), k = Math.max(cut.lastIndexOf('; '), cut.lastIndexOf(', '), cut.lastIndexOf(' \u2014 '), cut.lastIndexOf('. '));
   if (k < 200) k = cut.lastIndexOf(' ');
@@ -286,7 +286,7 @@ function refreshPartialChips() {   // the project maintainers 2026-09-07  (via f
   chips.forEach(function (b) { var i = +b.dataset.idx, c = D.shared.configs[i]; if (!c) return;
     var words = [];   // the chip's hover, in order: the mark, the run and its clause, the board twin's standing, the flag, then the coverage
     if (c.think) words.push('thinking mode \u2014 open marker on the chart');
-    if (c.run) { var Rw = runOf(i) || RUN; words.push(c.shared_page_label || c.display_name || (Rw ? Rw.name + ' \u2014 ' : '') + c.label); }   // 27 Sep: outside its run's row a checkpoint is named by the labels rows' shared_page_label (run · k/N), the name of record with the checkpoint tail as fallback   // the full display name of record on hover (the labels rows' maintainers, 22 Sep); the run's clause is on the run line's label and the frame line, not on every chip (the maintainers F133, 23 Sep: hovers within 300 characters)
+    if (c.run) { var Rw = runOf(i) || RUN; words.push(c.shared_page_label || c.display_name || (Rw ? Rw.name + ' \u2014 ' : '') + c.label); }   // 27 Sep: outside its run's row a checkpoint is named by the labels rows' shared_page_label (run · k/N), the name of record with the checkpoint tail as fallback   // the full display name of record on hover (the labels rows' maintainers, 22 Sep); the run's clause is on the run line's label and the frame line, not on every chip (the project's critic, 23 Sep: hovers within 300 characters)
     if (c.alongside) words.push('positioned on the served axis, not shaping it \u2014 its fit from the ' + c.alongside + ' series, read alongside the board fit set');   // difficulty's word of 22 Sep
     if (c.provisional) words.push(c.provisional_note || 'provisional position: a fast estimate; the fit of record replaces it');
     if (c.gates_failed) words.push('flagged fit: ' + (c.gate_flag || 'the fit failed a sampler gate'));   // a flagged fit is shown with its flag and its sentence, never plain (Definitions, 22 Sep); the sentence of record follows the word
@@ -632,8 +632,8 @@ function mergeRunSet(raw) {
         // — and a group's checkpoint 0 (Definitions' decision 169, 28 Sep: one printed position per model): the builder gives the start model the board's own id, so the board's model moves into the group's row as 'checkpoint 0' at the board's read, as on the curves page; the 32-answer base read stays a record leaf
         var r = rowsById[c.id], boardHas = !!haveRow[twin.id];   // bottom row): the board's twin config joins the run — the run's label, colour and mark, out of the top row and the fitted line; its series fit stands in under the Bayesian source when the board fit set has none
         if (r && !haveRow[twin.id]) { var r2 = {}; Object.keys(r).forEach(function (kk) { r2[kk] = r[kk]; }); r2.cfg = twin.id; r2.alongside = R.key; delete r2.run; D.bay.rows.push(r2); haveRow[twin.id] = true; if (D.bayById) D.bayById[twin.id] = r2; if (D.unfitted && D.unfitted[twin.id]) delete D.unfitted[twin.id]; }   // the series fit stands in for a board model the board fit set left unfitted (the Think final, 23 Sep)
-        // the project maintainers' word of 29 Sep 12:1x: the RL-Zero Code released model is not in the first chip list and not on by default — it lives in its row (the 22 Sep word); a set's final is dual only where
-        // the sidecar's final_on_board says so (the Think run, 23 Sep); a base model stays dual (the 28 Sep word: one entity, the same chip on every plot)
+        // the project maintainers' word of 29 Sep 12:1x: the RL-Zero Code released model is not in the first chip list and not on by default — it lives in its row (the project maintainers' 22 Sep word); a set's final is dual only where
+        // the sidecar's final_on_board says so (the Think run, 23 Sep); a base model stays dual (the project maintainers' 28 Sep word: one entity, the same chip on every plot)
         if (R.finalOnBoard || (DUAL_TWINS && c.base)) { var ti = D.shared.configs.indexOf(twin); twin.series = R.key; R.dualLabel = R.dualLabel || {}; R.dualLabel[ti] = c.label || twin.label; twin.gates_failed = twin.gates_failed || !!c.gates_failed; if (c.gates_failed && !twin.gate_flag) twin.gate_flag = c.gate_flag; R.idx.push(ti); R.dual.push(ti); R.folded.push(twin.id); return; }   // the board's chip stays; the run's row shows the same model again
         twin.run = true; twin.series = R.key; twin.board_label = twin.label; twin.label = c.label || twin.label; twin.display_name = c.display_name || twin.display_name; twin.shared_page_label = c.shared_page_label || twin.shared_page_label; twin.fam = c.fam || twin.fam;
         twin.step = c.step; twin.index = c.index; if (c.color) twin.color = c.color; twin.think = !!c.think; if (!boardHas) twin.alongside = R.name;   // a board model the board fit set positions itself (a group's checkpoint 0) is not 'alongside': its read is the board's own
@@ -703,7 +703,7 @@ function boot() {
     // a legacy positional link (digits and dots) is re-bound to keys once and the URL rewritten, with a note
     slugIndex();
     var keyOf = function (c) { return c.board_id || c.id; };
-    var byKey = {}; D.shared.configs.forEach(function (c, i) { byKey[keyOf(c)] = i; byKey[c.id] = i; byKey[SLUG_OF[i]] = i; byKey[slugify(c.display_name || c.label)] = i; });   // 26 Sep: slugs first; the old keys (board ids, ids, stems) read on for links it holds
+    var byKey = {}; D.shared.configs.forEach(function (c, i) { byKey[keyOf(c)] = i; byKey[c.id] = i; byKey[SLUG_OF[i]] = i; byKey[slugify(c.display_name || c.label)] = i; });   // 26 Sep: slugs first; the old keys (board ids, ids, stems) read on for links the project maintainers holds
     D.shared.configs.forEach(function (c, i) { if (byKey[normId(c.id)] === undefined) byKey[normId(c.id)] = i; });
     if (/^[\d.]+$/.test(selParam)) {
       var rebound = [];
@@ -885,7 +885,7 @@ function boot() {
     Kit.switchControl({ mount: sb,
       key: ax[0], label: ax[1],
       options: [{ value: 'logit', label: 'Logit' },
-                { value: 'raw', label: 'Normal' }],   // the 30 Sep word: the plain scale is 'normal' (logit | normal, each axis its own switch); 2026-09-15: the normal axis is the failure-level percent, not a share of tasks
+                { value: 'raw', label: 'Normal' }],   // the project maintainers' 30 Sep word: the plain scale is 'normal' (logit | normal, each axis its own switch); 2026-09-15: the normal axis is the failure-level percent, not a share of tasks
       dflt: 'logit',
       onchange: function (v) {
         state[ax[0]] = v === 'raw' ? 'raw' : 'logit';
@@ -1274,7 +1274,7 @@ function slugify(name) {
   return s;
 }
 var SLUG_OF = {}, IDX_OF_SLUG = {};
-function slugIndex() {   // built once the run sets are merged; a slug taken twice (two names of record alike would break the 22 Sep uniqueness word) keeps the first and gives the second its id
+function slugIndex() {   // built once the run sets are merged; a slug taken twice (two names of record alike would break the project maintainers' 22 Sep uniqueness word) keeps the first and gives the second its id
   SLUG_OF = {}; IDX_OF_SLUG = {};
   D.shared.configs.forEach(function (c, i) { var s = c.slug || slugify(c.display_name || c.label); if (IDX_OF_SLUG[s] !== undefined) { s = c.board_id || c.id; } SLUG_OF[i] = s; IDX_OF_SLUG[s] = i; });
 }
@@ -1330,7 +1330,7 @@ function variantsAfterBase(order) {
   order.forEach(function (i) { if (placed[i]) return; out.push(i); (after[i] || []).forEach(function (v) { out.push(v); }); });
   return out;
 }
-// FAMILY LABELS OF RECORD (models, the names maintainers, 26 Sep 20:3x: the coinage 'Qwen2.5-Instruct' retires on the faces — the family's name is 'Qwen2.5', the coder line
+// FAMILY LABELS OF RECORD (models, the names maintainers, 26 Sep 20:3x: the coinage 'Qwen2.5-Instruct' retires on the project maintainers' faces — the family's name is 'Qwen2.5', the coder line
 // 'Qwen2.5-Coder'; 'Instruct' stays in ids and data fields): the dataset's fam key is kept for grouping and ordering, the printed label maps here until the shared builder writes the name
 var FAMILY_LABEL = { 'Qwen2.5-Instruct': 'Qwen2.5' };
 function famLabel(f) { return FAMILY_LABEL[f] || f; }
@@ -1385,7 +1385,7 @@ function buildChips() {
     b.className = 'chip'; if (c.think) { b.classList.add('think'); b.title = 'thinking mode \u2014 open marker on the chart'; }
     if (isPartial(i) || isWithheld(i)) b.classList.add('partial');
     if (c.run) { var Rc = runOf(i) || RUN; b.classList.add('run'); b.title = (c.display_name || Rc.name + ' \u2014 ' + c.label); }
-    if (c.provisional) { b.classList.add('provisional'); }   // a provisional designation (a fast estimate the fit of record replaces): dashed chip, hollow dashed mark, the word on hover, in the tooltip and the legend   // the full display name of record on hover; the clause is on the run line's label (F133)
+    if (c.provisional) { b.classList.add('provisional'); }   // a provisional designation (a fast estimate the fit of record replaces): dashed chip, hollow dashed mark, the word on hover, in the tooltip and the legend   // the full display name of record on hover; the clause is on the run line's label (a finding of the critic)
     if (c.alongside) { b.title = capTitle((b.title ? b.title + ' \u00b7 ' : '') + 'positioned on the served axis, not shaping it \u2014 its fit from the ' + c.alongside + ' series, read alongside the board fit set'); }   // difficulty's word of 22 Sep: a run's final admitted to the board is positioned, never voting
     if (c.gates_failed) { b.classList.add('flagged'); var fg = document.createElement('span'); fg.className = 'flag'; fg.textContent = '\u2691'; fg.setAttribute('aria-label', 'flagged fit'); b.title = (b.title ? b.title + ' \u00b7 ' : '') + 'flagged fit: ' + (c.gate_flag || 'the fit failed a sampler gate'); b.appendChild(fg); }   // a flagged fit is shown with its flag and its sentence, never plain (Definitions, 22 Sep)
     b.style.color = c.color; b.style.borderColor = c.color;
@@ -1618,7 +1618,7 @@ function bootFit(xs, ys, key, sig, mg) {
 }
 
 /* ---------------- render ---------------- */
-function syncPresets() {   // the preset matching the current level pair reads PRESSED (the maintainers 2026-09-08 on the project maintainers' 09-07 word: no switch without a default): a row of choices shows which one is in force
+function syncPresets() {   // the preset matching the current level pair reads PRESSED (the project's critic 2026-09-08 on the project maintainers' 09-07 word: no switch without a default): a row of choices shows which one is in force
   document.querySelectorAll('#levels .preset:not(.kchip), #morelevels .preset:not(.kchip)').forEach(function (b) {
     var on = b.dataset.a !== undefined && +b.dataset.a === +state.a && +b.dataset.c === +state.c;
     b.setAttribute('aria-pressed', on ? 'true' : 'false');
@@ -2706,7 +2706,7 @@ function tasksText(f, dsId) {   // the frame's own count, plus one plain clause 
   var clause = rc < shown ? 'the kept count is now ' + fmt(rc) + '; this fit frame predates a withdrawal' : 'the kept count is ' + fmt(rc) + '; the rest awaits the axis';
   return /\)$/.test(t) ? t.replace(/\)$/, '; ' + clause + ')') : t + ' (' + clause + ')';   // one parenthesis per line: join an existing kept/await clause
 }
-function tasksTextBase(f, dsId) {   // F026 (failure-vs-difficulty, 2026-09-05): `tasks` is the set POSITIONED on the axis; the kept set and the tasks awaiting the next axis wave are named when the bundle carries them
+function tasksTextBase(f, dsId) {   // a finding (failure-vs-difficulty, 2026-09-05): `tasks` is the set POSITIONED on the axis; the kept set and the tasks awaiting the next axis wave are named when the bundle carries them
   if (f.tasks_kept != null && f.tasks_kept !== f.tasks) return f.tasks + ' tasks on the axis (' + f.tasks_kept + ' kept; ' + (f.tasks_awaiting_axis != null ? f.tasks_awaiting_axis : f.tasks_kept - f.tasks) + ' await the next axis fit)';
   if (f.tasks_on_axis != null) return f.tasks + ' tasks on the axis';
   return f.tasks + (dsId === 'board' ? ' kept tasks' : ' tasks');
@@ -2737,7 +2737,7 @@ function frameLine() {
   var el = document.getElementById('framebar'); if (!el || !D || !D.shared) return;
   var f = D.shared.frame || {};
   var base = (D.golden ? 'golden set (12) \u00b7 ' : '') + (DATASETS[D.dataId] ? (DATASETS[D.dataId].frameLabel || DATASETS[D.dataId].label) + ' \u00b7 ' : '') + mainConfigs().length + ' models';   // Definitions' form of record (24 Sep , the project maintainers' 12:2x word): the set's plain words and one count, nothing after — no run clauses, no cadence, no stamp
-  // the Bayesian coverage sentence lives in the readout fold-out (bayesNote), not on the frame line (the maintainers 2026-09-05)
+  // the Bayesian coverage sentence lives in the readout fold-out (bayesNote), not on the frame line (the project's critic 2026-09-05)
   el.textContent = base;
   var mc = document.getElementById('machinery'); if (mc) mc.textContent = 'as of ' + asOf(f.build_ts || f.build_date) + ', ' + CADENCE + '.';   // the ONE machinery line, its own element under the set line: stamp + declared refresh (the maintainers's freshness row reads it; the set line itself stays words and counts)
   if (location.pathname === '/' || D.dsId !== 'board') return;   // the board-tool comparison is a board-dataset fact   // sibling tools exist only under the hub mount; a bare port has nothing to compare against (and a 404 would count as a page error)
@@ -2761,7 +2761,7 @@ function reliabilityDefinition() {
     + 'Two estimators of this one quantity appear on this site and are named wherever a number is shown: the average-rate estimate (a local-logistic fit of failure rate against pooled task difficulty) '
     + 'and the Bayesian estimate (the posterior-median crossing of the fitted model, read off the fit\u2019s curves). They differ most in the 1% tail, so a figure is comparable only with its estimator and its task frame named.';
 }
-/* FIRST SCREEN (WRITING.md §1; the maintainers's roster read 2026-09-03): line 1 the question, lines 2–3 the answer
+/* FIRST SCREEN (WRITING.md §1; the project's critic's roster read 2026-09-03): line 1 the question, lines 2–3 the answer
  * with ONE metric (the drawn slope) and at most three supporting numbers (arm count, interval ends) — rendered from state */
 // the figure's caption under the chart: fitting's words (21 Sep, with difficulty's corrections; reworded the same evening without log-odds words under the project maintainers' 6 Sep rule), every figure rendered from the fit's state, never typed
 // (the project maintainers' question of 21 Sep 18:2x: what the straight line fitted to D99 against D50 means). Shown for the line of
@@ -2797,7 +2797,7 @@ function headline(nFit, fit, nFull, sweeping) {
   if (fit) {
     // no verdict, no direction word (the project maintainers' word of 16 Sep 2026 17:4x: never a ranking — who is best, who is what — the page gives
     // information, it optimises nothing): the first screen states the fitted line's slope with its range and R, nothing more
-    // 30 Sep (the record of the day; the critic's F226): a stated slope says its space once — 'in logit space' by default, 'in the axes as set' under that option
+    // 30 Sep (the project maintainers' 30 Sep word; the critic's finding): a stated slope says its space once — 'in logit space' by default, 'in the axes as set' under that option
     ans = 'The fitted line across the models, ' + dName('y') + ' against ' + xw + ': slope ' + fit.b.toFixed(2) + ' [' + fit.lo.toFixed(2) + ', ' + fit.hi.toFixed(2) + '], R ' + fit.r.toFixed(2) + (inAxes() ? ', in the axes as set' : ', in logit space') + (state.lw === 'bands' ? ', each dot weighted by its bands' : '') + '.';
   } else ans = 'Too few fully measured models at these levels to fit a line (' + nFull + ' measured; the fit needs three).';
   if (isCap() && !capBlock()) { q = ''; ans = CAP_KEYS[state.xdef].name() + ' is not published for this set yet; no model is drawn.'; }   // the project maintainers' word of 24 Sep 12:4x: every view pressable; a missing file is said in the one sentence
