@@ -530,7 +530,7 @@
    },
    "source_stamp": "2026-10-01T04:20:19Z",
    "source_fp": "0a080371d6c7",
-   "updated_at": "2026-10-01T05:05:48Z",
+   "updated_at": "2026-10-01T05:40:10Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -628,7 +628,7 @@
    },
    "source_stamp": "2026-10-01T04:29:54Z",
    "source_fp": "c26ad1946329",
-   "updated_at": "2026-10-01T05:18:20Z",
+   "updated_at": "2026-10-01T05:43:28Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -642,20 +642,20 @@
   },
   "cruxeval_i": {
    "files": {
-    "shared": "shared.cruxeval_i.138ab758ee1a.json",
-    "chain_average": "chain_average.cruxeval_i.138ab758ee1a.json",
-    "bayes": "bayes.cruxeval_i.138ab758ee1a-25cf9e981c9d.json"
+    "shared": "shared.cruxeval_i.ca65eba12b3f.json",
+    "chain_average": "chain_average.cruxeval_i.ca65eba12b3f.json",
+    "bayes": "bayes.cruxeval_i.ca65eba12b3f-25cf9e981c9d.json"
    },
    "label": "CRUXEval \u00b7 input prediction (800 problems)",
    "arms": "all",
-   "fingerprint": "138ab758ee1a",
+   "fingerprint": "ca65eba12b3f",
    "frame": {
     "population_M": 41,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
-    "runs_fingerprint": "ac6776287caf",
+    "runs_fingerprint": "ea654b44c540",
     "build_date": "2026-10-01",
-    "build_ts": "2026-10-01T04:36:28Z",
+    "build_ts": "2026-10-01T05:25:27Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_i",
     "set_label": "CRUXEval \u00b7 input prediction (800 problems)",
@@ -666,14 +666,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
     "tasks_used": "CRUXEval \u00b7 input prediction (800 problems) \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_i fp e2d4c1737d01 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-cruxeval_i fp 57addecddbd4 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "44fee9831a50",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-01T04:36:28Z",
-   "source_fp": "e2d4c1737d01",
-   "updated_at": "2026-10-01T05:23:40Z",
+   "source_stamp": "2026-10-01T05:25:27Z",
+   "source_fp": "57addecddbd4",
+   "updated_at": "2026-10-01T05:45:58Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -764,7 +764,7 @@
    },
    "source_stamp": "2026-10-01T03:34:27Z",
    "source_fp": "8756173466eb",
-   "updated_at": "2026-10-01T04:16:36Z",
+   "updated_at": "2026-10-01T05:26:06Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -786,7 +786,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-10-01T04:27:47Z",
+  "stamp": "2026-10-01T05:29:18Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,
