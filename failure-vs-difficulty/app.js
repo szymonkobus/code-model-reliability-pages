@@ -1136,7 +1136,7 @@ function renderSideBlock() {
       var td = document.createElement('td'); td.className = 'num';
       var rr = rec ? rec[lvl === '1' ? 'd1' : 'd50'] : null;
       if (rr && rr.status_kind === 'bound' && (rr.bound != null || rr.z != null)) {
-        td.textContent = '≤ ' + boundPct(pct(rr.bound != null ? rr.bound : rr.z)) + '%';
+        td.textContent = (/^bound:\s*above/i.test(rr.status || '') ? '≥ ' : '≤ ') + boundPct(pct(rr.bound != null ? rr.bound : rr.z)) + '%';
         td.title = oneSentence(faceNumbers(noSpecTags(rr.status || 'bound: the level was reached at or before the lowest grid point')));
       } else if (rr && rr.z != null && rr.lo != null && rr.hi != null && rr.status_kind !== 'bound') {
         td.textContent = pct(rr.z).toFixed(1) + '% [' + pct(rr.lo).toFixed(1) + ', ' + pct(rr.hi).toFixed(1) + ']';
@@ -1228,7 +1228,7 @@ function renderSeriesRow(sb, ri) {   // the run's row: cloned from renderSideBlo
       var td = document.createElement('td'); td.className = 'num';
       var rr = rec ? rec[lvl === '1' ? 'd1' : 'd50'] : null;
       if (rr && rr.status_kind === 'bound' && (rr.bound != null || rr.z != null)) {
-        td.textContent = '≤ ' + boundPct(pct(rr.bound != null ? rr.bound : rr.z)) + '%';
+        td.textContent = (/^bound:\s*above/i.test(rr.status || '') ? '≥ ' : '≤ ') + boundPct(pct(rr.bound != null ? rr.bound : rr.z)) + '%';
         td.title = oneSentence(faceNumbers(noSpecTags(rr.status || 'bound: the level was reached at or before the lowest grid point')));
       } else if (rr && rr.z != null && rr.lo != null && rr.hi != null && rr.status_kind !== 'bound') {
         td.textContent = pct(rr.z).toFixed(1) + '% [' + pct(rr.lo).toFixed(1) + ', ' + pct(rr.hi).toFixed(1) + ']';
@@ -1830,7 +1830,7 @@ function crossingsTable(visible) {
         if (rec && rec.status_kind === 'bound' && (rec.bound != null || rec.z != null)) {
           // fitting 9 Sep (DATA-CONTRACTS §crossings_of_record BOUND rows): the level was reached at or before the lowest grid point —
           // the record is a bound, shown as one, never as a point with a band (before this fix a bound row read like a crossing)
-          td.textContent = '<' + boundPct(pct(rec.bound != null ? rec.bound : rec.z));   // the approved table form (27 Sep): one number per cell, a bound as '<' and the value, the unit in the column's hover
+          td.textContent = (/^bound:\s*above/i.test(rec.status || '') ? '>' : '<') + boundPct(pct(rec.bound != null ? rec.bound : rec.z));   // 1 Oct 2026: a bound at the hard edge ('bound: above …', fit-methods 04d) prints '>' — the crossing lies above the hardest task used; every other bound '<' as before   // the approved table form (27 Sep): one number per cell, a bound as '<' and the value, the unit in the column's hover
           td.title = oneSentence(faceNumbers(noSpecTags(rec.status || 'bound: the level was reached at or before the lowest grid point')));
         } else if (rec && rec.z != null && rec.lo != null && rec.hi != null && rec.status_kind !== 'bound') {
           td.textContent = pct(rec.z).toFixed(1);   // the approved table form (27 Sep): the crossing alone in the cell; its uncertainty band in the hover
