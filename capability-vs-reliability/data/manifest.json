@@ -143,7 +143,7 @@
    },
    "source_stamp": "2026-09-30T22:09:48Z",
    "source_fp": "576617fbc033",
-   "updated_at": "2026-10-01T09:18:58Z",
+   "updated_at": "2026-10-01T09:40:35Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -191,7 +191,7 @@
    },
    "source_stamp": "2026-09-30T23:19:23Z",
    "source_fp": "663a221f14f1",
-   "updated_at": "2026-10-01T09:19:22Z",
+   "updated_at": "2026-10-01T09:40:55Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -240,7 +240,7 @@
    },
    "source_stamp": "2026-09-30T23:20:22Z",
    "source_fp": "ade79a3a2930",
-   "updated_at": "2026-10-01T09:20:00Z",
+   "updated_at": "2026-10-01T09:41:29Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -289,7 +289,7 @@
    },
    "source_stamp": "2026-09-30T23:21:53Z",
    "source_fp": "a656b17e67c4",
-   "updated_at": "2026-10-01T09:21:06Z",
+   "updated_at": "2026-10-01T09:42:18Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -597,20 +597,20 @@
   },
   "gsm8k_platinum": {
    "files": {
-    "shared": "shared.gsm8k_platinum.7b457f599ef8.json",
-    "chain_average": "chain_average.gsm8k_platinum.7b457f599ef8.json",
-    "bayes": "bayes.gsm8k_platinum.7b457f599ef8-5bf8c7aa2f22.json"
+    "shared": "shared.gsm8k_platinum.b5b9fe2e3e89.json",
+    "chain_average": "chain_average.gsm8k_platinum.b5b9fe2e3e89.json",
+    "bayes": "bayes.gsm8k_platinum.b5b9fe2e3e89-5bf8c7aa2f22.json"
    },
    "label": "GSM8K-Platinum (1209 problems)",
    "arms": "all",
-   "fingerprint": "7b457f599ef8",
+   "fingerprint": "b5b9fe2e3e89",
    "frame": {
-    "population_M": 48,
+    "population_M": 49,
     "tasks": 1209,
     "keep_set_hash": "ff1457decdf7",
-    "runs_fingerprint": "03da51e93107",
+    "runs_fingerprint": "addea60be691",
     "build_date": "2026-10-01",
-    "build_ts": "2026-10-01T08:39:34Z",
+    "build_ts": "2026-10-01T09:23:50Z",
     "vocab_ruled": "2026-08-27",
     "set": "gsm8k_platinum",
     "set_label": "GSM8K-Platinum (1209 problems)",
@@ -621,20 +621,20 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ff1457decdf7",
     "tasks_used": "GSM8K-Platinum (1209 problems) \u2014 1209 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-gsm8k_platinum fp 29b654fe593d (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "1d2a57301b7a",
+    "source": "failure-vs-difficulty data-gsm8k_platinum fp 4a6a25f8773b (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "51d46e0f2f7d",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-01T08:39:34Z",
-   "source_fp": "29b654fe593d",
-   "updated_at": "2026-10-01T09:26:23Z",
+   "source_stamp": "2026-10-01T09:23:50Z",
+   "source_fp": "4a6a25f8773b",
+   "updated_at": "2026-10-01T09:44:30Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
     "unfitted": 0,
     "served_wave": "nb-gsm8k_platinum-20260930T1448Z",
-    "served_arms": 48
+    "served_arms": 49
    },
    "missing": {
     "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry"
