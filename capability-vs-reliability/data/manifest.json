@@ -498,21 +498,21 @@
   },
   "math500": {
    "files": {
-    "shared": "shared.math500.4a56498e46df.json",
-    "chain_average": "chain_average.math500.4a56498e46df.json",
-    "bayes": "bayes.math500.4a56498e46df-df43f13d9b8a.json",
+    "shared": "shared.math500.d891433f91ce.json",
+    "chain_average": "chain_average.math500.d891433f91ce.json",
+    "bayes": "bayes.math500.d891433f91ce-df43f13d9b8a.json",
     "bayes_prev": "bayes.math500.fa28f99aaa60-681462eaa26a.json"
    },
    "label": "MATH-500 (500 problems)",
    "arms": "all",
-   "fingerprint": "4a56498e46df",
+   "fingerprint": "d891433f91ce",
    "frame": {
-    "population_M": 47,
+    "population_M": 48,
     "tasks": 500,
     "keep_set_hash": "326e66dcd9ab",
     "runs_fingerprint": "c25a78ed616b",
     "build_date": "2026-10-01",
-    "build_ts": "2026-10-01T08:56:53Z",
+    "build_ts": "2026-10-01T09:17:16Z",
     "vocab_ruled": "2026-08-27",
     "set": "math500",
     "set_label": "MATH-500 (500 problems)",
@@ -523,20 +523,20 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "326e66dcd9ab",
     "tasks_used": "MATH-500 (500 problems) \u2014 500 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-math500 fp 21c8e905a034 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "1a6df61f1033",
+    "source": "failure-vs-difficulty data-math500 fp 778aa9124918 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "065edaf597da",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-01T08:56:53Z",
-   "source_fp": "21c8e905a034",
-   "updated_at": "2026-10-01T09:23:58Z",
+   "source_stamp": "2026-10-01T09:17:16Z",
+   "source_fp": "778aa9124918",
+   "updated_at": "2026-10-01T09:39:58Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
     "unfitted": 0,
     "served_wave": "nb-math500-20261001T0143Z",
-    "served_arms": 47
+    "served_arms": 48
    },
    "flip": {
     "from_wave": "nb-math500-20260930T1910Z",
