@@ -3,49 +3,45 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Capability vs reliability — Math and Other</title>
+<title>Capability vs reliability — sets side by side</title>
 <link rel="stylesheet" href="./kit.css">
+<link rel="stylesheet" href="./crossings.css">
 <style>
-body { max-width: 1120px; margin: 0 auto; padding: 0 16px 32px; }
-#chartbox { margin: .4rem 0 .2rem; }
-#chart { width: 100%; height: auto; display: block; background: #fff; }
-.famgroup { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px; margin: 4px 10px 4px 0; }
-.famgroup .fam { font-weight: 600; }
-.chip .sw { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; vertical-align: middle; }
-.chip.partial-hidden { opacity: .45; }
-#setlinks { margin: .3rem 0 .5rem; }
-#setlinks a { margin: 0 2px; }
-.navlabel { color: #52514e; }
-.chip { border: 1px solid #bbb; background: #f6f5f2; border-radius: 12px; padding: 2px 9px; font-size: .85rem; color: #666; }
-.chip.on { border-color: #333; background: #fff; color: #111; }
-button.util, button.fam { border: 1px solid #bbb; background: #fff; border-radius: 6px; padding: 2px 8px; font-size: .85rem; margin-right: 4px; }
+#setbar { margin: .3rem 0 .4rem; }
+#setbar .setgroup { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px; margin: 2px 14px 2px 0; }
+#setbar .fam { font-weight: 600; margin-right: 4px; }
+#chartbox { max-height: none; }
 #heldline { font-weight: 600; }
-details.fold { margin-top: 1rem; color: #52514e; font-size: .85rem; }
 </style>
-</head>
-<body>
-<h1>Capability vs reliability — Math and Other</h1>
-<p id="headline">the six panels load with the data</p>
+</head><body>
+<main data-composes="./">
+<h1>Capability vs reliability — sets side by side</h1>
+<nav id="viewnav" class="sub" aria-label="views"><a href="./">One set, with its full controls</a></nav>
+<p id="headline">the panels load with the data</p>
 <p id="heldline" class="sub" role="status" hidden></p>
-<nav id="setlinks" class="sub" aria-label="single-set views"></nav>
-<div id="chartbox" aria-label="six panels: D99 against D50, one set each">
-  <svg id="chart" viewBox="0 0 960 640" data-plot></svg>
-</div>
+<div id="setbar" aria-label="datasets"></div>
+<div id="chartbox" aria-label="several datasets side by side: D99 against D50, one panel each"><div id="panelgrid"></div></div>
 <div id="exportrow"></div>
 <section id="chartcontrols" class="group" aria-label="chart controls"><div class="grouplabel">Chart controls</div>
 <div id="controls"></div>
+<div id="levels"></div>
 </section>
 <section id="models" class="group" aria-label="model selection"><div class="grouplabel">Models shown</div><div id="armsbar"></div>
 <div class="chips" id="chips"></div>
-<p id="narrate" class="sub"></p>
-<p id="hovertip" class="sub" aria-live="polite" style="min-height:1.2em"></p>
+<div id="datanote" class="sub" role="status" hidden></div>
 </section>
 <details class="fold"><summary>About this view</summary>
-<p>Each panel is the crossings page's plane for one set: D99 (vertical) against D50 (horizontal) — the difficulties at which a model's failure rate crosses 1% and 50% — on that set's own difficulty axis with equal logit scales and the y&nbsp;=&nbsp;x line. A model's crossing beyond the set's easiest or hardest task is an open mark at the edge pointing the way it lies. A model is a point in a panel only where it has a fit on that set; the count in each panel's corner is the number of points drawn. The single-set view with its level controls is at <a href="./">/capability-vs-reliability/</a>.</p>
+<p>Each panel is the main page’s plane for one set: D99 (vertical) against D50 (horizontal) on that set’s own difficulty axis, equal logit scales and the y&nbsp;=&nbsp;x line. A model’s crossing beyond the set’s easiest or hardest task is an open mark at the edge pointing the way it lies. A model is a point in a panel only where it has a fit on that set; the count in a panel’s corner is the number of points drawn. The sets shown are chosen above the figure; the level controls, the definition and estimator switches, the chips and the export are the main page’s, applied to every panel at once.</p>
 <p id="stampfold"></p>
 </details>
+</main>
 <script src="./kit.js"></script>
+<script src="./kit-panels.js"></script>
+<script src="./kit-viz.js"></script>
 <script src="./kit-export.js"></script>
+<script src="./plane.js"></script>
+<script src="./chips.js"></script>
+<script src="./levels.js"></script>
 <script src="./six/six.js"></script>
 </body>
 </html>

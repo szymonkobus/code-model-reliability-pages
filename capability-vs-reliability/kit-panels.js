@@ -1,4 +1,4 @@
-/* kit-panels.js — the reference kit, served form v1, built 02 Oct 2026 from source c29ea8d6522d. */
+/* kit-panels.js — the reference kit, served form v1 of 02 Oct 2026, body 246525ca889c. */
 (function () {
   var Kit = window.Kit = window.Kit || {};
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
