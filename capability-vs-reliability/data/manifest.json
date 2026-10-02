@@ -108,7 +108,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-02T12:29:00Z"
+   "updated_at": "2026-10-02T12:48:15Z"
   },
   "all": {
    "files": {
@@ -552,21 +552,21 @@
   },
   "ifeval": {
    "files": {
-    "shared": "shared.ifeval.62cde2a7bb50.json",
-    "chain_average": "chain_average.ifeval.62cde2a7bb50.json",
-    "bayes": "bayes.ifeval.62cde2a7bb50-4d19e19feede.json",
+    "shared": "shared.ifeval.cd9e7976bc85.json",
+    "chain_average": "chain_average.ifeval.cd9e7976bc85.json",
+    "bayes": "bayes.ifeval.cd9e7976bc85-4d19e19feede.json",
     "bayes_prev": "bayes.ifeval.e8fced5bb4ba-2ca271c93114.json"
    },
    "label": "IFEval",
    "arms": "all",
-   "fingerprint": "62cde2a7bb50",
+   "fingerprint": "cd9e7976bc85",
    "frame": {
     "population_M": 44,
     "tasks": 541,
     "keep_set_hash": "ea009d5c6cd1",
-    "runs_fingerprint": "9b078ba35881",
+    "runs_fingerprint": "0527b118bcad",
     "build_date": "2026-10-02",
-    "build_ts": "2026-10-02T08:27:23Z",
+    "build_ts": "2026-10-02T12:39:50Z",
     "vocab_ruled": "2026-08-27",
     "set": "ifeval",
     "set_label": "IFEval",
@@ -577,14 +577,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ea009d5c6cd1",
     "tasks_used": "IFEval \u2014 541 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-ifeval fp f62c13ea61b9 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-ifeval fp e94a40842801 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "523d1e4de2cc",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-02T08:27:23Z",
-   "source_fp": "f62c13ea61b9",
-   "updated_at": "2026-10-02T11:34:39Z",
+   "source_stamp": "2026-10-02T12:39:50Z",
+   "source_fp": "e94a40842801",
+   "updated_at": "2026-10-02T12:51:22Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -606,21 +606,21 @@
   },
   "gsm8k_platinum": {
    "files": {
-    "shared": "shared.gsm8k_platinum.ffb56a4734a0.json",
-    "chain_average": "chain_average.gsm8k_platinum.ffb56a4734a0.json",
-    "bayes": "bayes.gsm8k_platinum.ffb56a4734a0-81c9d84b6741.json",
+    "shared": "shared.gsm8k_platinum.eb4865d80cb5.json",
+    "chain_average": "chain_average.gsm8k_platinum.eb4865d80cb5.json",
+    "bayes": "bayes.gsm8k_platinum.eb4865d80cb5-81c9d84b6741.json",
     "bayes_prev": "bayes.gsm8k_platinum.d8452a1a45f3-5bf8c7aa2f22.json"
    },
    "label": "GSM8K-Platinum",
    "arms": "all",
-   "fingerprint": "ffb56a4734a0",
+   "fingerprint": "eb4865d80cb5",
    "frame": {
-    "population_M": 49,
+    "population_M": 51,
     "tasks": 1209,
     "keep_set_hash": "ff1457decdf7",
-    "runs_fingerprint": "9b078ba35881",
+    "runs_fingerprint": "0527b118bcad",
     "build_date": "2026-10-02",
-    "build_ts": "2026-10-02T08:23:52Z",
+    "build_ts": "2026-10-02T12:35:55Z",
     "vocab_ruled": "2026-08-27",
     "set": "gsm8k_platinum",
     "set_label": "GSM8K-Platinum",
@@ -631,18 +631,18 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ff1457decdf7",
     "tasks_used": "GSM8K-Platinum \u2014 1209 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-gsm8k_platinum fp e41897187265 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "a4d9a85fd35b",
+    "source": "failure-vs-difficulty data-gsm8k_platinum fp 3bc9769d0ac7 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "3aca0b956994",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-02T08:23:52Z",
-   "source_fp": "e41897187265",
-   "updated_at": "2026-10-02T11:38:03Z",
+   "source_stamp": "2026-10-02T12:35:55Z",
+   "source_fp": "3bc9769d0ac7",
+   "updated_at": "2026-10-02T12:54:25Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
-    "unfitted": 0,
+    "unfitted": 2,
     "served_wave": "nb-gsm8k_platinum-20261001T0902Z",
     "served_arms": 49
    },

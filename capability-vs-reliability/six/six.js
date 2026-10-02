@@ -12,14 +12,22 @@
   var MOUNT = './';
   var SETS = [{ id: 'math500', label: 'MATH-500', group: 'Math' }, { id: 'aime', label: 'AIME', group: 'Math' }, { id: 'gsm8k_platinum', label: 'GSM8K-Platinum', group: 'Math' },
               { id: 'ifeval', label: 'IFEval', group: 'Other' }, { id: 'cruxeval_i', label: 'CRUXEval input', group: 'Other' }, { id: 'cruxeval_o', label: 'CRUXEval output', group: 'Other' }];
-  var DEFAULTS = [{ id: 'board_top', label: 'wave 1+2' }, { id: 'board', label: 'wave 1' }, { id: 'top', label: 'wave 1 focused' }, { id: 'new', label: 'wave 2' }, { id: 'all', label: 'wave 1+2 + parked' }];
+  var DEFAULTS = [{ id: 'board_top', label: 'wave 1+2' }, { id: 'board', label: 'wave 1' }, { id: 'top', label: 'wave 2' }, { id: 'new', label: 'wave 2 + parked' }, { id: 'all', label: 'wave 1+2 + parked' }];
   var TICKS = [0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50, 80, 90, 95, 98, 99, 99.5];
   var state = { def: 'average', partial: 'hide' };
   var D = { sets: [], configs: [], byId: {} }, sel = new Set(), BUILT = null;
   function logit(p) { return Math.log(p / (1 - p)); }
   function pct(z) { return 100 / (1 + Math.exp(-z)); }
   function fmtPct(v) { return (v < 1 ? v.toFixed(1) : v >= 99.5 ? v.toFixed(1) : String(Math.round(v))) + '%'; }
-  function plainTs(ts) { var g = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/.exec(String(ts || '')); if (!g) return ''; var d = new Date(Date.UTC(+g[1], +g[2] - 1, +g[3], +g[4], +g[5])); var uk = new Date(d.toLocaleString('en-GB', { timeZone: 'Europe/London' })); var M = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']; return uk.getDate() + ' ' + M[uk.getMonth()] + ' ' + String(uk.getHours()).padStart(2, '0') + ':' + String(uk.getMinutes()).padStart(2, '0'); }
+  function plainTs(ts) {   // the main page's stamp words, one text (the UK clock, bare; the month from the fixed table)
+    var s = String(ts || ''), m = /^(\d{4})-(\d{2})-(\d{2})(?:[T ](\d{2}):(\d{2})(?::(\d{2}))?(Z|[+-]\d{2}:?\d{2})?)?/.exec(s), MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    if (!m) return s;
+    if (!m[4]) return (+m[3]) + ' ' + MON[+m[2] - 1];
+    var d = new Date(m[1] + '-' + m[2] + '-' + m[3] + 'T' + m[4] + ':' + m[5] + ':' + (m[6] || '00') + (m[7] || 'Z'));   // stamps without a zone are UTC (the files keep UTC)
+    if (!isFinite(d)) return (+m[3]) + ' ' + MON[+m[2] - 1] + ' ' + m[4] + ':' + m[5];
+    var g = {}; new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', day: 'numeric', month: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false }).formatToParts(d).forEach(function (x) { g[x.type] = x.value; });
+    return (+g.day) + ' ' + MON[+g.month - 1] + ' ' + g.hour + ':' + g.minute;   // the clock is UK, written bare (the project maintainers' word of 24 Sep 14:2x)   // the month word from the fixed table (project form, the reference designer 18 Sep: "Sep", never the formatter's "Sept")
+  }
   function el(id) { return document.getElementById(id); }
   function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); }
 
