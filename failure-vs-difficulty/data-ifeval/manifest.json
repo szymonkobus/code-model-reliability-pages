@@ -1,9 +1,9 @@
 {
- "fingerprint": "14383bd82eea",
+ "fingerprint": "a179bb4b8348",
  "fingerprint_inputs": {
   "content": "523d1e4de2cc",
   "wave": "ifeval-live",
-  "body": "1ec8a544e7ed"
+  "body": "50af71e6c9e0"
  },
  "frame": {
   "dataset": "ifeval",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ea009d5c6cd1",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "4e7b6216e1ca",
+  "runs_fingerprint": "6c9880189e2d",
   "axis_wave": "ifeval-live",
   "build_date": "2026-10-02",
-  "stamp": "2026-10-02T02:48:36Z",
+  "stamp": "2026-10-02T03:22:07Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/ifeval",
-   "unified_built_at": "2026-10-02T02:38:56Z",
+   "unified_built_at": "2026-10-02T03:20:33Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.ifeval.csv"
@@ -2518,17 +2518,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-02T00:43:02Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T004302Z.json",
-   "sha16": "dbadd43c58b21655",
-   "census_mtime": "2026-10-02T00:43:40Z",
+   "stamp": "2026-10-02T02:05:28Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T020528Z.json",
+   "sha16": "86299083810add65",
+   "census_mtime": "2026-10-02T02:06:33Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.14383bd82eea.json",
-  "chain_average": "chain_average.14383bd82eea.json",
-  "chain_median": "chain_median.14383bd82eea.json",
-  "dots": "dots.14383bd82eea.json"
+  "shared": "shared.a179bb4b8348.json",
+  "chain_average": "chain_average.a179bb4b8348.json",
+  "chain_median": "chain_median.a179bb4b8348.json",
+  "dots": "dots.a179bb4b8348.json"
  }
 }
