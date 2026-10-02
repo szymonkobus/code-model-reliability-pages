@@ -1,9 +1,9 @@
 {
- "fingerprint": "ed6c3cd3ff34",
+ "fingerprint": "72a207bdd912",
  "fingerprint_inputs": {
-  "content": "9f9671902342",
+  "content": "652e31f367a4",
   "wave": "pool-20260910T2244Z",
-  "body": "6119ca39a5af"
+  "body": "8f5f0009f81f"
  },
  "frame": {
   "dataset": "top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 58,
   "tasks": 858,
   "keep_set_hash": "532d0efad8a5",
-  "inputs_content_sha": "9f9671902342",
+  "inputs_content_sha": "652e31f367a4",
   "tasks_on_axis": 858,
   "tasks_kept": 858,
   "tasks_awaiting_axis": 0,
@@ -34,17 +34,17 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "b2cd8a3cb89e",
+  "runs_fingerprint": "3e93cd60e28e",
   "axis_wave": "pool-20260910T2244Z",
   "build_date": "2026-10-02",
-  "stamp": "2026-10-02T14:50:09Z",
+  "stamp": "2026-10-02T15:54:24Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-02T14:26:05Z",
+   "unified_built_at": "2026-10-02T15:16:15Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.top.csv"
@@ -63,7 +63,7 @@
     "of": 858
    },
    "claude-sonnet-5": {
-    "tasks": 851,
+    "tasks": 858,
     "of": 858
    },
    "claude-sonnet-5-thinking": {
@@ -183,7 +183,7 @@
     "of": 858
    },
    "Qwen/Qwen2.5-Coder-1.5B-Instruct": {
-    "tasks": 841,
+    "tasks": 858,
     "of": 858
    },
    "Qwen/Qwen2.5-Coder-3B-Instruct": {
@@ -191,11 +191,11 @@
     "of": 858
    },
    "Qwen/Qwen2.5-Coder-7B-Instruct": {
-    "tasks": 849,
+    "tasks": 858,
     "of": 858
    },
    "Qwen/Qwen2.5-Coder-14B-Instruct": {
-    "tasks": 828,
+    "tasks": 858,
     "of": 858
    },
    "Qwen/Qwen2.5-Coder-32B-Instruct": {
@@ -215,7 +215,7 @@
     "of": 858
    },
    "Qwen/Qwen2.5-7B-Instruct": {
-    "tasks": 850,
+    "tasks": 858,
     "of": 858
    },
    "Qwen/Qwen2.5-14B-Instruct": {
@@ -223,11 +223,11 @@
     "of": 858
    },
    "Qwen/Qwen2.5-32B-Instruct": {
-    "tasks": 846,
+    "tasks": 858,
     "of": 858
    },
    "Qwen/Qwen3-0.6B": {
-    "tasks": 850,
+    "tasks": 858,
     "of": 858
    },
    "Qwen/Qwen3-0.6B-Thinking": {
@@ -235,7 +235,7 @@
     "of": 858
    },
    "Qwen/Qwen3-1.7B": {
-    "tasks": 856,
+    "tasks": 858,
     "of": 858
    },
    "Qwen/Qwen3-1.7B-Thinking": {
@@ -243,7 +243,7 @@
     "of": 858
    },
    "Qwen/Qwen3-4B": {
-    "tasks": 854,
+    "tasks": 858,
     "of": 858
    },
    "Qwen/Qwen3-4B-Thinking": {
@@ -255,7 +255,7 @@
     "of": 858
    },
    "Qwen/Qwen3-8B": {
-    "tasks": 850,
+    "tasks": 858,
     "of": 858
    },
    "Qwen/Qwen3-8B-Thinking": {
@@ -665,7 +665,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-02T14:27:57Z",
+   "_stamp": "2026-10-02T15:25:27Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -830,17 +830,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-02T11:58:04Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T115804Z.json",
-   "sha16": "c4d3f52c85a4cdb3",
-   "census_mtime": "2026-10-02T11:59:18Z",
+   "stamp": "2026-10-02T14:27:45Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T142745Z.json",
+   "sha16": "62f07ff4b34ce289",
+   "census_mtime": "2026-10-02T14:28:52Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.ed6c3cd3ff34.json",
-  "chain_average": "chain_average.ed6c3cd3ff34.json",
-  "chain_median": "chain_median.ed6c3cd3ff34.json",
-  "dots": "dots.ed6c3cd3ff34.json"
+  "shared": "shared.72a207bdd912.json",
+  "chain_average": "chain_average.72a207bdd912.json",
+  "chain_median": "chain_median.72a207bdd912.json",
+  "dots": "dots.72a207bdd912.json"
  }
 }
