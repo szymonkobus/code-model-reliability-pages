@@ -1,5 +1,5 @@
 {
- "fingerprint": "e5aed7f2e933",
+ "fingerprint": "33ccb11f3466",
  "frame": {
   "population_M": 58,
   "tasks": 430,
@@ -51,8 +51,8 @@
   "inputs_content_sha": "d5a4e3cd1533",
   "scorer": "plus_status (a sample counts as solved if its plus run passed; difficulty ruled base AND plus on 2026-09-02 \u2014 the switch of served numbers waits for Szymon's gate; under base AND plus a result can read differently, e.g. Mbpp/274 for Qwen3-30B-A3B: 128 passes here vs 127)",
   "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\\t<task>\\t<passes>\\t<attempts>\\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column verbatim; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) \u2014 reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
-  "build_date": "2026-10-01",
-  "built_at": "2026-10-01T21:32:12Z",
+  "build_date": "2026-10-02",
+  "built_at": "2026-10-02T07:53:10Z",
   "vocab_ruled": "2026-08-27",
   "counts_of_record": {
    "original_kept": 430,
@@ -61,7 +61,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-01T21:24:40Z",
+   "_stamp": "2026-10-02T07:25:14Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -321,12 +321,12 @@
    "openai/gpt-5-nano": "20260907T154051Z",
    "openai/gpt-5-mini": "20260907T154051Z"
   },
-  "newest_input_mtime": "2026-10-01T21:31:21Z"
+  "newest_input_mtime": "2026-10-02T07:37:07Z"
  },
  "files": {
-  "shared": "shared.e5aed7f2e933.json",
-  "chain_average": "chain_average.e5aed7f2e933.json",
-  "chain_median": "chain_median.e5aed7f2e933.json",
-  "dots": "dots.e5aed7f2e933.json"
+  "shared": "shared.33ccb11f3466.json",
+  "chain_average": "chain_average.33ccb11f3466.json",
+  "chain_median": "chain_median.33ccb11f3466.json",
+  "dots": "dots.33ccb11f3466.json"
  }
 }
