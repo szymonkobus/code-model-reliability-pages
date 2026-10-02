@@ -1,9 +1,9 @@
 {
- "fingerprint": "de52999ffa4b",
+ "fingerprint": "07463b2dbf6e",
  "fingerprint_inputs": {
-  "content": "e23c3210bfb2",
+  "content": "22d95aa9300b",
   "wave": "math500-live",
-  "body": "faf712aa2ceb"
+  "body": "e99804b11ac4"
  },
  "frame": {
   "dataset": "math500",
@@ -24,21 +24,21 @@
   "difficulty_population_M": 50,
   "tasks": 500,
   "keep_set_hash": "326e66dcd9ab",
-  "inputs_content_sha": "e23c3210bfb2",
+  "inputs_content_sha": "22d95aa9300b",
   "tasks_on_axis": 500,
   "tasks_kept": 500,
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "326e66dcd9ab",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "aed3ec626802",
+  "runs_fingerprint": "f58ec06f39c4",
   "axis_wave": "math500-live",
   "build_date": "2026-10-02",
-  "stamp": "2026-10-02T04:50:16Z",
+  "stamp": "2026-10-02T05:50:58Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/math500",
-   "unified_built_at": "2026-10-02T04:34:33Z",
+   "unified_built_at": "2026-10-02T05:45:41Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.math500.csv"
@@ -10564,7 +10564,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-02T04:25:47Z",
+   "_stamp": "2026-10-02T05:25:17Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -10729,17 +10729,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-02T02:05:28Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T020528Z.json",
-   "sha16": "86299083810add65",
-   "census_mtime": "2026-10-02T02:06:33Z",
+   "stamp": "2026-10-02T04:15:05Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T041505Z.json",
+   "sha16": "36bd6d9b7c996dfd",
+   "census_mtime": "2026-10-02T04:15:53Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.de52999ffa4b.json",
-  "chain_average": "chain_average.de52999ffa4b.json",
-  "chain_median": "chain_median.de52999ffa4b.json",
-  "dots": "dots.de52999ffa4b.json"
+  "shared": "shared.07463b2dbf6e.json",
+  "chain_average": "chain_average.07463b2dbf6e.json",
+  "chain_median": "chain_median.07463b2dbf6e.json",
+  "dots": "dots.07463b2dbf6e.json"
  }
 }
