@@ -1,9 +1,9 @@
 {
- "fingerprint": "254cd2cf9c2c",
+ "fingerprint": "58d5f853fc23",
  "fingerprint_inputs": {
-  "content": "9d6ea8b14b6c",
+  "content": "25b0589b5216",
   "wave": "cruxeval_o-live",
-  "body": "50b10e46539f"
+  "body": "0cbd1f5b474e"
  },
  "frame": {
   "dataset": "cruxeval_o",
@@ -17,28 +17,28 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 49,
-  "fitted_M": 49,
-  "complete_M": 49,
-  "sampled_M": 49,
-  "difficulty_population_M": 49,
+  "population_M": 50,
+  "fitted_M": 50,
+  "complete_M": 50,
+  "sampled_M": 50,
+  "difficulty_population_M": 50,
   "tasks": 800,
   "keep_set_hash": "ceaae2d92751",
-  "inputs_content_sha": "9d6ea8b14b6c",
+  "inputs_content_sha": "25b0589b5216",
   "tasks_on_axis": 800,
   "tasks_kept": 800,
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ceaae2d92751",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "aa0281b5ae05",
+  "runs_fingerprint": "e825026e5cf5",
   "axis_wave": "cruxeval_o-live",
   "build_date": "2026-10-02",
-  "stamp": "2026-10-02T18:47:14Z",
+  "stamp": "2026-10-02T21:54:35Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/cruxeval_o",
-   "unified_built_at": "2026-10-02T18:45:31Z",
+   "unified_built_at": "2026-10-02T21:49:48Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.cruxeval_o.csv"
@@ -61,6 +61,10 @@
     "of": 800
    },
    "claude-sonnet-5-thinking": {
+    "tasks": 800,
+    "of": 800
+   },
+   "claude-opus-5": {
     "tasks": 800,
     "of": 800
    },
@@ -293,7 +297,7 @@
    },
    "provisional_classes": null,
    "basis_truncation": null,
-   "served_axis_note": null,
+   "served_axis_note": "Bayesian curve fitted on this live axis as it stood at the cut; the axis has moved with results landing since, so positions may differ slightly",
    "membership_lag": null,
    "partial_coverage_arms": [],
    "matches_axis": false,
@@ -2378,6 +2382,7 @@
    "claude-haiku-4-5-thinking": "anthropic--think",
    "openai/gpt-5-nano": "openai--gpt-5-nano",
    "claude-sonnet-5-thinking": "anthropic--s5.think.x128",
+   "claude-opus-5": "anthropic--o5.x128",
    "Qwen/Qwen3-32B-Thinking": "Qwen--Qwen3-32B_think-t0.6",
    "Qwen/Qwen3-14B-Thinking": "Qwen--Qwen3-14B_think-t0.6",
    "claude-haiku-4-5": "anthropic--completions",
@@ -2431,7 +2436,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-02T18:24:30Z",
+   "_stamp": "2026-10-02T21:24:51Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -2596,17 +2601,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-02T17:10:35Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T171035Z.json",
-   "sha16": "4b4757068d02d71f",
-   "census_mtime": "2026-10-02T17:12:31Z",
+   "stamp": "2026-10-02T20:58:23Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T205823Z.json",
+   "sha16": "680e6105b56f6be4",
+   "census_mtime": "2026-10-02T20:58:58Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.254cd2cf9c2c.json",
-  "chain_average": "chain_average.254cd2cf9c2c.json",
-  "chain_median": "chain_median.254cd2cf9c2c.json",
-  "dots": "dots.254cd2cf9c2c.json"
+  "shared": "shared.58d5f853fc23.json",
+  "chain_average": "chain_average.58d5f853fc23.json",
+  "chain_median": "chain_median.58d5f853fc23.json",
+  "dots": "dots.58d5f853fc23.json"
  }
 }
