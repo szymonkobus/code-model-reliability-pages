@@ -82,33 +82,33 @@
   },
   "new": {
    "files": {
-    "shared": "shared.new.c882d258c0b2.json",
-    "chain_average": "chain_average.new.c882d258c0b2.json"
+    "shared": "shared.new.0a39a4b2a84b.json",
+    "chain_average": "chain_average.new.0a39a4b2a84b.json"
    },
    "label": "wave 2 and wave 2 parked",
-   "fingerprint": "c882d258c0b2",
+   "fingerprint": "0a39a4b2a84b",
    "frame": {
     "population_M": 56,
     "tasks": 1737,
     "keep_set_hash": "abc6c6e65227",
-    "runs_fingerprint": "c882d258c0b2",
-    "runs_window": "2026-10-02T05:59:10Z",
+    "runs_fingerprint": "0a39a4b2a84b",
+    "runs_window": "2026-10-02T06:57:55Z",
     "build_date": "2026-10-02",
-    "build_ts": "2026-10-02T06:13:19Z",
+    "build_ts": "2026-10-02T07:12:34Z",
     "vocab_ruled": "2026-08-27",
     "set": "new",
     "set_label": "wave 2 and wave 2 parked",
     "tasks_used": "wave 2 and wave 2 parked \u2014 1737 tasks, axis wave combined-20260903T1502Z",
-    "source": "pool-pages-lead build_pool_curves.py stamp 2026-10-02T06:13:19+00:00 \u00b7 cross_rows on lev_grid f3d40b6fb872",
+    "source": "pool-pages-lead build_pool_curves.py stamp 2026-10-02T07:12:34+00:00 \u00b7 cross_rows on lev_grid f3d40b6fb872",
     "skipped_no_rows": []
    },
-   "source_stamp": "2026-10-02T06:13:19+00:00",
+   "source_stamp": "2026-10-02T07:12:34+00:00",
    "missing": {
     "chain_median": "the median-task chain needs the pool's per-task results, which the pool bundle does not carry",
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-02T07:10:08Z"
+   "updated_at": "2026-10-02T07:16:25Z"
   },
   "all": {
    "files": {
@@ -498,21 +498,21 @@
   },
   "math500": {
    "files": {
-    "shared": "shared.math500.d1ee7fda8dea.json",
-    "chain_average": "chain_average.math500.d1ee7fda8dea.json",
-    "bayes": "bayes.math500.d1ee7fda8dea-2e38bc937e1f.json",
+    "shared": "shared.math500.8e422d510a8c.json",
+    "chain_average": "chain_average.math500.8e422d510a8c.json",
+    "bayes": "bayes.math500.8e422d510a8c-2e38bc937e1f.json",
     "bayes_prev": "bayes.math500.d1ee7fda8dea-df43f13d9b8a.json"
    },
    "label": "MATH-500",
    "arms": "all",
-   "fingerprint": "d1ee7fda8dea",
+   "fingerprint": "8e422d510a8c",
    "frame": {
     "population_M": 50,
     "tasks": 500,
     "keep_set_hash": "326e66dcd9ab",
-    "runs_fingerprint": "00b596ecdf01",
+    "runs_fingerprint": "235989bb33b7",
     "build_date": "2026-10-02",
-    "build_ts": "2026-10-02T06:47:15Z",
+    "build_ts": "2026-10-02T07:14:14Z",
     "vocab_ruled": "2026-08-27",
     "set": "math500",
     "set_label": "MATH-500",
@@ -523,14 +523,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "326e66dcd9ab",
     "tasks_used": "MATH-500 \u2014 500 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-math500 fp a66eb48a25f1 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-math500 fp e8b8757fd121 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "22d95aa9300b",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-02T06:47:15Z",
-   "source_fp": "a66eb48a25f1",
-   "updated_at": "2026-10-02T07:02:36Z",
+   "source_stamp": "2026-10-02T07:14:14Z",
+   "source_fp": "e8b8757fd121",
+   "updated_at": "2026-10-02T07:19:31Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
