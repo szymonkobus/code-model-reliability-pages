@@ -58,7 +58,7 @@ var DATASETS = {
   all: { label: 'all waves', short: 'all waves', src: 'data-all/manifest.json',
          hover: 'all waves on one difficulty axis',
          disabled: '' },
-  // the non-code sets (the work NON-CODE BENCHMARKS D99-D50; the project maintainers' word of 30 Sep 2026: the results browsable
+  // the non-code sets (the non-code sets' work; the project maintainers' word of 30 Sep 2026: the results browsable
   // in this viewer under a dataset control better than chips, no new page — superseding the 11 Sep word that kept the maths sets to a mirror page):
   // the six sets under one group heading, in the sets' maintainers' order (MATH-500 first, AIME last); the names of record are the sets' maintainers' list of
   // 30 Sep  and are re-read from each bundle's frame at load (named from the frame, never typed as a count); an unbuilt set greyed and unselectable
@@ -81,7 +81,7 @@ function topCount() { return TOP_COUNT ? Number(TOP_COUNT).toLocaleString('en-US
 function setTopCount(n) {
   TOP_COUNT = n;
   Object.keys(DATASETS).forEach(function (k) { if (DATASETS[k].hover) DATASETS[k].hover = DATASETS[k].hover.replace('{top}', topCount()); });
-  Array.prototype.forEach.call(document.querySelectorAll('#controls button[data-value]'), function (bt) {
+  Array.prototype.forEach.call(document.querySelectorAll('#shown button[data-value], #controls button[data-value]'), function (bt) {
     if (bt.title && bt.title.indexOf('the focused focused new tasks') >= 0) bt.title = bt.title.replace('the focused focused new tasks', 'the ' + topCount() + ' focused new tasks');
   });
 }
@@ -135,7 +135,7 @@ function setBoardCount(n) {
   var bt = dsEl('board'); if (bt) bt.textContent = lb; }
   Object.keys(DATASETS).forEach(function (k) { if (DATASETS[k].hover) DATASETS[k].hover = DATASETS[k].hover.replace('{board}', boardCount()); });
   Array.prototype.forEach.call(document.querySelectorAll('[data-count="board"]'), function (el) { el.textContent = boardCount(); });
-  Array.prototype.forEach.call(document.querySelectorAll('#controls button[data-value]'), function (bt) {   // titles composed before the board manifest arrived
+  Array.prototype.forEach.call(document.querySelectorAll('#shown button[data-value], #controls button[data-value]'), function (bt) {   // titles composed before the board manifest arrived
     if (bt.title && bt.title.indexOf('the kept benchmark tasks') >= 0) bt.title = bt.title.replace('the kept benchmark tasks', 'the ' + boardCount() + ' benchmark tasks');
   });
 }
@@ -152,7 +152,7 @@ var GOLDEN_AVAILABLE = { board: false, 'new': false, all: false };
 function goldenDir(ds) { return 'data-golden-' + ds; }
 // MIRROR HOOK (the project maintainers' word of 11 Sep: the newbench sets get a mirror page presented the same way): a page that mounts this
 // script under another path sets window.MIRROR_DATASETS = { key: { label, src, hover, disabled?, nb? }, … } (its own order; nb: true puts a key under
-// the select's NON-CODE BENCHMARKS D99-D50 group — a field of the hook since 30 Sep, the maintainers's mirror carries it) and
+// the select's non-code sets group — a field of the hook since 30 Sep, the maintainers's mirror carries it) and
 // optionally window.MIRROR_DEFAULT; srcs resolve against that page's mount. Every key outside the five built-ins is served
 // generically: probed by src, routed to its bundle by src, named from its bundle frame.
 var BUILTIN_KEYS = { board_top: 1, top: 1, board: 1, 'new': 1, all: 1 };
@@ -312,7 +312,7 @@ var EXPORTING = false;  // export: render at the desktop geometry (K = 1, full a
 var K = 1;              // axis-text scale: viewBox units per CSS px, capped
 function quietSet(ctl, v) { coercing = true; try { ctl.set(v); } finally { coercing = false; } }
 function dsEl(k) {   // the dataset control's element for a set key: the kit select's option (30 Sep), else the older switch's button
-  return document.querySelector('#controls .kit-select[data-key="data"] option[value="' + k + '"]') || document.querySelector('#controls button[data-value="' + k + '"]');   // the fallback is the switch's button (or null) — never this function again (a self-call recursed without end on the mirror, 15:17– 30 Sep)
+  return document.querySelector('#shown .kit-select[data-key="data"] option[value="' + k + '"]') || document.querySelector('#shown button[data-value="' + k + '"]');   // the fallback is the switch's button (or null) — never this function again (a self-call recursed without end on the mirror, 15:17– 30 Sep)
 }
 function setDisabled(btn, off, why) {
   if (btn && btn.tagName === 'OPTION') { btn.disabled = !!off; return; }   // a select's option: greyed and unselectable by the kit's rule
@@ -433,11 +433,12 @@ function boot() {
     D.shared.configs.forEach(function (c, i) { if (!isSeriesRunConfig(c) && !isTrainedConfig(c)) sel.add(i); });   // a run's checkpoints open deselected (the project maintainers' word of 22 Sep)
   }
 
-  var row = Kit.filterRow('#controls');
+  var row = Kit.filterRow('#controls');   // the chart's control row: what changes how the chart draws (the project maintainers' word of 2 Oct)
+  var shownRow = Kit.filterRow('#shown');   // 2 Oct 2026: the page's choices of what is shown — the Dataset select and the Partial-models switch — in their own row above the chart's controls, never among them (the project maintainers' word of 2 Oct)
   // the project maintainers' word of 10 Sep (coordinator note): wave 1+2 matters most, then wave 1 alone as a sanity check, then wave 2 alone,
   // then the rest — the list runs in that order; wave 1+2 stays the default. The project maintainers' word of 30 Sep 2026: a dataset control better than
   // chips for the sets now browsable here — the reference select (Kit.selectControl, the maintainers 30 Sep): the coding sets first, then the six
-  // non-code sets under the group heading NON-CODE BENCHMARKS D99-D50; an unbuilt set greyed and unselectable; the URL param ?data=<key> as before.
+  // non-code sets under the Math and Other group headings of the leaf of record; an unbuilt set greyed and unselectable; the URL param ?data=<key> as before.
   var dsAvail = function (k) { if (k === 'all') return ALL_AVAILABLE; if (k === 'board_top' || k === 'top') return !!TOP_AVAILABLE[k]; if (isExtra(k)) return !!EXTRA_AVAILABLE[k]; return true; };
   var dsOpt = function (k) { return { value: k, label: setWord(DATASETS[k].label), disabled: !dsAvail(k) }; };
   var dsOnChange = function (v) {
@@ -448,10 +449,10 @@ function boot() {
   };
   var nbKeys = Object.keys(DATASETS).filter(function (k) { return DATASETS[k].nb; }), plainKeys = Object.keys(DATASETS).filter(function (k) { return !DATASETS[k].nb; });
   var dsCtl = (Kit.selectControl && nbKeys.length)
-    ? Kit.selectControl({ mount: row, key: 'data', label: 'Dataset', options: plainKeys.map(dsOpt), groups: DS_GROUPS.map(function (g) { return { label: g.label, options: g.keys.filter(function (kv) { return !!DATASETS[kv[0]]; }).map(function (kv) { var o = dsOpt(kv[0]); o.label = kv[1]; return o; }) }; }), dflt: DEFAULT_DATASET, onchange: dsOnChange })
-    : Kit.switchControl({ mount: row, key: 'data', label: 'Dataset', options: Object.keys(DATASETS).map(function (k) { return { value: k, label: setWord(DATASETS[k].label) }; }), dflt: DEFAULT_DATASET, onchange: dsOnChange });   // a mount without the kit's select (an older vendored kit) keeps the switch
+    ? Kit.selectControl({ mount: shownRow, key: 'data', label: 'Dataset', options: plainKeys.map(dsOpt), groups: DS_GROUPS.map(function (g) { return { label: g.label, options: g.keys.filter(function (kv) { return !!DATASETS[kv[0]]; }).map(function (kv) { var o = dsOpt(kv[0]); o.label = kv[1]; return o; }) }; }), dflt: DEFAULT_DATASET, onchange: dsOnChange })
+    : Kit.switchControl({ mount: shownRow, key: 'data', label: 'Dataset', options: Object.keys(DATASETS).map(function (k) { return { value: k, label: setWord(DATASETS[k].label) }; }), dflt: DEFAULT_DATASET, onchange: dsOnChange });   // a mount without the kit's select (an older vendored kit) keeps the switch
   fetch('datasets_of_record.json').then(function (r) { return r.json(); }).then(function (leaf) {   // the leaf of record's words win over the cut's fallback (labels in place; a key the page lacks waits for its bundle)
-    var sel = row.querySelector('select'); if (!sel || !leaf || !leaf.groups) return;
+    var sel = shownRow.querySelector('select'); if (!sel || !leaf || !leaf.groups) return;
     var ogs = Array.prototype.slice.call(sel.querySelectorAll('optgroup'));
     leaf.groups.filter(function (g) { return g.label; }).forEach(function (g, gi) {
       if (ogs[gi] && ogs[gi].label !== g.label) ogs[gi].label = g.label;
@@ -543,7 +544,7 @@ function boot() {
   if (MIRROR && !Object.keys(DATASETS).some(function (k) { return !!GOLDEN_AVAILABLE[k]; })) armsRow.style.display = 'none';   // no golden bundle under this mount: no Arms switch (the results browser's maintainers 11 Sep)
   setDisabled(armsCtl.element.querySelector('button[data-value="golden"]'), !GOLDEN_AVAILABLE[DATASET], '');
   if (ARMS === 'golden') { var _g = armsCtl.element.querySelector('button[data-value="golden"]'); if (_g) _g.title = 'golden set: Qwen3 0.6B/1.7B/4B/8B plain + thinking, Claude Haiku 4.5 + Sonnet 5 plain + thinking — axis and curves from these 12 models only; a data point, not the difficulty definition (as adopted of 3 Sep)'; }
-  var partialCtl = Kit.switchControl({ mount: row, key: 'partial', label: 'Partial models',
+  var partialCtl = Kit.switchControl({ mount: shownRow, key: 'partial', label: 'Partial models',
     options: [{ value: 'hide', label: 'hidden' }, { value: 'show', label: 'show partial models' }],
     dflt: 'hide',
     onchange: function (v) { var was = state.partial; state.partial = v; if (ready && !coercing && v !== was) render(); } });

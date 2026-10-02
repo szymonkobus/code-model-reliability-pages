@@ -1,6 +1,6 @@
 /* /capability-vs-reliability/six/ — Math and Other: the six sets at once, one panel per set (1 Oct 2026, on the project maintainers' word of 12:1x UK that
- * without the 50% and 1% crossings on these benchmarks across the released models the training result cannot be read, "a simple plot would suffice").
- * Each panel is the crossings page's plane for one set: the 1% crossing (vertical) against the 50% crossing (horizontal), on the set's OWN difficulty
+ * without D50 and D99 on these benchmarks across the released models the training result cannot be read, "a simple plot would suffice").
+ * Each panel is the crossings page's plane for one set: D99 (vertical) against D50 (horizontal), on the set's OWN difficulty
  * axis (its own logit scale over its own tasks — six sets never share one plane), equal axes, the y = x line, the models as points in the main page's
  * family colours, a crossing beyond the easiest or hardest task an open bound mark at the edge, the quiet count per panel; no words on the figure.
  * Chips as on the main view: the union of the six sets' models, grouped by family (base models in the bulk, a fine-tune or a run after its base),
@@ -139,14 +139,24 @@
       out += '<text x="' + (cx + pw / 2) + '" y="' + (cy + 18) + '" text-anchor="middle" font-size="' + (13 * FS) + '" font-weight="600" fill="#222">' + esc(L.set.label) + '</text>';
       if (!L.shared || L.held) { out += '<text x="' + (cx + pw / 2) + '" y="' + (cy + ph / 2) + '" text-anchor="middle" font-size="' + (12 * FS) + '" fill="#52514e">' + esc(L.held || 'not served yet') + '</text>'; return; }
       var lim = L.shared.limits || L.shared.reachable && { lo: L.shared.reachable.floor_z, hi: L.shared.reachable.top_z }; if (!lim) { out += '<text x="' + (cx + pw / 2) + '" y="' + (cy + ph / 2) + '" text-anchor="middle" font-size="' + (12 * FS) + '" fill="#52514e">no axis limits in the set’s file</text>'; return; }
-      var lo = lim.lo, hi = lim.hi, sx = function (z) { return x0 + (z - lo) / (hi - lo) * side; }, sy = function (z) { return y1 - (z - lo) / (hi - lo) * side; };
+      // 2 Oct 2026 (the project maintainers' word of 11:2x UK: "make sure the axis tics make sense" — AIME's frame ran far below and left of its points): the axes crop to the
+      // points drawn in the panel, one common range for both axes (equal scales, the y = x diagonal corner to corner as on the main page), padded 6%; a bound sits at the
+      // frame's edge; the set's own limits stand only when no point is drawn
+      var zs = [];
+      L.configs.forEach(function (c) { var i = D.configs.indexOf(D.byId[c.id]); if (i < 0 || !sel.has(i)) return; var row = L.rowById[c.id]; if (!row) return;
+        var rx = reading(row, 0.5, L), ry = reading(row, 0.01, L); if (!rx || !ry || rx.z == null || ry.z == null) return;
+        var partial = !!(c.partial_fit || (c.coverage && c.coverage.of && c.coverage.tasks / c.coverage.of < 0.9)); if (partial && state.partial === 'hide') return;
+        if (rx.kind === 'point') zs.push(rx.z); if (ry.kind === 'point') zs.push(ry.z); });
+      var lo = lim.lo, hi = lim.hi;
+      if (zs.length) { var zlo = Math.min.apply(null, zs), zhi = Math.max.apply(null, zs), span = Math.max(zhi - zlo, 1), pad = span * 0.06; lo = zlo - pad; hi = zhi + pad; if (zhi - zlo < 1) { var mid = (zlo + zhi) / 2; lo = mid - 0.5 - pad; hi = mid + 0.5 + pad; } }
+      var sx = function (z) { return x0 + (z - lo) / (hi - lo) * side; }, sy = function (z) { return y1 - (z - lo) / (hi - lo) * side; };
       out += '<rect x="' + x0 + '" y="' + y0 + '" width="' + side + '" height="' + side + '" fill="none" stroke="#bbb"/>';
       TICKS.forEach(function (v) { var z = logit(v / 100); if (z <= lo || z >= hi) return; var X = sx(z), Y = sy(z);
         out += '<line x1="' + X + '" y1="' + y1 + '" x2="' + X + '" y2="' + (y1 + 4) + '" stroke="#888"/><text x="' + X + '" y="' + (y1 + 15) + '" text-anchor="middle" font-size="' + (9 * FS) + '" fill="#555">' + fmtPct(v) + '</text>';
         out += '<line x1="' + (x0 - 4) + '" y1="' + Y + '" x2="' + x0 + '" y2="' + Y + '" stroke="#888"/><text x="' + (x0 - 6) + '" y="' + (Y + 3) + '" text-anchor="end" font-size="' + (9 * FS) + '" fill="#555">' + fmtPct(v) + '</text>'; });
       out += '<line x1="' + x0 + '" y1="' + y1 + '" x2="' + (x0 + side) + '" y2="' + y0 + '" stroke="#999" stroke-dasharray="4 3" data-guide="y=x"/>';
-      out += '<text x="' + (x0 + side / 2) + '" y="' + (y1 + 29) + '" text-anchor="middle" font-size="' + (10 * FS) + '" fill="#444">50% crossing (difficulty)</text>';
-      out += '<text transform="translate(' + (cx + 11) + ',' + (y0 + side / 2) + ') rotate(-90)" text-anchor="middle" font-size="' + (10 * FS) + '" fill="#444">1% crossing (difficulty)</text>';
+      out += '<text x="' + (x0 + side / 2) + '" y="' + (y1 + 29) + '" text-anchor="middle" font-size="' + (10 * FS) + '" fill="#444">D50</text>';
+      out += '<text transform="translate(' + (cx + 11) + ',' + (y0 + side / 2) + ') rotate(-90)" text-anchor="middle" font-size="' + (10 * FS) + '" fill="#444">D99</text>';
       var n = 0;
       L.configs.forEach(function (c) {
         var i = D.configs.indexOf(D.byId[c.id]); if (i < 0 || !sel.has(i)) return;
@@ -155,7 +165,7 @@
         var partial = !!(c.partial_fit || (c.coverage && c.coverage.of && c.coverage.tasks / c.coverage.of < 0.9)), col = partial ? '#8b8477' : (c.color || D.byId[c.id].color);
         if (partial && state.partial === 'hide') return;
         var X = sx(Math.min(hi, Math.max(lo, rx.z))), Y = sy(Math.min(hi, Math.max(lo, ry.z)));
-        var title = esc(D.byId[c.id].label) + ' — 50%: ' + (rx.kind === 'point' ? rx.z.toFixed(2) : (rx.kind === 'hi' ? '≥ ' : '≤ ') + rx.z.toFixed(2)) + ', 1%: ' + (ry.kind === 'point' ? ry.z.toFixed(2) : (ry.kind === 'hi' ? '≥ ' : '≤ ') + ry.z.toFixed(2)) + (partial ? ' (partial)' : '');
+        var title = esc(D.byId[c.id].label) + ' — D50 ' + (rx.kind === 'point' ? rx.z.toFixed(2) : (rx.kind === 'hi' ? '≥ ' : '≤ ') + rx.z.toFixed(2)) + ', D99 ' + (ry.kind === 'point' ? ry.z.toFixed(2) : (ry.kind === 'hi' ? '≥ ' : '≤ ') + ry.z.toFixed(2)) + (partial ? ' (partial)' : '');
         var mark;
         if (ry.kind === 'hi') mark = '<path d="M' + X + ',' + (Y - 5) + ' l5,9 l-10,0 z" fill="none" stroke="' + col + '" stroke-width="1.6"/>';
         else if (ry.kind === 'lo') mark = '<path d="M' + X + ',' + (Y + 5) + ' l5,-9 l-10,0 z" fill="none" stroke="' + col + '" stroke-width="1.6"/>';
@@ -171,12 +181,12 @@
     svg.innerHTML = out;
     svg.querySelectorAll('[data-mark]').forEach(function (g) { g.addEventListener('mouseenter', function () { var t = el('hovertip'); if (t) t.textContent = g.getAttribute('data-tip') + ' (' + (SETS.filter(function (s) { return s.id === g.getAttribute('data-set'); })[0] || {}).label + ')'; }); g.addEventListener('mouseleave', function () { var t = el('hovertip'); if (t) t.textContent = ''; }); });
     D.legend = legend;
-    var hl = el('headline'); if (hl) hl.textContent = 'Six sets, one panel each: where every model’s failure rate crosses 1% against where it crosses 50%, on each set’s own difficulty axis; ' + total + ' points drawn across the six panels.';
+    var hl = el('headline'); if (hl) hl.textContent = 'Six sets, one panel each: D99 against D50 for every model, on each set’s own difficulty axis; ' + total + ' points drawn across the six panels.';
     var nar = el('narrate'); if (nar) nar.textContent = D.configs.filter(function (u, i) { return sel.has(i); }).length + ' of ' + D.configs.length + ' models selected; a point beyond a set’s easiest or hardest task is an open mark at the edge.';
   }
   function exportOptions() {
     return { svg: el('chart'), legend: (D.legend || []).map(function (r) { return { label: r.label, color: r.color, family: r.family }; }), title: '', page: '',
-      view: 'Math and Other · six sets, one panel each · 1% crossing against 50% crossing · ' + (state.def === 'median' ? 'median task' : 'average rate') + ' · logit axes',
+      view: 'Math and Other · six sets, one panel each · D99 against D50 · ' + (state.def === 'median' ? 'median task' : 'average rate') + ' · logit axes',
       stamp: D.stamp ? 'data as of ' + plainTs(D.stamp) : '', fileBase: 'capability-vs-reliability_math-and-other_' + new Date().toISOString().slice(0, 10), crop: null };
   }
   function stamp() { var f = el('stampfold'); if (f && D.stamp) f.textContent = 'data as of ' + plainTs(D.stamp) + ' · the panels rebuild with every landing of a fit or a set, read every minute by the page maintainers’s loop'; }

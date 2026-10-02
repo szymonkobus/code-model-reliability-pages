@@ -76,8 +76,8 @@ a { color:#0b57d0; }
   #statefold summary{cursor:pointer;color:#7a5c1e}
   #armsrow{margin:.4rem 0 .2rem}
   /* five dataset options: let the segment wrap on narrow screens instead of running off the page (the maintainers's kit keeps nowrap) */
-  #controls .kit-switch-seg{flex-wrap:wrap;max-width:100%}
-  #controls .kit-switch{max-width:100%}
+  #shown .kit-switch-seg,#controls .kit-switch-seg{flex-wrap:wrap;max-width:100%}
+  #shown .kit-switch,#controls .kit-switch{max-width:100%}
 </style></head><body>
 <h1>Failure rate vs difficulty</h1>
 <p class="sub">One curve per model — a thinking variant counts as its own model; benchmarks pooled. The Dataset switch picks the tasks used (wave 1+2 first), the Models switch below the chart picks the models.</p>
@@ -91,6 +91,7 @@ a { color:#0b57d0; }
 <li><b>Uncertainty band</b> — the range of the fitted curve at the chosen level (80% or 90%; 95% where available); the bracket beside a crossing is where the uncertainty band's edges cross the same level.</li>
 <li><b>Curve estimator</b> — Bayesian: the served Gaussian-task-effect posterior, its median curve drawn, a model without a posterior not drawn; Local-logistic fit: the descriptive fit, the curve and its uncertainty band carry the measurement.</li>
 </ul></details>
+<div id="shown" aria-label="what is shown"></div>
 <div id="controls"></div>
 <div id="chartbox" aria-label="failure rate vs difficulty">
   <div id="fitpanel" aria-label="what is drawn"></div>
