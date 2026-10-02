@@ -1,9 +1,9 @@
 {
- "fingerprint": "9dc4c47a8c38",
+ "fingerprint": "c08ee4ed3a64",
  "fingerprint_inputs": {
   "content": "915877d902da",
   "wave": "unified-live",
-  "body": "debc38021d5f"
+  "body": "2d56449b9d75"
  },
  "frame": {
   "dataset": "all",
@@ -12,7 +12,7 @@
   "dataset_label_source": {
    "field": "label_of_record",
    "pointer": "serving_combined.json",
-   "note": "label = set name + the count the figure stands on, at its stamp (the served wave's axis at the cut of 3 September 2026: 431 of wave 1, 1,693 of wave 2, 29 tasks outside both waves); the kept lists of today (the kept set at 22 Sep 13:24): 430 of wave 1, 1,674 of wave 2 of this axis still kept \u2014 a task that left the kept set after the cut stays in the fit as cut (the ruling of 8 Sep); the count is the cut's, the split by the waves' membership of record today (the wave-1 pin of 10 September 2026 and the wave-2 list with its parked members); Definitions' rule of 22 September 2026: one string written by the fit's writer, printed by every composer, never a count composed on a page from two sources"
+   "note": "label = set name + the count the figure stands on, at its stamp (the served wave's axis at the cut of 3 September 2026: 431 of wave 1, 1,693 of wave 2, 29 tasks outside both waves); the kept lists of today (the kept set at 22 Sep 13:24): 430 of wave 1, 1,674 of wave 2 of this axis still kept \u2014 a task that left the kept set after the cut stays in the fit as cut (the ruling of 8 Sep); the count is the cut's, the split by the waves' membership today (the wave-1 pin of 10 September 2026 and the wave-2 list with its parked members); Definitions' rule of 22 September 2026: one string written by the fit's writer, printed by every composer, never a count composed on a page from two sources"
   },
   "population": "all",
   "population_source": null,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "29948dca2e5a",
+  "runs_fingerprint": "b2cd8a3cb89e",
   "axis_wave": "unified-live",
   "build_date": "2026-10-02",
-  "stamp": "2026-10-02T11:09:01Z",
+  "stamp": "2026-10-02T14:14:14Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -89,7 +89,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-02T10:17:18Z",
+   "unified_built_at": "2026-10-02T13:28:59Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -402,7 +402,7 @@
    "served_not_drawn": "Bayesian curves for 55 models exist for this dataset but were fitted on a different difficulty axis than this view uses; they draw when a fit set cut on this view's axis is served (local-logistic curves shown meanwhile)",
    "custody_dir": null,
    "set_fingerprint": null,
-   "pointer_updated_at": "2026-09-28T11:56:25Z",
+   "pointer_updated_at": "2026-10-02T12:43:15Z",
    "n_fits": 0,
    "note": "Bayesian curves for 55 models exist for this dataset but were fitted on a different difficulty axis than this view uses; they draw when a fit set cut on this view's axis is served",
    "gates": null,
@@ -716,7 +716,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-02T10:27:08Z",
+   "_stamp": "2026-10-02T13:28:55Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -881,17 +881,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-02T09:20:02Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T092002Z.json",
-   "sha16": "51fe8fa5afb58947",
-   "census_mtime": "2026-10-02T09:20:55Z",
+   "stamp": "2026-10-02T11:58:04Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T115804Z.json",
+   "sha16": "c4d3f52c85a4cdb3",
+   "census_mtime": "2026-10-02T11:59:18Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.9dc4c47a8c38.json",
-  "chain_average": "chain_average.9dc4c47a8c38.json",
-  "chain_median": "chain_median.9dc4c47a8c38.json",
-  "dots": "dots.9dc4c47a8c38.json"
+  "shared": "shared.c08ee4ed3a64.json",
+  "chain_average": "chain_average.c08ee4ed3a64.json",
+  "chain_median": "chain_median.c08ee4ed3a64.json",
+  "dots": "dots.c08ee4ed3a64.json"
  }
 }
