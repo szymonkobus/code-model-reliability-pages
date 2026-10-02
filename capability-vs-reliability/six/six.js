@@ -34,7 +34,7 @@ function buildSetControl() {   // the page's own choice of datasets, above the f
   var bar = document.getElementById('setbar'); if (!bar) return; bar.innerHTML = '';
   var groups = [['Default sets', SETS_ORDER.filter(function (k) { return DATASETS[k] && !DATASETS[k].group; })], ['Math', SETS_ORDER.filter(function (k) { return DATASETS[k] && DATASETS[k].group === 'Math'; })], ['Other', SETS_ORDER.filter(function (k) { return DATASETS[k] && DATASETS[k].group === 'Other'; })]];
   groups.forEach(function (g) {
-    var wrap = document.createElement('span'); wrap.className = 'setgroup';
+    var wrap = document.createElement('span'); wrap.className = 'chips setgroup';   // the main page's chip styles (crossings.css scopes them under .chips): pressed full, unpressed faint, unavailable faint with its hint
     var lab = document.createElement('span'); lab.className = 'fam'; lab.textContent = g[0]; wrap.appendChild(lab);
     g[1].forEach(function (k) {
       var b = document.createElement('button'); b.className = 'chip setchip'; b.dataset.set = k; var on = SET_KEYS.indexOf(k) >= 0, served = SERVED.indexOf(k) >= 0;

@@ -828,6 +828,15 @@ function axisGrid(xOnly, hOverride) {
   var zOf = function (v) {
     return logit(Math.min(0.9999, Math.max(0.0001, v / 100)));
   };
+  if (PANEL) {   // a panel of the side-by-side page (2 Oct 2026, the project maintainers' word: the ticks make sense): the phone's keep list when three or more of its ticks fall inside the panel's window, else the reference set, else the finer ladder, else percent steps — then never two labels within a label's width
+    var pick = function (ax, set) { var raw = (ax === 'x' ? state.xs : state.ys) === 'raw'; if (raw) return set; var L = limT(false, ax), lo = pct(L[0]), hi = pct(L[1]);
+      var inside = function (s) { return s.filter(function (v) { return v > lo && v < hi; }); };
+      var t = inside([1, 5, 20, 50, 80, 95, 99]); if (t.length < 3) t = inside(LOGIT_TICKS); if (t.length < 3) t = inside(LOGIT_TICKS_FINE); if (t.length < 3) t = pctLadder(lo, hi); return t; };
+    xt = pick('x', xt); if (!xOnly) yt2 = pick('y', yt2);
+    var thin = function (t, pos, gap) { var out = [], last = -Infinity; t.slice().sort(function (p, q) { return pos(p) - pos(q); }).forEach(function (v) { var x = pos(v); if (x - last >= gap(v)) { out.push(v); last = x; } }); return out; };
+    xt = thin(xt, function (v) { return sx(zOf(v)); }, function (v) { return (String(v).length + 1) * FS * 0.62 + 4; });
+    yt2 = thin(yt2, function (v) { return -sy(zOf(v)); }, function () { return FS + 3; });
+  }
   xt.forEach(function (v) {
     var z = zOf(v), L = limT(state.xs === 'raw', 'x');
     if (tf(z, state.xs === 'raw') <= L[0]
