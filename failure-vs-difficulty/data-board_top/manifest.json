@@ -1,9 +1,9 @@
 {
- "fingerprint": "ea1a4b813da6",
+ "fingerprint": "c273d15868b7",
  "fingerprint_inputs": {
   "content": "d2c5532f95f4",
   "wave": "combined-20260910T2209Z",
-  "body": "db785fd3aab7"
+  "body": "27c926b2cb0f"
  },
  "frame": {
   "dataset": "board_top",
@@ -12,7 +12,7 @@
   "dataset_label_source": {
    "field": "label_of_record",
    "pointer": "serving_board_top.json",
-   "note": "label = set name + the count the figure stands on, at its stamp (the served wave's axis at the cut of 10 September 2026: 431 of wave 1, 866 of wave 2); the kept lists of today (the kept set at 22 Sep 13:24): 430 of wave 1, 858 of wave 2 of this axis still kept \u2014 a task that left the kept set after the cut stays in the fit as cut (the ruling of 8 Sep); the count is the cut's, the split by the waves' membership of record today (the wave-1 pin of 10 September 2026 and the wave-2 list with its parked members); Definitions' rule of 22 September 2026: one string written by the fit's writer, printed by every composer, never a count composed on a page from two sources"
+   "note": "label = set name + the count the figure stands on, at its stamp (the served wave's axis at the cut of 10 September 2026: 431 of wave 1, 866 of wave 2); the kept lists of today (the kept set at 22 Sep 13:24): 430 of wave 1, 858 of wave 2 of this axis still kept \u2014 a task that left the kept set after the cut stays in the fit as cut (the ruling of 8 Sep); the count is the cut's, the split by the waves' membership today (the wave-1 pin of 10 September 2026 and the wave-2 list with its parked members); Definitions' rule of 22 September 2026: one string written by the fit's writer, printed by every composer, never a count composed on a page from two sources"
   },
   "population": "all",
   "population_source": null,
@@ -37,7 +37,7 @@
   "runs_fingerprint": "b2cd8a3cb89e",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-02",
-  "stamp": "2026-10-02T13:47:49Z",
+  "stamp": "2026-10-02T14:43:38Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -89,7 +89,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-02T13:28:59Z",
+   "unified_built_at": "2026-10-02T14:26:05Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -405,7 +405,7 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/board_top-20260910T2111Z/results",
    "set_fingerprint": "030de536de92",
-   "pointer_updated_at": "2026-10-02T13:44:16Z",
+   "pointer_updated_at": "2026-10-02T14:16:41Z",
    "n_fits": 59,
    "note": null,
    "gates": {
@@ -534,7 +534,7 @@
   "partial_attempts": null,
   "side_arms": {
    "served": true,
-   "serving_word": "difficulty's GO (13:0xZ 2 Oct, on this sha alone): staging fccbce45b381 replacing serving_sft_board_top.json b74bdbf535d9 \u2014 step two of the side composed table's re-table: the composed table sft-side-composed-20261002T125823Z (11 arms, 123 columns, the D50 band and status columns on every row, every figure equal to the served), the twelve re-tabled waves bound afresh, repo-relative paths, the label note in plain words",
+   "serving_word": "difficulty 14:2xZ: GO on serving_sft_board_top.json staging 08ac37f54846 replacing ac1ae2abc221 \u2014 step two under (zz)(b): the composed side table re-made from the twelve landed fine-tune tables (sft-side-composed-20261002T142239Z, 11 rows equal to their wave files on every common column), the twelve waves bindings plain at the landed shas, band_rule_record in the bytes; every leaf diffed, no number leaf moved on any arm",
    "wave_id": "sft-board_top-20260921T1415Z",
    "n_arms": 11,
    "heading": "fine-tuned models and the base models they were trained from",
@@ -544,7 +544,7 @@
    "axis_pinned_to_served": true,
    "cut_at": "2026-09-21T14:15:25Z",
    "completed_at": "2026-09-23T03:38:30Z",
-   "updated_at": "2026-10-02T13:43:09Z",
+   "updated_at": "2026-10-02T14:27:44Z",
    "pointer": "definitions/fitting/serving_sft_board_top.json",
    "arms": [
     {
@@ -16792,9 +16792,9 @@
       },
       "d1": {
        "z": -7.2262,
-       "lo": -7.7331,
-       "hi": -6.7193,
-       "status": "unresolved: the 80% uncertainty band of D99 spans 1.014 on the difficulty scale, wider than the 1.0 limit for a resolved crossing",
+       "lo": -7.9021,
+       "hi": -6.8485,
+       "status": "unresolved: the 80% uncertainty band of D99 spans 1.054 on the difficulty scale, wider than the 1.0 limit for a resolved crossing",
        "status_kind": "unresolved",
        "reason_text": null,
        "uncensored_median_z": -7.2262,
@@ -18824,8 +18824,8 @@
       },
       "d1": {
        "z": -7.9021,
-       "lo": -7.8325,
-       "hi": -7.0771,
+       "lo": -7.9021,
+       "hi": -7.5641,
        "status": "bound: below the easiest task used (z < -7.902; more than half the draws lie below it) \u2014 by the ruling of 4 Sep the served D99 is this bound with its z; an extrapolated point is a labelled option carrying its model, never the bare word; it resolves when a wave reaches easier tasks",
        "status_kind": "bound",
        "reason_text": null,
@@ -106444,7 +106444,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-02T13:28:55Z",
+   "_stamp": "2026-10-02T14:27:57Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -106617,9 +106617,9 @@
   }
  },
  "files": {
-  "shared": "shared.ea1a4b813da6.json",
-  "chain_average": "chain_average.ea1a4b813da6.json",
-  "chain_median": "chain_median.ea1a4b813da6.json",
-  "dots": "dots.ea1a4b813da6.json"
+  "shared": "shared.c273d15868b7.json",
+  "chain_average": "chain_average.c273d15868b7.json",
+  "chain_median": "chain_median.c273d15868b7.json",
+  "dots": "dots.c273d15868b7.json"
  }
 }
