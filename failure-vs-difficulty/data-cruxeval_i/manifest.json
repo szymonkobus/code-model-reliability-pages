@@ -1,9 +1,9 @@
 {
- "fingerprint": "0ab8cee079fb",
+ "fingerprint": "f591dc4d6818",
  "fingerprint_inputs": {
-  "content": "04fe013c11cc",
+  "content": "9de087af29a0",
   "wave": "cruxeval_i-live",
-  "body": "8496e4a1b423"
+  "body": "36db84bc78f8"
  },
  "frame": {
   "dataset": "cruxeval_i",
@@ -24,21 +24,21 @@
   "difficulty_population_M": 44,
   "tasks": 800,
   "keep_set_hash": "ceaae2d92751",
-  "inputs_content_sha": "04fe013c11cc",
+  "inputs_content_sha": "9de087af29a0",
   "tasks_on_axis": 800,
   "tasks_kept": 800,
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ceaae2d92751",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "7b0e6d81202f",
+  "runs_fingerprint": "aa0281b5ae05",
   "axis_wave": "cruxeval_i-live",
   "build_date": "2026-10-02",
-  "stamp": "2026-10-02T16:58:47Z",
+  "stamp": "2026-10-02T18:44:30Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/cruxeval_i",
-   "unified_built_at": "2026-10-02T16:50:04Z",
+   "unified_built_at": "2026-10-02T18:35:06Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.cruxeval_i.csv"
@@ -2354,6 +2354,53 @@
    "panel_conflicts": [],
    "line": null
   },
+  "nb_held_arms": {},
+  "nb_run_keys": {
+   "google/gemini-3.6-flash": "gemini--gemini-3.6-flash",
+   "openai/gpt-5-mini": "openai--gpt-5-mini",
+   "claude-haiku-4-5-thinking": "anthropic--think",
+   "claude-sonnet-5-thinking": "anthropic--s5.think.x128",
+   "openai/gpt-5-nano": "openai--gpt-5-nano",
+   "google/gemma-4-31b-it_chat": "google--gemma-4-31b-it_chat-t0.8",
+   "Qwen/Qwen3-14B-Thinking": "Qwen--Qwen3-14B_think-t0.6",
+   "Qwen/Qwen3-32B-Thinking": "Qwen--Qwen3-32B_think-t0.6",
+   "claude-haiku-4-5": "anthropic--completions",
+   "claude-sonnet-5": "anthropic--s5.x128",
+   "Qwen/Qwen3-4B-Thinking": "Qwen--Qwen3-4B_think-t0.6",
+   "google/gemini-3.5-flash-lite": "gemini--gemini-3.5-flash-lite",
+   "Qwen/Qwen3-8B-Thinking": "Qwen--Qwen3-8B_think-t0.6",
+   "moonshotai/Kimi-K2-Instruct": "moonshotai--Kimi-K2-Instruct_t0.8",
+   "deepseek-ai/DeepSeek-V3-0324": "deepseek-ai--DeepSeek-V3-0324_t0.8",
+   "Qwen/Qwen2.5-Coder-32B-Instruct": "Qwen--Qwen2.5-Coder-32B-Instruct_t0.8",
+   "Qwen/Qwen2.5-Coder-14B-Instruct": "Qwen--Qwen2.5-Coder-14B-Instruct_t0.2",
+   "Qwen/Qwen3-32B_chat": "Qwen--Qwen3-32B_chat-t0.8",
+   "Qwen/Qwen2.5-32B-Instruct": "Qwen--Qwen2.5-32B-Instruct_t0.8",
+   "Qwen/Qwen3-14B": "Qwen--Qwen3-14B_t0.2",
+   "Qwen/Qwen3-14B_chat": "Qwen--Qwen3-14B_chat-t0.8",
+   "Qwen/Qwen2.5-Coder-7B-Instruct": "Qwen--Qwen2.5-Coder-7B-Instruct_t0.2",
+   "Qwen/Qwen3-32B": "Qwen--Qwen3-32B_t0.8",
+   "Qwen/Qwen3-8B": "Qwen--Qwen3-8B_t0.8",
+   "Qwen/Qwen3-4B": "Qwen--Qwen3-4B_t0.2",
+   "mistralai/Mistral-Small-24B-Instruct-2501": "mistralai--Mistral-Small-24B-Instruct-2501_t0.8",
+   "zai-org/GLM-4.7-Flash_chat": "zai-org--GLM-4.7-Flash_chat-t0.8",
+   "Qwen/Qwen2.5-14B-Instruct": "Qwen--Qwen2.5-14B-Instruct_t0.8",
+   "Qwen/Qwen2.5-7B-Instruct": "Qwen--Qwen2.5-7B-Instruct_t0.8",
+   "Qwen/Qwen3-0.6B-Thinking": "Qwen--Qwen3-0.6B_think-t0.6",
+   "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct": "deepseek-ai--DeepSeek-Coder-V2-Lite-Instruct_t0.8",
+   "Qwen/Qwen3-1.7B": "Qwen--Qwen3-1.7B_t0.8",
+   "Qwen/Qwen2.5-Coder-3B-Instruct": "Qwen--Qwen2.5-Coder-3B-Instruct_t0.8",
+   "deepseek-ai/deepseek-coder-6.7b-instruct": "deepseek-ai--deepseek-coder-6.7b-instruct_t0.8",
+   "dsc6.7b-rl-night4-s500": "dsc6.7b-rl-night4-s500_t0.8",
+   "Qwen/Qwen3-1.7B-Thinking": "Qwen--Qwen3-1.7B_think-t0.6",
+   "Qwen/Qwen2.5-Coder-1.5B-Instruct": "Qwen--Qwen2.5-Coder-1.5B-Instruct_t0.2",
+   "Qwen/Qwen3-0.6B": "Qwen--Qwen3-0.6B_t0.2",
+   "mistralai/Mistral-7B-Instruct-v0.3": "mistralai--Mistral-7B-Instruct-v0.3_t0.8",
+   "allenai/OLMo-2-1124-13B-Instruct": "allenai--OLMo-2-1124-13B-Instruct_t0.8",
+   "deepseek-ai/deepseek-coder-1.3b-instruct": "deepseek-ai--deepseek-coder-1.3b-instruct_t0.8",
+   "Qwen/Qwen2.5-Coder-0.5B-Instruct": "Qwen--Qwen2.5-Coder-0.5B-Instruct_t0.8",
+   "Qwen/Qwen2.5-1.5B-Instruct": "Qwen--Qwen2.5-1.5B-Instruct_t0.8",
+   "allenai/OLMo-2-1124-7B-Instruct": "allenai--OLMo-2-1124-7B-Instruct_t0.8"
+  },
   "cleaned_arms_unified": [],
   "counts_of_record": {
    "original_kept": 430,
@@ -2362,7 +2409,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-02T16:31:55Z",
+   "_stamp": "2026-10-02T18:24:30Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -2527,17 +2574,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-02T14:27:45Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T142745Z.json",
-   "sha16": "62f07ff4b34ce289",
-   "census_mtime": "2026-10-02T14:28:52Z",
+   "stamp": "2026-10-02T17:10:35Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T171035Z.json",
+   "sha16": "4b4757068d02d71f",
+   "census_mtime": "2026-10-02T17:12:31Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.0ab8cee079fb.json",
-  "chain_average": "chain_average.0ab8cee079fb.json",
-  "chain_median": "chain_median.0ab8cee079fb.json",
-  "dots": "dots.0ab8cee079fb.json"
+  "shared": "shared.f591dc4d6818.json",
+  "chain_average": "chain_average.f591dc4d6818.json",
+  "chain_median": "chain_median.f591dc4d6818.json",
+  "dots": "dots.f591dc4d6818.json"
  }
 }
