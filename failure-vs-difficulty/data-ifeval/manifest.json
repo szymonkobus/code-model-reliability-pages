@@ -1,9 +1,9 @@
 {
- "fingerprint": "02973644c080",
+ "fingerprint": "41996c1e9f3c",
  "fingerprint_inputs": {
   "content": "60e38c2834db",
   "wave": "ifeval-live",
-  "body": "be297db7de8b"
+  "body": "3942331a84f4"
  },
  "frame": {
   "dataset": "ifeval",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ea009d5c6cd1",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "2a04f1c3d64e",
+  "runs_fingerprint": "fcb61a211729",
   "axis_wave": "ifeval-live",
   "build_date": "2026-10-02",
-  "stamp": "2026-10-02T17:48:27Z",
+  "stamp": "2026-10-02T18:52:08Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/ifeval",
-   "unified_built_at": "2026-10-02T17:43:02Z",
+   "unified_built_at": "2026-10-02T18:51:03Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.ifeval.csv"
@@ -6417,6 +6417,54 @@
    "panel_conflicts": [],
    "line": null
   },
+  "nb_held_arms": {},
+  "nb_run_keys": {
+   "google/gemini-3.6-flash": "gemini--gemini-3.6-flash",
+   "google/gemma-4-31B-it": "google--gemma-4-31b-it_t0.8",
+   "openai/gpt-5-mini": "openai--gpt-5-mini",
+   "claude-sonnet-5-thinking": "anthropic--s5.think.x128",
+   "openai/gpt-5-nano": "openai--gpt-5-nano",
+   "claude-haiku-4-5-thinking": "anthropic--think",
+   "google/gemini-3.5-flash-lite": "gemini--gemini-3.5-flash-lite",
+   "claude-sonnet-5": "anthropic--s5.x128",
+   "Qwen/Qwen3-14B": "Qwen--Qwen3-14B_t0.8",
+   "Qwen/Qwen3-14B-Thinking": "Qwen--Qwen3-14B_think-t0.6",
+   "Qwen/Qwen3-32B": "Qwen--Qwen3-32B_t0.8",
+   "claude-haiku-4-5": "anthropic--completions",
+   "Qwen/Qwen3-8B-Thinking": "Qwen--Qwen3-8B_think-t0.6",
+   "Qwen/Qwen3-32B-Thinking": "Qwen--Qwen3-32B_think-t0.6",
+   "Qwen/Qwen3-8B": "Qwen--Qwen3-8B_t0.5",
+   "Qwen/Qwen3-4B-Thinking": "Qwen--Qwen3-4B_think-t0.6",
+   "deepseek-ai/DeepSeek-V3-0324": "deepseek-ai--DeepSeek-V3-0324_t0.8",
+   "Qwen/Qwen2.5-Coder-32B-Instruct": "Qwen--Qwen2.5-Coder-32B-Instruct_t0.8",
+   "Qwen/Qwen3-4B": "Qwen--Qwen3-4B_t0.8",
+   "Qwen/Qwen2.5-32B-Instruct": "Qwen--Qwen2.5-32B-Instruct_t0.8",
+   "olmo-3-7b-think-final-Thinking": "olmo-3-7b-think-final_r1think-t0.6",
+   "Qwen/Qwen2.5-14B-Instruct": "Qwen--Qwen2.5-14B-Instruct_t0.8",
+   "zai-org/GLM-4.7-Flash": "zai-org--GLM-4.7-Flash_t0.8",
+   "allenai/OLMo-2-1124-13B-Instruct": "allenai--OLMo-2-1124-13B-Instruct_t0.8",
+   "Qwen/Qwen2.5-7B-Instruct": "Qwen--Qwen2.5-7B-Instruct_t0.2",
+   "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B": "deepseek-ai--DeepSeek-R1-Distill-Qwen-14B_r1think-t0.6",
+   "mistralai/Mistral-Small-24B-Instruct-2501": "mistralai--Mistral-Small-24B-Instruct-2501_t0.8",
+   "olmo-3-7b-think-step0025-Thinking": "olmo-3-7b-think-step0025_r1think-t0.6",
+   "Qwen/Qwen3-1.7B-Thinking": "Qwen--Qwen3-1.7B_think-t0.6",
+   "allenai/OLMo-2-1124-7B-Instruct": "allenai--OLMo-2-1124-7B-Instruct_t0.8",
+   "Qwen/Qwen3-1.7B": "Qwen--Qwen3-1.7B_t0.8",
+   "Qwen/Qwen2.5-Coder-14B-Instruct": "Qwen--Qwen2.5-Coder-14B-Instruct_t0.8",
+   "deepseek-ai/DeepSeek-R1-Distill-Llama-8B": "deepseek-ai--DeepSeek-R1-Distill-Llama-8B_r1think-t0.6",
+   "Qwen/Qwen2.5-3B-Instruct": "Qwen--Qwen2.5-3B-Instruct_t0.8",
+   "Qwen/Qwen3-0.6B-Thinking": "Qwen--Qwen3-0.6B_think-t0.6",
+   "Qwen/Qwen3-0.6B": "Qwen--Qwen3-0.6B_t0.8",
+   "Qwen/Qwen2.5-Coder-7B-Instruct": "Qwen--Qwen2.5-Coder-7B-Instruct_t0.8",
+   "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B": "deepseek-ai--DeepSeek-R1-Distill-Qwen-7B_r1think-t0.6",
+   "mistralai/Mistral-7B-Instruct-v0.3": "mistralai--Mistral-7B-Instruct-v0.3_t0.8",
+   "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct": "deepseek-ai--DeepSeek-Coder-V2-Lite-Instruct_t0.8",
+   "Qwen/Qwen2.5-1.5B-Instruct": "Qwen--Qwen2.5-1.5B-Instruct_t0.8",
+   "Qwen/Qwen2.5-Coder-1.5B-Instruct": "Qwen--Qwen2.5-Coder-1.5B-Instruct_t0.8",
+   "Qwen/Qwen2.5-0.5B-Instruct": "Qwen--Qwen2.5-0.5B-Instruct_t0.8",
+   "dsc6.7b-rl-night4-s500": "dsc6.7b-rl-night4-s500_t0.8",
+   "deepseek-ai/deepseek-coder-6.7b-instruct": "deepseek-ai--deepseek-coder-6.7b-instruct_t0.8"
+  },
   "cleaned_arms_unified": [],
   "counts_of_record": {
    "original_kept": 430,
@@ -6425,7 +6473,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-02T17:26:18Z",
+   "_stamp": "2026-10-02T18:24:30Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -6590,17 +6638,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-02T15:43:25Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T154325Z.json",
-   "sha16": "fb27e8aa6b697c21",
-   "census_mtime": "2026-10-02T15:44:28Z",
+   "stamp": "2026-10-02T17:10:35Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T171035Z.json",
+   "sha16": "4b4757068d02d71f",
+   "census_mtime": "2026-10-02T17:12:31Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.02973644c080.json",
-  "chain_average": "chain_average.02973644c080.json",
-  "chain_median": "chain_median.02973644c080.json",
-  "dots": "dots.02973644c080.json"
+  "shared": "shared.41996c1e9f3c.json",
+  "chain_average": "chain_average.41996c1e9f3c.json",
+  "chain_median": "chain_median.41996c1e9f3c.json",
+  "dots": "dots.41996c1e9f3c.json"
  }
 }
