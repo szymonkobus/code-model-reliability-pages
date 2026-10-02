@@ -768,21 +768,21 @@
   },
   "aime": {
    "files": {
-    "shared": "shared.aime.3e45f3db2aee.json",
-    "chain_average": "chain_average.aime.3e45f3db2aee.json",
-    "bayes": "bayes.aime.3e45f3db2aee-b17410ab6384.json",
+    "shared": "shared.aime.4572043d70aa.json",
+    "chain_average": "chain_average.aime.4572043d70aa.json",
+    "bayes": "bayes.aime.4572043d70aa-b17410ab6384.json",
     "bayes_prev": "bayes.aime.6961f1c2ab43-a9a401e1cc0b.json"
    },
    "label": "AIME",
    "arms": "all",
-   "fingerprint": "3e45f3db2aee",
+   "fingerprint": "4572043d70aa",
    "frame": {
     "population_M": 39,
     "tasks": 60,
     "keep_set_hash": "dc5cbadfe267",
-    "runs_fingerprint": "9b078ba35881",
+    "runs_fingerprint": "fd4206e48512",
     "build_date": "2026-10-02",
-    "build_ts": "2026-10-02T08:14:10Z",
+    "build_ts": "2026-10-02T12:18:30Z",
     "vocab_ruled": "2026-08-27",
     "set": "aime",
     "set_label": "AIME",
@@ -793,14 +793,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "dc5cbadfe267",
     "tasks_used": "AIME \u2014 60 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-aime fp dd55d3f94c10 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-aime fp d0c2f34e9675 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "c9c0548da5e1",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-02T08:14:10Z",
-   "source_fp": "dd55d3f94c10",
-   "updated_at": "2026-10-02T11:20:46Z",
+   "source_stamp": "2026-10-02T12:18:30Z",
+   "source_fp": "d0c2f34e9675",
+   "updated_at": "2026-10-02T12:30:51Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -822,7 +822,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-10-02T11:32:20Z",
+  "stamp": "2026-10-02T12:27:41Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,

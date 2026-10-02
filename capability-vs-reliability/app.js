@@ -18,6 +18,7 @@ var PW = W - ML - MR, PH = H - MT - MB;
  * desktop geometry, with per-axis limits tightened to the drawn extent (EXT: the dots, whiskers and move arrows of the last screen render);
  * the reference helper (kit-export.js, the reference designer 18 Sep) clones the chart and lays the legend beside it. The page's own frame (LIM) never moves. */
 var EXPORTING = false, LIMX = null, LIMY = null, EXT = null, NO_RATCHET = false;
+var CROP = null;   // 2 Oct 2026 (the project maintainers' word of 11:2x UK, the structure maintainers' section: a page's axes fit the data): the single figure's on-screen window — one common range for both axes around the drawn points, held while a level drags, re-cropped at the drag's end
 var DUAL_TWINS = true;   // the project maintainers' word of 28 Sep 14:3x: a released or base model sits in the main model list AND as a chip in its series — one entity, one chip on every plot (the dual form for every twin; the same on the curves page)   // NO_RATCHET: the export's restore render leaves the text blocks' heights as they were
 var CHART_VH_GAP = 170;
 var EXPORT_TITLE_PX = 26, EXPORT_TICK_PX = 18;   // the export's type (the project maintainers 13:5x 18 Sep: axis names twice as big, tick numbers 50% bigger) — the reference export defaults, shared with the reference designer // CSS px kept above and below the chart by #chart { max-height: calc(100vh - 170px) } — the same number, so the type floors hold
@@ -31,9 +32,6 @@ var NARROW = false, FS = 12, FT = 11, DR = 5, UPX = 1;   // UPX: viewBox units p
  * the viewBox narrows to 380 units so 13-unit type renders >= 12 CSS px; the level track and both
  * axis titles live in a top band; hit areas >= 24 CSS px. Desktop geometry unchanged. */
 function layout() {
-  if (PANEL) {   // a panel: a square plot at the panel's width, one viewBox unit = one CSS px, the tick type at 10 px
-    NARROW = false; W = PANEL.size.width; ML = 44; MR = 10; MT = 10; MB = 34; DR = 3.5; PW = W - ML - MR; PH = PW; H = PH + MT + MB; UPX = 1; FS = 10; FT = 9; TRK.x0 = ML; TRK.x1 = ML + PW; TRK.y = 6; return;
-  }
   if (EXPORTING) {   // the export's fixed desktop geometry: one viewBox unit = one CSS px at 900 wide, the screen's type and dot sizes at 1:1
     NARROW = false; W = 900; ML = 90; MR = 30; MT = 40; MB = 62; DR = 4.5; PW = W - ML - MR; UPX = 1; FS = EXPORT_TICK_PX; FT = 11;   // margins re-laid for the export's larger type (the project maintainers 13:5x 18 Sep)
     // equal scale in the export too (the project maintainers' 13:03 word): with both axes on one spacing the plot's height follows the y span over the x span in
@@ -77,115 +75,6 @@ function fmtPct(z, d) { return pct(z).toFixed(d == null ? 1 : d) + '%'; }
 
 /* ---------------- data ---------------- */
 var D = {};
-/* ---------------- SIDE BY SIDE: several datasets as a MODE of this page (the project maintainers' word of 2 Oct 11:2x UK; the reference kit's panelGrid) ----------------
- * ?panels=all draws every served dataset in the leaf of record's order, one square panel each, with this file's own plane code (renderScatter into the
- * panel's svg under the one set of controls, chips, levels and export), so every fix of the single figure reaches every panel. The page enters the mode by its
- * own View switch above the figure, never by a link. A panel's axes crop to its points (one common range for both axes: equal scales, the diagonal). */
-var PANELS_KEYS = null, PANELS = null, PANEL = null, PANEL_GRID = null, UNION = null;
-var CROP = null;   // 2 Oct 2026 (the project maintainers' word of 11:2x UK, the structure maintainers' section: a page's axes fit the data): the single figure's on-screen window — one common range for both axes around the drawn points, held while a level drags, re-cropped at the drag's end
-var PANEL_ORDER = ['board_top', 'board', 'top', 'new', 'all', 'math500', 'aime', 'gsm8k_platinum', 'ifeval', 'cruxeval_i', 'cruxeval_o'];   // the default sets as the Dataset switch lists them, then Math, then Other (the leaf of record)
-function withPanel(ctx, fn) {   // the single figure's closure variables stand in for one panel while fn runs, then come back
-  var s0 = [D, LIM, RUNS, RUN, SLUG_OF, IDX_OF_SLUG, sel]; D = ctx.D; LIM = ctx.LIM; RUNS = ctx.RUNS || []; RUN = ctx.RUN || null; SLUG_OF = ctx.SLUG_OF || {}; IDX_OF_SLUG = ctx.IDX_OF_SLUG || {}; sel = ctx.sel || new Set();
-  try { return fn(); } finally { D = s0[0]; LIM = s0[1]; RUNS = s0[2]; RUN = s0[3]; SLUG_OF = s0[4]; IDX_OF_SLUG = s0[5]; sel = s0[6]; }
-}
-function loadSetCtx(key) {   // one dataset's files and joins as the single figure loads them (the withdrawn pass, the id-keyed joins, the level grid); a defect holds the panel, never the page
-  var e = D.allDs[key], files = e && e.files; if (!files) return Promise.resolve({ key: key, held: 'not served' });
-  return Promise.all(['shared', 'chain_average', 'chain_median', 'bayes', 'bayes_prev'].map(function (k) { return files[k] ? fetch(MOUNT + 'data/' + files[k]).then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }) : Promise.resolve(null); })).then(function (all) {
-    var X = { man: D.man, allDs: D.allDs, defaultData: D.defaultData, dsId: key, dataId: key, ds: e, golden: false, shared: all[0], avg: all[1], med: all[2], bay: all[3], bayPrev: all[4] || null, runRaw: D.runRaw };
-    if (!X.shared || !X.avg) return { key: key, held: 'files missing' };
-    var W = {}; (X.shared.withdrawn || []).forEach(function (id) { W[id] = 1; }); Object.keys(X.shared.fit_excluded || {}).forEach(function (id) { W[id] = 1; });
-    X.shared.configs = X.shared.configs.filter(function (c) { return !W[c.id]; });
-    ['avg', 'med', 'bay'].forEach(function (k) { if (X[k] && X[k].rows) X[k].rows = X[k].rows.filter(function (r) { return !W[r.cfg || r.id]; }); });
-    X.shared.fit_excluded = null;
-    [X.shared.capC, X.shared.capC_z, X.shared.capC_j].forEach(function (CB) { if (CB && CB.excluded) Object.keys(W).forEach(function (id) { delete CB.excluded[id]; }); });
-    X.avgById = {}; X.medById = {}; X.bayById = {}; X.bayPrevById = {};
-    X.avg.rows.forEach(function (r) { X.avgById[r.cfg] = r; }); if (X.med) X.med.rows.forEach(function (r) { X.medById[r.cfg] = r; }); if (X.bay) X.bay.rows.forEach(function (r) { X.bayById[r.cfg] = r; });
-    if (X.bayPrev && X.bayPrev.rows && X.bay) { X.bayPrev.rows.forEach(function (r) { X.bayPrevById[r.cfg] = r; }); X.bayPrev.lev_logit = X.bayPrev.lev_fail.map(function (q) { return Math.log(q / (1 - q)); }); }
-    if (X.bay && (!X.bay.lev_fail || !X.bay.rows[0] || !X.bay.rows[0].levels || !X.bay.rows[0].levels_avg)) return { key: key, held: 'an older fit file' };
-    if (X.bay) X.bay.lev_logit = X.bay.lev_fail.map(function (q) { return Math.log(q / (1 - q)); });
-    X.unfitted = {}; (X.bay && X.bay.unfitted || []).forEach(function (id) { X.unfitted[id] = true; });
-    var ctx = { key: key, D: X, RUNS: [], RUN: null, SLUG_OF: {}, IDX_OF_SLUG: {}, sel: new Set() };
-    withPanel(ctx, function () {
-      mergeRunSet(X.runRaw); ctx.RUNS = RUNS; ctx.RUN = RUN;
-      ctx.LIM = X.shared.limits ? [X.shared.limits.lo - 0.15, X.shared.limits.hi + 0.15] : [X.shared.reachable.floor_z - 0.35, X.shared.reachable.top_z + 0.35];
-      var zF = logit(AXIS_FLOOR_PCT / 100) - 0.15; if (ctx.LIM[0] > zF) ctx.LIM[0] = zF;
-      slugIndex(); ctx.SLUG_OF = SLUG_OF; ctx.IDX_OF_SLUG = IDX_OF_SLUG;
-    });
-    return ctx;
-  }).catch(function () { return { key: key, held: 'files did not load' }; });
-}
-function buildUnion(ctxs) {   // the chips' set: every model of every panel once, by slug, with its first panel's colour, family and name; a run's checkpoints stay with the single figure
-  var live = ctxs.filter(function (c) { return !c.held; }); if (!live.length) return null;
-  var seen = {}, configs = [], avgRows = [], medRows = [], bayRows = [], anyMed = live.every(function (c) { return !!c.D.med; });
-  live.forEach(function (c) { c.D.shared.configs.forEach(function (cf, i) { if (cf.run) return; var sl = c.SLUG_OF[i] || cf.id; if (seen[sl]) return; seen[sl] = 1; var copy = Object.assign({}, cf); copy.slug = sl; configs.push(copy);
-    if (c.D.avgById[cf.id]) avgRows.push(c.D.avgById[cf.id]); if (anyMed && c.D.medById[cf.id]) medRows.push(c.D.medById[cf.id]); if (c.D.bayById[cf.id]) bayRows.push(c.D.bayById[cf.id]); }); });
-  var c0 = live[0];
-  var U = { man: D.man, allDs: D.allDs, defaultData: D.defaultData, dsId: 'panels', dataId: c0.key, ds: { missing: {} }, golden: false, runRaw: null,
-    shared: { configs: configs, limits: c0.D.shared.limits, reachable: c0.D.shared.reachable, frame: c0.D.shared.frame, axis: c0.D.shared.axis, capC: null, capC_z: null, capC_j: null, artifact_flags: {}, fit_excluded: null },
-    avg: { lev_grid: c0.D.avg.lev_grid, rows: avgRows }, med: anyMed && c0.D.med ? { rows: medRows } : null,
-    bay: c0.D.bay ? { rows: bayRows, lev_fail: c0.D.bay.lev_fail, lev_logit: c0.D.bay.lev_logit, unfitted: [], disclosures: {}, kde_grid: c0.D.bay.kde_grid, fit_set: c0.D.bay.fit_set } : null, bayPrev: null, bayPrevById: {}, unfitted: {} };
-  U.avgById = {}; U.medById = {}; U.bayById = {}; avgRows.forEach(function (r) { U.avgById[r.cfg] = r; }); medRows.forEach(function (r) { U.medById[r.cfg] = r; }); bayRows.forEach(function (r) { U.bayById[r.cfg] = r; });
-  return U;
-}
-function enterPanels() {
-  var keys = PANELS_KEYS;
-  Promise.all(keys.map(loadSetCtx)).then(function (ctxs) {
-    PANELS = ctxs; ctxs.forEach(function (c, i) { c.idx = i; c.sel = c.sel || new Set(); });
-    UNION = buildUnion(ctxs); if (!UNION) return;
-    D = UNION; LIM = UNION.shared.limits ? [UNION.shared.limits.lo - 0.15, UNION.shared.limits.hi + 0.15] : [-6, 6]; RUNS = []; RUN = null; slugIndex();
-    sel = new Set(); var sp = Kit.state.get('sel', null);   // the selection: the link's slugs, else every shown model
-    if (sp) String(sp).split(',').forEach(function (sl) { if (IDX_OF_SLUG[sl] !== undefined) sel.add(IDX_OF_SLUG[sl]); });
-    if (!sel.size) D.shared.configs.forEach(function (_, i) { if (!isWithheld(i) && !isRun(i)) sel.add(i); });
-    var chart = document.getElementById('chart'); if (chart) { chart.style.display = 'none'; chart.removeAttribute('data-plot'); ['plotg', 'trackg'].forEach(function (id) { var g = document.getElementById(id); if (g) g.innerHTML = ''; }); }   // the single figure gives way to the grid: hidden, no plot, no marks left behind
-    var dsel = document.querySelector('#datasetbar .kit-select'); if (dsel) dsel.style.display = 'none';   // the choice of datasets is the mode's: every served set
-    document.getElementById('chips').innerHTML = ''; chips = []; var rb = document.getElementById('chips-runs'); if (rb) rb.innerHTML = '';
-    var ks = document.getElementById('kSlider'); if (ks) { ks.disabled = true; ks.setAttribute('aria-disabled', 'true'); ks.title = 'the sweep belongs to the single figure; the panels follow the level inputs'; }   // the K sweep is the single figure's track; locked in the mode (a locked control is no drag target)
-    var pb = document.getElementById('playBtn') || document.querySelector('#chartcontrols button[data-role="play"]'); if (pb) pb.disabled = true;
-    buildChips(); refreshPartialChips();
-    var mount = document.createElement('div'); mount.id = 'panelgrid'; document.getElementById('chartbox').appendChild(mount);
-    var labels = {}; keys.forEach(function (k) { labels[k] = String((DATASETS[k] || {}).label || k).replace(/\s*\([^)]*\)\s*$/, ''); });
-    PANEL_GRID = Kit.panelGrid({ mount: mount, keys: keys, labels: labels, draw: drawPanel, min: 300 });
-    paintChips();
-  });
-}
-function drawPanel(key, panelEl, size) {   // the kit's draw: this set's plane into its panel, by the single figure's own renderer
-  var ctx = null; for (var k = 0; k < PANELS.length; k++) if (PANELS[k].key === key) ctx = PANELS[k];
-  if (!ctx) return;
-  var svg = panelEl.querySelector('svg'); if (!svg) { svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); svg.setAttribute('data-plot', ''); svg.appendChild(document.createElementNS('http://www.w3.org/2000/svg', 'g')); panelEl.appendChild(svg); }
-  svg.dataset.p = ctx.idx; svg.style.width = '100%'; svg.style.height = 'auto'; svg.style.display = 'block';
-  if (ctx.held) { svg.setAttribute('viewBox', '0 0 ' + size.width + ' ' + size.width); svg.firstChild.innerHTML = '<text x="' + (size.width / 2) + '" y="' + (size.width / 2) + '" text-anchor="middle" font-size="11" fill="#52514e">held: ' + ctx.held + '</text>'; ctx.drawn = 0; return; }
-  var want = {}; Array.from(sel).forEach(function (i) { want[SLUG_OF[i]] = 1; });   // the chips' choice, by slug, applied to this set's models
-  ctx.sel = new Set(); ctx.D.shared.configs.forEach(function (c, i) { if (want[ctx.SLUG_OF[i]]) ctx.sel.add(i); });
-  PANEL = { svg: svg, g: svg.firstChild, idx: ctx.idx, key: key, size: size, drawn: 0 };
-  var src0 = state.src, def0 = state.def;   // a set without the chain the controls name draws with the chain it has (as the single figure falls back for that set): the reference chain for a set without Bayesian tables, the average rate for one without a median chain
-  if (state.src === 'bayes' && !ctx.D.bay) state.src = 'project'; if (state.def === 'median' && !ctx.D.med) state.def = 'average';
-  withPanel(ctx, function () {
-    LIMX = null; LIMY = null; EXT = null; renderScatter();   // pass one: the drawn extent
-    if (EXT && isFinite(EXT.x0) && isFinite(EXT.y0) && EXT.x1 >= EXT.x0 && EXT.y1 >= EXT.y0) {   // the axes crop to the points, one common range for both axes (equal scales, the diagonal), padded 6%
-      var lo = Math.min(EXT.x0, EXT.y0), hi = Math.max(EXT.x1, EXT.y1); if (hi - lo < 1) { var mid = (lo + hi) / 2; lo = mid - 0.5; hi = mid + 0.5; } var pad = (hi - lo) * 0.06;
-      LIMX = [Math.max(LIM[0], lo - pad), Math.min(LIM[1], hi + pad)]; LIMY = LIMX.slice(); renderScatter(); LIMX = null; LIMY = null;
-    }
-  });
-  state.src = src0; state.def = def0;
-  ctx.drawn = PANEL.drawn; PANEL = null;
-  if (ctx.idx === PANELS.length - 1) { var total = PANELS.reduce(function (a, c) { return a + (c.drawn || 0); }, 0);
-    var h = document.getElementById('headline'); if (h) h.textContent = PANELS.length + ' datasets side by side: ' + axisShort('y') + ' against ' + axisShort('x') + ' on each set’s own difficulty axis; ' + total + ' points drawn.'; }
-}
-function exportPanels() {   // the grid as drawn, every panel beside the next, one legend of every model drawn in any panel
-  var n = PANELS.length, cols = Math.min(3, n), rows = Math.ceil(n / cols), pw = 300, ph = 300, gap = 16, th = 22;
-  var W = cols * pw + (cols - 1) * gap, H = rows * (ph + th) + (rows - 1) * gap;
-  var wrap = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); wrap.setAttribute('viewBox', '0 0 ' + W + ' ' + H); wrap.setAttribute('width', W); wrap.setAttribute('height', H); wrap.style.position = 'absolute'; wrap.style.left = '-99999px'; document.body.appendChild(wrap);
-  var inner = '';
-  PANELS.forEach(function (c, i) { var svg = document.querySelector('#panelgrid svg[data-p="' + i + '"]'); if (!svg) return; var vb = (svg.getAttribute('viewBox') || '0 0 300 300').split(' ').map(Number); var x = (i % cols) * (pw + gap), y = Math.floor(i / cols) * (ph + th + gap);
-    inner += '<text x="' + (x + pw / 2) + '" y="' + (y + 14) + '" text-anchor="middle" font-size="13" font-weight="600" fill="#222">' + (DATASETS[c.key] ? String(DATASETS[c.key].label).replace(/\s*\([^)]*\)\s*$/, '') : c.key) + '</text>'
-      + '<g transform="translate(' + x + ',' + (y + th) + ') scale(' + (pw / (vb[2] || 300)) + ')">' + svg.innerHTML + '</g>'; });
-  wrap.innerHTML = inner;
-  var legend = [], seen = {};
-  PANELS.forEach(function (c) { if (c.held) return; PANEL = { svg: document.querySelector('#panelgrid svg[data-p="' + c.idx + '"]'), idx: c.idx }; try { withPanel(c, function () { exportLegend().forEach(function (r) { if (!seen[r.label]) { seen[r.label] = 1; legend.push(r); } }); }); } finally { PANEL = null; } });
-  setTimeout(function () { if (wrap.parentNode) wrap.parentNode.removeChild(wrap); }, 0);
-  var parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()); var pick = function (t) { return (parts.find(function (q) { return q.type === t; }) || {}).value || ''; };
-  return { svg: wrap, legend: legend, title: '', page: '', view: 'side by side · ' + exportView(), stamp: '', fileBase: 'capability-vs-reliability_side-by-side_' + pick('year') + '-' + pick('month') + '-' + pick('day'), crop: null };
-}
 var MOUNT = window.MIRROR_MOUNT || './';   // a mirror (the results mirror maintainers' /nb-results/plane/) sets window.MIRROR_MOUNT before this file; mount-absolute references (the project's critic the first finding: the slash-less address resolved relative assets against the root and rendered blank)
 fetch(MOUNT + 'data/manifest.json')
   .then(function (r) { if (!r.ok) throw new Error('manifest: HTTP ' + r.status); return r.json(); })
@@ -212,7 +101,6 @@ fetch(MOUNT + 'data/manifest.json')
     if (DATASETS[want] && DATASETS[want].page) { location.replace(MOUNT + DATASETS[want].page); return new Promise(function () {}); }   // 1 Oct: the six-panel view lives at its own page
     if (!DATASETS[want] && /^golden-/.test(want) && ds[want]) { want = want.slice(7); Kit.state.set('arms', 'golden', 'all'); Kit.state.set('data', want, DEFAULT_DATA); }   // datasets["golden-<set>"] named directly: that is <set> under arms=golden; a dataset value must be a switch option or the switch's init fire reloads for ever (2026-09-09)
     relabel();   // official set names before any note quotes a label (the fallback note below quoted the working name)
-    if (Kit.state.get('panels', null) === 'all') { var pk = PANEL_ORDER.filter(function (k) { return DATASETS[k] && ds[k] && ds[k].files; }); if (pk.length >= 2) { PANELS_KEYS = pk; want = pk[0]; } }   // 2 Oct 2026: the side-by-side mode draws every served set; the first is the primary load
     if (!DATASETS[want] || !ds[want]) {   // an option without an artifact set, or an unknown value (or a manifest key that is not a switch option): fall back to the board, say so, rewrite the URL
       dataNote = (DATASETS[want] ? 'dataset \u201c' + DATASETS[want].label + '\u201d is not served yet \u2014 ' + DATASETS[want].reason
                                  : RETIRED[want] && !DATASETS[want] ? RETIRED[want] + ' is not on this page (coding sets only; the maths results have their own mirror page)'
@@ -862,8 +750,6 @@ function boot() {
   var _dsDflt = D.defaultData || (D.allDs.board_top ? 'board_top' : 'board');
   var _opt = function (k) { return { value: k, label: String(DATASETS[k].label).replace(/\s*\([^)]*\)\s*$/, ''), disabled: !DATASETS[k].available }; };   // a control carries the project maintainers' words alone (23 Sep): the set's name, its count on the set line
   var dsRow = Kit.filterRow('#datasetbar');   // 2 Oct 2026 (the project maintainers' word of 11:2x UK): the dataset grouping is a dataset selector, not a chart control — it sits above the figure in its own slot, never among the chart's controls
-  Kit.switchControl({ mount: dsRow, key: 'panels', label: 'Sets', dflt: 'one', options: [{ value: 'one', label: 'one' }, { value: 'all', label: 'side by side' }],   // 2 Oct 2026 (the project maintainers' word of 11:2x UK): several datasets side by side is a MODE of this page, entered by its own switch above the figure, never a link
-    onchange: function (v) { if ((v === 'all') === !!PANELS_KEYS) return; if (v !== 'all' && PANELS_KEYS) Kit.state.set('data', PANELS_KEYS[0], D.defaultData); location.reload(); } });
   var dataSw = Kit.selectControl({ mount: dsRow, key: 'data', label: 'Dataset',   // FIRST control in the row ("an option at the top"); the reference designer's Kit.selectControl  30 Sep
     options: Object.keys(DATASETS).filter(function (k) { return !DATASETS[k].group; }).map(_opt),
     // 1 Oct 2026 (the project maintainers' word of 12:1x UK, the new benchmarks maintainers' leaf of record datasets_of_record.json): the default sets, then
@@ -1056,7 +942,6 @@ function boot() {
   hoverWire();
   wireDrag();
   render();
-  if (PANELS_KEYS) enterPanels();   // 2 Oct 2026: the side-by-side mode, once the single figure stands
 }
 
 var srcCtl = null;
@@ -1754,7 +1639,6 @@ function render() {
   mountExport();
   syncWdLock();
   syncXdefLock();
-  if (PANEL_GRID) { PANEL_GRID.redraw(); paintChips(); return; }   // 2 Oct 2026: the side-by-side mode — every control event redraws every panel
   if (state.view === 'ridges') { renderRidges(); renderOpusFold(); return; }
   if (EXPORTING) { renderScatter(); renderOpusFold(); return; }   // the export sets its own window
   // 2 Oct 2026 (the project maintainers' word of 11:2x UK; the structure maintainers' section: a page's axes fit the data): the figure's axes crop to the drawn points — pass one at the
@@ -2009,10 +1893,10 @@ function wireDrag() {
 }
 
 function renderScatter() {
-  if (!PANEL) { foldSweepTools(); phoneFold(); }
-  if (playBtn && !PANEL) { playBtn.disabled = false; playBtn.title = ''; }
+  foldSweepTools(); phoneFold();
+  if (playBtn) { playBtn.disabled = false; playBtn.title = ''; }
   layout();
-  var chart = PANEL ? PANEL.svg : document.getElementById('chart');
+  var chart = document.getElementById('chart');
   chart.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
   var la = logit(state.a / 100), lc = logit(state.c / 100);
   var out = axisGrid();
@@ -2225,7 +2109,7 @@ function renderScatter() {
   var headFit = null, headN = 0;
   if (fx.length >= 3) {
     var fkey = [state.def, state.src, state.wd, state.xdef, state.fitci, state.line, state.xs, state.ys, state.lw,
-                state.a, state.c, D.dsId, Array.from(sel).join('.')].join('|');
+                state.a, state.c, Array.from(sel).join('.')].join('|');
     // honest mode: only dots with a usable width on BOTH axes enter
     // (a dot censored on both sides of an axis has no measurement
     // sigma — dropped and counted, per the /sweep rule)
@@ -2284,11 +2168,12 @@ function renderScatter() {
       headFit = f; headN = hx.length;
     }
   }
-  if (!PANEL) { headline(headN, headFit, fx.length, sweeping); fitCaption(headFit, headN); }
+  headline(headN, headFit, fx.length, sweeping);
+  fitCaption(headFit, headN);
   // FIT PANEL (the project maintainers 2026-09-04: the fit quality is shown as part of the chart, in the same place every time, never a
   // sentence inside prose): a fixed box at the plot's top-left — slope with its interval, R with the arm count, the uncertainty band's meaning
   var pfs = NARROW ? 15 : Math.round(14 * Math.max(1, UPX)), pfs2 = NARROW ? 12 : Math.round(12 * Math.max(1, UPX)), plx = ML + 8, ply = MT + 8;   // the slope line is the largest type in the chart (the reference designer's read 09-04)
-  if (!PANEL) refreshBeyondChips();
+  refreshBeyondChips();
   var drawnN = visible.length - undrawn.length - beyondArms.length, totalN = D.shared.configs.length;
   // the label names the fit's space whenever it differs from the axes' display (the project maintainers  14 Sep: are the line's quantities computed honestly across spacings)
   // PANEL (the project maintainers' word of 15 Sep 2026 12:1x: fewer words on the linear fit — the slope, its range and R, the
@@ -2324,11 +2209,8 @@ function renderScatter() {
     + 'fill="#52514e" font-size="' + tfs + '" transform="rotate(-90 ' + tyx + ' '
     + (MT + PH / 2) + ')" data-role="axis-title" data-chain-val="def src">' + axisShort('y') + '</text>';
   if (moveN) out += '<text x="' + (ML + 8) + '" y="' + (MT + PH - 8) + '" font-size="' + (NARROW ? 12 : 11) + '" fill="#52514e" data-chain-val="src move">arrows: moves from ' + prevFitName() + '</text>';
-  var pid = PANEL ? '-p' + PANEL.idx : '';   // a panel's groups carry its index: eleven planes in one document, every id once
-  var body = (moveN ? '<g id="moves' + pid + '">' + moves + '</g>' : '') + '<g id="marks' + pid + '">' + marks + '</g>';
-  if (PANEL) { out += '<text x="' + (ML + PW - 4) + '" y="' + (MT + 11) + '" text-anchor="end" font-size="' + FT + '" fill="#52514e" data-count>n = ' + drawnN + '</text>'; PANEL.drawn = drawnN; }   // the quiet count
-  (PANEL ? PANEL.g : document.getElementById('plotg')).innerHTML = out + (EXPORTING ? '<g clip-path="url(#expclip)">' + body + '</g>' : body);
-  if (PANEL) return;   // the page's text blocks, track, chips and readouts are the single figure's
+  var body = (moveN ? '<g id="moves">' + moves + '</g>' : '') + '<g id="marks">' + marks + '</g>';
+  document.getElementById('plotg').innerHTML = out + (EXPORTING ? '<g clip-path="url(#expclip)">' + body + '</g>' : body);
   (function () { var fp = document.getElementById('fitpanel'); if (fp) fp.remove(); })();   // the structure maintainers' slots (24 Sep): one caption sentence per figure — the headline carries the line's slope and R; no fit words under the plot
   updateTrack();
 
@@ -2387,7 +2269,7 @@ function exportView() {   // the controls' state in words for the export's stamp
 function exportLegend() {   // every drawn model grouped by family in the colour scheme's order, within a family by size (the project maintainers 13:1x 18 Sep), its mark exactly as drawn
   var rows = [];
   famOrder(Array.from(sel).filter(function (i) { return !isHidden(i); })).forEach(function (i) {   // one row per drawn model by its name of record, a run's checkpoints like every other model (the project maintainers' word of 23 Sep 15:0x: no grouped run row, no fit-quality note in the export)
-    var m = (PANEL && PANEL.svg ? PANEL.svg : document).querySelector('#marks' + (PANEL ? '-p' + PANEL.idx : '') + ' path[data-mark][data-i="' + i + '"]'); if (!m) return;   // not drawn: no crossing at this pair, or beyond the frame
+    var m = document.querySelector('#marks path[data-mark][data-i="' + i + '"]'); if (!m) return;   // not drawn: no crossing at this pair, or beyond the frame
     var c = D.shared.configs[i], grey = isPartial(i);
     var d = m.getAttribute('d') || '', fill = m.getAttribute('fill') || 'none', stroke = m.getAttribute('stroke') || c.color, sw = m.getAttribute('stroke-width') || '1.3';
     var op = m.parentNode && m.parentNode.getAttribute ? m.parentNode.getAttribute('opacity') : null;
@@ -2400,7 +2282,6 @@ function exportLegend() {   // every drawn model grouped by family in the colour
   return rows;
 }
 function exportOptions() {
-  if (PANEL_GRID) return exportPanels();   // 2 Oct 2026: the mode exports its grid
   var chart = document.getElementById('chart'), f = D.shared.frame || {}, ds = DATASETS[state.data] || {};
   var tight = state.view !== 'ridges' && EXT && isFinite(EXT.x0) && isFinite(EXT.y0) && EXT.x1 > EXT.x0 && EXT.y1 > EXT.y0;
   EXPORT_TIER_Y = null; EXPORT_FLOOR_Y = null;
@@ -2985,11 +2866,6 @@ function hoverWire() {
     var g = ev.target.closest ? ev.target.closest('[data-i]') : null;
     if (!g || state.view !== 'scatter') { if (ev.type === 'pointerdown' || !tipPinned) { tipPinned = false; Kit.tooltip.hide(); } return; }
     if (ev.type === 'pointerdown' && ev.pointerType === 'touch') tipPinned = true;   // TAP = pinned readout (the phone rule)
-    var psvg = g.closest ? g.closest('svg') : null;   // 2 Oct 2026: a mark in a panel reads its own set's context
-    if (psvg && psvg.dataset && psvg.dataset.p !== undefined && PANELS) { withPanel(PANELS[+psvg.dataset.p], function () { showBody(ev, g); }); return; }
-    showBody(ev, g);
-  }
-  function showBody(ev, g) {
     var i = +g.dataset.i;
     var c = D.shared.configs[i];
     var la = logit(state.a / 100), lc = logit(state.c / 100);
