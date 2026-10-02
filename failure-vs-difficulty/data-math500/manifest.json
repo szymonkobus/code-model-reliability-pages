@@ -1,9 +1,9 @@
 {
- "fingerprint": "c6a8f98ebab3",
+ "fingerprint": "0659a094cbbc",
  "fingerprint_inputs": {
   "content": "22d95aa9300b",
   "wave": "math500-live",
-  "body": "d7d9491ca5b8"
+  "body": "da81152461bd"
  },
  "frame": {
   "dataset": "math500",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "326e66dcd9ab",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "9b078ba35881",
+  "runs_fingerprint": "fd4206e48512",
   "axis_wave": "math500-live",
   "build_date": "2026-10-02",
-  "stamp": "2026-10-02T08:12:18Z",
+  "stamp": "2026-10-02T12:08:11Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/math500",
-   "unified_built_at": "2026-10-02T07:48:30Z",
+   "unified_built_at": "2026-10-02T12:03:09Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.math500.csv"
@@ -273,7 +273,7 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/nb-math500-20261002T0518Z/view_v2/results",
    "set_fingerprint": "2e38bc937e1f",
-   "pointer_updated_at": "2026-10-02T06:53:27Z",
+   "pointer_updated_at": "2026-10-02T12:03:55Z",
    "n_fits": 50,
    "note": null,
    "gates": {
@@ -334,7 +334,7 @@
   },
   "side_arms": {
    "served": true,
-   "serving_word": "difficulty's GO (06:5xZ 2 Oct, the pair): knowledge/drafts/nb_staging/serving_nb_math500.recut.json d949e4d868c0 replacing serving_nb_math500.json 49e8c1040eba and knowledge/drafts/side_staging/serving_sft_nb_math500.recut.json 7536588443c0 replacing serving_sft_nb_math500.json ffbb004b3f03, flipped together outside the tick's minutes \u2014 the MATH-500 re-cut at depth 12 on the axis of record a67d5ad7b510 (43 voters; the Haiku 4.5 and Sonnet 5 plain cells at 128 answers a task, both at their let-finish landings), wave nb-math500-20261002T0518Z view v2 and the side wave sft-nb-math500-20261002T0645Z with the seven side arms carried from the set fits (the two Olmo Think arms new to the side); the GO covers the two shas alone and is void on a byte change",
+   "serving_word": "difficulty's GO (11:1xZ 2 Oct): knowledge/drafts/side_staging/serving_sft_nb_math500.names203.json 164c6fa817a5 replacing serving_sft_nb_math500.json 7d2cf63a7293 \u2014 a text-only re-emission on the same wave and fits: the RL arm's disclosure without the point sentence, the code fine-tune's disclosure reading 'D99 is unresolved' (fit-critic's two findings fixed at the source); flipped outside the tick's minutes; the GO covers this sha alone and is void on a byte change",
    "wave_id": "sft-nb-math500-20261002T0645Z",
    "n_arms": 7,
    "heading": "models fitted alongside the set, on MATH-500; four post-training fine-tunes, one RL checkpoint, the released final of one training run and one checkpoint of one training run, positioned on the served MATH-500 axis unchanged; each model's own figures in its entry",
@@ -344,7 +344,7 @@
    "axis_pinned_to_served": true,
    "cut_at": "2026-10-02T06:45:11Z",
    "completed_at": "2026-10-02T06:16:59Z",
-   "updated_at": "2026-10-02T06:53:28Z",
+   "updated_at": "2026-10-02T12:03:55Z",
    "pointer": "definitions/fitting/serving_sft_nb_math500.json",
    "arms": [
     {
@@ -2410,7 +2410,7 @@
      "n_tasks_positioned": 500,
      "n_cells": 500,
      "set_label": "MATH-500",
-     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served MATH-500 axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 8,192 tokens); a partial result: 32 answers a problem where the set's standard is 128 answers a problem; shown on the toggle with its count, never in a same-attempts headline; re-fitted when its answers reach 128; a direct fine-tune of Qwen3 8B; the base model, Qwen3 8B, votes on this axis through its served runs (Qwen--Qwen3-8B_think-t0.6, Qwen--Qwen3-8B_t0.5); the fit stands on MATH-500; 500 positioned in this fit (every problem of the set); results as they stood at the source fit's cut (2 Oct 06:21, the results page's data of 2 Oct 06:18; the fit carried from nb-math500-20261002T0518Z, the same results task by task); the sampler's checks pass for this model; D99 is a unresolved: the 80% uncertainty band of D99 (the 1% crossing of the average-rate curve) spans 1.6116 on the difficulty scale, wider than the house bandwidth of 1.0; its value and uncertainty band are kept beside (floor rate 0.3416%)",
+     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served MATH-500 axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 8,192 tokens); a partial result: 32 answers a problem where the set's standard is 128 answers a problem; shown on the toggle with its count, never in a same-attempts headline; re-fitted when its answers reach 128; a direct fine-tune of Qwen3 8B; the base model, Qwen3 8B, votes on this axis through its served runs (Qwen--Qwen3-8B_think-t0.6, Qwen--Qwen3-8B_t0.5); the fit stands on MATH-500; 500 positioned in this fit (every problem of the set); results as they stood at the source fit's cut (2 Oct 06:21, the results page's data of 2 Oct 06:18; the fit carried from nb-math500-20261002T0518Z, the same results task by task); the sampler's checks pass for this model; D99 is unresolved: the 80% uncertainty band of D99 spans 1.612 on the difficulty scale, wider than the 1.0 limit for a resolved crossing",
      "gates_failed": false,
      "partial": true,
      "released": false,
@@ -4412,7 +4412,7 @@
        "z": -2.8239,
        "lo": -4.1353,
        "hi": -2.5237,
-       "status": "unresolved: the 80% uncertainty band of D99 (the 1% crossing of the average-rate curve) spans 1.6116 on the difficulty scale, wider than the house bandwidth of 1.0; its value and uncertainty band are kept beside (floor rate 0.3416%)",
+       "status": "unresolved: the 80% uncertainty band of D99 spans 1.612 on the difficulty scale, wider than the 1.0 limit for a resolved crossing",
        "status_kind": "unresolved",
        "reason_text": null,
        "uncensored_median_z": -2.8239,
@@ -8502,7 +8502,7 @@
       ]
      },
      "baseline_id": "dsc6.7b-rl-night4-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8, fixed (500 steps)",
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 6\u20137/8, fixed \u00b7 500 steps",
      "family": "DeepSeek-Coder",
      "color": "#2b0a33",
      "variant": null,
@@ -10504,7 +10504,7 @@
       "d50": {
        "z": -3.8552,
        "mixing_note": null,
-       "status": "point (censor fraction disclosed: 0.000 of the draws beyond the hardest task, 0.042 below the easiest)",
+       "status": "point",
        "status_kind": "point",
        "bound": null,
        "reason_text": null,
@@ -14613,7 +14613,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-02T07:25:14Z",
+   "_stamp": "2026-10-02T11:32:20Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -14778,17 +14778,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-02T07:16:03Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T071603Z.json",
-   "sha16": "428516ca617d2dbd",
-   "census_mtime": "2026-10-02T07:17:14Z",
+   "stamp": "2026-10-02T09:20:02Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T092002Z.json",
+   "sha16": "51fe8fa5afb58947",
+   "census_mtime": "2026-10-02T09:20:55Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.c6a8f98ebab3.json",
-  "chain_average": "chain_average.c6a8f98ebab3.json",
-  "chain_median": "chain_median.c6a8f98ebab3.json",
-  "dots": "dots.c6a8f98ebab3.json"
+  "shared": "shared.0659a094cbbc.json",
+  "chain_average": "chain_average.0659a094cbbc.json",
+  "chain_median": "chain_median.0659a094cbbc.json",
+  "dots": "dots.0659a094cbbc.json"
  }
 }

@@ -82,6 +82,7 @@ var D = {};
  * panel's svg under the one set of controls, chips, levels and export), so every fix of the single figure reaches every panel. The page enters the mode by its
  * own View switch above the figure, never by a link. A panel's axes crop to its points (one common range for both axes: equal scales, the diagonal). */
 var PANELS_KEYS = null, PANELS = null, PANEL = null, PANEL_GRID = null, UNION = null;
+var CROP = null;   // 2 Oct 2026 (the project maintainers' word of 11:2x UK, the structure maintainers' section: a page's axes fit the data): the single figure's on-screen window — one common range for both axes around the drawn points, held while a level drags, re-cropped at the drag's end
 var PANEL_ORDER = ['board_top', 'board', 'top', 'new', 'all', 'math500', 'aime', 'gsm8k_platinum', 'ifeval', 'cruxeval_i', 'cruxeval_o'];   // the default sets as the Dataset switch lists them, then Math, then Other (the leaf of record)
 function withPanel(ctx, fn) {   // the single figure's closure variables stand in for one panel while fn runs, then come back
   var s0 = [D, LIM, RUNS, RUN, SLUG_OF, IDX_OF_SLUG, sel]; D = ctx.D; LIM = ctx.LIM; RUNS = ctx.RUNS || []; RUN = ctx.RUN || null; SLUG_OF = ctx.SLUG_OF || {}; IDX_OF_SLUG = ctx.IDX_OF_SLUG || {}; sel = ctx.sel || new Set();
@@ -1755,7 +1756,21 @@ function render() {
   syncXdefLock();
   if (PANEL_GRID) { PANEL_GRID.redraw(); paintChips(); return; }   // 2 Oct 2026: the side-by-side mode — every control event redraws every panel
   if (state.view === 'ridges') { renderRidges(); renderOpusFold(); return; }
-  renderScatter(); renderOpusFold();
+  if (EXPORTING) { renderScatter(); renderOpusFold(); return; }   // the export sets its own window
+  // 2 Oct 2026 (the project maintainers' word of 11:2x UK; the structure maintainers' section: a page's axes fit the data): the figure's axes crop to the drawn points — pass one at the
+  // set's whole frame reads the drawn extent, pass two draws inside one common range for both axes (equal scales, the diagonal), padded 6%, never beyond the
+  // set's frame; while a level drags the window holds (a point that leaves it is an open bound at the edge, never hidden) and re-crops when the drag ends
+  var sweeping = dragActive || !!playTimer;
+  if (!sweeping || !CROP) {
+    LIMX = null; LIMY = null; renderScatter();
+    if (EXT && isFinite(EXT.x0) && isFinite(EXT.y0) && EXT.x1 >= EXT.x0 && EXT.y1 >= EXT.y0) {
+      var lo = Math.min(EXT.x0, EXT.y0), hi = Math.max(EXT.x1, EXT.y1); if (hi - lo < 1) { var mid = (lo + hi) / 2; lo = mid - 0.5; hi = mid + 0.5; } var pad = (hi - lo) * 0.06;
+      CROP = [Math.max(LIM[0], lo - pad), Math.min(LIM[1], hi + pad)];
+      if (CROP[1] - CROP[0] >= (LIM[1] - LIM[0]) - 1e-9) CROP = null;   // the points fill the set's frame already
+    } else CROP = null;
+  }
+  if (CROP) { LIMX = CROP.slice(); LIMY = CROP.slice(); try { renderScatter(); } finally { LIMX = null; LIMY = null; } }
+  renderOpusFold();
 }
 
 function pctLadder(lo, hi) {   // percent ticks at the coarsest 1-2-5 step that puts three or more inside (lo, hi), for a window the reference ticks do not cover
