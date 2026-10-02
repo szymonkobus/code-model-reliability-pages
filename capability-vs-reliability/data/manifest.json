@@ -108,7 +108,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-02T20:21:28Z"
+   "updated_at": "2026-10-02T20:45:55Z"
   },
   "all": {
    "files": {
@@ -660,21 +660,21 @@
   },
   "cruxeval_i": {
    "files": {
-    "shared": "shared.cruxeval_i.6c1736210e27.json",
-    "chain_average": "chain_average.cruxeval_i.6c1736210e27.json",
-    "bayes": "bayes.cruxeval_i.6c1736210e27-4ecc6265a1f0.json",
+    "shared": "shared.cruxeval_i.7eec2155faba.json",
+    "chain_average": "chain_average.cruxeval_i.7eec2155faba.json",
+    "bayes": "bayes.cruxeval_i.7eec2155faba-4ecc6265a1f0.json",
     "bayes_prev": "bayes.cruxeval_i.372d1f59161a-25cf9e981c9d.json"
    },
    "label": "CRUXEval input",
    "arms": "all",
-   "fingerprint": "6c1736210e27",
+   "fingerprint": "7eec2155faba",
    "frame": {
     "population_M": 44,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
     "runs_fingerprint": "7b6884954b93",
     "build_date": "2026-10-02",
-    "build_ts": "2026-10-02T20:38:18Z",
+    "build_ts": "2026-10-02T20:46:08Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_i",
     "set_label": "CRUXEval input",
@@ -685,14 +685,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
     "tasks_used": "CRUXEval input \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_i fp d10a848f4f6f (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "e4ffa1fd3033",
+    "source": "failure-vs-difficulty data-cruxeval_i fp ee349ff5e86b (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "82618c7e0975",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-02T20:38:18Z",
-   "source_fp": "d10a848f4f6f",
-   "updated_at": "2026-10-02T20:41:42Z",
+   "source_stamp": "2026-10-02T20:46:08Z",
+   "source_fp": "ee349ff5e86b",
+   "updated_at": "2026-10-02T20:49:34Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
