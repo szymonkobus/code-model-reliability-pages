@@ -1,9 +1,9 @@
 {
- "fingerprint": "1ee92773b7c9",
+ "fingerprint": "024a03fe35da",
  "fingerprint_inputs": {
-  "content": "186b05889ac8",
+  "content": "c4004480da70",
   "wave": "combined-20260913T1641Z",
-  "body": "91c704634cfd"
+  "body": "10e131c248a5"
  },
  "frame": {
   "dataset": "board_top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 12,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "186b05889ac8",
+  "inputs_content_sha": "c4004480da70",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -34,17 +34,17 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "b2cd8a3cb89e",
+  "runs_fingerprint": "3e93cd60e28e",
   "axis_wave": "combined-20260913T1641Z",
   "build_date": "2026-10-02",
-  "stamp": "2026-10-02T14:21:08Z",
+  "stamp": "2026-10-02T15:43:11Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-02T13:28:59Z",
+   "unified_built_at": "2026-10-02T15:16:15Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.golden.board_top.csv"
@@ -63,7 +63,7 @@
     "of": 1288
    },
    "claude-sonnet-5": {
-    "tasks": 1281,
+    "tasks": 1288,
     "of": 1288
    },
    "claude-sonnet-5-thinking": {
@@ -71,7 +71,7 @@
     "of": 1288
    },
    "Qwen/Qwen3-0.6B": {
-    "tasks": 1280,
+    "tasks": 1288,
     "of": 1288
    },
    "Qwen/Qwen3-0.6B-Thinking": {
@@ -79,7 +79,7 @@
     "of": 1288
    },
    "Qwen/Qwen3-1.7B": {
-    "tasks": 1286,
+    "tasks": 1288,
     "of": 1288
    },
    "Qwen/Qwen3-1.7B-Thinking": {
@@ -87,7 +87,7 @@
     "of": 1288
    },
    "Qwen/Qwen3-4B": {
-    "tasks": 1284,
+    "tasks": 1288,
     "of": 1288
    },
    "Qwen/Qwen3-4B-Thinking": {
@@ -95,7 +95,7 @@
     "of": 1288
    },
    "Qwen/Qwen3-8B": {
-    "tasks": 1280,
+    "tasks": 1288,
     "of": 1288
    },
    "Qwen/Qwen3-8B-Thinking": {
@@ -235,7 +235,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-02T13:28:55Z",
+   "_stamp": "2026-10-02T15:25:27Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -400,17 +400,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-02T11:58:04Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T115804Z.json",
-   "sha16": "c4d3f52c85a4cdb3",
-   "census_mtime": "2026-10-02T11:59:18Z",
+   "stamp": "2026-10-02T14:27:45Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T142745Z.json",
+   "sha16": "62f07ff4b34ce289",
+   "census_mtime": "2026-10-02T14:28:52Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.1ee92773b7c9.json",
-  "chain_average": "chain_average.1ee92773b7c9.json",
-  "chain_median": "chain_median.1ee92773b7c9.json",
-  "dots": "dots.1ee92773b7c9.json"
+  "shared": "shared.024a03fe35da.json",
+  "chain_average": "chain_average.024a03fe35da.json",
+  "chain_median": "chain_median.024a03fe35da.json",
+  "dots": "dots.024a03fe35da.json"
  }
 }
