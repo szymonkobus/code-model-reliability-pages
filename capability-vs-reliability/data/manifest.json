@@ -82,33 +82,33 @@
   },
   "new": {
    "files": {
-    "shared": "shared.new.d3039a6faa61.json",
-    "chain_average": "chain_average.new.d3039a6faa61.json"
+    "shared": "shared.new.013b5b90ca7b.json",
+    "chain_average": "chain_average.new.013b5b90ca7b.json"
    },
    "label": "wave 2 and wave 2 parked",
-   "fingerprint": "d3039a6faa61",
+   "fingerprint": "013b5b90ca7b",
    "frame": {
     "population_M": 56,
     "tasks": 1737,
     "keep_set_hash": "abc6c6e65227",
-    "runs_fingerprint": "d3039a6faa61",
+    "runs_fingerprint": "013b5b90ca7b",
     "runs_window": "2026-10-02T15:58:03Z",
     "build_date": "2026-10-02",
-    "build_ts": "2026-10-02T16:21:55Z",
+    "build_ts": "2026-10-02T17:19:39Z",
     "vocab_ruled": "2026-08-27",
     "set": "new",
     "set_label": "wave 2 and wave 2 parked",
     "tasks_used": "wave 2 and wave 2 parked \u2014 1737 tasks, axis wave combined-20260903T1502Z",
-    "source": "pool-pages-lead build_pool_curves.py stamp 2026-10-02T16:21:55+00:00 \u00b7 cross_rows on lev_grid f3d40b6fb872",
+    "source": "pool-pages-lead build_pool_curves.py stamp 2026-10-02T17:19:39+00:00 \u00b7 cross_rows on lev_grid f3d40b6fb872",
     "skipped_no_rows": []
    },
-   "source_stamp": "2026-10-02T16:21:55+00:00",
+   "source_stamp": "2026-10-02T17:19:39+00:00",
    "missing": {
     "chain_median": "the median-task chain needs the pool's per-task results, which the pool bundle does not carry",
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-02T17:19:07Z"
+   "updated_at": "2026-10-02T17:38:19Z"
   },
   "all": {
    "files": {
@@ -143,7 +143,7 @@
    },
    "source_stamp": "2026-10-02T15:37:58Z",
    "source_fp": "57833c36bd4f",
-   "updated_at": "2026-10-02T16:58:16Z",
+   "updated_at": "2026-10-02T17:26:06Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -191,7 +191,7 @@
    },
    "source_stamp": "2026-10-02T15:58:37Z",
    "source_fp": "001ea66632b5",
-   "updated_at": "2026-10-02T16:59:21Z",
+   "updated_at": "2026-10-02T17:26:22Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -240,7 +240,7 @@
    },
    "source_stamp": "2026-10-02T15:59:04Z",
    "source_fp": "ba2c5c6fbd6b",
-   "updated_at": "2026-10-02T17:00:40Z",
+   "updated_at": "2026-10-02T17:27:16Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -289,7 +289,7 @@
    },
    "source_stamp": "2026-10-02T16:00:31Z",
    "source_fp": "bb279319839c",
-   "updated_at": "2026-10-02T17:01:30Z",
+   "updated_at": "2026-10-02T17:27:34Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -338,7 +338,7 @@
    },
    "source_stamp": "2026-10-02T15:45:02Z",
    "source_fp": "b1b231874328",
-   "updated_at": "2026-10-02T17:04:24Z",
+   "updated_at": "2026-10-02T17:29:35Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -383,7 +383,7 @@
    },
    "source_stamp": "2026-10-02T15:54:24Z",
    "source_fp": "72a207bdd912",
-   "updated_at": "2026-10-02T17:07:21Z",
+   "updated_at": "2026-10-02T17:31:36Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -431,7 +431,7 @@
    },
    "source_stamp": "2026-10-02T15:43:11Z",
    "source_fp": "024a03fe35da",
-   "updated_at": "2026-10-02T17:07:49Z",
+   "updated_at": "2026-10-02T17:31:53Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -480,7 +480,7 @@
    },
    "source_stamp": "2026-10-02T15:43:54Z",
    "source_fp": "01f0064d5479",
-   "updated_at": "2026-10-02T17:08:23Z",
+   "updated_at": "2026-10-02T17:32:09Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -822,7 +822,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-10-02T16:31:55Z",
+  "stamp": "2026-10-02T17:26:18Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,
