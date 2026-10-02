@@ -1,9 +1,9 @@
 {
- "fingerprint": "6d64e9e0e27e",
+ "fingerprint": "fbf2358c2fa4",
  "fingerprint_inputs": {
-  "content": "e45d0da5caf7",
+  "content": "d2c5532f95f4",
   "wave": "combined-20260910T2209Z",
-  "body": "17dda40a3c69"
+  "body": "d8f620a7c0cb"
  },
  "frame": {
   "dataset": "board_top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 61,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "e45d0da5caf7",
+  "inputs_content_sha": "d2c5532f95f4",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "3a23a4091d65",
+  "runs_fingerprint": "29948dca2e5a",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-02",
-  "stamp": "2026-10-02T09:41:40Z",
+  "stamp": "2026-10-02T10:35:26Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -89,7 +89,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-02T09:16:52Z",
+   "unified_built_at": "2026-10-02T10:17:18Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -73632,11 +73632,11 @@
       "arm_kind": "RL checkpoint (code): step 250 of the training loop's first run (RL on all tasks; resumed), read on wave 1+2 at the base's card",
       "baseline_arm": "dsc6.7b-instruct-start",
       "baseline_id": "deepseek-coder-6.7b-instruct-start",
-      "label": "DeepSeek-Coder 6.7B \u00b7 RL on all tasks (250 steps)",
+      "label": "DeepSeek-Coder 6.7B \u00b7 RL, all tasks \u00b7 250 steps",
       "family": "DeepSeek-Coder",
       "color": "#561467",
       "run": "DeepSeek-Coder 6.7B",
-      "short_label": "RL on all tasks \u00b7 250 steps",
+      "short_label": "RL, all tasks \u00b7 250 steps",
       "run_dash": "",
       "step": 250,
       "final": false,
@@ -75662,11 +75662,11 @@
       "arm_kind": "RL finish (code): step 500, the finish of the training loop's first run (RL on all tasks; resumed), read on wave 1+2 at the base's card",
       "baseline_arm": "dsc6.7b-instruct-start",
       "baseline_id": "deepseek-coder-6.7b-instruct-start",
-      "label": "DeepSeek-Coder 6.7B \u00b7 RL on all tasks (500 steps)",
+      "label": "DeepSeek-Coder 6.7B \u00b7 RL, all tasks \u00b7 500 steps",
       "family": "DeepSeek-Coder",
       "color": "#2b0a33",
       "run": "DeepSeek-Coder 6.7B",
-      "short_label": "RL on all tasks \u00b7 500 steps",
+      "short_label": "RL, all tasks \u00b7 500 steps",
       "run_dash": "",
       "step": 500,
       "final": true,
@@ -77692,11 +77692,11 @@
       "arm_kind": "RL checkpoint (code): step 250 of the training loop's second run (RL on tasks it fails 1\u20137 of 8), read on wave 1+2 at the base's card",
       "baseline_arm": "dsc6.7b-instruct-start",
       "baseline_id": "deepseek-coder-6.7b-instruct-start",
-      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20137 of 8 (250 steps)",
+      "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20137/8 \u00b7 250 steps",
       "family": "DeepSeek-Coder",
       "color": "#561467",
       "run": "DeepSeek-Coder 6.7B",
-      "short_label": "RL on tasks it fails 1\u20137 of 8 \u00b7 250 steps",
+      "short_label": "RL, fails 1\u20137/8 \u00b7 250 steps",
       "run_dash": "6 3",
       "step": 250,
       "final": false,
@@ -79722,11 +79722,11 @@
       "arm_kind": "RL finish (code): step 500, the finish of the training loop's second run (RL on tasks it fails 1\u20137 of 8), read on wave 1+2 at the base's card",
       "baseline_arm": "dsc6.7b-instruct-start",
       "baseline_id": "deepseek-coder-6.7b-instruct-start",
-      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20137 of 8 (500 steps)",
+      "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20137/8 \u00b7 500 steps",
       "family": "DeepSeek-Coder",
       "color": "#2b0a33",
       "run": "DeepSeek-Coder 6.7B",
-      "short_label": "RL on tasks it fails 1\u20137 of 8 \u00b7 500 steps",
+      "short_label": "RL, fails 1\u20137/8 \u00b7 500 steps",
       "run_dash": "6 3",
       "step": 500,
       "final": true,
@@ -81752,11 +81752,11 @@
       "arm_kind": "RL checkpoint (code): step 250 of the training loop's third run (RL on the tasks it fails 1\u20132 of 8), read on wave 1+2 at the base's card",
       "baseline_arm": "dsc6.7b-instruct-start",
       "baseline_id": "deepseek-coder-6.7b-instruct-start",
-      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8, fixed (250 steps)",
+      "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20132/8, fixed \u00b7 250 steps",
       "family": "DeepSeek-Coder",
       "color": "#561467",
       "run": "DeepSeek-Coder 6.7B",
-      "short_label": "RL on tasks it fails 1\u20132 of 8, fixed \u00b7 250 steps",
+      "short_label": "RL, fails 1\u20132/8, fixed \u00b7 250 steps",
       "run_dash": "2 2.5",
       "step": 250,
       "final": false,
@@ -83782,11 +83782,11 @@
       "arm_kind": "RL finish (code): step 500, the finish of the training loop's third run (RL on the tasks it fails 1\u20132 of 8), read on wave 1+2 at the base's card",
       "baseline_arm": "dsc6.7b-instruct-start",
       "baseline_id": "deepseek-coder-6.7b-instruct-start",
-      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8, fixed (500 steps)",
+      "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20132/8, fixed \u00b7 500 steps",
       "family": "DeepSeek-Coder",
       "color": "#2b0a33",
       "run": "DeepSeek-Coder 6.7B",
-      "short_label": "RL on tasks it fails 1\u20132 of 8, fixed \u00b7 500 steps",
+      "short_label": "RL, fails 1\u20132/8, fixed \u00b7 500 steps",
       "run_dash": "2 2.5",
       "step": 500,
       "final": true,
@@ -85812,11 +85812,11 @@
       "arm_kind": "RL checkpoint (code): step 250 of the training loop's fourth run (RL on the tasks it fails 6\u20137 of 8), read on wave 1+2 at the base's card",
       "baseline_arm": "dsc6.7b-instruct-start",
       "baseline_id": "deepseek-coder-6.7b-instruct-start",
-      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8, fixed (250 steps)",
+      "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 6\u20137/8, fixed \u00b7 250 steps",
       "family": "DeepSeek-Coder",
       "color": "#561467",
       "run": "DeepSeek-Coder 6.7B",
-      "short_label": "RL on tasks it fails 6\u20137 of 8, fixed \u00b7 250 steps",
+      "short_label": "RL, fails 6\u20137/8, fixed \u00b7 250 steps",
       "run_dash": "8 3 2 3",
       "step": 250,
       "final": false,
@@ -87842,11 +87842,11 @@
       "arm_kind": "RL finish (code): step 500, the finish of the training loop's fourth run (RL on the tasks it fails 6\u20137 of 8), read on wave 1+2 at the base's card",
       "baseline_arm": "dsc6.7b-instruct-start",
       "baseline_id": "deepseek-coder-6.7b-instruct-start",
-      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8, fixed (500 steps)",
+      "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 6\u20137/8, fixed \u00b7 500 steps",
       "family": "DeepSeek-Coder",
       "color": "#2b0a33",
       "run": "DeepSeek-Coder 6.7B",
-      "short_label": "RL on tasks it fails 6\u20137 of 8, fixed \u00b7 500 steps",
+      "short_label": "RL, fails 6\u20137/8, fixed \u00b7 500 steps",
       "run_dash": "8 3 2 3",
       "step": 500,
       "final": true,
@@ -89872,11 +89872,11 @@
       "arm_kind": "RL checkpoint (code): step 250 of the training loop's fifth run (RL on the tasks it fails 3\u20135 of 8), read on wave 1+2 at the base's card",
       "baseline_arm": "dsc6.7b-instruct-start",
       "baseline_id": "deepseek-coder-6.7b-instruct-start",
-      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8, fixed (250 steps)",
+      "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 3\u20135/8, fixed \u00b7 250 steps",
       "family": "DeepSeek-Coder",
       "color": "#561467",
       "run": "DeepSeek-Coder 6.7B",
-      "short_label": "RL on tasks it fails 3\u20135 of 8, fixed \u00b7 250 steps",
+      "short_label": "RL, fails 3\u20135/8, fixed \u00b7 250 steps",
       "run_dash": "12 3",
       "step": 250,
       "final": false,
@@ -91902,11 +91902,11 @@
       "arm_kind": "RL finish (code): step 500, the finish of the training loop's fifth run (RL on the tasks it fails 3\u20135 of 8), read on wave 1+2 at the base's card",
       "baseline_arm": "dsc6.7b-instruct-start",
       "baseline_id": "deepseek-coder-6.7b-instruct-start",
-      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8, fixed (500 steps)",
+      "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 3\u20135/8, fixed \u00b7 500 steps",
       "family": "DeepSeek-Coder",
       "color": "#2b0a33",
       "run": "DeepSeek-Coder 6.7B",
-      "short_label": "RL on tasks it fails 3\u20135 of 8, fixed \u00b7 500 steps",
+      "short_label": "RL, fails 3\u20135/8, fixed \u00b7 500 steps",
       "run_dash": "12 3",
       "step": 500,
       "final": true,
@@ -93932,11 +93932,11 @@
       "arm_kind": "RL checkpoint (code): step 100 of the training loop's sixth run (RL on the tasks it fails 1\u20133 of 32, the soft draw), read on wave 1+2 at the base's card",
       "baseline_arm": "dsc6.7b-instruct-start",
       "baseline_id": "deepseek-coder-6.7b-instruct-start",
-      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20133 of 32 (100 steps)",
+      "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20133/32 \u00b7 100 steps",
       "family": "DeepSeek-Coder",
       "color": "#701a86",
       "run": "DeepSeek-Coder 6.7B",
-      "short_label": "RL on tasks it fails 1\u20133 of 32 \u00b7 100 steps",
+      "short_label": "RL, fails 1\u20133/32 \u00b7 100 steps",
       "run_dash": "3 3 12 3",
       "step": 100,
       "final": false,
@@ -95962,11 +95962,11 @@
       "arm_kind": "RL checkpoint (code): step 250 of the training loop's sixth run (RL on the tasks it fails 1\u20133 of 32, the soft draw; its continuation to 500 was stopped before its first step by the project owner's word, decision 175 of 28 Sep; the 250-step checkpoint archived for a resumption on the project owner's word), read on wave 1+2 at the base's card",
       "baseline_arm": "dsc6.7b-instruct-start",
       "baseline_id": "deepseek-coder-6.7b-instruct-start",
-      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20133 of 32 (250 steps)",
+      "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20133/32 \u00b7 250 steps",
       "family": "DeepSeek-Coder",
       "color": "#561467",
       "run": "DeepSeek-Coder 6.7B",
-      "short_label": "RL on tasks it fails 1\u20133 of 32 \u00b7 250 steps",
+      "short_label": "RL, fails 1\u20133/32 \u00b7 250 steps",
       "run_dash": "3 3 12 3",
       "step": 250,
       "final": false,
@@ -97992,11 +97992,11 @@
       "arm_kind": "RL checkpoint (code): step 250 of the training loop's re-drawn run on the tasks the model currently fails 1\u20132 of 8 (the set re-drawn every 50 steps from the current failures; 8 answers; decision 171 of 28 Sep), read on wave 1+2 at the base's card",
       "baseline_arm": "dsc6.7b-instruct-start",
       "baseline_id": "deepseek-coder-6.7b-instruct-start",
-      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8, 1 redraw (250 steps)",
+      "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20132/8, 1 redraw \u00b7 250 steps",
       "family": "DeepSeek-Coder",
       "color": "#561467",
       "run": "DeepSeek-Coder 6.7B",
-      "short_label": "RL on tasks it fails 1\u20132 of 8, 1 redraw \u00b7 250 steps",
+      "short_label": "RL, fails 1\u20132/8, 1 redraw \u00b7 250 steps",
       "run_dash": "1 3",
       "step": 250,
       "final": false,
@@ -100022,11 +100022,11 @@
       "arm_kind": "RL checkpoint (code): step 250 of the training loop's re-drawn run on the tasks the model currently fails 3\u20135 of 8 (the set re-drawn every 50 steps from the current failures; 8 answers; decision 171 of 28 Sep), read on wave 1+2 at the base's card",
       "baseline_arm": "dsc6.7b-instruct-start",
       "baseline_id": "deepseek-coder-6.7b-instruct-start",
-      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8, 2 redraws (250 steps)",
+      "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 3\u20135/8, 2 redraws \u00b7 250 steps",
       "family": "DeepSeek-Coder",
       "color": "#561467",
       "run": "DeepSeek-Coder 6.7B",
-      "short_label": "RL on tasks it fails 3\u20135 of 8, 2 redraws \u00b7 250 steps",
+      "short_label": "RL, fails 3\u20135/8, 2 redraws \u00b7 250 steps",
       "run_dash": "6 2 1 2 1 2",
       "step": 250,
       "final": false,
@@ -102052,11 +102052,11 @@
       "arm_kind": "RL checkpoint (code): step 250 of the training loop's re-drawn run on the tasks the model currently fails 6\u20137 of 8 (the set re-drawn every 50 steps from the current failures; 8 answers; decision 171 of 28 Sep), read on wave 1+2 at the base's card",
       "baseline_arm": "dsc6.7b-instruct-start",
       "baseline_id": "deepseek-coder-6.7b-instruct-start",
-      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8, 1 redraw (250 steps)",
+      "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 6\u20137/8, 1 redraw \u00b7 250 steps",
       "family": "DeepSeek-Coder",
       "color": "#561467",
       "run": "DeepSeek-Coder 6.7B",
-      "short_label": "RL on tasks it fails 6\u20137 of 8, 1 redraw \u00b7 250 steps",
+      "short_label": "RL, fails 6\u20137/8, 1 redraw \u00b7 250 steps",
       "run_dash": "14 4 2 4",
       "step": 250,
       "final": false,
@@ -104082,11 +104082,11 @@
       "arm_kind": "RL finish (code): step 250, the finish of the training loop's run on the tasks the model currently fails 1\u20132 of 8 (the set re-drawn every 25 steps from the current failures with the one-interval delay; 8 answers; decision 195 of 29 Sep), read on wave 1+2 at the base's card",
       "baseline_arm": "dsc6.7b-instruct-start",
       "baseline_id": "deepseek-coder-6.7b-instruct-start",
-      "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8, re-drawn every 25 steps (250 steps)",
+      "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20132/8, re-drawn every 25 \u00b7 250 steps",
       "family": "DeepSeek-Coder",
       "color": "#561467",
       "run": "DeepSeek-Coder 6.7B",
-      "short_label": "RL on tasks it fails 1\u20132 of 8, re-drawn every 25 steps \u00b7 250 steps",
+      "short_label": "RL, fails 1\u20132/8, re-drawn every 25 \u00b7 250 steps",
       "run_dash": "10 2 2 2",
       "step": 250,
       "final": true,
@@ -106130,82 +106130,82 @@
     {
      "id": "deepseek-coder-6.7b-rl-night1-step250",
      "arm_id": "dsc6.7b-rl-night1-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on all tasks (250 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, all tasks \u00b7 250 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night1-step500",
      "arm_id": "dsc6.7b-rl-night1-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on all tasks (500 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, all tasks \u00b7 500 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night2-step250",
      "arm_id": "dsc6.7b-rl-night2-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20137 of 8 (250 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20137/8 \u00b7 250 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night2-step500",
      "arm_id": "dsc6.7b-rl-night2-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20137 of 8 (500 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20137/8 \u00b7 500 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night3-step250",
      "arm_id": "dsc6.7b-rl-night3-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8, fixed (250 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20132/8, fixed \u00b7 250 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night3-step500",
      "arm_id": "dsc6.7b-rl-night3-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8, fixed (500 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20132/8, fixed \u00b7 500 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night4-step250",
      "arm_id": "dsc6.7b-rl-night4-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8, fixed (250 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 6\u20137/8, fixed \u00b7 250 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night4-step500",
      "arm_id": "dsc6.7b-rl-night4-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8, fixed (500 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 6\u20137/8, fixed \u00b7 500 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night5-step250",
      "arm_id": "dsc6.7b-rl-night5-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8, fixed (250 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 3\u20135/8, fixed \u00b7 250 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night5-step500",
      "arm_id": "dsc6.7b-rl-night5-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8, fixed (500 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 3\u20135/8, fixed \u00b7 500 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night6-step100",
      "arm_id": "dsc6.7b-rl-night6-s100",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20133 of 32 (100 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20133/32 \u00b7 100 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night6-step250",
      "arm_id": "dsc6.7b-rl-night6-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20133 of 32 (250 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20133/32 \u00b7 250 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-redraw-a-step250",
      "arm_id": "dsc6.7b-rl-redraw-a-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8, 1 redraw (250 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20132/8, 1 redraw \u00b7 250 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-redraw-b-step250",
      "arm_id": "dsc6.7b-rl-redraw-b-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 3\u20135 of 8, 2 redraws (250 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 3\u20135/8, 2 redraws \u00b7 250 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-redraw-c-step250",
      "arm_id": "dsc6.7b-rl-redraw-c-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8, 1 redraw (250 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 6\u20137/8, 1 redraw \u00b7 250 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-redraw25-a-step250",
      "arm_id": "dsc6.7b-rl-redraw25-a-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 1\u20132 of 8, re-drawn every 25 steps (250 steps)"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20132/8, re-drawn every 25 \u00b7 250 steps"
     },
     {
      "id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
@@ -106367,7 +106367,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-02T09:25:36Z",
+   "_stamp": "2026-10-02T10:27:08Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -106532,17 +106532,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-02T08:15:29Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T081529Z.json",
-   "sha16": "56866f0a41b97af0",
-   "census_mtime": "2026-10-02T08:16:25Z",
+   "stamp": "2026-10-02T09:20:02Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T092002Z.json",
+   "sha16": "51fe8fa5afb58947",
+   "census_mtime": "2026-10-02T09:20:55Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.6d64e9e0e27e.json",
-  "chain_average": "chain_average.6d64e9e0e27e.json",
-  "chain_median": "chain_median.6d64e9e0e27e.json",
-  "dots": "dots.6d64e9e0e27e.json"
+  "shared": "shared.fbf2358c2fa4.json",
+  "chain_average": "chain_average.fbf2358c2fa4.json",
+  "chain_median": "chain_median.fbf2358c2fa4.json",
+  "dots": "dots.fbf2358c2fa4.json"
  }
 }
