@@ -1,9 +1,9 @@
 {
- "fingerprint": "e94c2e4efc04",
+ "fingerprint": "1546186b81c7",
  "fingerprint_inputs": {
-  "content": "9b46e0c351ef",
+  "content": "c851e42fd7ac",
   "wave": "aime-live",
-  "body": "de1cf793e334"
+  "body": "299b4f655d59"
  },
  "frame": {
   "dataset": "aime",
@@ -17,28 +17,28 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 38,
-  "fitted_M": 38,
-  "complete_M": 38,
-  "sampled_M": 38,
-  "difficulty_population_M": 38,
+  "population_M": 39,
+  "fitted_M": 39,
+  "complete_M": 39,
+  "sampled_M": 39,
+  "difficulty_population_M": 39,
   "tasks": 60,
   "keep_set_hash": "dc5cbadfe267",
-  "inputs_content_sha": "9b46e0c351ef",
+  "inputs_content_sha": "c851e42fd7ac",
   "tasks_on_axis": 60,
   "tasks_kept": 60,
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "dc5cbadfe267",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "3281dd485dc1",
+  "runs_fingerprint": "f14bdbb1949e",
   "axis_wave": "aime-live",
   "build_date": "2026-10-02",
-  "stamp": "2026-10-02T00:12:43Z",
+  "stamp": "2026-10-02T01:11:09Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/aime",
-   "unified_built_at": "2026-10-01T23:54:09Z",
+   "unified_built_at": "2026-10-02T01:07:22Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.aime.csv"
@@ -49,6 +49,10 @@
   "fit_excluded": [],
   "coverage": {
    "claude-haiku-4-5": {
+    "tasks": 60,
+    "of": 60
+   },
+   "claude-haiku-4-5-thinking": {
     "tasks": 60,
     "of": 60
    },
@@ -240,10 +244,10 @@
    },
    "provisional_classes": null,
    "basis_truncation": null,
-   "served_axis_note": null,
+   "served_axis_note": "Bayesian curve fitted on this live axis as it stood at the cut; the axis has moved with results landing since, so positions may differ slightly",
    "membership_lag": null,
    "partial_coverage_arms": [],
-   "matches_axis": true,
+   "matches_axis": false,
    "population": "all",
    "dataset": "aime",
    "cleaned": {},
@@ -10501,7 +10505,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-01T23:25:14Z",
+   "_stamp": "2026-10-02T00:24:39Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -10666,17 +10670,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-01T21:33:59Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261001T213359Z.json",
-   "sha16": "57b6b685acc652d7",
-   "census_mtime": "2026-10-01T21:34:41Z",
+   "stamp": "2026-10-01T23:34:51Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261001T233451Z.json",
+   "sha16": "9f8cb833f84ec1d8",
+   "census_mtime": "2026-10-01T23:35:40Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.e94c2e4efc04.json",
-  "chain_average": "chain_average.e94c2e4efc04.json",
-  "chain_median": "chain_median.e94c2e4efc04.json",
-  "dots": "dots.e94c2e4efc04.json"
+  "shared": "shared.1546186b81c7.json",
+  "chain_average": "chain_average.1546186b81c7.json",
+  "chain_median": "chain_median.1546186b81c7.json",
+  "dots": "dots.1546186b81c7.json"
  }
 }
