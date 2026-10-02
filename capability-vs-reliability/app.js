@@ -192,7 +192,7 @@ var HOUSE_DATASETS = {   // availability comes from manifest.datasets at load; t
   top: { label: 'wave 2', hover: 'wave 2 (the parked tasks are not in it)', available: false, reason: 'this set is not served yet' },
   'new': { label: 'wave 2 + parked', hover: 'wave 2 + parked', available: false, reason: 'crossing rows for wave 2 over the frozen level grid are not published yet' },
   all: { label: 'wave 1+2 + parked', hover: 'wave 1+2 + parked, on one difficulty axis', available: false, reason: 'no single axis covers the original and wave 2 yet (difficulty computes one over the combined set)' },
-  // NON-CODE BENCHMARKS D99-D50 (the project maintainers' word of 30 Sep 15:5x; the work the new benchmarks' maintainers owns, its name in capitals wherever the page names it to them):
+  // THE SIX NON-CODE SETS (the project maintainers' word of 30 Sep 15:5x; the new benchmarks' maintainers' work; no study name on any label or switch, 2 Oct)m):
   // the six non-code sets browsable on this page under the Dataset control, in the project maintainers' order of preference — MATH-500 first, IFEval, then GSM8K-Platinum and the two CRUXEval sets, AIME last;
   // each set's crossings from the fits' maintainers' serving_nb_<set>.json on Definitions' per-set axis; a set without a bundle yet is greyed with its reason; the names of record as the results page prints them
   math500: { label: 'MATH-500', hover: 'MATH-500, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'Math' },
@@ -745,7 +745,7 @@ function boot() {
   row.classList.add('kit-static'); // stays in the flow (the kit's opt-out): this row sits beside the chart on desktop and below it on narrow screens, and the chart is capped to the viewport, so nothing scrolls out of reach (page maintainers' read, 21 Sep)
   // THE DATASET CONTROL (the project maintainers' word of 30 Sep 15:5x: the sets browsable here under a control better than chips, the polished interface reused; the reference form agreed
   // by the reference designer and the curves page's maintainers : a native select in the kit's switch chrome, one control beside the other switches, the URL param data=<key> as before, two groups —
-  // the coding sets with wave 1+2 the default, then the six non-code sets under the heading NON-CODE BENCHMARKS D99-D50, a set without a fit greyed and unselectable). Kit.selectControl takes this over when the kit carries it.
+  // the coding sets with wave 1+2 the default, then the six non-code sets under the plain headings Math and Other, a set without a fit greyed and unselectable). Kit.selectControl takes this over when the kit carries it.
   var _dsDflt = D.defaultData || (D.allDs.board_top ? 'board_top' : 'board');
   var _opt = function (k) { return { value: k, label: String(DATASETS[k].label).replace(/\s*\([^)]*\)\s*$/, ''), disabled: !DATASETS[k].available }; };   // a control carries the project maintainers' words alone (23 Sep): the set's name, its count on the set line
   var dsRow = Kit.filterRow('#datasetbar');   // 2 Oct 2026 (the project maintainers' word of 11:2x UK): the dataset grouping is a dataset selector, not a chart control — it sits above the figure in its own slot, never among the chart's controls
