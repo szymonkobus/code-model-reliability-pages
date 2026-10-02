@@ -143,7 +143,7 @@
    },
    "source_stamp": "2026-10-02T20:26:33Z",
    "source_fp": "406c68821a8d",
-   "updated_at": "2026-10-02T20:59:10Z",
+   "updated_at": "2026-10-02T21:21:57Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -191,7 +191,7 @@
    },
    "source_stamp": "2026-10-02T20:35:39Z",
    "source_fp": "c84ae49703bf",
-   "updated_at": "2026-10-02T20:59:23Z",
+   "updated_at": "2026-10-02T21:22:15Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -240,7 +240,7 @@
    },
    "source_stamp": "2026-10-02T20:36:08Z",
    "source_fp": "3e2de0bf8867",
-   "updated_at": "2026-10-02T20:59:39Z",
+   "updated_at": "2026-10-02T21:22:30Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -289,7 +289,7 @@
    },
    "source_stamp": "2026-10-02T20:36:50Z",
    "source_fp": "5cc75c7b9b93",
-   "updated_at": "2026-10-02T20:59:53Z",
+   "updated_at": "2026-10-02T21:22:43Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -338,7 +338,7 @@
    },
    "source_stamp": "2026-10-02T20:30:11Z",
    "source_fp": "8ed62a456e65",
-   "updated_at": "2026-10-02T21:01:15Z",
+   "updated_at": "2026-10-02T21:23:42Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -383,7 +383,7 @@
    },
    "source_stamp": "2026-10-02T20:34:01Z",
    "source_fp": "b0e71ca57e42",
-   "updated_at": "2026-10-02T21:02:21Z",
+   "updated_at": "2026-10-02T21:24:36Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -431,7 +431,7 @@
    },
    "source_stamp": "2026-10-02T20:29:06Z",
    "source_fp": "44d09999078b",
-   "updated_at": "2026-10-02T21:02:35Z",
+   "updated_at": "2026-10-02T21:24:55Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -480,7 +480,7 @@
    },
    "source_stamp": "2026-10-02T20:29:33Z",
    "source_fp": "74fe6fcfe226",
-   "updated_at": "2026-10-02T21:02:49Z",
+   "updated_at": "2026-10-02T21:25:13Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -498,21 +498,21 @@
   },
   "math500": {
    "files": {
-    "shared": "shared.math500.8c9ff8019cc3.json",
-    "chain_average": "chain_average.math500.8c9ff8019cc3.json",
-    "bayes": "bayes.math500.8c9ff8019cc3-2e38bc937e1f.json",
+    "shared": "shared.math500.512ae990f467.json",
+    "chain_average": "chain_average.math500.512ae990f467.json",
+    "bayes": "bayes.math500.512ae990f467-2e38bc937e1f.json",
     "bayes_prev": "bayes.math500.d1ee7fda8dea-df43f13d9b8a.json"
    },
    "label": "MATH-500",
    "arms": "all",
-   "fingerprint": "8c9ff8019cc3",
+   "fingerprint": "512ae990f467",
    "frame": {
-    "population_M": 51,
+    "population_M": 52,
     "tasks": 500,
     "keep_set_hash": "326e66dcd9ab",
-    "runs_fingerprint": "aa0281b5ae05",
+    "runs_fingerprint": "6983f4b8c273",
     "build_date": "2026-10-02",
-    "build_ts": "2026-10-02T18:41:23Z",
+    "build_ts": "2026-10-02T21:28:53Z",
     "vocab_ruled": "2026-08-27",
     "set": "math500",
     "set_label": "MATH-500",
@@ -523,18 +523,18 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "326e66dcd9ab",
     "tasks_used": "MATH-500 \u2014 500 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-math500 fp 874a9f712f02 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "7429a0a900ea",
+    "source": "failure-vs-difficulty data-math500 fp 47f2015285f8 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "3ea4859a86bc",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-02T18:41:23Z",
-   "source_fp": "874a9f712f02",
-   "updated_at": "2026-10-02T18:47:32Z",
+   "source_stamp": "2026-10-02T21:28:53Z",
+   "source_fp": "47f2015285f8",
+   "updated_at": "2026-10-02T21:33:48Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
-    "unfitted": 1,
+    "unfitted": 2,
     "served_wave": "nb-math500-20261002T0518Z",
     "served_arms": 50
    },
@@ -768,21 +768,21 @@
   },
   "aime": {
    "files": {
-    "shared": "shared.aime.dec5ea379884.json",
-    "chain_average": "chain_average.aime.dec5ea379884.json",
-    "bayes": "bayes.aime.dec5ea379884-b17410ab6384.json",
+    "shared": "shared.aime.2a63def18d20.json",
+    "chain_average": "chain_average.aime.2a63def18d20.json",
+    "bayes": "bayes.aime.2a63def18d20-b17410ab6384.json",
     "bayes_prev": "bayes.aime.6961f1c2ab43-a9a401e1cc0b.json"
    },
    "label": "AIME",
    "arms": "all",
-   "fingerprint": "dec5ea379884",
+   "fingerprint": "2a63def18d20",
    "frame": {
-    "population_M": 39,
+    "population_M": 40,
     "tasks": 60,
     "keep_set_hash": "dc5cbadfe267",
-    "runs_fingerprint": "aa0281b5ae05",
+    "runs_fingerprint": "6983f4b8c273",
     "build_date": "2026-10-02",
-    "build_ts": "2026-10-02T18:43:07Z",
+    "build_ts": "2026-10-02T21:30:39Z",
     "vocab_ruled": "2026-08-27",
     "set": "aime",
     "set_label": "AIME",
@@ -793,18 +793,18 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "dc5cbadfe267",
     "tasks_used": "AIME \u2014 60 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-aime fp 60ca33520c64 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "c9c0548da5e1",
+    "source": "failure-vs-difficulty data-aime fp b8e379fc9402 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "9e58b2e6ec23",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-02T18:43:07Z",
-   "source_fp": "60ca33520c64",
-   "updated_at": "2026-10-02T18:49:08Z",
+   "source_stamp": "2026-10-02T21:30:39Z",
+   "source_fp": "b8e379fc9402",
+   "updated_at": "2026-10-02T21:34:21Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
-    "unfitted": 0,
+    "unfitted": 1,
     "served_wave": "nb-aime-20261002T0647Z",
     "served_arms": 39
    },
@@ -822,7 +822,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-10-02T20:24:16Z",
+  "stamp": "2026-10-02T21:24:51Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,

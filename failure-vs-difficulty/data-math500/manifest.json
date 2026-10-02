@@ -1,9 +1,9 @@
 {
- "fingerprint": "874a9f712f02",
+ "fingerprint": "47f2015285f8",
  "fingerprint_inputs": {
-  "content": "7429a0a900ea",
+  "content": "3ea4859a86bc",
   "wave": "math500-live",
-  "body": "4788bd3b111c"
+  "body": "7ac82b1a28de"
  },
  "frame": {
   "dataset": "math500",
@@ -17,28 +17,28 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 51,
-  "fitted_M": 51,
-  "complete_M": 51,
-  "sampled_M": 51,
-  "difficulty_population_M": 51,
+  "population_M": 52,
+  "fitted_M": 52,
+  "complete_M": 52,
+  "sampled_M": 52,
+  "difficulty_population_M": 52,
   "tasks": 500,
   "keep_set_hash": "326e66dcd9ab",
-  "inputs_content_sha": "7429a0a900ea",
+  "inputs_content_sha": "3ea4859a86bc",
   "tasks_on_axis": 500,
   "tasks_kept": 500,
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "326e66dcd9ab",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "aa0281b5ae05",
+  "runs_fingerprint": "6983f4b8c273",
   "axis_wave": "math500-live",
   "build_date": "2026-10-02",
-  "stamp": "2026-10-02T18:41:23Z",
+  "stamp": "2026-10-02T21:28:53Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/math500",
-   "unified_built_at": "2026-10-02T18:35:06Z",
+   "unified_built_at": "2026-10-02T21:18:58Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.math500.csv"
@@ -65,6 +65,10 @@
     "of": 500
    },
    "claude-opus-5": {
+    "tasks": 500,
+    "of": 500
+   },
+   "claude-opus-5-thinking": {
     "tasks": 500,
     "of": 500
    },
@@ -14611,10 +14615,11 @@
   },
   "nb_held_arms": {},
   "nb_run_keys": {
+   "claude-opus-5-thinking": "anthropic--claude-opus-5-thinking",
    "google/gemini-3.6-flash": "gemini--gemini-3.6-flash",
+   "claude-opus-5": "anthropic--claude-opus-5",
    "claude-sonnet-5-thinking": "anthropic--claude-sonnet-5-thinking",
    "claude-haiku-4-5-thinking": "anthropic--claude-haiku-4-5-thinking",
-   "claude-opus-5": "anthropic--claude-opus-5",
    "openai/gpt-5-mini": "openai--gpt-5-mini",
    "claude-sonnet-5": "anthropic--claude-sonnet-5",
    "google/gemma-4-31B-it": "google--gemma-4-31b-it_t0.5",
@@ -14671,7 +14676,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-02T18:24:30Z",
+   "_stamp": "2026-10-02T21:24:51Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -14836,17 +14841,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-02T17:10:35Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T171035Z.json",
-   "sha16": "4b4757068d02d71f",
-   "census_mtime": "2026-10-02T17:12:31Z",
+   "stamp": "2026-10-02T20:58:23Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T205823Z.json",
+   "sha16": "680e6105b56f6be4",
+   "census_mtime": "2026-10-02T20:58:58Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.874a9f712f02.json",
-  "chain_average": "chain_average.874a9f712f02.json",
-  "chain_median": "chain_median.874a9f712f02.json",
-  "dots": "dots.874a9f712f02.json"
+  "shared": "shared.47f2015285f8.json",
+  "chain_average": "chain_average.47f2015285f8.json",
+  "chain_median": "chain_median.47f2015285f8.json",
+  "dots": "dots.47f2015285f8.json"
  }
 }
