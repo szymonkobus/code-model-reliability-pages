@@ -1,4 +1,4 @@
-/* kit.css — the reference kit, served form 1e280915, built 30 Sep 2026 from source d186fbf62144. */
+/* kit.css — the reference kit, served form 1e280915, built 02 Oct 2026 from source 37d02e1e2e77. */
 .kit-filter-row {
   display: flex; gap: 1.1rem; align-items: center; flex-wrap: wrap;
   padding: .55rem 0; margin: .4rem 0 1rem;
@@ -107,3 +107,9 @@
 
 .kit-chart-scroll { overflow-x: auto; max-width: 100%; min-width: 0; -webkit-overflow-scrolling: touch; }
 .kit-chart-scroll > svg { display: block; height: auto; }
+
+.kit-panels { display: grid; gap: .9rem 1rem; align-items: start; margin: .6rem 0 .4rem; }
+.kit-panel { min-width: 0; }
+.kit-panel-title { font-size: .9rem; font-weight: 600; margin: 0 0 .25rem; color: var(--ink, #222); }
+.kit-panel-body { width: 100%; aspect-ratio: 1 / 1; }
+.kit-panel-body > svg, .kit-panel-body > canvas { width: 100%; height: 100%; display: block; }
