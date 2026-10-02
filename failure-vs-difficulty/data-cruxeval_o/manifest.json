@@ -1,9 +1,9 @@
 {
- "fingerprint": "674723651cc0",
+ "fingerprint": "3e800f7a1996",
  "fingerprint_inputs": {
   "content": "9d6ea8b14b6c",
   "wave": "cruxeval_o-live",
-  "body": "f314d9f50ef8"
+  "body": "386706a1c4e9"
  },
  "frame": {
   "dataset": "cruxeval_o",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ceaae2d92751",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "9b078ba35881",
+  "runs_fingerprint": "0527b118bcad",
   "axis_wave": "cruxeval_o-live",
   "build_date": "2026-10-02",
-  "stamp": "2026-10-02T08:18:35Z",
+  "stamp": "2026-10-02T12:31:35Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/cruxeval_o",
-   "unified_built_at": "2026-10-02T07:48:30Z",
+   "unified_built_at": "2026-10-02T12:24:43Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.cruxeval_o.csv"
@@ -274,7 +274,7 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/nb-cruxeval_o-20261001T1654Z/view_v2/results",
    "set_fingerprint": "9daa0acd392c",
-   "pointer_updated_at": "2026-10-01T19:35:08Z",
+   "pointer_updated_at": "2026-10-02T12:03:55Z",
    "n_fits": 60,
    "note": null,
    "gates": {
@@ -310,7 +310,7 @@
   "partial_attempts": null,
   "side_arms": {
    "served": true,
-   "serving_word": "difficulty's GO (19:3xZ 1 Oct, the pair): knowledge/drafts/nb_staging/serving_nb_cruxeval_o.recut.json d5e84a52b154 replacing serving_nb_cruxeval_o.json fd373a435ea6 and knowledge/drafts/side_staging/serving_sft_nb_cruxeval_o.recut.json e2fe7392bd0a replacing serving_sft_nb_cruxeval_o.json 3eda99f9b7eb, flipped together outside the tick's minutes \u2014 the second CRUXEval output cut of the day at depth 12 on the live axis of the hour (3200e6a5e7a7, 59 voters; both Sonnet 5 arms admitted), wave nb-cruxeval_o-20261001T1654Z view v2 after the 24 longer runs and the side wave sft-nb-cruxeval_o-20261001T1917Z with the RL arm carried from the set fit; the GO covers the two shas alone and is void on a byte change",
+   "serving_word": "difficulty's GO (11:0xZ 2 Oct, decision 203): knowledge/drafts/side_staging/serving_sft_nb_cruxeval_o.names203.json 7d91fa52c678 replacing serving_sft_nb_cruxeval_o.json b315570ce410 \u2014 a text-only re-emission on the same wave and fits: the RL checkpoint's printed name in the approved table's form from the labels ledger of record (post-training-lead's decision 203), the kind leaf plain, the contract head generic, the RL arm's layout string in the maker's current short form for the same layout (4x(4000+16000)); flipped outside the tick's minutes; the GO covers this sha alone and is void on a byte change",
    "wave_id": "sft-nb-cruxeval_o-20261001T1917Z",
    "n_arms": 1,
    "heading": "models fitted alongside the set, on CRUXEval output; one RL checkpoint, positioned on the served CRUXEval output axis unchanged; each model's own figures in its entry",
@@ -320,7 +320,7 @@
    "axis_pinned_to_served": true,
    "cut_at": "2026-10-01T19:17:40Z",
    "completed_at": "2026-10-01T18:47:25Z",
-   "updated_at": "2026-10-01T19:35:09Z",
+   "updated_at": "2026-10-02T11:01:12Z",
    "pointer": "definitions/fitting/serving_sft_nb_cruxeval_o.json",
    "arms": [
     {
@@ -336,7 +336,7 @@
       ]
      },
      "baseline_id": "dsc6.7b-rl-night4-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8, fixed (500 steps)",
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 6\u20137/8, fixed \u00b7 500 steps",
      "family": "DeepSeek-Coder",
      "color": "#2b0a33",
      "variant": null,
@@ -2379,7 +2379,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-02T07:25:14Z",
+   "_stamp": "2026-10-02T12:27:41Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -2544,17 +2544,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-02T07:16:03Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T071603Z.json",
-   "sha16": "428516ca617d2dbd",
-   "census_mtime": "2026-10-02T07:17:14Z",
+   "stamp": "2026-10-02T11:58:04Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T115804Z.json",
+   "sha16": "c4d3f52c85a4cdb3",
+   "census_mtime": "2026-10-02T11:59:18Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.674723651cc0.json",
-  "chain_average": "chain_average.674723651cc0.json",
-  "chain_median": "chain_median.674723651cc0.json",
-  "dots": "dots.674723651cc0.json"
+  "shared": "shared.3e800f7a1996.json",
+  "chain_average": "chain_average.3e800f7a1996.json",
+  "chain_median": "chain_median.3e800f7a1996.json",
+  "dots": "dots.3e800f7a1996.json"
  }
 }
