@@ -13,7 +13,7 @@ function liveness() {   // the rebuild loop's liveness: a stale loop is said on 
     heldLine(age > 10 ? 'Held: the rebuild loop has not run for ' + (isFinite(age) ? Math.round(age) + ' minutes' : 'a while') + '; the panels show the last build.' : null);
   }).catch(function () { heldLine('Held: the rebuild loop’s liveness is unreadable; the panels show the last build.'); });
 }
-function render() { syncPresets(); if (GRID) GRID.redraw(); paintChips(); }   // every control, chip and level event redraws every panel (the modules call render())
+function render() { syncPresets(); if (typeof syncWdLock === 'function') syncWdLock(); if (typeof syncXdefLock === 'function' && elA) syncXdefLock(); if (GRID) GRID.redraw(); paintChips(); }   // the main page's render: the presets, the locks that hide or hold a control that cannot apply, every panel, the chips   // every control, chip and level event redraws every panel (the modules call render())
 function defaultKeys() { return DEFAULT_SETS.filter(function (k) { return SERVED.indexOf(k) >= 0; }); }
 
 fetch(MOUNT + 'data/manifest.json').then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
@@ -85,6 +85,7 @@ function buildControls(ctxs) {   // every chart control of the main page, from t
   var live = ctxs.filter(function (c) { return !c.held; });
   var row = Kit.filterRow('#controls'); row.classList.add('kit-static');
   var sw = function (mount, key, label, options, dflt, apply) { return Kit.switchControl({ mount: mount, key: key, label: label, options: options, dflt: dflt, onchange: function (v) { apply(v); if (GRID) render(); } }); };
+  SW.view = sw(row, 'view', CONTROL_WORDS.view.label, CONTROL_WORDS.view.options, 'scatter', function (v) { state.view = v === 'ridges' ? 'ridges' : 'scatter'; });
   SW.def = sw(row, 'def', CONTROL_WORDS.def.label, CONTROL_WORDS.def.options, 'average', function (v) { state.def = v === 'median' ? 'median' : 'average'; });
   SW.xdef = sw(row, 'xdef', CONTROL_WORDS.xdef.label, CONTROL_WORDS.xdef.options, 'crossing', function (v) { state.xdef = CAP_KEYS[v] ? v : 'crossing'; if (state.xdef === 'crossing') Kit.state.set('xdef', null, null); if (typeof syncXdefLock === 'function' && elA) syncXdefLock(); });
   SW.src = sw(row, 'src', CONTROL_WORDS.src.label, [{ value: 'project', label: houseName() }, { value: 'bayes', label: CONTROL_WORDS.src.bayes }], 'bayes', function (v) { state.src = v === 'project' ? 'project' : 'bayes'; });
@@ -100,7 +101,7 @@ function buildControls(ctxs) {   // every chart control of the main page, from t
   sw(moreRow, 'lw', CONTROL_WORDS.lw.label, CONTROL_WORDS.lw.options, 'equal', function (v) { state.lw = v === 'bands' ? 'bands' : 'equal'; });
   sw(moreRow, 'resid', CONTROL_WORDS.resid.label, CONTROL_WORDS.onoff, 'off', function (v) { state.resid = v === 'on' ? 'on' : 'off'; });
   var withPrev = live.filter(function (c) { return !!c.D.bayPrev; })[0];   // the move arrows exist where a set carries its previous fit; the label names that set's cut
-  if (withPrev) { var prevName = withPanel(withPrev, prevFitName); sw(moreRow, 'move', CONTROL_WORDS.move.label + prevName, CONTROL_WORDS.onoff, 'off', function (v) { state.move = v === 'on' ? 'on' : 'off'; }); }
+  if (withPrev) { var prevName = live.length === 1 ? withPanel(withPrev, prevFitName) : 'the previous cut of each set shown'; sw(moreRow, 'move', CONTROL_WORDS.move.label + prevName, CONTROL_WORDS.onoff, 'off', function (v) { state.move = v === 'on' ? 'on' : 'off'; }); }
   var pm = document.getElementById('armsbar') || row;   // the two switches about the models: mounted here, moved into the chips' first row by buildChips
   var anyGolden = SET_KEYS.some(function (k) { return D.allDs['golden-' + k] && D.allDs['golden-' + k].files; });
   SW.arms = Kit.switchControl({ mount: pm, key: 'arms', label: CONTROL_WORDS.arms.label, options: CONTROL_WORDS.arms.options, dflt: 'all', onchange: function (v) { if (!GRID) return; if (v === 'golden' && !anyGolden) { SW.arms.set(state.arms); return; } if (v !== state.arms) { Kit.state.set('arms', v === 'golden' ? 'golden' : null, null); location.reload(); } } });
@@ -110,7 +111,7 @@ function buildControls(ctxs) {   // every chart control of the main page, from t
 function syncChains(ctxs) {   // an option no chosen set carries stays in place, unselectable, with the reason as its hint (the main page's rule for a dataset without the chain); a set among several without it draws with the chain it has
   var live = ctxs.filter(function (c) { return !c.held; });
   var caps = Object.keys(CAP_KEYS).map(function (k) { return ['xdef', k, live.some(function (c) { return !!(c.D.shared && c.D.shared[k]); }), k, CAP_KEYS[k].name() + ' is not computed for these sets', 'crossing']; });
-  [['def', 'median', live.some(function (c) { return !!c.D.med; }), 'chain_median', 'no median-task chain for these sets', 'average'], ['src', 'bayes', live.some(function (c) { return !!c.D.bay; }), 'bayes', 'no Bayesian crossing tables for these sets', 'project']].concat(caps).forEach(function (L) {
+  [['def', 'median', live.some(function (c) { return !!c.D.med; }), 'chain_median', 'no median-task chain for these sets', 'average'], ['src', 'bayes', live.some(function (c) { return !!c.D.bay; }), 'bayes', 'no Bayesian crossing tables for these sets', 'project'], ['view', 'ridges', live.some(function (c) { return !!c.D.bay; }), 'bayes', 'no posterior ridges for these sets', 'scatter']].concat(caps).forEach(function (L) {
     var b = document.querySelector('.kit-switch[data-key="' + L[0] + '"] button[data-value="' + L[1] + '"]'); if (!b) return;
     if (L[2]) { b.disabled = false; b.removeAttribute('aria-disabled'); b.title = ''; return; }
     var why = null; live.forEach(function (c) { var m = c.D.ds && c.D.ds.missing; if (!why && m && m[L[3]]) why = m[L[3]]; });
@@ -131,6 +132,7 @@ function init(ctxs) {
   state.def = Kit.state.get('def', 'average') === 'median' ? 'median' : 'average';
   state.src = Kit.state.get('src', 'bayes') === 'project' ? 'project' : 'bayes';   // Bayesian where a set has posteriors; a set without draws with the chain it has
   state.xs = Kit.state.get('xs', 'logit') === 'raw' ? 'raw' : 'logit'; state.ys = Kit.state.get('ys', 'logit') === 'raw' ? 'raw' : 'logit';
+  state.view = Kit.state.get('view', 'scatter') === 'ridges' ? 'ridges' : 'scatter';
   state.xdef = Kit.state.get('xdef', 'crossing'); if (!CAP_KEYS[state.xdef]) state.xdef = 'crossing';   // the main page's defaults for every chart control the URL may carry
   state.kp = Kit.state.get('kp', 'off') === 'on' ? 'on' : 'off'; state.lad = Kit.state.get('lad', 'off') === 'on' ? 'on' : 'off'; state.w = Kit.state.get('w', 'on') === 'off' ? 'off' : 'on'; state.wd = Kit.state.get('wd', 'adj') === 'ind' ? 'ind' : 'adj';
   state.fitci = Kit.state.get('fitci', 'plain') === 'honest' ? 'honest' : 'plain'; state.move = Kit.state.get('move', 'off') === 'on' ? 'on' : 'off'; var lv = Kit.state.get('line', 'steps'); state.line = (lv === 'off' || lv === 'axes') ? lv : 'steps';
@@ -156,6 +158,11 @@ function drawInto(ctx, svg, size) {   // one set's plane into one svg by the pla
   if (state.src === 'bayes' && !ctx.D.bay) state.src = 'project'; if (state.def === 'median' && !ctx.D.med) state.def = 'average';
   try {
     withPanel(ctx, function () {
+      var body = svg.parentNode; if (body && body.style) body.style.aspectRatio = state.view === 'ridges' ? 'auto' : '';   // the ridges grow with the row count; the scatter keeps the square cell
+      if (state.view === 'ridges') {   // the plane's second view, per panel
+        if (!ctx.D.bay) { svg.setAttribute('viewBox', '0 0 ' + size.width + ' ' + size.width); PANEL.g.innerHTML = '<text x="' + (size.width / 2) + '" y="' + (size.width / 2) + '" text-anchor="middle" font-size="11" fill="#52514e">no posterior ridges for this set</text>'; PANEL.drawn = 0; return; }
+        renderRidges(); return;
+      }
       if (isCap() && !capBlock()) { svg.setAttribute('viewBox', '0 0 ' + size.width + ' ' + size.width); PANEL.g.innerHTML = '<text x="' + (size.width / 2) + '" y="' + (size.width / 2) + '" text-anchor="middle" font-size="11" fill="#52514e">' + CAP_KEYS[state.xdef].name() + ' is not published for this set yet; no model is drawn.</text>'; PANEL.drawn = 0; return; }   // the main page's words for a set without the capability block
       LIMX = null; LIMY = null; EXT = null; renderScatter();   // pass one: the drawn extent
       var cr = cropRange(EXT, LIM); if (cr) { LIMX = cr.slice(); LIMY = cr.slice(); try { renderScatter(); } finally { LIMX = null; LIMY = null; } }   // pass two: the axes crop to the points, equal scales, the diagonal

@@ -160,9 +160,8 @@ function boot() {
   if (!partialArms().length) { var psw = document.querySelector('.kit-switch[data-key="partial"]'); if (psw) psw.style.display = 'none'; }   // no partial arm in this set: the switch is inert and hidden
   // no shown/hidden switch per run: the run's own row (its all/none) is the mechanism (the project maintainers' word of 23 Sep 12:0x); a URL's <key>=hide no longer hides a run
   showDataNote();
-  Kit.switchControl({ mount: row, key: 'view', label: 'View',
-    options: [{ value: 'scatter', label: 'Scatter' },
-              { value: 'ridges', label: 'Posterior ridges' }],
+  Kit.switchControl({ mount: row, key: 'view', label: CONTROL_WORDS.view.label,
+    options: CONTROL_WORDS.view.options,
     dflt: 'scatter',
     onchange: function (v) { state.view = v; if (sel) render(); } });
   Kit.switchControl({ mount: row, key: 'def', label: CONTROL_WORDS.def.label,
@@ -379,16 +378,6 @@ function render() {
  * hidden when either arm is absent or unfitted in the dataset shown. Ridge = posterior of the MEDIAN-TASK D99 (d1 draws);
  * scatter = the point of record, the AVERAGE-RATE D99 (levels_avg). */
 var OPUS_PAIR = ['claude-opus-5', 'claude-opus-5-thinking'];
-function tableAt(lt, levLogit) {   // one levels table read at a level -> {z, lo, hi}, or null when censored / out of range there
-  var LV = D.bay && (D.bay.lev_logit || (D.bay.lev_fail || []).map(logit)); if (!lt || !LV || !LV.length) return null;
-  if (levLogit < LV[0] - 1e-9 || levLogit > LV[LV.length - 1] + 1e-9) return null;
-  var lo_i = 0, hi_i = LV.length - 1;
-  while (hi_i - lo_i > 1) { var mm = (lo_i + hi_i) >> 1; if (LV[mm] < levLogit) lo_i = mm; else hi_i = mm; }
-  if (lt.kind[lo_i] !== 0 || lt.kind[hi_i] !== 0) return null;
-  var t = (levLogit - LV[lo_i]) / (LV[hi_i] - LV[lo_i]);
-  var ip = function (a) { return a && a[lo_i] != null && a[hi_i] != null ? a[lo_i] + t * (a[hi_i] - a[lo_i]) : null; };
-  return { z: ip(lt.mid), lo: ip(lt.lo), hi: ip(lt.hi) };
-}
 function renderOpusFold() {
   var fold = document.getElementById('opusfold'), fig = document.getElementById('opusfig'), txt = document.getElementById('opustext');
   if (!fold || !fig || !txt || !D || !D.shared) return;
@@ -449,109 +438,6 @@ function renderOpusFold() {
     + ' On the ridges ' + moreRidge.c.label + ' is the higher (' + P(moreRidge.ridge.median_z) + ' against ' + P(lessRidge.ridge.median_z) + '): on a typical task it is the safer model.'
     + (moreAvg !== moreRidge ? ' Both readings are right about different things.' : '') + spread + cens + cov
     + ' Trust the scatter for reliability, the default definition; read the median-task ridge as the typical-task view. The ridges view itself now follows the definition switch: under the average-rate definition it shows the 80% uncertainty band of the same crossing the dot marks, so the two views agree; the median-task ridges remain under the Median definition where that chain is served.';
-}
-
-function ridgeCentre(r, lev) {   // the crossing median at the level shown, under the definition shown, for ordering the ridges
-  var t = tableAt(state.def === 'average' ? r.levels_avg : r.levels, logit(lev)); if (t && t.z != null) return t.z;
-  var b = state.def === 'average' ? (lev === 0.5 ? r.d50_avg : r.d1_avg) : null; b = b || (lev === 0.5 ? r.d50 : r.d1); return b ? b.median_z : -Infinity;
-}
-function renderRidges() {
-  if (playBtn) { playBtn.disabled = true; playBtn.title = 'the sweep moves the scatter; switch the view back to use it'; }
-  var chart = document.getElementById('chart');
-  var visible = Array.from(sel).filter(function (i) { return !isHidden(i); }).sort(function (a, b) { return a - b; });   // partial arms hidden unless shown
-  var skipped = visible.filter(function (i) { return !D.bayById[D.shared.configs[i].id]; }).length;
-  var rows = visible.filter(function (i) { return !!D.bayById[D.shared.configs[i].id]; }).map(function (i) {
-    return { i: i, r: D.bayById[D.shared.configs[i].id] };
-  }).sort(function (a, b) { return capOrder([a.i, b.i])[0] === a.i ? -1 : 1; });   // ONE ORDER (the project maintainers 2026-09-15): the same capability order as the chips, lowest first at the top
-  var g = D.bay.kde_grid, avgDef = state.def === 'average';
-  /* the drawing GROWS with the row count and the viewBox follows —
-   * nothing can render outside the screen (the review found 49-row
-   * ridges spilling past the viewport under a fixed height). The
-   * ridges view uses its OWN wide left gutter for the labels (the
-   * proven layout of the old ridge page) and its own x transform;
-   * KDE polylines are clipped to the axis limits. */
-  layout();
-  var rh = 24, RML = NARROW ? 120 : 195;
-  var Hr = MT + (rows.length + 1) * rh + MB;
-  chart.setAttribute('viewBox', '0 0 ' + W + ' ' + Hr);
-  var rzx = function (z) {
-    var L = limT(state.xs === 'raw');
-    return RML + (tf(z, state.xs === 'raw') - L[0]) / (L[1] - L[0])
-      * (W - RML - MR);
-  };
-  var out = '';
-  var rxt = state.xs === 'raw' ? RAW_TICKS : LOGIT_TICKS;
-  rxt.forEach(function (v) {
-    var z = logit(Math.min(0.9999, Math.max(0.0001, v / 100)));
-    var L = limT(state.xs === 'raw');
-    if (tf(z, state.xs === 'raw') <= L[0]
-        || tf(z, state.xs === 'raw') >= L[1]) return;
-    out += '<line x1="' + rzx(z) + '" y1="' + MT + '" x2="' + rzx(z)
-      + '" y2="' + (Hr - MB) + '" stroke="#e0d9c8" '
-      + 'stroke-width="0.6"/>'
-      + '<text x="' + rzx(z) + '" y="' + (Hr - MB + 17)
-      + '" text-anchor="middle" fill="#52514e" font-size="11">'
-      + v + '%</text>';
-  });
-  out += '<text x="' + (RML + (W - RML - MR) / 2) + '" y="'
-    + (Hr - 6) + '" text-anchor="middle" fill="#52514e" '
-    + 'font-size="12">task difficulty</text>';
-  rows.forEach(function (row, k) {
-    var y0 = MT + (k + 1) * rh;
-    var c = D.shared.configs[row.i];
-    // RIDGES FOLLOW THE LEVELS (the project maintainers' word of 2026-09-10 ≈: the ridges recomputed automatically when x and y change):
-    // filled = the crossing at the x level, outlined = the crossing at the y level; at the baked 50% and 1% levels the true posterior shape
-    // (crossing draws), at any other level the exact median and 80% band from the fitted tables (a shape there would need draws the fits do not export)
-    var drawnY = null;
-    [[state.a / 100, true], [state.c / 100, false]].forEach(function (Q) {
-      var lev = Q[0], filled = Q[1], baked = filled ? Math.abs(lev - 0.5) < 1e-9 : Math.abs(lev - 0.01) < 1e-9;
-      var blk = baked ? (avgDef ? (filled ? row.r.d50_avg : row.r.d1_avg) : (filled ? row.r.d50 : row.r.d1)) : null;
-      if (!filled) drawnY = blk && blk.kde ? blk : null;
-      if (blk && blk.kde) {
-        var kd = blk.kde, mx = Math.max.apply(null, kd) || 1, d = '', pen = false, z0 = null, zN = null;
-        for (var jj = 0; jj < g.length; jj++) {
-          if (g[jj] < LIM[0] || g[jj] > LIM[1]) { continue; }
-          if (z0 === null) z0 = g[jj];
-          zN = g[jj];
-          d += (pen ? 'L' : 'M') + rzx(g[jj]).toFixed(1) + ' ' + (y0 - (kd[jj] / mx) * (rh * 0.92)).toFixed(1);
-          pen = true;
-        }
-        if (!pen) return;
-        if (filled) { d += 'L' + rzx(zN).toFixed(1) + ' ' + y0.toFixed(1) + 'L' + rzx(z0).toFixed(1) + ' ' + y0.toFixed(1) + 'Z'; out += '<path d="' + d + '" fill="' + c.color + '" fill-opacity="0.45" stroke="none" data-mark/>'; }
-        else out += '<path d="' + d + '" fill="none" stroke="' + c.color + '" stroke-width="1.2"' + (c.think ? ' stroke-dasharray="5 3"' : '') + ' data-mark/>';
-        return;
-      }
-      var t = tableAt(avgDef ? row.r.levels_avg : row.r.levels, logit(lev));
-      if (!t || t.z == null) return;
-      var lo = t.lo != null ? Math.max(LIM[0], Math.min(LIM[1], t.lo)) : t.z, hi = t.hi != null ? Math.max(LIM[0], Math.min(LIM[1], t.hi)) : t.z, zc = Math.max(LIM[0], Math.min(LIM[1], t.z));
-      var h = filled ? rh * 0.5 : rh * 0.7, yb = y0 - (filled ? rh * 0.62 : rh * 0.72);
-      out += filled
-        ? '<rect x="' + rzx(lo).toFixed(1) + '" y="' + yb.toFixed(1) + '" width="' + Math.max(1.5, rzx(hi) - rzx(lo)).toFixed(1) + '" height="' + h.toFixed(1) + '" fill="' + c.color + '" fill-opacity="0.45" stroke="none" data-mark/>'
-        : '<rect x="' + rzx(lo).toFixed(1) + '" y="' + yb.toFixed(1) + '" width="' + Math.max(1.5, rzx(hi) - rzx(lo)).toFixed(1) + '" height="' + h.toFixed(1) + '" fill="none" stroke="' + c.color + '" stroke-width="1.2"' + (c.think ? ' stroke-dasharray="5 3"' : '') + ' data-mark/>';
-      out += '<line x1="' + rzx(zc).toFixed(1) + '" y1="' + yb.toFixed(1) + '" x2="' + rzx(zc).toFixed(1) + '" y2="' + (yb + h).toFixed(1) + '" stroke="' + c.color + '" stroke-width="1.6"/>';
-    });
-    var ltxt = c.label + (drawnY && drawnY.p_censored > 0.05
-      ? ' · ' + Math.round(drawnY.p_censored * 100) + '% cens.'
-      : '');
-    out += '<text x="' + (RML - 6) + '" y="' + (y0 - 3)
-      + '" text-anchor="end" font-size="9.5" fill="#52514e"'
-      + (ltxt.length > 34
-         ? ' textLength="' + (RML - 14)
-           + '" lengthAdjust="spacingAndGlyphs"' : '')
-      + '>' + ltxt + '</text>';
-  });
-  document.getElementById('plotg').innerHTML = out;
-  document.getElementById('trackg').style.display = 'none';
-  (document.getElementById('fitline') || document.createElement('div')).textContent = '';
-  var bakedX = Math.abs(state.a - 50) < 1e-9, bakedY = Math.abs(state.c - 1) < 1e-9;
-  var anyShape = rows.some(function (row) { return avgDef ? (row.r.d50_avg && row.r.d1_avg) : (row.r.d50 && row.r.d1); });
-  var shapeNote = (bakedX && bakedY && anyShape) ? 'true posterior shapes (crossing draws)'
-    : (!anyShape ? 'the 80% uncertainty band with its median from the fitted tables (this set has no crossing draws)'
-       : 'the 80% uncertainty band with its median at levels other than 50% and 1% (a shape there would need draws the fits do not export); shapes at 50% and 1%');
-  (document.getElementById('narrate') || document.createElement('div')).textContent = 'the spread of the same crossings the dots mark, across the fitted draws (' + (avgDef ? 'average-rate' : 'median-task') + ' definition): filled = the crossing at the x level ' + state.a + '%, outlined = at the y level ' + state.c + '% — ' + shapeNote + ' · ' + visible.length + ' of ' + D.shared.configs.length + ' models · move x or y and the view follows' + (bakedX && bakedY && anyShape ? ' · censored draws are not in a shape (the label notes the fraction)' : '');
-  notes();
-  stamp();
-  paintChips();
 }
 
 /* ---------------- narration / notes / stamp -------------------- */
