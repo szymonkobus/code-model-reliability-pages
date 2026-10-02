@@ -1,9 +1,9 @@
 {
- "fingerprint": "893bba756b8c",
+ "fingerprint": "a8779b47cdc7",
  "fingerprint_inputs": {
   "content": "523d1e4de2cc",
   "wave": "ifeval-live",
-  "body": "b94d293f126a"
+  "body": "0acbf677d21c"
  },
  "frame": {
   "dataset": "ifeval",
@@ -33,7 +33,7 @@
   "runs_fingerprint": "f58ec06f39c4",
   "axis_wave": "ifeval-live",
   "build_date": "2026-10-02",
-  "stamp": "2026-10-02T05:59:38Z",
+  "stamp": "2026-10-02T06:17:09Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
@@ -2518,17 +2518,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-02T04:15:05Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T041505Z.json",
-   "sha16": "36bd6d9b7c996dfd",
-   "census_mtime": "2026-10-02T04:15:53Z",
+   "stamp": "2026-10-02T05:18:03Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T051803Z.json",
+   "sha16": "d940d2aa6e6fc787",
+   "census_mtime": "2026-10-02T05:18:46Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.893bba756b8c.json",
-  "chain_average": "chain_average.893bba756b8c.json",
-  "chain_median": "chain_median.893bba756b8c.json",
-  "dots": "dots.893bba756b8c.json"
+  "shared": "shared.a8779b47cdc7.json",
+  "chain_average": "chain_average.a8779b47cdc7.json",
+  "chain_median": "chain_median.a8779b47cdc7.json",
+  "dots": "dots.a8779b47cdc7.json"
  }
 }
