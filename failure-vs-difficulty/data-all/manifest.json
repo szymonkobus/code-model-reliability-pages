@@ -1,9 +1,9 @@
 {
- "fingerprint": "0a6f60dd6293",
+ "fingerprint": "7bbf3b0e00bb",
  "fingerprint_inputs": {
-  "content": "a2dd2ee920b4",
+  "content": "5ff3b9eab651",
   "wave": "unified-live",
-  "body": "3e8fb415ae13"
+  "body": "819067f88c4a"
  },
  "frame": {
   "dataset": "all",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 61,
   "tasks": 2167,
   "keep_set_hash": "60ede5d24001",
-  "inputs_content_sha": "a2dd2ee920b4",
+  "inputs_content_sha": "5ff3b9eab651",
   "tasks_on_axis": 2167,
   "tasks_kept": 2167,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "b3edd4d00429",
+  "runs_fingerprint": "efb5208f4091",
   "axis_wave": "unified-live",
   "build_date": "2026-10-02",
-  "stamp": "2026-10-02T07:36:04Z",
+  "stamp": "2026-10-02T08:34:44Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -89,7 +89,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-02T07:13:45Z",
+   "unified_built_at": "2026-10-02T08:14:00Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -108,7 +108,7 @@
     "of": 2167
    },
    "claude-sonnet-5": {
-    "tasks": 2167,
+    "tasks": 2147,
     "of": 2167
    },
    "claude-sonnet-5-thinking": {
@@ -236,7 +236,7 @@
     "of": 2167
    },
    "Qwen/Qwen2.5-Coder-1.5B-Instruct": {
-    "tasks": 2167,
+    "tasks": 2126,
     "of": 2167
    },
    "Qwen/Qwen2.5-Coder-3B-Instruct": {
@@ -244,11 +244,11 @@
     "of": 2167
    },
    "Qwen/Qwen2.5-Coder-7B-Instruct": {
-    "tasks": 2167,
+    "tasks": 2155,
     "of": 2167
    },
    "Qwen/Qwen2.5-Coder-14B-Instruct": {
-    "tasks": 2167,
+    "tasks": 2102,
     "of": 2167
    },
    "Qwen/Qwen2.5-Coder-32B-Instruct": {
@@ -268,7 +268,7 @@
     "of": 2167
    },
    "Qwen/Qwen2.5-7B-Instruct": {
-    "tasks": 2167,
+    "tasks": 2159,
     "of": 2167
    },
    "Qwen/Qwen2.5-14B-Instruct": {
@@ -276,11 +276,11 @@
     "of": 2167
    },
    "Qwen/Qwen2.5-32B-Instruct": {
-    "tasks": 2167,
+    "tasks": 2141,
     "of": 2167
    },
    "Qwen/Qwen3-0.6B": {
-    "tasks": 2167,
+    "tasks": 2158,
     "of": 2167
    },
    "Qwen/Qwen3-0.6B-Thinking": {
@@ -288,7 +288,7 @@
     "of": 2167
    },
    "Qwen/Qwen3-1.7B": {
-    "tasks": 2167,
+    "tasks": 2165,
     "of": 2167
    },
    "Qwen/Qwen3-1.7B-Thinking": {
@@ -296,7 +296,7 @@
     "of": 2167
    },
    "Qwen/Qwen3-4B": {
-    "tasks": 2167,
+    "tasks": 2162,
     "of": 2167
    },
    "Qwen/Qwen3-4B-Thinking": {
@@ -308,7 +308,7 @@
     "of": 2167
    },
    "Qwen/Qwen3-8B": {
-    "tasks": 2167,
+    "tasks": 2158,
     "of": 2167
    },
    "Qwen/Qwen3-8B-Thinking": {
@@ -716,7 +716,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-02T07:25:14Z",
+   "_stamp": "2026-10-02T08:25:09Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -881,17 +881,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-02T06:14:37Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T061437Z.json",
-   "sha16": "5db0df8e2b8f2bb4",
-   "census_mtime": "2026-10-02T06:15:19Z",
+   "stamp": "2026-10-02T07:16:03Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T071603Z.json",
+   "sha16": "428516ca617d2dbd",
+   "census_mtime": "2026-10-02T07:17:14Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.0a6f60dd6293.json",
-  "chain_average": "chain_average.0a6f60dd6293.json",
-  "chain_median": "chain_median.0a6f60dd6293.json",
-  "dots": "dots.0a6f60dd6293.json"
+  "shared": "shared.7bbf3b0e00bb.json",
+  "chain_average": "chain_average.7bbf3b0e00bb.json",
+  "chain_median": "chain_median.7bbf3b0e00bb.json",
+  "dots": "dots.7bbf3b0e00bb.json"
  }
 }
