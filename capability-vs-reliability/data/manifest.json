@@ -338,7 +338,7 @@
    },
    "source_stamp": "2026-10-02T01:30:54Z",
    "source_fp": "48891d1f6f08",
-   "updated_at": "2026-10-02T02:24:59Z",
+   "updated_at": "2026-10-02T03:25:15Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -383,7 +383,7 @@
    },
    "source_stamp": "2026-10-02T01:34:37Z",
    "source_fp": "7acb1e190055",
-   "updated_at": "2026-10-02T02:25:54Z",
+   "updated_at": "2026-10-02T03:26:06Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -431,7 +431,7 @@
    },
    "source_stamp": "2026-10-02T01:29:27Z",
    "source_fp": "97052fe8acc6",
-   "updated_at": "2026-10-02T02:26:23Z",
+   "updated_at": "2026-10-02T03:26:17Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -480,7 +480,7 @@
    },
    "source_stamp": "2026-10-02T01:30:03Z",
    "source_fp": "117c6ab0db02",
-   "updated_at": "2026-10-02T02:27:10Z",
+   "updated_at": "2026-10-02T03:26:28Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -552,21 +552,21 @@
   },
   "ifeval": {
    "files": {
-    "shared": "shared.ifeval.fe09d2697ddf.json",
-    "chain_average": "chain_average.ifeval.fe09d2697ddf.json",
-    "bayes": "bayes.ifeval.fe09d2697ddf-4d19e19feede.json",
+    "shared": "shared.ifeval.2d5235b0473f.json",
+    "chain_average": "chain_average.ifeval.2d5235b0473f.json",
+    "bayes": "bayes.ifeval.2d5235b0473f-4d19e19feede.json",
     "bayes_prev": "bayes.ifeval.e8fced5bb4ba-2ca271c93114.json"
    },
    "label": "IFEval",
    "arms": "all",
-   "fingerprint": "fe09d2697ddf",
+   "fingerprint": "2d5235b0473f",
    "frame": {
     "population_M": 44,
     "tasks": 541,
     "keep_set_hash": "ea009d5c6cd1",
-    "runs_fingerprint": "4e7b6216e1ca",
+    "runs_fingerprint": "6c9880189e2d",
     "build_date": "2026-10-02",
-    "build_ts": "2026-10-02T02:48:36Z",
+    "build_ts": "2026-10-02T03:22:07Z",
     "vocab_ruled": "2026-08-27",
     "set": "ifeval",
     "set_label": "IFEval",
@@ -577,14 +577,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ea009d5c6cd1",
     "tasks_used": "IFEval \u2014 541 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-ifeval fp 14383bd82eea (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-ifeval fp a179bb4b8348 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "523d1e4de2cc",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-02T02:48:36Z",
-   "source_fp": "14383bd82eea",
-   "updated_at": "2026-10-02T02:54:55Z",
+   "source_stamp": "2026-10-02T03:22:07Z",
+   "source_fp": "a179bb4b8348",
+   "updated_at": "2026-10-02T03:28:57Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -606,21 +606,21 @@
   },
   "gsm8k_platinum": {
    "files": {
-    "shared": "shared.gsm8k_platinum.65f1e36fd376.json",
-    "chain_average": "chain_average.gsm8k_platinum.65f1e36fd376.json",
-    "bayes": "bayes.gsm8k_platinum.65f1e36fd376-81c9d84b6741.json",
+    "shared": "shared.gsm8k_platinum.167b46c53ab1.json",
+    "chain_average": "chain_average.gsm8k_platinum.167b46c53ab1.json",
+    "bayes": "bayes.gsm8k_platinum.167b46c53ab1-81c9d84b6741.json",
     "bayes_prev": "bayes.gsm8k_platinum.d8452a1a45f3-5bf8c7aa2f22.json"
    },
    "label": "GSM8K-Platinum",
    "arms": "all",
-   "fingerprint": "65f1e36fd376",
+   "fingerprint": "167b46c53ab1",
    "frame": {
     "population_M": 49,
     "tasks": 1209,
     "keep_set_hash": "ff1457decdf7",
-    "runs_fingerprint": "4e7b6216e1ca",
+    "runs_fingerprint": "6c67e00e96aa",
     "build_date": "2026-10-02",
-    "build_ts": "2026-10-02T02:45:34Z",
+    "build_ts": "2026-10-02T03:19:42Z",
     "vocab_ruled": "2026-08-27",
     "set": "gsm8k_platinum",
     "set_label": "GSM8K-Platinum",
@@ -631,14 +631,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ff1457decdf7",
     "tasks_used": "GSM8K-Platinum \u2014 1209 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-gsm8k_platinum fp 9af6f2996ee2 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-gsm8k_platinum fp e97e2da0d172 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "a4d9a85fd35b",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-02T02:45:34Z",
-   "source_fp": "9af6f2996ee2",
-   "updated_at": "2026-10-02T02:56:04Z",
+   "source_stamp": "2026-10-02T03:19:42Z",
+   "source_fp": "e97e2da0d172",
+   "updated_at": "2026-10-02T03:29:48Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -813,7 +813,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-10-02T02:24:48Z",
+  "stamp": "2026-10-02T03:24:46Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,
