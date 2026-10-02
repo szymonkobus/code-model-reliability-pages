@@ -1,9 +1,9 @@
 {
- "fingerprint": "0c2c86477d41",
+ "fingerprint": "7b79623d04d1",
  "fingerprint_inputs": {
   "content": "fd373f82f269",
   "wave": "golden-pool-20260904T1407Z",
-  "body": "e7e781fb0e4a"
+  "body": "d8f49b277761"
  },
  "frame": {
   "dataset": "new",
@@ -12,7 +12,7 @@
   "dataset_label_source": {
    "field": "label_of_record",
    "pointer": "serving_golden_pool.json",
-   "note": "label = set name + the count the figure stands on, at its stamp (the served wave's axis at the cut of 4 September 2026: 1,761 of wave 2, 12 tasks outside both waves); the kept lists of today (the kept set at 22 Sep 13:24): 1,737 of wave 2 of this axis still kept \u2014 a task that left the kept set after the cut stays in the fit as cut (the ruling of 8 Sep); the count is the cut's, the split by the waves' membership of record today (the wave-1 pin of 10 September 2026 and the wave-2 list with its parked members); Definitions' rule of 22 September 2026: one string written by the fit's writer, printed by every composer, never a count composed on a page from two sources"
+   "note": "label = set name + the count the figure stands on, at its stamp (the served wave's axis at the cut of 4 September 2026: 1,761 of wave 2, 12 tasks outside both waves); the kept lists of today (the kept set at 22 Sep 13:24): 1,737 of wave 2 of this axis still kept \u2014 a task that left the kept set after the cut stays in the fit as cut (the ruling of 8 Sep); the count is the cut's, the split by the waves' membership today (the wave-1 pin of 10 September 2026 and the wave-2 list with its parked members); Definitions' rule of 22 September 2026: one string written by the fit's writer, printed by every composer, never a count composed on a page from two sources"
   },
   "population": "golden",
   "population_source": "definitions/difficulty/knowledge/golden_set.json",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "29948dca2e5a",
   "axis_wave": "golden-pool-20260904T1407Z",
   "build_date": "2026-10-02",
-  "stamp": "2026-10-02T11:33:01Z",
+  "stamp": "2026-10-02T11:56:58Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -132,7 +132,7 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/golden-pool-20260904T1407Z-m100/results",
    "set_fingerprint": "f397260cc9fb",
-   "pointer_updated_at": "2026-09-28T11:56:25Z",
+   "pointer_updated_at": "2026-10-02T11:52:15Z",
    "n_fits": 12,
    "note": null,
    "gates": {
@@ -170,7 +170,7 @@
     "min_ell_arm": "claude-sonnet-5-thinking_batch",
     "min_ell_median": 0.92,
     "r_at_min_ell": 7.37e-06,
-    "disclosure": "re-fitted at the ruled basis on identical inputs (12 of 12 models): the served D50 (the 50% crossing) is unchanged within the run-to-run noise floor on every model; D99 (the 1% crossing) moved on one model, Qwen3-1.7B, later by about 0.05 on the difficulty scale (toward harder tasks, more reliable), and stayed within the noise floor on the other eleven",
+    "disclosure": "re-fitted at the ruled basis on identical inputs (12 of 12 models): the served D50 is unchanged within the run-to-run noise floor on every model; D99 moved on one model, Qwen3-1.7B, later by about 0.05 on the difficulty scale (toward harder tasks, more reliable), and stayed within the noise floor on the other eleven",
     "disclosure_rule": "the measured no-move range: the noise floor is two grid steps",
     "computed_at": "2026-09-07T06:45:26Z",
     "rule": "spec of 6 Sep (h), item 2: adequate iff r(min ell) <= 1e-2, r = exp(-1/4(ell w_M)^2)/exp(-1/4(ell w_1)^2), w_j = j*pi/(2L)"
@@ -404,9 +404,9 @@
   }
  },
  "files": {
-  "shared": "shared.0c2c86477d41.json",
-  "chain_average": "chain_average.0c2c86477d41.json",
-  "chain_median": "chain_median.0c2c86477d41.json",
-  "dots": "dots.0c2c86477d41.json"
+  "shared": "shared.7b79623d04d1.json",
+  "chain_average": "chain_average.7b79623d04d1.json",
+  "chain_median": "chain_median.7b79623d04d1.json",
+  "dots": "dots.7b79623d04d1.json"
  }
 }

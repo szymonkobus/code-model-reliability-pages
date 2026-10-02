@@ -1,9 +1,9 @@
 {
- "fingerprint": "88a0d647d307",
+ "fingerprint": "f859555eecbb",
  "fingerprint_inputs": {
   "content": "c076522ff536",
   "wave": "golden-board-20260904T1407Z",
-  "body": "5b4b465b2e8e"
+  "body": "f6f005aee114"
  },
  "frame": {
   "dataset": "board",
@@ -12,7 +12,7 @@
   "dataset_label_source": {
    "field": "label_of_record",
    "pointer": "serving_golden_board.json",
-   "note": "label = set name + the count the figure stands on, at its stamp (the served wave's axis at the cut of 4 September 2026: 431 of wave 1, seven tasks outside both waves); the kept lists of today (the kept set at 22 Sep 13:24): 430 of wave 1 of this axis still kept \u2014 a task that left the kept set after the cut stays in the fit as cut (the ruling of 8 Sep); the count is the cut's, the split by the waves' membership of record today (the wave-1 pin of 10 September 2026 and the wave-2 list with its parked members); Definitions' rule of 22 September 2026: one string written by the fit's writer, printed by every composer, never a count composed on a page from two sources"
+   "note": "label = set name + the count the figure stands on, at its stamp (the served wave's axis at the cut of 4 September 2026: 431 of wave 1, seven tasks outside both waves); the kept lists of today (the kept set at 22 Sep 13:24): 430 of wave 1 of this axis still kept \u2014 a task that left the kept set after the cut stays in the fit as cut (the ruling of 8 Sep); the count is the cut's, the split by the waves' membership today (the wave-1 pin of 10 September 2026 and the wave-2 list with its parked members); Definitions' rule of 22 September 2026: one string written by the fit's writer, printed by every composer, never a count composed on a page from two sources"
   },
   "population": "golden",
   "population_source": "definitions/difficulty/knowledge/golden_set.json",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "29948dca2e5a",
   "axis_wave": "golden-board-20260904T1407Z",
   "build_date": "2026-10-02",
-  "stamp": "2026-10-02T11:31:52Z",
+  "stamp": "2026-10-02T11:55:31Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -127,7 +127,7 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/golden-board-20260904T1407Z/results",
    "set_fingerprint": "ffd6e0604cc9",
-   "pointer_updated_at": "2026-09-28T11:56:25Z",
+   "pointer_updated_at": "2026-10-02T11:52:15Z",
    "n_fits": 12,
    "note": null,
    "gates": {
@@ -216,7 +216,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-02T10:27:08Z",
+   "_stamp": "2026-10-02T11:32:20Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -389,9 +389,9 @@
   }
  },
  "files": {
-  "shared": "shared.88a0d647d307.json",
-  "chain_average": "chain_average.88a0d647d307.json",
-  "chain_median": "chain_median.88a0d647d307.json",
-  "dots": "dots.88a0d647d307.json"
+  "shared": "shared.f859555eecbb.json",
+  "chain_average": "chain_average.f859555eecbb.json",
+  "chain_median": "chain_median.f859555eecbb.json",
+  "dots": "dots.f859555eecbb.json"
  }
 }
