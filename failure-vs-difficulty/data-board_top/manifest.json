@@ -1,9 +1,9 @@
 {
- "fingerprint": "ae980274bb12",
+ "fingerprint": "ea1a4b813da6",
  "fingerprint_inputs": {
   "content": "d2c5532f95f4",
   "wave": "combined-20260910T2209Z",
-  "body": "682b376dca20"
+  "body": "db785fd3aab7"
  },
  "frame": {
   "dataset": "board_top",
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "29948dca2e5a",
+  "runs_fingerprint": "b2cd8a3cb89e",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-02",
-  "stamp": "2026-10-02T11:18:49Z",
+  "stamp": "2026-10-02T13:47:49Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -89,7 +89,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-02T10:17:18Z",
+   "unified_built_at": "2026-10-02T13:28:59Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -405,7 +405,7 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/board_top-20260910T2111Z/results",
    "set_fingerprint": "030de536de92",
-   "pointer_updated_at": "2026-09-30T22:53:24Z",
+   "pointer_updated_at": "2026-10-02T13:44:16Z",
    "n_fits": 59,
    "note": null,
    "gates": {
@@ -534,17 +534,17 @@
   "partial_attempts": null,
   "side_arms": {
    "served": true,
-   "serving_word": "Definitions' standing word of 24 September 2026 (16:01Z, amended 16:05Z) for the pure landing form (knowledge/definitions_standing_word_landing_form_20260924T1601Z.txt, sha 7f4a3fa0fa0a) on staging 51f1b6b11488, classified PURE LANDING FORM by tools/landing_form_check.py; the fits critic's read: the fits critic's read follows on the served bytes (pre-written 14:49Z); Definitions' read follows on the served bytes, implemented by that staging: record-only emission: every arm gains coverage_own_record (its own kept results apart from cells borrowed from another arm's run; borrowed null on all eleven today); the coverage strings name a borrowed count when there is one; the composed files recomposed (11 rows); no face leaf, no data leaf",
+   "serving_word": "difficulty's GO (13:0xZ 2 Oct, on this sha alone): staging fccbce45b381 replacing serving_sft_board_top.json b74bdbf535d9 \u2014 step two of the side composed table's re-table: the composed table sft-side-composed-20261002T125823Z (11 arms, 123 columns, the D50 band and status columns on every row, every figure equal to the served), the twelve re-tabled waves bound afresh, repo-relative paths, the label note in plain words",
    "wave_id": "sft-board_top-20260921T1415Z",
    "n_arms": 11,
    "heading": "fine-tuned models and the base models they were trained from",
-   "heading_note": "label = plain words for what the group is (the project owner's word of 22 September 2026 via the post-training lead, ruled by Definitions the same day): no task count or composition in the label; the composition sits in group_composition, the counts in the count fields and membership (the kept set of record (19 September 2026): 430 of wave 1, 858 of wave 2 on the served axis; the set's members (19 September 2026): 430 of wave 1, 869 of wave 2), fitted figures beside it \u2014 a task that left the kept set after a cut stays in that fit as cut (the ruling of 8 Sep) and is named in its model's membership_lag",
+   "heading_note": "label = plain words for what the group is (the project owner's word of 22 September 2026 via the post-training lead, ruled by Definitions the same day): no task count or composition in the label; the composition sits in group_composition, the counts in the count fields and membership (the kept set (19 September 2026): 430 of wave 1, 858 of wave 2 on the served axis; the set's members (19 September 2026): 430 of wave 1, 869 of wave 2), fitted figures beside it \u2014 a task that left the kept set after a cut stays in that fit as cut (the ruling of 8 Sep) and is named in its model's membership_lag",
    "membership": "results for at least one of these models on all 1,288 kept tasks of the set (1,299 members); positions from the served axis, unchanged",
    "axis_rule": "the served wave 1+2 axis unchanged: study models are positioned on an axis they did not shape (ruling of 17 Sep); positions are comparable with the served set's",
    "axis_pinned_to_served": true,
    "cut_at": "2026-09-21T14:15:25Z",
    "completed_at": "2026-09-23T03:38:30Z",
-   "updated_at": "2026-09-28T12:24:15Z",
+   "updated_at": "2026-10-02T13:43:09Z",
    "pointer": "definitions/fitting/serving_sft_board_top.json",
    "arms": [
     {
@@ -2557,7 +2557,14 @@
      "cross_record": {
       "d50": {
        "z": -0.3088,
-       "mixing_note": null
+       "mixing_note": null,
+       "status": "point",
+       "status_kind": "point",
+       "bound": null,
+       "reason_text": null,
+       "uncensored_median_z": -0.3088,
+       "lo": -0.438,
+       "hi": -0.1796
       },
       "d1": {
        "z": -2.5649,
@@ -4582,13 +4589,20 @@
      "cross_record": {
       "d50": {
        "z": -1.0144,
-       "mixing_note": null
+       "mixing_note": null,
+       "status": "point",
+       "status_kind": "point",
+       "bound": null,
+       "reason_text": null,
+       "uncensored_median_z": -1.0144,
+       "lo": -1.0939,
+       "hi": -0.9349
       },
       "d1": {
        "z": -4.8508,
        "lo": -6.0037,
        "hi": -4.4831,
-       "status": "unresolved: the 80% uncertainty band of D99 (the 1% crossing of the average-rate curve) spans 1.5206 on the difficulty scale, wider than the house bandwidth of 1.0; its value and uncertainty band are kept beside (floor rate 0.0024%)",
+       "status": "unresolved: the 80% uncertainty band of D99 spans 1.521 on the difficulty scale, wider than the 1.0 limit for a resolved crossing",
        "status_kind": "unresolved",
        "reason_text": null,
        "uncensored_median_z": -4.8508,
@@ -6607,7 +6621,14 @@
      "cross_record": {
       "d50": {
        "z": -0.4479,
-       "mixing_note": null
+       "mixing_note": null,
+       "status": "point",
+       "status_kind": "point",
+       "bound": null,
+       "reason_text": null,
+       "uncensored_median_z": -0.4479,
+       "lo": -0.5075,
+       "hi": -0.3783
       },
       "d1": {
        "z": -3.7575,
@@ -8632,7 +8653,14 @@
      "cross_record": {
       "d50": {
        "z": -0.4678,
-       "mixing_note": null
+       "mixing_note": null,
+       "status": "point",
+       "status_kind": "point",
+       "bound": null,
+       "reason_text": null,
+       "uncensored_median_z": -0.4678,
+       "lo": -0.5274,
+       "hi": -0.4181
       },
       "d1": {
        "z": -3.5787,
@@ -10657,7 +10685,14 @@
      "cross_record": {
       "d50": {
        "z": -0.5274,
-       "mixing_note": null
+       "mixing_note": null,
+       "status": "point",
+       "status_kind": "point",
+       "bound": null,
+       "reason_text": null,
+       "uncensored_median_z": -0.5274,
+       "lo": -0.597,
+       "hi": -0.4678
       },
       "d1": {
        "z": -4.2942,
@@ -12682,7 +12717,14 @@
      "cross_record": {
       "d50": {
        "z": -0.2094,
-       "mixing_note": null
+       "mixing_note": null,
+       "status": "point",
+       "status_kind": "point",
+       "bound": null,
+       "reason_text": null,
+       "uncensored_median_z": -0.2094,
+       "lo": -0.3386,
+       "hi": -0.0603
       },
       "d1": {
        "z": -2.5251,
@@ -14707,7 +14749,14 @@
      "cross_record": {
       "d50": {
        "z": 0.8541,
-       "mixing_note": null
+       "mixing_note": null,
+       "status": "point",
+       "status_kind": "point",
+       "bound": null,
+       "reason_text": null,
+       "uncensored_median_z": 0.8541,
+       "lo": 0.8143,
+       "hi": 0.8938
       },
       "d1": {
        "z": -1.9686,
@@ -16732,13 +16781,20 @@
      "cross_record": {
       "d50": {
        "z": -1.5014,
-       "mixing_note": null
+       "mixing_note": null,
+       "status": "point",
+       "status_kind": "point",
+       "bound": null,
+       "reason_text": null,
+       "uncensored_median_z": -1.5014,
+       "lo": -1.5909,
+       "hi": -1.4219
       },
       "d1": {
        "z": -7.2262,
        "lo": -7.7331,
        "hi": -6.7193,
-       "status": "unresolved: the 80% uncertainty band of D99 (the 1% crossing of the average-rate curve) spans 1.0138 on the difficulty scale, wider than the house bandwidth of 1.0; its value and uncertainty band are kept beside (floor rate 0.8489%)",
+       "status": "unresolved: the 80% uncertainty band of D99 spans 1.014 on the difficulty scale, wider than the 1.0 limit for a resolved crossing",
        "status_kind": "unresolved",
        "reason_text": null,
        "uncensored_median_z": -7.2262,
@@ -18757,7 +18813,14 @@
      "cross_record": {
       "d50": {
        "z": -1.2629,
-       "mixing_note": null
+       "mixing_note": null,
+       "status": "point",
+       "status_kind": "point",
+       "bound": null,
+       "reason_text": null,
+       "uncensored_median_z": -1.2629,
+       "lo": -1.402,
+       "hi": -1.1436
       },
       "d1": {
        "z": -7.9021,
@@ -20782,7 +20845,14 @@
      "cross_record": {
       "d50": {
        "z": -0.9945,
-       "mixing_note": null
+       "mixing_note": null,
+       "status": "point",
+       "status_kind": "point",
+       "bound": null,
+       "reason_text": null,
+       "uncensored_median_z": -0.9945,
+       "lo": -1.0939,
+       "hi": -0.9051
       },
       "d1": {
        "z": -5.7851,
@@ -22807,7 +22877,14 @@
      "cross_record": {
       "d50": {
        "z": -0.756,
-       "mixing_note": null
+       "mixing_note": null,
+       "status": "point",
+       "status_kind": "point",
+       "bound": null,
+       "reason_text": null,
+       "uncensored_median_z": -0.756,
+       "lo": -0.8057,
+       "hi": -0.6864
       },
       "d1": {
        "z": -4.8906,
@@ -106367,7 +106444,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-02T10:27:08Z",
+   "_stamp": "2026-10-02T13:28:55Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -106532,17 +106609,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-02T09:20:02Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T092002Z.json",
-   "sha16": "51fe8fa5afb58947",
-   "census_mtime": "2026-10-02T09:20:55Z",
+   "stamp": "2026-10-02T11:58:04Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T115804Z.json",
+   "sha16": "c4d3f52c85a4cdb3",
+   "census_mtime": "2026-10-02T11:59:18Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.ae980274bb12.json",
-  "chain_average": "chain_average.ae980274bb12.json",
-  "chain_median": "chain_median.ae980274bb12.json",
-  "dots": "dots.ae980274bb12.json"
+  "shared": "shared.ea1a4b813da6.json",
+  "chain_average": "chain_average.ea1a4b813da6.json",
+  "chain_median": "chain_median.ea1a4b813da6.json",
+  "dots": "dots.ea1a4b813da6.json"
  }
 }
