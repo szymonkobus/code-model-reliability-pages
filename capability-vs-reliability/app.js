@@ -861,7 +861,7 @@ function boot() {
   var _dsDflt = D.defaultData || (D.allDs.board_top ? 'board_top' : 'board');
   var _opt = function (k) { return { value: k, label: String(DATASETS[k].label).replace(/\s*\([^)]*\)\s*$/, ''), disabled: !DATASETS[k].available }; };   // a control carries the project maintainers' words alone (23 Sep): the set's name, its count on the set line
   var dsRow = Kit.filterRow('#datasetbar');   // 2 Oct 2026 (the project maintainers' word of 11:2x UK): the dataset grouping is a dataset selector, not a chart control — it sits above the figure in its own slot, never among the chart's controls
-  Kit.switchControl({ mount: dsRow, key: 'panels', label: 'View', dflt: 'one', options: [{ value: 'one', label: 'one set' }, { value: 'all', label: 'side by side' }],   // 2 Oct 2026 (the project maintainers' word of 11:2x UK): several datasets side by side is a MODE of this page, entered by its own switch above the figure, never a link
+  Kit.switchControl({ mount: dsRow, key: 'panels', label: 'Sets', dflt: 'one', options: [{ value: 'one', label: 'one' }, { value: 'all', label: 'side by side' }],   // 2 Oct 2026 (the project maintainers' word of 11:2x UK): several datasets side by side is a MODE of this page, entered by its own switch above the figure, never a link
     onchange: function (v) { if ((v === 'all') === !!PANELS_KEYS) return; if (v !== 'all' && PANELS_KEYS) Kit.state.set('data', PANELS_KEYS[0], D.defaultData); location.reload(); } });
   var dataSw = Kit.selectControl({ mount: dsRow, key: 'data', label: 'Dataset',   // FIRST control in the row ("an option at the top"); the reference designer's Kit.selectControl  30 Sep
     options: Object.keys(DATASETS).filter(function (k) { return !DATASETS[k].group; }).map(_opt),

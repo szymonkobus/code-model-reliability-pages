@@ -1,19 +1,13 @@
-/* project UI kit v1 — styles (the reference template). Vendor with kit.js.
-   CANONICAL: ~/reliability/how-we-work/the maintainers/ui-kit/kit.css (upstream); vendored copies name the version they carry (F5-108). Version line: kit.css 1e280915, 2026-09-10.
-   Assumes the reference sepia tokens; standalone-safe via the fallbacks. */
+/* kit.css — the reference kit, served form 1e280915, built 02 Oct 2026 from source 37d02e1e2e77. */
 .kit-filter-row {
   display: flex; gap: 1.1rem; align-items: center; flex-wrap: wrap;
   padding: .55rem 0; margin: .4rem 0 1rem;
   border-bottom: 1px solid var(--border, #e0d9c8);
-  /* STICKY (08-30, pool curves lesson): on long pages the controls must
-     ride along every chart they govern — the project maintainers at the rel-vs-cap plot
-     could not see the Definition switch a full viewport above. The named
-     views are never allowed to scroll out of reach. */
+  
   position: sticky; top: 0; z-index: 9;
   background: var(--bg, #faf6ec);
 }
-/* opt-out (21 Sep, a page maintainers' read): a control row placed BELOW the chart it governs, or on a page whose maintainers holds the
-   sticky behaviour under the UI freeze, adds kit-static and stays in the flow; the default above is the 08-30 rule */
+
 .kit-filter-row.kit-static { position: static; }
 .kit-switch { display: inline-flex; align-items: center; gap: .5rem; }
 .kit-switch-label {
@@ -37,7 +31,7 @@
 .kit-switch-seg button:focus-visible {
   outline: 2px solid #0b57d0; outline-offset: 1px;
 }
-/* the select widget: one choice among many in the switch's chrome (Kit.selectControl, 30 Sep 2026) */
+
 .kit-select { display: inline-flex; align-items: center; gap: .5rem; }
 .kit-select select {
   font: 600 .82rem/1.2 inherit; font-family: inherit; color: var(--ink, #1a1a1a);
@@ -47,7 +41,6 @@
 .kit-select select:focus-visible { outline: 2px solid #0b57d0; outline-offset: 1px; }
 .kit-select option:disabled { color: var(--ink-3, #8b8477); }
 
-/* --- kit-viz: tooltip + crosshair --- */
 .kit-tip {
   position: fixed; z-index: 40; display: none; max-width: 18rem;
   background: #fffdf6; color: var(--ink, #1a1a1a);
@@ -64,7 +57,6 @@
 .kit-crosshair { position: absolute; top: 0; bottom: 0; width: 1px;
   background: var(--border2, #cfc5ac); display: none; pointer-events: none; }
 
-/* --- kit-columns: progressive disclosure (list / summary / full) --- */
 .kit-columns { display: flex; flex-direction: column; min-height: 0; }
 .kit-col-filter { width: 100%; max-width: 20rem; background: #fff;
   border: 1px solid var(--border, #e0d9c8); border-radius: 999px;
@@ -103,30 +95,19 @@
     padding: .35rem .8rem; cursor: pointer; }
 }
 
-/* Export row (the project maintainers' word of 18 Sep: a button to export the plot — the figure's own toolbar, a row directly under the chart, right-aligned;
-   kit-export.js mounts it, static figures use the same row with a download link). One look on every site: vendor with kit-export.js. */
 .kit-export { display: flex; justify-content: flex-end; align-items: center; gap: .4rem; margin: .35rem 0 1rem; font-size: .85rem; }
 .kit-export-btn, a.kit-export-btn { font: inherit; font-size: .85rem; line-height: 1.2; padding: .28rem .65rem; border: 1px solid var(--border, #d9d2bf); border-radius: 6px; background: var(--panel, #f3eee0); color: var(--ink-2, #52514e); text-decoration: none; cursor: pointer; }
 .kit-export-btn:hover { background: var(--bg, #faf6ec); }
 .kit-export-svg { padding: .28rem .5rem; }
 @media print { .kit-export { display: none; } }
 
-/* A table scrolls sideways in its own box, never over itself (the project maintainers' word of 21 Sep, on a table overlapping itself inside a folded
-   section): wrap every table — folded sections included — in .kit-table-scroll, or call Kit.scrollTables() after render; the table keeps its
-   natural width (auto layout, at least the box's width) and its header cells never wrap into each other; the box scrolls when the table is wider. */
 .kit-table-scroll { overflow-x: auto; max-width: 100%; min-width: 0; -webkit-overflow-scrolling: touch; }
 .kit-table-scroll > table { width: auto; min-width: 100%; table-layout: auto; }
 .kit-table-scroll th { white-space: nowrap; }
 
-/* A chart keeps its labels readable on a phone (the presentation critic's finding of 22 Sep: a 960-wide drawing scaled to 390 px renders its
-   12 px labels at 5 px; the class of the project maintainers' word of 21 Sep on tables): an inline chart sits in .kit-chart-scroll with a minimum
-   drawing width — the viewBox width × 10 ÷ the smallest label size — so its labels stay about 10 px and the box scrolls sideways below that
-   width; Kit.phoneCharts() sets it from the drawing; a server-built figure sets style="min-width: …px" on the svg. Nothing changes at 1440. */
 .kit-chart-scroll { overflow-x: auto; max-width: 100%; min-width: 0; -webkit-overflow-scrolling: touch; }
 .kit-chart-scroll > svg { display: block; height: auto; }
 
-/* kit-panels.js v1 (2 Oct 2026): several datasets side by side as a mode of the main page — a grid of square panels, one column on a phone,
-   each panel its title only; the page's draw fills .kit-panel-body */
 .kit-panels { display: grid; gap: .9rem 1rem; align-items: start; margin: .6rem 0 .4rem; }
 .kit-panel { min-width: 0; }
 .kit-panel-title { font-size: .9rem; font-weight: 600; margin: 0 0 .25rem; color: var(--ink, #222); }
