@@ -100,8 +100,11 @@ function buildControls(ctxs) {   // every chart control of the main page, from t
   sw(moreRow, 'line', CONTROL_WORDS.line.label, CONTROL_WORDS.line.options, 'steps', function (v) { state.line = (v === 'off' || v === 'axes') ? v : 'steps'; });
   sw(moreRow, 'lw', CONTROL_WORDS.lw.label, CONTROL_WORDS.lw.options, 'equal', function (v) { state.lw = v === 'bands' ? 'bands' : 'equal'; });
   sw(moreRow, 'resid', CONTROL_WORDS.resid.label, CONTROL_WORDS.onoff, 'off', function (v) { state.resid = v === 'on' ? 'on' : 'off'; });
-  var withPrev = live.filter(function (c) { return !!c.D.bayPrev; })[0];   // the move arrows exist where a set carries its previous fit; the label names that set's cut
-  if (withPrev) { var prevName = live.length === 1 ? withPanel(withPrev, prevFitName) : 'the previous cut of each set shown'; sw(moreRow, 'move', CONTROL_WORDS.move.label + prevName, CONTROL_WORDS.onoff, 'off', function (v) { state.move = v === 'on' ? 'on' : 'off'; }); }
+  var withPrevs = live.filter(function (c) { return !!c.D.bayPrev; });   // the move arrows exist where a set carries its previous fit; the label names the cut — one set: that set's cut as the main page prints it; several sets with one cut date: that date's cut of each set shown; else the previous cut of each set shown
+  if (withPrevs.length) { var names = withPrevs.map(function (c) { return withPanel(c, prevFitName); }), dates = names.map(function (nm) { var m = /^the (.+) cut of /.exec(nm); return m ? m[1] : null; });
+    var oneDate = dates.length === names.length && dates.every(function (d) { return d && d === dates[0]; }) ? dates[0] : null;
+    var prevName = live.length === 1 ? names[0] : (oneDate ? 'the ' + oneDate + ' cut of each set shown' : 'the previous cut of each set shown');
+    sw(moreRow, 'move', CONTROL_WORDS.move.label + prevName, CONTROL_WORDS.onoff, 'off', function (v) { state.move = v === 'on' ? 'on' : 'off'; }); }
   var pm = document.getElementById('armsbar') || row;   // the two switches about the models: mounted here, moved into the chips' first row by buildChips
   var anyGolden = SET_KEYS.some(function (k) { return D.allDs['golden-' + k] && D.allDs['golden-' + k].files; });
   SW.arms = Kit.switchControl({ mount: pm, key: 'arms', label: CONTROL_WORDS.arms.label, options: CONTROL_WORDS.arms.options, dflt: 'all', onchange: function (v) { if (!GRID) return; if (v === 'golden' && !anyGolden) { SW.arms.set(state.arms); return; } if (v !== state.arms) { Kit.state.set('arms', v === 'golden' ? 'golden' : null, null); location.reload(); } } });
