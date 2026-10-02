@@ -23,6 +23,7 @@ fetch(MOUNT + 'data/manifest.json').then(function (r) { if (!r.ok) throw new Err
     Object.keys(DATASETS).forEach(function (k) { DATASETS[k].available = !!(ds[k] && ds[k].files); });
     relabel();   // the names of record with their counts: the main page's vocabulary
     SERVED = SETS_ORDER.filter(function (k) { return DATASETS[k] && ds[k] && ds[k].files; });
+    state.arms = Kit.state.get('arms', 'all') === 'golden' ? 'golden' : 'all';   // the golden set where a chosen set has its golden bundle (the main page's Models switch)
     var want = String(Kit.state.get('sets', '') || '').split(',').filter(function (k) { return SERVED.indexOf(k) >= 0; });
     SET_KEYS = want.length ? SETS_ORDER.filter(function (k) { return want.indexOf(k) >= 0; }) : defaultKeys();
     if (want.length && SET_KEYS.join(',') === defaultKeys().join(',')) Kit.state.set('sets', null, null);   // the default choice carries no parameter
@@ -51,9 +52,10 @@ function buildSetControl() {   // the page's own choice of datasets, above the f
   });
 }
 function loadSetCtx(key) {   // one dataset's files, prepared as the main page prepares its set (the plane module's prepareSet) and joined into a context the renderer draws; a defect holds the panel, never the page
-  var e = D.allDs[key], files = e && e.files; if (!files) return Promise.resolve({ key: key, held: 'not served' });
+  var armsKey = state.arms === 'golden' && D.allDs['golden-' + key] && D.allDs['golden-' + key].files ? 'golden-' + key : key;   // under the golden set a set with a golden bundle shows it; one without shows its models as usual
+  var e = D.allDs[armsKey], files = e && e.files; if (!files) return Promise.resolve({ key: key, held: 'not served' });
   return Promise.all(['shared', 'chain_average', 'chain_median', 'bayes', 'bayes_prev'].map(function (k) { return files[k] ? fetch(MOUNT + 'data/' + files[k]).then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }) : Promise.resolve(null); })).then(function (all) {
-    var X = { man: D.man, allDs: D.allDs, defaultData: D.defaultData, dsId: key, dataId: key, ds: e, golden: false, shared: all[0], avg: all[1], med: all[2], bay: all[3], bayPrev: all[4] || null, runRaw: null, moves: null };
+    var X = { man: D.man, allDs: D.allDs, defaultData: D.defaultData, dsId: armsKey, dataId: key, ds: e, golden: armsKey !== key, shared: all[0], avg: all[1], med: all[2], bay: all[3], bayPrev: all[4] || null, runRaw: null, moves: null };
     if (!X.shared || !X.avg) return { key: key, held: 'files missing' };
     try { prepareSet(X, true); } catch (err) { return { key: key, held: 'an older artifact' }; }
     var ctx = { key: key, D: X, RUNS: [], RUN: null, SLUG_OF: {}, IDX_OF_SLUG: {}, sel: new Set() };
@@ -79,16 +81,36 @@ function buildUnion(ctxs) {   // the chips' set: every model of every panel once
   U.avgById = {}; U.medById = {}; U.bayById = {}; avgRows.forEach(function (r) { U.avgById[r.cfg] = r; }); medRows.forEach(function (r) { U.medById[r.cfg] = r; }); bayRows.forEach(function (r) { U.bayById[r.cfg] = r; });
   return U;
 }
-function buildControls() {   // the main page's switches whose meaning every panel carries, from the shared word table
+function buildControls(ctxs) {   // every chart control of the main page, from the shared word table and in the main page's order: the plane draws each of them in every panel
+  var live = ctxs.filter(function (c) { return !c.held; });
   var row = Kit.filterRow('#controls'); row.classList.add('kit-static');
-  SW.def = Kit.switchControl({ mount: row, key: 'def', label: CONTROL_WORDS.def.label, options: CONTROL_WORDS.def.options, dflt: 'average', onchange: function (v) { state.def = v === 'median' ? 'median' : 'average'; if (GRID) render(); } });
-  SW.src = Kit.switchControl({ mount: row, key: 'src', label: CONTROL_WORDS.src.label, options: [{ value: 'project', label: houseName() }, { value: 'bayes', label: CONTROL_WORDS.src.bayes }], dflt: 'bayes', onchange: function (v) { state.src = v === 'project' ? 'project' : 'bayes'; if (GRID) render(); } });
-  [['xs', CONTROL_WORDS.xs.label], ['ys', CONTROL_WORDS.ys.label]].forEach(function (ax) { Kit.switchControl({ mount: row, key: ax[0], label: ax[1], options: CONTROL_WORDS.scale, dflt: 'logit', onchange: function (v) { state[ax[0]] = v === 'raw' ? 'raw' : 'logit'; if (GRID) render(); } }); });
-  Kit.switchControl({ mount: document.getElementById('armsbar') || row, key: 'partial', label: CONTROL_WORDS.partial.label, options: CONTROL_WORDS.partial.options, dflt: 'hide', onchange: function (v) { state.partial = v === 'show' ? 'show' : 'hide'; Kit.state.set('partial', state.partial, 'hide'); if (GRID) { refreshPartialChips(); render(); } } });
+  var sw = function (mount, key, label, options, dflt, apply) { return Kit.switchControl({ mount: mount, key: key, label: label, options: options, dflt: dflt, onchange: function (v) { apply(v); if (GRID) render(); } }); };
+  SW.def = sw(row, 'def', CONTROL_WORDS.def.label, CONTROL_WORDS.def.options, 'average', function (v) { state.def = v === 'median' ? 'median' : 'average'; });
+  SW.xdef = sw(row, 'xdef', CONTROL_WORDS.xdef.label, CONTROL_WORDS.xdef.options, 'crossing', function (v) { state.xdef = CAP_KEYS[v] ? v : 'crossing'; if (state.xdef === 'crossing') Kit.state.set('xdef', null, null); if (typeof syncXdefLock === 'function' && elA) syncXdefLock(); });
+  SW.src = sw(row, 'src', CONTROL_WORDS.src.label, [{ value: 'project', label: houseName() }, { value: 'bayes', label: CONTROL_WORDS.src.bayes }], 'bayes', function (v) { state.src = v === 'project' ? 'project' : 'bayes'; });
+  sw(row, 'kp', CONTROL_WORDS.kp.label, CONTROL_WORDS.onoff, 'off', function (v) { state.kp = v === 'on' ? 'on' : 'off'; });
+  sw(row, 'lad', CONTROL_WORDS.lad.label, CONTROL_WORDS.onoff, 'off', function (v) { state.lad = v === 'on' ? 'on' : 'off'; });
+  sw(row, 'w', CONTROL_WORDS.w.label, CONTROL_WORDS.onoff, 'on', function (v) { state.w = v === 'off' ? 'off' : 'on'; });
+  sw(row, 'wd', CONTROL_WORDS.wd.label, CONTROL_WORDS.wd.options, 'adj', function (v) { state.wd = v === 'ind' ? 'ind' : 'adj'; });
+  sw(row, 'fitci', CONTROL_WORDS.fitci.label, CONTROL_WORDS.fitci.options, 'plain', function (v) { state.fitci = v === 'honest' ? 'honest' : 'plain'; });
+  var more = document.createElement('details'); more.id = 'morecontrols'; more.className = 'about'; more.innerHTML = '<summary>' + CONTROL_WORDS.more + '</summary>';
+  var moreRow = document.createElement('div'); moreRow.className = 'kit-filter-row kit-static'; moreRow.id = 'moreswitches'; more.appendChild(moreRow); var cc = document.getElementById('controls'); cc.parentNode.insertBefore(more, cc.nextSibling);   // the fold sits after the controls' row and before the levels, as on the main page
+  [['xs', CONTROL_WORDS.xs.label], ['ys', CONTROL_WORDS.ys.label]].forEach(function (ax) { sw(moreRow, ax[0], ax[1], CONTROL_WORDS.scale, 'logit', function (v) { state[ax[0]] = v === 'raw' ? 'raw' : 'logit'; }); });
+  sw(moreRow, 'line', CONTROL_WORDS.line.label, CONTROL_WORDS.line.options, 'steps', function (v) { state.line = (v === 'off' || v === 'axes') ? v : 'steps'; });
+  sw(moreRow, 'lw', CONTROL_WORDS.lw.label, CONTROL_WORDS.lw.options, 'equal', function (v) { state.lw = v === 'bands' ? 'bands' : 'equal'; });
+  sw(moreRow, 'resid', CONTROL_WORDS.resid.label, CONTROL_WORDS.onoff, 'off', function (v) { state.resid = v === 'on' ? 'on' : 'off'; });
+  var withPrev = live.filter(function (c) { return !!c.D.bayPrev; })[0];   // the move arrows exist where a set carries its previous fit; the label names that set's cut
+  if (withPrev) { var prevName = withPanel(withPrev, prevFitName); sw(moreRow, 'move', CONTROL_WORDS.move.label + prevName, CONTROL_WORDS.onoff, 'off', function (v) { state.move = v === 'on' ? 'on' : 'off'; }); }
+  var pm = document.getElementById('armsbar') || row;   // the two switches about the models: mounted here, moved into the chips' first row by buildChips
+  var anyGolden = SET_KEYS.some(function (k) { return D.allDs['golden-' + k] && D.allDs['golden-' + k].files; });
+  SW.arms = Kit.switchControl({ mount: pm, key: 'arms', label: CONTROL_WORDS.arms.label, options: CONTROL_WORDS.arms.options, dflt: 'all', onchange: function (v) { if (!GRID) return; if (v === 'golden' && !anyGolden) { SW.arms.set(state.arms); return; } if (v !== state.arms) { Kit.state.set('arms', v === 'golden' ? 'golden' : null, null); location.reload(); } } });
+  if (!anyGolden) { var gb = pm.querySelector('.kit-switch[data-key="arms"] button[data-value="golden"]'); if (gb) { gb.disabled = true; gb.setAttribute('aria-disabled', 'true'); gb.title = CONTROL_WORDS.arms.goldenMissing; } }
+  Kit.switchControl({ mount: pm, key: 'partial', label: CONTROL_WORDS.partial.label, options: CONTROL_WORDS.partial.options, dflt: 'hide', onchange: function (v) { state.partial = v === 'show' ? 'show' : 'hide'; Kit.state.set('partial', state.partial, 'hide'); if (GRID) { refreshPartialChips(); render(); } } });
 }
 function syncChains(ctxs) {   // an option no chosen set carries stays in place, unselectable, with the reason as its hint (the main page's rule for a dataset without the chain); a set among several without it draws with the chain it has
   var live = ctxs.filter(function (c) { return !c.held; });
-  [['def', 'median', live.some(function (c) { return !!c.D.med; }), 'chain_median', 'no median-task chain for these sets', 'average'], ['src', 'bayes', live.some(function (c) { return !!c.D.bay; }), 'bayes', 'no Bayesian crossing tables for these sets', 'project']].forEach(function (L) {
+  var caps = Object.keys(CAP_KEYS).map(function (k) { return ['xdef', k, live.some(function (c) { return !!(c.D.shared && c.D.shared[k]); }), k, CAP_KEYS[k].name() + ' is not computed for these sets', 'crossing']; });
+  [['def', 'median', live.some(function (c) { return !!c.D.med; }), 'chain_median', 'no median-task chain for these sets', 'average'], ['src', 'bayes', live.some(function (c) { return !!c.D.bay; }), 'bayes', 'no Bayesian crossing tables for these sets', 'project']].concat(caps).forEach(function (L) {
     var b = document.querySelector('.kit-switch[data-key="' + L[0] + '"] button[data-value="' + L[1] + '"]'); if (!b) return;
     if (L[2]) { b.disabled = false; b.removeAttribute('aria-disabled'); b.title = ''; return; }
     var why = null; live.forEach(function (c) { var m = c.D.ds && c.D.ds.missing; if (!why && m && m[L[3]]) why = m[L[3]]; });
@@ -109,7 +131,11 @@ function init(ctxs) {
   state.def = Kit.state.get('def', 'average') === 'median' ? 'median' : 'average';
   state.src = Kit.state.get('src', 'bayes') === 'project' ? 'project' : 'bayes';   // Bayesian where a set has posteriors; a set without draws with the chain it has
   state.xs = Kit.state.get('xs', 'logit') === 'raw' ? 'raw' : 'logit'; state.ys = Kit.state.get('ys', 'logit') === 'raw' ? 'raw' : 'logit';
-  buildControls(); syncChains(ctxs);
+  state.xdef = Kit.state.get('xdef', 'crossing'); if (!CAP_KEYS[state.xdef]) state.xdef = 'crossing';   // the main page's defaults for every chart control the URL may carry
+  state.kp = Kit.state.get('kp', 'off') === 'on' ? 'on' : 'off'; state.lad = Kit.state.get('lad', 'off') === 'on' ? 'on' : 'off'; state.w = Kit.state.get('w', 'on') === 'off' ? 'off' : 'on'; state.wd = Kit.state.get('wd', 'adj') === 'ind' ? 'ind' : 'adj';
+  state.fitci = Kit.state.get('fitci', 'plain') === 'honest' ? 'honest' : 'plain'; state.move = Kit.state.get('move', 'off') === 'on' ? 'on' : 'off'; var lv = Kit.state.get('line', 'steps'); state.line = (lv === 'off' || lv === 'axes') ? lv : 'steps';
+  state.lw = Kit.state.get('lw', 'equal') === 'bands' ? 'bands' : 'equal'; state.resid = Kit.state.get('resid', 'off') === 'on' ? 'on' : 'off';
+  buildControls(ctxs); syncChains(ctxs);
   buildLevels(); foldSweepTools();
   buildChips(); refreshPartialChips();
   if (!partialArms().length) { var psw = document.querySelector('.kit-switch[data-key="partial"]'); if (psw) psw.style.display = 'none'; }
@@ -130,6 +156,7 @@ function drawInto(ctx, svg, size) {   // one set's plane into one svg by the pla
   if (state.src === 'bayes' && !ctx.D.bay) state.src = 'project'; if (state.def === 'median' && !ctx.D.med) state.def = 'average';
   try {
     withPanel(ctx, function () {
+      if (isCap() && !capBlock()) { svg.setAttribute('viewBox', '0 0 ' + size.width + ' ' + size.width); PANEL.g.innerHTML = '<text x="' + (size.width / 2) + '" y="' + (size.width / 2) + '" text-anchor="middle" font-size="11" fill="#52514e">' + CAP_KEYS[state.xdef].name() + ' is not published for this set yet; no model is drawn.</text>'; PANEL.drawn = 0; return; }   // the main page's words for a set without the capability block
       LIMX = null; LIMY = null; EXT = null; renderScatter();   // pass one: the drawn extent
       var cr = cropRange(EXT, LIM); if (cr) { LIMX = cr.slice(); LIMY = cr.slice(); try { renderScatter(); } finally { LIMX = null; LIMY = null; } }   // pass two: the axes crop to the points, equal scales, the diagonal
     });

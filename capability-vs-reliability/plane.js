@@ -22,6 +22,16 @@ var CONTROL_WORDS = {   // the words of the switches both pages mount — one ta
   src: { label: 'Crossing estimator', bayes: 'Bayesian (posterior)' },   // the reference option's label is houseName
   partial: { label: 'Partial models', options: [{ value: 'hide', label: 'hidden' }, { value: 'show', label: 'show partial models' }] },
   xs: { label: 'Horizontal scale' }, ys: { label: 'Vertical scale' }, scale: [{ value: 'logit', label: 'Logit' }, { value: 'raw', label: 'Normal' }],
+  xdef: { label: 'Capability axis', options: [{ value: 'crossing', label: 'D' }, { value: 'capC', label: 'Uniform' }, { value: 'capC_j', label: 'Jeffreys' }, { value: 'capC_z', label: 'Haldane' }] },
+  onoff: [{ value: 'off', label: 'Off' }, { value: 'on', label: 'On' }],   // every on/off switch reads Off | On in this order (the project maintainers' word of 7 Sep 2026)
+  kp: { label: 'K paths' }, lad: { label: 'K ladders' }, w: { label: 'Whiskers' }, resid: { label: 'Misses against the line' },
+  wd: { label: 'Whisker widths', options: [{ value: 'adj', label: 'Correlation-adjusted' }, { value: 'ind', label: 'Independence' }] },
+  fitci: { label: 'Fit CI', options: [{ value: 'plain', label: '95%, dots exact' }, { value: 'honest', label: '80% with measurement error' }] },
+  move: { label: 'Move from ' },   // + prevFitName: the set and the date of the cut the arrows move from
+  line: { label: 'Fitted line', options: [{ value: 'off', label: 'Off' }, { value: 'steps', label: 'In logit' }, { value: 'axes', label: 'In the axes as set' }] },
+  lw: { label: 'Line weighting', options: [{ value: 'equal', label: 'Each dot equal' }, { value: 'bands', label: 'By the 80% uncertainty bands' }] },
+  arms: { label: 'Models', options: [{ value: 'all', label: 'all models' }, { value: 'golden', label: 'golden set' }], goldenMissing: 'golden set (12): no golden bundle for this dataset yet' },
+  more: 'More controls',
 };
 function cropRange(ext, lim) {   // the on-screen window around the drawn points (the project maintainers' word of 2 Oct 11:2x UK; the structure maintainers' section: a page's axes fit the data): one common range for both axes (equal scales, the diagonal), padded 6%, never beyond the set's frame; null when the points fill the frame
   if (!(ext && isFinite(ext.x0) && isFinite(ext.y0) && ext.x1 >= ext.x0 && ext.y1 >= ext.y0)) return null;

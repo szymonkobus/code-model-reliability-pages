@@ -144,15 +144,15 @@ function boot() {
     } });
   (function () { var sel = dataSw.element.querySelector('select'); [].forEach.call(sel.options, function (o) { var d = DATASETS[o.value]; if (!d) return; o.title = d.available ? (d.hover || '') : (d.label + ': ' + d.reason); }); })();   // the reason on hover for a set not served; the set's words for one served
   if (dataSw.value() !== D.dataId) dataSw.set(D.dataId);   // a rejected deep-link value: the option shown is the dataset rendered
-  var armsSw = Kit.switchControl({ mount: document.getElementById('armsbar') || row, key: 'arms', label: 'Models',   // right after Dataset (the curves page maintainers' decision for both official pages)
-    options: [{ value: 'all', label: 'all models' }, { value: 'golden', label: 'golden set' }],
+  var armsSw = Kit.switchControl({ mount: document.getElementById('armsbar') || row, key: 'arms', label: CONTROL_WORDS.arms.label,   // right after Dataset (the curves page maintainers' decision for both official pages)
+    options: CONTROL_WORDS.arms.options,
     dflt: 'all',
     onchange: function (v) {
       if (v === 'golden' && !D.allDs['golden-' + D.dataId]) { if (armsSw) armsSw.set(state.arms); return; }
       if (v !== state.arms) location.reload();
     } });
   if (armsSw.value() !== state.arms) armsSw.set(state.arms);
-  if (!D.allDs['golden-' + D.dataId]) { var gb = document.querySelector('.kit-switch[data-key="arms"] button[data-value="golden"]'); if (gb) { gb.disabled = true; gb.setAttribute('aria-disabled', 'true'); gb.title = 'golden set (12): no golden bundle for this dataset yet'; } }
+  if (!D.allDs['golden-' + D.dataId]) { var gb = document.querySelector('.kit-switch[data-key="arms"] button[data-value="golden"]'); if (gb) { gb.disabled = true; gb.setAttribute('aria-disabled', 'true'); gb.title = CONTROL_WORDS.arms.goldenMissing; } }
   var partialSw = Kit.switchControl({ mount: document.getElementById('armsbar') || row, key: 'partial', label: CONTROL_WORDS.partial.label,   // the project maintainers 2026-09-07: hidden by default, URL partial=show
     options: CONTROL_WORDS.partial.options,
     dflt: 'hide',
@@ -180,10 +180,10 @@ function boot() {
   // and a deep link xdef=capC on such a set falls back to the crossing with a note.
   var CAPC_REASON = 'Capability C is computed for wave 1 only; choose Dataset = wave 1 to use it';   // wave names only, no attribution (the project maintainers 2026-09-16)
   var xdefReady = false;   // the kit calls onchange once at construction: a D option then must not move the level (the level inputs are built later; a= carries the level)
-  var xdefSw = Kit.switchControl({ mount: row, key: 'xdef', label: 'Capability axis',
+  var xdefSw = Kit.switchControl({ mount: row, key: 'xdef', label: CONTROL_WORDS.xdef.label,
     // the project maintainers' word of 24 Sep 12:4x: the switch reads D, Uniform, Jeffreys, Haldane — D is the crossing at the level the page's level controls set
     // (the D90…D10 buttons went: those controls exist already); the three distribution views for every model, never greyed
-    options: [{ value: 'crossing', label: 'D' }, { value: 'capC', label: 'Uniform' }, { value: 'capC_j', label: 'Jeffreys' }, { value: 'capC_z', label: 'Haldane' }],
+    options: CONTROL_WORDS.xdef.options,
     dflt: 'crossing',
     onchange: function (v) {
       if (v === 'crossing') { state.xdef = 'crossing'; Kit.state.set('xdef', null, null); syncXdefLock(); if (xdefReady && sel) render(); return; }   // D: the crossing at the level as set; the URL carries the level (a=), not the option
@@ -213,36 +213,32 @@ function boot() {
   // dots, all three estimator sources
   // ON/OFF SWITCHES read "Off | On" in the same order everywhere; only the pressed default differs (the project maintainers' word of 7 Sep 2026 :
   // off and on keep one order everywhere; only the pressed default may differ)
-  Kit.switchControl({ mount: row, key: 'kp', label: 'K paths',
-    options: [{ value: 'off', label: 'Off' },
-              { value: 'on', label: 'On' }],
+  Kit.switchControl({ mount: row, key: 'kp', label: CONTROL_WORDS.kp.label,
+    options: CONTROL_WORDS.onoff,
     dflt: 'off',   // off by default on the live page and the public copy alike (the project maintainers' word of 22 Sep 15:1x)
     onchange: function (v) { state.kp = v; if (sel) render(); } });
-  Kit.switchControl({ mount: row, key: 'lad', label: 'K ladders',
-    options: [{ value: 'off', label: 'Off' }, { value: 'on', label: 'On' }],
+  Kit.switchControl({ mount: row, key: 'lad', label: CONTROL_WORDS.lad.label,
+    options: CONTROL_WORDS.onoff,
     dflt: 'off',
     onchange: function (v) { state.lad = v; if (sel) render(); } });
-  Kit.switchControl({ mount: row, key: 'w', label: 'Whiskers',
-    options: [{ value: 'off', label: 'Off' },
-              { value: 'on', label: 'On' }],
+  Kit.switchControl({ mount: row, key: 'w', label: CONTROL_WORDS.w.label,
+    options: CONTROL_WORDS.onoff,
     dflt: 'on',
     onchange: function (v) { state.w = v; if (sel) render(); } });
-  Kit.switchControl({ mount: row, key: 'wd', label: 'Whisker widths',
-    options: [{ value: 'adj', label: 'Correlation-adjusted' },
-              { value: 'ind', label: 'Independence' }],
+  Kit.switchControl({ mount: row, key: 'wd', label: CONTROL_WORDS.wd.label,
+    options: CONTROL_WORDS.wd.options,
     dflt: 'adj',
     onchange: function (v) { state.wd = v; if (sel) render(); } });
   // /sweep fold: the fit's uncertainty — plain (dots exact; 95% band +
   // slope CI) or with each dot's own measurement error included (80%)
-  Kit.switchControl({ mount: row, key: 'fitci', label: 'Fit CI',
-    options: [{ value: 'plain', label: '95%, dots exact' },
-              { value: 'honest', label: '80% with measurement error' }],
+  Kit.switchControl({ mount: row, key: 'fitci', label: CONTROL_WORDS.fitci.label,
+    options: CONTROL_WORDS.fitci.options,
     dflt: 'plain',
     onchange: function (v) { state.fitci = v; if (sel) render(); } });
   if (D.bayPrev) {   // FIT MOVE (the project maintainers 2026-09-08, before/after as arrows; difficulty 2026-09-10: coverage-rule cuts flip with per-arm moves): under the
     // Bayesian source each drawn arm gets one arrow from its position in the previous fit to its position in this one, at the levels shown
-    Kit.switchControl({ mount: row, key: 'move', label: 'Move from ' + prevFitName(),   // the project maintainers 2026-09-14: name the fit the arrows move from — the set and the date of its cut
-      options: [{ value: 'off', label: 'Off' }, { value: 'on', label: 'On' }],
+    Kit.switchControl({ mount: row, key: 'move', label: CONTROL_WORDS.move.label + prevFitName(),   // the project maintainers 2026-09-14: name the fit the arrows move from — the set and the date of its cut
+      options: CONTROL_WORDS.onoff,
       dflt: 'off',
       onchange: function (v) { state.move = v; if (sel) render(); } });
   }
@@ -264,7 +260,7 @@ function boot() {
   var sb = document.getElementById('spacebar'), moreDet = document.getElementById('morecontrols');
   if (!moreDet && sb) {
     moreDet = document.createElement('details'); moreDet.id = 'morecontrols'; moreDet.className = 'about';
-    moreDet.innerHTML = '<summary>More controls</summary><div class="kit-filter-row kit-static" id="moreswitches"></div><div class="kit-filter-row kit-static" id="morelevels"></div>';
+    moreDet.innerHTML = '<summary>' + CONTROL_WORDS.more + '</summary><div class="kit-filter-row kit-static" id="moreswitches"></div><div class="kit-filter-row kit-static" id="morelevels"></div>';
     sb.parentNode.insertBefore(moreDet, sb); moreDet.appendChild(sb);
   }
   [['xs', CONTROL_WORDS.xs.label], ['ys', CONTROL_WORDS.ys.label]].forEach(function (ax) {   // a scale is logit or linear, never 'equal difficulty steps' (the project maintainers 13:0x 18 Sep)
@@ -280,23 +276,23 @@ function boot() {
   state.xs = Kit.state.get('xs', 'logit') === 'raw' ? 'raw' : 'logit'; state.ys = Kit.state.get('ys', 'logit') === 'raw' ? 'raw' : 'logit';
   // FITTED LINE (the project maintainers' words of 14 Sep 2026 : the page may fit a linear map in whatever axes are set, not by default
   // but under more controls, which also hold a button that turns the fit off): one switch — Off | In difficulty steps (today's line, default) | In the axes as set
-  Kit.switchControl({ mount: sb, key: 'line', label: 'Fitted line',
-    options: [{ value: 'off', label: 'Off' }, { value: 'steps', label: 'In logit' }, { value: 'axes', label: 'In the axes as set' }],
+  Kit.switchControl({ mount: sb, key: 'line', label: CONTROL_WORDS.line.label,
+    options: CONTROL_WORDS.line.options,
     dflt: 'steps',
     onchange: function (v) { state.line = (v === 'off' || v === 'axes') ? v : 'steps'; if (sel) render(); } });
   var lv = Kit.state.get('line', 'steps'); state.line = (lv === 'off' || lv === 'axes') ? lv : 'steps';
   // the Fit move switch sits in the fold too (the project maintainers' word of 14 Sep 2026 : the move-from-the-cut control belongs under more controls)
   // LINE WEIGHTING (the fits' maintainers' proposal 2026-09-14 ; the curves page maintainers' decision : a selectable option beside the line of record, never the
   // default, labelled by construction; which line is of record follows the project maintainers' answer to the decision item): each dot weighted by its own 80% bands on both axes
-  Kit.switchControl({ mount: sb, key: 'lw', label: 'Line weighting',
-    options: [{ value: 'equal', label: 'Each dot equal' }, { value: 'bands', label: 'By the 80% uncertainty bands' }],
+  Kit.switchControl({ mount: sb, key: 'lw', label: CONTROL_WORDS.lw.label,
+    options: CONTROL_WORDS.lw.options,
     dflt: 'equal',
     onchange: function (v) { state.lw = v === 'bands' ? 'bands' : 'equal'; if (sel) render(); } });
   state.lw = Kit.state.get('lw', 'equal') === 'bands' ? 'bands' : 'equal';
   // RESIDUAL VIEW (the project maintainers 2026-09-14 : the panel's number must be an honest goodness-of-fit of the drawn line — residual-based, no
   // correlation, no rank statistic): the misses against the line by fitted value, an inset on the plane, Off by default
-  Kit.switchControl({ mount: sb, key: 'resid', label: 'Misses against the line',
-    options: [{ value: 'off', label: 'Off' }, { value: 'on', label: 'On' }],
+  Kit.switchControl({ mount: sb, key: 'resid', label: CONTROL_WORDS.resid.label,
+    options: CONTROL_WORDS.onoff,
     dflt: 'off',
     onchange: function (v) { state.resid = v === 'on' ? 'on' : 'off'; if (sel) render(); } });
   state.resid = Kit.state.get('resid', 'off') === 'on' ? 'on' : 'off';
