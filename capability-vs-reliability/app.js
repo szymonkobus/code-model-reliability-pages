@@ -1730,7 +1730,7 @@ function axisName(axis) {
   if (state.src === 'bayes') {
     var blev = axis === 'x' ? +state.a : +state.c;
     if (state.def !== 'average')
-      return 'Median-task ' + blev + '% crossing (posterior median)';
+      return 'D' + (100 - blev) + ' (median task, posterior median)';
     // reserved words bind per-level on ANY average-rate chain, same
     // rule as the reference chain (the task pool maintainers' re-gate note, 2026-08-31).
     // The interim tag DERIVES from the artifact's estimator-version
@@ -1738,8 +1738,7 @@ function axisName(axis) {
     // the label flips mechanically with the field — no prose hunt.
     var interim = (D.bay.estimator_version_avg || '')
       .indexOf('band inversion') >= 0;
-    var bbase = 'average-rate ' + blev
-      + '% crossing (posterior median'
+    var bbase = 'D' + (100 - blev) + ' (average rate, posterior median'
       + (interim ? ', read off the fit\u2019s curves' : '') + ')';
     if (blev === 50 && axis === 'x') return 'Capability: ' + bbase;
     if (blev === 1 && axis === 'y') return 'Reliability: ' + bbase;
@@ -1748,8 +1747,7 @@ function axisName(axis) {
   var lev = axis === 'x' ? state.a : state.c;
   var isAvg = state.def === 'average';
   var tag = isAvg ? ' (local-logistic)' : ' (binned medians)';
-  var base = (isAvg ? 'average-rate ' : 'median-task ')
-    + (+lev) + '% crossing';
+  var base = 'D' + (100 - (+lev)) + (isAvg ? ' (average rate)' : ' (median task)');
   if (isAvg && +lev === 50 && axis === 'x')
     return 'Capability: ' + base + tag;
   if (isAvg && +lev === 1 && axis === 'y')
@@ -2318,8 +2316,8 @@ function exportOptions() {
 /* OPUS PAIR FOLD (the project maintainers' question of 10 Sep 2026 : the posterior ridges read Opus 5 thinking as the more reliable of
  * the pair while the scatter reads it as the less reliable — to be investigated):
  * ONE figure with both readings for the two arms on one difficulty axis and the verdict in words, drawn from the served rows;
- * hidden when either arm is absent or unfitted in the dataset shown. Ridge = posterior of the MEDIAN-TASK 1% crossing (d1 draws);
- * scatter = the point of record, the AVERAGE-RATE 1% crossing (levels_avg). */
+ * hidden when either arm is absent or unfitted in the dataset shown. Ridge = posterior of the MEDIAN-TASK D99 (d1 draws);
+ * scatter = the point of record, the AVERAGE-RATE D99 (levels_avg). */
 var OPUS_PAIR = ['claude-opus-5', 'claude-opus-5-thinking'];
 function tableAt(lt, levLogit) {   // one levels table read at a level -> {z, lo, hi}, or null when censored / out of range there
   var LV = D.bay && (D.bay.lev_logit || (D.bay.lev_fail || []).map(logit)); if (!lt || !LV || !LV.length) return null;
@@ -2346,7 +2344,7 @@ function renderOpusFold() {
   var zlo = Math.min.apply(null, zs) - 0.6, zhi = Math.max.apply(null, zs) + 0.6;
   var W = 860, H = 240, ML2 = 150, MR2 = 24, MT2 = 28, RH = 74, xw = W - ML2 - MR2;
   var X = function (z) { return ML2 + (z - zlo) / (zhi - zlo) * xw; };
-  var out = '<svg viewBox="0 0 ' + W + ' ' + H + '" width="100%" role="img" aria-label="Claude Opus 5 and Claude Opus 5 thinking: the ridge and the scatter readings of the 1% crossing on one difficulty axis">';
+  var out = '<svg viewBox="0 0 ' + W + ' ' + H + '" width="100%" role="img" aria-label="Claude Opus 5 and Claude Opus 5 thinking: the ridge and the scatter readings of D99 on one difficulty axis">';
   [10, 20, 30, 40, 50, 60, 70, 80, 90, 95, 98].forEach(function (v) { var z = logit(v / 100); if (z < zlo || z > zhi) return;
     out += '<line x1="' + X(z).toFixed(1) + '" y1="' + MT2 + '" x2="' + X(z).toFixed(1) + '" y2="' + (MT2 + 2 * RH) + '" stroke="#e0d9c8" stroke-width="0.6"/>'
          + '<text x="' + X(z).toFixed(1) + '" y="' + (MT2 + 2 * RH + 16) + '" text-anchor="middle" font-size="11" fill="#52514e">' + v + '%</text>'; });
@@ -2368,10 +2366,10 @@ function renderOpusFold() {
     out += '<text x="' + (ML2 - 8) + '" y="' + (y0 - 4) + '" text-anchor="end" font-size="12" fill="#52514e">' + a.c.label + '</text>'
          + '<line x1="' + ML2 + '" y1="' + y0 + '" x2="' + (W - MR2) + '" y2="' + y0 + '" stroke="#c9c2b2" stroke-width="0.6"/>';
   });
-  out += '<text x="' + ML2 + '" y="16" font-size="11" fill="#52514e">line = the spread of the median-task 1% crossing across the fitted draws · dot with bar = the dot drawn on the scatter view (average-rate 1% crossing, 80% uncertainty band)</text></svg>';
+  out += '<text x="' + ML2 + '" y="16" font-size="11" fill="#52514e">line = the spread of the median-task D99 across the fitted draws · dot with bar = the dot drawn on the scatter view (average-rate D99, 80% uncertainty band)</text></svg>';
   fig.innerHTML = out;
   var A = arms[0], B = arms[1];
-  if (!A.avg || A.avg.z == null || !B.avg || B.avg.z == null) { txt.textContent = 'One of the two models has no average-rate 1% crossing inside its fitted range at this dataset, so the two readings cannot be compared here.'; return; }
+  if (!A.avg || A.avg.z == null || !B.avg || B.avg.z == null) { txt.textContent = 'One of the two models has no average-rate D99 inside its fitted range at this dataset, so the two readings cannot be compared here.'; return; }
   var P = function (z) { return fmtPct(z, 0); };
   var band = function (a) { return a.lo != null && a.hi != null ? ' [' + P(a.lo) + ', ' + P(a.hi) + ']' : ''; };   // the project maintainers' word of 29 Sep 20:0x: a number's interval prints bare as [x, y] after it, no label
   var moreAvg = A.avg.z > B.avg.z ? A : B, lessAvg = moreAvg === A ? B : A;
@@ -2382,11 +2380,11 @@ function renderOpusFold() {
   var spread = wide ? ' The ' + wide.c.label + ' model spreads more from task to task (spread ' + Math.max(tA, tB).toFixed(1) + ' against ' + Math.min(tA, tB).toFixed(1) + ' difficulty units): a heavier tail of tasks it keeps failing pulls its average failure rate up and its average-rate crossing down, while its typical task is the safer one.'
                     : ' The model with the wider spread from task to task has a heavier tail of tasks it keeps failing, which pulls its average failure rate up and its average-rate crossing down while its typical task stays safer.';
   var cens = (A.ridge.p_censored > 0.05 || B.ridge.p_censored > 0.05)
-    ? ' Part of the 1% crossing draws are censored here (' + Math.round(100 * A.ridge.p_censored) + '% and ' + Math.round(100 * B.ridge.p_censored) + '%); read the ridges with that share in mind.'
-    : ' This is not a censoring effect: no draw of either model’s 1% crossing is censored; the open triangles on the plane concern the 50% crossings.';
+    ? ' Part of the D99 draws are censored here (' + Math.round(100 * A.ridge.p_censored) + '% and ' + Math.round(100 * B.ridge.p_censored) + '%); read the ridges with that share in mind.'
+    : ' This is not a censoring effect: no draw of either model’s D99 is censored; the open triangles on the plane concern D50.';
   var cov = '';
   [A, B].forEach(function (a) { var cv = coverageOf(a.c); if (cv && cv.tasks < cv.of) cov += ' ' + a.c.label + ' has attempts on ' + Math.round(cv.share * 100) + '% of this set\u2019s tasks; the tasks it did not attempt (its refusals) are out of its fit, which favours it a little under the average-rate reading.'; });
-  txt.textContent = 'Ridge here = the posterior of the median-task 1% crossing, the quantity the ridges view used to draw under every definition: the difficulty at which a typical task is failed less than once in a hundred. Scatter = the default point, the average-rate 1% crossing: the difficulty at which the average failure rate over tasks reaches 1%; that is the default reliability. '
+  txt.textContent = 'Ridge here = the posterior of the median-task D99, the quantity the ridges view used to draw under every definition: the difficulty at which a typical task is failed less than once in a hundred. Scatter = the default point, the average-rate D99: the difficulty at which the average failure rate over tasks reaches 1%; that is the default reliability. '
     + 'Under the default definition ' + A.c.label + ' reads ' + P(A.avg.z) + band(A.avg) + ' and ' + B.c.label + ' ' + P(B.avg.z) + band(B.avg) + ', so ' + moreAvg.c.label + ' is the more reliable' + (overlap ? ', and the two uncertainty bands overlap: the ordering is suggestive, not settled.' : ', and the two uncertainty bands do not overlap: the difference is statistically significant.')
     + ' On the ridges ' + moreRidge.c.label + ' is the higher (' + P(moreRidge.ridge.median_z) + ' against ' + P(lessRidge.ridge.median_z) + '): on a typical task it is the safer model.'
     + (moreAvg !== moreRidge ? ' Both readings are right about different things.' : '') + spread + cens + cov
@@ -2497,7 +2495,7 @@ function renderRidges() {
 }
 
 /* ---------------- narration / notes / stamp -------------------- */
-function vocabNote() {   // reserved slot (#vocabnote, fixed height): the adopted words name only the 50%/1% crossings
+function vocabNote() {   // reserved slot (#vocabnote, fixed height): the adopted words name only D50 and D99
   var el = document.getElementById('vocabnote'); if (!el) return;
   el.textContent = isCap()
     ? dName('y') + ': the difficulty at which a model\u2019s solve chance is ' + fmtLev(100 - state.c) + '%.'
@@ -2584,17 +2582,17 @@ function notes() {
     var pnames = pa.map(function (i) { var c = D.shared.configs[i], cv = coverageOf(c); return c.label + ' (' + Math.round(cv.share * 100) + '%)'; });
     warn((partialShown() ? 'Partial models shown greyed and kept out of the fit' : 'Partial models hidden') + ' \u2014 attempts on fewer than 90% of this set\u2019s tasks: ' + pnames.join(', ') + (partialShown() ? '.' : '. The Partial models switch shows them.'));
   }
-  // definition of record (difficulty, Definitions ledger 2026-09-04 ): reliability of record = the AVERAGE-RATE 1% crossing;
+  // definition of record (difficulty, Definitions ledger 2026-09-04 ): reliability of record = the AVERAGE-RATE D99;
   // the fits' maintainers' exact crossing draws (the `levels` tables) are the MEDIAN-TASK crossing. Said in the notes, not as a glyph on the axis.
   if (state.src === 'bayes' && D.bay) {
     var nEx = D.bay.rows.filter(function (r) { return r.avg_source === 'exact'; }).length, nAll = D.bay.rows.length;
     warn(state.def === 'average'
-      ? 'Bayesian reliability shown = the average-rate 1% crossing (the default reliability): ' + (nEx === nAll ? 'exact crossing draws for every model.' : nEx ? 'exact crossing draws for ' + nEx + ' of ' + nAll + ' models; the rest read off the fit\u2019s average-rate curves (an interim estimator; the served set predates the fits\u2019 export switch \u2014 those numbers move at the switch, per model, announced).' : 'read off the fit\u2019s pointwise average-rate curves \u2014 an interim estimator until the fits\u2019 maintainers exports exact average-rate crossing draws; the numbers move at that switch, per model, announced.')
-      : 'Median-task definition: exact crossing draws from the fits\u2019 levels tables; the default reliability is the average-rate 1% crossing (the \u201cAverage rate\u201d definition), one to two steps of the difficulty scale easier for most models.');
+      ? 'Bayesian reliability shown = the average-rate D99 (the default reliability): ' + (nEx === nAll ? 'exact crossing draws for every model.' : nEx ? 'exact crossing draws for ' + nEx + ' of ' + nAll + ' models; the rest read off the fit\u2019s average-rate curves (an interim estimator; the served set predates the fits\u2019 export switch \u2014 those numbers move at the switch, per model, announced).' : 'read off the fit\u2019s pointwise average-rate curves \u2014 an interim estimator until the fits\u2019 maintainers exports exact average-rate crossing draws; the numbers move at that switch, per model, announced.')
+      : 'Median-task definition: exact crossing draws from the fits\u2019 levels tables; the default reliability is the average-rate D99 (the \u201cAverage rate\u201d definition), one to two steps of the difficulty scale easier for most models.');
   }
   // Definitions caveat (the difficulty maintainers 2026-09-04, bound not typed; the fit methods' maintainers' spec 04m): the served fit's bias on arms with concentrated failures
   if (state.src === 'bayes' && D.bay) {
-    warn('Reliability and Bayesian capability come from the served Gaussian-task-effect fit; on models with concentrated failures it places the 1% crossing too early by up to 1.3 steps of the difficulty scale and the 50% crossing about 0.5 too late (the bias note); the count-average reading beside them is the check.');
+    warn('Reliability and Bayesian capability come from the served Gaussian-task-effect fit; on models with concentrated failures it places D99 too early by up to 1.3 steps of the difficulty scale and D50 about 0.5 too late (the bias note); the count-average reading beside them is the check.');
   }
   var flags = D.shared.artifact_flags;
   if (flags) {
@@ -2628,7 +2626,7 @@ function notes() {
           + 'the ship-first decision; the full gate battery is '
           + 'running against it and fixes land in place. '
         : '')
-      + 'The two capability definitions (fitted 50% crossing \u00b7 '
+      + 'The two capability definitions (fitted D50 \u00b7 '
       + 'Capability C) agree closely today \u2014 visible divergence '
       + 'between them is exactly the alarm the '
       + 'metrics report '
@@ -2762,7 +2760,7 @@ function reliabilityDefinition() {
   var f = D.shared.frame, ft = D.bay && D.bay.fit_frame ? D.bay.fit_frame.tasks : f.tasks;
   var frameClause = 'an estimate names the keep-set it was fitted on (the current keep-set ' + f.keep_set_hash
     + (ft !== f.tasks ? '; the fitted rows on this page were fitted on the keep-set before its latest label decisions' : '') + ')';   // no task counts (the project maintainers 2026-09-10)
-  el.textContent = 'Reliability: the difficulty up to which a model fails fewer than one attempt in a hundred. Its adopted name is the average-rate 1% crossing: '
+  el.textContent = 'Reliability: the difficulty up to which a model fails fewer than one attempt in a hundred. Its adopted name is the average-rate D99: '
     + 'the difficulty at which the model\u2019s fitted average failure rate first reaches 1%, on the kept tasks; ' + frameClause + '. '
     + 'Two estimators of this one quantity appear on this site and are named wherever a number is shown: the average-rate estimate (a local-logistic fit of failure rate against pooled task difficulty) '
     + 'and the Bayesian estimate (the posterior-median crossing of the fitted model, read off the fit\u2019s curves). They differ most in the 1% tail, so a figure is comparable only with its estimator and its task frame named.';
