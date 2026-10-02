@@ -1,9 +1,9 @@
 {
- "fingerprint": "072632d2bc37",
+ "fingerprint": "da4943597cab",
  "fingerprint_inputs": {
-  "content": "0d1c330ef44d",
+  "content": "69b22270bc00",
   "wave": "math500-live",
-  "body": "4856ba0071a0"
+  "body": "35699b039f99"
  },
  "frame": {
   "dataset": "math500",
@@ -24,21 +24,21 @@
   "difficulty_population_M": 50,
   "tasks": 500,
   "keep_set_hash": "326e66dcd9ab",
-  "inputs_content_sha": "0d1c330ef44d",
+  "inputs_content_sha": "69b22270bc00",
   "tasks_on_axis": 500,
   "tasks_kept": 500,
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "326e66dcd9ab",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "6c9880189e2d",
+  "runs_fingerprint": "aed3ec626802",
   "axis_wave": "math500-live",
   "build_date": "2026-10-02",
-  "stamp": "2026-10-02T03:29:51Z",
+  "stamp": "2026-10-02T04:32:26Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/math500",
-   "unified_built_at": "2026-10-02T03:20:33Z",
+   "unified_built_at": "2026-10-02T04:29:04Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.math500.csv"
@@ -289,7 +289,7 @@
    },
    "provisional_classes": null,
    "basis_truncation": null,
-   "served_axis_note": null,
+   "served_axis_note": "Bayesian curve fitted on this live axis as it stood at the cut; the axis has moved with results landing since, so positions may differ slightly",
    "membership_lag": null,
    "partial_coverage_arms": [],
    "matches_axis": false,
@@ -10564,7 +10564,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-02T03:24:46Z",
+   "_stamp": "2026-10-02T04:25:47Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -10737,9 +10737,9 @@
   }
  },
  "files": {
-  "shared": "shared.072632d2bc37.json",
-  "chain_average": "chain_average.072632d2bc37.json",
-  "chain_median": "chain_median.072632d2bc37.json",
-  "dots": "dots.072632d2bc37.json"
+  "shared": "shared.da4943597cab.json",
+  "chain_average": "chain_average.da4943597cab.json",
+  "chain_median": "chain_median.da4943597cab.json",
+  "dots": "dots.da4943597cab.json"
  }
 }
