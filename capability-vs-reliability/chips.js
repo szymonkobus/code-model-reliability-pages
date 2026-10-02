@@ -111,6 +111,7 @@ function buildChips() {
   noneBtn.className = 'util'; noneBtn.textContent = 'none';
   noneBtn.onclick = function () { D.shared.configs.forEach(function (c, i) { if (!c.run) sel.delete(i); }); writeSel(); render(); };   // the run's chips keep their own selection
   box.appendChild(allBtn); box.appendChild(noneBtn);
+  ['arms', 'partial'].forEach(function (k) { var sw = document.querySelector('#armsbar .kit-switch[data-key="' + k + '"]'); if (sw) box.appendChild(sw); });   // 2 Oct 2026 (the project maintainers' word of 14:3x UK: a switch about the models sits beside the model chips, not at the top of the page): the Models and Partial models switches stand in the chips' first row beside all and none, on every page that builds its chips here
   // LEGEND ORDER (the project maintainers' word of 18 Sep 13:1x: the legend sorts by model family, not by capability, so the colours
   // make sense): family buttons in the colour scheme's family order, then every model grouped by family, within a
   // family by size — the dataset's own order; never by capability or any measured value
