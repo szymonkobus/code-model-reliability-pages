@@ -34,6 +34,12 @@ var CONTROL_WORDS = {   // the words of the switches both pages mount — one ta
   more: 'More controls',
   view: { label: 'View', options: [{ value: 'scatter', label: 'Scatter' }, { value: 'ridges', label: 'Posterior ridges' }] },
 };
+function markControlData() {   // 2 Oct 2026 (the structure maintainers' one reading of the 16:4x word; the reference checker's marks): a clause of a label that a control carries by rule as data — the set and the date of the cut the Move arrows move from — and a control whose state follows the data shown — Partial models, hidden where no shown set has a partial model; Models, whose golden option follows the sets' bundles — are marked so the paired reads compare words and options and read the data as data; the reference estimator's option names the set's chain by rule and is marked the same way
+  var mv = document.querySelector('.kit-switch[data-key="move"] .kit-switch-label');
+  if (mv && !mv.querySelector('[data-label-data]')) { var t = mv.textContent || ''; if (t.indexOf(CONTROL_WORDS.move.label) === 0) { mv.textContent = ''; mv.appendChild(document.createTextNode(CONTROL_WORDS.move.label)); var sp = document.createElement('span'); sp.setAttribute('data-label-data', ''); sp.textContent = t.slice(CONTROL_WORDS.move.label.length); mv.appendChild(sp); } }
+  ['partial', 'arms'].forEach(function (k) { var sw = document.querySelector('.kit-switch[data-key="' + k + '"]'); if (sw) sw.setAttribute('data-by-data', ''); });
+  var hb = document.querySelector('.kit-switch[data-key="src"] button[data-value="project"]'); if (hb) hb.setAttribute('data-option-data', '');
+}
 function cropRange(ext, lim) {   // the on-screen window around the drawn points (the project maintainers' word of 2 Oct 11:2x UK; the structure maintainers' section: a page's axes fit the data): one common range for both axes (equal scales, the diagonal), padded 6%, never beyond the set's frame; null when the points fill the frame
   if (!(ext && isFinite(ext.x0) && isFinite(ext.y0) && ext.x1 >= ext.x0 && ext.y1 >= ext.y0)) return null;
   var lo = Math.min(ext.x0, ext.y0), hi = Math.max(ext.x1, ext.y1); if (hi - lo < 1) { var mid = (lo + hi) / 2; lo = mid - 0.5; hi = mid + 0.5; } var pad = (hi - lo) * 0.06;

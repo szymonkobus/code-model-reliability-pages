@@ -13,7 +13,7 @@ function liveness() {   // the rebuild loop's liveness: a stale loop is said on 
     heldLine(age > 10 ? 'Held: the rebuild loop has not run for ' + (isFinite(age) ? Math.round(age) + ' minutes' : 'a while') + '; the panels show the last build.' : null);
   }).catch(function () { heldLine('Held: the rebuild loop’s liveness is unreadable; the panels show the last build.'); });
 }
-function render() { syncPresets(); if (typeof syncWdLock === 'function') syncWdLock(); if (typeof syncXdefLock === 'function' && elA) syncXdefLock(); if (GRID) GRID.redraw(); paintChips(); }   // the main page's render: the presets, the locks that hide or hold a control that cannot apply, every panel, the chips   // every control, chip and level event redraws every panel (the modules call render())
+function render() { syncPresets(); if (typeof syncWdLock === 'function') syncWdLock(); if (typeof syncXdefLock === 'function' && elA) syncXdefLock(); markControlData(); if (GRID) GRID.redraw(); paintChips(); }   // the main page's render: the presets, the locks that hide or hold a control that cannot apply, every panel, the chips   // every control, chip and level event redraws every panel (the modules call render())
 function defaultKeys() { return DEFAULT_SETS.filter(function (k) { return SERVED.indexOf(k) >= 0; }); }
 
 fetch(MOUNT + 'data/manifest.json').then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })

@@ -360,6 +360,7 @@ function render() {
   mountExport();
   syncWdLock();
   syncXdefLock();
+  markControlData();
   if (state.view === 'ridges') { renderRidges(); renderOpusFold(); return; }
   if (EXPORTING) { renderScatter(); renderOpusFold(); return; }   // the export sets its own window
   // 2 Oct 2026 (the project maintainers' word of 11:2x UK; the structure maintainers' section: a page's axes fit the data): the figure's axes crop to the drawn points — pass one at the
