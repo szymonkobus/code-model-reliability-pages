@@ -1,9 +1,9 @@
 {
- "fingerprint": "fbf2358c2fa4",
+ "fingerprint": "ae980274bb12",
  "fingerprint_inputs": {
   "content": "d2c5532f95f4",
   "wave": "combined-20260910T2209Z",
-  "body": "d8f620a7c0cb"
+  "body": "682b376dca20"
  },
  "frame": {
   "dataset": "board_top",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "29948dca2e5a",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-02",
-  "stamp": "2026-10-02T10:35:26Z",
+  "stamp": "2026-10-02T11:18:49Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -71605,17 +71605,17 @@
    },
    {
     "served": true,
-    "serving_word": "Definitions' GO (02:2xZ, 27 Sep) on staging sha16 4f7ef478c7584739, read whole against the served 396ca9902e88920a keyed by arm: the night-1 finish dsc6.7b-rl-night1-s500 (step 500, checkpoint 10, final) joins as the second position; series.final names it; group_composition 'two checkpoints of one training run'; the names, base_of_record, comparator clause, label and axis unchanged",
+    "serving_word": "difficulty GO (11:1xZ 2 Oct, decision 203): a text-only re-emission on the same wave and fits \u2014 the run names in the approved table form from the labels ledger of record (post-training-lead decision 203); flipped outside the tick minutes; the GO covers this sha alone and is void on a byte change \u2014 knowledge/drafts/series_staging/serving_series_dsc6.7b-rl-night1.names203.json 937e9033a89d replacing serving_series_dsc6.7b-rl-night1.json cf2b031c4ef8 (the run name of record, what was done and the chip in the approved table cell form, the name source naming decision 203 and the ledger, the label note without the fleet phrase)",
     "wave_id": "dsc-rl-night1-board_top-20260926T1414Z",
     "n_arms": 2,
     "heading": "DeepSeek-Coder 6.7B",
-    "heading_note": "label = plain words for what the group is (the project owner's word of 22 September 2026 via the post-training lead, ruled by Definitions the same day): no task count or composition in the label; the composition sits in group_composition, the counts in the count fields and membership (the kept set of record (19 September 2026): 430 of wave 1, 858 of wave 2 on the served axis; the set's members (19 September 2026): 430 of wave 1, 869 of wave 2), fitted figures beside it \u2014 a task that left the kept set after a cut stays in that fit as cut (the ruling of 8 Sep) and is named in its model's membership_lag",
+    "heading_note": "label = plain words for what the group is (the project owner's word of 22 September 2026 via the post-training lead, ruled by Definitions the same day): no task count or composition in the label; the composition sits in group_composition, the counts in the count fields and membership (the kept set (19 September 2026): 430 of wave 1, 858 of wave 2 on the served axis; the set's members (19 September 2026): 430 of wave 1, 869 of wave 2), fitted figures beside it \u2014 a task that left the kept set after a cut stays in that fit as cut (the ruling of 8 Sep) and is named in its model's membership_lag",
     "membership": "results for at least one of these models on all 1,288 kept tasks of the set (1,299 members); positions from the served axis, unchanged; each checkpoint compared with the start model, read on the same tasks and attempts",
     "axis_rule": "the served wave 1+2 axis unchanged: study models are positioned on an axis they did not shape (ruling of 17 Sep); positions are comparable with the served set's",
     "axis_pinned_to_served": true,
     "cut_at": "2026-09-26T14:14:36Z",
     "completed_at": "2026-09-27T02:07:46Z",
-    "updated_at": "2026-09-28T13:51:31Z+2026-09-28T13:51:31Z+2026-09-28T14:35:00Z+2026-09-28T14:35:00Z+2026-09-28T14:35:00Z+2026-09-28T14:58:22Z+2026-09-30T22:53:17Z+2026-09-30T22:53:18Z+2026-09-30T22:53:19Z+2026-09-30T22:53:20Z",
+    "updated_at": "2026-10-02T11:16:37Z+2026-10-02T11:16:38Z+2026-10-02T11:16:38Z+2026-10-02T11:16:39Z+2026-10-02T11:16:39Z+2026-10-02T11:16:40Z+2026-10-02T11:16:40Z+2026-10-02T11:16:41Z+2026-10-02T11:16:41Z+2026-10-02T11:16:42Z",
     "pointer": "definitions/fitting/serving_series_dsc6.7b-rl-night1.json",
     "arms": [
      {
@@ -106540,9 +106540,9 @@
   }
  },
  "files": {
-  "shared": "shared.fbf2358c2fa4.json",
-  "chain_average": "chain_average.fbf2358c2fa4.json",
-  "chain_median": "chain_median.fbf2358c2fa4.json",
-  "dots": "dots.fbf2358c2fa4.json"
+  "shared": "shared.ae980274bb12.json",
+  "chain_average": "chain_average.ae980274bb12.json",
+  "chain_median": "chain_median.ae980274bb12.json",
+  "dots": "dots.ae980274bb12.json"
  }
 }
