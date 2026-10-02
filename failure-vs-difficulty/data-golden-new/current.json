@@ -1,6 +1,6 @@
 {
- "checked_at": "2026-10-02T18:53:56Z",
+ "checked_at": "2026-10-02T18:58:45Z",
  "built_at": "2026-10-02T18:39:10Z",
- "last_chain": "chain_all_20261002T184101Z.log",
+ "last_chain": "chain_interim_20261002T185634Z.log",
  "rule": "written at the end of a watcher tick that found every consumed input unchanged since the last landing, no chain running and the last chain DONE rc=0; a stale stamp means the watcher stopped, a chain failed or an input moved without a landing"
 }
