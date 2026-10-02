@@ -383,7 +383,7 @@
    },
    "source_stamp": "2026-10-02T05:45:16Z",
    "source_fp": "c049c519851f",
-   "updated_at": "2026-10-02T06:31:51Z",
+   "updated_at": "2026-10-02T07:26:04Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -431,7 +431,7 @@
    },
    "source_stamp": "2026-10-02T05:37:51Z",
    "source_fp": "4f5dcdc17aef",
-   "updated_at": "2026-10-02T06:32:22Z",
+   "updated_at": "2026-10-02T07:26:57Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -480,7 +480,7 @@
    },
    "source_stamp": "2026-10-02T05:38:43Z",
    "source_fp": "8153df8fe335",
-   "updated_at": "2026-10-02T06:32:47Z",
+   "updated_at": "2026-10-02T07:27:31Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -770,8 +770,8 @@
    "files": {
     "shared": "shared.aime.6961f1c2ab43.json",
     "chain_average": "chain_average.aime.6961f1c2ab43.json",
-    "bayes": "bayes.aime.6961f1c2ab43-a9a401e1cc0b.json",
-    "bayes_prev": "bayes.aime.8015bfce83ac-f0486b3a6f85.json"
+    "bayes": "bayes.aime.6961f1c2ab43-b17410ab6384.json",
+    "bayes_prev": "bayes.aime.6961f1c2ab43-a9a401e1cc0b.json"
    },
    "label": "AIME",
    "arms": "all",
@@ -800,20 +800,20 @@
    },
    "source_stamp": "2026-10-02T06:49:16Z",
    "source_fp": "19e3172c295b",
-   "updated_at": "2026-10-02T06:55:48Z",
+   "updated_at": "2026-10-02T07:31:29Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
     "unfitted": 0,
-    "served_wave": "nb-aime-20261002T0046Z",
+    "served_wave": "nb-aime-20261002T0647Z",
     "served_arms": 39
    },
    "flip": {
-    "from_wave": "nb-aime-20261001T1806Z",
-    "to_wave": "nb-aime-20261002T0046Z",
-    "from_fit_set": "f0486b3a6f85",
-    "to_fit_set": "a9a401e1cc0b",
-    "at": "2026-10-02T01:28:19Z",
+    "from_wave": "nb-aime-20261002T0046Z",
+    "to_wave": "nb-aime-20261002T0647Z",
+    "from_fit_set": "a9a401e1cc0b",
+    "to_fit_set": "b17410ab6384",
+    "at": "2026-10-02T07:31:29Z",
     "from_interim_n": 0
    },
    "missing": {
@@ -822,7 +822,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-10-02T06:24:50Z",
+  "stamp": "2026-10-02T07:25:14Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,
