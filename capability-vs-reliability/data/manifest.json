@@ -108,7 +108,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-02T23:20:14Z"
+   "updated_at": "2026-10-02T23:41:06Z"
   },
   "all": {
    "files": {
@@ -660,21 +660,21 @@
   },
   "cruxeval_i": {
    "files": {
-    "shared": "shared.cruxeval_i.0b7cdcc8f132.json",
-    "chain_average": "chain_average.cruxeval_i.0b7cdcc8f132.json",
-    "bayes": "bayes.cruxeval_i.0b7cdcc8f132-4ecc6265a1f0.json",
+    "shared": "shared.cruxeval_i.f94479d33cf2.json",
+    "chain_average": "chain_average.cruxeval_i.f94479d33cf2.json",
+    "bayes": "bayes.cruxeval_i.f94479d33cf2-4ecc6265a1f0.json",
     "bayes_prev": "bayes.cruxeval_i.372d1f59161a-25cf9e981c9d.json"
    },
    "label": "CRUXEval input",
    "arms": "all",
-   "fingerprint": "0b7cdcc8f132",
+   "fingerprint": "f94479d33cf2",
    "frame": {
     "population_M": 45,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
-    "runs_fingerprint": "edacc55f885d",
+    "runs_fingerprint": "19e7149882da",
     "build_date": "2026-10-02",
-    "build_ts": "2026-10-02T23:27:35Z",
+    "build_ts": "2026-10-02T23:41:54Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_i",
     "set_label": "CRUXEval input",
@@ -685,14 +685,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
     "tasks_used": "CRUXEval input \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_i fp b41f41ab6691 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "cb50c23f5a64",
+    "source": "failure-vs-difficulty data-cruxeval_i fp 5c412b6159f5 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "e5c419a69c46",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-02T23:27:35Z",
-   "source_fp": "b41f41ab6691",
-   "updated_at": "2026-10-02T23:31:58Z",
+   "source_stamp": "2026-10-02T23:41:54Z",
+   "source_fp": "5c412b6159f5",
+   "updated_at": "2026-10-02T23:46:00Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -768,21 +768,21 @@
   },
   "aime": {
    "files": {
-    "shared": "shared.aime.e17ee59155f5.json",
-    "chain_average": "chain_average.aime.e17ee59155f5.json",
-    "bayes": "bayes.aime.e17ee59155f5-25be3ac3e7eb.json",
+    "shared": "shared.aime.e2af71f7f0d3.json",
+    "chain_average": "chain_average.aime.e2af71f7f0d3.json",
+    "bayes": "bayes.aime.e2af71f7f0d3-25be3ac3e7eb.json",
     "bayes_prev": "bayes.aime.771f2a5faa45-b17410ab6384.json"
    },
    "label": "AIME",
    "arms": "all",
-   "fingerprint": "e17ee59155f5",
+   "fingerprint": "e2af71f7f0d3",
    "frame": {
     "population_M": 40,
     "tasks": 60,
     "keep_set_hash": "dc5cbadfe267",
     "runs_fingerprint": "edacc55f885d",
     "build_date": "2026-10-02",
-    "build_ts": "2026-10-02T23:33:34Z",
+    "build_ts": "2026-10-02T23:40:04Z",
     "vocab_ruled": "2026-08-27",
     "set": "aime",
     "set_label": "AIME",
@@ -793,14 +793,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "dc5cbadfe267",
     "tasks_used": "AIME \u2014 60 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-aime fp d04c4e49adc5 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "f57c982f5001",
+    "source": "failure-vs-difficulty data-aime fp ceb762457aa2 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "147f8cc822f5",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-02T23:33:34Z",
-   "source_fp": "d04c4e49adc5",
-   "updated_at": "2026-10-02T23:39:34Z",
+   "source_stamp": "2026-10-02T23:40:04Z",
+   "source_fp": "ceb762457aa2",
+   "updated_at": "2026-10-02T23:46:39Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,

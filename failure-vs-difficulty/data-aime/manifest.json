@@ -1,9 +1,9 @@
 {
- "fingerprint": "ceb762457aa2",
+ "fingerprint": "7fff34c1f96c",
  "fingerprint_inputs": {
   "content": "147f8cc822f5",
   "wave": "aime-live",
-  "body": "2f0e90c6c9a3"
+  "body": "f7bbe495b7b4"
  },
  "frame": {
   "dataset": "aime",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "dc5cbadfe267",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "edacc55f885d",
+  "runs_fingerprint": "19e7149882da",
   "axis_wave": "aime-live",
   "build_date": "2026-10-02",
-  "stamp": "2026-10-02T23:40:04Z",
+  "stamp": "2026-10-02T23:47:17Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/aime",
-   "unified_built_at": "2026-10-02T23:34:12Z",
+   "unified_built_at": "2026-10-02T23:45:42Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.aime.csv"
@@ -246,7 +246,7 @@
    },
    "provisional_classes": null,
    "basis_truncation": null,
-   "served_axis_note": null,
+   "served_axis_note": "Bayesian curve fitted on this live axis as it stood at the cut; the axis has moved with results landing since, so positions may differ slightly",
    "membership_lag": null,
    "partial_coverage_arms": [],
    "matches_axis": true,
@@ -10705,9 +10705,9 @@
   }
  },
  "files": {
-  "shared": "shared.ceb762457aa2.json",
-  "chain_average": "chain_average.ceb762457aa2.json",
-  "chain_median": "chain_median.ceb762457aa2.json",
-  "dots": "dots.ceb762457aa2.json"
+  "shared": "shared.7fff34c1f96c.json",
+  "chain_average": "chain_average.7fff34c1f96c.json",
+  "chain_median": "chain_median.7fff34c1f96c.json",
+  "dots": "dots.7fff34c1f96c.json"
  }
 }
