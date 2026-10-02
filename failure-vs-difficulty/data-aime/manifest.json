@@ -1,9 +1,9 @@
 {
- "fingerprint": "896d7359a5ae",
+ "fingerprint": "72d34aeb3b2a",
  "fingerprint_inputs": {
-  "content": "c851e42fd7ac",
+  "content": "b2e173d14c37",
   "wave": "aime-live",
-  "body": "c47c9706eaa7"
+  "body": "b5bb3a267582"
  },
  "frame": {
   "dataset": "aime",
@@ -24,21 +24,21 @@
   "difficulty_population_M": 39,
   "tasks": 60,
   "keep_set_hash": "dc5cbadfe267",
-  "inputs_content_sha": "c851e42fd7ac",
+  "inputs_content_sha": "b2e173d14c37",
   "tasks_on_axis": 60,
   "tasks_kept": 60,
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "dc5cbadfe267",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "aed3ec626802",
+  "runs_fingerprint": "c3f47294e59e",
   "axis_wave": "aime-live",
   "build_date": "2026-10-02",
-  "stamp": "2026-10-02T04:35:59Z",
+  "stamp": "2026-10-02T04:51:50Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/aime",
-   "unified_built_at": "2026-10-02T04:34:33Z",
+   "unified_built_at": "2026-10-02T04:50:33Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.aime.csv"
@@ -242,7 +242,7 @@
    },
    "provisional_classes": null,
    "basis_truncation": null,
-   "served_axis_note": null,
+   "served_axis_note": "Bayesian curve fitted on this live axis as it stood at the cut; the axis has moved with results landing since, so positions may differ slightly",
    "membership_lag": null,
    "partial_coverage_arms": [],
    "matches_axis": true,
@@ -10676,9 +10676,9 @@
   }
  },
  "files": {
-  "shared": "shared.896d7359a5ae.json",
-  "chain_average": "chain_average.896d7359a5ae.json",
-  "chain_median": "chain_median.896d7359a5ae.json",
-  "dots": "dots.896d7359a5ae.json"
+  "shared": "shared.72d34aeb3b2a.json",
+  "chain_average": "chain_average.72d34aeb3b2a.json",
+  "chain_median": "chain_median.72d34aeb3b2a.json",
+  "dots": "dots.72d34aeb3b2a.json"
  }
 }
