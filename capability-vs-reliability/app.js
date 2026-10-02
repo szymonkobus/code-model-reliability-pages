@@ -748,7 +748,8 @@ function boot() {
   // the coding sets with wave 1+2 the default, then the six non-code sets under the heading NON-CODE BENCHMARKS D99-D50, a set without a fit greyed and unselectable). Kit.selectControl takes this over when the kit carries it.
   var _dsDflt = D.defaultData || (D.allDs.board_top ? 'board_top' : 'board');
   var _opt = function (k) { return { value: k, label: String(DATASETS[k].label).replace(/\s*\([^)]*\)\s*$/, ''), disabled: !DATASETS[k].available }; };   // a control carries the project maintainers' words alone (23 Sep): the set's name, its count on the set line
-  var dataSw = Kit.selectControl({ mount: row, key: 'data', label: 'Dataset',   // FIRST control in the row ("an option at the top"); the reference designer's Kit.selectControl  30 Sep
+  var dsRow = Kit.filterRow('#datasetbar');   // 2 Oct 2026 (the project maintainers' word of 11:2x UK): the dataset grouping is a dataset selector, not a chart control — it sits above the figure in its own slot, never among the chart's controls
+  var dataSw = Kit.selectControl({ mount: dsRow, key: 'data', label: 'Dataset',   // FIRST control in the row ("an option at the top"); the reference designer's Kit.selectControl  30 Sep
     options: Object.keys(DATASETS).filter(function (k) { return !DATASETS[k].group; }).map(_opt),
     // 1 Oct 2026 (the project maintainers' word of 12:1x UK, the new benchmarks maintainers' leaf of record datasets_of_record.json): the default sets, then
     // Math, then Other — plain-word headings, every mathematics benchmark under Math and every other under Other, the leaf's order within a group; no study name on the switch
@@ -815,9 +816,6 @@ function boot() {
   Object.keys(CAP_KEYS).forEach(function (k) {   // every view pressable for every model (24 Sep 12:4x): the hover carries the difficulty maintainers' clause; where a set has no file the points are not drawn and the frame line names it
     var capBtn = row.querySelector('.kit-switch[data-key="xdef"] button[data-value="' + k + '"]'); if (capBtn) capBtn.title = CAP_KEYS[k].clause();
   });
-  // 2 Oct 2026 (the new benchmarks maintainers' rule of record: a pooled view is not a dataset, the switch lists datasets only): the six-panel view is reached by a plain link of the page's own beside the Dataset switch — a control, no sentence
-  (function () { var a = document.createElement('a'); a.href = MOUNT + 'six/'; a.textContent = 'Math and Other'; a.title = 'the six sets at once, one panel each'; a.className = 'sixlink'; a.style.cssText = 'margin-left:10px;font-size:.85rem;align-self:center;white-space:nowrap';
-    var dsEl = row.querySelector('.kit-select[data-key="data"]') || row.querySelector('.kit-select'); if (dsEl) dsEl.insertAdjacentElement('afterend', a); else row.appendChild(a); })();
   srcMount = document.createElement('span');
   row.appendChild(srcMount);
   buildSrcSwitch();
