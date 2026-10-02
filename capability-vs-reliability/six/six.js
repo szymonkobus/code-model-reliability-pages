@@ -71,11 +71,11 @@ function buildUnion(ctxs) {   // the chips' set: every model of every panel once
   var seen = {}, configs = [], avgRows = [], medRows = [], bayRows = [], anyMed = live.every(function (c) { return !!c.D.med; });
   live.forEach(function (c) { c.D.shared.configs.forEach(function (cf, i) { if (cf.run) return; var sl = c.SLUG_OF[i] || cf.id; if (seen[sl]) return; seen[sl] = 1; var copy = Object.assign({}, cf); copy.slug = sl; configs.push(copy);
     if (c.D.avgById[cf.id]) avgRows.push(c.D.avgById[cf.id]); if (anyMed && c.D.medById[cf.id]) medRows.push(c.D.medById[cf.id]); if (c.D.bayById[cf.id]) bayRows.push(c.D.bayById[cf.id]); }); });
-  var c0 = live[0];
+  var c0 = live[0], cb = live.filter(function (c) { return !!c.D.bay; })[0] || null;   // the Bayesian block from the first set that has one — a first set without posteriors must not empty the union's
   var U = { man: D.man, allDs: D.allDs, defaultData: D.defaultData, dsId: 'panels', dataId: c0.key, ds: { missing: {} }, golden: false, runRaw: null,
     shared: { configs: configs, limits: c0.D.shared.limits, reachable: c0.D.shared.reachable, frame: c0.D.shared.frame, axis: c0.D.shared.axis, capC: null, capC_z: null, capC_j: null, artifact_flags: {}, fit_excluded: null },
     avg: { lev_grid: c0.D.avg.lev_grid, rows: avgRows }, med: anyMed && c0.D.med ? { rows: medRows } : null,
-    bay: c0.D.bay ? { rows: bayRows, lev_fail: c0.D.bay.lev_fail, lev_logit: c0.D.bay.lev_logit, unfitted: [], disclosures: {}, kde_grid: c0.D.bay.kde_grid, fit_set: c0.D.bay.fit_set } : null, bayPrev: null, bayPrevById: {}, unfitted: {} };
+    bay: cb ? { rows: bayRows, lev_fail: cb.D.bay.lev_fail, lev_logit: cb.D.bay.lev_logit, unfitted: [], disclosures: {}, kde_grid: cb.D.bay.kde_grid, fit_set: cb.D.bay.fit_set } : null, bayPrev: null, bayPrevById: {}, unfitted: {} };
   U.avgById = {}; U.medById = {}; U.bayById = {}; avgRows.forEach(function (r) { U.avgById[r.cfg] = r; }); medRows.forEach(function (r) { U.medById[r.cfg] = r; }); bayRows.forEach(function (r) { U.bayById[r.cfg] = r; });
   return U;
 }
@@ -122,38 +122,49 @@ function init(ctxs) {
   liveness(); heldTick = setInterval(liveness, 120000);
   render();
 }
-function drawPanel(key, panelEl, size) {   // the kit's draw: this set's plane into its panel, by the plane module's renderer
-  var ctx = null; for (var k = 0; k < PANELS.length; k++) if (PANELS[k].key === key) ctx = PANELS[k];
-  if (!ctx) return;
-  var svg = panelEl.querySelector('svg'); if (!svg) { svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); svg.setAttribute('data-plot', ''); svg.setAttribute('data-equal-scale', ''); svg.appendChild(document.createElementNS('http://www.w3.org/2000/svg', 'g')); panelEl.appendChild(svg); }
-  svg.dataset.p = ctx.idx; svg.style.width = '100%'; svg.style.height = 'auto'; svg.style.display = 'block';
-  if (ctx.held) { svg.setAttribute('viewBox', '0 0 ' + size.width + ' ' + size.width); svg.firstChild.innerHTML = '<text x="' + (size.width / 2) + '" y="' + (size.width / 2) + '" text-anchor="middle" font-size="11" fill="#52514e">held: ' + ctx.held + '</text>'; ctx.drawn = 0; return; }
-  var want = {}; Array.from(sel).forEach(function (i) { want[SLUG_OF[i]] = 1; });   // the chips' choice, by slug, applied to this set's models
+function drawInto(ctx, svg, size) {   // one set's plane into one svg by the plane module's renderer: the chips' choice applied by slug, a set without the chain the controls name drawing with the chain it has, two passes (the extent, then the window cropped to the points); returns the count drawn
+  var want = {}; Array.from(sel).forEach(function (i) { want[SLUG_OF[i]] = 1; });
   ctx.sel = new Set(); ctx.D.shared.configs.forEach(function (c, i) { if (want[ctx.SLUG_OF[i]]) ctx.sel.add(i); });
-  PANEL = { svg: svg, g: svg.firstChild, idx: ctx.idx, key: key, size: size, drawn: 0 };
-  var src0 = state.src, def0 = state.def;   // a set without the chain the controls name draws with the chain it has: the reference chain for a set without Bayesian tables, the average rate for one without a median chain
+  PANEL = { svg: svg, g: svg.firstChild, idx: ctx.idx, key: ctx.key, size: size, drawn: 0 };
+  var src0 = state.src, def0 = state.def, drawn = 0;
   if (state.src === 'bayes' && !ctx.D.bay) state.src = 'project'; if (state.def === 'median' && !ctx.D.med) state.def = 'average';
   try {
     withPanel(ctx, function () {
       LIMX = null; LIMY = null; EXT = null; renderScatter();   // pass one: the drawn extent
       var cr = cropRange(EXT, LIM); if (cr) { LIMX = cr.slice(); LIMY = cr.slice(); try { renderScatter(); } finally { LIMX = null; LIMY = null; } }   // pass two: the axes crop to the points, equal scales, the diagonal
     });
-  } finally { state.src = src0; state.def = def0; ctx.drawn = PANEL.drawn; PANEL = null; }
+  } finally { state.src = src0; state.def = def0; drawn = PANEL.drawn; PANEL = null; }
+  return drawn;
+}
+function drawPanel(key, panelEl, size) {   // the kit's draw: this set's plane into its panel
+  var ctx = null; for (var k = 0; k < PANELS.length; k++) if (PANELS[k].key === key) ctx = PANELS[k];
+  if (!ctx) return;
+  var svg = panelEl.querySelector('svg'); if (!svg) { svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); svg.setAttribute('data-plot', ''); svg.setAttribute('data-equal-scale', ''); svg.appendChild(document.createElementNS('http://www.w3.org/2000/svg', 'g')); panelEl.appendChild(svg); }
+  svg.dataset.p = ctx.idx; svg.style.width = '100%'; svg.style.height = 'auto'; svg.style.display = 'block';
+  if (ctx.held) { svg.setAttribute('viewBox', '0 0 ' + size.width + ' ' + size.width); svg.firstChild.innerHTML = '<text x="' + (size.width / 2) + '" y="' + (size.width / 2) + '" text-anchor="middle" font-size="11" fill="#52514e">held: ' + ctx.held + '</text>'; ctx.drawn = 0; return; }
+  ctx.drawn = drawInto(ctx, svg, size);
   if (ctx.idx === PANELS.length - 1) { var total = PANELS.reduce(function (a, c) { return a + (c.drawn || 0); }, 0);
     var h = document.getElementById('headline'); if (h) h.textContent = PANELS.length + ' sets side by side: ' + axisShort('y') + ' against ' + axisShort('x') + ' on each set’s own difficulty axis; ' + total + ' points drawn.'; }
 }
-function exportPanels() {   // the export: the grid as drawn, every panel beside the next, one legend of every model drawn in any panel
-  var n = PANELS.length, cols = Math.min(3, n), rows = Math.ceil(n / cols), pw = 300, ph = 300, gap = 16, th = 22;
+function exportPanels() {   // the export: every panel redrawn at the reference export's width and type (Kit.EXPORT_TEXT: a 900 px plot, axis titles 26 px, ticks 18 px), beside the next, one legend of every model drawn in any panel
+  var live = PANELS.filter(function (c) { return !c.held; }), n = live.length, cols = Math.min(3, n), rows = Math.ceil(n / cols), pw = 900, gap = 24, th = 36;
+  var hold = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); hold.style.position = 'absolute'; hold.style.left = '-99999px'; hold.setAttribute('width', pw); document.body.appendChild(hold);
+  var drawn = [], ph = 0;
+  EXPORTING = true;
+  try {
+    live.forEach(function (c) { var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); svg.appendChild(document.createElementNS('http://www.w3.org/2000/svg', 'g')); svg.dataset.p = c.idx; hold.appendChild(svg);
+      drawInto(c, svg, { width: pw, height: pw }); var vb = (svg.getAttribute('viewBox') || '0 0 900 900').split(' ').map(Number); ph = Math.max(ph, vb[3] || 900); drawn.push({ c: c, svg: svg }); });
+  } finally { EXPORTING = false; }
   var W = cols * pw + (cols - 1) * gap, H = rows * (ph + th) + (rows - 1) * gap;
   var wrap = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); wrap.setAttribute('viewBox', '0 0 ' + W + ' ' + H); wrap.setAttribute('width', W); wrap.setAttribute('height', H); wrap.style.position = 'absolute'; wrap.style.left = '-99999px'; document.body.appendChild(wrap);
   var inner = '';
-  PANELS.forEach(function (c, i) { var svg = document.querySelector('#panelgrid svg[data-p="' + i + '"]'); if (!svg) return; var vb = (svg.getAttribute('viewBox') || '0 0 300 300').split(' ').map(Number); var x = (i % cols) * (pw + gap), y = Math.floor(i / cols) * (ph + th + gap);
-    inner += '<text x="' + (x + pw / 2) + '" y="' + (y + 14) + '" text-anchor="middle" font-size="13" font-weight="600" fill="#222">' + (DATASETS[c.key] ? String(DATASETS[c.key].label).replace(/\s*\([^)]*\)\s*$/, '') : c.key) + '</text>'
-      + '<g transform="translate(' + x + ',' + (y + th) + ') scale(' + (pw / (vb[2] || 300)) + ')">' + svg.innerHTML + '</g>'; });
+  drawn.forEach(function (d, i) { var x = (i % cols) * (pw + gap), y = Math.floor(i / cols) * (ph + th + gap);
+    inner += '<text x="' + (x + pw / 2) + '" y="' + (y + 26) + '" text-anchor="middle" font-size="' + EXPORT_TITLE_PX + '" font-weight="600" fill="#222">' + (DATASETS[d.c.key] ? String(DATASETS[d.c.key].label).replace(/\s*\([^)]*\)\s*$/, '') : d.c.key) + '</text>'
+      + '<g transform="translate(' + x + ',' + (y + th) + ')">' + d.svg.innerHTML + '</g>'; });
   wrap.innerHTML = inner;
   var legend = [], seen = {};
-  PANELS.forEach(function (c) { if (c.held) return; PANEL = { svg: document.querySelector('#panelgrid svg[data-p="' + c.idx + '"]'), idx: c.idx }; try { withPanel(c, function () { exportLegend().forEach(function (r) { if (!seen[r.label]) { seen[r.label] = 1; legend.push(r); } }); }); } finally { PANEL = null; } });
-  setTimeout(function () { if (wrap.parentNode) wrap.parentNode.removeChild(wrap); }, 0);
+  drawn.forEach(function (d) { PANEL = { svg: d.svg, idx: d.c.idx }; try { withPanel(d.c, function () { exportLegend().forEach(function (r) { if (!seen[r.label]) { seen[r.label] = 1; legend.push(r); } }); }); } finally { PANEL = null; } });
+  setTimeout(function () { if (wrap.parentNode) wrap.parentNode.removeChild(wrap); if (hold.parentNode) hold.parentNode.removeChild(hold); }, 0);
   var parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()); var pick = function (t) { return (parts.find(function (q) { return q.type === t; }) || {}).value || ''; };
-  return { svg: wrap, legend: legend, title: '', page: '', view: 'side by side \u00b7 ' + exportView().replace(/^[^\u00b7]*\u00b7\s*/, ''), stamp: '', fileBase: 'capability-vs-reliability_side-by-side_' + pick('year') + '-' + pick('month') + '-' + pick('day'), crop: null };
+  return { svg: wrap, legend: legend, title: '', page: '', view: 'side by side · ' + exportView().replace(/^[^·]*·\s*/, ''), stamp: '', fileBase: 'capability-vs-reliability_side-by-side_' + pick('year') + '-' + pick('month') + '-' + pick('day'), crop: null };
 }

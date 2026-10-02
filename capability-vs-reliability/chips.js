@@ -46,7 +46,12 @@ function capKey(i) {
   if (rx.kind === 'hi-bound') return (LIM ? LIM[1] : 50) + 1;
   return Infinity;
 }
+function sizeOf(label) { var m = /(\d+(?:\.\d+)?)\s*[Bb]\b/.exec(String(label || '')); return m ? +m[1] : Infinity; }   // a model's size from its name of record ('7B', '236B-A21B' reads 236); a name without one sorts after the sized ones
 function capOrder(indices) {
+  if (PANELS) {   // the composed page: its models come from several sets on different difficulty axes, so no one capability reading orders them — the reference family order, within a family by size (the ladder), ties in the sets' order, a variant right after its base
+    var bySize = indices.slice().sort(function (a, b) { var sa = sizeOf(D.shared.configs[a].label), sb = sizeOf(D.shared.configs[b].label); return sa === sb ? a - b : (sa < sb ? -1 : 1); });
+    return variantsAfterBase(famOrder(bySize));
+  }
   var out = indices.slice().sort(function (a, b) {
     var ka = capKey(a), kb = capKey(b); ka = isFinite(ka) ? ka : 1e9; kb = isFinite(kb) ? kb : 1e9;
     if (ka !== kb) return ka - kb;

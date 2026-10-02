@@ -42,8 +42,10 @@ var NARROW = false, FS = 12, FT = 11, DR = 5, UPX = 1;   // UPX: viewBox units p
  * the viewBox narrows to 380 units so 13-unit type renders >= 12 CSS px; the level track and both
  * axis titles live in a top band; hit areas >= 24 CSS px. Desktop geometry unchanged. */
 function layout() {
-  if (PANEL) {   // a panel of the composed page: a square plot at the panel's width, one viewBox unit = one CSS px, the tick type at 10 px
-    NARROW = false; W = PANEL.size.width; ML = 44; MR = 10; MT = 10; MB = 34; DR = 3.5; PW = W - ML - MR; PH = PW; H = PH + MT + MB; UPX = 1; FS = 10; FT = 9; TRK.x0 = ML; TRK.x1 = ML + PW; TRK.y = 6; return;
+  if (PANEL) {   // a panel of the composed page: a square plot at the panel's width, one viewBox unit = one CSS px, the tick type at 10 px; the export redraws a panel at the reference export's width, margins and type (Kit.EXPORT_TEXT: 900 px, ticks 18 px, titles 26 px)
+    NARROW = false; W = PANEL.size.width; UPX = 1;
+    if (EXPORTING) { ML = 90; MR = 30; MT = 40; MB = 62; DR = 4.5; FS = EXPORT_TICK_PX; FT = 11; } else { ML = 44; MR = 10; MT = 10; MB = 34; DR = 3.5; FS = 10; FT = 9; }
+    PW = W - ML - MR; PH = PW; H = PH + MT + MB; TRK.x0 = ML; TRK.x1 = ML + PW; TRK.y = 6; return;
   }
   if (EXPORTING) {   // the export's fixed desktop geometry: one viewBox unit = one CSS px at 900 wide, the screen's type and dot sizes at 1:1
     NARROW = false; W = 900; ML = 90; MR = 30; MT = 40; MB = 62; DR = 4.5; PW = W - ML - MR; UPX = 1; FS = EXPORT_TICK_PX; FT = 11;   // margins re-laid for the export's larger type (the project maintainers 13:5x 18 Sep)
@@ -1288,8 +1290,8 @@ function renderScatter() {
   // per-key chain scope (the reference designer's kit, 2026-08-28): the titles
   // must change under def swaps (estimand word) AND src swaps
   // (source parenthetical), and are exempt from other keys' runs
-  if (EXPORTING) out = out.slice(0, clipAt) + '<clipPath id="expclip"><rect x="' + ML + '" y="' + MT + '" width="' + PW + '" height="' + PH + '"/></clipPath>'
-    + '<g clip-path="url(#expclip)">' + out.slice(clipAt) + '</g>';   // the export's tight limits: trails, ladders, the band and the line stop at the plot box
+  if (EXPORTING) out = out.slice(0, clipAt) + '<clipPath id="expclip' + (PANEL ? '-p' + PANEL.idx : '') + '"><rect x="' + ML + '" y="' + MT + '" width="' + PW + '" height="' + PH + '"/></clipPath>'
+    + '<g clip-path="url(#expclip' + (PANEL ? '-p' + PANEL.idx : '') + ')">' + out.slice(clipAt) + '</g>';   // the export's tight limits: trails, ladders, the band and the line stop at the plot box
   // the titles are the project maintainers' names, bare (the project maintainers' word of 18 Sep 13:0x: the axis titles read D50 and D99 alone — the percent numbers on the
   // ticks say the unit and the spacing shows itself): no unit word, no spacing word, on every width
   var tyx = EXPORTING ? 20 : NARROW ? 11 : 15, tfs = EXPORTING ? EXPORT_TITLE_PX : NARROW ? 13 : Math.max(FS + 1, Math.ceil(13 * UPX));   // the titles render at 13 px or more, never under the tick type (the project maintainers 13:2x 18 Sep); twice that in the export (13:5x)
@@ -1302,8 +1304,8 @@ function renderScatter() {
   if (moveN) out += '<text x="' + (ML + 8) + '" y="' + (MT + PH - 8) + '" font-size="' + (NARROW ? 12 : 11) + '" fill="#52514e" data-chain-val="src move">arrows: moves from ' + prevFitName() + '</text>';
   var pid = PANEL ? '-p' + PANEL.idx : '';   // a panel's groups carry its index: several planes in one document, every id once
   var body = (moveN ? '<g id="moves' + pid + '">' + moves + '</g>' : '') + '<g id="marks' + pid + '">' + marks + '</g>';
-  if (PANEL) { out += '<text x="' + (ML + PW - 4) + '" y="' + (MT + 11) + '" text-anchor="end" font-size="' + FT + '" fill="#52514e" data-count>n = ' + drawnN + '</text>'; PANEL.drawn = drawnN; }   // the quiet count
-  (PANEL ? PANEL.g : document.getElementById('plotg')).innerHTML = out + (EXPORTING ? '<g clip-path="url(#expclip)">' + body + '</g>' : body);
+  if (PANEL) { out += '<text x="' + (ML + PW - 4) + '" y="' + (MT + 11) + '" text-anchor="end" font-size="' + (EXPORTING ? EXPORT_TICK_PX : FT) + '" fill="#52514e" data-count>n = ' + drawnN + '</text>'; PANEL.drawn = drawnN; }   // the quiet count
+  (PANEL ? PANEL.g : document.getElementById('plotg')).innerHTML = out + (EXPORTING ? '<g clip-path="url(#expclip' + (PANEL ? '-p' + PANEL.idx : '') + ')">' + body + '</g>' : body);
   if (PANEL) return;   // the page's text blocks, track, chips and readouts are the single figure's
   (function () { var fp = document.getElementById('fitpanel'); if (fp) fp.remove(); })();   // the structure maintainers' slots (24 Sep): one caption sentence per figure — the headline carries the line's slope and R; no fit words under the plot
   updateTrack();

@@ -434,7 +434,7 @@ function boot() {
   }
 
   var row = Kit.filterRow('#controls');   // the chart's control row: what changes how the chart draws (the project maintainers' word of 2 Oct)
-  var shownRow = Kit.filterRow('#shown');   // 2 Oct 2026: the page's choice of dataset in its own row above the chart's controls, never among them (the project maintainers' word of 2 Oct); the Partial-models switch sits beside the model chips below the chart (the project maintainers' word of 14:0x UK)
+  var shownRow = Kit.filterRow('#shown');   // 2 Oct 2026: the page's choice of dataset in its own row above the chart's controls, never among them (the project maintainers' word of 2 Oct); the Partial-models switch sits beside the model chips below the chart (the project maintainers' word of 14:3x UK)
   // the project maintainers' word of 10 Sep (coordinator note): wave 1+2 matters most, then wave 1 alone as a sanity check, then wave 2 alone,
   // then the rest — the list runs in that order; wave 1+2 stays the default. The project maintainers' word of 30 Sep 2026: a dataset control better than
   // chips for the sets now browsable here — the reference select (Kit.selectControl, the maintainers 30 Sep): the coding sets first, then the six
@@ -544,7 +544,7 @@ function boot() {
   if (MIRROR && !Object.keys(DATASETS).some(function (k) { return !!GOLDEN_AVAILABLE[k]; })) armsRow.style.display = 'none';   // no golden bundle under this mount: no Arms switch (the results browser's maintainers 11 Sep)
   setDisabled(armsCtl.element.querySelector('button[data-value="golden"]'), !GOLDEN_AVAILABLE[DATASET], '');
   if (ARMS === 'golden') { var _g = armsCtl.element.querySelector('button[data-value="golden"]'); if (_g) _g.title = 'golden set: Qwen3 0.6B/1.7B/4B/8B plain + thinking, Claude Haiku 4.5 + Sonnet 5 plain + thinking — axis and curves from these 12 models only; a data point, not the difficulty definition (as adopted of 3 Sep)'; }
-  var partialCtl = Kit.switchControl({ mount: armsRow, key: 'partial',   // 2 Oct 14:0x UK: beside the model chips, in the arms row below the chart, not at the top (the project maintainers' word of 2 Oct) label: 'Partial models',
+  var partialCtl = Kit.switchControl({ mount: armsRow, key: 'partial',   // 2 Oct 14:3x UK: beside the model chips, in the arms row below the chart, not at the top (the project maintainers' word of 2 Oct) label: 'Partial models',
     options: [{ value: 'hide', label: 'hidden' }, { value: 'show', label: 'show partial models' }],
     dflt: 'hide',
     onchange: function (v) { var was = state.partial; state.partial = v; if (ready && !coercing && v !== was) render(); } });
