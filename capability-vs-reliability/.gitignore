@@ -3,3 +3,5 @@
 /data/bayes.*.json
 /data/olmo_run.json
 !/**/LOOPS.tsv
+# 2 Oct 2026 (INCIDENTS 396, infra's line through the curves page's owner): the crossings builder rewrites this manifest at every build — a live-written file is never tracked; the fingerprinted data files beside it are written once each and stay tracked
+/data/manifest.json
