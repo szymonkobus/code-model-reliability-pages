@@ -82,33 +82,33 @@
   },
   "new": {
    "files": {
-    "shared": "shared.new.5900b15ad069.json",
-    "chain_average": "chain_average.new.5900b15ad069.json"
+    "shared": "shared.new.c882d258c0b2.json",
+    "chain_average": "chain_average.new.c882d258c0b2.json"
    },
    "label": "wave 2 and wave 2 parked",
-   "fingerprint": "5900b15ad069",
+   "fingerprint": "c882d258c0b2",
    "frame": {
     "population_M": 56,
     "tasks": 1737,
     "keep_set_hash": "abc6c6e65227",
-    "runs_fingerprint": "5900b15ad069",
-    "runs_window": "2026-10-02T04:59:32Z",
+    "runs_fingerprint": "c882d258c0b2",
+    "runs_window": "2026-10-02T05:59:10Z",
     "build_date": "2026-10-02",
-    "build_ts": "2026-10-02T05:13:10Z",
+    "build_ts": "2026-10-02T06:13:19Z",
     "vocab_ruled": "2026-08-27",
     "set": "new",
     "set_label": "wave 2 and wave 2 parked",
     "tasks_used": "wave 2 and wave 2 parked \u2014 1737 tasks, axis wave combined-20260903T1502Z",
-    "source": "pool-pages-lead build_pool_curves.py stamp 2026-10-02T05:13:10+00:00 \u00b7 cross_rows on lev_grid f3d40b6fb872",
+    "source": "pool-pages-lead build_pool_curves.py stamp 2026-10-02T06:13:19+00:00 \u00b7 cross_rows on lev_grid f3d40b6fb872",
     "skipped_no_rows": []
    },
-   "source_stamp": "2026-10-02T05:13:10+00:00",
+   "source_stamp": "2026-10-02T06:13:19+00:00",
    "missing": {
     "chain_median": "the median-task chain needs the pool's per-task results, which the pool bundle does not carry",
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-02T05:51:26Z"
+   "updated_at": "2026-10-02T06:14:55Z"
   },
   "all": {
    "files": {
@@ -498,21 +498,21 @@
   },
   "math500": {
    "files": {
-    "shared": "shared.math500.6de3fbbe38df.json",
-    "chain_average": "chain_average.math500.6de3fbbe38df.json",
-    "bayes": "bayes.math500.6de3fbbe38df-df43f13d9b8a.json",
+    "shared": "shared.math500.e28d98875206.json",
+    "chain_average": "chain_average.math500.e28d98875206.json",
+    "bayes": "bayes.math500.e28d98875206-df43f13d9b8a.json",
     "bayes_prev": "bayes.math500.fa28f99aaa60-681462eaa26a.json"
    },
    "label": "MATH-500",
    "arms": "all",
-   "fingerprint": "6de3fbbe38df",
+   "fingerprint": "e28d98875206",
    "frame": {
     "population_M": 50,
     "tasks": 500,
     "keep_set_hash": "326e66dcd9ab",
     "runs_fingerprint": "f58ec06f39c4",
     "build_date": "2026-10-02",
-    "build_ts": "2026-10-02T05:50:58Z",
+    "build_ts": "2026-10-02T06:06:38Z",
     "vocab_ruled": "2026-08-27",
     "set": "math500",
     "set_label": "MATH-500",
@@ -528,9 +528,9 @@
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-02T05:50:58Z",
+   "source_stamp": "2026-10-02T06:06:38Z",
    "source_fp": "07463b2dbf6e",
-   "updated_at": "2026-10-02T05:53:32Z",
+   "updated_at": "2026-10-02T06:14:10Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
