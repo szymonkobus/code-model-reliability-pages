@@ -1,9 +1,9 @@
 {
- "fingerprint": "dd55d3f94c10",
+ "fingerprint": "d0c2f34e9675",
  "fingerprint_inputs": {
   "content": "c9c0548da5e1",
   "wave": "aime-live",
-  "body": "d70af67badeb"
+  "body": "4d72e0556c47"
  },
  "frame": {
   "dataset": "aime",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "dc5cbadfe267",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "9b078ba35881",
+  "runs_fingerprint": "fd4206e48512",
   "axis_wave": "aime-live",
   "build_date": "2026-10-02",
-  "stamp": "2026-10-02T08:14:10Z",
+  "stamp": "2026-10-02T12:18:30Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/aime",
-   "unified_built_at": "2026-10-02T07:48:30Z",
+   "unified_built_at": "2026-10-02T12:03:09Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.aime.csv"
@@ -230,7 +230,7 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/nb-aime-20261002T0647Z/view_v2/results",
    "set_fingerprint": "b17410ab6384",
-   "pointer_updated_at": "2026-10-02T07:30:13Z",
+   "pointer_updated_at": "2026-10-02T12:03:55Z",
    "n_fits": 39,
    "note": null,
    "gates": {
@@ -290,7 +290,7 @@
   },
   "side_arms": {
    "served": true,
-   "serving_word": "difficulty's GO (07:3xZ 2 Oct, the pair): knowledge/drafts/nb_staging/serving_nb_aime.recut.json 3eb814a4c976 replacing serving_nb_aime.json 58361ce36748 and knowledge/drafts/side_staging/serving_sft_nb_aime.recut.json 4ee8e078a59a replacing serving_sft_nb_aime.json d1f724d72d26, flipped together outside the tick's minutes \u2014 the AIME re-cut at depth 12 on the live axis of record 13f0afbaceb4 (the Haiku 4.5 plain cell at 128 answers a task, its let-finish landing; the arm's cells change recorded), wave nb-aime-20261002T0647Z view v2 and the side wave sft-nb-aime-20261002T0720Z with the five side arms carried from the set fits; the GO covers the two shas alone and is void on a byte change",
+   "serving_word": "difficulty's GO (10:5xZ 2 Oct, decision 203): knowledge/drafts/side_staging/serving_sft_nb_aime.names203.json 9ca39a059c8d replacing serving_sft_nb_aime.json 79cbb220fbdc \u2014 a text-only re-emission on the same wave and fits: the RL checkpoint's printed name in the approved table's form from newbench-lead's labels ledger (post-training-lead's decision 203), the bound arms' disclosures naming the D50 bound beside the D99 one; flipped outside the tick's minutes; the GO covers this sha alone and is void on a byte change",
    "wave_id": "sft-nb-aime-20261002T0720Z",
    "n_arms": 5,
    "heading": "models fitted alongside the set, on AIME; two post-training fine-tunes, one RL checkpoint, the released final of one training run and one checkpoint of one training run, positioned on the served AIME axis unchanged; each model's own figures in its entry",
@@ -300,7 +300,7 @@
    "axis_pinned_to_served": true,
    "cut_at": "2026-10-02T07:20:52Z",
    "completed_at": "2026-10-02T07:11:31Z",
-   "updated_at": "2026-10-02T07:30:13Z",
+   "updated_at": "2026-10-02T11:00:02Z",
    "pointer": "definitions/fitting/serving_sft_nb_aime.json",
    "arms": [
     {
@@ -328,7 +328,7 @@
      "n_tasks_positioned": 60,
      "n_cells": 60,
      "set_label": "AIME",
-     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served AIME axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 8,192 tokens); a partial result: 32 answers a problem where the set's standard is 128 answers a problem; shown on the toggle with its count, never in a same-attempts headline; re-fitted when its answers reach 128; a direct fine-tune of Qwen3 8B; the base model, Qwen3 8B, votes on this axis through its served run (Qwen--Qwen3-8B_think-t0.6); the fit stands on AIME; 60 positioned in this fit (every problem of the set); results as they stood at the source fit's cut (2 Oct 07:57, the results page's data of 2 Oct 07:47; the fit carried from nb-aime-20261002T0647Z, the same results task by task); the sampler's checks pass for this model; D99 is a bound: below the easiest task used (z < -1.478; more than half the draws lie below it)",
+     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served AIME axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 8,192 tokens); a partial result: 32 answers a problem where the set's standard is 128 answers a problem; shown on the toggle with its count, never in a same-attempts headline; re-fitted when its answers reach 128; a direct fine-tune of Qwen3 8B; the base model, Qwen3 8B, votes on this axis through its served run (Qwen--Qwen3-8B_think-t0.6); the fit stands on AIME; 60 positioned in this fit (every problem of the set); results as they stood at the source fit's cut (2 Oct 07:57, the results page's data of 2 Oct 07:47; the fit carried from nb-aime-20261002T0647Z, the same results task by task); the sampler's checks pass for this model; D99 is a bound: below the easiest task used (z < -1.478; more than half the draws lie below it); D50 is a bound: below the easiest task used (z < -1.478; more than half the draws lie below it, 95.0% of the draws)",
      "gates_failed": false,
      "partial": true,
      "released": false,
@@ -2362,7 +2362,7 @@
      "n_tasks_positioned": 60,
      "n_cells": 60,
      "set_label": "AIME",
-     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served AIME axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 8,192 tokens); a partial result: 32 answers a problem where the set's standard is 128 answers a problem; shown on the toggle with its count, never in a same-attempts headline; re-fitted when its answers reach 128; a completion SFT of Qwen3.5 9B Base; the base model, Qwen3.5 9B Base, is not in the served set of this cut and does not vote on the cut's pinned axis; the fit stands on AIME; 60 positioned in this fit (every problem of the set); results as they stood at the source fit's cut (2 Oct 07:57, the results page's data of 2 Oct 07:47; the fit carried from nb-aime-20261002T0647Z, the same results task by task); the sampler's checks pass for this model; D99 is a bound: below the easiest task used (z < -1.478; more than half the draws lie below it)",
+     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served AIME axis unchanged; results and attempts as they are (32 attempts per problem, answer cap 8,192 tokens); a partial result: 32 answers a problem where the set's standard is 128 answers a problem; shown on the toggle with its count, never in a same-attempts headline; re-fitted when its answers reach 128; a completion SFT of Qwen3.5 9B Base; the base model, Qwen3.5 9B Base, is not in the served set of this cut and does not vote on the cut's pinned axis; the fit stands on AIME; 60 positioned in this fit (every problem of the set); results as they stood at the source fit's cut (2 Oct 07:57, the results page's data of 2 Oct 07:47; the fit carried from nb-aime-20261002T0647Z, the same results task by task); the sampler's checks pass for this model; D99 is a bound: below the easiest task used (z < -1.478; more than half the draws lie below it); D50 is a bound: below the easiest task used (z < -1.478; more than half the draws lie below it, 96.7% of the draws)",
      "gates_failed": false,
      "partial": true,
      "released": false,
@@ -4386,7 +4386,7 @@
       ]
      },
      "baseline_id": "dsc6.7b-rl-night4-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8, fixed (500 steps)",
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 6\u20137/8, fixed \u00b7 500 steps",
      "family": "DeepSeek-Coder",
      "color": "#2b0a33",
      "variant": null,
@@ -4398,7 +4398,7 @@
      "n_tasks_positioned": 60,
      "n_cells": 60,
      "set_label": "AIME",
-     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served AIME axis unchanged; results and attempts as they are (128 attempts per problem, answer cap 8,192 tokens); an RL checkpoint of DeepSeek-Coder 6.7B; the base model, DeepSeek-Coder 6.7B, votes on this axis through its served run (deepseek-ai--deepseek-coder-6.7b-instruct_t0.5); the fit stands on AIME; 60 positioned in this fit (every problem of the set); results as they stood at the source fit's cut (2 Oct 07:57, the results page's data of 2 Oct 07:47; the fit carried from nb-aime-20261002T0647Z, the same results task by task); This model's crossing is a bound: the scale's easiest tasks are still too hard to place it exactly; other parts of the fit mixed slowly.; D99 is a bound: below the easiest task used (z < -1.478; more than half the draws lie below it)",
+     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served AIME axis unchanged; results and attempts as they are (128 attempts per problem, answer cap 8,192 tokens); an RL checkpoint of DeepSeek-Coder 6.7B; the base model, DeepSeek-Coder 6.7B, votes on this axis through its served run (deepseek-ai--deepseek-coder-6.7b-instruct_t0.5); the fit stands on AIME; 60 positioned in this fit (every problem of the set); results as they stood at the source fit's cut (2 Oct 07:57, the results page's data of 2 Oct 07:47; the fit carried from nb-aime-20261002T0647Z, the same results task by task); This model's crossing is a bound: the scale's easiest tasks are still too hard to place it exactly; other parts of the fit mixed slowly.; D99 is a bound: below the easiest task used (z < -1.478; more than half the draws lie below it); D50 is a bound: below the easiest task used (z < -1.478; more than half the draws lie below it, 100.0% of the draws)",
      "gates_failed": true,
      "partial": false,
      "released": false,
@@ -10497,7 +10497,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-02T07:25:14Z",
+   "_stamp": "2026-10-02T11:32:20Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -10662,17 +10662,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-02T07:16:03Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T071603Z.json",
-   "sha16": "428516ca617d2dbd",
-   "census_mtime": "2026-10-02T07:17:14Z",
+   "stamp": "2026-10-02T09:20:02Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T092002Z.json",
+   "sha16": "51fe8fa5afb58947",
+   "census_mtime": "2026-10-02T09:20:55Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.dd55d3f94c10.json",
-  "chain_average": "chain_average.dd55d3f94c10.json",
-  "chain_median": "chain_median.dd55d3f94c10.json",
-  "dots": "dots.dd55d3f94c10.json"
+  "shared": "shared.d0c2f34e9675.json",
+  "chain_average": "chain_average.d0c2f34e9675.json",
+  "chain_median": "chain_median.d0c2f34e9675.json",
+  "dots": "dots.d0c2f34e9675.json"
  }
 }
