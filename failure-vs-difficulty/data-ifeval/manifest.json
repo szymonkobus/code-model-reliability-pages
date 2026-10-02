@@ -1,9 +1,9 @@
 {
- "fingerprint": "f62c13ea61b9",
+ "fingerprint": "e94a40842801",
  "fingerprint_inputs": {
   "content": "523d1e4de2cc",
   "wave": "ifeval-live",
-  "body": "71ebfa20cfe8"
+  "body": "bb223db2e005"
  },
  "frame": {
   "dataset": "ifeval",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ea009d5c6cd1",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "9b078ba35881",
+  "runs_fingerprint": "0527b118bcad",
   "axis_wave": "ifeval-live",
   "build_date": "2026-10-02",
-  "stamp": "2026-10-02T08:27:23Z",
+  "stamp": "2026-10-02T12:39:50Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/ifeval",
-   "unified_built_at": "2026-10-02T07:48:30Z",
+   "unified_built_at": "2026-10-02T12:24:43Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.ifeval.csv"
@@ -252,7 +252,7 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/nb-ifeval-20261001T1654Z/view_v2/results",
    "set_fingerprint": "4d19e19feede",
-   "pointer_updated_at": "2026-10-01T19:54:42Z",
+   "pointer_updated_at": "2026-10-02T12:03:55Z",
    "n_fits": 49,
    "note": null,
    "gates": {
@@ -284,7 +284,7 @@
   "partial_attempts": null,
   "side_arms": {
    "served": true,
-   "serving_word": "difficulty's GO (19:5xZ 1 Oct, the pair): knowledge/drafts/nb_staging/serving_nb_ifeval.recut.json 58adfab3eb74 replacing serving_nb_ifeval.json 27c23f7d1077 and knowledge/drafts/side_staging/serving_sft_nb_ifeval.recut.json 2c34633588ce replacing serving_sft_nb_ifeval.json d787750b9c17, flipped together outside the tick's minutes \u2014 the IFEval NEW-ERA cut at depth 12 on the axis of record 88a9b3ee034b (the era whole, f170 + f171), wave nb-ifeval-20261001T1654Z view v2 with ten double-length records (gemini-3.5-flash-lite's under rule (oo)) and the side wave sft-nb-ifeval-20261001T1853Z with the RL arm carried from the set fit; the GO covers the two shas alone and is void on a byte change",
+   "serving_word": "difficulty GO (11:1xZ 2 Oct, decision 203): a text-only re-emission on the same wave and fits \u2014 the run names in the approved table form from the labels ledger of record (post-training-lead decision 203); flipped outside the tick minutes; the GO covers this sha alone and is void on a byte change \u2014 knowledge/drafts/side_staging/serving_sft_nb_ifeval.names203.json 8ec3a03f131f replacing serving_sft_nb_ifeval.json 32897c9c677c (the kind and contract words plain; the re-emission record)",
    "wave_id": "sft-nb-ifeval-20261001T1853Z",
    "n_arms": 1,
    "heading": "models fitted alongside the set, on IFEval; one RL checkpoint, positioned on the served IFEval axis unchanged; each model's own figures in its entry",
@@ -294,7 +294,7 @@
    "axis_pinned_to_served": true,
    "cut_at": "2026-10-01T18:53:12Z",
    "completed_at": "2026-10-01T17:46:29Z",
-   "updated_at": "2026-10-01T19:54:44Z",
+   "updated_at": "2026-10-02T12:03:55Z",
    "pointer": "definitions/fitting/serving_sft_nb_ifeval.json",
    "arms": [
     {
@@ -310,7 +310,7 @@
       ]
      },
      "baseline_id": "dsc6.7b-rl-night4-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL on tasks it fails 6\u20137 of 8, fixed (500 steps)",
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 6\u20137/8, fixed \u00b7 500 steps",
      "family": "DeepSeek-Coder",
      "color": "#2b0a33",
      "variant": null,
@@ -2312,7 +2312,7 @@
       "d50": {
        "z": -3.972,
        "mixing_note": null,
-       "status": "point (censor fraction disclosed: 0.000 of the draws beyond the hardest task, 0.001 below the easiest)",
+       "status": "point",
        "status_kind": "point",
        "bound": null,
        "reason_text": null,
@@ -2353,7 +2353,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-02T08:25:09Z",
+   "_stamp": "2026-10-02T12:27:41Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -2518,17 +2518,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-02T07:16:03Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T071603Z.json",
-   "sha16": "428516ca617d2dbd",
-   "census_mtime": "2026-10-02T07:17:14Z",
+   "stamp": "2026-10-02T11:58:04Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T115804Z.json",
+   "sha16": "c4d3f52c85a4cdb3",
+   "census_mtime": "2026-10-02T11:59:18Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.f62c13ea61b9.json",
-  "chain_average": "chain_average.f62c13ea61b9.json",
-  "chain_median": "chain_median.f62c13ea61b9.json",
-  "dots": "dots.f62c13ea61b9.json"
+  "shared": "shared.e94a40842801.json",
+  "chain_average": "chain_average.e94a40842801.json",
+  "chain_median": "chain_median.e94a40842801.json",
+  "dots": "dots.e94a40842801.json"
  }
 }
