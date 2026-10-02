@@ -1,9 +1,9 @@
 {
- "fingerprint": "f2a7f26b5df9",
+ "fingerprint": "21e7acc67e27",
  "fingerprint_inputs": {
-  "content": "f5075881b0a1",
+  "content": "e45d0da5caf7",
   "wave": "combined-20260910T2209Z",
-  "body": "0d7e3c39aaad"
+  "body": "426c83d29c6f"
  },
  "frame": {
   "dataset": "board_top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 61,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "f5075881b0a1",
+  "inputs_content_sha": "e45d0da5caf7",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "b3edd4d00429",
+  "runs_fingerprint": "efb5208f4091",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-02",
-  "stamp": "2026-10-02T07:43:05Z",
+  "stamp": "2026-10-02T08:40:45Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -89,7 +89,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-02T07:13:45Z",
+   "unified_built_at": "2026-10-02T08:14:00Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -108,7 +108,7 @@
     "of": 1288
    },
    "claude-sonnet-5": {
-    "tasks": 1288,
+    "tasks": 1281,
     "of": 1288
    },
    "claude-sonnet-5-thinking": {
@@ -236,7 +236,7 @@
     "of": 1288
    },
    "Qwen/Qwen2.5-Coder-1.5B-Instruct": {
-    "tasks": 1288,
+    "tasks": 1271,
     "of": 1288
    },
    "Qwen/Qwen2.5-Coder-3B-Instruct": {
@@ -244,11 +244,11 @@
     "of": 1288
    },
    "Qwen/Qwen2.5-Coder-7B-Instruct": {
-    "tasks": 1288,
+    "tasks": 1279,
     "of": 1288
    },
    "Qwen/Qwen2.5-Coder-14B-Instruct": {
-    "tasks": 1288,
+    "tasks": 1258,
     "of": 1288
    },
    "Qwen/Qwen2.5-Coder-32B-Instruct": {
@@ -268,7 +268,7 @@
     "of": 1288
    },
    "Qwen/Qwen2.5-7B-Instruct": {
-    "tasks": 1288,
+    "tasks": 1280,
     "of": 1288
    },
    "Qwen/Qwen2.5-14B-Instruct": {
@@ -276,11 +276,11 @@
     "of": 1288
    },
    "Qwen/Qwen2.5-32B-Instruct": {
-    "tasks": 1288,
+    "tasks": 1276,
     "of": 1288
    },
    "Qwen/Qwen3-0.6B": {
-    "tasks": 1288,
+    "tasks": 1280,
     "of": 1288
    },
    "Qwen/Qwen3-0.6B-Thinking": {
@@ -288,7 +288,7 @@
     "of": 1288
    },
    "Qwen/Qwen3-1.7B": {
-    "tasks": 1288,
+    "tasks": 1286,
     "of": 1288
    },
    "Qwen/Qwen3-1.7B-Thinking": {
@@ -296,7 +296,7 @@
     "of": 1288
    },
    "Qwen/Qwen3-4B": {
-    "tasks": 1288,
+    "tasks": 1284,
     "of": 1288
    },
    "Qwen/Qwen3-4B-Thinking": {
@@ -308,7 +308,7 @@
     "of": 1288
    },
    "Qwen/Qwen3-8B": {
-    "tasks": 1288,
+    "tasks": 1280,
     "of": 1288
    },
    "Qwen/Qwen3-8B-Thinking": {
@@ -106367,7 +106367,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-02T07:25:14Z",
+   "_stamp": "2026-10-02T08:25:09Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -106532,17 +106532,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-02T06:14:37Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T061437Z.json",
-   "sha16": "5db0df8e2b8f2bb4",
-   "census_mtime": "2026-10-02T06:15:19Z",
+   "stamp": "2026-10-02T07:16:03Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261002T071603Z.json",
+   "sha16": "428516ca617d2dbd",
+   "census_mtime": "2026-10-02T07:17:14Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.f2a7f26b5df9.json",
-  "chain_average": "chain_average.f2a7f26b5df9.json",
-  "chain_median": "chain_median.f2a7f26b5df9.json",
-  "dots": "dots.f2a7f26b5df9.json"
+  "shared": "shared.21e7acc67e27.json",
+  "chain_average": "chain_average.21e7acc67e27.json",
+  "chain_median": "chain_median.21e7acc67e27.json",
+  "dots": "dots.21e7acc67e27.json"
  }
 }

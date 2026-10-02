@@ -201,7 +201,7 @@ var HOUSE_DATASETS = {   // availability comes from manifest.datasets at load; t
   cruxeval_i: { label: 'CRUXEval input', hover: 'CRUXEval input prediction, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'Other' },
   cruxeval_o: { label: 'CRUXEval output', hover: 'CRUXEval output prediction, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'Other' },
   aime: { label: 'AIME', hover: 'AIME, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'Math' },
-  six: { label: 'Math and Other', hover: 'the six sets at once, one panel each: the 1% crossing against the 50% crossing on each set\u2019s own difficulty axis', available: true, reason: '', group: 'Other', page: 'six/' },   // 1 Oct 2026: the six-panel view, its own page under this site
+  // 2 Oct 2026 08:5x: the pooled six-set view (/six/) is not a dataset — the new benchmarks maintainers' leaf of record lists datasets only (its fifth rule, ) — so it is no option of this switch; the page is reached by the plain link beside the switch (below), and a ?data=six link still opens it
   // (the project maintainers' 11 Sep word kept the maths sets off this page for a mirror; the project maintainers' 30 Sep word puts every non-code set on it under the one control — the mirror keeps serving too)
 };
 // MIRROR HOOKS (the results mirror's maintainers 2026-09-11: the /nb-results/plane/ mirror runs this file unchanged; the curves page maintainers' curves page uses the same names):
@@ -752,7 +752,7 @@ function boot() {
     options: Object.keys(DATASETS).filter(function (k) { return !DATASETS[k].group; }).map(_opt),
     // 1 Oct 2026 (the project maintainers' word of 12:1x UK, the new benchmarks maintainers' leaf of record datasets_of_record.json): the default sets, then
     // Math, then Other — plain-word headings, every mathematics benchmark under Math and every other under Other, the leaf's order within a group; no study name on the switch
-    groups: [{ label: 'Math', options: ['math500', 'aime', 'gsm8k_platinum'].map(_opt) }, { label: 'Other', options: ['ifeval', 'cruxeval_i', 'cruxeval_o', 'six'].map(_opt) }],   // 'Math and Other' last: the six-panel page
+    groups: [{ label: 'Math', options: ['math500', 'aime', 'gsm8k_platinum'].map(_opt) }, { label: 'Other', options: ['ifeval', 'cruxeval_i', 'cruxeval_o'].map(_opt) }],   // the leaf of record's Other, nothing composed
     dflt: _dsDflt,
     onchange: function (v) {
       var ds = DATASETS[v] || DATASETS[_dsDflt] || DATASETS.board;
@@ -815,6 +815,9 @@ function boot() {
   Object.keys(CAP_KEYS).forEach(function (k) {   // every view pressable for every model (24 Sep 12:4x): the hover carries the difficulty maintainers' clause; where a set has no file the points are not drawn and the frame line names it
     var capBtn = row.querySelector('.kit-switch[data-key="xdef"] button[data-value="' + k + '"]'); if (capBtn) capBtn.title = CAP_KEYS[k].clause();
   });
+  // 2 Oct 2026 (the new benchmarks maintainers' rule of record: a pooled view is not a dataset, the switch lists datasets only): the six-panel view is reached by a plain link of the page's own beside the Dataset switch — a control, no sentence
+  (function () { var a = document.createElement('a'); a.href = MOUNT + 'six/'; a.textContent = 'Math and Other'; a.title = 'the six sets at once, one panel each'; a.className = 'sixlink'; a.style.cssText = 'margin-left:10px;font-size:.85rem;align-self:center;white-space:nowrap';
+    var dsEl = row.querySelector('.kit-select[data-key="data"]') || row.querySelector('.kit-select'); if (dsEl) dsEl.insertAdjacentElement('afterend', a); else row.appendChild(a); })();
   srcMount = document.createElement('span');
   row.appendChild(srcMount);
   buildSrcSwitch();

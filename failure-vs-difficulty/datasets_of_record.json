@@ -58,7 +58,8 @@
   "the order of record: default, Math, Other; within a group the order listed here",
   "a group heading is a plain word (Math, Other); no study name, no fleet vocabulary and no count on the switch",
   "a new benchmark enters the group its subject puts it in (mathematics under Math, everything else under Other) by a move of this file, stamped to every page owner",
-  "a model not evaluated on a dataset is no chip or a greyed-out one, never on by default, and no badge says so (the project owner, 1 Oct)"
+  "a model not evaluated on a dataset is no chip or a greyed-out one, never on by default, and no badge says so (the project owner, 1 Oct)",
+  "a pooled or combined view (the six sets together, a group's sets pooled) is not a dataset and takes no entry here: the dataset switch lists datasets only, in the groups of record; a page reaches such a view by a control of its own, never as an option of the dataset switch (site-design's house read of 1-2 Oct: a fourth option 'Math and Other' under Other on the crossings page, not in this file)"
  ],
  "readers": [
   "failure-vs-difficulty",
@@ -75,7 +76,12 @@
    "utc": "2026-10-01T13:31:26Z",
    "by": "newbench-lead",
    "move": "written on the project owner's ruling of 1 Oct 12:1x UK: default, then Math (MATH-500, AIME, GSM8K-Platinum), then Other (IFEval, CRUXEval input, CRUXEval output)"
+  },
+  {
+   "utc": "2026-10-02T08:42:55Z",
+   "by": "newbench-lead",
+   "move": "rule added: a pooled or combined view is not a dataset and takes no entry; the crossings page's fourth option 'Math and Other' (key six) leaves the dataset switch and the six-panel view is reached by the page's own control; capability-vs-reliability and site-design told"
   }
  ],
- "updated_utc": "2026-10-01T13:31:26Z"
+ "updated_utc": "2026-10-02T08:42:55Z"
 }
