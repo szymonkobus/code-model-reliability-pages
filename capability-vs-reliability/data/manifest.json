@@ -143,7 +143,7 @@
    },
    "source_stamp": "2026-10-02T05:32:46Z",
    "source_fp": "8409d78e68ed",
-   "updated_at": "2026-10-02T06:26:56Z",
+   "updated_at": "2026-10-02T07:22:07Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -191,7 +191,7 @@
    },
    "source_stamp": "2026-10-02T05:48:27Z",
    "source_fp": "620366b82e46",
-   "updated_at": "2026-10-02T06:27:12Z",
+   "updated_at": "2026-10-02T07:22:21Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -240,7 +240,7 @@
    },
    "source_stamp": "2026-10-02T05:49:04Z",
    "source_fp": "e502dee22114",
-   "updated_at": "2026-10-02T06:28:13Z",
+   "updated_at": "2026-10-02T07:22:41Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -289,7 +289,7 @@
    },
    "source_stamp": "2026-10-02T05:49:55Z",
    "source_fp": "bd18e4ca95f2",
-   "updated_at": "2026-10-02T06:28:38Z",
+   "updated_at": "2026-10-02T07:23:02Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -338,7 +338,7 @@
    },
    "source_stamp": "2026-10-02T05:39:36Z",
    "source_fp": "889220017e95",
-   "updated_at": "2026-10-02T06:29:55Z",
+   "updated_at": "2026-10-02T07:24:31Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -662,7 +662,8 @@
    "files": {
     "shared": "shared.cruxeval_i.372d1f59161a.json",
     "chain_average": "chain_average.cruxeval_i.372d1f59161a.json",
-    "bayes": "bayes.cruxeval_i.372d1f59161a-25cf9e981c9d.json"
+    "bayes": "bayes.cruxeval_i.372d1f59161a-4ecc6265a1f0.json",
+    "bayes_prev": "bayes.cruxeval_i.372d1f59161a-25cf9e981c9d.json"
    },
    "label": "CRUXEval input",
    "arms": "all",
@@ -691,13 +692,21 @@
    },
    "source_stamp": "2026-10-02T06:50:46Z",
    "source_fp": "2526726af568",
-   "updated_at": "2026-10-02T07:04:55Z",
+   "updated_at": "2026-10-02T07:21:52Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
-    "unfitted": 3,
-    "served_wave": "nb-cruxeval_i-20260930T1503Z",
-    "served_arms": 41
+    "unfitted": 0,
+    "served_wave": "nb-cruxeval_i-20261002T0422Z",
+    "served_arms": 44
+   },
+   "flip": {
+    "from_wave": "nb-cruxeval_i-20260930T1503Z",
+    "to_wave": "nb-cruxeval_i-20261002T0422Z",
+    "from_fit_set": "25cf9e981c9d",
+    "to_fit_set": "4ecc6265a1f0",
+    "at": "2026-10-02T07:21:52Z",
+    "from_interim_n": 0
    },
    "missing": {
     "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry"
