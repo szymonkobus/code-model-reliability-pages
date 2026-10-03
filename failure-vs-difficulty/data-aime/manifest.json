@@ -1,9 +1,9 @@
 {
- "fingerprint": "3bba96ca4cda",
+ "fingerprint": "8b0c2bcc8eea",
  "fingerprint_inputs": {
   "content": "7fb61002c7c3",
   "wave": "aime-live",
-  "body": "1f692bb0bb47"
+  "body": "d22df0e118ad"
  },
  "frame": {
   "dataset": "aime",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "dc5cbadfe267",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "7ee352b197ae",
+  "runs_fingerprint": "9cbb647c1ed2",
   "axis_wave": "aime-live",
   "build_date": "2026-10-03",
-  "stamp": "2026-10-03T06:37:04Z",
+  "stamp": "2026-10-03T07:46:40Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/aime",
-   "unified_built_at": "2026-10-03T06:33:46Z",
+   "unified_built_at": "2026-10-03T07:45:07Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.aime.csv"
@@ -217,8 +217,8 @@
   "estimators": "local-logistic trend with shipped bands (rho/deff), binned medians (15 bins) with bootstrap bands and crossings, raw running median; average-chain crossings read off the trend and its band (first upward crossing)",
   "bayes_fits": {
    "serving_pointer": "definitions/fitting/serving_nb_aime.json",
-   "wave_id": "nb-aime-20261002T2345Z",
-   "completed_at": "2026-10-03T00:04:11Z",
+   "wave_id": "nb-aime-20261003T0522Z",
+   "completed_at": "2026-10-03T06:55:09Z",
    "gates_note": "flagged models whose crossings mix are SERVED with the disclosure; a flagged model whose d50 or d1 fails the crossing-level gate is HELD (held_arms, not_served_stems) until its longer run lands, and stays held when that run fails the crossing-level gate too (fit-methods 3 Oct 2026 00:0x: never served from a broken fit; under (ccc) the run of record is whichever passes) \u2014 fit-methods 19.8; gates_summary.py is the single source (12a per-model fields)",
    "fit_n_tasks": [
     60
@@ -233,20 +233,20 @@
    },
    "strict_gate_flagged": [],
    "served_not_drawn": null,
-   "custody_dir": "definitions/fitting/waves/nb-aime-20261002T2345Z/view_v2/results",
-   "set_fingerprint": "86adcac7dc44",
-   "pointer_updated_at": "2026-10-03T00:18:04Z",
-   "n_fits": 39,
+   "custody_dir": "definitions/fitting/waves/nb-aime-20261003T0522Z/view_v2/results",
+   "set_fingerprint": "e3e4f1c08800",
+   "pointer_updated_at": "2026-10-03T07:43:01Z",
+   "n_fits": 40,
    "note": null,
    "gates": {
     "convention": "0.5%-of-draws convention",
-    "n_pass": 34,
-    "n_arms": 34,
+    "n_pass": 35,
+    "n_arms": 35,
     "max_divergence_share_pct": 0.0,
     "rhat_max": 1.005,
     "bulk_ess_min": 1170,
     "flagged": [],
-    "source": "definitions/fitting/waves/nb-aime-20261002T2345Z/view_v2/gates_summary.json"
+    "source": "definitions/fitting/waves/nb-aime-20261003T0522Z/view_v2/gates_summary.json"
    },
    "provisional_classes": null,
    "basis_truncation": null,
@@ -258,9 +258,9 @@
    "dataset": "aime",
    "cleaned": {},
    "concentration_counts": {
-    "inputs unavailable for this served set (pre-31g custody copy)": 39
+    "inputs unavailable for this served set (pre-31g custody copy)": 40
    },
-   "drawn": 34
+   "drawn": 35
   },
   "vocab_ruled": "2026-08-27",
   "interim": "kernel fits on all results available at build; refit hourly as results land",
@@ -286,17 +286,17 @@
   },
   "side_arms": {
    "served": true,
-   "serving_word": "difficulty's GO (00:1xZ 3 Oct, the AIME pair): the set staging knowledge/drafts/nb_staging/serving_nb_aime.recut.json f16fdff61752 against the served de3adb7810ae and the side staging knowledge/drafts/side_staging/serving_sft_nb_aime.recut.json a4725d2ed4fc against the served 56ce70c34ef3, on the axis of record 8dd3f716c6b2 (34 voters; the Sonnet 5 plain voter held out on its badge; wave nb-aime-20261002T2345Z with its longer runs under (ccc); the side wave sft-nb-aime-20261003T0009Z) \u2014 read 00:14Z and 00:17Z: 39 rows in the view, 34 on the set face and the five side arms in the side table, none held; one arm gone (anthropic--claude-sonnet-5 by the labels ledger's interim row, the labels record naming the ledger repo-relatively with its digest and the row) and none new; D99 class changes none, one D50 change (Gemini 3.6 Flash from a bound above to a point, the hard end at 2.726); the Opus 5 thinking's D50 and D99 bounds above the hardest task; the composite-failed list and the disclosure empty; the standing record naming Mistral 7B Instruct at the standard length under (ccc), Qwen3 1.7B thinking on its longer run; the censoring read of every level of every row of both tables consistent with its shares; no login string in either staging; fit-methods read the same shas clean",
-   "wave_id": "sft-nb-aime-20261003T0009Z",
+   "serving_word": "difficulty 07:4x 3 Oct 2026: GO for the AIME positioning pair \u2014 the set staging at 6818e6457815 against the served 7aea31b4b2b8 and the side staging at c6c3a8bb6e08 against the served 3c867b40934f, on the standing axis 8dd3f716c6b2 (unchanged on all 60 problems), the 39 shared arms carrying their served runs of record and the Opus 5 plain arm positioned as a non-voter, after fit-methods' and fit-critic's reads of these shas; void on a byte change of either",
+   "wave_id": "sft-nb-aime-20261003T0737Z",
    "n_arms": 5,
    "heading": "models fitted alongside the set, on AIME; two post-training fine-tunes, one RL checkpoint, the released final of one training run and one checkpoint of one training run, positioned on the served AIME axis unchanged; each model's own figures in its entry",
    "heading_note": "label = the set's name as the dataset list gives it (AIME), no count in a label; the problem count in n_tasks and the figures' quiet count; fitted figures beside it in each entry",
    "membership": "every problem of the set has results for these models; positions come from the served axis, unchanged",
    "axis_rule": "the served AIME axis unchanged: study models are positioned on an axis they did not shape (ruling of 17 Sep); the live axis holds these models as positioned, not voting; positions are comparable with the served set's",
    "axis_pinned_to_served": true,
-   "cut_at": "2026-10-03T00:09:28Z",
+   "cut_at": "2026-10-03T07:37:17Z",
    "completed_at": "2026-10-03T00:02:02Z",
-   "updated_at": "2026-10-03T00:18:04Z",
+   "updated_at": "2026-10-03T07:43:01Z",
    "pointer": "definitions/fitting/serving_sft_nb_aime.json",
    "arms": [
     {
@@ -2308,8 +2308,8 @@
        ]
       ]
      },
-     "wave_id": "sft-nb-aime-20261003T0009Z",
-     "cut_at": "2026-10-03T00:09:28Z",
+     "wave_id": "sft-nb-aime-20261003T0737Z",
+     "cut_at": "2026-10-03T07:37:17Z",
      "cross_record": {
       "d50": {
        "z": -1.478,
@@ -4342,8 +4342,8 @@
        ]
       ]
      },
-     "wave_id": "sft-nb-aime-20261003T0009Z",
-     "cut_at": "2026-10-03T00:09:28Z",
+     "wave_id": "sft-nb-aime-20261003T0737Z",
+     "cut_at": "2026-10-03T07:37:17Z",
      "cross_record": {
       "d50": {
        "z": -1.478,
@@ -6378,8 +6378,8 @@
        ]
       ]
      },
-     "wave_id": "sft-nb-aime-20261003T0009Z",
-     "cut_at": "2026-10-03T00:09:28Z",
+     "wave_id": "sft-nb-aime-20261003T0737Z",
+     "cut_at": "2026-10-03T07:37:17Z",
      "cross_record": {
       "d50": {
        "z": -1.478,
@@ -8412,8 +8412,8 @@
        ]
       ]
      },
-     "wave_id": "sft-nb-aime-20261003T0009Z",
-     "cut_at": "2026-10-03T00:09:28Z",
+     "wave_id": "sft-nb-aime-20261003T0737Z",
+     "cut_at": "2026-10-03T07:37:17Z",
      "cross_record": {
       "d50": {
        "z": 1.2209,
@@ -10446,8 +10446,8 @@
        ]
       ]
      },
-     "wave_id": "sft-nb-aime-20261003T0009Z",
-     "cut_at": "2026-10-03T00:09:28Z",
+     "wave_id": "sft-nb-aime-20261003T0737Z",
+     "cut_at": "2026-10-03T07:37:17Z",
      "cross_record": {
       "d50": {
        "z": 1.1915,
@@ -10537,7 +10537,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-03T06:24:18Z",
+   "_stamp": "2026-10-03T07:24:23Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -10702,17 +10702,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-03T05:15:28Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261003T051528Z.json",
-   "sha16": "7cb19d2735716016",
-   "census_mtime": "2026-10-03T05:16:10Z",
+   "stamp": "2026-10-03T07:00:42Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261003T070042Z.json",
+   "sha16": "952f107d202c8ad6",
+   "census_mtime": "2026-10-03T07:01:32Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.3bba96ca4cda.json",
-  "chain_average": "chain_average.3bba96ca4cda.json",
-  "chain_median": "chain_median.3bba96ca4cda.json",
-  "dots": "dots.3bba96ca4cda.json"
+  "shared": "shared.8b0c2bcc8eea.json",
+  "chain_average": "chain_average.8b0c2bcc8eea.json",
+  "chain_median": "chain_median.8b0c2bcc8eea.json",
+  "dots": "dots.8b0c2bcc8eea.json"
  }
 }
