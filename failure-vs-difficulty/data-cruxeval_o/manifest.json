@@ -1,9 +1,9 @@
 {
- "fingerprint": "5907d6eb8707",
+ "fingerprint": "2dc07f4d6637",
  "fingerprint_inputs": {
   "content": "dffd9728d2f6",
   "wave": "cruxeval_o-live",
-  "body": "209276000ea4"
+  "body": "9171d3315042"
  },
  "frame": {
   "dataset": "cruxeval_o",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ceaae2d92751",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "7ee352b197ae",
+  "runs_fingerprint": "85f471afd678",
   "axis_wave": "cruxeval_o-live",
   "build_date": "2026-10-03",
-  "stamp": "2026-10-03T06:40:44Z",
+  "stamp": "2026-10-03T08:56:07Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/cruxeval_o",
-   "unified_built_at": "2026-10-03T06:33:46Z",
+   "unified_built_at": "2026-10-03T08:43:58Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.cruxeval_o.csv"
@@ -261,8 +261,8 @@
   "estimators": "local-logistic trend with shipped bands (rho/deff), binned medians (15 bins) with bootstrap bands and crossings, raw running median; average-chain crossings read off the trend and its band (first upward crossing)",
   "bayes_fits": {
    "serving_pointer": "definitions/fitting/serving_nb_cruxeval_o.json",
-   "wave_id": "nb-cruxeval_o-20261003T0228Z",
-   "completed_at": "2026-10-03T04:42:14Z",
+   "wave_id": "nb-cruxeval_o-20261003T0522Z",
+   "completed_at": "2026-10-03T06:41:20Z",
    "gates_note": "flagged models whose crossings mix are SERVED with the disclosure; a flagged model whose d50 or d1 fails the crossing-level gate is HELD (held_arms, not_served_stems) until its longer run lands, and stays held when that run fails the crossing-level gate too (fit-methods 3 Oct 2026 00:0x: never served from a broken fit; under (ccc) the run of record is whichever passes) \u2014 fit-methods 19.8; gates_summary.py is the single source (12a per-model fields)",
    "fit_n_tasks": [
     800
@@ -280,22 +280,22 @@
     "dsc6.7b-rl-night4-s500"
    ],
    "served_not_drawn": null,
-   "custody_dir": "definitions/fitting/waves/nb-cruxeval_o-20261003T0228Z/view_v3/results",
-   "set_fingerprint": "977c70dd1a8a",
-   "pointer_updated_at": "2026-10-03T05:28:23Z",
-   "n_fits": 62,
+   "custody_dir": "definitions/fitting/waves/nb-cruxeval_o-20261003T0522Z/view_v2/results",
+   "set_fingerprint": "b8d5b88d30a4",
+   "pointer_updated_at": "2026-10-03T08:29:55Z",
+   "n_fits": 63,
    "note": null,
    "gates": {
     "convention": "0.5%-of-draws convention",
-    "n_pass": 59,
-    "n_arms": 60,
+    "n_pass": 60,
+    "n_arms": 61,
     "max_divergence_share_pct": 0.01,
     "rhat_max": 1.01,
     "bulk_ess_min": 344,
     "flagged": [
      "deepseek-ai--deepseek-coder-6.7b-instruct_t0.8"
     ],
-    "source": "definitions/fitting/waves/nb-cruxeval_o-20261003T0228Z/view_v3/gates_summary.json"
+    "source": "definitions/fitting/waves/nb-cruxeval_o-20261003T0522Z/view_v2/gates_summary.json"
    },
    "provisional_classes": null,
    "basis_truncation": null,
@@ -307,26 +307,26 @@
    "dataset": "cruxeval_o",
    "cleaned": {},
    "concentration_counts": {
-    "inputs unavailable for this served set (pre-31g custody copy)": 51
+    "inputs unavailable for this served set (pre-31g custody copy)": 52
    },
-   "drawn": 49
+   "drawn": 50
   },
   "vocab_ruled": "2026-08-27",
   "interim": "kernel fits on all results available at build; refit hourly as results land",
   "partial_attempts": null,
   "side_arms": {
    "served": true,
-   "serving_word": "difficulty 05:2x 3 Oct 2026: GO for the CRUXEval output era pair \u2014 the set staging at c0cf84c33684 against the served dce5eaf2671e and the side staging at 25a861780778 against the served 1dcf4ba6f2d1, both on the whole-era axis c3afb1b37029 (snapshot 02:28:51Z, 800 tasks), after fit-methods' clean read of these shas; void on a byte change of either",
-   "wave_id": "sft-nb-cruxeval_o-20261003T0522Z",
+   "serving_word": "difficulty 08:1x 3 Oct 2026: GO for the CRUXEval output positioning pair \u2014 the set staging at 254ce76d1983 against the served 58ffe6d805d3 and the side staging at 3b51708d0d36 against the served 2fc97a370667, on the standing whole-era axis c3afb1b37029 (unchanged on all 800 tasks), the 62 shared arms carrying their served runs of record and the Opus 5 thinking output arm positioned as a non-voter, after fit-methods' and fit-critic's reads of these shas; void on a byte change of either",
+   "wave_id": "sft-nb-cruxeval_o-20261003T0814Z",
    "n_arms": 2,
    "heading": "models fitted alongside the set, on CRUXEval output; one RL checkpoint and the released final of one training run, positioned on the served CRUXEval output axis unchanged; each model's own figures in its entry",
    "heading_note": "label = the set's name as the dataset list gives it (CRUXEval output), no count in a label; the problem count in n_tasks and the figures' quiet count; fitted figures beside it in each entry",
    "membership": "every problem of the set has results for these models; positions come from the served axis, unchanged",
    "axis_rule": "the served CRUXEval output axis unchanged: study models are positioned on an axis they did not shape (ruling of 17 Sep); the live axis holds these models as positioned, not voting; positions are comparable with the served set's",
    "axis_pinned_to_served": true,
-   "cut_at": "2026-10-03T05:22:04Z",
+   "cut_at": "2026-10-03T08:14:33Z",
    "completed_at": "2026-10-03T04:18:15Z",
-   "updated_at": "2026-10-03T05:28:23Z",
+   "updated_at": "2026-10-03T08:29:55Z",
    "pointer": "definitions/fitting/serving_sft_nb_cruxeval_o.json",
    "arms": [
     {
@@ -2338,8 +2338,8 @@
        ]
       ]
      },
-     "wave_id": "sft-nb-cruxeval_o-20261003T0522Z",
-     "cut_at": "2026-10-03T05:22:04Z",
+     "wave_id": "sft-nb-cruxeval_o-20261003T0814Z",
+     "cut_at": "2026-10-03T08:14:33Z",
      "cross_record": {
       "d50": {
        "z": -1.0009,
@@ -4372,8 +4372,8 @@
        ]
       ]
      },
-     "wave_id": "sft-nb-cruxeval_o-20261003T0522Z",
-     "cut_at": "2026-10-03T05:22:04Z",
+     "wave_id": "sft-nb-cruxeval_o-20261003T0814Z",
+     "cut_at": "2026-10-03T08:14:33Z",
      "cross_record": {
       "d50": {
        "z": 1.2999,
@@ -4474,7 +4474,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-03T06:24:18Z",
+   "_stamp": "2026-10-03T08:24:19Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -4639,17 +4639,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-03T05:15:28Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261003T051528Z.json",
-   "sha16": "7cb19d2735716016",
-   "census_mtime": "2026-10-03T05:16:10Z",
+   "stamp": "2026-10-03T07:58:02Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261003T075802Z.json",
+   "sha16": "896c86c2097e9188",
+   "census_mtime": "2026-10-03T07:58:59Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.5907d6eb8707.json",
-  "chain_average": "chain_average.5907d6eb8707.json",
-  "chain_median": "chain_median.5907d6eb8707.json",
-  "dots": "dots.5907d6eb8707.json"
+  "shared": "shared.2dc07f4d6637.json",
+  "chain_average": "chain_average.2dc07f4d6637.json",
+  "chain_median": "chain_median.2dc07f4d6637.json",
+  "dots": "dots.2dc07f4d6637.json"
  }
 }
