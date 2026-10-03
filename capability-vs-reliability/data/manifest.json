@@ -108,7 +108,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-03T05:13:54Z"
+   "updated_at": "2026-10-03T05:19:43Z"
   },
   "all": {
    "files": {
@@ -660,21 +660,21 @@
   },
   "cruxeval_i": {
    "files": {
-    "shared": "shared.cruxeval_i.050dde0958ff.json",
-    "chain_average": "chain_average.cruxeval_i.050dde0958ff.json",
-    "bayes": "bayes.cruxeval_i.050dde0958ff-88ae09f4f72c.json",
+    "shared": "shared.cruxeval_i.fd192d25bdc7.json",
+    "chain_average": "chain_average.cruxeval_i.fd192d25bdc7.json",
+    "bayes": "bayes.cruxeval_i.fd192d25bdc7-88ae09f4f72c.json",
     "bayes_prev": "bayes.cruxeval_i.657f912200ce-4ecc6265a1f0.json"
    },
    "label": "CRUXEval input",
    "arms": "all",
-   "fingerprint": "050dde0958ff",
+   "fingerprint": "fd192d25bdc7",
    "frame": {
     "population_M": 47,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
-    "runs_fingerprint": "0a2f7051ab37",
+    "runs_fingerprint": "6f4349e62854",
     "build_date": "2026-10-03",
-    "build_ts": "2026-10-03T04:43:11Z",
+    "build_ts": "2026-10-03T05:14:23Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_i",
     "set_label": "CRUXEval input",
@@ -685,14 +685,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
     "tasks_used": "CRUXEval input \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_i fp 7673a991d34f (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-cruxeval_i fp 8708434323fa (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "a5331b6992a2",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-03T04:43:11Z",
-   "source_fp": "7673a991d34f",
-   "updated_at": "2026-10-03T04:48:23Z",
+   "source_stamp": "2026-10-03T05:14:23Z",
+   "source_fp": "8708434323fa",
+   "updated_at": "2026-10-03T05:20:58Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -768,21 +768,21 @@
   },
   "aime": {
    "files": {
-    "shared": "shared.aime.eab5b28876e8.json",
-    "chain_average": "chain_average.aime.eab5b28876e8.json",
-    "bayes": "bayes.aime.eab5b28876e8-86adcac7dc44.json",
+    "shared": "shared.aime.7125b4032cb5.json",
+    "chain_average": "chain_average.aime.7125b4032cb5.json",
+    "bayes": "bayes.aime.7125b4032cb5-86adcac7dc44.json",
     "bayes_prev": "bayes.aime.cfdccbb26726-25be3ac3e7eb.json"
    },
    "label": "AIME",
    "arms": "all",
-   "fingerprint": "eab5b28876e8",
+   "fingerprint": "7125b4032cb5",
    "frame": {
-    "population_M": 40,
+    "population_M": 41,
     "tasks": 60,
     "keep_set_hash": "dc5cbadfe267",
-    "runs_fingerprint": "f102af7e4080",
+    "runs_fingerprint": "6f4349e62854",
     "build_date": "2026-10-03",
-    "build_ts": "2026-10-03T00:44:47Z",
+    "build_ts": "2026-10-03T05:13:17Z",
     "vocab_ruled": "2026-08-27",
     "set": "aime",
     "set_label": "AIME",
@@ -793,18 +793,18 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "dc5cbadfe267",
     "tasks_used": "AIME \u2014 60 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-aime fp 5bcbfef85b5e (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "147f8cc822f5",
+    "source": "failure-vs-difficulty data-aime fp c02caef0f86c (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "7fb61002c7c3",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-03T00:44:47Z",
-   "source_fp": "5bcbfef85b5e",
-   "updated_at": "2026-10-03T05:01:08Z",
+   "source_stamp": "2026-10-03T05:13:17Z",
+   "source_fp": "c02caef0f86c",
+   "updated_at": "2026-10-03T05:21:35Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
-    "unfitted": 1,
+    "unfitted": 2,
     "served_wave": "nb-aime-20261002T2345Z",
     "served_arms": 39
    },
