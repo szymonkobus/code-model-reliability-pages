@@ -714,21 +714,21 @@
   },
   "cruxeval_o": {
    "files": {
-    "shared": "shared.cruxeval_o.0439fb6f8094.json",
-    "chain_average": "chain_average.cruxeval_o.0439fb6f8094.json",
-    "bayes": "bayes.cruxeval_o.0439fb6f8094-9daa0acd392c.json",
-    "bayes_prev": "bayes.cruxeval_o.1a69e7f9d134-e5c6ad5205ea.json"
+    "shared": "shared.cruxeval_o.33c38247845a.json",
+    "chain_average": "chain_average.cruxeval_o.33c38247845a.json",
+    "bayes": "bayes.cruxeval_o.33c38247845a-977c70dd1a8a.json",
+    "bayes_prev": "bayes.cruxeval_o.0439fb6f8094-9daa0acd392c.json"
    },
    "label": "CRUXEval output",
    "arms": "all",
-   "fingerprint": "0439fb6f8094",
+   "fingerprint": "33c38247845a",
    "frame": {
-    "population_M": 51,
+    "population_M": 52,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
-    "runs_fingerprint": "ebc75490571b",
+    "runs_fingerprint": "6f4349e62854",
     "build_date": "2026-10-03",
-    "build_ts": "2026-10-03T03:38:28Z",
+    "build_ts": "2026-10-03T05:16:54Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_o",
     "set_label": "CRUXEval output",
@@ -739,27 +739,27 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
     "tasks_used": "CRUXEval output \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_o fp d87e821eaa0e (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "9cd0da49171b",
+    "source": "failure-vs-difficulty data-cruxeval_o fp ffc0ae138b3d (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "dffd9728d2f6",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-03T03:38:28Z",
-   "source_fp": "d87e821eaa0e",
-   "updated_at": "2026-10-03T03:51:08Z",
+   "source_stamp": "2026-10-03T05:16:54Z",
+   "source_fp": "ffc0ae138b3d",
+   "updated_at": "2026-10-03T05:31:15Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
-    "unfitted": 2,
-    "served_wave": "nb-cruxeval_o-20261001T1654Z",
-    "served_arms": 49
+    "unfitted": 1,
+    "served_wave": "nb-cruxeval_o-20261003T0228Z",
+    "served_arms": 51
    },
    "flip": {
-    "from_wave": "nb-cruxeval_o-20261001T0902Z",
-    "to_wave": "nb-cruxeval_o-20261001T1654Z",
-    "from_fit_set": "e5c6ad5205ea",
-    "to_fit_set": "9daa0acd392c",
-    "at": "2026-10-01T19:42:04Z",
+    "from_wave": "nb-cruxeval_o-20261001T1654Z",
+    "to_wave": "nb-cruxeval_o-20261003T0228Z",
+    "from_fit_set": "9daa0acd392c",
+    "to_fit_set": "977c70dd1a8a",
+    "at": "2026-10-03T05:31:15Z",
     "from_interim_n": 0
    },
    "missing": {
