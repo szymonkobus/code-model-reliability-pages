@@ -1,9 +1,9 @@
 {
- "fingerprint": "12524b4373cc",
+ "fingerprint": "779c67f98bbc",
  "fingerprint_inputs": {
-  "content": "8f1b54649e79",
+  "content": "c9e96275128e",
   "wave": "cruxeval_o-live",
-  "body": "498553865351"
+  "body": "db5ecc3ca023"
  },
  "frame": {
   "dataset": "cruxeval_o",
@@ -24,21 +24,21 @@
   "difficulty_population_M": 51,
   "tasks": 800,
   "keep_set_hash": "ceaae2d92751",
-  "inputs_content_sha": "8f1b54649e79",
+  "inputs_content_sha": "c9e96275128e",
   "tasks_on_axis": 800,
   "tasks_kept": 800,
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ceaae2d92751",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "857c4b349bce",
+  "runs_fingerprint": "16a32b475c23",
   "axis_wave": "cruxeval_o-live",
   "build_date": "2026-10-03",
-  "stamp": "2026-10-03T01:41:23Z",
+  "stamp": "2026-10-03T02:25:13Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/cruxeval_o",
-   "unified_built_at": "2026-10-03T01:36:51Z",
+   "unified_built_at": "2026-10-03T02:18:28Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.cruxeval_o.csv"
@@ -2401,8 +2401,8 @@
    "deepseek-ai/DeepSeek-R1-Distill-Llama-8B": "deepseek-ai--DeepSeek-R1-Distill-Llama-8B_r1think-t0.6",
    "google/gemini-3.5-flash-lite": "gemini--gemini-3.5-flash-lite",
    "deepseek-ai/DeepSeek-V3-0324": "deepseek-ai--DeepSeek-V3-0324_t0.8",
-   "moonshotai/Kimi-K2-Instruct": "moonshotai--Kimi-K2-Instruct_t0.8",
    "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B": "deepseek-ai--DeepSeek-R1-Distill-Qwen-7B_r1think-t0.6",
+   "moonshotai/Kimi-K2-Instruct": "moonshotai--Kimi-K2-Instruct_t0.8",
    "Qwen/Qwen2.5-Coder-32B-Instruct": "Qwen--Qwen2.5-Coder-32B-Instruct_t0.8",
    "Qwen/Qwen2.5-32B-Instruct": "Qwen--Qwen2.5-32B-Instruct_t0.8",
    "Qwen/Qwen2.5-Coder-14B-Instruct": "Qwen--Qwen2.5-Coder-14B-Instruct_t0.2",
@@ -2413,12 +2413,12 @@
    "mistralai/Mistral-Small-24B-Instruct-2501": "mistralai--Mistral-Small-24B-Instruct-2501_t0.8",
    "Qwen/Qwen3-8B": "Qwen--Qwen3-8B_t0.5",
    "Qwen/Qwen2.5-14B-Instruct": "Qwen--Qwen2.5-14B-Instruct_t0.8",
+   "google/gemma-4-31B-it": "google--gemma-4-31b-it_t0.8",
    "zai-org/GLM-4.7-Flash_chat": "zai-org--GLM-4.7-Flash_chat-t0.8",
    "Qwen/Qwen3-4B": "Qwen--Qwen3-4B_t0.2",
    "Qwen/Qwen2.5-7B-Instruct": "Qwen--Qwen2.5-7B-Instruct_t0.8",
    "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct": "deepseek-ai--DeepSeek-Coder-V2-Lite-Instruct_t0.8",
    "Qwen/Qwen3-0.6B-Thinking": "Qwen--Qwen3-0.6B_think-t0.6",
-   "google/gemma-4-31B-it": "google--gemma-4-31b-it_t0.8",
    "Qwen/Qwen2.5-Coder-3B-Instruct": "Qwen--Qwen2.5-Coder-3B-Instruct_t0.8",
    "Qwen/Qwen3-32B": "Qwen--Qwen3-32B_t0.8",
    "dsc6.7b-rl-night4-s500": "dsc6.7b-rl-night4-s500_t0.8",
@@ -2441,7 +2441,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-03T01:24:22Z",
+   "_stamp": "2026-10-03T02:24:26Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -2606,17 +2606,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-03T00:48:33Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261003T004833Z.json",
-   "sha16": "220320a5b209f6b5",
-   "census_mtime": "2026-10-03T00:49:16Z",
+   "stamp": "2026-10-03T01:44:03Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261003T014403Z.json",
+   "sha16": "f2ccc4c969b07e27",
+   "census_mtime": "2026-10-03T01:44:40Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.12524b4373cc.json",
-  "chain_average": "chain_average.12524b4373cc.json",
-  "chain_median": "chain_median.12524b4373cc.json",
-  "dots": "dots.12524b4373cc.json"
+  "shared": "shared.779c67f98bbc.json",
+  "chain_average": "chain_average.779c67f98bbc.json",
+  "chain_median": "chain_median.779c67f98bbc.json",
+  "dots": "dots.779c67f98bbc.json"
  }
 }
