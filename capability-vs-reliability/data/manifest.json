@@ -770,8 +770,8 @@
    "files": {
     "shared": "shared.aime.cfdccbb26726.json",
     "chain_average": "chain_average.aime.cfdccbb26726.json",
-    "bayes": "bayes.aime.cfdccbb26726-25be3ac3e7eb.json",
-    "bayes_prev": "bayes.aime.771f2a5faa45-b17410ab6384.json"
+    "bayes": "bayes.aime.cfdccbb26726-86adcac7dc44.json",
+    "bayes_prev": "bayes.aime.cfdccbb26726-25be3ac3e7eb.json"
    },
    "label": "AIME",
    "arms": "all",
@@ -800,20 +800,20 @@
    },
    "source_stamp": "2026-10-02T23:47:17Z",
    "source_fp": "7fff34c1f96c",
-   "updated_at": "2026-10-02T23:56:13Z",
+   "updated_at": "2026-10-03T00:19:00Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
-    "unfitted": 0,
-    "served_wave": "nb-aime-20261002T2155Z",
-    "served_arms": 40
+    "unfitted": 1,
+    "served_wave": "nb-aime-20261002T2345Z",
+    "served_arms": 39
    },
    "flip": {
-    "from_wave": "nb-aime-20261002T0647Z",
-    "to_wave": "nb-aime-20261002T2155Z",
-    "from_fit_set": "b17410ab6384",
-    "to_fit_set": "25be3ac3e7eb",
-    "at": "2026-10-02T22:25:45Z",
+    "from_wave": "nb-aime-20261002T2155Z",
+    "to_wave": "nb-aime-20261002T2345Z",
+    "from_fit_set": "25be3ac3e7eb",
+    "to_fit_set": "86adcac7dc44",
+    "at": "2026-10-03T00:19:00Z",
     "from_interim_n": 0
    },
    "missing": {
