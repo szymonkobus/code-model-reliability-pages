@@ -1,9 +1,9 @@
 {
- "fingerprint": "996ede1384d2",
+ "fingerprint": "06b838ae0bf7",
  "fingerprint_inputs": {
-  "content": "60e38c2834db",
+  "content": "9cf45d7162c9",
   "wave": "ifeval-live",
-  "body": "d2e891370a65"
+  "body": "e19113a98a7a"
  },
  "frame": {
   "dataset": "ifeval",
@@ -17,28 +17,28 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 45,
-  "fitted_M": 45,
-  "complete_M": 45,
-  "sampled_M": 45,
-  "difficulty_population_M": 45,
+  "population_M": 47,
+  "fitted_M": 47,
+  "complete_M": 47,
+  "sampled_M": 47,
+  "difficulty_population_M": 47,
   "tasks": 541,
   "keep_set_hash": "ea009d5c6cd1",
-  "inputs_content_sha": "60e38c2834db",
+  "inputs_content_sha": "9cf45d7162c9",
   "tasks_on_axis": 541,
   "tasks_kept": 541,
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ea009d5c6cd1",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "ebc75490571b",
+  "runs_fingerprint": "b971379c1fe6",
   "axis_wave": "ifeval-live",
   "build_date": "2026-10-03",
-  "stamp": "2026-10-03T03:44:48Z",
+  "stamp": "2026-10-03T05:25:14Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/ifeval",
-   "unified_built_at": "2026-10-03T03:32:07Z",
+   "unified_built_at": "2026-10-03T05:22:23Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.ifeval.csv"
@@ -61,6 +61,14 @@
     "of": 541
    },
    "claude-sonnet-5-thinking": {
+    "tasks": 541,
+    "of": 541
+   },
+   "claude-opus-5": {
+    "tasks": 541,
+    "of": 541
+   },
+   "claude-opus-5-thinking": {
     "tasks": 541,
     "of": 541
    },
@@ -271,7 +279,7 @@
    },
    "provisional_classes": null,
    "basis_truncation": null,
-   "served_axis_note": null,
+   "served_axis_note": "Bayesian curve fitted on this live axis as it stood at the cut; the axis has moved with results landing since, so positions may differ slightly",
    "membership_lag": null,
    "partial_coverage_arms": [],
    "matches_axis": false,
@@ -6421,11 +6429,13 @@
   "nb_run_keys": {
    "google/gemini-3.6-flash": "gemini--gemini-3.6-flash",
    "google/gemma-4-31B-it": "google--gemma-4-31b-it_t0.8",
+   "claude-opus-5-thinking": "anthropic--o5.think.x128",
    "openai/gpt-5-mini": "openai--gpt-5-mini",
    "claude-sonnet-5-thinking": "anthropic--s5.think.x128",
    "openai/gpt-5-nano": "openai--gpt-5-nano",
    "claude-haiku-4-5-thinking": "anthropic--think",
    "google/gemini-3.5-flash-lite": "gemini--gemini-3.5-flash-lite",
+   "claude-opus-5": "anthropic--o5.x128",
    "claude-sonnet-5": "anthropic--s5.x128",
    "Qwen/Qwen3-14B": "Qwen--Qwen3-14B_t0.8",
    "Qwen/Qwen3-14B-Thinking": "Qwen--Qwen3-14B_think-t0.6",
@@ -6473,7 +6483,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-03T03:24:40Z",
+   "_stamp": "2026-10-03T05:25:29Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -6638,17 +6648,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-03T01:44:03Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261003T014403Z.json",
-   "sha16": "f2ccc4c969b07e27",
-   "census_mtime": "2026-10-03T01:44:40Z",
+   "stamp": "2026-10-03T04:23:09Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261003T042309Z.json",
+   "sha16": "455978309229b848",
+   "census_mtime": "2026-10-03T04:23:46Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.996ede1384d2.json",
-  "chain_average": "chain_average.996ede1384d2.json",
-  "chain_median": "chain_median.996ede1384d2.json",
-  "dots": "dots.996ede1384d2.json"
+  "shared": "shared.06b838ae0bf7.json",
+  "chain_average": "chain_average.06b838ae0bf7.json",
+  "chain_median": "chain_median.06b838ae0bf7.json",
+  "dots": "dots.06b838ae0bf7.json"
  }
 }
