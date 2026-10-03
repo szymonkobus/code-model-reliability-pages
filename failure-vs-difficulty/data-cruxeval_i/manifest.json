@@ -1,9 +1,9 @@
 {
- "fingerprint": "7673a991d34f",
+ "fingerprint": "8708434323fa",
  "fingerprint_inputs": {
   "content": "a5331b6992a2",
   "wave": "cruxeval_i-live",
-  "body": "30bf51cad9b3"
+  "body": "9e0f96c42954"
  },
  "frame": {
   "dataset": "cruxeval_i",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ceaae2d92751",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "0a2f7051ab37",
+  "runs_fingerprint": "6f4349e62854",
   "axis_wave": "cruxeval_i-live",
   "build_date": "2026-10-03",
-  "stamp": "2026-10-03T04:37:23Z",
+  "stamp": "2026-10-03T05:14:23Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/cruxeval_i",
-   "unified_built_at": "2026-10-03T04:33:48Z",
+   "unified_built_at": "2026-10-03T05:11:18Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.cruxeval_i.csv"
@@ -558,17 +558,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-03T03:27:53Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261003T032753Z.json",
-   "sha16": "6e9e32ed349f2d67",
-   "census_mtime": "2026-10-03T03:28:57Z",
+   "stamp": "2026-10-03T04:23:09Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261003T042309Z.json",
+   "sha16": "455978309229b848",
+   "census_mtime": "2026-10-03T04:23:46Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.7673a991d34f.json",
-  "chain_average": "chain_average.7673a991d34f.json",
-  "chain_median": "chain_median.7673a991d34f.json",
-  "dots": "dots.7673a991d34f.json"
+  "shared": "shared.8708434323fa.json",
+  "chain_average": "chain_average.8708434323fa.json",
+  "chain_median": "chain_median.8708434323fa.json",
+  "dots": "dots.8708434323fa.json"
  }
 }
