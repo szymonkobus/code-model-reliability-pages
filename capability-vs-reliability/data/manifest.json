@@ -143,7 +143,7 @@
    },
    "source_stamp": "2026-10-03T08:26:40Z",
    "source_fp": "ce1d9b37bd38",
-   "updated_at": "2026-10-03T09:23:01Z",
+   "updated_at": "2026-10-03T10:22:24Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -191,7 +191,7 @@
    },
    "source_stamp": "2026-10-03T08:36:38Z",
    "source_fp": "cfbd77e4d01f",
-   "updated_at": "2026-10-03T09:23:14Z",
+   "updated_at": "2026-10-03T10:22:35Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -240,7 +240,7 @@
    },
    "source_stamp": "2026-10-03T08:36:57Z",
    "source_fp": "804813e7026d",
-   "updated_at": "2026-10-03T09:23:31Z",
+   "updated_at": "2026-10-03T10:22:45Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -289,7 +289,7 @@
    },
    "source_stamp": "2026-10-03T08:37:55Z",
    "source_fp": "318bd73789f4",
-   "updated_at": "2026-10-03T09:23:43Z",
+   "updated_at": "2026-10-03T10:22:56Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -338,7 +338,7 @@
    },
    "source_stamp": "2026-10-03T08:30:09Z",
    "source_fp": "2238b997eff4",
-   "updated_at": "2026-10-03T09:24:49Z",
+   "updated_at": "2026-10-03T10:23:37Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -383,7 +383,7 @@
    },
    "source_stamp": "2026-10-03T08:34:23Z",
    "source_fp": "4495fefdb965",
-   "updated_at": "2026-10-03T09:25:41Z",
+   "updated_at": "2026-10-03T10:24:17Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -431,7 +431,7 @@
    },
    "source_stamp": "2026-10-03T08:28:56Z",
    "source_fp": "d6c6e454a22f",
-   "updated_at": "2026-10-03T09:25:53Z",
+   "updated_at": "2026-10-03T10:24:28Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -480,7 +480,7 @@
    },
    "source_stamp": "2026-10-03T08:29:31Z",
    "source_fp": "b20d854e5e3b",
-   "updated_at": "2026-10-03T09:26:05Z",
+   "updated_at": "2026-10-03T10:24:38Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -660,21 +660,21 @@
   },
   "cruxeval_i": {
    "files": {
-    "shared": "shared.cruxeval_i.db3e241a3bfa.json",
-    "chain_average": "chain_average.cruxeval_i.db3e241a3bfa.json",
-    "bayes": "bayes.cruxeval_i.db3e241a3bfa-fd7ae1fb707b.json",
+    "shared": "shared.cruxeval_i.8b375c9cead9.json",
+    "chain_average": "chain_average.cruxeval_i.8b375c9cead9.json",
+    "bayes": "bayes.cruxeval_i.8b375c9cead9-fd7ae1fb707b.json",
     "bayes_prev": "bayes.cruxeval_i.44bb430213be-88ae09f4f72c.json"
    },
    "label": "CRUXEval input",
    "arms": "all",
-   "fingerprint": "db3e241a3bfa",
+   "fingerprint": "8b375c9cead9",
    "frame": {
     "population_M": 48,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
-    "runs_fingerprint": "5af48dc60559",
+    "runs_fingerprint": "30ab44c3ef44",
     "build_date": "2026-10-03",
-    "build_ts": "2026-10-03T09:34:23Z",
+    "build_ts": "2026-10-03T10:25:45Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_i",
     "set_label": "CRUXEval input",
@@ -685,14 +685,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
     "tasks_used": "CRUXEval input \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_i fp fc8c0d3ad21b (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-cruxeval_i fp 85385e52174d (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "adcd273b5de0",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-03T09:34:23Z",
-   "source_fp": "fc8c0d3ad21b",
-   "updated_at": "2026-10-03T09:38:57Z",
+   "source_stamp": "2026-10-03T10:25:45Z",
+   "source_fp": "85385e52174d",
+   "updated_at": "2026-10-03T10:29:50Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -822,7 +822,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-10-03T09:24:44Z",
+  "stamp": "2026-10-03T10:24:17Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,

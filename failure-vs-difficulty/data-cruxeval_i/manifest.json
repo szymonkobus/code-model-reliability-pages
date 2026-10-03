@@ -1,9 +1,9 @@
 {
- "fingerprint": "fc8c0d3ad21b",
+ "fingerprint": "85385e52174d",
  "fingerprint_inputs": {
   "content": "adcd273b5de0",
   "wave": "cruxeval_i-live",
-  "body": "5db25950bbec"
+  "body": "0326ee9d4adf"
  },
  "frame": {
   "dataset": "cruxeval_i",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ceaae2d92751",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "5af48dc60559",
+  "runs_fingerprint": "30ab44c3ef44",
   "axis_wave": "cruxeval_i-live",
   "build_date": "2026-10-03",
-  "stamp": "2026-10-03T09:34:23Z",
+  "stamp": "2026-10-03T10:25:45Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/cruxeval_i",
-   "unified_built_at": "2026-10-03T09:04:43Z",
+   "unified_built_at": "2026-10-03T10:16:06Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.cruxeval_i.csv"
@@ -315,7 +315,7 @@
   "partial_attempts": null,
   "side_arms": {
    "served": true,
-   "serving_word": "difficulty 09:1x 3 Oct 2026: GO for the CRUXEval input side staging at f1e22621bfb1 against the served side fd1cc104e7be \u2014 the Olmo 3 7B Think checkpoint-0 arm positioned on the axis 6248858370d5 beside the RL checkpoint and the final release, a study checkpoint never voting, served under (ccc)(c) with the mixing disclosure, the longer run owed it queued; after fit-methods' and fit-critic's reads; void on a byte change",
+   "serving_word": "difficulty 10:1x 3 Oct 2026: GO for the CRUXEval input side re-stage at 601851b932b7 against the served side 6c34582b7d08 \u2014 the Olmo 3 7B Think checkpoint-0 arm's longer run its run of record under (ccc) in view_v2 of the side wave, passing every gate, the mixing disclosure lifted; the RL checkpoint and the final release carried unchanged; bound to the served set 56d3f1377e0a on the held axis 6248858370d5; after fit-methods' and fit-critic's reads; void on a byte change",
    "wave_id": "sft-nb-cruxeval_i-20261003T0841Z",
    "n_arms": 3,
    "heading": "models fitted alongside the set, on CRUXEval input; one RL checkpoint, the released final of one training run and one checkpoint of one training run, positioned on the served CRUXEval input axis unchanged; each model's own figures in its entry",
@@ -325,7 +325,7 @@
    "axis_pinned_to_served": true,
    "cut_at": "2026-10-03T08:41:39Z",
    "completed_at": "2026-10-03T09:07:25Z",
-   "updated_at": "2026-10-03T09:18:07Z",
+   "updated_at": "2026-10-03T10:19:30Z",
    "pointer": "definitions/fitting/serving_sft_nb_cruxeval_i.json",
    "arms": [
     {
@@ -4421,14 +4421,14 @@
      "n_tasks_positioned": 800,
      "n_cells": 800,
      "set_label": "CRUXEval input",
-     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served CRUXEval input axis unchanged; results and attempts as they are (128 attempts per problem, answer cap 8,192 tokens); a checkpoint of the Olmo 3 7B Think training run; the base model, Olmo 3 7B Think, is not in the served set of this cut and does not vote on the cut's pinned axis; the fit stands on CRUXEval input; 800 positioned in this fit (every problem of the set); results as they stood at the cut (3 Oct 09:41, the results page's data of 3 Oct 09:29); The fit has not settled on this model's crossing; the number is served from its best run with this disclosure.; D99 is unresolved: the 80% uncertainty band of D99 spans 1.206 on the difficulty scale, wider than the 1.0 limit for a resolved crossing",
-     "gates_failed": true,
+     "disclosure": "a model fitted alongside the set, outside the panel, positioned on the served CRUXEval input axis unchanged; results and attempts as they are (128 attempts per problem, answer cap 8,192 tokens); a checkpoint of the Olmo 3 7B Think training run; the base model, Olmo 3 7B Think, is not in the served set of this cut and does not vote on the cut's pinned axis; the fit stands on CRUXEval input; 800 positioned in this fit (every problem of the set); results as they stood at the cut (3 Oct 09:41, the results page's data of 3 Oct 09:29); the sampler's checks pass for this model; D99 is unresolved: the 80% uncertainty band of D99 spans 1.202 on the difficulty scale, wider than the 1.0 limit for a resolved crossing",
+     "gates_failed": false,
      "partial": false,
      "released": false,
      "attempts_per_cell": [
       128
      ],
-     "gate_face": "The fit has not settled on this model's crossing; the number is served from its best run with this disclosure.",
+     "gate_face": null,
      "bayes_avg": {
       "zgrid": [
        -8.2966,
@@ -6409,24 +6409,24 @@
      "cut_at": "2026-10-03T08:41:39Z",
      "cross_record": {
       "d50": {
-       "z": 0.8393,
+       "z": 0.8376,
        "mixing_note": null,
        "status": "point",
        "status_kind": "point",
        "bound": null,
        "reason_text": null,
-       "uncensored_median_z": 0.8393,
-       "lo": 0.7376,
-       "hi": 0.9436
+       "uncensored_median_z": 0.8376,
+       "lo": 0.7351,
+       "hi": 0.9417
       },
       "d1": {
-       "z": -7.5212,
+       "z": -7.5221,
        "lo": -8.2966,
-       "hi": -7.0911,
-       "status": "unresolved: the 80% uncertainty band of D99 spans 1.206 on the difficulty scale, wider than the 1.0 limit for a resolved crossing",
+       "hi": -7.0952,
+       "status": "unresolved: the 80% uncertainty band of D99 spans 1.202 on the difficulty scale, wider than the 1.0 limit for a resolved crossing",
        "status_kind": "unresolved",
        "reason_text": null,
-       "uncensored_median_z": -7.5212,
+       "uncensored_median_z": -7.5221,
        "bound": null,
        "mixing_note": null
       }
@@ -6503,7 +6503,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-03T09:24:44Z",
+   "_stamp": "2026-10-03T10:24:17Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -6676,9 +6676,9 @@
   }
  },
  "files": {
-  "shared": "shared.fc8c0d3ad21b.json",
-  "chain_average": "chain_average.fc8c0d3ad21b.json",
-  "chain_median": "chain_median.fc8c0d3ad21b.json",
-  "dots": "dots.fc8c0d3ad21b.json"
+  "shared": "shared.85385e52174d.json",
+  "chain_average": "chain_average.85385e52174d.json",
+  "chain_median": "chain_median.85385e52174d.json",
+  "dots": "dots.85385e52174d.json"
  }
 }
