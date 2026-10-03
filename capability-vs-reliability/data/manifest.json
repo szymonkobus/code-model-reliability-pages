@@ -552,21 +552,21 @@
   },
   "ifeval": {
    "files": {
-    "shared": "shared.ifeval.bbe87b4c757c.json",
-    "chain_average": "chain_average.ifeval.bbe87b4c757c.json",
-    "bayes": "bayes.ifeval.bbe87b4c757c-4d19e19feede.json",
+    "shared": "shared.ifeval.21e748a900c8.json",
+    "chain_average": "chain_average.ifeval.21e748a900c8.json",
+    "bayes": "bayes.ifeval.21e748a900c8-4d19e19feede.json",
     "bayes_prev": "bayes.ifeval.e8fced5bb4ba-2ca271c93114.json"
    },
    "label": "IFEval",
    "arms": "all",
-   "fingerprint": "bbe87b4c757c",
+   "fingerprint": "21e748a900c8",
    "frame": {
     "population_M": 47,
     "tasks": 541,
     "keep_set_hash": "ea009d5c6cd1",
     "runs_fingerprint": "b971379c1fe6",
     "build_date": "2026-10-03",
-    "build_ts": "2026-10-03T05:25:14Z",
+    "build_ts": "2026-10-03T05:37:10Z",
     "vocab_ruled": "2026-08-27",
     "set": "ifeval",
     "set_label": "IFEval",
@@ -582,9 +582,9 @@
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-03T05:25:14Z",
+   "source_stamp": "2026-10-03T05:37:10Z",
    "source_fp": "06b838ae0bf7",
-   "updated_at": "2026-10-03T05:37:19Z",
+   "updated_at": "2026-10-03T05:46:29Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -714,21 +714,21 @@
   },
   "cruxeval_o": {
    "files": {
-    "shared": "shared.cruxeval_o.f69c1a6983b9.json",
-    "chain_average": "chain_average.cruxeval_o.f69c1a6983b9.json",
-    "bayes": "bayes.cruxeval_o.f69c1a6983b9-977c70dd1a8a.json",
+    "shared": "shared.cruxeval_o.abf9c462d7f4.json",
+    "chain_average": "chain_average.cruxeval_o.abf9c462d7f4.json",
+    "bayes": "bayes.cruxeval_o.abf9c462d7f4-977c70dd1a8a.json",
     "bayes_prev": "bayes.cruxeval_o.0439fb6f8094-9daa0acd392c.json"
    },
    "label": "CRUXEval output",
    "arms": "all",
-   "fingerprint": "f69c1a6983b9",
+   "fingerprint": "abf9c462d7f4",
    "frame": {
     "population_M": 52,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
     "runs_fingerprint": "b971379c1fe6",
     "build_date": "2026-10-03",
-    "build_ts": "2026-10-03T05:34:25Z",
+    "build_ts": "2026-10-03T05:39:59Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_o",
     "set_label": "CRUXEval output",
@@ -744,9 +744,9 @@
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-03T05:34:25Z",
+   "source_stamp": "2026-10-03T05:39:59Z",
    "source_fp": "0a47bcaebe4a",
-   "updated_at": "2026-10-03T05:39:54Z",
+   "updated_at": "2026-10-03T05:47:23Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
