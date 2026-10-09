@@ -779,7 +779,7 @@ function headline(nFit, fit, nFull, sweeping) {
     fb0.innerHTML = rows.map(function (r) {   
       if (!r.fit) return '<div><span class="fitlead">Linear fit, ' + escS(r.label) + ': </span><span class="fittail">too few points to fit a line (' + r.n + ' drawn; the fit needs three)</span></div>';
       return '<div><span class="fitlead">Linear fit of ' + escS(dName('y').replace(/ \(.*$/, '')) + ' against ' + escS(dName('x')) + ', ' + escS(r.label) + ' (n = ' + r.n + '): </span><b>slope ' + r.fit.b.toFixed(2) + ' [' + r.fit.lo.toFixed(2) + ', ' + r.fit.hi.toFixed(2) + '], R ' + r.fit.r.toFixed(2) + '</b><span class="fittail">' + (state.yq === 'ent' && state.es === 'log' ? ', the entropy in log10' : ', in logit space') + '</span></div>';
-    }).join('');
+    }).join('') + '<div><span class="fittail">The slopes run along a difficulty scale built from the models\u2019 own outcomes, its unit set by the model mix and compressed at the hard end.</span></div>';   
     fb0.hidden = false; fb0.style.display = '';
     return;
   }
@@ -804,7 +804,8 @@ function headline(nFit, fit, nFull, sweeping) {
   var escH = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
   el.textContent = q;
   var fm = fit ? /^(.*?: )(slope [-\d.]+ \[[^\]]+\], R [-\d.]+)(.*)$/.exec(ans) : null;
-  if (fm) fb.innerHTML = '<span class="fitlead">' + escH(fm[1]) + '</span><b>' + escH(fm[2]) + '</b><span class="fittail">' + escH(fm[3]) + '</span>';
+  
+  if (fm) fb.innerHTML = '<span class="fitlead">' + escH(fm[1]) + '</span><b>' + escH(fm[2]) + '</b><span class="fittail">' + escH(fm[3]).replace(/\.\s*$/, '') + ', along a difficulty scale built from the models\u2019 own outcomes, its unit set by the model mix and compressed at the hard end.</span>';
   else fb.textContent = ans;
 }
 var frameLineDone = false;
