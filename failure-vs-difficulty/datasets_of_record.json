@@ -1,0 +1,92 @@
+{
+ "about": "The dataset switch's groups and labels of record for every page that offers a choice of task set (the failure-rate-versus-difficulty page, the capability-versus-reliability page, the results page and the fit pages print from this file, never compose). Written by newbench-lead on the project owner's ruling of 1 October (at the router's terminal, 12:1x UK; the router's record of the terminal brief reactions of 1 October, 11:15Z, under the orchestrator's records of the project owner's words): the dataset list is not grouped under a study's name — it is the default sets, then Math, then Other, every benchmark about mathematics under Math and every other benchmark under Other, so the reader need not remember which is which. The push's own name is for lines to the project owner only and appears on no page, label or file of the repository (the project owner's word of 2 Oct).",
+ "groups": [
+  {
+   "group": "default",
+   "label": null,
+   "note": "the fleet's own task sets, printed first exactly as the pages print them today (the owners' keys and labels stand)",
+   "sets": [
+    {
+     "label": "wave 1"
+    },
+    {
+     "label": "wave 2"
+    },
+    {
+     "label": "wave 1+2"
+    }
+   ]
+  },
+  {
+   "group": "Math",
+   "label": "Math",
+   "sets": [
+    {
+     "key": "math500",
+     "label": "MATH-500"
+    },
+    {
+     "key": "aime",
+     "label": "AIME"
+    },
+    {
+     "key": "gsm8k_platinum",
+     "label": "GSM8K-Platinum"
+    }
+   ]
+  },
+  {
+   "group": "Other",
+   "label": "Other",
+   "sets": [
+    {
+     "key": "ifeval",
+     "label": "IFEval"
+    },
+    {
+     "key": "cruxeval_i",
+     "label": "CRUXEval input"
+    },
+    {
+     "key": "cruxeval_o",
+     "label": "CRUXEval output"
+    }
+   ]
+  }
+ ],
+ "rules": [
+  "the order of record: default, Math, Other; within a group the order listed here",
+  "a group heading is a plain word (Math, Other); no study name, no fleet vocabulary and no count on the switch",
+  "a new benchmark enters the group its subject puts it in (mathematics under Math, everything else under Other) by a move of this file, stamped to every page owner",
+  "a model not evaluated on a dataset is no chip or a greyed-out one, never on by default, and no badge says so (the project owner, 1 Oct)",
+  "a pooled or combined view (the six sets together, a group's sets pooled) is not a dataset and takes no entry here: the dataset switch lists datasets only, in the groups of record; a page reaches such a view by a control of its own, never as an option of the dataset switch (site-design's house read of 1-2 Oct: a fourth option 'Math and Other' under Other on the crossings page, not in this file)"
+ ],
+ "readers": [
+  "failure-vs-difficulty",
+  "capability-vs-reliability",
+  "results-browser",
+  "fitting",
+  "difficulty",
+  "site-design",
+  "pool-pages-lead",
+  "how-numbers-are-made"
+ ],
+ "history": [
+  {
+   "utc": "2026-10-01T13:31:26Z",
+   "by": "newbench-lead",
+   "move": "written on the project owner's ruling of 1 Oct 12:1x UK: default, then Math (MATH-500, AIME, GSM8K-Platinum), then Other (IFEval, CRUXEval input, CRUXEval output)"
+  },
+  {
+   "utc": "2026-10-02T08:42:55Z",
+   "by": "newbench-lead",
+   "move": "rule added: a pooled or combined view is not a dataset and takes no entry; the crossings page's fourth option 'Math and Other' (key six) leaves the dataset switch and the six-panel view is reached by the page's own control; capability-vs-reliability and site-design told"
+  },
+  {
+   "utc": "2026-10-02T10:31:01Z",
+   "by": "newbench-lead",
+   "move": "the push's name removed from the about text on the project owner's word of 2 Oct 11:2x (the name is for lines to the project owner only, never in the repo); no entry, group or rule changed"
+  }
+ ],
+ "updated_utc": "2026-10-02T10:31:01Z"
+}

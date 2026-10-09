@@ -1,0 +1,12 @@
+{
+ "checked_at": "2026-10-09T17:32:43Z",
+ "inputs_sig": "f2fc7d18d0bc+7513d5ed3657",
+ "built_at": "2026-10-09T14:58:57Z",
+ "inputs": [
+  "definitions/difficulty/html/datasets/task_difficulty.gsm8k_platinum.csv",
+  "side-projects/newbench/site/data/index.json",
+  "definitions/fitting/serving_nb_gsm8k_platinum.json",
+  "definitions/fitting/serving_sft_nb_gsm8k_platinum.json"
+ ],
+ "rule": "refreshed each watcher tick while the inputs' content matches the build and no serving pointer's tables of record moved since the bundle's launch (or right after a landing newer than every input); a stale stamp means the watcher stopped, a rebuild failed, or an input or a serving pointer moved without a landing"
+}

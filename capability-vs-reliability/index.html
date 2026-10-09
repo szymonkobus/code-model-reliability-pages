@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Capability vs reliability — where the failure curves cross the chosen levels</title>
+<link rel="stylesheet" href="./kit.css">
+<link rel="stylesheet" href="./crossings.css">
+</head><body>
+<h1>Capability vs reliability</h1>
+<p id="headline" data-chain-val="def src xdef fitci">the answer loads with the data</p>
+<div id="framebar" data-critical-text class="sub" style="font-size:.8rem;margin:.2rem 0 .4rem;color:#52514e;min-height:1.2em" data-chain-inv>frame line loads with the data</div>
+<div id="datasetbar" aria-label="dataset"></div>
+<div id="chartrow">
+<div id="chartcol">
+<div id="chartbox" aria-label="reliability vs capability scatter">
+  <svg id="chart" viewBox="0 0 860 720" data-plot data-equal-scale><g id="plotg"></g><g id="trackg" data-export="omit"></g></svg>
+</div>
+<div id="exportrow"></div>
+</div>
+<section id="chartcontrols" class="group" aria-label="chart controls"><div class="grouplabel">Chart controls</div>
+<div id="controls"></div>
+<div id="spacebar" style="margin:.5rem 0 .1rem"></div>
+<div id="levels"></div>
+</section>
+</div>
+<div id="keyhost"></div>
+<section id="models" class="group" aria-label="model selection"><div class="grouplabel">Models shown</div><div id="armsbar"></div>
+<div class="chips" id="chips"></div>
+<div id="datanote" class="sub" role="status" hidden></div>
+<div id="chips-runs"></div>
+</section>
+<div id="offpage" hidden aria-hidden="true">
+<div id="narrate"></div><div id="fitline"></div><div id="vocabnote"></div>
+<details id="opusfold" hidden><div id="opusfig"></div><p id="opustext"></p></details>
+<p id="reliability-def" data-adopted="difficulty 2026-09-03"></p>
+<div id="notes"></div><div id="stamp" data-chrome></div>
+</div>
+
+<details class="about" id="fitfold" hidden><summary>What the fitted line means</summary>
+<p id="fitcaption" class="sub" data-chain-val="def src xdef fitci line xs ys s l sel lw" style="font-size:.86rem;color:#52514e;margin:.3rem 0 .4rem;line-height:1.45" hidden></p><p id="machinery" class="sub" data-chrome style="font-size:.8rem;color:#8b8477;margin:.4rem 0 0"></p></details>
+<nav id="viewnav" class="sub" aria-label="views" style="margin-top:1.6rem"><a href="./six/">Several sets side by side</a></nav>
+<script src="./kit.js"></script>
+<script src="./kit-viz.js"></script>
+<script src="./kit-export.js"></script>
+<script src="./plane.js"></script>
+<script src="./chips.js"></script>
+<script src="./levels.js"></script>
+<script src="./app.js"></script>
+</body></html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Capability vs reliability — sets side by side</title>
+<link rel="stylesheet" href="../kit.css">
+<link rel="stylesheet" href="../crossings.css">
+<style>
+#setbar { margin: .3rem 0 .4rem; }
+#setbar .setgroup { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 4px; margin: 2px 14px 2px 0; }
+#setbar .fam { font-weight: 600; margin-right: 4px; }
+#chartbox { max-height: none; }
+#heldline { font-weight: 600; }
+</style>
+</head><body>
+<main data-composes="../">
+<h1>Capability vs reliability — sets side by side</h1>
+<nav id="viewnav" class="sub" aria-label="views"><a href="../">One set, with its full controls</a></nav>
+<p id="headline">the panels load with the data</p>
+<p id="heldline" class="sub" role="status" hidden></p>
+<div id="setbar" aria-label="datasets"></div>
+<div id="chartbox" aria-label="several datasets side by side: D99 against D50, one panel each"><div id="panelgrid"></div></div>
+<div id="exportrow"></div>
+<section id="chartcontrols" class="group" aria-label="chart controls"><div class="grouplabel">Chart controls</div>
+<div id="controls"></div>
+<div id="levels"></div>
+</section>
+<div id="keyhost"></div>
+<section id="models" class="group" aria-label="model selection"><div class="grouplabel">Models shown</div><div id="armsbar"></div>
+<div class="chips" id="chips"></div>
+<div id="datanote" class="sub" role="status" hidden></div>
+</section>
+<details class="fold"><summary>About this view</summary>
+<p>Each panel is the main page’s plane for one set: D99 (vertical) against D50 (horizontal) on that set’s own difficulty axis, equal logit scales and the y&nbsp;=&nbsp;x line. A model’s crossing beyond the set’s easiest or hardest task is an open mark at the edge pointing the way it lies. A model is a point in a panel only where it has a fit on that set; the count in a panel’s corner is the number of points drawn. The sets shown are chosen above the figure; the level controls, the definition and estimator switches, the chips and the export are the main page’s, applied to every panel at once.</p>
+<p id="stampfold"></p>
+</details>
+</main>
+<script>window.MIRROR_MOUNT = '../'; window.MIRROR_NAMES_BASE = '../'; window.MIRROR_RUN_SETS = '../data/olmo_run.json';</script>
+<script src="../kit.js"></script>
+<script src="../kit-panels.js"></script>
+<script src="../kit-viz.js"></script>
+<script src="../kit-export.js"></script>
+<script src="../plane.js"></script>
+<script src="../chips.js"></script>
+<script src="../levels.js"></script>
+<script src="../six/six.js"></script>
+</body>
+</html>
