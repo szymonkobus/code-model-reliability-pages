@@ -1,80 +1,76 @@
 {
- "fingerprint": "6f5ba5ea1b75",
+ "fingerprint": "0286828a45e7",
  "frame": {
-  "population_M": 58,
+  "population_M": 59,
   "tasks": 430,
-  "n_arms_sampled": 60,
-  "difficulty_population_M": 60,
+  "n_arms_sampled": 62,
+  "difficulty_population_M": 62,
   "partial_arms_withheld": [
    "Qwen/Qwen3-30B-A3B-Thinking",
-   "claude-haiku-5-5",
    "claude-haiku-5-5-thinking"
   ],
   "withheld_reasons": {
    "Qwen/Qwen3-30B-A3B-Thinking": "held by ruling of 2 Sep 23:23 (kept off the cloud machines (not counted in coverage or in the figures to finish); runs on the free machines after everything else)",
-   "claude-haiku-5-5": "one benchmark in canon",
    "claude-haiku-5-5-thinking": "one benchmark in canon"
   },
   "keep_set_hash": "c3f08ea1a903",
-  "axis_order_hash": "eb9427aa0cbf",
-  "runs_fingerprint": "528e03ef290c",
+  "axis_order_hash": "51011f6d545f",
+  "runs_fingerprint": "bcd74efe625c",
   "runs_fingerprint_rule": "sha1 over path:mtime_ns:size of the consumed *.eval_results.json files (since 2026-09-02; before: every file under runs/)",
-  "inputs_content_sha": "81abade0e9e8",
+  "inputs_content_sha": "ce6b291d8f8c",
   "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\t<task>\t<passes>\t<attempts>\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column verbatim; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) \u2014 reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
   "scorer": "plus_status",
   "build_date": "2026-10-09",
-  "build_ts": "2026-10-09T14:49:57Z",
+  "build_ts": "2026-10-09T23:31:25Z",
   "rebuild_condition": "re-pulls when failure-vs-difficulty's board handoff changes (each landing) or the Bayesian/capability_C chains re-emit; frame is a snapshot at build_ts",
   "vocab_ruled": "2026-08-27",
-  "fitted_M": 58,
+  "fitted_M": 59,
   "axis_M": 61,
   "fit_excluded": []
  },
  "files": {
-  "shared": "shared.6f5ba5ea1b75.json",
-  "chain_average": "chain_average.6f5ba5ea1b75.json",
-  "chain_median": "chain_median.6f5ba5ea1b75.json",
-  "bayes": "bayes.6f5ba5ea1b75-63db7d7176e6.json",
+  "shared": "shared.0286828a45e7.json",
+  "chain_average": "chain_average.0286828a45e7.json",
+  "chain_median": "chain_median.0286828a45e7.json",
+  "bayes": "bayes.0286828a45e7-63db7d7176e6.json",
   "bayes_prev": "bayes.d5fc7b013c92.json"
  },
  "datasets": {
   "board": {
    "files": {
-    "shared": "shared.6f5ba5ea1b75.json",
-    "chain_average": "chain_average.6f5ba5ea1b75.json",
-    "chain_median": "chain_median.6f5ba5ea1b75.json",
-    "bayes": "bayes.6f5ba5ea1b75-63db7d7176e6.json",
+    "shared": "shared.0286828a45e7.json",
+    "chain_average": "chain_average.0286828a45e7.json",
+    "chain_median": "chain_median.0286828a45e7.json",
+    "bayes": "bayes.0286828a45e7-63db7d7176e6.json",
     "bayes_prev": "bayes.d5fc7b013c92.json"
    },
    "label": "wave 1",
-   "fingerprint": "6f5ba5ea1b75",
+   "fingerprint": "0286828a45e7",
    "frame": {
-    "population_M": 58,
+    "population_M": 59,
     "tasks": 430,
-    "n_arms_sampled": 60,
-    "difficulty_population_M": 60,
+    "n_arms_sampled": 62,
+    "difficulty_population_M": 62,
     "partial_arms_withheld": [
      "Qwen/Qwen3-30B-A3B-Thinking",
-     "claude-haiku-5-5",
      "claude-haiku-5-5-thinking"
     ],
     "withheld_reasons": {
      "Qwen/Qwen3-30B-A3B-Thinking": "held by ruling of 2 Sep 23:23 (kept off the cloud machines (not counted in coverage or in the figures to finish); runs on the free machines after everything else)",
-     "claude-haiku-5-5": "one benchmark in canon",
      "claude-haiku-5-5-thinking": "one benchmark in canon"
     },
     "keep_set_hash": "c3f08ea1a903",
-    "axis_order_hash": "eb9427aa0cbf",
-    "runs_fingerprint": "528e03ef290c",
+    "axis_order_hash": "51011f6d545f",
+    "runs_fingerprint": "bcd74efe625c",
     "runs_fingerprint_rule": "sha1 over path:mtime_ns:size of the consumed *.eval_results.json files (since 2026-09-02; before: every file under runs/)",
-    "inputs_content_sha": "81abade0e9e8",
+    "inputs_content_sha": "ce6b291d8f8c",
     "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\t<task>\t<passes>\t<attempts>\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column verbatim; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) \u2014 reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
     "scorer": "plus_status",
     "build_date": "2026-10-09",
-    "build_ts": "2026-10-09T14:49:57Z",
+    "build_ts": "2026-10-09T23:31:25Z",
     "rebuild_condition": "re-pulls when failure-vs-difficulty's board handoff changes (each landing) or the Bayesian/capability_C chains re-emit; frame is a snapshot at build_ts",
     "vocab_ruled": "2026-08-27",
-    "fitted_M": 58,
+    "fitted_M": 59,
     "axis_M": 61,
     "fit_excluded": []
    },
@@ -116,7 +112,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-09T23:15:23Z"
+   "updated_at": "2026-10-09T23:33:03Z"
   },
   "all": {
    "files": {
@@ -151,7 +147,7 @@
    },
    "source_stamp": "2026-10-09T16:11:07Z",
    "source_fp": "24bfb5d5f379",
-   "updated_at": "2026-10-09T22:33:44Z",
+   "updated_at": "2026-10-09T23:21:38Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -199,7 +195,7 @@
    },
    "source_stamp": "2026-10-09T16:28:13Z",
    "source_fp": "bb00d4377574",
-   "updated_at": "2026-10-09T22:34:01Z",
+   "updated_at": "2026-10-09T23:21:53Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -248,7 +244,7 @@
    },
    "source_stamp": "2026-10-09T16:29:01Z",
    "source_fp": "92ccd024fb63",
-   "updated_at": "2026-10-09T22:34:21Z",
+   "updated_at": "2026-10-09T23:22:07Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -297,7 +293,7 @@
    },
    "source_stamp": "2026-10-09T16:30:30Z",
    "source_fp": "74b4592efba0",
-   "updated_at": "2026-10-09T22:34:40Z",
+   "updated_at": "2026-10-09T23:22:28Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -346,7 +342,7 @@
    },
    "source_stamp": "2026-10-09T16:45:23Z",
    "source_fp": "f5d2da4d60b4",
-   "updated_at": "2026-10-09T22:35:39Z",
+   "updated_at": "2026-10-09T23:23:33Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -391,7 +387,7 @@
    },
    "source_stamp": "2026-10-09T16:24:42Z",
    "source_fp": "1c224d13ba96",
-   "updated_at": "2026-10-09T22:36:43Z",
+   "updated_at": "2026-10-09T23:24:31Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -439,7 +435,7 @@
    },
    "source_stamp": "2026-10-09T16:14:31Z",
    "source_fp": "8e634e60cd82",
-   "updated_at": "2026-10-09T22:37:04Z",
+   "updated_at": "2026-10-09T23:24:48Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -488,7 +484,7 @@
    },
    "source_stamp": "2026-10-09T16:15:33Z",
    "source_fp": "b423642a0d75",
-   "updated_at": "2026-10-09T22:37:24Z",
+   "updated_at": "2026-10-09T23:25:04Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -830,7 +826,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-10-09T22:24:37Z",
+  "stamp": "2026-10-09T23:24:50Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,
