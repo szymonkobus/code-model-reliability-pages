@@ -1,12 +1,12 @@
 {
- "fingerprint": "670d130f1287",
+ "fingerprint": "4c6f7a84d85c",
  "frame": {
-  "population_M": 58,
+  "population_M": 59,
   "tasks": 430,
   "difficulty_population_M": 61,
   "axis_M": 61,
-  "fitted_M": 58,
-  "complete_M": 58,
+  "fitted_M": 59,
+  "complete_M": 59,
   "sampled_M": 62,
   "frame_M": 62,
   "off_panel_arms": [
@@ -70,23 +70,21 @@
   "fit_disclosures": {},
   "withheld_configs": [
    "Qwen/Qwen3-30B-A3B-Thinking",
-   "claude-haiku-5-5",
    "claude-haiku-5-5-thinking"
   ],
   "withheld_reasons": {
    "Qwen/Qwen3-30B-A3B-Thinking": "held by ruling of 2 Sep 23:23 (kept off the cloud machines (not counted in coverage or in the figures to finish); runs on the free machines after everything else)",
-   "claude-haiku-5-5": "one benchmark in canon",
    "claude-haiku-5-5-thinking": "one benchmark in canon"
   },
   "keep_set_hash": "c3f08ea1a903",
-  "axis_order_hash": "eb9427aa0cbf",
-  "runs_fingerprint": "528e03ef290c",
+  "axis_order_hash": "51011f6d545f",
+  "runs_fingerprint": "bcd74efe625c",
   "runs_fingerprint_rule": "sha1 over path:mtime_ns:size of the consumed *.eval_results.json files (since 2026-09-02; before: every file under runs/)",
-  "inputs_content_sha": "81abade0e9e8",
+  "inputs_content_sha": "ce6b291d8f8c",
   "scorer": "plus_status (a sample counts as solved if its plus run passed; difficulty ruled base AND plus on 2026-09-02 \u2014 the switch of served numbers waits for Szymon's gate; under base AND plus a result can read differently, e.g. Mbpp/274 for Qwen3-30B-A3B: 128 passes here vs 127)",
   "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\\t<task>\\t<passes>\\t<attempts>\\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column verbatim; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) \u2014 reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
   "build_date": "2026-10-09",
-  "built_at": "2026-10-09T15:57:53Z",
+  "built_at": "2026-10-09T22:31:38Z",
   "vocab_ruled": "2026-08-27",
   "counts_of_record": {
    "original_kept": 430,
@@ -95,7 +93,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-09T15:25:57Z",
+   "_stamp": "2026-10-09T22:24:37Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -355,12 +353,12 @@
    "openai/gpt-5-nano": "20260907T154051Z",
    "openai/gpt-5-mini": "20260907T154051Z"
   },
-  "newest_input_mtime": "2026-10-09T15:49:52Z"
+  "newest_input_mtime": "2026-10-09T22:30:35Z"
  },
  "files": {
-  "shared": "shared.670d130f1287.json",
-  "chain_average": "chain_average.670d130f1287.json",
-  "chain_median": "chain_median.670d130f1287.json",
-  "dots": "dots.670d130f1287.json"
+  "shared": "shared.4c6f7a84d85c.json",
+  "chain_average": "chain_average.4c6f7a84d85c.json",
+  "chain_median": "chain_median.4c6f7a84d85c.json",
+  "dots": "dots.4c6f7a84d85c.json"
  }
 }
