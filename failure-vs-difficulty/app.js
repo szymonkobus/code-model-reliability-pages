@@ -446,12 +446,14 @@ function boot() {
       legacySel = true;
       selParam.split('.').forEach(function (i) { if (ids[+i] !== undefined) sel.add(+i); });
     } else {
+      var extraKeys = [];   
       selParam.split(',').forEach(function (raw) {
         var id = decodeURIComponent(raw); var k = slugs.indexOf(id);
         if (k < 0) k = keys.indexOf(id);
         if (k < 0) k = ids.indexOf(id);
-        if (k >= 0) sel.add(k);
+        if (k >= 0) sel.add(k); else extraKeys.push(id);
       });
+      readExtraKeys(extraKeys);
     }
     if (!sel.size) D.shared.configs.forEach(function (c, i) { if (!isSeriesRunConfig(c) && !isTrainedConfig(c)) sel.add(i); });   
     
@@ -463,6 +465,7 @@ function boot() {
     D.shared.configs.forEach(function (c, i) { if (!isSeriesRunConfig(c) && !isTrainedConfig(c) && !(opensOnBayes && !hasBayes(i))) sel.add(i); });   
   }
 
+  readCkpts();   
   var row = Kit.filterRow('#controls');   
   var shownRow = Kit.filterRow('#shown');   
   
@@ -653,9 +656,11 @@ function boot() {
     options: [{ value: 'off', label: 'Off' }, { value: 'on', label: 'On' }],
     dflt: 'on',
     onchange: function (v) { state.trend = v; if (ready && !coercing) render(); } });
-  if (!anyLinefit) {
+  var trendKeyEl = document.getElementById('trendkey');
+  if (!anyLinefit) {   
     state.trend = 'off';
-    setDisabled(trendCtl.element.querySelector('button[data-value="on"]'), true, '');
+    trendCtl.element.style.display = 'none';
+    if (trendKeyEl) trendKeyEl.style.display = 'none';
   }
 
   buildChips();
@@ -672,11 +677,41 @@ function boot() {
  
 var legacySel = false;
 function writeSel() {
-  var all = sel.size === D.shared.configs.length;
+  var extra = extraSelKeys();   
+  var all = sel.size === D.shared.configs.length && !extra.length;
   Kit.state.set('sel', all ? null
-    : Array.from(sel).sort(function (a, b) { return a - b; }).map(function (i) { return slugOfRecord(D.shared.configs[i].label) || D.shared.configs[i].arm_key || D.shared.configs[i].id; }).join(','),   
+    : Array.from(sel).sort(function (a, b) { return a - b; }).map(function (i) { return slugOfRecord(D.shared.configs[i].label) || D.shared.configs[i].arm_key || D.shared.configs[i].id; }).concat(extra).join(','),   
     null);
+  Kit.state.set('ckpts', ckptsParam(), null);   
 }
+
+
+
+function extraSelKeys() {
+  var out = [], rows = [], sbS = null;
+  try { rows = seriesRows(); } catch (e) { }
+  rows.forEach(function (sb) { var ss = seriesSelFor(sb._row); sb.arms.forEach(function (a, k) { if (a._twin || !ss.has(k)) return; out.push(slugOfRecord(a.label) || a.id); }); });
+  try { sbS = sideBlock(); } catch (e) { }
+  if (sideSel && sbS && sbS.arms) sbS.arms.forEach(function (a, k) { if (MERGED_REV[k] != null || !sideSel.has(k)) return; out.push(slugOfRecord(a.label) || a.id); });
+  return out;
+}
+function ckptsParam() { var on = Object.keys(seriesAllOn).filter(function (r) { return seriesAllOn[r]; }).sort(function (a, b) { return a - b; }); return on.length ? on.join(',') : null; }
+function readExtraKeys(keys) {   
+  if (!keys || !keys.length) return;
+  var rows = [], sbS = null;
+  try { rows = seriesRows(); } catch (e) { }
+  try { sbS = sideBlock(); } catch (e) { }
+  keys.forEach(function (id) {
+    var hit = false;
+    rows.forEach(function (sb) { sb.arms.forEach(function (a, k) { if (hit || a._twin) return; if (slugOfRecord(a.label) === id || a.id === id) { seriesSelFor(sb._row).add(k); hit = true; } }); });
+    if (!hit && sbS && sbS.arms) sbS.arms.forEach(function (a, k) { if (hit) return; if (slugOfRecord(a.label) === id || a.id === id) { if (!sideSel) sideSel = new Set(); sideSel.add(k); hit = true; } });
+  });
+  rows.forEach(function (sb) {   
+    var ss = seriesSelFor(sb._row); if (!ss.size) return; var eA = rowEnds(sb, false), eB = rowEnds(sb, true);
+    if (Array.from(ss).some(function (k) { return !eA[k] && !eB[k]; })) seriesAllOn[sb._row] = true;
+  });
+}
+function readCkpts() { var ck = Kit.state.get('ckpts', null); if (ck === null || ck === '') return; String(ck).split(',').forEach(function (r) { if (/^\d+$/.test(r)) seriesAllOn[+r] = true; }); }
 function isRunConfig(c) {   
   if (c.run) return true;   
   return /olmo-?3(\.1)?-7b-(rl-?zero-?(code|math)|rlz[cm]|think)/i.test(String(c.id || '') + ' ' + String(c.arm_key || ''));
@@ -784,7 +819,7 @@ function buildChips() {
         if (a.gates_failed) parts.push(a.gate_face ? noSpecTags(String(a.gate_face)) : 'this fit failed its own check; drawn lighter, with its disclosure');
         if (a.protocol) parts.push('read by ' + a.protocol + ': the base model continues the prompt, no chat turn');
         b.dataset.state = noSpecTags(parts.join(' · ')); b.title = (a.withheld && a.disclosure) ? noSpecTags(currentTruth(String(a.disclosure))) : oneSentence(noSpecTags(parts[0] || a.label)); if (a.gates_failed) { if (!(a.withheld && a.disclosure)) b.title = 'this fit failed its own check and is drawn lighter'; b.classList.add('gated'); b.style.borderStyle = 'dashed'; }       
-        b.onclick = function () { if (seriesSel.has(k)) seriesSel.delete(k); else seriesSel.add(k); render(); };
+        b.onclick = function () { if (seriesSel.has(k)) seriesSel.delete(k); else seriesSel.add(k); writeSel(); render(); };   
         seriesChips.push(b); box.appendChild(b);
       });
     }
@@ -1391,7 +1426,7 @@ function renderSeriesRow(sb, ri) {
     b.dataset.state = noSpecTags(parts.join(' · '));
     b.title = (a.withheld && a.disclosure ? noSpecTags(currentTruth(String(a.disclosure))) : oneSentence(noSpecTags(parts[0] || a.label))) + ((a.protocol && !/^read by /.test(parts[0] || '')) ? ' (read by ' + a.protocol + ')' : ''); if (a.gates_failed) { if (!(a.withheld && a.disclosure)) b.title = 'this fit failed its own check and is drawn lighter' + (a.protocol ? ' (read by ' + a.protocol + ')' : ''); b.classList.add('gated'); b.style.borderStyle = 'dashed'; }   
     if (a.comparator && !a.withheld) { var cz50 = state.def === 'average' ? a.comparator.d50_z : a.comparator.d50_med_z, cz1 = state.def === 'average' ? a.comparator.d1_z : a.comparator.d1_med_z; if (cz50 != null || cz1 != null) b.title += ' \u00b7 checkpoint 0 at ' + a.comparator.depth + ' answers: ' + (cz50 != null ? 'D50 ' + fmtPct(cz50) : '') + (cz50 != null && cz1 != null ? ', ' : '') + (cz1 != null ? 'D99 ' + fmtPct(cz1) : ''); }   
-    b.onclick = tiK >= 0 ? function () { if (sel.has(tiK)) sel.delete(tiK); else sel.add(tiK); writeSel(); render(); } : function () { if (seriesSel.has(k)) seriesSel.delete(k); else seriesSel.add(k); render(); };
+    b.onclick = tiK >= 0 ? function () { if (sel.has(tiK)) sel.delete(tiK); else sel.add(tiK); writeSel(); render(); } : function () { if (seriesSel.has(k)) seriesSel.delete(k); else seriesSel.add(k); writeSel(); render(); };   
     if (!seriesChipShown(sb, ri, k, false)) b.style.display = 'none';   
     sc.appendChild(b);
   });
