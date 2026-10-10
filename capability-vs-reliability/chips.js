@@ -47,6 +47,40 @@ function capKey(i) {
   return Infinity;
 }
 function sizeOf(label) { var m = /(\d+(?:\.\d+)?)\s*[Bb]\b/.exec(String(label || '')); return m ? +m[1] : Infinity; }   
+
+
+
+
+
+function tierKey(label, fam) {
+  var s = String(label || '').toLowerCase();
+  if (fam === 'Claude' || /claude|\bhaiku\b|\bsonnet\b|\bopus\b|\bfable\b/.test(s)) {
+    var t = { haiku: 1, sonnet: 2, opus: 3, fable: 4 };
+    for (var k in t) if (s.indexOf(k) >= 0) { var vm = s.match(new RegExp('\\b' + k + '\\s*(\\d+(?:\\.\\d+)?)')); return t[k] + (vm ? parseFloat(vm[1]) / 100 : 0); }
+    return null;
+  }
+  if (/\bgpt[-\s]?5/.test(s)) return /\bnano\b/.test(s) ? 1 : /\bmini\b/.test(s) ? 2 : 3;
+  if (/\bgemini\b/.test(s)) { var v = (s.match(/\b(\d\.\d)\b/) || [])[1]; return (v ? parseFloat(v) * 10 : 0) + (/flash[-\s]?lite/.test(s) ? 1 : /flash/.test(s) ? 2 : /pro/.test(s) ? 3 : 2); }
+  return null;
+}
+function placeUnmeasured(order) {
+  var out = order.slice();
+  var measured = function (j) { return isFinite(capKey(j)); };
+  order.forEach(function (i) {
+    if (measured(i)) return;
+    var c = D.shared.configs[i], tk = tierKey(c.label, c.fam); if (tk === null) return;
+    var pred = -1, predKey = -Infinity, first = -1;
+    out.forEach(function (j, pos) {
+      if (j === i) return; var cj = D.shared.configs[j]; if (cj.fam !== c.fam || !measured(j)) return;
+      var kj = tierKey(cj.label, cj.fam); if (kj === null) return;
+      if (kj < tk) { if (kj >= predKey) { predKey = kj; pred = pos; } } else if (first < 0) first = pos;
+    });
+    var cur = out.indexOf(i);
+    if (pred >= 0) { out.splice(cur, 1); if (cur < pred) pred -= 1; out.splice(pred + 1, 0, i); }
+    else if (first >= 0) { out.splice(cur, 1); if (cur < first) first -= 1; out.splice(first, 0, i); }
+  });
+  return out;
+}
 function capOrder(indices) {
   if (PANELS) {   
     var bySize = indices.slice().sort(function (a, b) { var sa = sizeOf(D.shared.configs[a].label), sb = sizeOf(D.shared.configs[b].label); return sa === sb ? a - b : (sa < sb ? -1 : 1); });
@@ -57,7 +91,7 @@ function capOrder(indices) {
     if (ka !== kb) return ka - kb;
     return D.shared.configs[a].label < D.shared.configs[b].label ? -1 : 1;
   });
-  return variantsAfterBase(out);
+  return variantsAfterBase(placeUnmeasured(out));   
 }
 
 
