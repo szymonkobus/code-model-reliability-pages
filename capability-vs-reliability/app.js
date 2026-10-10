@@ -769,7 +769,7 @@ function fitCaption(fit, n) {
 function headline(nFit, fit, nFull, sweeping) {
   var el = document.getElementById('headline'); if (!el) return;
   if (window.PLANE_Y === 'span') {   
-    el.textContent = (window.SPAN_LEAF_STATE === 'missing' && state.src === 'bayes' && state.def === 'average' && state.yq !== 'ent') ? 'The spans of record are unreadable; nothing is drawn.' : (state.yq === 'ent' ? 'How does the average outcome entropy of a model\u2019s fitted failure curve, integrated over logit difficulty with the ' + edWord() + ' weight, run against D' + fmtLev(100 - state.a) + '?' : 'How does the transition length ' + dName('y').replace(/ \(.*$/, '') + ', from failing ' + fmtLev(state.c) + '% of tasks to failing ' + fmtLev(state.u) + '%, run against D' + fmtLev(100 - state.a) + '?');
+    el.textContent = (state.yq === 'ent' ? 'How does the average outcome entropy of a model\u2019s fitted failure curve, integrated over logit difficulty with the ' + edWord() + ' weight, run against D' + fmtLev(100 - state.a) + '?' : 'How does the transition length ' + dName('y').replace(/ \(.*$/, '') + ', from failing ' + fmtLev(state.c) + '% of tasks to failing ' + fmtLev(state.u) + '%, run against D' + fmtLev(100 - state.a) + '?');
     document.body.classList.toggle('yq-ent', state.yq === 'ent');
     var fb0 = document.getElementById('fitbox');
     if (!fb0) { fb0 = document.createElement('div'); fb0.id = 'fitbox'; fb0.className = 'kit-readout-box'; fb0.setAttribute('data-chain-val', 'def src xdef fitci'); el.insertAdjacentElement('afterend', fb0); }

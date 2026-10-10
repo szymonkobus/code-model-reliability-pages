@@ -8,7 +8,7 @@ function refreshPartialChips() {
     if (c.think) words.push('thinking mode \u2014 open marker on the chart');
     if (c.run) { var Rw = runOf(i) || RUN; words.push(c.shared_page_label || c.display_name || (Rw ? Rw.name + ' \u2014 ' : '') + c.label); }   
     if (c.alongside) words.push('positioned on the served axis, not shaping it \u2014 its fit from the ' + c.alongside + ' series, read alongside the board fit set');   
-    if (c.provisional) words.push(c.provisional_note || 'provisional position: a fast estimate; the fit of record replaces it');
+    if (c.provisional) words.push(c.provisional_note || 'provisional position: a fast estimate; the full fit replaces it');
     if (c.gates_failed) words.push('flagged fit: ' + (c.gate_flag || 'the fit failed a sampler gate'));   
     var base = words.join(' \u00b7 ');
     if (isWithheld(i)) { b.disabled = true; b.setAttribute('aria-disabled', 'true'); b.classList.add('partial'); b.classList.remove('partialshown'); b.title = capTitle('not shown: ' + WITHHELD[c.id]); return; }

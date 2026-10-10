@@ -110,13 +110,12 @@ function spanRowFor(i) {
   return null;
 }
 function readingSpan(i) {   
-  var c = D.shared.configs[i];
+  var c = D.shared.configs[i], pend = '';
   if (state.src === 'bayes' || bayesOnly(i)) {
     if (D.unfitted[c.id] || !D.bayById[c.id]) return { z: null, kind: 'none', lo: null, hi: null, extra: 'awaiting its Bayesian fit' };
     if (state.def === 'average' && spanDefaultLevels()) {
-      if (SPAN_LEAF_STATE !== 'ok') return { z: null, kind: 'none', lo: null, hi: null, extra: SPAN_LEAF_STATE === 'loading' ? 'the spans of record are loading' : 'the spans of record are unreadable' };
-      var row = spanRowFor(i);
-      if (!row) return { z: null, kind: 'none', lo: null, hi: null, extra: 'no span of record for this arm yet' };
+      var row = SPAN_LEAF_STATE === 'ok' ? spanRowFor(i) : null;
+      if (row) {
       var st = String(row.span_status || ''), L = spanNum(row.span_z), z99r = spanNum(row.d99_z), z1r = spanNum(row.fail99_z);
       if (!st || L == null || z99r == null || z1r == null) return { z: null, kind: 'none', lo: null, hi: null, extra: 'no 99% crossing determinable from this fit\u2019s element' };
       if (/^unavailable/i.test(st)) return { z: null, kind: 'none', lo: null, hi: null, extra: st };   
@@ -124,7 +123,12 @@ function readingSpan(i) {
       var zz = raw ? logit(Math.min(0.9999, Math.max(0.0001, S / 100))) : LIM[0] + Math.max(0, L);
       return { z: zz, lo: (raw || lo == null) ? null : LIM[0] + Math.max(0, lo), hi: (raw || hi == null) ? null : LIM[0] + Math.max(0, hi), kind: bound ? 'hi-bound' : 'point',
                span: L, share: S, z99: z99r, z1: z1r, spanLo: lo, spanHi: hi, grad: spanNum(row.gradient_logit_per_z), gradStatus: row.gradient_status || '',
-               extra: 'transition from D99 at ' + fmtPct(z99r) + ' to D1 at ' + fmtPct(z1r) + ' of the scale: ' + L.toFixed(2) + ' logit units' + (lo != null && hi != null ? ' [' + lo.toFixed(2) + ', ' + hi.toFixed(2) + ']' : '') + ', ' + S.toFixed(1) + ' percentage points of the difficulty scale' + (bound ? ' \u2014 ' + st + ' (the 99% crossing is ' + (row.fail99_status || 'bound') + ')' : '') + '; the span of record' };
+               extra: 'transition from D99 at ' + fmtPct(z99r) + ' to D1 at ' + fmtPct(z1r) + ' of the scale: ' + L.toFixed(2) + ' logit units' + (lo != null && hi != null ? ' [' + lo.toFixed(2) + ', ' + hi.toFixed(2) + ']' : '') + ', ' + S.toFixed(1) + ' percentage points of the difficulty scale' + (bound ? ' \u2014 ' + st + ' (the 99% crossing is ' + (row.fail99_status || 'bound') + ')' : '') + '; the exact span from the fitted curve' };
+      }
+      
+      
+      
+      pend = SPAN_LEAF_STATE === 'loading' ? ' \u2014 from the fitted curve\u2019s level table while the spans load' : (SPAN_LEAF_STATE === 'ok' ? ' \u2014 from the fitted curve\u2019s level table; the exact span and its band follow' : ' \u2014 from the fitted curve\u2019s level table; the spans file is unreadable');
     }
   }
   var lv = spanLevels(), r99 = reading(i, lv[0], 'y'), r1 = reading(i, lv[1], 'y');
@@ -140,7 +144,7 @@ function readingSpan(i) {
   var bLo = hasB ? Math.max(0, r1.lo - r99.hi) : null, bHi = hasB ? r1.hi - r99.lo : null;
   return { z: z, lo: (!raw && hasB) ? LIM[0] + bLo : null, hi: (!raw && hasB) ? LIM[0] + bHi : null, kind: bound ? 'hi-bound' : 'point', span: L, share: S, z99: r99.z, z1: r1.z, spanLo: bLo, spanHi: bHi,
            lo_open: !!(hasB && (r99.hi_open || r1.lo_open)), hi_open: !!(hasB && (r1.hi_open || r99.lo_open)),
-           extra: 'transition from ' + spanEndNames()[0] + ' at ' + fmtPct(r99.z) + ' to ' + spanEndNames()[1] + ' at ' + fmtPct(r1.z) + ' of the scale: ' + L.toFixed(2) + ' logit units' + (hasB ? ' [' + bLo.toFixed(2) + ', ' + bHi.toFixed(2) + ']' : '') + ', ' + S.toFixed(1) + ' percentage points of the difficulty scale' + (bound ? ' at least \u2014 one end lies beyond the observed range' : '') + '; read from the fitted curves\u2019 level tables at the levels set, the band the widest from the two ends\u2019' };
+           extra: 'transition from ' + spanEndNames()[0] + ' at ' + fmtPct(r99.z) + ' to ' + spanEndNames()[1] + ' at ' + fmtPct(r1.z) + ' of the scale: ' + L.toFixed(2) + ' logit units' + (hasB ? ' [' + bLo.toFixed(2) + ', ' + bHi.toFixed(2) + ']' : '') + ', ' + S.toFixed(1) + ' percentage points of the difficulty scale' + (bound ? ' at least \u2014 one end lies beyond the observed range' : '') + '; read from the fitted curves\u2019 level tables at the levels set, the band the widest from the two ends\u2019' + pend };
 }
 var CROP = null;   
 var PANELS = null, PANEL = null;   
