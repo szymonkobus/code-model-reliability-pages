@@ -1,19 +1,19 @@
 {
- "generated_at": "2026-10-10T01:03:41Z",
+ "generated_at": "2026-10-10T01:39:47Z",
  "builder": "pages/failure-vs-difficulty/build_curves_site_data.py",
  "outputs": [
-  "pages/failure-vs-difficulty/curves-site/data/chain_average.85b58427e769.json",
-  "pages/failure-vs-difficulty/curves-site/data/chain_median.85b58427e769.json",
-  "pages/failure-vs-difficulty/curves-site/data/dots.85b58427e769.json",
+  "pages/failure-vs-difficulty/curves-site/data/chain_average.112a132c6e33.json",
+  "pages/failure-vs-difficulty/curves-site/data/chain_median.112a132c6e33.json",
+  "pages/failure-vs-difficulty/curves-site/data/dots.112a132c6e33.json",
   "pages/failure-vs-difficulty/curves-site/data/manifest.json",
-  "pages/failure-vs-difficulty/curves-site/data/shared.85b58427e769.json"
+  "pages/failure-vs-difficulty/curves-site/data/shared.112a132c6e33.json"
  ],
  "inputs": [
   {
    "path": "deep-dives/gpt5-reliability/cleaning_disclosure.json",
-   "mtime_at_open": "2026-10-09T22:13:45Z",
+   "mtime_at_open": "2026-10-10T01:19:26Z",
    "size": 17608,
-   "sha12": "b8c842b9158b"
+   "sha12": "8a071621802b"
   },
   {
    "path": "definitions/fitting/serving_board.json",
@@ -389,15 +389,15 @@
   },
   {
    "path": "pages/failure-vs-difficulty/artifacts/caprel_crossings_intervals.csv",
-   "mtime_at_open": "2026-10-09T22:29:23Z",
-   "size": 36600,
-   "sha12": "a70f587236da"
+   "mtime_at_open": "2026-10-10T01:35:19Z",
+   "size": 36950,
+   "sha12": "b428f27e3f81"
   },
   {
    "path": "pages/failure-vs-difficulty/artifacts/fail_counts_matrix.csv",
-   "mtime_at_open": "2026-10-09T22:30:11Z",
-   "size": 1330681,
-   "sha12": "b432b9fe5cda"
+   "mtime_at_open": "2026-10-10T01:36:06Z",
+   "size": 1344084,
+   "sha12": "50cdb319ef2c"
   },
   {
    "path": "pages/failure-vs-difficulty/artifacts/fit_exclusions.json",
@@ -407,21 +407,21 @@
   },
   {
    "path": "pages/failure-vs-difficulty/artifacts/task_difficulty.csv",
-   "mtime_at_open": "2026-10-09T22:28:18Z",
-   "size": 16518,
-   "sha12": "323ab4ca8aea"
+   "mtime_at_open": "2026-10-10T01:34:00Z",
+   "size": 16516,
+   "sha12": "bfdd9a7ccfb1"
   },
   {
    "path": "runs/arms.jsonl",
-   "mtime_at_open": "2026-10-10T01:00:36Z",
-   "size": 623826,
-   "sha12": "6e0f38e8db98"
+   "mtime_at_open": "2026-10-10T01:14:48Z",
+   "size": 624834,
+   "sha12": "12caa4c641bd"
   },
   {
    "path": "runs/arms_readouts.jsonl",
-   "mtime_at_open": "2026-10-10T01:00:36Z",
+   "mtime_at_open": "2026-10-10T01:14:48Z",
    "size": 532278,
-   "sha12": "84cd14e732f0"
+   "sha12": "88f4a93d9759"
   },
   {
    "path": "runs/models.jsonl",
@@ -443,27 +443,27 @@
   },
   {
    "path": "runs/watch/forecast/watch/held_arms.json",
-   "mtime_at_open": "2026-10-10T00:26:10Z",
-   "size": 208736,
-   "sha12": "59e83aa46f44"
+   "mtime_at_open": "2026-10-10T01:26:32Z",
+   "size": 208947,
+   "sha12": "629591fc613c"
   },
   {
    "path": "side-projects/newbench/labels_cells.jsonl",
-   "mtime_at_open": "2026-10-09T23:47:13Z",
-   "size": 2312260,
-   "sha12": "e4470c9e24a2"
+   "mtime_at_open": "2026-10-10T01:25:01Z",
+   "size": 2323138,
+   "sha12": "8198b53bd24e"
   },
   {
    "path": "tasks/knowledge/counts_of_record.json",
-   "mtime_at_open": "2026-10-10T00:31:59Z",
-   "size": 43740,
-   "sha12": "133d3d8bd99e"
+   "mtime_at_open": "2026-10-10T01:25:50Z",
+   "size": 43825,
+   "sha12": "2b32bfcf4e4d"
   },
   {
    "path": "tasks/knowledge/disclosures.published.json",
-   "mtime_at_open": "2026-10-10T00:32:57Z",
+   "mtime_at_open": "2026-10-10T01:32:32Z",
    "size": 672259,
-   "sha12": "3c8a7c146081"
+   "sha12": "ad149ae48eac"
   }
  ],
  "streams": [],
