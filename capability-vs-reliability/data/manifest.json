@@ -112,20 +112,20 @@
   },
   "all": {
    "files": {
-    "shared": "shared.all.8f2f81cf0e7b.json",
-    "chain_average": "chain_average.all.8f2f81cf0e7b.json",
-    "bayes": "bayes.all.8f2f81cf0e7b-fcea34c566d7.json"
+    "shared": "shared.all.316609dc4e5d.json",
+    "chain_average": "chain_average.all.316609dc4e5d.json",
+    "bayes": "bayes.all.316609dc4e5d-fcea34c566d7.json"
    },
    "label": "all waves",
    "arms": "all",
-   "fingerprint": "8f2f81cf0e7b",
+   "fingerprint": "316609dc4e5d",
    "frame": {
     "population_M": 64,
     "tasks": 2167,
     "keep_set_hash": "60ede5d24001",
-    "runs_fingerprint": "fae9d2ccfc83",
+    "runs_fingerprint": "b2243a06e32c",
     "build_date": "2026-10-10",
-    "build_ts": "2026-10-10T19:54:30Z",
+    "build_ts": "2026-10-10T20:29:00Z",
     "vocab_ruled": "2026-08-27",
     "set": "all",
     "set_label": "all waves",
@@ -136,14 +136,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "60ede5d24001",
     "tasks_used": "all waves \u2014 2167 tasks, axis wave unified-live",
-    "source": "failure-vs-difficulty data-all fp 8bf18010b717 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "af0944387c0d",
+    "source": "failure-vs-difficulty data-all fp d43427a61c2b (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "c32c5adead16",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-10T19:54:30Z",
-   "source_fp": "8bf18010b717",
-   "updated_at": "2026-10-10T20:19:36Z",
+   "source_stamp": "2026-10-10T20:29:00Z",
+   "source_fp": "d43427a61c2b",
+   "updated_at": "2026-10-10T20:37:09Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -191,7 +191,7 @@
    },
    "source_stamp": "2026-10-10T20:05:07Z",
    "source_fp": "d8a0171b4f32",
-   "updated_at": "2026-10-10T20:19:48Z",
+   "updated_at": "2026-10-10T20:37:24Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -240,7 +240,7 @@
    },
    "source_stamp": "2026-10-10T20:05:33Z",
    "source_fp": "e853d509bf1a",
-   "updated_at": "2026-10-10T20:20:00Z",
+   "updated_at": "2026-10-10T20:37:42Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -289,7 +289,7 @@
    },
    "source_stamp": "2026-10-10T20:06:19Z",
    "source_fp": "fc33b8b3553c",
-   "updated_at": "2026-10-10T20:20:27Z",
+   "updated_at": "2026-10-10T20:37:56Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -307,20 +307,20 @@
   },
   "board_top": {
    "files": {
-    "shared": "shared.board_top.54b8d193b5af.json",
-    "chain_average": "chain_average.board_top.54b8d193b5af.json",
-    "bayes": "bayes.board_top.54b8d193b5af-030de536de92.json"
+    "shared": "shared.board_top.f45048ed1d2f.json",
+    "chain_average": "chain_average.board_top.f45048ed1d2f.json",
+    "bayes": "bayes.board_top.f45048ed1d2f-030de536de92.json"
    },
    "label": "wave 1+2",
    "arms": "all",
-   "fingerprint": "54b8d193b5af",
+   "fingerprint": "f45048ed1d2f",
    "frame": {
     "population_M": 64,
     "tasks": 1288,
     "keep_set_hash": "ba4c3eb57ad5",
-    "runs_fingerprint": "fae9d2ccfc83",
+    "runs_fingerprint": "b2243a06e32c",
     "build_date": "2026-10-10",
-    "build_ts": "2026-10-10T19:58:24Z",
+    "build_ts": "2026-10-10T20:33:17Z",
     "vocab_ruled": "2026-08-27",
     "set": "board_top",
     "set_label": "wave 1+2",
@@ -331,14 +331,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ba4c3eb57ad5",
     "tasks_used": "wave 1+2 \u2014 1288 tasks, axis wave combined-20260910T2209Z",
-    "source": "failure-vs-difficulty data-board_top fp 7447b226c157 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "42236b3ed8b3",
+    "source": "failure-vs-difficulty data-board_top fp 8655b4f70b67 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "9e67d849e8f8",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-10T19:58:24Z",
-   "source_fp": "7447b226c157",
-   "updated_at": "2026-10-10T20:21:43Z",
+   "source_stamp": "2026-10-10T20:33:17Z",
+   "source_fp": "8655b4f70b67",
+   "updated_at": "2026-10-10T20:39:04Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -347,8 +347,7 @@
     "served_arms": 59
    },
    "missing": {
-    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
-    "capC_z": "Capability C names neither a row nor an exclusion for 3 arm(s) (olmo-3.1-7b-rl-zero-code-final_completion, olmo-3-7b-think-final-Thinking, Qwen/Qwen3.5-9B-Base_completion) \u2014 waits for difficulty's re-emit"
+    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry"
    }
   },
   "top": {
@@ -384,7 +383,7 @@
    },
    "source_stamp": "2026-10-10T20:03:12Z",
    "source_fp": "a808103eee6e",
-   "updated_at": "2026-10-10T20:22:37Z",
+   "updated_at": "2026-10-10T20:39:47Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
