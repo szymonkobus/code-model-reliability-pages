@@ -107,6 +107,10 @@ function spanRowFor(i) {
     pb = 'serving_' + (core2 ? (gold ? 'golden_' + core2 : core2) : 'nb_' + core) + '.json';
   }
   for (var k = 0; k < rows.length; k++) if (rows[k].pointer === pb) return rows[k];
+  
+  
+  
+  var e0 = rows[0].element_sha12; if (e0 && rows.every(function (r) { return r.element_sha12 === e0; })) return rows[0];
   return null;
 }
 function readingSpan(i) {   
@@ -128,7 +132,7 @@ function readingSpan(i) {
       
       
       
-      pend = SPAN_LEAF_STATE === 'loading' ? ' \u2014 from the fitted curve\u2019s level table while the spans load' : (SPAN_LEAF_STATE === 'ok' ? ' \u2014 from the fitted curve\u2019s level table; the exact span and its band follow' : ' \u2014 from the fitted curve\u2019s level table; the spans file is unreadable');
+      pend = SPAN_LEAF_STATE === 'loading' ? '; the exact spans are loading' : (SPAN_LEAF_STATE === 'ok' ? '; the exact span for this fit and its band follow' : '; the exact spans are unreadable');
     }
   }
   var lv = spanLevels(), r99 = reading(i, lv[0], 'y'), r1 = reading(i, lv[1], 'y');
