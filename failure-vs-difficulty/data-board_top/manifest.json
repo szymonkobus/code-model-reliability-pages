@@ -1,9 +1,9 @@
 {
- "fingerprint": "ec424b11af81",
+ "fingerprint": "3a62a6486c7e",
  "fingerprint_inputs": {
-  "content": "a0c0ccddb3b8",
+  "content": "f0ae18f0e217",
   "wave": "combined-20260910T2209Z",
-  "body": "9f6728d8710f"
+  "body": "f919f69cd0af"
  },
  "frame": {
   "dataset": "board_top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 62,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "a0c0ccddb3b8",
+  "inputs_content_sha": "f0ae18f0e217",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "3f0a6161fb30",
+  "runs_fingerprint": "891516be5f53",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-10",
-  "stamp": "2026-10-10T00:14:41Z",
+  "stamp": "2026-10-10T03:34:24Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -115,11 +115,12 @@
    "r1d7b-rl-f12-drift5-step0100-Thinking": 430,
    "r1d7b-rl-f12-pen-step0025-Thinking": 430,
    "r1d7b-rl-f12-pen-step0050-Thinking": 430,
-   "r1d7b-rl-f12-pen-step0075-Thinking": 430
+   "r1d7b-rl-f12-pen-step0075-Thinking": 430,
+   "r1d7b-rl-f17-kl-step0050-Thinking": 430
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-09T23:14:11Z",
+   "unified_built_at": "2026-10-10T03:15:21Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -436,7 +437,7 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/board_top-20260910T2111Z/results",
    "set_fingerprint": "030de536de92",
-   "pointer_updated_at": "2026-10-10T00:13:10Z",
+   "pointer_updated_at": "2026-10-10T00:53:13Z",
    "n_fits": 59,
    "note": null,
    "gates": {
@@ -131268,7 +131269,7 @@
    }
   ],
   "off_panel": {
-   "n_with_cells": 70,
+   "n_with_cells": 71,
    "arms": [
     {
      "id": "deepseek-coder-6.7b-rl-night1-step250",
@@ -131622,7 +131623,13 @@
     }
    ],
    "stopped_not_listed": [],
-   "unregistered": [],
+   "unregistered": [
+    {
+     "id": "r1d7b-rl-f17-kl-step0050-Thinking",
+     "arm_id": "",
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL penalty \u00b7 50 steps"
+    }
+   ],
    "in_side_block": [
     "qwen3-8b-4k32",
     "qwen3-8b-code-rl",
@@ -131649,7 +131656,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-09T23:24:50Z",
+   "_stamp": "2026-10-10T03:24:30Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -131814,17 +131821,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-09T23:29:32Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261009T232932Z.json",
-   "sha16": "c3636e8a211b2153",
-   "census_mtime": "2026-10-09T23:30:31Z",
+   "stamp": "2026-10-10T02:46:23Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261010T024623Z.json",
+   "sha16": "8ca1194888101a3e",
+   "census_mtime": "2026-10-10T02:47:15Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.ec424b11af81.json",
-  "chain_average": "chain_average.ec424b11af81.json",
-  "chain_median": "chain_median.ec424b11af81.json",
-  "dots": "dots.ec424b11af81.json"
+  "shared": "shared.3a62a6486c7e.json",
+  "chain_average": "chain_average.3a62a6486c7e.json",
+  "chain_median": "chain_median.3a62a6486c7e.json",
+  "dots": "dots.3a62a6486c7e.json"
  }
 }
