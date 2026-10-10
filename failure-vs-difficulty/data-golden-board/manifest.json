@@ -1,9 +1,9 @@
 {
- "fingerprint": "6bec79fb9fed",
+ "fingerprint": "81151f587d91",
  "fingerprint_inputs": {
   "content": "c076522ff536",
   "wave": "golden-board-20260904T1407Z",
-  "body": "3745e4c711c2"
+  "body": "1b10f2aadd4f"
  },
  "frame": {
   "dataset": "board",
@@ -34,19 +34,19 @@
    "wave_2": 0,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "3f0a6161fb30",
+  "runs_fingerprint": "891516be5f53",
   "axis_wave": "golden-board-20260904T1407Z",
   "build_date": "2026-10-10",
-  "stamp": "2026-10-10T01:14:35Z",
+  "stamp": "2026-10-10T03:39:56Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-10T00:14:54Z",
+   "unified_built_at": "2026-10-10T03:15:21Z",
    "board_cells_source": "pages/failure-vs-difficulty/artifacts/fail_counts_matrix.csv",
-   "board_landing_id": "2026-10-09T22:27:38Z",
+   "board_landing_id": "2026-10-10T01:33:10Z",
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.golden.board.csv"
   },
   "withheld_configs": [],
@@ -214,7 +214,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-10T00:24:57Z",
+   "_stamp": "2026-10-10T03:24:30Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -379,17 +379,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-09T23:29:32Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261009T232932Z.json",
-   "sha16": "c3636e8a211b2153",
-   "census_mtime": "2026-10-09T23:30:31Z",
+   "stamp": "2026-10-10T02:46:23Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261010T024623Z.json",
+   "sha16": "8ca1194888101a3e",
+   "census_mtime": "2026-10-10T02:47:15Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.6bec79fb9fed.json",
-  "chain_average": "chain_average.6bec79fb9fed.json",
-  "chain_median": "chain_median.6bec79fb9fed.json",
-  "dots": "dots.6bec79fb9fed.json"
+  "shared": "shared.81151f587d91.json",
+  "chain_average": "chain_average.81151f587d91.json",
+  "chain_median": "chain_median.81151f587d91.json",
+  "dots": "dots.81151f587d91.json"
  }
 }
