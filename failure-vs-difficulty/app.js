@@ -205,7 +205,12 @@ function loadNames() {
 function applyNames() {   
   if (!NAMES || !D.shared) return;
   var put = function (a) { if (!a || !a.id) return; var n = NAMES[a.id]; if (!n) return; if (n.label) a.label = String(n.label); if (n.short_label) a.short_label = String(n.short_label); if (n.run) a.run = String(n.run); };
-  (D.shared.configs || []).forEach(put);
+  
+  
+  
+  
+  var putCfg = function (c) { if (!c || !c.id) return; var n = NAMES[c.id]; if (!n) return; if (n.label) c.label = String(n.label); if (n.short_label) c.short_label = String(n.short_label); if (n.run && c.run) c.run = String(n.run); };
+  (D.shared.configs || []).forEach(putCfg);
   var f = D.shared.frame || {};
   var keep = function (arr) { return (arr || []).filter(function (a) { var n = a && a.id && NAMES[a.id]; return !(n && n.hidden); }); };   
   (f.series_rows || []).forEach(function (b) { if (b && b.arms) { b.arms.forEach(put); b.arms = keep(b.arms); } });
@@ -838,12 +843,28 @@ function buildChips() {
     nm.style.color = D.shared.configs[r.members[0]].color; box.appendChild(nm);
     
     
+    
+    
+    
+    
+    var memberIds = {}; r.members.forEach(function (i) { memberIds[String(D.shared.configs[i].id)] = i; });
+    var twinMembers = {};
+    seriesRows().forEach(function (sbR0) { var run0 = sbR0 ? ((sbR0.arms[0] && sbR0.arms[0].run) || headingShort(sbR0)) : null; if (sbR0 && run0 === r.name) sbR0.arms.forEach(function (a) { var tid = String(a._twin_id || a.id); if (a._twin && (tid in memberIds)) twinMembers[tid] = true; }); });
+    var memberChip = function (i) {
+      var c = D.shared.configs[i]; var b = document.createElement('button'); b.className = 'chip'; b.style.color = c.color; b.style.borderColor = c.color;
+      b.textContent = c.short_label || SHORT_LABELS_OF_RECORD[c.id] || c.label;   
+      b.dataset.label = b.textContent; b.dataset.name = c.label || b.textContent; b.dataset.idx = i;
+      b.onclick = function () { if (sel.has(i)) sel.delete(i); else sel.add(i); writeSel(); render(); };
+      chips.push(b); box.appendChild(b);
+    };
+    r.members.forEach(function (i) { if (twinMembers[String(D.shared.configs[i].id)]) memberChip(i); });   
     seriesRows().forEach(function (sbR) {   
     var sbRun = sbR ? ((sbR.arms[0] && sbR.arms[0].run) || headingShort(sbR)) : null; var seriesSel = seriesSelFor(sbR._row);
     if (sbR && sbRun === r.name) {
-      
+
       SERIES_MERGED[r.name] = true;
       sbR.arms.forEach(function (a, k) {
+        if (a._twin && twinMembers[String(a._twin_id || a.id)]) return;   
         var b = document.createElement('button'); b.className = 'chip serieschip'; b.style.color = a.color; b.style.borderColor = a.color;
         b.textContent = a.short_label || a.label; b.dataset.label = b.textContent; b.dataset.name = a.label || b.textContent; b.dataset.name = a.label || b.textContent; b.dataset.series = String(k); b.dataset.row = String(sbR._row);   
         var parts = []; if (a.disclosure) parts.push(currentTruth(a.disclosure)); if (a.set_label) parts.push('fitted on ' + a.set_label);
@@ -855,13 +876,7 @@ function buildChips() {
       });
     }
     });
-    r.members.forEach(function (i) {
-      var c = D.shared.configs[i]; var b = document.createElement('button'); b.className = 'chip'; b.style.color = c.color; b.style.borderColor = c.color;
-      b.textContent = c.short_label || SHORT_LABELS_OF_RECORD[c.id] || c.label;   
-      b.dataset.label = b.textContent; b.dataset.name = c.label || b.textContent; b.dataset.idx = i;
-      b.onclick = function () { if (sel.has(i)) sel.delete(i); else sel.add(i); writeSel(); render(); };
-      chips.push(b); box.appendChild(b);
-    });
+    r.members.forEach(function (i) { if (!twinMembers[String(D.shared.configs[i].id)]) memberChip(i); });   
     ['all', 'none'].forEach(function (w) { var ub = document.createElement('button'); ub.className = 'util'; ub.textContent = w; ub.onclick = function () { r.members.forEach(function (i) { if (w === 'all') sel.add(i); else sel.delete(i); }); seriesRows().forEach(function (sbX) { if (SERIES_MERGED[r.name] && (((sbX.arms[0] && sbX.arms[0].run) || headingShort(sbX)) === r.name)) { var ssX = seriesSelFor(sbX._row); ssX.clear(); if (w === 'all') sbX.arms.forEach(function (_, k) { if (seriesChipShown(sbX, sbX._row, k, true)) ssX.add(k); }); } }); writeSel(); render(); }; box.appendChild(ub); });   
     seriesRows().forEach(function (sbT) { if (SERIES_MERGED[r.name] && (((sbT.arms[0] && sbT.arms[0].run) || headingShort(sbT)) === r.name)) box.appendChild(seriesAllButton(sbT, sbT._row, true, r.members)); });   
   });
