@@ -791,6 +791,11 @@ function buildChips() {
     r.members.forEach(function (i) { var c = D.shared.configs[i]; if (trainedParts(c.label)) { trained.push(i); return; } var f = fams.find(function (x) { return x.name === c.family; }); if (!f) { f = { name: c.family, members: [] }; fams.push(f); } f.members.push(i); });
     return false;
   });
+  
+  
+  
+  
+  try { seriesRows().forEach(function (sbG) { var nmG = (sbG.arms[0] && sbG.arms[0].run) || headingShort(sbG); if (nmG && !runs.some(function (x) { return x.name === nmG; })) runs.push({ name: nmG, members: [], series_only: true }); }); } catch (e) { }
   TRAINED_CONFIGS = trained; computeMerged();
   var allBtn = document.createElement('button');
   allBtn.className = 'util'; allBtn.textContent = 'all';
@@ -840,7 +845,11 @@ function buildChips() {
   runs.forEach(function (r) {
     var br = document.createElement('div'); br.className = 'runrow'; br.style.flexBasis = '100%'; box.appendChild(br);
     var nm = document.createElement('span'); nm.className = 'fam'; nm.textContent = r.name; nm.title = 'the checkpoints of one training run, positioned on this scale; the bulk buttons leave this row alone';
-    nm.style.color = D.shared.configs[r.members[0]].color; box.appendChild(nm);
+    var sbHead = null; seriesRows().forEach(function (sbH) { if (!sbHead && sbH && (((sbH.arms[0] && sbH.arms[0].run) || headingShort(sbH)) === r.name)) sbHead = sbH; });   
+    var colR = r.members.length ? D.shared.configs[r.members[0]].color : (sbHead && sbHead.arms[0] ? sbHead.arms[0].color : null);
+    if (colR) nm.style.color = colR;
+    if (sbHead && sbHead.heading_hover) nm.title = oneSentence(noSpecTags(String(sbHead.heading_hover)));   
+    box.appendChild(nm);
     
     
     
@@ -862,24 +871,36 @@ function buildChips() {
     var sbRun = sbR ? ((sbR.arms[0] && sbR.arms[0].run) || headingShort(sbR)) : null; var seriesSel = seriesSelFor(sbR._row);
     if (sbR && sbRun === r.name) {
 
-      SERIES_MERGED[r.name] = true;
+      SERIES_MERGED[r.name] = true; SERIES_ROW_MEMBERS[sbR._row] = r.members.length > 0;
       sbR.arms.forEach(function (a, k) {
         if (a._twin && twinMembers[String(a._twin_id || a.id)]) return;   
         var b = document.createElement('button'); b.className = 'chip serieschip'; b.style.color = a.color; b.style.borderColor = a.color;
+        var tiK = a._twin ? panelIndexOf(a._twin_id || a.id) : -1;   
+        if (tiK >= 0) b.dataset.twinIdx = String(tiK);
         b.textContent = a.short_label || a.label; b.dataset.label = b.textContent; b.dataset.name = a.label || b.textContent; b.dataset.name = a.label || b.textContent; b.dataset.series = String(k); b.dataset.row = String(sbR._row);   
+        if (sbR.group_of_record) {   
+          var mk = runMarkOf(a);
+          var smp = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); smp.setAttribute('width', mk ? '36' : '22'); smp.setAttribute('height', '11'); smp.setAttribute('aria-hidden', 'true'); smp.style.verticalAlign = 'middle'; smp.style.marginRight = '4px';
+          if (mk) Kit.drawRunMark(smp, 5.5, 5.5, 4, { color: a.color, bg: '#fcfaf3', open: mk.open, shape: mk.shape, dot: mk.dot, dotColor: mk.dotColor || undefined });
+          var smpLn = document.createElementNS('http://www.w3.org/2000/svg', 'line'); smpLn.setAttribute('x1', mk ? '13' : '1'); smpLn.setAttribute('y1', '5.5'); smpLn.setAttribute('x2', mk ? '35' : '21'); smpLn.setAttribute('y2', '5.5'); smpLn.setAttribute('stroke', a.color); smpLn.setAttribute('stroke-width', '1.8');
+          if (curveDash(a)) smpLn.setAttribute('stroke-dasharray', curveDash(a));
+          smp.appendChild(smpLn); b.insertBefore(smp, b.firstChild);
+        }
         var parts = []; if (a.disclosure) parts.push(currentTruth(a.disclosure)); if (a.set_label) parts.push('fitted on ' + a.set_label);
         if (a.gates_failed) parts.push(a.gate_face ? noSpecTags(String(a.gate_face)) : 'this fit failed its own check; drawn lighter, with its disclosure');
         if (a.protocol) parts.push('read by ' + a.protocol + ': the base model continues the prompt, no chat turn');
         b.dataset.state = noSpecTags(parts.join(' · ')); b.title = (a.withheld && a.disclosure) ? noSpecTags(currentTruth(String(a.disclosure))) : oneSentence(noSpecTags(parts[0] || a.label)); if (a.gates_failed) { if (!(a.withheld && a.disclosure)) b.title = 'this fit failed its own check and is drawn lighter'; b.classList.add('gated'); b.style.borderStyle = 'dashed'; }       
-        b.onclick = function () { if (seriesSel.has(k)) seriesSel.delete(k); else seriesSel.add(k); writeSel(); render(); };   
+        if (a.comparator && !a.withheld) { var cz50 = state.def === 'average' ? a.comparator.d50_z : a.comparator.d50_med_z, cz1 = state.def === 'average' ? a.comparator.d1_z : a.comparator.d1_med_z; if (cz50 != null || cz1 != null) b.title += ' · checkpoint 0 at ' + a.comparator.depth + ' answers: ' + (cz50 != null ? 'D50 ' + fmtPct(cz50) : '') + (cz50 != null && cz1 != null ? ', ' : '') + (cz1 != null ? 'D99 ' + fmtPct(cz1) : ''); }   
+        b.onclick = tiK >= 0 ? function () { if (sel.has(tiK)) sel.delete(tiK); else sel.add(tiK); writeSel(); render(); } : function () { if (seriesSel.has(k)) seriesSel.delete(k); else seriesSel.add(k); writeSel(); render(); };   
         seriesChips.push(b); box.appendChild(b);
       });
     }
     });
     r.members.forEach(function (i) { if (!twinMembers[String(D.shared.configs[i].id)]) memberChip(i); });   
-    ['all', 'none'].forEach(function (w) { var ub = document.createElement('button'); ub.className = 'util'; ub.textContent = w; ub.onclick = function () { r.members.forEach(function (i) { if (w === 'all') sel.add(i); else sel.delete(i); }); seriesRows().forEach(function (sbX) { if (SERIES_MERGED[r.name] && (((sbX.arms[0] && sbX.arms[0].run) || headingShort(sbX)) === r.name)) { var ssX = seriesSelFor(sbX._row); ssX.clear(); if (w === 'all') sbX.arms.forEach(function (_, k) { if (seriesChipShown(sbX, sbX._row, k, true)) ssX.add(k); }); } }); writeSel(); render(); }; box.appendChild(ub); });   
-    seriesRows().forEach(function (sbT) { if (SERIES_MERGED[r.name] && (((sbT.arms[0] && sbT.arms[0].run) || headingShort(sbT)) === r.name)) box.appendChild(seriesAllButton(sbT, sbT._row, true, r.members)); });   
+    ['all', 'none'].forEach(function (w) { var ub = document.createElement('button'); ub.className = 'util'; ub.textContent = w; ub.onclick = function () { r.members.forEach(function (i) { if (w === 'all') sel.add(i); else sel.delete(i); }); seriesRows().forEach(function (sbX) { if (SERIES_MERGED[r.name] && (((sbX.arms[0] && sbX.arms[0].run) || headingShort(sbX)) === r.name)) { var ssX = seriesSelFor(sbX._row); ssX.clear(); sbX.arms.forEach(function (a, k) { if (a._twin) { var ti = panelIndexOf(a._twin_id || a.id); if (ti >= 0) { if (w === 'all') sel.add(ti); else sel.delete(ti); } return; } if (w === 'all' && seriesChipShown(sbX, sbX._row, k, r.members.length > 0)) ssX.add(k); }); } }); writeSel(); render(); }; box.appendChild(ub); });   
+    seriesRows().forEach(function (sbT) { if (SERIES_MERGED[r.name] && (((sbT.arms[0] && sbT.arms[0].run) || headingShort(sbT)) === r.name)) box.appendChild(seriesAllButton(sbT, sbT._row, r.members.length > 0, r.members.length ? r.members : null)); });   
   });
+  if (runs.length) { var re = document.createElement('div'); re.id = 'runrows-end'; re.style.flexBasis = '100%'; re.style.height = '0'; box.appendChild(re); }   
 }
 
  
@@ -1145,7 +1166,7 @@ var RAW_TICKS = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 
 
 var sideSel = null, seriesSel = null;
-var SERIES_MERGED = {}, seriesChips = [];   
+var SERIES_MERGED = {}, seriesChips = [], SERIES_ROW_MEMBERS = {};   
 var seriesSels = [];   
 function panelIndexOf(id) { var cs = D.shared.configs || []; for (var i = 0; i < cs.length; i++) if (cs[i].id === id) return i; return -1; }   
 function seriesSelFor(i) { if (!seriesSels[i]) seriesSels[i] = new Set(); return seriesSels[i]; }   
@@ -1413,6 +1434,7 @@ function renderMarksKey(rows) {
   var old = document.getElementById('markskey');
   var marked = rows.filter(function (sb) { return sb && sb.arms && sb.arms.some(runMarkOf); });
   var last = null; for (var j = rows.length - 1; j >= 0; j--) { last = document.getElementById('serieschips' + (j ? String(j) : '')); if (last) break; }
+  if (!last) last = document.getElementById('runrows-end');   
   if (!marked.length || !last || typeof Kit.runMarksKey !== 'function' || typeof Kit.runMarkSvg !== 'function' || state.src !== 'bayes') { if (old) old.remove(); return; }
   var present = {}; marked.forEach(function (sb) { if (sb.arms.length > 1) present.darker = true; sb.arms.forEach(function (a) { var m = runMarkOf(a); if (!m) return; present[m.shape] = true; if (m.dot) present.dot = true; if (m.open) present.open = true; }); });
   var ink = '#52514e', bg = '#fcfaf3', R = 3.6;   
@@ -1428,7 +1450,7 @@ function renderMarksKey(rows) {
   }).join('');
   if (!html) { if (old) old.remove(); return; }
   if (!old) { old = document.createElement('div'); old.id = 'markskey'; old.className = 'kit-run-key'; }
-  old.innerHTML = html; last.parentNode.insertBefore(old, last.nextSibling);
+  old.innerHTML = html; old.style.flexBasis = (last.id === 'runrows-end') ? '100%' : ''; last.parentNode.insertBefore(old, last.nextSibling);   
 }
 function renderSeriesRow(sb, ri) {   
   var sfx = ri ? String(ri) : ''; var seriesSel = seriesSelFor(ri);
@@ -1773,8 +1795,8 @@ function renderArmStates() {
 function paintChips() {
   seriesChips.forEach(function (b) {   
     var k = +b.dataset.series, ri = +(b.dataset.row || 0), live = seriesRows().length > ri && state.src === 'bayes'; var seriesSel = seriesSelFor(ri);
-    b.classList.toggle('off', !(seriesSel && seriesSel.has(k))); b.classList.toggle('partial-hidden', !live); b.disabled = !live; b.setAttribute('aria-disabled', String(!live));
-    var sbP = seriesRows()[ri]; b.style.display = (sbP && !seriesChipShown(sbP, ri, k, true)) ? 'none' : '';   
+    var tw = b.dataset.twinIdx; b.classList.toggle('off', (tw != null && tw !== '') ? !sel.has(+tw) : !(seriesSel && seriesSel.has(k))); b.classList.toggle('partial-hidden', !live); b.disabled = !live; b.setAttribute('aria-disabled', String(!live));   
+    var sbP = seriesRows()[ri]; b.style.display = (sbP && !seriesChipShown(sbP, ri, k, SERIES_ROW_MEMBERS[ri] !== false)) ? 'none' : '';   
   });
   paintSeriesToggles();
   chips.forEach(function (b) {
