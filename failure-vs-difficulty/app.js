@@ -7,6 +7,27 @@
 
 
 function fetchFresh(u) { return fetch(u, { cache: 'no-cache' }); }
+
+
+
+var FIRST_DRAW_DONE = false;
+function faceLine(prefix, what, err) {
+  try {
+    var el = document.getElementById('failline');
+    if (!el) {
+      el = document.createElement('div'); el.id = 'failline'; el.setAttribute('role', 'alert');
+      el.style.cssText = 'margin:.6rem auto;max-width:820px;padding:.5rem .7rem;border:1px solid #b3261e;border-radius:8px;background:#fff4f2;color:#7a1f1f;font-size:.9rem;line-height:1.4;word-break:break-word';
+      var box = document.getElementById('chartbox'); if (box && box.parentNode) box.parentNode.insertBefore(el, box.nextSibling); else (document.body || document.documentElement).appendChild(el);
+    }
+    var m = err == null ? '' : (err.message || (err.reason && (err.reason.message || String(err.reason))) || String(err));
+    var mm = err && err.stack ? /([A-Za-z0-9_.-]+\.js)[^:\n]*:(\d+)/.exec(String(err.stack)) : null;
+    var where = (err && err.filename) ? ' (' + String(err.filename).replace(/^.*\//, '').replace(/\?.*$/, '') + ':' + err.lineno + ')' : (mm ? ' (' + mm[1] + ':' + mm[2] + ')' : '');
+    el.textContent = prefix + ' — ' + what + (m ? ': ' + String(m).slice(0, 320) : '') + where;
+  } catch (e2) {   }
+}
+function failLine(what, err) { faceLine('The chart did not draw', what, err); }
+window.addEventListener('error', function (ev) { if (!FIRST_DRAW_DONE) failLine('a script error', ev.error || ev); });
+window.addEventListener('unhandledrejection', function (ev) { if (!FIRST_DRAW_DONE) failLine('a load that failed', ev.reason || ev); });
 function unresolvedFitHover(r) {   
   if (!r || r.z == null) return '';
   var s = ' · the fit’s median ' + pct(r.z).toFixed(1);
@@ -196,7 +217,12 @@ function loadBundle(dir, label) {
     .then(function (man) {
       D.man = man;
       return Promise.all(['shared', 'chain_average', 'chain_median', 'dots']
-        .map(function (k) { return fetchFresh(dir + '/' + man.files[k]).then(function (r) { return r.json(); }); }));
+        .map(function (k) { return fetchFresh(dir + '/' + man.files[k]).then(function (r) { if (!r.ok) throw new Error('status ' + r.status); return r.json(); })
+          .catch(function (e) {   
+            var why = (e && e.message) || String(e);
+            if (k === 'shared' || k === 'chain_average') throw new Error('the ' + k.replace('_', ' ') + ' file did not load (' + why + ')');
+            faceLine('Drawn without the ' + (k === 'dots' ? 'task dots' : 'median fits'), 'the file did not load', e); return { configs: {}, frame: {}, missing: true };
+          }); }));
     }).then(function (all) {
       D.shared = all[0]; D.avg = all[1]; D.med = all[2]; D.dots = all[3];
       D.shared.frame.dataset = D.shared.frame.dataset || 'board';
@@ -276,15 +302,19 @@ function loadPool() {
     D.shared.vocab = all[1];   
   });
 }
+function probeOk(u) {   
+  var c = (typeof AbortController === 'function') ? new AbortController() : null;
+  return fetch(u, c ? { cache: 'no-cache', signal: c.signal } : { cache: 'no-cache' }).then(function (r) { var ok = !!r.ok; try { if (c) c.abort(); else if (r.body && r.body.cancel) r.body.cancel(); } catch (e) { } return ok; }).catch(function () { return false; });
+}
 Promise.all([
-  (DATASETS.all ? fetch('data-all/manifest.json', { method: 'HEAD' }).then(function (r) { ALL_AVAILABLE = r.ok; }).catch(function () { ALL_AVAILABLE = false; }) : Promise.resolve(ALL_AVAILABLE = false))
+  (DATASETS.all ? probeOk('data-all/manifest.json').then(function (ok) { ALL_AVAILABLE = ok; }) : Promise.resolve(ALL_AVAILABLE = false))
 ].concat(['board_top', 'top'].filter(function (ds) { return !!DATASETS[ds]; }).map(function (ds) {
-  return fetchFresh(DATASETS[ds].src, { method: 'HEAD' }).then(function (r) { TOP_AVAILABLE[ds] = r.ok; }).catch(function () { TOP_AVAILABLE[ds] = false; });
-})).concat(DATASETS['new'] ? [fetch(DATASETS['new'].src, { method: 'HEAD', cache: 'no-cache' }).then(function (r) { NEW_AVAILABLE = r.ok; }).catch(function () { NEW_AVAILABLE = false; })] : []
+  return probeOk(DATASETS[ds].src).then(function (ok) { TOP_AVAILABLE[ds] = ok; });
+})).concat(DATASETS['new'] ? [probeOk(DATASETS['new'].src).then(function (ok) { NEW_AVAILABLE = ok; })] : []
 ).concat(Object.keys(DATASETS).filter(isExtra).map(function (ds) {
-  return fetchFresh(DATASETS[ds].src, { method: 'HEAD' }).then(function (r) { EXTRA_AVAILABLE[ds] = r.ok; }).catch(function () { EXTRA_AVAILABLE[ds] = false; });
+  return probeOk(DATASETS[ds].src).then(function (ok) { EXTRA_AVAILABLE[ds] = ok; });
 })).concat(['board', 'new', 'all', 'board_top', 'top'].filter(function (ds) { return !!DATASETS[ds]; }).map(function (ds) {
-  return fetchFresh(goldenDir(ds) + '/manifest.json', { method: 'HEAD' }).then(function (r) { GOLDEN_AVAILABLE[ds] = r.ok; }).catch(function () { GOLDEN_AVAILABLE[ds] = false; });
+  return probeOk(goldenDir(ds) + '/manifest.json').then(function (ok) { GOLDEN_AVAILABLE[ds] = ok; });
 }))).then(function () {
     if (DATASET === 'all' && !ALL_AVAILABLE) DATASET = FALLBACK_DATASET;
     if ((DATASET === 'board_top' || DATASET === 'top') && !TOP_AVAILABLE[DATASET]) DATASET = FALLBACK_DATASET;
@@ -297,7 +327,8 @@ Promise.all([
     if (DATASET === 'board_top' || DATASET === 'top') return loadBundle('data-' + DATASET, DATASETS[DATASET].label);
     if (isExtra(DATASET)) return loadBundle(extraDir(DATASET), DATASETS[DATASET].label);   
     return DATASET === 'new' ? loadPool() : (DATASET === 'all' ? loadBundle('data-all', DATASETS.all.label) : loadBoard());
-  }).then(function () { return loadNames().then(applyNames).catch(function () { NAMES = null; }); }).then(boot);   
+  }).then(function () { return loadNames().then(applyNames).catch(function () { NAMES = null; }); }).then(boot)   
+  .catch(function (e) { failLine('the page did not start', e); if (window.console) console.error(e); });   
 
  
 var ROW_KEPT = {};   
@@ -1586,7 +1617,7 @@ function render() {
     var zs = D.shared.tasks.z;
     visible.forEach(function (i) {
       var id = D.shared.configs[i].id;
-      var dd = D.dots.configs[id];
+      var dd = D.dots && D.dots.configs ? D.dots.configs[id] : null; if (!dd || !dd.fails) return;   
       var shI = pinShift(chainCurve(i)); if (shI == null) return; PIN_DX = shI;   
       for (var t = 0; t < zs.length; t++) {
         if (dd.fails[t] == null) continue;   
@@ -1702,6 +1733,7 @@ function render() {
   chart.innerHTML = '<defs><clipPath id="plotclip"><rect x="' + ML + '" y="' + MT + '" width="' + PW + '" height="' + PH + '"/></clipPath></defs>'
     + grid + '<g clip-path="url(#plotclip)"><g>' + dotsSvg + '</g><g>' + bands
     + '</g><g id="curveg">' + curves + '</g></g>';   
+  FIRST_DRAW_DONE = true;   
   
 
   narrate(allVisible, dotsOn, unfitted);
@@ -2509,7 +2541,7 @@ function buildCrosshair() {
   var textCache = {}, dwellTimer = null;
   function dotRows(ti, ci, extra, arm) {   
     var c = arm ? { color: arm.color, id: arm.id, label: String(arm.run || '') + (arm.run ? ' \u00b7 ' : '') + String(arm.short_label || arm.label) } : D.shared.configs[ci];
-    var dd = D.dots.configs[c.id];
+    var dd = (D.dots && D.dots.configs && D.dots.configs[c.id]) || { fails: [], n: [] };   
     var rows = [
       { key: c.color, value: dd.fails[ti] + ' of ' + (Array.isArray(dd.n) ? dd.n[ti] : dd.n),
         label: 'failures · ' + c.label },
