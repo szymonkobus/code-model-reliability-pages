@@ -1,9 +1,9 @@
 {
- "fingerprint": "538bb617f7d0",
+ "fingerprint": "ae1a96978c69",
  "fingerprint_inputs": {
   "content": "197c6e024abe",
   "wave": "combined-20260910T2209Z",
-  "body": "a5b1a3af52c6"
+  "body": "a98f9c5e741a"
  },
  "frame": {
   "dataset": "board_top",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "985aed419dee",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-11",
-  "stamp": "2026-10-11T20:21:34Z",
+  "stamp": "2026-10-11T20:44:33Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -1174,6 +1174,16 @@
     "arms": [],
     "slim": true,
     "arms_in": "shared"
+   },
+   {
+    "updated_at": "2026-10-11T20:44:02Z",
+    "pointer": "definitions/fitting/serving_series_r1d7b-rl-f12-fixed-kl.json",
+    "row": 4,
+    "served": true,
+    "n_arms": 0,
+    "arms": [],
+    "slim": true,
+    "arms_in": "shared"
    }
   ],
   "series_arms": {
@@ -1199,9 +1209,9 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.538bb617f7d0.json",
-  "chain_average": "chain_average.538bb617f7d0.json",
-  "chain_median": "chain_median.538bb617f7d0.json",
-  "dots": "dots.538bb617f7d0.json"
+  "shared": "shared.ae1a96978c69.json",
+  "chain_average": "chain_average.ae1a96978c69.json",
+  "chain_median": "chain_median.ae1a96978c69.json",
+  "dots": "dots.ae1a96978c69.json"
  }
 }
