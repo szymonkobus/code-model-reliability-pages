@@ -112,20 +112,20 @@
   },
   "all": {
    "files": {
-    "shared": "shared.all.531c5da64d99.json",
-    "chain_average": "chain_average.all.531c5da64d99.json",
-    "bayes": "bayes.all.531c5da64d99-fcea34c566d7.json"
+    "shared": "shared.all.a2e5be0e048e.json",
+    "chain_average": "chain_average.all.a2e5be0e048e.json",
+    "bayes": "bayes.all.a2e5be0e048e-fcea34c566d7.json"
    },
    "label": "all waves",
    "arms": "all",
-   "fingerprint": "531c5da64d99",
+   "fingerprint": "a2e5be0e048e",
    "frame": {
     "population_M": 64,
     "tasks": 2167,
     "keep_set_hash": "60ede5d24001",
-    "runs_fingerprint": "985aed419dee",
+    "runs_fingerprint": "5408860d223f",
     "build_date": "2026-10-11",
-    "build_ts": "2026-10-11T22:17:42Z",
+    "build_ts": "2026-10-11T22:33:44Z",
     "vocab_ruled": "2026-08-27",
     "set": "all",
     "set_label": "all waves",
@@ -136,14 +136,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "60ede5d24001",
     "tasks_used": "all waves \u2014 2167 tasks, axis wave unified-live",
-    "source": "failure-vs-difficulty data-all fp bf7d3b8e15d6 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-all fp 79da4cfe3575 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "c4e9b411fa57",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-11T22:17:42Z",
-   "source_fp": "bf7d3b8e15d6",
-   "updated_at": "2026-10-11T22:22:18Z",
+   "source_stamp": "2026-10-11T22:33:44Z",
+   "source_fp": "79da4cfe3575",
+   "updated_at": "2026-10-11T22:40:45Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -160,20 +160,20 @@
   },
   "golden-board": {
    "files": {
-    "shared": "shared.golden-board.2f760d6a51fa.json",
-    "chain_average": "chain_average.golden-board.2f760d6a51fa.json",
-    "bayes": "bayes.golden-board.2f760d6a51fa-ffd6e0604cc9.json"
+    "shared": "shared.golden-board.418cff52ced7.json",
+    "chain_average": "chain_average.golden-board.418cff52ced7.json",
+    "bayes": "bayes.golden-board.418cff52ced7-ffd6e0604cc9.json"
    },
    "label": "wave 1",
    "arms": "golden",
-   "fingerprint": "2f760d6a51fa",
+   "fingerprint": "418cff52ced7",
    "frame": {
     "population_M": 12,
     "tasks": 430,
     "keep_set_hash": "c3f08ea1a903",
-    "runs_fingerprint": "985aed419dee",
+    "runs_fingerprint": "5408860d223f",
     "build_date": "2026-10-11",
-    "build_ts": "2026-10-11T22:03:10Z",
+    "build_ts": "2026-10-11T22:29:05Z",
     "vocab_ruled": "2026-08-27",
     "set": "board",
     "set_label": "wave 1",
@@ -184,14 +184,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "c3f08ea1a903",
     "tasks_used": "wave 1 \u2014 430 tasks, golden-set axis over the 12 arms",
-    "source": "failure-vs-difficulty data-golden-board fp 06716527d0c9 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-golden-board fp e732d6026883 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "c076522ff536",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-11T22:03:10Z",
-   "source_fp": "06716527d0c9",
-   "updated_at": "2026-10-11T22:22:42Z",
+   "source_stamp": "2026-10-11T22:29:05Z",
+   "source_fp": "e732d6026883",
+   "updated_at": "2026-10-11T22:40:59Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -209,20 +209,20 @@
   },
   "golden-new": {
    "files": {
-    "shared": "shared.golden-new.1374fbc279f7.json",
-    "chain_average": "chain_average.golden-new.1374fbc279f7.json",
-    "bayes": "bayes.golden-new.1374fbc279f7-f397260cc9fb.json"
+    "shared": "shared.golden-new.2322d34c393b.json",
+    "chain_average": "chain_average.golden-new.2322d34c393b.json",
+    "bayes": "bayes.golden-new.2322d34c393b-f397260cc9fb.json"
    },
    "label": "wave 2 and wave 2 parked",
    "arms": "golden",
-   "fingerprint": "1374fbc279f7",
+   "fingerprint": "2322d34c393b",
    "frame": {
     "population_M": 12,
     "tasks": 1737,
     "keep_set_hash": "abc6c6e65227",
-    "runs_fingerprint": "985aed419dee",
+    "runs_fingerprint": "5408860d223f",
     "build_date": "2026-10-11",
-    "build_ts": "2026-10-11T22:03:50Z",
+    "build_ts": "2026-10-11T22:29:31Z",
     "vocab_ruled": "2026-08-27",
     "set": "new",
     "set_label": "wave 2 and wave 2 parked",
@@ -233,14 +233,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "abc6c6e65227",
     "tasks_used": "wave 2 and wave 2 parked \u2014 1737 tasks, golden-set axis over the 12 arms",
-    "source": "failure-vs-difficulty data-golden-new fp 6c6a6cafd902 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-golden-new fp 84bad88eb08f (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "aeb913f885ac",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-11T22:03:50Z",
-   "source_fp": "6c6a6cafd902",
-   "updated_at": "2026-10-11T22:22:57Z",
+   "source_stamp": "2026-10-11T22:29:31Z",
+   "source_fp": "84bad88eb08f",
+   "updated_at": "2026-10-11T22:41:12Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -258,20 +258,20 @@
   },
   "golden-all": {
    "files": {
-    "shared": "shared.golden-all.63cdf9124ee0.json",
-    "chain_average": "chain_average.golden-all.63cdf9124ee0.json",
-    "bayes": "bayes.golden-all.63cdf9124ee0-df9662871186.json"
+    "shared": "shared.golden-all.f337261ea34e.json",
+    "chain_average": "chain_average.golden-all.f337261ea34e.json",
+    "bayes": "bayes.golden-all.f337261ea34e-df9662871186.json"
    },
    "label": "all waves",
    "arms": "golden",
-   "fingerprint": "63cdf9124ee0",
+   "fingerprint": "f337261ea34e",
    "frame": {
     "population_M": 12,
     "tasks": 2167,
     "keep_set_hash": "60ede5d24001",
-    "runs_fingerprint": "985aed419dee",
+    "runs_fingerprint": "5408860d223f",
     "build_date": "2026-10-11",
-    "build_ts": "2026-10-11T22:04:47Z",
+    "build_ts": "2026-10-11T22:30:13Z",
     "vocab_ruled": "2026-08-27",
     "set": "all",
     "set_label": "all waves",
@@ -282,14 +282,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "60ede5d24001",
     "tasks_used": "all waves \u2014 2167 tasks, golden-set axis over the 12 arms",
-    "source": "failure-vs-difficulty data-golden-all fp 1f30c24331ab (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-golden-all fp cbf08c6a6a56 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "0e1bf6f2ed4a",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-11T22:04:47Z",
-   "source_fp": "1f30c24331ab",
-   "updated_at": "2026-10-11T22:23:17Z",
+   "source_stamp": "2026-10-11T22:30:13Z",
+   "source_fp": "cbf08c6a6a56",
+   "updated_at": "2026-10-11T22:41:26Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -307,20 +307,20 @@
   },
   "board_top": {
    "files": {
-    "shared": "shared.board_top.3c0ee28f540a.json",
-    "chain_average": "chain_average.board_top.3c0ee28f540a.json",
-    "bayes": "bayes.board_top.3c0ee28f540a-030de536de92.json"
+    "shared": "shared.board_top.11492e3ae013.json",
+    "chain_average": "chain_average.board_top.11492e3ae013.json",
+    "bayes": "bayes.board_top.11492e3ae013-030de536de92.json"
    },
    "label": "wave 1+2",
    "arms": "all",
-   "fingerprint": "3c0ee28f540a",
+   "fingerprint": "11492e3ae013",
    "frame": {
     "population_M": 64,
     "tasks": 1288,
     "keep_set_hash": "ba4c3eb57ad5",
-    "runs_fingerprint": "985aed419dee",
+    "runs_fingerprint": "5408860d223f",
     "build_date": "2026-10-11",
-    "build_ts": "2026-10-11T22:14:01Z",
+    "build_ts": "2026-10-11T22:22:39Z",
     "vocab_ruled": "2026-08-27",
     "set": "board_top",
     "set_label": "wave 1+2",
@@ -331,14 +331,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ba4c3eb57ad5",
     "tasks_used": "wave 1+2 \u2014 1288 tasks, axis wave combined-20260910T2209Z",
-    "source": "failure-vs-difficulty data-board_top fp f76e61401c0f (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-board_top fp 6723ede9f6bf (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "197c6e024abe",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-11T22:14:01Z",
-   "source_fp": "f76e61401c0f",
-   "updated_at": "2026-10-11T22:24:39Z",
+   "source_stamp": "2026-10-11T22:22:39Z",
+   "source_fp": "6723ede9f6bf",
+   "updated_at": "2026-10-11T22:43:00Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -352,20 +352,20 @@
   },
   "top": {
    "files": {
-    "shared": "shared.top.6b518e3f5716.json",
-    "chain_average": "chain_average.top.6b518e3f5716.json",
-    "bayes": "bayes.top.6b518e3f5716-3fa1dd2406a1.json"
+    "shared": "shared.top.a4a8467baaa1.json",
+    "chain_average": "chain_average.top.a4a8467baaa1.json",
+    "bayes": "bayes.top.a4a8467baaa1-3fa1dd2406a1.json"
    },
    "label": "wave 2",
    "arms": "all",
-   "fingerprint": "6b518e3f5716",
+   "fingerprint": "a4a8467baaa1",
    "frame": {
     "population_M": 61,
     "tasks": 858,
     "keep_set_hash": "532d0efad8a5",
-    "runs_fingerprint": "985aed419dee",
+    "runs_fingerprint": "5408860d223f",
     "build_date": "2026-10-11",
-    "build_ts": "2026-10-11T22:00:38Z",
+    "build_ts": "2026-10-11T22:27:24Z",
     "vocab_ruled": "2026-08-27",
     "set": "top",
     "set_label": "wave 2",
@@ -376,14 +376,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "532d0efad8a5",
     "tasks_used": "wave 2 \u2014 858 tasks, axis wave pool-20260910T2244Z",
-    "source": "failure-vs-difficulty data-top fp 99528e86eb12 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-top fp 16a594678a43 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "813852d83886",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-11T22:00:38Z",
-   "source_fp": "99528e86eb12",
-   "updated_at": "2026-10-11T22:25:27Z",
+   "source_stamp": "2026-10-11T22:27:24Z",
+   "source_fp": "16a594678a43",
+   "updated_at": "2026-10-11T22:43:45Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -400,20 +400,20 @@
   },
   "golden-board_top": {
    "files": {
-    "shared": "shared.golden-board_top.8e89e23f3911.json",
-    "chain_average": "chain_average.golden-board_top.8e89e23f3911.json",
-    "bayes": "bayes.golden-board_top.8e89e23f3911-b8c1e660acdf.json"
+    "shared": "shared.golden-board_top.b0ecfb03ea10.json",
+    "chain_average": "chain_average.golden-board_top.b0ecfb03ea10.json",
+    "bayes": "bayes.golden-board_top.b0ecfb03ea10-b8c1e660acdf.json"
    },
    "label": "wave 1+2",
    "arms": "golden",
-   "fingerprint": "8e89e23f3911",
+   "fingerprint": "b0ecfb03ea10",
    "frame": {
     "population_M": 12,
     "tasks": 1288,
     "keep_set_hash": "ba4c3eb57ad5",
     "runs_fingerprint": "5408860d223f",
     "build_date": "2026-10-11",
-    "build_ts": "2026-10-11T22:20:27Z",
+    "build_ts": "2026-10-11T22:36:23Z",
     "vocab_ruled": "2026-08-27",
     "set": "board_top",
     "set_label": "wave 1+2",
@@ -429,9 +429,9 @@
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-11T22:20:27Z",
+   "source_stamp": "2026-10-11T22:36:23Z",
    "source_fp": "a2786e34d4d0",
-   "updated_at": "2026-10-11T22:25:40Z",
+   "updated_at": "2026-10-11T22:43:58Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -449,20 +449,20 @@
   },
   "golden-top": {
    "files": {
-    "shared": "shared.golden-top.a9a3ea798106.json",
-    "chain_average": "chain_average.golden-top.a9a3ea798106.json",
-    "bayes": "bayes.golden-top.a9a3ea798106-ac86d9d75102.json"
+    "shared": "shared.golden-top.b9b90889827e.json",
+    "chain_average": "chain_average.golden-top.b9b90889827e.json",
+    "bayes": "bayes.golden-top.b9b90889827e-ac86d9d75102.json"
    },
    "label": "wave 2",
    "arms": "golden",
-   "fingerprint": "a9a3ea798106",
+   "fingerprint": "b9b90889827e",
    "frame": {
     "population_M": 12,
     "tasks": 858,
     "keep_set_hash": "532d0efad8a5",
     "runs_fingerprint": "5408860d223f",
     "build_date": "2026-10-11",
-    "build_ts": "2026-10-11T22:21:32Z",
+    "build_ts": "2026-10-11T22:37:07Z",
     "vocab_ruled": "2026-08-27",
     "set": "top",
     "set_label": "wave 2",
@@ -478,9 +478,9 @@
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-11T22:21:32Z",
+   "source_stamp": "2026-10-11T22:37:07Z",
    "source_fp": "90f54d8a8452",
-   "updated_at": "2026-10-11T22:25:54Z",
+   "updated_at": "2026-10-11T22:44:12Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
