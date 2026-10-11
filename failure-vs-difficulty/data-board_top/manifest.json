@@ -1,9 +1,9 @@
 {
- "fingerprint": "8f20f771450e",
+ "fingerprint": "8be60abb0e26",
  "fingerprint_inputs": {
   "content": "d10eb01c6511",
   "wave": "combined-20260910T2209Z",
-  "body": "a475b573fff2"
+  "body": "ffc0b34b8e15"
  },
  "frame": {
   "dataset": "board_top",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "1459c2bfd3de",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-11",
-  "stamp": "2026-10-11T15:48:59Z",
+  "stamp": "2026-10-11T16:21:12Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -122,7 +122,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-11T15:16:02Z",
+   "unified_built_at": "2026-10-11T16:16:12Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -963,7 +963,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-11T15:24:53Z",
+   "_stamp": "2026-10-11T16:25:39Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1156,7 +1156,7 @@
     "arms_in": "shared"
    },
    {
-    "updated_at": "2026-10-08T13:27:13Z+2026-10-08T13:27:14Z+2026-10-08T13:27:14Z+2026-10-08T13:27:14Z+2026-10-08T13:27:14Z+2026-10-08T13:27:15Z+2026-10-08T13:27:15Z+2026-10-08T13:27:15Z+2026-10-08T13:27:15Z+2026-10-08T13:27:16Z+2026-10-11T15:47:21Z+2026-10-11T15:47:17Z",
+    "updated_at": "2026-10-11T16:19:26Z",
     "pointer": "definitions/fitting/serving_series_dsc6.7b-rl-night1.json",
     "row": 2,
     "served": true,
@@ -1166,11 +1166,111 @@
     "arms_in": "shared"
    },
    {
-    "updated_at": "2026-10-11T15:43:18Z+2026-10-11T15:43:21Z+2026-10-11T15:43:25Z+2026-10-11T15:44:19Z+2026-10-11T14:50:05Z",
-    "pointer": "definitions/fitting/serving_series_r1d7b-rl-f12-a.json",
+    "updated_at": "2026-10-11T16:19:26Z",
+    "pointer": "definitions/fitting/serving_series_dsc6.7b-rl-night2.json",
     "row": 3,
     "served": true,
+    "n_arms": 2,
+    "arms": [],
+    "slim": true,
+    "arms_in": "shared"
+   },
+   {
+    "updated_at": "2026-10-11T16:19:26Z",
+    "pointer": "definitions/fitting/serving_series_dsc6.7b-rl-night3.json",
+    "row": 4,
+    "served": true,
+    "n_arms": 2,
+    "arms": [],
+    "slim": true,
+    "arms_in": "shared"
+   },
+   {
+    "updated_at": "2026-10-11T16:19:26Z",
+    "pointer": "definitions/fitting/serving_series_dsc6.7b-rl-night4.json",
+    "row": 5,
+    "served": true,
+    "n_arms": 2,
+    "arms": [],
+    "slim": true,
+    "arms_in": "shared"
+   },
+   {
+    "updated_at": "2026-10-11T16:19:27Z",
+    "pointer": "definitions/fitting/serving_series_dsc6.7b-rl-night5.json",
+    "row": 6,
+    "served": true,
+    "n_arms": 2,
+    "arms": [],
+    "slim": true,
+    "arms_in": "shared"
+   },
+   {
+    "updated_at": "2026-10-11T16:19:27Z",
+    "pointer": "definitions/fitting/serving_series_dsc6.7b-rl-night6.json",
+    "row": 7,
+    "served": true,
+    "n_arms": 2,
+    "arms": [],
+    "slim": true,
+    "arms_in": "shared"
+   },
+   {
+    "updated_at": "2026-10-11T16:19:27Z",
+    "pointer": "definitions/fitting/serving_series_dsc6.7b-rl-redraw-a.json",
+    "row": 8,
+    "served": true,
+    "n_arms": 1,
+    "arms": [],
+    "slim": true,
+    "arms_in": "shared"
+   },
+   {
+    "updated_at": "2026-10-11T16:19:27Z",
+    "pointer": "definitions/fitting/serving_series_dsc6.7b-rl-redraw-b.json",
+    "row": 9,
+    "served": true,
+    "n_arms": 1,
+    "arms": [],
+    "slim": true,
+    "arms_in": "shared"
+   },
+   {
+    "updated_at": "2026-10-11T16:19:28Z",
+    "pointer": "definitions/fitting/serving_series_dsc6.7b-rl-redraw-c.json",
+    "row": 10,
+    "served": true,
+    "n_arms": 1,
+    "arms": [],
+    "slim": true,
+    "arms_in": "shared"
+   },
+   {
+    "updated_at": "2026-10-11T16:19:28Z",
+    "pointer": "definitions/fitting/serving_series_dsc6.7b-rl-redraw25-a.json",
+    "row": 11,
+    "served": true,
+    "n_arms": 1,
+    "arms": [],
+    "slim": true,
+    "arms_in": "shared"
+   },
+   {
+    "updated_at": "2026-10-11T15:43:18Z+2026-10-11T15:43:21Z+2026-10-11T15:43:25Z+2026-10-11T15:44:19Z+2026-10-11T14:50:05Z",
+    "pointer": "definitions/fitting/serving_series_r1d7b-rl-f12-a.json",
+    "row": 12,
+    "served": true,
     "n_arms": 5,
+    "arms": [],
+    "slim": true,
+    "arms_in": "shared"
+   },
+   {
+    "updated_at": "2026-10-11T15:47:21Z+2026-10-11T15:47:17Z",
+    "pointer": "definitions/fitting/serving_series_dsc6.7b-sft-qwen3-14b.json",
+    "row": 13,
+    "served": true,
+    "n_arms": 2,
     "arms": [],
     "slim": true,
     "arms_in": "shared"
@@ -1199,9 +1299,9 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.8f20f771450e.json",
-  "chain_average": "chain_average.8f20f771450e.json",
-  "chain_median": "chain_median.8f20f771450e.json",
-  "dots": "dots.8f20f771450e.json"
+  "shared": "shared.8be60abb0e26.json",
+  "chain_average": "chain_average.8be60abb0e26.json",
+  "chain_median": "chain_median.8be60abb0e26.json",
+  "dots": "dots.8be60abb0e26.json"
  }
 }
