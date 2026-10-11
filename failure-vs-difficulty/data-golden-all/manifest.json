@@ -1,9 +1,9 @@
 {
- "fingerprint": "0e47ab2941c1",
+ "fingerprint": "68752f5899c7",
  "fingerprint_inputs": {
   "content": "0e1bf6f2ed4a",
   "wave": "combined-20260909T1322Z",
-  "body": "c564eca6f695"
+  "body": "dfa5c4bcc484"
  },
  "frame": {
   "dataset": "all",
@@ -34,17 +34,17 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "2a0d1463bdf5",
+  "runs_fingerprint": "c5f9320d0ba8",
   "axis_wave": "combined-20260909T1322Z",
   "build_date": "2026-10-11",
-  "stamp": "2026-10-11T00:39:24Z",
+  "stamp": "2026-10-11T01:17:27Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-11T00:14:33Z",
+   "unified_built_at": "2026-10-11T01:16:32Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.golden.all.csv"
@@ -399,17 +399,17 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-10T23:49:22Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261010T234922Z.json",
-   "sha16": "c8917d2dcacf9aed",
-   "census_mtime": "2026-10-10T23:50:12Z",
+   "stamp": "2026-10-11T00:59:12Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261011T005912Z.json",
+   "sha16": "352415b116bd1b6e",
+   "census_mtime": "2026-10-11T01:00:02Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   }
  },
  "files": {
-  "shared": "shared.0e47ab2941c1.json",
-  "chain_average": "chain_average.0e47ab2941c1.json",
-  "chain_median": "chain_median.0e47ab2941c1.json",
-  "dots": "dots.0e47ab2941c1.json"
+  "shared": "shared.68752f5899c7.json",
+  "chain_average": "chain_average.68752f5899c7.json",
+  "chain_median": "chain_median.68752f5899c7.json",
+  "dots": "dots.68752f5899c7.json"
  }
 }
