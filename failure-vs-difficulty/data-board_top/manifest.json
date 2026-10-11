@@ -1,9 +1,9 @@
 {
- "fingerprint": "80341e36c483",
+ "fingerprint": "f63dc860fddc",
  "fingerprint_inputs": {
   "content": "dd325a53a92f",
   "wave": "combined-20260910T2209Z",
-  "body": "ebe78642d117"
+  "body": "ac1ab29bdc1b"
  },
  "frame": {
   "dataset": "board_top",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "b62a12f6347f",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-11",
-  "stamp": "2026-10-11T14:01:29Z",
+  "stamp": "2026-10-11T14:12:05Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -1127,10 +1127,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-11T10:24:38Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261011T102438Z.json",
-   "sha16": "cd7398e0e539f11d",
-   "census_mtime": "2026-10-11T10:25:23Z",
+   "stamp": "2026-10-11T13:28:53Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261011T132853Z.json",
+   "sha16": "214ab296e5add316",
+   "census_mtime": "2026-10-11T13:29:44Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "series_rows": [
@@ -1198,9 +1198,9 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.80341e36c483.json",
-  "chain_average": "chain_average.80341e36c483.json",
-  "chain_median": "chain_median.80341e36c483.json",
-  "dots": "dots.80341e36c483.json"
+  "shared": "shared.f63dc860fddc.json",
+  "chain_average": "chain_average.f63dc860fddc.json",
+  "chain_median": "chain_median.f63dc860fddc.json",
+  "dots": "dots.f63dc860fddc.json"
  }
 }
