@@ -338,7 +338,7 @@
    },
    "source_stamp": "2026-10-11T14:12:05Z",
    "source_fp": "f63dc860fddc",
-   "updated_at": "2026-10-11T14:21:52Z",
+   "updated_at": "2026-10-11T14:35:55Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -347,8 +347,7 @@
     "served_arms": 59
    },
    "missing": {
-    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
-    "capC": "Capability C names neither a row nor an exclusion for 3 arm(s) (olmo-3.1-7b-rl-zero-code-final_completion, olmo-3-7b-think-final-Thinking, Qwen/Qwen3.5-9B-Base_completion) \u2014 waits for difficulty's re-emit"
+    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry"
    }
   },
   "top": {
@@ -384,7 +383,7 @@
    },
    "source_stamp": "2026-10-11T14:17:26Z",
    "source_fp": "516924769ae7",
-   "updated_at": "2026-10-11T14:22:53Z",
+   "updated_at": "2026-10-11T14:37:18Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -432,7 +431,7 @@
    },
    "source_stamp": "2026-10-11T14:10:43Z",
    "source_fp": "59e4eec65da2",
-   "updated_at": "2026-10-11T14:23:08Z",
+   "updated_at": "2026-10-11T14:37:40Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -481,7 +480,7 @@
    },
    "source_stamp": "2026-10-11T14:11:22Z",
    "source_fp": "20035d42a623",
-   "updated_at": "2026-10-11T14:23:31Z",
+   "updated_at": "2026-10-11T14:38:15Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -499,21 +498,21 @@
   },
   "math500": {
    "files": {
-    "shared": "shared.math500.d8cb1c3b0851.json",
-    "chain_average": "chain_average.math500.d8cb1c3b0851.json",
-    "bayes": "bayes.math500.d8cb1c3b0851-2ad98d61ba03.json",
+    "shared": "shared.math500.97e77958937c.json",
+    "chain_average": "chain_average.math500.97e77958937c.json",
+    "bayes": "bayes.math500.97e77958937c-2ad98d61ba03.json",
     "bayes_prev": "bayes.math500.512ae990f467-2e38bc937e1f.json"
    },
    "label": "MATH-500",
    "arms": "all",
-   "fingerprint": "d8cb1c3b0851",
+   "fingerprint": "97e77958937c",
    "frame": {
     "population_M": 52,
     "tasks": 500,
     "keep_set_hash": "326e66dcd9ab",
-    "runs_fingerprint": "06f2f48db3ff",
+    "runs_fingerprint": "ec296998e888",
     "build_date": "2026-10-11",
-    "build_ts": "2026-10-11T12:43:48Z",
+    "build_ts": "2026-10-11T14:31:52Z",
     "vocab_ruled": "2026-08-27",
     "set": "math500",
     "set_label": "MATH-500",
@@ -524,14 +523,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "326e66dcd9ab",
     "tasks_used": "MATH-500 \u2014 500 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-math500 fp f0cec3184e39 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-math500 fp 75cbbea78796 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "3ea4859a86bc",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-11T12:43:48Z",
-   "source_fp": "f0cec3184e39",
-   "updated_at": "2026-10-11T12:46:42Z",
+   "source_stamp": "2026-10-11T14:31:52Z",
+   "source_fp": "75cbbea78796",
+   "updated_at": "2026-10-11T14:36:11Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
