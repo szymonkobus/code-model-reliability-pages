@@ -2537,7 +2537,7 @@ function exportLegend() {
   srL.arms.forEach(function (a, k) {
     if (a._twin || (seriesSel && !seriesSel.has(k)) || !sideCurve(a)) return;
     var mkL = runMarkOf(a);   
-    rows.push({ label: a.short_label || a.label, family: a.run || a.family || undefined, color: a.color, dash: curveDash(a), width: a.thin ? 1.0 : 1.6, marker: mkL ? (mkL.open ? 'open-' : '') + mkL.shape : 'none', dot: !!(mkL && mkL.dot), dotColor: (mkL && mkL.dotColor) || undefined });   
+    rows.push({ label: a.label || a.short_label, family: a.run || a.family || undefined, color: a.color, dash: curveDash(a), width: a.thin ? 1.0 : 1.6, marker: mkL ? (mkL.open ? 'open-' : '') + mkL.shape : 'none', dot: !!(mkL && mkL.dot), dotColor: (mkL && mkL.dotColor) || undefined });   
   }); });
   return rows;
 }
