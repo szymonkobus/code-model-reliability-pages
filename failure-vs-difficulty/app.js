@@ -1131,7 +1131,7 @@ function seriesChipShown(sb, ri, k, merged) { return seriesAllFor(ri) || !!rowEn
 function toggleSeriesAll(sb, ri, merged, members) {   
   var on = !seriesAllFor(ri); seriesAllOn[ri] = on; var ss = seriesSelFor(ri), ends = rowEnds(sb, merged);
   ((sb && sb.arms) || []).forEach(function (a, k) {
-    if (a._twin) { var ti = panelIndexOf(a.id); if (ti >= 0 && on) sel.add(ti); return; }
+    if (a._twin) { var ti = panelIndexOf(a._twin_id || a.id); if (ti >= 0 && on) sel.add(ti); return; }   
     if (on) ss.add(k); else if (!ends[k]) ss.delete(k);
   });
   if (on && members) members.forEach(function (i) { sel.add(i); });   
@@ -1157,13 +1157,13 @@ function orderSeries(s) {
   if (!s._ordered) {   
     
     
-    var served = {}; (D.shared.configs || []).forEach(function (c) { served[c.id] = true; });
+    var served = {}, servedKey = {}; (D.shared.configs || []).forEach(function (c) { served[c.id] = true; var sk = slugOfRecord(c.label); if (sk && !(sk in servedKey)) servedKey[sk] = c.id; });   
     
     
     var ownFit = function (id) { var A = (D.avg && D.avg.configs && D.avg.configs[id]) || null, M = (D.med && D.med.configs && D.med.configs[id]) || null; return !!((A && A.bayes) || (M && M.bayes)); };
     
     
-    s.merged_ids = []; s.merged_arms = {}; s.arms = s.arms.filter(function (a) { if (served[a.id]) { if (s.group_of_record && a.step === 0) { a._twin = true; return true; }     if (ownFit(a.id) || a.step == null) { s.merged_ids.push(a.id); s.merged_arms[a.id] = a; return false; } ROW_KEPT[a.id] = true; } return true; });
+    s.merged_ids = []; s.merged_arms = {}; s.arms = s.arms.filter(function (a) { if (!served[a.id] && s.group_of_record && a.step === 0 && servedKey[slugOfRecord(a.label)]) { a._twin = true; a._twin_id = servedKey[slugOfRecord(a.label)]; return true; }     if (served[a.id]) { if (s.group_of_record && a.step === 0) { a._twin = true; a._twin_id = a.id; return true; }     if (ownFit(a.id) || a.step == null) { s.merged_ids.push(a.id); s.merged_arms[a.id] = a; return false; } ROW_KEPT[a.id] = true; } return true; });
     
     var stepKey = function (a) { return (a.final || a.step == null) ? 1e15 : Number(a.step); };
     if (s.group_of_record) {   
@@ -1401,11 +1401,11 @@ function renderSeriesRow(sb, ri) {
   else if (sb.membership) head.title = oneSentence(noSpecTags(sb.membership));
   sc.appendChild(head);
   
-  ['all', 'none'].forEach(function (w) { var ab = document.createElement('button'); ab.className = 'util'; ab.textContent = w; ab.onclick = function () { seriesSel.clear(); sb.arms.forEach(function (a, k) { if (a._twin) { var ti = panelIndexOf(a.id); if (ti >= 0) { if (w === 'all') sel.add(ti); else sel.delete(ti); } } else if (w === 'all' && seriesChipShown(sb, ri, k, false)) seriesSel.add(k); }); writeSel(); render(); }; sc.appendChild(ab); });   
+  ['all', 'none'].forEach(function (w) { var ab = document.createElement('button'); ab.className = 'util'; ab.textContent = w; ab.onclick = function () { seriesSel.clear(); sb.arms.forEach(function (a, k) { if (a._twin) { var ti = panelIndexOf(a._twin_id || a.id); if (ti >= 0) { if (w === 'all') sel.add(ti); else sel.delete(ti); } } else if (w === 'all' && seriesChipShown(sb, ri, k, false)) seriesSel.add(k); }); writeSel(); render(); }; sc.appendChild(ab); });   
   sc.appendChild(seriesAllButton(sb, ri, false, null));   
   sb.arms.forEach(function (a, k) {
     var b = document.createElement('button');
-    var tiK = a._twin ? panelIndexOf(a.id) : -1;   
+    var tiK = a._twin ? panelIndexOf(a._twin_id || a.id) : -1;   
     b.className = 'chip' + ((tiK >= 0 ? sel.has(tiK) : seriesSel.has(k)) ? '' : ' off') + (a.disclosure ? ' disclosed' : '');
     b.style.color = a.color; b.style.borderColor = a.color;
     b.textContent = a.short_label || a.label; b.dataset.label = b.textContent; b.dataset.name = a.label || b.textContent; b.dataset.name = a.label || b.textContent; b.dataset.series = String(k); b.dataset.row = String(ri);   
