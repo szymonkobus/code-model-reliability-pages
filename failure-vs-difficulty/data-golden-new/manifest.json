@@ -1,9 +1,9 @@
 {
- "fingerprint": "40cc1d985d48",
+ "fingerprint": "9d9179c855b8",
  "fingerprint_inputs": {
   "content": "aeb913f885ac",
   "wave": "golden-pool-20260904T1407Z",
-  "body": "18a509cfa59a"
+  "body": "a5e61df2afa9"
  },
  "frame": {
   "dataset": "new",
@@ -34,17 +34,17 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "b62a12f6347f",
+  "runs_fingerprint": "c2cf95d5dd88",
   "axis_wave": "golden-pool-20260904T1407Z",
   "build_date": "2026-10-11",
-  "stamp": "2026-10-11T13:44:11Z",
+  "stamp": "2026-10-11T14:19:57Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-11T13:14:06Z",
+   "unified_built_at": "2026-10-11T14:14:49Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.golden.pool.csv"
@@ -396,17 +396,18 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-11T10:24:38Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261011T102438Z.json",
-   "sha16": "cd7398e0e539f11d",
-   "census_mtime": "2026-10-11T10:25:23Z",
+   "stamp": "2026-10-11T13:28:53Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261011T132853Z.json",
+   "sha16": "214ab296e5add316",
+   "census_mtime": "2026-10-11T13:29:44Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
-  }
+  },
+  "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.40cc1d985d48.json",
-  "chain_average": "chain_average.40cc1d985d48.json",
-  "chain_median": "chain_median.40cc1d985d48.json",
-  "dots": "dots.40cc1d985d48.json"
+  "shared": "shared.9d9179c855b8.json",
+  "chain_average": "chain_average.9d9179c855b8.json",
+  "chain_median": "chain_median.9d9179c855b8.json",
+  "dots": "dots.9d9179c855b8.json"
  }
 }
