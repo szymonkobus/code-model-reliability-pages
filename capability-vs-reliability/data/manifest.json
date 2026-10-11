@@ -383,7 +383,7 @@
    },
    "source_stamp": "2026-10-11T22:00:38Z",
    "source_fp": "99528e86eb12",
-   "updated_at": "2026-10-11T22:05:33Z",
+   "updated_at": "2026-10-11T22:25:27Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -400,20 +400,20 @@
   },
   "golden-board_top": {
    "files": {
-    "shared": "shared.golden-board_top.557c01de05d9.json",
-    "chain_average": "chain_average.golden-board_top.557c01de05d9.json",
-    "bayes": "bayes.golden-board_top.557c01de05d9-b8c1e660acdf.json"
+    "shared": "shared.golden-board_top.8e89e23f3911.json",
+    "chain_average": "chain_average.golden-board_top.8e89e23f3911.json",
+    "bayes": "bayes.golden-board_top.8e89e23f3911-b8c1e660acdf.json"
    },
    "label": "wave 1+2",
    "arms": "golden",
-   "fingerprint": "557c01de05d9",
+   "fingerprint": "8e89e23f3911",
    "frame": {
     "population_M": 12,
     "tasks": 1288,
     "keep_set_hash": "ba4c3eb57ad5",
-    "runs_fingerprint": "985aed419dee",
+    "runs_fingerprint": "5408860d223f",
     "build_date": "2026-10-11",
-    "build_ts": "2026-10-11T21:52:33Z",
+    "build_ts": "2026-10-11T22:20:27Z",
     "vocab_ruled": "2026-08-27",
     "set": "board_top",
     "set_label": "wave 1+2",
@@ -424,14 +424,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ba4c3eb57ad5",
     "tasks_used": "wave 1+2 \u2014 1288 tasks, golden-set axis over the 12 arms",
-    "source": "failure-vs-difficulty data-golden-board_top fp 44792206134c (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-golden-board_top fp a2786e34d4d0 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "ca942189a3a9",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-11T21:52:33Z",
-   "source_fp": "44792206134c",
-   "updated_at": "2026-10-11T22:05:56Z",
+   "source_stamp": "2026-10-11T22:20:27Z",
+   "source_fp": "a2786e34d4d0",
+   "updated_at": "2026-10-11T22:25:40Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -449,20 +449,20 @@
   },
   "golden-top": {
    "files": {
-    "shared": "shared.golden-top.e18bfaf1380e.json",
-    "chain_average": "chain_average.golden-top.e18bfaf1380e.json",
-    "bayes": "bayes.golden-top.e18bfaf1380e-ac86d9d75102.json"
+    "shared": "shared.golden-top.a9a3ea798106.json",
+    "chain_average": "chain_average.golden-top.a9a3ea798106.json",
+    "bayes": "bayes.golden-top.a9a3ea798106-ac86d9d75102.json"
    },
    "label": "wave 2",
    "arms": "golden",
-   "fingerprint": "e18bfaf1380e",
+   "fingerprint": "a9a3ea798106",
    "frame": {
     "population_M": 12,
     "tasks": 858,
     "keep_set_hash": "532d0efad8a5",
-    "runs_fingerprint": "985aed419dee",
+    "runs_fingerprint": "5408860d223f",
     "build_date": "2026-10-11",
-    "build_ts": "2026-10-11T21:53:30Z",
+    "build_ts": "2026-10-11T22:21:32Z",
     "vocab_ruled": "2026-08-27",
     "set": "top",
     "set_label": "wave 2",
@@ -473,14 +473,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "532d0efad8a5",
     "tasks_used": "wave 2 \u2014 858 tasks, golden-set axis over the 12 arms",
-    "source": "failure-vs-difficulty data-golden-top fp d51905a3a653 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-golden-top fp 90f54d8a8452 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "6445539e59a2",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-11T21:53:30Z",
-   "source_fp": "d51905a3a653",
-   "updated_at": "2026-10-11T22:06:29Z",
+   "source_stamp": "2026-10-11T22:21:32Z",
+   "source_fp": "90f54d8a8452",
+   "updated_at": "2026-10-11T22:25:54Z",
    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
    "bayes_interim": {
     "wave": null,
@@ -822,7 +822,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-10-11T21:25:27Z",
+  "stamp": "2026-10-11T22:24:38Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,
