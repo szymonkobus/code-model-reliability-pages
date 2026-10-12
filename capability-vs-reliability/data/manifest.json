@@ -108,24 +108,24 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-12T20:16:18Z"
+   "updated_at": "2026-10-12T20:39:29Z"
   },
   "all": {
    "files": {
-    "shared": "shared.all.7fe8b0987a8f.json",
-    "chain_average": "chain_average.all.7fe8b0987a8f.json",
-    "bayes": "bayes.all.7fe8b0987a8f-369140b65255.json"
+    "shared": "shared.all.79ae3815ec1e.json",
+    "chain_average": "chain_average.all.79ae3815ec1e.json",
+    "bayes": "bayes.all.79ae3815ec1e-369140b65255.json"
    },
    "label": "all waves",
    "arms": "all",
-   "fingerprint": "7fe8b0987a8f",
+   "fingerprint": "79ae3815ec1e",
    "frame": {
     "population_M": 64,
     "tasks": 2167,
     "keep_set_hash": "60ede5d24001",
-    "runs_fingerprint": "c2310c82a7cc",
+    "runs_fingerprint": "c2f287375e47",
     "build_date": "2026-10-12",
-    "build_ts": "2026-10-12T19:57:09Z",
+    "build_ts": "2026-10-12T20:24:35Z",
     "vocab_ruled": "2026-08-27",
     "set": "all",
     "set_label": "all waves",
@@ -136,14 +136,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "60ede5d24001",
     "tasks_used": "all waves \u2014 2167 tasks, axis wave unified-live",
-    "source": "failure-vs-difficulty data-all fp fcd7678a1ec3 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "ecc56458c8e5",
+    "source": "failure-vs-difficulty data-all fp 901cb0776ada (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "b8958203aae1",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-12T19:57:09Z",
-   "source_fp": "fcd7678a1ec3",
-   "updated_at": "2026-10-12T20:27:08Z",
+   "source_stamp": "2026-10-12T20:24:35Z",
+   "source_fp": "901cb0776ada",
+   "updated_at": "2026-10-12T20:49:50Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,

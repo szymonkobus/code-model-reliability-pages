@@ -1,9 +1,9 @@
 {
- "fingerprint": "7c965d94bbb1",
+ "fingerprint": "aa4a113ce2cb",
  "fingerprint_inputs": {
   "content": "4c6c770e3b17",
   "wave": "pool-20260910T2244Z",
-  "body": "a22c2194b034"
+  "body": "a08ab1bd676a"
  },
  "frame": {
   "dataset": "top",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "c2f287375e47",
   "axis_wave": "pool-20260910T2244Z",
   "build_date": "2026-10-12",
-  "stamp": "2026-10-12T20:17:46Z",
+  "stamp": "2026-10-12T20:41:30Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -850,9 +850,9 @@
    "new_focused": 869,
    "new_parked": 893,
    "new_total": 1762,
-   "new_focused_kept": 858,
+   "new_focused_kept": 857,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-12T19:26:39Z",
+   "_stamp": "2026-10-12T20:28:54Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -904,7 +904,7 @@
      "figure_count": 869,
      "label": "wave 2 (869 tasks)",
      "figure_label": "wave 2 (869 tasks)",
-     "kept_count": 858,
+     "kept_count": 857,
      "members": 869,
      "tasks": 869,
      "never_includes": "wave 2 parked"
@@ -949,10 +949,10 @@
      "figure_count": 1299,
      "label": "wave 1+2 (1,299 tasks)",
      "figure_label": "wave 1+2 (1,299 tasks)",
-     "kept_count": 1288,
+     "kept_count": 1287,
      "members": 1411,
      "composition": "wave 1 + wave 2; never includes wave 2 parked",
-     "fit_population_note": "fit_population 1,288 = fit_original 430 (the range explorer's matrix frame at its last build) + the wave 2 kept count 858 after the twin fold (22 Sep 2026: the kept frame the served fits stand on; until then this figure added the wave 2 members); a served fit states its own task count from its owner's stamp, never from this figure"
+     "fit_population_note": "fit_population 1,287 = fit_original 430 (the range explorer's matrix frame at its last build) + the wave 2 kept count 857 after the twin fold (22 Sep 2026: the kept frame the served fits stand on; until then this figure added the wave 2 members); a served fit states its own task count from its owner's stamp, never from this figure"
     },
     "wave_2_plus_parked": {
      "name": "wave 2 and wave 2 parked",
@@ -973,7 +973,7 @@
      "figure_label": "wave 2 and wave 2 parked (1,762 tasks)",
      "figure_label_template": "wave 2 and wave 2 parked (1,762 tasks)",
      "template_rule": "the label of record (13 Sep ruling): the set name with its count of record; a FIT that draws this set states its frame count BESIDE the label from the fit owner's stamp (fitting's serving stamp), never inside it; the 10 Sep frame-count template is superseded; a page naming the SET uses label (the membership count new_total)",
-     "kept_count": 1737,
+     "kept_count": 1736,
      "members": 1762,
      "never_includes": "the pilot; 'wave 2' alone never means this union"
     },
@@ -985,7 +985,7 @@
      "count_source": "the fit owner's stamp (fitting's serving_golden_combined.json task count as cut) \u2014 never this file",
      "figure_label_template": "wave 1 + wave 2 + wave 2 parked (2,192 tasks) + the easy-tasks pilot (100 tasks)",
      "template_rule": "the label of record (13 Sep ruling): the waves' count of record in the label, the pilot named with its plain what and the hundred of record as its own count (ruling 07:51:54Z 13 Sep); the fit owner's frame as cut is stated beside the label from its stamp, never inside it (supersedes the 10 Sep frame-count template)",
-     "kept_count": 2267,
+     "kept_count": 2266,
      "members": 2404,
      "hundred_of_record_check": {
       "ruled": 100,
@@ -1026,10 +1026,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.7c965d94bbb1.json",
-  "chain_average": "chain_average.7c965d94bbb1.json",
-  "chain_median": "chain_median.7c965d94bbb1.json",
-  "dots": "dots.7c965d94bbb1.json",
-  "levels": "levels.7c965d94bbb1.json"
+  "shared": "shared.aa4a113ce2cb.json",
+  "chain_average": "chain_average.aa4a113ce2cb.json",
+  "chain_median": "chain_median.aa4a113ce2cb.json",
+  "dots": "dots.aa4a113ce2cb.json",
+  "levels": "levels.aa4a113ce2cb.json"
  }
 }
