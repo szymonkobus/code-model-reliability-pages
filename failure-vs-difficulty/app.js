@@ -1386,7 +1386,7 @@ function renderSideBlock() {
   var isAvg = state.def === 'average';
   var sideUnresolved = false;   
   var t = document.createElement('table');
-  t.innerHTML = '<tr><th>model</th><th title="D50 — the difficulty at which the fitted curve of the ' + (isAvg ? 'average failure rate' : 'median task&#39;s failure rate') + ' crosses 50% (' + (isAvg ? 'average rate' : 'median task') + ')">D50</th><th title="D99 — the difficulty at which the fitted curve of the ' + (isAvg ? 'average failure rate' : 'median task&#39;s failure rate') + ' crosses 1%, a 99% solve chance (' + (isAvg ? 'average rate' : 'median task') + ')">D99</th></tr>';
+  t.innerHTML = '<tr><th>model</th><th title="' + crossingHover('50', isAvg).replace(/"/g, '&quot;') + '">D50</th><th title="' + crossingHover('1', isAvg).replace(/"/g, '&quot;') + '">D99</th></tr>';   
   sb.arms.forEach(function (a, k) {
     if (!sideOn(k) || sideHidden(a)) return;
     if (MERGED_REV[k] != null) return;   
@@ -1402,7 +1402,7 @@ function renderSideBlock() {
         td.title = oneSentence(faceNumbers(noSpecTags((rr.status || 'not resolved') + (rr.reason_text ? ' ' + rr.reason_text : '')))) + unresolvedFitHover(rr);
         sideUnresolved = true;
       } else if (rr && rr.z != null && rr.lo != null && rr.hi != null && rr.status_kind !== 'bound') {
-        td.textContent = pct(rr.z).toFixed(1); td.title = defWord + 'uncertainty band ' + pct(rr.lo).toFixed(1) + ' to ' + pct(rr.hi).toFixed(1) + ' (difficulty %)';   
+        td.textContent = pct(rr.z).toFixed(1); td.title = defWord + 'uncertainty band ' + pct(rr.lo).toFixed(1) + ' to ' + pct(rr.hi).toFixed(1) + ' (difficulty %)' + BAND_WORDS;   
       } else if (rr && rr.z != null && lvl === '50') {
         td.textContent = pct(rr.z).toFixed(1);
       } else if (rr && rr.status_kind === 'empty') {   
@@ -1509,7 +1509,7 @@ function renderSeriesRow(sb, ri) {
   var isAvg = state.def === 'average';
   var sideUnresolved = false;   
   var t = document.createElement('table');
-  t.innerHTML = '<tr><th>model</th><th title="D50 — the difficulty at which the fitted curve of the ' + (isAvg ? 'average failure rate' : 'median task&#39;s failure rate') + ' crosses 50% (' + (isAvg ? 'average rate' : 'median task') + ')">D50</th><th title="D99 — the difficulty at which the fitted curve of the ' + (isAvg ? 'average failure rate' : 'median task&#39;s failure rate') + ' crosses 1%, a 99% solve chance (' + (isAvg ? 'average rate' : 'median task') + ')">D99</th></tr>';
+  t.innerHTML = '<tr><th>model</th><th title="' + crossingHover('50', isAvg).replace(/"/g, '&quot;') + '">D50</th><th title="' + crossingHover('1', isAvg).replace(/"/g, '&quot;') + '">D99</th></tr>';   
   sb.arms.forEach(function (a, k) {
     if (!seriesSel.has(k)) return;
     var cv = sideCurve(a); var rec = isAvg ? a.cross_record : (a.cross_record_med || null); var defWord = isAvg ? '' : 'median-task definition · ';   
@@ -1524,7 +1524,7 @@ function renderSeriesRow(sb, ri) {
         td.title = oneSentence(faceNumbers(noSpecTags((rr.status || 'not resolved') + (rr.reason_text ? ' ' + rr.reason_text : '')))) + unresolvedFitHover(rr);
         sideUnresolved = true;
       } else if (rr && rr.z != null && rr.lo != null && rr.hi != null && rr.status_kind !== 'bound') {
-        td.textContent = pct(rr.z).toFixed(1); td.title = defWord + 'uncertainty band ' + pct(rr.lo).toFixed(1) + ' to ' + pct(rr.hi).toFixed(1) + ' (difficulty %)';   
+        td.textContent = pct(rr.z).toFixed(1); td.title = defWord + 'uncertainty band ' + pct(rr.lo).toFixed(1) + ' to ' + pct(rr.hi).toFixed(1) + ' (difficulty %)' + BAND_WORDS;   
       } else if (rr && rr.z != null && lvl === '50') {
         td.textContent = pct(rr.z).toFixed(1);
       } else if (rr && rr.status_kind === 'empty') {   
@@ -2001,6 +2001,23 @@ function notes(visible, unfitted) {
 }
 
  
+
+
+
+
+
+
+function crossingName(lvl) { return lvl === '1' ? 'D99' : 'D50'; }
+function crossingRate(isAvg) { return isAvg ? 'average failure rate' : 'median task\'s failure rate'; }
+function crossingWords(lvl, isAvg) {   
+  return crossingName(lvl) + ' is the difficulty at which the fitted ' + crossingRate(isAvg) + ' crosses ' + (lvl === '1' ? '1%' : '50%')
+    + ': the median over the fit\'s draws of each draw\'s own crossing, the middle one where a draw crosses the level several times; its band the 10th to 90th percentiles of those crossings.';
+}
+function crossingHover(lvl, isAvg) {   
+  return crossingName(lvl) + ' \u2014 where the fitted ' + crossingRate(isAvg) + ' crosses ' + (lvl === '1' ? '1%' : '50%')
+    + ': the median of the draws\' own crossings, the middle one where a draw crosses several times';
+}
+var BAND_WORDS = ', the 10th to 90th percentiles of the draws\' crossings';   
 function firstUp(zs, ys, L) {   
   for (var k = 1; k < zs.length; k++) {
     if (ys[k - 1] == null || ys[k] == null) continue;
@@ -2079,10 +2096,7 @@ function crossingsTable(visible) {
   var box = document.getElementById('crossings');
   box.textContent = '';
   if (!visible.length) return;
-  var voc = (D.shared.vocab && D.shared.vocab.enforced) || {};
-  var isAvg = state.def === 'average';
-  var k50 = isAvg ? 'average-rate 50% crossing' : 'median-task 50% crossing';   
-  var k1 = isAvg ? 'average-rate 1% crossing' : 'median-task 1% crossing';
+  var isAvg = state.def === 'average';   
   var isB = state.src === 'bayes';
   var chainWord = isAvg ? 'average rate' : 'median task';
   var rateWord = isAvg ? 'average failure rate' : 'median task\'s failure rate';
@@ -2091,21 +2105,19 @@ function crossingsTable(visible) {
   var n50 = isB ? 'D50' : '50% crossing', n1 = isB ? 'D99' : '1% crossing';
   var estWord = houseName().toLowerCase();
   var crossV = isAvg ? 'crosses' : 'cross';   
-  var hov50 = isB ? 'D50 — the difficulty at which the fitted curve of the ' + rateWord + ' crosses 50% (' + chainWord + ')'
+  var hov50 = isB ? crossingHover('50', isAvg)   
                   : 'where the ' + estWord + ' of the ' + rateWord + ' ' + crossV + ' 50% (' + chainWord + '); D50, the fitted curve\'s, is under the Bayesian estimator';   
-  var hov1 = isB ? 'D99 — the difficulty at which the fitted curve of the ' + rateWord + ' crosses 1%, a 99% solve chance (' + chainWord + ')'
+  var hov1 = isB ? crossingHover('1', isAvg)
                  : 'where the ' + estWord + ' of the ' + rateWord + ' ' + crossV + ' 1% (' + chainWord + '); D99, the fitted curve\'s, is under the Bayesian estimator';
   var h = document.createElement('p');
-  h.innerHTML = '<span data-chain-val>' + n50 + '</span> — '
-    + ((isB && voc[k50]) || hov50.replace(/^D50 — /, '')) + '; ' + n1 + ' — '
-    + ((isB && voc[k1]) || hov1.replace(/^D99 — /, ''))
-    + (isB
-      ? '. Positions in difficulty %, from the median curve of the Bayesian fit for the source picked (first upward crossing); each cell\'s hover carries its '
-        + 'uncertainty band (95% where the fit set carries it, else 80%); * where the model has no fit; '
-        + 'the served crossings with their own uncertainty bands live on Capability vs reliability.'
-      : '. Positions in difficulty %, from the ' + houseName().toLowerCase() + ' for the source picked'
-        + '; each cell\'s hover carries the 95% uncertainty band of the trend (the Uncertainty bands switch changes the drawn bands, not this table); '
-        + 'the Bayesian crossings live on Capability vs reliability.');
+  h.innerHTML = isB
+    ? '<span data-chain-val>' + crossingWords('50', isAvg) + '</span> ' + crossingWords('1', isAvg)   
+      + ' The drawn curve is the median of the draws\' curves at each difficulty, so where it crosses a level can differ from the printed number. Positions in difficulty %; each cell\'s hover carries its band; * where the model has no fit; '
+      + 'the same crossings with their bands live on Capability vs reliability.'
+    : '<span data-chain-val>' + n50 + '</span> — ' + hov50.replace(/^D50 — /, '') + '; ' + n1 + ' — ' + hov1.replace(/^D99 — /, '')
+      + '. Positions in difficulty %, from the ' + houseName().toLowerCase() + ' for the source picked'
+      + '; each cell\'s hover carries the 95% uncertainty band of the trend (the Uncertainty bands switch changes the drawn bands, not this table); '
+      + 'the Bayesian crossings live on Capability vs reliability.';
   box.appendChild(h);
   var t = document.createElement('table');
   t.innerHTML = '<tr><th>model</th><th title="' + hov50.replace(/"/g, '&quot;') + '">' + n50 + '</th><th title="' + hov1.replace(/"/g, '&quot;') + '">'
@@ -2143,7 +2155,7 @@ function crossingsTable(visible) {
           anyUnresolved = true;
         } else if (rec && rec.z != null && rec.lo != null && rec.hi != null && rec.status_kind !== 'bound') {
           td.textContent = pct(rec.z).toFixed(1);   
-          td.title = defWord + 'uncertainty band ' + pct(rec.lo).toFixed(1) + ' to ' + pct(rec.hi).toFixed(1) + ' (difficulty %)';
+          td.title = defWord + 'uncertainty band ' + pct(rec.lo).toFixed(1) + ' to ' + pct(rec.hi).toFixed(1) + ' (difficulty %)' + BAND_WORDS;   
         } else if (rec && rec.z != null && rec.status_kind !== 'bound' && rec.status_kind !== 'unresolved') {   
           td.textContent = pct(rec.z).toFixed(1); if (defWord) td.title = defWord.replace(/ · $/, '');
         } else if (rec && rec.status_kind === 'empty') {   
