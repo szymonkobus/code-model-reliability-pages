@@ -1870,9 +1870,9 @@ function narrate(visible, dotsOn, unfitted) {
   var fp = document.getElementById('fitpanel');
   if (fp) {
     var bf = D.shared.frame && D.shared.frame.bayes_fits;
-    var drawnN = visible.length - (state.src === 'bayes' ? unfitted.length : 0);
+    var drawnN = drawnCount();   
     
-    fp.textContent = drawnN + (drawnN === 1 ? ' model' : ' models');   
+    fp.textContent = drawnCountWords(drawnN);   
   }
 }
 
@@ -2541,6 +2541,11 @@ function exportLegend() {
   }); });
   return rows;
 }
+
+
+
+function drawnCount() { return exportLegend().length; }
+function drawnCountWords(n) { return n + (n === 1 ? ' model' : ' models'); }
 function exportView(nDrawn) {   
   var f = D.shared.frame || {}, ds = DATASETS[DATASET] || {};
   var parts = [String(f.dataset_label || ds.label || DATASET).split(':')[0]];
@@ -2552,7 +2557,7 @@ function exportView(nDrawn) {
   if (state.dots === '1') parts.push('task dots');
   if (pinOn()) parts.push('pinned at ' + PIN_LEVEL + '% failure');
   if (state.xs === 'raw' || state.ys === 'raw') parts.push((state.xs === 'raw' ? 'x' : '') + (state.xs === 'raw' && state.ys === 'raw' ? ' and ' : '') + (state.ys === 'raw' ? 'y' : '') + ' in raw percent spacing');
-  parts.push(nDrawn + ' model' + (nDrawn === 1 ? '' : 's') + ' drawn');
+  parts.push(drawnCountWords(nDrawn) + ' drawn');   
   return parts.join(' \u00b7 ');
 }
 function exportOptions() {
