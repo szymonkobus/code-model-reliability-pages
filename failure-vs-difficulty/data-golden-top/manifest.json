@@ -1,9 +1,9 @@
 {
- "fingerprint": "4aa59e219396",
+ "fingerprint": "25e5ffc1bd62",
  "fingerprint_inputs": {
   "content": "6445539e59a2",
   "wave": "golden-top-20260905T1420Z",
-  "body": "634d863ae964"
+  "body": "0402f4963e8b"
  },
  "frame": {
   "dataset": "top",
@@ -34,17 +34,17 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "f0dc58cdb53f",
+  "runs_fingerprint": "64e3965418ab",
   "axis_wave": "golden-top-20260905T1420Z",
   "build_date": "2026-10-12",
-  "stamp": "2026-10-12T07:37:41Z",
+  "stamp": "2026-10-12T09:43:19Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-12T07:15:41Z",
+   "unified_built_at": "2026-10-12T09:17:15Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.golden.top.csv"
@@ -227,7 +227,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-12T07:25:13Z",
+   "_stamp": "2026-10-12T09:26:00Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -392,18 +392,18 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-12T06:03:50Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261012T060350Z.json",
-   "sha16": "5236bf49cb309600",
-   "census_mtime": "2026-10-12T06:04:43Z",
+   "stamp": "2026-10-12T08:09:16Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261012T080916Z.json",
+   "sha16": "2a63b9590ddcef5b",
+   "census_mtime": "2026-10-12T08:10:08Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.4aa59e219396.json",
-  "chain_average": "chain_average.4aa59e219396.json",
-  "chain_median": "chain_median.4aa59e219396.json",
-  "dots": "dots.4aa59e219396.json"
+  "shared": "shared.25e5ffc1bd62.json",
+  "chain_average": "chain_average.25e5ffc1bd62.json",
+  "chain_median": "chain_median.25e5ffc1bd62.json",
+  "dots": "dots.25e5ffc1bd62.json"
  }
 }
