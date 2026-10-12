@@ -1319,8 +1319,8 @@ function renderScatter() {
       if (state.w === 'on') { preAdd('x', px.lo); preAdd('x', px.hi); preAdd('y', py.lo); preAdd('y', py.hi); }
     });
     if (isFinite(pre.x0) && isFinite(pre.y0)) {
-      var win = function (lo, hi) { if (hi - lo < 0.5) { var m = (lo + hi) / 2; lo = m - 0.25; hi = m + 0.25; } var pd = (hi - lo) * 0.06; return [Math.max(LIM[0], lo - pd), Math.min(LIM[1], hi + pd)]; };
-      var WX = win(pre.x0, pre.x1), WY = win(pre.y0, pre.y1);
+      var win = function (lo, hi, minW) { if (hi - lo < minW) { var m = (lo + hi) / 2; lo = m - minW / 2; hi = m + minW / 2; } var pd = (hi - lo) * 0.06; return [Math.max(LIM[0], lo - pd), Math.min(LIM[1], hi + pd)]; };
+      var WX = win(pre.x0, pre.x1, 0.5), WY = win(pre.y0, pre.y1, state.yq === 'ent' ? 0.05 : 0.5);   
       if (state.zoom !== 'fit' && state.yq !== 'ent') {   
         var ux = PW / (WX[1] - WX[0]), uy = PH / (WY[1] - WY[0]);
         var widen = function (B, want) { var m = (B[0] + B[1]) / 2, lo = m - want / 2, hi = m + want / 2; if (lo < LIM[0]) { hi += LIM[0] - lo; lo = LIM[0]; } if (hi > LIM[1]) { lo -= hi - LIM[1]; hi = LIM[1]; } return [Math.max(LIM[0], lo), Math.min(LIM[1], hi)]; };
@@ -1563,7 +1563,7 @@ function renderScatter() {
       if (state[T[0]] !== 'on') return;
       var sub = pop.filter(T[3]); if (sub.length < 3) { D.spanFits.push({ key: T[1], label: T[2], n: sub.length, fit: null }); return; }
       var xs = sub.map(function (q) { return q.x; }), ys = sub.map(function (q) { return q.y; });
-      var fk = ['span', T[1], state.yq, state.ed, state.ys, state.src, state.def, state.xdef, state.a, state.c, state.u, D.dsId, Array.from(sel).join('.')].join('|');   
+      var fk = ['span', T[1], state.yq, state.ed, state.ys, state.es, state.src, state.def, state.xdef, state.a, state.c, state.u, D.dsId, Array.from(sel).join('.')].join('|');   
       var f = null; try { f = bootFit(xs, ys, fk, null, 0.15); } catch (e) { f = null; }
       D.spanFits.push({ key: T[1], label: T[2], n: sub.length, fit: f });
       if (!f) return;
