@@ -1,9 +1,9 @@
 {
- "fingerprint": "a424d413a4bc",
+ "fingerprint": "425430007294",
  "fingerprint_inputs": {
-  "content": "8e824ed6f645",
+  "content": "bad01667fb7d",
   "wave": "pool-20260910T2244Z",
-  "body": "f9a8561b6fc4"
+  "body": "da151cb47da5"
  },
  "frame": {
   "dataset": "top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 61,
   "tasks": 858,
   "keep_set_hash": "532d0efad8a5",
-  "inputs_content_sha": "8e824ed6f645",
+  "inputs_content_sha": "bad01667fb7d",
   "tasks_on_axis": 858,
   "tasks_kept": 858,
   "tasks_awaiting_axis": 0,
@@ -34,17 +34,17 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "63b949f919c7",
+  "runs_fingerprint": "b62ace92bf50",
   "axis_wave": "pool-20260910T2244Z",
   "build_date": "2026-10-12",
-  "stamp": "2026-10-12T14:15:11Z",
+  "stamp": "2026-10-12T16:01:56Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-12T13:36:52Z",
+   "unified_built_at": "2026-10-12T15:28:07Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.top.csv"
@@ -350,8 +350,8 @@
    "note": null,
    "gates": {
     "convention": "0.5%-of-draws convention",
-    "n_pass": 32,
-    "n_arms": 56,
+    "n_pass": 33,
+    "n_arms": 57,
     "max_divergence_share_pct": 0.01,
     "rhat_max": 1.045,
     "bulk_ess_min": 95,
@@ -438,6 +438,10 @@
     "olmo-3.1-7b-rl-zero-code-final_completion": {
      "wave_id": "olmo-code-pooled64-20261007T1903Z",
      "pointer": "serving_olmo_board_top.json"
+    },
+    "Qwen/Qwen3.5-9B-Base_completion": {
+     "wave_id": "sft-board_top-20260921T1415Z",
+     "pointer": "serving_sft_board_top.json"
     }
    },
    "concentration_counts": {
@@ -447,10 +451,10 @@
     "intermediate": 6,
     "unclassified (no easy-third failures)": 1
    },
-   "drawn": 56,
+   "drawn": 57,
    "levels_file": {
     "file": "levels",
-    "configs": 56,
+    "configs": 57,
     "note": "the per-level crossing tables of every element of record (the median over the draws of each draw's crossing of each failure-rate level, its 10th to 90th band, the censored shares), thinned to every second level; read by the shell only under the drawing of the crossings' medians at each level"
    }
   },
@@ -458,7 +462,7 @@
   "interim": "kernel fits on all results available at build; refit hourly as results land",
   "partial_attempts": null,
   "off_panel": {
-   "n_with_cells": 72,
+   "n_with_cells": 73,
    "arms": [
     {
      "id": "deepseek-coder-6.7b-rl-night1-step250",
@@ -711,6 +715,11 @@
      "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL penalty \u00b7 250 steps"
     },
     {
+     "id": "r1d7b-rl-f12-redraw-kl-step0050-Thinking",
+     "arm_id": "r1d7b-rl-f12-redraw-kl-s50",
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, redraw every 50, KL penalty \u00b7 50 steps"
+    },
+    {
      "id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
      "arm_id": "olmo3.1-7b-rlzc-s0050",
      "label": "Olmo 3.1 7B RL-Zero Code \u00b7 checkpoint 0"
@@ -825,7 +834,7 @@
    "unregistered": [],
    "in_side_block": [],
    "panel_conflicts": [],
-   "line": "72 study models with results are off the panel; the models with a fit appear in their own block"
+   "line": "73 study models with results are off the panel; the models with a fit appear in their own block"
   },
   "cleaned_arms_unified": [
    "openai/gpt-5-mini",
@@ -838,7 +847,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-12T13:28:22Z",
+   "_stamp": "2026-10-12T15:26:30Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1003,19 +1012,19 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-12T13:02:39Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261012T130239Z.json",
-   "sha16": "feb0938b3d28d538",
-   "census_mtime": "2026-10-12T13:04:32Z",
+   "stamp": "2026-10-12T14:29:58Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261012T142958Z.json",
+   "sha16": "abbd7f323846e09d",
+   "census_mtime": "2026-10-12T14:31:33Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.a424d413a4bc.json",
-  "chain_average": "chain_average.a424d413a4bc.json",
-  "chain_median": "chain_median.a424d413a4bc.json",
-  "dots": "dots.a424d413a4bc.json",
-  "levels": "levels.a424d413a4bc.json"
+  "shared": "shared.425430007294.json",
+  "chain_average": "chain_average.425430007294.json",
+  "chain_median": "chain_median.425430007294.json",
+  "dots": "dots.425430007294.json",
+  "levels": "levels.425430007294.json"
  }
 }
