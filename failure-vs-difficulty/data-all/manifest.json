@@ -1,9 +1,9 @@
 {
- "fingerprint": "901cb0776ada",
+ "fingerprint": "5ee29b75fbf3",
  "fingerprint_inputs": {
-  "content": "b8958203aae1",
+  "content": "169ad9ad89bc",
   "wave": "unified-live",
-  "body": "d0c4fb1f94c8"
+  "body": "fe8b01a366a6"
  },
  "frame": {
   "dataset": "all",
@@ -22,22 +22,22 @@
   "complete_M": 64,
   "sampled_M": 64,
   "difficulty_population_M": 64,
-  "tasks": 2167,
-  "keep_set_hash": "60ede5d24001",
-  "inputs_content_sha": "b8958203aae1",
-  "tasks_on_axis": 2167,
-  "tasks_kept": 2167,
+  "tasks": 2166,
+  "keep_set_hash": "10d9470cb0be",
+  "inputs_content_sha": "169ad9ad89bc",
+  "tasks_on_axis": 2166,
+  "tasks_kept": 2166,
   "tasks_awaiting_axis": 0,
-  "axis_set_hash": "60ede5d24001",
+  "axis_set_hash": "10d9470cb0be",
   "on_axis_by_wave": {
    "wave_1": 430,
-   "wave_2": 858,
+   "wave_2": 857,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "c2f287375e47",
+  "runs_fingerprint": "8ce66ef452c1",
   "axis_wave": "unified-live",
   "build_date": "2026-10-12",
-  "stamp": "2026-10-12T20:24:35Z",
+  "stamp": "2026-10-12T21:43:46Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -124,7 +124,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-12T20:16:07Z",
+   "unified_built_at": "2026-10-12T21:16:15Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -135,260 +135,260 @@
   "fit_excluded": [],
   "coverage": {
    "claude-haiku-4-5": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "claude-haiku-4-5-thinking": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "claude-sonnet-5": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "claude-sonnet-5-thinking": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "claude-haiku-5-5": {
-    "tasks": 1288,
-    "of": 2167
+    "tasks": 1287,
+    "of": 2166
    },
    "claude-haiku-5-5-thinking": {
-    "tasks": 1288,
-    "of": 2167
+    "tasks": 1287,
+    "of": 2166
    },
    "claude-opus-5": {
-    "tasks": 1275,
-    "of": 2167
+    "tasks": 1274,
+    "of": 2166
    },
    "claude-opus-5-thinking": {
-    "tasks": 1286,
-    "of": 2167
+    "tasks": 1285,
+    "of": 2166
    },
    "deepseek-ai/deepseek-coder-1.3b-instruct": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "deepseek-ai/deepseek-coder-6.7b-instruct": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "deepseek-ai/deepseek-coder-33b-instruct": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "deepseek-ai/DeepSeek-Coder-V2-Instruct": {
-    "tasks": 615,
-    "of": 2167
+    "tasks": 614,
+    "of": 2166
    },
    "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B": {
-    "tasks": 2150,
-    "of": 2167
+    "tasks": 2149,
+    "of": 2166
    },
    "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B": {
-    "tasks": 2133,
-    "of": 2167
+    "tasks": 2132,
+    "of": 2166
    },
    "deepseek-ai/DeepSeek-R1-Distill-Llama-8B": {
-    "tasks": 2138,
-    "of": 2167
+    "tasks": 2137,
+    "of": 2166
    },
    "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B": {
-    "tasks": 2130,
-    "of": 2167
+    "tasks": 2129,
+    "of": 2166
    },
    "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B": {
-    "tasks": 1962,
-    "of": 2167
+    "tasks": 1961,
+    "of": 2166
    },
    "deepseek-ai/DeepSeek-V3-0324": {
-    "tasks": 643,
-    "of": 2167
+    "tasks": 642,
+    "of": 2166
    },
    "deepseek-ai/DeepSeek-R1-0528": {
     "tasks": 430,
-    "of": 2167
+    "of": 2166
    },
    "deepseek-ai/DeepSeek-V3.2": {
-    "tasks": 750,
-    "of": 2167
+    "tasks": 749,
+    "of": 2166
    },
    "deepseek-ai/DeepSeek-V3.2-Thinking": {
     "tasks": 430,
-    "of": 2167
+    "of": 2166
    },
    "zai-org/GLM-4.7-Flash": {
-    "tasks": 2142,
-    "of": 2167
+    "tasks": 2141,
+    "of": 2166
    },
    "openai/gpt-5-nano": {
-    "tasks": 2166,
-    "of": 2167
+    "tasks": 2165,
+    "of": 2166
    },
    "openai/gpt-5-mini": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "google/gemini-3.5-flash-lite": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "google/gemini-3.6-flash": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "google/gemma-4-12B-it": {
-    "tasks": 1874,
-    "of": 2167
+    "tasks": 1873,
+    "of": 2166
    },
    "google/gemma-4-31B-it": {
-    "tasks": 1439,
-    "of": 2167
+    "tasks": 1438,
+    "of": 2166
    },
    "moonshotai/Moonlight-16B-A3B-Instruct": {
-    "tasks": 2140,
-    "of": 2167
+    "tasks": 2139,
+    "of": 2166
    },
    "moonshotai/Kimi-Linear-48B-A3B-Instruct": {
-    "tasks": 792,
-    "of": 2167
+    "tasks": 791,
+    "of": 2166
    },
    "moonshotai/Kimi-Dev-72B": {
-    "tasks": 1431,
-    "of": 2167
+    "tasks": 1430,
+    "of": 2166
    },
    "moonshotai/Kimi-K2-Instruct": {
-    "tasks": 941,
-    "of": 2167
+    "tasks": 940,
+    "of": 2166
    },
    "olmo-3.1-7b-rl-zero-code-final_completion": {
-    "tasks": 1288,
-    "of": 2167
+    "tasks": 1287,
+    "of": 2166
    },
    "olmo-3-7b-think-final-Thinking": {
-    "tasks": 1288,
-    "of": 2167
+    "tasks": 1287,
+    "of": 2166
    },
    "Qwen/Qwen2.5-Coder-0.5B-Instruct": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "Qwen/Qwen2.5-Coder-1.5B-Instruct": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "Qwen/Qwen2.5-Coder-3B-Instruct": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "Qwen/Qwen2.5-Coder-7B-Instruct": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "Qwen/Qwen2.5-Coder-14B-Instruct": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "Qwen/Qwen2.5-Coder-32B-Instruct": {
-    "tasks": 2166,
-    "of": 2167
+    "tasks": 2165,
+    "of": 2166
    },
    "Qwen/Qwen2.5-0.5B-Instruct": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "Qwen/Qwen2.5-1.5B-Instruct": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "Qwen/Qwen2.5-3B-Instruct": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "Qwen/Qwen2.5-7B-Instruct": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "Qwen/Qwen2.5-14B-Instruct": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "Qwen/Qwen2.5-32B-Instruct": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "Qwen/Qwen3-0.6B": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "Qwen/Qwen3-0.6B-Thinking": {
-    "tasks": 2164,
-    "of": 2167
+    "tasks": 2163,
+    "of": 2166
    },
    "Qwen/Qwen3-1.7B": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "Qwen/Qwen3-1.7B-Thinking": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "Qwen/Qwen3-4B": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "Qwen/Qwen3-4B-Thinking": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "Qwen/Qwen3-4B-Instruct-2507": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "Qwen/Qwen3-8B": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "Qwen/Qwen3-8B-Thinking": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "Qwen/Qwen3-14B": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "Qwen/Qwen3-14B-Thinking": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "Qwen/Qwen3-32B": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "Qwen/Qwen3-32B-Thinking": {
-    "tasks": 1958,
-    "of": 2167
+    "tasks": 1957,
+    "of": 2166
    },
    "Qwen/Qwen3-30B-A3B": {
-    "tasks": 2167,
-    "of": 2167
+    "tasks": 2166,
+    "of": 2166
    },
    "Qwen/Qwen3-30B-A3B-Thinking": {
     "tasks": 144,
-    "of": 2167
+    "of": 2166
    },
    "Qwen/Qwen3-Coder-30B-A3B-Instruct": {
-    "tasks": 2160,
-    "of": 2167
+    "tasks": 2159,
+    "of": 2166
    },
    "Qwen/Qwen3.5-9B-Base_completion": {
-    "tasks": 1288,
-    "of": 2167
+    "tasks": 1287,
+    "of": 2166
    }
   },
   "scorer": "unified results: passes/n per configuration x task (board results under plus_status; pool results \u00a71b-valid), Definitions' unified frame",
@@ -479,11 +479,11 @@
    "served_axis_note": null,
    "membership_lag": {
     "kept_set_fitted": 2153,
-    "landing_kept_set": 2104,
-    "n_tasks_dropped": 49,
+    "landing_kept_set": 2103,
+    "n_tasks_dropped": 50,
     "source": "Definitions' mirror stamp",
     "tasks_joined_count": 63,
-    "in_service_total": 2167,
+    "in_service_total": 2166,
     "fit_relabelled_after_cut": 8,
     "fit_disclosure": "this fit stands on 438 wave 1 tasks and 1715 wave 2 tasks; eight wave 1 tasks were relabelled after the cut (three 'contradiction' and five 'underspecification') and left the kept sets (430 wave 1 tasks and 1676 wave 2 tasks at the landing); they stay in this fit as cut and leave at the next cut made for another reason"
    },
@@ -538,7 +538,7 @@
   "interim": "kernel fits on all results available at build; refit hourly as results land",
   "partial_attempts": null,
   "off_panel": {
-   "n_with_cells": 75,
+   "n_with_cells": 77,
    "arms": [
     {
      "id": "deepseek-coder-6.7b-rl-night1-step250",
@@ -917,7 +917,18 @@
     }
    ],
    "stopped_not_listed": [],
-   "unregistered": [],
+   "unregistered": [
+    {
+     "id": "claude-sonnet-5-5_batch",
+     "arm_id": "sonnet55",
+     "label": "Sonnet 5.5"
+    },
+    {
+     "id": "claude-sonnet-5-5-thinking_batch",
+     "arm_id": "sonnet55-think",
+     "label": "Sonnet 5.5 (thinking)"
+    }
+   ],
    "in_side_block": [],
    "panel_conflicts": [],
    "line": "75 study models with results are off the panel; the models with a fit appear in their own block"
@@ -931,9 +942,9 @@
    "new_focused": 869,
    "new_parked": 893,
    "new_total": 1762,
-   "new_focused_kept": 857,
+   "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-12T20:28:54Z",
+   "_stamp": "2026-10-12T21:25:38Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -985,7 +996,7 @@
      "figure_count": 869,
      "label": "wave 2 (869 tasks)",
      "figure_label": "wave 2 (869 tasks)",
-     "kept_count": 857,
+     "kept_count": 858,
      "members": 869,
      "tasks": 869,
      "never_includes": "wave 2 parked"
@@ -1030,10 +1041,10 @@
      "figure_count": 1299,
      "label": "wave 1+2 (1,299 tasks)",
      "figure_label": "wave 1+2 (1,299 tasks)",
-     "kept_count": 1287,
+     "kept_count": 1288,
      "members": 1411,
      "composition": "wave 1 + wave 2; never includes wave 2 parked",
-     "fit_population_note": "fit_population 1,287 = fit_original 430 (the range explorer's matrix frame at its last build) + the wave 2 kept count 857 after the twin fold (22 Sep 2026: the kept frame the served fits stand on; until then this figure added the wave 2 members); a served fit states its own task count from its owner's stamp, never from this figure"
+     "fit_population_note": "fit_population 1,288 = fit_original 430 (the range explorer's matrix frame at its last build) + the wave 2 kept count 858 after the twin fold (22 Sep 2026: the kept frame the served fits stand on; until then this figure added the wave 2 members); a served fit states its own task count from its owner's stamp, never from this figure"
     },
     "wave_2_plus_parked": {
      "name": "wave 2 and wave 2 parked",
@@ -1054,7 +1065,7 @@
      "figure_label": "wave 2 and wave 2 parked (1,762 tasks)",
      "figure_label_template": "wave 2 and wave 2 parked (1,762 tasks)",
      "template_rule": "the label of record (13 Sep ruling): the set name with its count of record; a FIT that draws this set states its frame count BESIDE the label from the fit owner's stamp (fitting's serving stamp), never inside it; the 10 Sep frame-count template is superseded; a page naming the SET uses label (the membership count new_total)",
-     "kept_count": 1736,
+     "kept_count": 1737,
      "members": 1762,
      "never_includes": "the pilot; 'wave 2' alone never means this union"
     },
@@ -1066,7 +1077,7 @@
      "count_source": "the fit owner's stamp (fitting's serving_golden_combined.json task count as cut) \u2014 never this file",
      "figure_label_template": "wave 1 + wave 2 + wave 2 parked (2,192 tasks) + the easy-tasks pilot (100 tasks)",
      "template_rule": "the label of record (13 Sep ruling): the waves' count of record in the label, the pilot named with its plain what and the hundred of record as its own count (ruling 07:51:54Z 13 Sep); the fit owner's frame as cut is stated beside the label from its stamp, never inside it (supersedes the 10 Sep frame-count template)",
-     "kept_count": 2266,
+     "kept_count": 2267,
      "members": 2404,
      "hundred_of_record_check": {
       "ruled": 100,
@@ -1098,19 +1109,19 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-12T16:44:41Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261012T164441Z.json",
-   "sha16": "ec3588e8b11826f6",
-   "census_mtime": "2026-10-12T16:45:58Z",
+   "stamp": "2026-10-12T20:14:42Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261012T201442Z.json",
+   "sha16": "0d9e7c14de74757d",
+   "census_mtime": "2026-10-12T20:15:31Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.901cb0776ada.json",
-  "chain_average": "chain_average.901cb0776ada.json",
-  "chain_median": "chain_median.901cb0776ada.json",
-  "dots": "dots.901cb0776ada.json",
-  "levels": "levels.901cb0776ada.json"
+  "shared": "shared.5ee29b75fbf3.json",
+  "chain_average": "chain_average.5ee29b75fbf3.json",
+  "chain_median": "chain_median.5ee29b75fbf3.json",
+  "dots": "dots.5ee29b75fbf3.json",
+  "levels": "levels.5ee29b75fbf3.json"
  }
 }
