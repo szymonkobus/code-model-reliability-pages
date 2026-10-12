@@ -176,8 +176,10 @@ var NEW_AVAILABLE = true;
 
 var ARMS = (typeof Kit !== 'undefined' && Kit.state) ? Kit.state.get('arms', 'all') : 'all';
 if (ARMS !== 'golden') ARMS = 'all';
-var GOLDEN_AVAILABLE = { board: false, 'new': false, all: false };
-function goldenDir(ds) { return 'data-golden-' + ds; }
+var GOLDEN_IDS = ['claude-haiku-4-5', 'claude-haiku-4-5-thinking', 'claude-sonnet-5', 'claude-sonnet-5-thinking', 'Qwen/Qwen3-0.6B', 'Qwen/Qwen3-0.6B-Thinking', 'Qwen/Qwen3-1.7B', 'Qwen/Qwen3-1.7B-Thinking', 'Qwen/Qwen3-4B', 'Qwen/Qwen3-4B-Thinking', 'Qwen/Qwen3-8B', 'Qwen/Qwen3-8B-Thinking'];   
+var GOLDEN_LABELS = ['Haiku 4.5', 'Haiku 4.5 (thinking)', 'Sonnet 5', 'Sonnet 5 (thinking)', 'Qwen3 0.6B', 'Qwen3 0.6B (thinking)', 'Qwen3 1.7B', 'Qwen3 1.7B (thinking)', 'Qwen3 4B', 'Qwen3 4B (thinking)', 'Qwen3 8B', 'Qwen3 8B (thinking)'];   
+function goldenKey(id) { return String(id || '').split('|')[0].replace(/--/g, '/').replace(/_think$/, '-Thinking'); }   
+function goldenOk(c) { if (ARMS !== 'golden' || !c) return true; return GOLDEN_IDS.indexOf(c.id) >= 0 || GOLDEN_IDS.indexOf(goldenKey(c.id)) >= 0 || GOLDEN_LABELS.indexOf(String(c.label || '')) >= 0; }   
 
 
 
@@ -255,45 +257,8 @@ function loadBoard() {
       return fetchFresh('data/current.json').then(function (r) { return r.ok ? r.json() : null; }).then(function (c) { D.shared.current = c; }).catch(function () { D.shared.current = null; });   
     });
 }
-function loadPoolGolden() {
-  
 
 
-  return Promise.all([
-    fetchFresh(DATASETS['new'].src).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }),
-    fetchFresh('data/manifest.json').then(function (r) { return r.json(); })
-      .then(function (man) { return fetchFresh('data/' + man.files.shared).then(function (r) { return r.json(); }); })
-      .then(function (sh) { return sh.vocab || {}; }).catch(function () { return {}; })
-  ]).then(function (all) {
-    var P = all[0];
-    if (!(P && P.golden && P.golden.configs && P.golden.grid)) return loadBundle(goldenDir('new'), DATASETS['new'].label);
-    
-    
-    
-    var blockHasBayes = !!(P.golden.bayes && P.golden.bayes.available && (P.golden.bayes.arms || []).length);
-    return fetchFresh(goldenDir('new') + '/manifest.json').then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; })
-      .then(function (man) {
-        var bf = man && man.frame && man.frame.bayes_fits;
-        var drawn = bf && bf.drawn;
-        if (!blockHasBayes) return drawn ? loadBundle(goldenDir('new'), DATASETS['new'].label) : adoptBlock(P, all[1]);
-        
-        
-        
-        
-        var bw = P.golden.bayes.wave_id || '', mw = (bf && bf.wave_id) || '';
-        var newerMine = drawn && mw && bw && mw !== bw && String(bf.pointer_updated_at || '') > String(P.golden.bayes.updated_at || '');
-        if (newerMine) return loadBundle(goldenDir('new'), DATASETS['new'].label);
-        return adoptBlock(P, all[1]);
-      });
-  });
-  function adoptBlock(P, vocab) {
-    var B = PoolDataset.toBoard(P.golden);
-    D.shared = B.shared; D.avg = B.avg; D.med = B.med; D.dots = B.dots; D.man = B.man;
-    D.shared.vocab = vocab;
-    D.shared.frame.population = 'golden';
-    D.shared.frame.population_source = DATASETS['new'].src + ' (golden block)';
-  }
-}
 
 function loadPool() {
   return Promise.all([
@@ -318,17 +283,13 @@ Promise.all([
 })).concat(DATASETS['new'] ? [probeOk(DATASETS['new'].src).then(function (ok) { NEW_AVAILABLE = ok; })] : []
 ).concat(Object.keys(DATASETS).filter(isExtra).map(function (ds) {
   return probeOk(DATASETS[ds].src).then(function (ok) { EXTRA_AVAILABLE[ds] = ok; });
-})).concat(['board', 'new', 'all', 'board_top', 'top'].filter(function (ds) { return !!DATASETS[ds]; }).map(function (ds) {
-  return probeOk(goldenDir(ds) + '/manifest.json').then(function (ok) { GOLDEN_AVAILABLE[ds] = ok; });
-}))).then(function () {
+}))).then(function () {   
     if (DATASET === 'all' && !ALL_AVAILABLE) DATASET = FALLBACK_DATASET;
     if ((DATASET === 'board_top' || DATASET === 'top') && !TOP_AVAILABLE[DATASET]) DATASET = FALLBACK_DATASET;
     if (isExtra(DATASET) && !EXTRA_AVAILABLE[DATASET]) DATASET = FALLBACK_DATASET;
     if (DATASET === 'new' && !NEW_AVAILABLE) DATASET = (DATASETS.board_top && TOP_AVAILABLE.board_top) ? 'board_top' : FALLBACK_DATASET;   
     if (!DATASETS[DATASET]) DATASET = (DATASETS.board_top && TOP_AVAILABLE.board_top) ? 'board_top' : FALLBACK_DATASET;
-    if (ARMS === 'golden' && !GOLDEN_AVAILABLE[DATASET]) ARMS = 'all';
-    if (ARMS === 'golden' && DATASET === 'new') return loadPoolGolden();
-    if (ARMS === 'golden') return loadBundle(goldenDir(DATASET), DATASETS[DATASET].label);
+    
     if (DATASET === 'board_top' || DATASET === 'top') return loadBundle('data-' + DATASET, DATASETS[DATASET].label);
     if (isExtra(DATASET)) return loadBundle(extraDir(DATASET), DATASETS[DATASET].label);   
     return DATASET === 'new' ? loadPool() : (DATASET === 'all' ? loadBundle('data-all', DATASETS.all.label) : loadBoard());
@@ -609,12 +570,10 @@ function boot() {
     dflt: 'all',
     onchange: function (v) {
       if (!ready || coercing) return;
-      if (v === 'golden' && !GOLDEN_AVAILABLE[DATASET]) { quietSet(armsCtl, ARMS); return; }
       if (v !== ARMS) window.location.reload();
     } });
-  if (MIRROR && !Object.keys(DATASETS).some(function (k) { return !!GOLDEN_AVAILABLE[k]; })) armsRow.style.display = 'none';   
-  setDisabled(armsCtl.element.querySelector('button[data-value="golden"]'), !GOLDEN_AVAILABLE[DATASET], '');
-  if (ARMS === 'golden') { var _g = armsCtl.element.querySelector('button[data-value="golden"]'); if (_g) _g.title = 'golden set: axis and curves from these 12 models only, a data point, not the difficulty definition'; }   
+  if (MIRROR) armsRow.style.display = 'none';   
+  if (ARMS === 'golden') { var _g = armsCtl.element.querySelector('button[data-value="golden"]'); if (_g) _g.title = 'golden set: the twelve golden models on the same difficulty scale as every other view; the other controls as they are'; }   
   var partialCtl = Kit.switchControl({ mount: armsRow, key: 'partial',   
     options: [{ value: 'hide', label: 'hidden' }, { value: 'show', label: 'show partial models' }],
     dflt: 'hide',
@@ -779,6 +738,7 @@ function buildChips() {
   var trained = [];
   D.shared.configs.forEach(function (c, i) {
     if (ROW_KEPT[c.id]) return;   
+    if (!goldenOk(c)) return;   
     if (isRunConfig(c)) { var r = runs.find(function (x) { return x.name === runNameOf(c); }); if (!r) { r = { name: runNameOf(c), members: [] }; runs.push(r); } r.members.push(i); return; }
     if (trainedParts(c.label)) { trained.push(i); return; }   
     var f = fams.find(function (x) { return x.name === c.family; });
@@ -800,7 +760,7 @@ function buildChips() {
   var allBtn = document.createElement('button');
   allBtn.className = 'util'; allBtn.textContent = 'all';
   allBtn.onclick = function () {
-    D.shared.configs.forEach(function (c, i) { if (!isSeriesRunConfig(c) && !isTrainedConfig(c)) sel.add(i); });   
+    D.shared.configs.forEach(function (c, i) { if (!isSeriesRunConfig(c) && !isTrainedConfig(c) && goldenOk(c)) sel.add(i); });   
     writeSel(); render();
   };
   var noneBtn = document.createElement('button');
@@ -977,7 +937,7 @@ function notShown(i) {
   var idn = [c.id, c.name, c.model, c.label, c.arm_key].filter(Boolean).join(' ').toLowerCase();
   return NOT_SHOWN.arms.some(function (a) { return a.match && idn.indexOf(String(a.match).toLowerCase()) >= 0; });
 }
-function shownArm(i) { if (notShown(i)) return false; return state.partial === 'show' || !isPartial(i); }
+function shownArm(i) { if (notShown(i)) return false; if (!goldenOk(D.shared.configs[i])) return false; return state.partial === 'show' || !isPartial(i); }   
 function partialArms() { var out = []; D.shared.configs.forEach(function (c, i) { if (isPartial(i)) out.push(i); }); return out; }
 function axisWords(id, when, basis) {   
   var live = basis === 'live' || /unified-live/.test(String(id || ''));   
@@ -1215,6 +1175,7 @@ function seriesAllButton(sb, ri, merged, members) {
   paintSeriesToggle(tb); return tb;
 }
 function seriesRows() {   
+  if (ARMS === 'golden') return [];   
   var f = D.shared.frame || {}; var rows = (f.series_rows && f.series_rows.length) ? f.series_rows : (f.series_arms ? [f.series_arms] : []);
   var out = []; rows.forEach(function (s, i) { var o = orderSeries(s); if (o) { o._row = i; out.push(o); } }); return out;
 }
@@ -1269,6 +1230,7 @@ function slugOfRecord(label) {
   return n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 }
 function sideBlock() {
+  if (ARMS === 'golden') return null;   
   var f = D.shared.frame || {}; var s = f.side_arms;
   if (!(s && s.served && s.arms && s.arms.length)) return null;
   if (!s._named) {   
@@ -2353,7 +2315,7 @@ function stamp() {
   relabelDataset(f);
   var built = f.built_at || f.stamp || f.build_date || null;
   
-  var facts = (f.population === 'golden' ? '<span style="color:#9a5b00">golden set (12 models): axis and curves from Qwen3 0.6B/1.7B/4B/8B (plain + thinking) and Claude Haiku 4.5 + Sonnet 5 (plain + thinking) only — a data point, not the difficulty definition (as adopted of 3 Sep)</span> · ' : '')
+  var facts = (ARMS === 'golden' ? '<span style="color:#9a5b00">golden set (12 models): Qwen3 0.6B/1.7B/4B/8B (plain + thinking) and Claude Haiku 4.5 + Sonnet 5 (plain + thinking), on the same difficulty scale as every other view</span> · ' : '')   
     + '<span data-chain-inv>the tasks used: ' + freshCounts(tasksUsedLabel(f, isPool))   
     
     + fitFrameClause(f)
