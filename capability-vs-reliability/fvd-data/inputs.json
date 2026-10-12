@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-10-12T12:12:25Z",
+ "generated_at": "2026-10-12T13:57:11Z",
  "builder": "pages/failure-vs-difficulty/build_curves_site_data.py",
  "outputs": [
-  "pages/failure-vs-difficulty/curves-site/data/chain_average.a7b09ea07561.json",
-  "pages/failure-vs-difficulty/curves-site/data/chain_median.a7b09ea07561.json",
-  "pages/failure-vs-difficulty/curves-site/data/dots.a7b09ea07561.json",
-  "pages/failure-vs-difficulty/curves-site/data/levels.a7b09ea07561.json",
+  "pages/failure-vs-difficulty/curves-site/data/chain_average.564a69eb71d3.json",
+  "pages/failure-vs-difficulty/curves-site/data/chain_median.564a69eb71d3.json",
+  "pages/failure-vs-difficulty/curves-site/data/dots.564a69eb71d3.json",
+  "pages/failure-vs-difficulty/curves-site/data/levels.564a69eb71d3.json",
   "pages/failure-vs-difficulty/curves-site/data/manifest.json",
-  "pages/failure-vs-difficulty/curves-site/data/shared.a7b09ea07561.json"
+  "pages/failure-vs-difficulty/curves-site/data/shared.564a69eb71d3.json"
  ],
  "inputs": [
   {
@@ -18,21 +18,21 @@
   },
   {
    "path": "definitions/fitting/serving_board.json",
-   "mtime_at_open": "2026-10-06T03:46:10Z",
-   "size": 280923,
-   "sha12": "3d37097fc079"
+   "mtime_at_open": "2026-10-12T12:30:27Z",
+   "size": 857247,
+   "sha12": "3d14c94de8e4"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/crossings_of_record.csv",
-   "mtime_at_open": "2026-10-06T03:22:58Z",
-   "size": 314230,
-   "sha12": "cb18be022bb3"
+   "mtime_at_open": "2026-10-12T12:30:15Z",
+   "size": 285655,
+   "sha12": "1303e38df1b5"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/gates_summary.json",
-   "mtime_at_open": "2026-09-27T13:40:14Z",
-   "size": 34570,
-   "sha12": "b2cc772610e6"
+   "mtime_at_open": "2026-10-12T12:30:15Z",
+   "size": 60306,
+   "sha12": "463bfe33a82d"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/results/posterior_summary_Qwen--Qwen2.5-0.5B-Instruct_eivon.json",
@@ -389,6 +389,360 @@
    "sha12": "8254822389bd"
   },
   {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen2.5-0.5B-Instruct_eivon.json",
+   "mtime_at_open": "2026-10-06T19:49:49Z",
+   "size": 18440404,
+   "sha12": "ceee422bda23"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen2.5-1.5B-Instruct_eivon.json",
+   "mtime_at_open": "2026-10-06T19:45:46Z",
+   "size": 18711452,
+   "sha12": "fd22c6c852ed"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen2.5-14B-Instruct_eivon.json",
+   "mtime_at_open": "2026-10-06T19:47:44Z",
+   "size": 18745759,
+   "sha12": "cd2495776ed5"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen2.5-32B-Instruct_eivon.json",
+   "mtime_at_open": "2026-10-06T19:52:24Z",
+   "size": 18699140,
+   "sha12": "c9d61e9c7a75"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen2.5-3B-Instruct_eivon.json",
+   "mtime_at_open": "2026-10-06T19:47:51Z",
+   "size": 18716531,
+   "sha12": "005b554d4da0"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen2.5-7B-Instruct_eivon.json",
+   "mtime_at_open": "2026-10-06T19:47:38Z",
+   "size": 18744755,
+   "sha12": "efe218f11c4e"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen2.5-Coder-0.5B-Instruct_eivon.json",
+   "mtime_at_open": "2026-10-06T19:53:31Z",
+   "size": 18611115,
+   "sha12": "138738d4466e"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen2.5-Coder-1.5B-Instruct_eivon.json",
+   "mtime_at_open": "2026-10-06T19:46:38Z",
+   "size": 18725976,
+   "sha12": "4ea3f6a55d16"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen2.5-Coder-14B-Instruct_eivon.json",
+   "mtime_at_open": "2026-10-06T19:53:26Z",
+   "size": 18666437,
+   "sha12": "6580d34c93e8"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen2.5-Coder-32B-Instruct_eivon.json",
+   "mtime_at_open": "2026-10-06T19:47:39Z",
+   "size": 18638960,
+   "sha12": "e5b896d5c6c0"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen2.5-Coder-3B-Instruct_eivon.json",
+   "mtime_at_open": "2026-10-06T19:54:35Z",
+   "size": 18723810,
+   "sha12": "8f947fa6df91"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen2.5-Coder-7B-Instruct_eivon.json",
+   "mtime_at_open": "2026-10-06T19:47:33Z",
+   "size": 18735655,
+   "sha12": "7e8f606f00ff"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen3-0.6B-Thinking_eivon.json",
+   "mtime_at_open": "2026-10-06T19:47:40Z",
+   "size": 17970655,
+   "sha12": "a1198d860e14"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen3-0.6B_eivon.json",
+   "mtime_at_open": "2026-10-06T19:47:43Z",
+   "size": 18593020,
+   "sha12": "96b80e94b762"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen3-1.7B-Thinking_eivon.json",
+   "mtime_at_open": "2026-10-06T19:56:33Z",
+   "size": 18740579,
+   "sha12": "c69e2a0a1846"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen3-1.7B_eivon.json",
+   "mtime_at_open": "2026-10-06T19:56:45Z",
+   "size": 18681056,
+   "sha12": "446171fd1dc1"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen3-14B-Thinking_eivon.json",
+   "mtime_at_open": "2026-10-06T19:47:37Z",
+   "size": 18662139,
+   "sha12": "60d70cef834e"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen3-14B_eivon.json",
+   "mtime_at_open": "2026-10-06T19:45:38Z",
+   "size": 18760842,
+   "sha12": "b8f4e720c140"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen3-30B-A3B-Thinking_eivon.json",
+   "mtime_at_open": "2026-10-06T18:22:14Z",
+   "size": 18659638,
+   "sha12": "a7c3c3de5e62"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen3-30B-A3B_eivon.json",
+   "mtime_at_open": "2026-10-06T19:46:31Z",
+   "size": 18741005,
+   "sha12": "568dbb75acec"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen3-32B-Thinking_eivon.json",
+   "mtime_at_open": "2026-10-06T19:47:44Z",
+   "size": 18567570,
+   "sha12": "700d842cb710"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen3-32B_eivon.json",
+   "mtime_at_open": "2026-10-06T19:44:54Z",
+   "size": 18762494,
+   "sha12": "4bdda06c4d78"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen3-4B-Instruct-2507_eivon.json",
+   "mtime_at_open": "2026-10-06T19:47:08Z",
+   "size": 18705362,
+   "sha12": "ecfca254cb85"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen3-4B-Thinking_eivon.json",
+   "mtime_at_open": "2026-10-06T19:43:24Z",
+   "size": 18679913,
+   "sha12": "92c5c490e9ce"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen3-4B_eivon.json",
+   "mtime_at_open": "2026-10-06T19:47:11Z",
+   "size": 18695089,
+   "sha12": "106ed46d0d0f"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen3-8B-Thinking_eivon.json",
+   "mtime_at_open": "2026-10-06T19:43:51Z",
+   "size": 18691089,
+   "sha12": "3da191e75ce0"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen3-8B_eivon.json",
+   "mtime_at_open": "2026-10-06T19:47:06Z",
+   "size": 18698142,
+   "sha12": "32ff70de5ec3"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_Qwen--Qwen3-Coder-30B-A3B-Instruct_eivon.json",
+   "mtime_at_open": "2026-10-06T19:52:01Z",
+   "size": 18736173,
+   "sha12": "328a7e17345f"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_claude-haiku-4-5-thinking_eivon.json",
+   "mtime_at_open": "2026-10-06T19:39:56Z",
+   "size": 18604542,
+   "sha12": "3075b27871a0"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_claude-haiku-4-5_eivon.json",
+   "mtime_at_open": "2026-10-06T19:43:59Z",
+   "size": 18696236,
+   "sha12": "2616b8b18441"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_claude-opus-5-thinking_eivon.json",
+   "mtime_at_open": "2026-10-06T19:47:20Z",
+   "size": 16980263,
+   "sha12": "0d9a82c2dde1"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_claude-opus-5_eivon.json",
+   "mtime_at_open": "2026-10-06T19:47:14Z",
+   "size": 17596929,
+   "sha12": "226d721c7d05"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_claude-sonnet-5-thinking_eivon.json",
+   "mtime_at_open": "2026-10-06T21:22:15Z",
+   "size": 18563910,
+   "sha12": "937e4a9521b1"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_claude-sonnet-5_eivon.json",
+   "mtime_at_open": "2026-10-06T19:59:34Z",
+   "size": 18567108,
+   "sha12": "b309660027ef"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_deepseek-ai--DeepSeek-Coder-V2-Instruct_eivon.json",
+   "mtime_at_open": "2026-10-06T21:22:52Z",
+   "size": 18682008,
+   "sha12": "b7dbed8e6a7a"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_deepseek-ai--DeepSeek-Coder-V2-Lite-Instruct_eivon.json",
+   "mtime_at_open": "2026-10-06T21:25:10Z",
+   "size": 18728142,
+   "sha12": "8a97f6369135"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_deepseek-ai--DeepSeek-R1-0528_eivon.json",
+   "mtime_at_open": "2026-10-06T21:33:05Z",
+   "size": 18324962,
+   "sha12": "1814bd6cc2b2"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_deepseek-ai--DeepSeek-R1-Distill-Llama-8B_eivon.json",
+   "mtime_at_open": "2026-10-06T21:24:53Z",
+   "size": 18716665,
+   "sha12": "a71194db90d3"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_deepseek-ai--DeepSeek-R1-Distill-Qwen-1.5B_eivon.json",
+   "mtime_at_open": "2026-10-06T21:34:10Z",
+   "size": 17757270,
+   "sha12": "9edca2294a92"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_deepseek-ai--DeepSeek-R1-Distill-Qwen-14B_eivon.json",
+   "mtime_at_open": "2026-10-06T21:37:53Z",
+   "size": 18632903,
+   "sha12": "a5baea8c38ef"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_deepseek-ai--DeepSeek-R1-Distill-Qwen-32B_eivon.json",
+   "mtime_at_open": "2026-10-06T21:17:48Z",
+   "size": 18668364,
+   "sha12": "bfdf6f9d8ce1"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_deepseek-ai--DeepSeek-R1-Distill-Qwen-7B_eivon.json",
+   "mtime_at_open": "2026-10-06T21:27:18Z",
+   "size": 18750071,
+   "sha12": "ff9cd3bd00e9"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_deepseek-ai--DeepSeek-V3-0324_eivon.json",
+   "mtime_at_open": "2026-10-06T21:38:29Z",
+   "size": 18647198,
+   "sha12": "c39995775d1a"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_deepseek-ai--DeepSeek-V3.2-Thinking_eivon.json",
+   "mtime_at_open": "2026-10-06T21:38:32Z",
+   "size": 18647063,
+   "sha12": "042436c6836a"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_deepseek-ai--DeepSeek-V3.2_eivon.json",
+   "mtime_at_open": "2026-10-06T21:21:37Z",
+   "size": 18665350,
+   "sha12": "b6ca3962136a"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_deepseek-ai--deepseek-coder-1.3b-instruct_eivon.json",
+   "mtime_at_open": "2026-10-06T21:40:34Z",
+   "size": 18694068,
+   "sha12": "e05206a2742c"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_deepseek-ai--deepseek-coder-33b-instruct_eivon.json",
+   "mtime_at_open": "2026-10-06T21:28:04Z",
+   "size": 18716535,
+   "sha12": "5ea0246096e7"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_deepseek-ai--deepseek-coder-6.7b-instruct_eivon.json",
+   "mtime_at_open": "2026-10-06T21:32:49Z",
+   "size": 18714594,
+   "sha12": "a5ff2a86f167"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_google--gemini-3.5-flash-lite_eivon.json",
+   "mtime_at_open": "2026-10-06T21:40:52Z",
+   "size": 18683629,
+   "sha12": "14914973f306"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_google--gemini-3.6-flash_eivon.json",
+   "mtime_at_open": "2026-10-06T21:25:40Z",
+   "size": 17859937,
+   "sha12": "803e216ace55"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_google--gemma-4-12B-it_eivon.json",
+   "mtime_at_open": "2026-10-06T21:28:10Z",
+   "size": 18694488,
+   "sha12": "6ccb0986b9ea"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_google--gemma-4-31B-it_eivon.json",
+   "mtime_at_open": "2026-10-06T21:27:44Z",
+   "size": 18598230,
+   "sha12": "ef0d639127be"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_moonshotai--Kimi-Dev-72B_eivon.json",
+   "mtime_at_open": "2026-10-06T21:34:12Z",
+   "size": 18741757,
+   "sha12": "e6b57c35f896"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_moonshotai--Kimi-K2-Instruct_eivon.json",
+   "mtime_at_open": "2026-10-06T21:25:12Z",
+   "size": 18646792,
+   "sha12": "6045efec75b7"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_moonshotai--Kimi-Linear-48B-A3B-Instruct_eivon.json",
+   "mtime_at_open": "2026-10-06T21:35:11Z",
+   "size": 18733295,
+   "sha12": "bbc39eccac6f"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_moonshotai--Moonlight-16B-A3B-Instruct_eivon.json",
+   "mtime_at_open": "2026-10-06T21:29:07Z",
+   "size": 18698486,
+   "sha12": "3e8dbf8677f3"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_openai--gpt-5-mini_eivon.json",
+   "mtime_at_open": "2026-10-06T21:35:11Z",
+   "size": 17723548,
+   "sha12": "dcf7a7373ff0"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_openai--gpt-5-nano_eivon.json",
+   "mtime_at_open": "2026-10-06T21:24:24Z",
+   "size": 18594798,
+   "sha12": "54086efd36c7"
+  },
+  {
+   "path": "definitions/fitting/waves/old-20260910T2211Z/results/reexport_exact/posterior_summary_zai-org--GLM-4.7-Flash_eivon.json",
+   "mtime_at_open": "2026-10-06T21:36:34Z",
+   "size": 18741009,
+   "sha12": "85fb5b27499f"
+  },
+  {
    "path": "pages/failure-vs-difficulty/artifacts/caprel_crossings_intervals.csv",
    "mtime_at_open": "2026-10-11T20:10:26Z",
    "size": 37377,
@@ -414,21 +768,21 @@
   },
   {
    "path": "runs/arms.jsonl",
-   "mtime_at_open": "2026-10-12T12:05:59Z",
-   "size": 638121,
-   "sha12": "de9ed664fcd8"
+   "mtime_at_open": "2026-10-12T13:26:42Z",
+   "size": 634403,
+   "sha12": "63ff1d57492f"
   },
   {
    "path": "runs/arms_readouts.jsonl",
-   "mtime_at_open": "2026-10-12T12:05:59Z",
-   "size": 532321,
-   "sha12": "4d406aaf3f48"
+   "mtime_at_open": "2026-10-12T13:26:42Z",
+   "size": 532405,
+   "sha12": "0d9ae534f201"
   },
   {
    "path": "runs/models.jsonl",
    "mtime_at_open": "2026-10-12T11:46:29Z",
    "size": 54326,
-   "sha12": "943fb1957742"
+   "sha12": "39e83c5a2a61"
   },
   {
    "path": "runs/store/wave-1/mbpp/gpt-5-mini_openai_temp_1.0.eval_results.json.recut_20260907T154051Z.json",
@@ -444,27 +798,27 @@
   },
   {
    "path": "runs/watch/forecast/watch/held_arms.json",
-   "mtime_at_open": "2026-10-12T11:34:17Z",
-   "size": 221185,
-   "sha12": "65c66c86d3c3"
+   "mtime_at_open": "2026-10-12T13:37:27Z",
+   "size": 221607,
+   "sha12": "cdf19e1dc5d3"
   },
   {
    "path": "side-projects/newbench/labels_cells.jsonl",
-   "mtime_at_open": "2026-10-12T11:54:15Z",
-   "size": 2731253,
-   "sha12": "2f6b757a80fa"
+   "mtime_at_open": "2026-10-12T13:33:23Z",
+   "size": 2742812,
+   "sha12": "addb8c3ef354"
   },
   {
    "path": "tasks/knowledge/counts_of_record.json",
-   "mtime_at_open": "2026-10-12T11:28:51Z",
+   "mtime_at_open": "2026-10-12T13:31:00Z",
    "size": 43794,
-   "sha12": "082f0886ee51"
+   "sha12": "8fae3db5810b"
   },
   {
    "path": "tasks/knowledge/disclosures.published.json",
-   "mtime_at_open": "2026-10-12T11:41:25Z",
-   "size": 672567,
-   "sha12": "2038b71ae086"
+   "mtime_at_open": "2026-10-12T13:44:24Z",
+   "size": 672632,
+   "sha12": "f192962aec31"
   }
  ],
  "streams": [],
