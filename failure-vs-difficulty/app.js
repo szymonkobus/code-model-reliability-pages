@@ -1387,6 +1387,7 @@ function renderSideBlock() {
   var sideUnresolved = false;   
   var t = document.createElement('table');
   t.innerHTML = '<tr><th>model</th><th title="' + crossingHover('50', isAvg).replace(/"/g, '&quot;') + '">D50</th><th title="' + crossingHover('1', isAvg).replace(/"/g, '&quot;') + '">D99</th></tr>';   
+  var nRowsT = 0, nFirstT = 0;   
   sb.arms.forEach(function (a, k) {
     if (!sideOn(k) || sideHidden(a)) return;
     if (MERGED_REV[k] != null) return;   
@@ -1395,6 +1396,7 @@ function renderSideBlock() {
     ['50', '1'].forEach(function (lvl) {
       var td = document.createElement('td'); td.className = 'num';
       var rr = rec ? rec[lvl === '1' ? 'd1' : 'd50'] : null;
+      if (lvl === '1') { nRowsT++; if (rr && rr.rule === 'first') nFirstT++; }   
       if (rr && rr.status_kind === 'bound' && (rr.bound != null || rr.z != null)) {
         var bfs = boundFace(rr); td.textContent = bfs.num.toFixed(1); td.title = defWord + bfs.hover + ' · uncertainty band ' + bfs.lo.toFixed(1) + ' to ' + bfs.hi.toFixed(1) + ' (difficulty %)';   
       } else if (rr && rr.status_kind === 'unresolved') {   
@@ -1402,7 +1404,7 @@ function renderSideBlock() {
         td.title = oneSentence(faceNumbers(noSpecTags((rr.status || 'not resolved') + (rr.reason_text ? ' ' + rr.reason_text : '')))) + unresolvedFitHover(rr);
         sideUnresolved = true;
       } else if (rr && rr.z != null && rr.lo != null && rr.hi != null && rr.status_kind !== 'bound') {
-        td.textContent = pct(rr.z).toFixed(1); td.title = defWord + 'uncertainty band ' + pct(rr.lo).toFixed(1) + ' to ' + pct(rr.hi).toFixed(1) + ' (difficulty %)' + BAND_WORDS;   
+        td.textContent = pct(rr.z).toFixed(1); td.title = defWord + bandHover(rr);   
       } else if (rr && rr.z != null && lvl === '50') {
         td.textContent = pct(rr.z).toFixed(1);
       } else if (rr && rr.status_kind === 'empty') {   
@@ -1414,6 +1416,7 @@ function renderSideBlock() {
     });
     t.appendChild(tr);
   });
+  (function () { var thT = t.querySelectorAll('th'); if (thT.length >= 3 && tableRule(nRowsT, nFirstT) === 'first') { thT[1].title = crossingHover('50', isAvg, 'first'); thT[2].title = crossingHover('1', isAvg, 'first'); } })();   
   if (t.querySelectorAll('tr').length <= 1) { st.remove(); return; }   
   st.appendChild(t);
   if (sideUnresolved) {   
@@ -1510,6 +1513,7 @@ function renderSeriesRow(sb, ri) {
   var sideUnresolved = false;   
   var t = document.createElement('table');
   t.innerHTML = '<tr><th>model</th><th title="' + crossingHover('50', isAvg).replace(/"/g, '&quot;') + '">D50</th><th title="' + crossingHover('1', isAvg).replace(/"/g, '&quot;') + '">D99</th></tr>';   
+  var nRowsT = 0, nFirstT = 0;   
   sb.arms.forEach(function (a, k) {
     if (!seriesSel.has(k)) return;
     var cv = sideCurve(a); var rec = isAvg ? a.cross_record : (a.cross_record_med || null); var defWord = isAvg ? '' : 'median-task definition · ';   
@@ -1517,6 +1521,7 @@ function renderSeriesRow(sb, ri) {
     ['50', '1'].forEach(function (lvl) {
       var td = document.createElement('td'); td.className = 'num';
       var rr = rec ? rec[lvl === '1' ? 'd1' : 'd50'] : null;
+      if (lvl === '1') { nRowsT++; if (rr && rr.rule === 'first') nFirstT++; }   
       if (rr && rr.status_kind === 'bound' && (rr.bound != null || rr.z != null)) {
         var bfs = boundFace(rr); td.textContent = bfs.num.toFixed(1); td.title = defWord + bfs.hover + ' · uncertainty band ' + bfs.lo.toFixed(1) + ' to ' + bfs.hi.toFixed(1) + ' (difficulty %)';   
       } else if (rr && rr.status_kind === 'unresolved') {   
@@ -1524,7 +1529,7 @@ function renderSeriesRow(sb, ri) {
         td.title = oneSentence(faceNumbers(noSpecTags((rr.status || 'not resolved') + (rr.reason_text ? ' ' + rr.reason_text : '')))) + unresolvedFitHover(rr);
         sideUnresolved = true;
       } else if (rr && rr.z != null && rr.lo != null && rr.hi != null && rr.status_kind !== 'bound') {
-        td.textContent = pct(rr.z).toFixed(1); td.title = defWord + 'uncertainty band ' + pct(rr.lo).toFixed(1) + ' to ' + pct(rr.hi).toFixed(1) + ' (difficulty %)' + BAND_WORDS;   
+        td.textContent = pct(rr.z).toFixed(1); td.title = defWord + bandHover(rr);   
       } else if (rr && rr.z != null && lvl === '50') {
         td.textContent = pct(rr.z).toFixed(1);
       } else if (rr && rr.status_kind === 'empty') {   
@@ -1536,6 +1541,7 @@ function renderSeriesRow(sb, ri) {
     });
     t.appendChild(tr);
   });
+  (function () { var thT = t.querySelectorAll('th'); if (thT.length >= 3 && tableRule(nRowsT, nFirstT) === 'first') { thT[1].title = crossingHover('50', isAvg, 'first'); thT[2].title = crossingHover('1', isAvg, 'first'); } })();   
   if (t.querySelectorAll('tr').length <= 1) { st.remove(); return; }   
   st.appendChild(t);
   if (sideUnresolved) {   
@@ -2009,15 +2015,26 @@ function notes(visible, unfitted) {
 
 function crossingName(lvl) { return lvl === '1' ? 'D99' : 'D50'; }
 function crossingRate(isAvg) { return isAvg ? 'average failure rate' : 'median task\'s failure rate'; }
-function crossingWords(lvl, isAvg) {   
+
+
+
+
+function crossingWords(lvl, isAvg, rule) {   
   return crossingName(lvl) + ' is the difficulty at which the fitted ' + crossingRate(isAvg) + ' crosses ' + (lvl === '1' ? '1%' : '50%')
-    + ': the median over the fit\'s draws of each draw\'s own crossing, the middle one where a draw crosses the level several times; its uncertainty band the 10th to 90th percentiles of those crossings.';   
+    + (rule === 'first' ? ': the median over the fit\'s draws of each draw\'s first upward crossing'
+                        : ': the median over the fit\'s draws of each draw\'s own crossing, the middle one where a draw crosses the level several times')
+    + '; its uncertainty band the 10th to 90th percentiles of those crossings.';   
 }
-function crossingHover(lvl, isAvg) {   
+function crossingHover(lvl, isAvg, rule) {   
   return crossingName(lvl) + ' \u2014 where the fitted ' + crossingRate(isAvg) + ' crosses ' + (lvl === '1' ? '1%' : '50%')
-    + ': the median of the draws\' own crossings, the middle one where a draw crosses several times';
+    + (rule === 'first' ? ': the median of the draws\' first upward crossings' : ': the median of the draws\' own crossings, the middle one where a draw crosses several times');
 }
 var BAND_WORDS = ', the 10th to 90th percentiles of the draws\' crossings';   
+function bandHover(r) {   
+  var band = 'uncertainty band ' + pct(r.lo).toFixed(1) + ' to ' + pct(r.hi).toFixed(1) + ' (difficulty %)';
+  return r.rule === 'first' ? 'the median of the draws\' first upward crossings \u00b7 ' + band + ', the 10th to 90th percentiles of those crossings' : band + BAND_WORDS;
+}
+function tableRule(nRows, nFirst) { return nRows && nFirst === nRows ? 'first' : 'middle'; }   
 function firstUp(zs, ys, L) {   
   for (var k = 1; k < zs.length; k++) {
     if (ys[k - 1] == null || ys[k] == null) continue;
@@ -2109,15 +2126,22 @@ function crossingsTable(visible) {
                   : 'where the ' + estWord + ' of the ' + rateWord + ' ' + crossV + ' 50% (' + chainWord + '); D50, the fitted curve\'s, is under the Bayesian estimator';   
   var hov1 = isB ? crossingHover('1', isAvg)
                  : 'where the ' + estWord + ' of the ' + rateWord + ' ' + crossV + ' 1% (' + chainWord + '); D99, the fitted curve\'s, is under the Bayesian estimator';
+  var nRowsR = 0, nFirstR = 0;   
   var h = document.createElement('p');
-  h.innerHTML = isB
-    ? '<span data-chain-val>' + crossingWords('50', isAvg) + '</span> ' + crossingWords('1', isAvg)   
-      + ' The drawn curve is the median of the draws\' curves at each difficulty, so where it crosses a level can differ from the printed number. Positions in difficulty %; each cell\'s hover carries its uncertainty band; * where the model has no fit; '
-      + 'the same crossings with their bands live on Capability vs reliability.'
-    : '<span data-chain-val>' + n50 + '</span> — ' + hov50.replace(/^D50 — /, '') + '; ' + n1 + ' — ' + hov1.replace(/^D99 — /, '')
-      + '. Positions in difficulty %, from the ' + houseName().toLowerCase() + ' for the source picked'
-      + '; each cell\'s hover carries the 95% uncertainty band of the trend (the Uncertainty bands switch changes the drawn bands, not this table); '
-      + 'the Bayesian crossings live on Capability vs reliability.';
+  var readoutWords = function () {   
+    var tr = tableRule(nRowsR, nFirstR);
+    if (isB) { hov50 = crossingHover('50', isAvg, tr); hov1 = crossingHover('1', isAvg, tr); }
+    h.innerHTML = isB
+      ? '<span data-chain-val>' + crossingWords('50', isAvg, tr) + '</span> ' + crossingWords('1', isAvg, tr)   
+        + (tr === 'middle' && nFirstR ? ' On ' + nFirstR + ' of these rows each draw\'s first upward crossing is taken rather than the middle one; their hovers say so.' : '')
+        + ' The drawn curve is the median of the draws\' curves at each difficulty, so where it crosses a level can differ from the printed number. Positions in difficulty %; each cell\'s hover carries its uncertainty band; * where the model has no fit; '
+        + 'the same crossings with their bands live on Capability vs reliability.'
+      : '<span data-chain-val>' + n50 + '</span> — ' + hov50.replace(/^D50 — /, '') + '; ' + n1 + ' — ' + hov1.replace(/^D99 — /, '')
+        + '. Positions in difficulty %, from the ' + houseName().toLowerCase() + ' for the source picked'
+        + '; each cell\'s hover carries the 95% uncertainty band of the trend (the Uncertainty bands switch changes the drawn bands, not this table); '
+        + 'the Bayesian crossings live on Capability vs reliability.';
+    var ths = t.querySelectorAll('th'); if (ths.length >= 3) { ths[1].title = hov50; ths[2].title = hov1; }
+  };
   box.appendChild(h);
   var t = document.createElement('table');
   t.innerHTML = '<tr><th>model</th><th title="' + hov50.replace(/"/g, '&quot;') + '">' + n50 + '</th><th title="' + hov1.replace(/"/g, '&quot;') + '">'
@@ -2143,6 +2167,7 @@ function crossingsTable(visible) {
         
         var recSrc = bbT ? (isAvg ? bbT.cross_record : bbT.cross_record_med) : null;
         var rec = recSrc ? recSrc[lvl === '1' ? 'd1' : 'd50'] : null;
+        if (lvl === '1') { nRowsR++; if (rec && rec.rule === 'first') nFirstR++; }   
         var defWord = isAvg ? '' : 'median-task definition · ';   
         
         if (rec && rec.status_kind === 'bound' && (rec.bound != null || rec.z != null)) {
@@ -2155,7 +2180,7 @@ function crossingsTable(visible) {
           anyUnresolved = true;
         } else if (rec && rec.z != null && rec.lo != null && rec.hi != null && rec.status_kind !== 'bound') {
           td.textContent = pct(rec.z).toFixed(1);   
-          td.title = defWord + 'uncertainty band ' + pct(rec.lo).toFixed(1) + ' to ' + pct(rec.hi).toFixed(1) + ' (difficulty %)' + BAND_WORDS;   
+          td.title = defWord + bandHover(rec);   
         } else if (rec && rec.z != null && rec.status_kind !== 'bound' && rec.status_kind !== 'unresolved') {   
           td.textContent = pct(rec.z).toFixed(1); if (defWord) td.title = defWord.replace(/ · $/, '');
         } else if (rec && rec.status_kind === 'empty') {   
@@ -2183,6 +2208,7 @@ function crossingsTable(visible) {
     });
     t.appendChild(tr);
   });
+  readoutWords();   
   box.appendChild(t);
   if (anyUnresolved) {   
     var lg = document.createElement('p');
