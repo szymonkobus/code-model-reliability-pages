@@ -1,9 +1,9 @@
 {
- "fingerprint": "c8eeab21e162",
+ "fingerprint": "4371df0b8147",
  "fingerprint_inputs": {
   "content": "3c401ae0421c",
   "wave": "combined-20260910T2209Z",
-  "body": "977c58d02176"
+  "body": "3fb2422e993a"
  },
  "frame": {
   "dataset": "board_top",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "1f60654ace68",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-12",
-  "stamp": "2026-10-12T13:07:44Z",
+  "stamp": "2026-10-12T13:26:16Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -443,13 +443,13 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/board_top-20260910T2111Z/results",
    "set_fingerprint": "030de536de92",
-   "pointer_updated_at": "2026-10-12T12:14:54Z",
+   "pointer_updated_at": "2026-10-12T13:21:25Z",
    "n_fits": 61,
    "note": null,
    "gates": {
     "convention": "0.5%-of-draws convention",
-    "n_pass": 31,
-    "n_arms": 63,
+    "n_pass": 30,
+    "n_arms": 62,
     "max_divergence_share_pct": 0.03,
     "rhat_max": 1.148,
     "bulk_ess_min": 18,
@@ -553,10 +553,6 @@
     "olmo-3.1-7b-rl-zero-code-final_completion": {
      "wave_id": "olmo-code-pooled64-20261007T1903Z",
      "pointer": "serving_olmo_board_top.json"
-    },
-    "Qwen/Qwen3.5-9B-Base_completion": {
-     "wave_id": "sft-board_top-20260921T1415Z",
-     "pointer": "serving_sft_board_top.json"
     }
    },
    "concentration_counts": {
@@ -565,7 +561,7 @@
     "intermediate": 5,
     "concentrated": 14
    },
-   "drawn": 63,
+   "drawn": 62,
    "levels_file": {
     "file": "levels",
     "configs": 61,
@@ -972,7 +968,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-12T12:26:32Z",
+   "_stamp": "2026-10-12T13:28:22Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1137,10 +1133,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-12T11:32:44Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261012T113244Z.json",
-   "sha16": "88e19c90aca1d91b",
-   "census_mtime": "2026-10-12T11:34:22Z",
+   "stamp": "2026-10-12T13:02:39Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261012T130239Z.json",
+   "sha16": "feb0938b3d28d538",
+   "census_mtime": "2026-10-12T13:04:32Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "series_rows": [
@@ -1206,7 +1202,7 @@
    "arms_in": "shared"
   },
   "side_arms": {
-   "updated_at": "2026-10-06T06:19:46Z",
+   "updated_at": "2026-10-12T13:19:19Z",
    "pointer": "definitions/fitting/serving_sft_board_top.json",
    "row": null,
    "served": true,
@@ -1218,10 +1214,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.c8eeab21e162.json",
-  "chain_average": "chain_average.c8eeab21e162.json",
-  "chain_median": "chain_median.c8eeab21e162.json",
-  "dots": "dots.c8eeab21e162.json",
-  "levels": "levels.c8eeab21e162.json"
+  "shared": "shared.4371df0b8147.json",
+  "chain_average": "chain_average.4371df0b8147.json",
+  "chain_median": "chain_median.4371df0b8147.json",
+  "dots": "dots.4371df0b8147.json",
+  "levels": "levels.4371df0b8147.json"
  }
 }
