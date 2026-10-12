@@ -103,8 +103,8 @@ function spanRowFor(i) {
   var rows = SPAN_LEAF.byArm[fid]; if (!rows || !rows.length) return null;
   var pb = String((D.bay && D.bay.fit_set && D.bay.fit_set.pointer) || '').split('/').pop();
   if (!pb) {   
-    var dsk = String(D.dsId || state.data || ''), gold = /^golden-/.test(dsk), core = dsk.replace(/^golden-/, ''), core2 = { board_top: 'board_top', top: 'top', all: 'combined', 'new': 'pool', board: 'board' }[core];
-    pb = 'serving_' + (core2 ? (gold ? 'golden_' + core2 : core2) : 'nb_' + core) + '.json';
+    var dsk = String(D.dsId || state.data || '').replace(/^golden-/, ''), core2 = { board_top: 'board_top', top: 'top', all: 'combined', 'new': 'pool', board: 'board' }[dsk];   
+    pb = 'serving_' + (core2 ? core2 : 'nb_' + dsk) + '.json';
   }
   for (var k = 0; k < rows.length; k++) if (rows[k].pointer === pb) return rows[k];
   
@@ -169,7 +169,7 @@ var CONTROL_WORDS = {
   move: { label: 'Move from ' },   
   line: { label: 'Fitted line', options: [{ value: 'off', label: 'Off' }, { value: 'steps', label: 'In logit' }, { value: 'axes', label: 'In the axes as set' }] },
   lw: { label: 'Line weighting', options: [{ value: 'equal', label: 'Each dot equal' }, { value: 'bands', label: 'By the 80% uncertainty bands' }] },
-  arms: { label: 'Models', options: [{ value: 'all', label: 'all models' }, { value: 'golden', label: 'golden set' }], goldenMissing: 'golden set (12): no golden bundle for this dataset yet' },
+  arms: { label: 'Models', options: [{ value: 'all', label: 'all models' }, { value: 'golden', label: 'golden set' }], goldenMissing: 'golden set: none of its models is in this set', goldenUnlisted: 'golden set: its list of models is not served yet' },
   more: 'More controls',
   view: { label: 'View', options: [{ value: 'scatter', label: 'Scatter' }, { value: 'ridges', label: 'Posterior ridges' }] },
 };
@@ -1935,7 +1935,7 @@ function exportOptions() {
   var pick = function (t) { return (parts.find(function (q) { return q.type === t; }) || {}).value || ''; };
   var slug = String(ds.label || state.data || 'view').split(' (')[0].replace(/\+/g, '-').replace(/[^\w-]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
   return { svg: chart, legend: legend, title: '', page: '', view: '',   
-    stamp: '', fileBase: (SPAN ? (state.yq === 'ent' ? 'capability-vs-average-outcome-entropy_' : 'capability-vs-transition-length_') : 'capability-vs-reliability_') + slug + '_' + pick('year') + '-' + pick('month') + '-' + pick('day'), crop: null };   
+    stamp: '', fileBase: (SPAN ? (state.yq === 'ent' ? 'capability-vs-average-outcome-entropy_' : 'capability-vs-transition-length_') : 'capability-vs-reliability_') + slug + (D.golden ? '_golden-set' : '') + '_' + pick('year') + '-' + pick('month') + '-' + pick('day'), crop: null };   
 }
 
 

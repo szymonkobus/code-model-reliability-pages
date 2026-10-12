@@ -1,0 +1,117 @@
+{
+ "source": "definitions/difficulty/knowledge/golden_set.json (the membership file of record, derived from the registry)",
+ "registry_stamp": "2026-10-12T10:36:39Z",
+ "n_arms": 12,
+ "arms": [
+  {
+   "arm_id": "haiku",
+   "id": "claude-haiku-4-5",
+   "pool_ids": [
+    "claude-haiku-4-5_batch"
+   ],
+   "model": "claude-haiku-4-5",
+   "thinking": false
+  },
+  {
+   "arm_id": "haiku-think",
+   "id": "claude-haiku-4-5-thinking",
+   "pool_ids": [
+    "claude-haiku-4-5-thinking_batch"
+   ],
+   "model": "claude-haiku-4-5",
+   "thinking": true
+  },
+  {
+   "arm_id": "q3-0.6B",
+   "id": "Qwen/Qwen3-0.6B",
+   "pool_ids": [
+    "Qwen--Qwen3-0.6B_temp_0.8"
+   ],
+   "model": "Qwen3-0.6B",
+   "thinking": false
+  },
+  {
+   "arm_id": "q3-0.6B-think",
+   "id": "Qwen/Qwen3-0.6B-Thinking",
+   "pool_ids": [
+    "Qwen--Qwen3-0.6B_think_temp_0.6"
+   ],
+   "model": "Qwen3-0.6B",
+   "thinking": true
+  },
+  {
+   "arm_id": "q3-1.7B",
+   "id": "Qwen/Qwen3-1.7B",
+   "pool_ids": [
+    "Qwen--Qwen3-1.7B_temp_0.8"
+   ],
+   "model": "Qwen3-1.7B",
+   "thinking": false
+  },
+  {
+   "arm_id": "q3-1.7B-think",
+   "id": "Qwen/Qwen3-1.7B-Thinking",
+   "pool_ids": [
+    "Qwen--Qwen3-1.7B_think_temp_0.6"
+   ],
+   "model": "Qwen3-1.7B",
+   "thinking": true
+  },
+  {
+   "arm_id": "q3-4B",
+   "id": "Qwen/Qwen3-4B",
+   "pool_ids": [
+    "Qwen--Qwen3-4B_temp_0.8"
+   ],
+   "model": "Qwen3-4B",
+   "thinking": false
+  },
+  {
+   "arm_id": "q3-4B-think",
+   "id": "Qwen/Qwen3-4B-Thinking",
+   "pool_ids": [
+    "Qwen--Qwen3-4B_think_temp_0.6"
+   ],
+   "model": "Qwen3-4B",
+   "thinking": true
+  },
+  {
+   "arm_id": "q3-8B",
+   "id": "Qwen/Qwen3-8B",
+   "pool_ids": [
+    "Qwen--Qwen3-8B_temp_0.8"
+   ],
+   "model": "Qwen3-8B",
+   "thinking": false
+  },
+  {
+   "arm_id": "q3-8B-think",
+   "id": "Qwen/Qwen3-8B-Thinking",
+   "pool_ids": [
+    "Qwen--Qwen3-8B_think_temp_0.6"
+   ],
+   "model": "Qwen3-8B",
+   "thinking": true
+  },
+  {
+   "arm_id": "sonnet",
+   "id": "claude-sonnet-5",
+   "pool_ids": [
+    "claude-sonnet-5_batch"
+   ],
+   "model": "claude-sonnet-5",
+   "thinking": false
+  },
+  {
+   "arm_id": "sonnet-think",
+   "id": "claude-sonnet-5-thinking",
+   "pool_ids": [
+    "claude-sonnet-5-thinking_batch"
+   ],
+   "model": "claude-sonnet-5",
+   "thinking": true
+  }
+ ],
+ "rule": "the page keeps a set's models whose id, under one key rule over the board, pool and page id forms, is one of these arms' ids; the rows, fits and axis are the set's own",
+ "written": "2026-10-12T11:25:52Z"
+}

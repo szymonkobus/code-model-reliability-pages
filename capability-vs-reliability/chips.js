@@ -291,3 +291,22 @@ function namesOverlayApply(ov, shared, runRaw) {
   });
   return moved;
 }
+
+
+
+
+
+
+function goldenKey(id) { return String(id).split('|')[0].replace(/_temp_[0-9.]+$/, '').replace(/_batch$/, '').replace(/--/g, '/').replace(/_think$/, '-Thinking'); }   
+function goldenSetLoad(mount) {   
+  return fetch(mount + 'data/golden_set.json', { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (g) { if (!g || !Array.isArray(g.arms) || !g.arms.length) return null; var keys = {}; g.arms.forEach(function (a) { [a.id].concat(a.pool_ids || []).forEach(function (x) { if (x) keys[goldenKey(x)] = 1; }); }); return { n: g.n_arms || g.arms.length, arms: g.arms, keys: keys, source: g.source || null }; })
+    .catch(function () { return null; });
+}
+function goldenMember(G, id) { return !!(G && G.keys && G.keys[goldenKey(id)]); }
+function goldenCount(G, shared) { return ((shared && shared.configs) || []).filter(function (c) { return goldenMember(G, c.id); }).length; }   
+function goldenApply(G, shared) {   
+  if (!G || !shared || !Array.isArray(shared.configs)) return 0;
+  shared.configs = shared.configs.filter(function (c) { return goldenMember(G, c.id); });
+  return shared.configs.length;
+}

@@ -28,7 +28,7 @@ fetch(MOUNT + 'data/manifest.json').then(function (r) { if (!r.ok) throw new Err
     SET_KEYS = want.length ? SETS_ORDER.filter(function (k) { return want.indexOf(k) >= 0; }) : defaultKeys();
     if (want.length && SET_KEYS.join(',') === defaultKeys().join(',')) Kit.state.set('sets', null, null);   
     buildSetControl();
-    return namesOverlayLoad(MOUNT).then(function (ov) { D.namesOv = ov; return Promise.all(SET_KEYS.map(loadSetCtx)); });   
+    return Promise.all([namesOverlayLoad(MOUNT), goldenSetLoad(MOUNT)]).then(function (res) { D.namesOv = res[0]; D.goldenSet = res[1]; if (state.arms === 'golden' && !D.goldenSet) { state.arms = 'all'; Kit.state.set('arms', null, null); } return Promise.all(SET_KEYS.map(loadSetCtx)); });   
   }).then(init);
 
 function buildSetControl() {   
@@ -52,12 +52,13 @@ function buildSetControl() {
   });
 }
 function loadSetCtx(key) {   
-  var armsKey = state.arms === 'golden' && D.allDs['golden-' + key] && D.allDs['golden-' + key].files ? 'golden-' + key : key;   
-  var e = D.allDs[armsKey], files = e && e.files; if (!files) return Promise.resolve({ key: key, held: 'not served' });
+  var gold = state.arms === 'golden' && !!D.goldenSet, armsKey = gold ? 'golden-' + key : key;   
+  var e = D.allDs[key], files = e && e.files; if (!files) return Promise.resolve({ key: key, held: 'not served' });
   return Promise.all(['shared', 'chain_average', 'chain_median', 'bayes', 'bayes_prev'].map(function (k) { return files[k] ? fetch(MOUNT + 'data/' + files[k]).then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }) : Promise.resolve(null); })).then(function (all) {
-    var X = { man: D.man, allDs: D.allDs, defaultData: D.defaultData, dsId: armsKey, dataId: key, ds: e, golden: armsKey !== key, shared: all[0], avg: all[1], med: all[2], bay: all[3], bayPrev: all[4] || null, runRaw: null, moves: null };
+    var X = { man: D.man, allDs: D.allDs, defaultData: D.defaultData, dsId: armsKey, dataId: key, ds: e, golden: gold, shared: all[0], avg: all[1], med: all[2], bay: all[3], bayPrev: all[4] || null, runRaw: null, moves: null };
     if (!X.shared || !X.avg) return { key: key, held: 'files missing' };
     namesOverlayApply(D.namesOv, X.shared, X.runRaw);   
+    if (gold && !goldenApply(D.goldenSet, X.shared)) return { key: key, held: 'no model of the golden set in this set' };   
     try { prepareSet(X, true); } catch (err) { return { key: key, held: 'an older artifact' }; }
     var ctx = { key: key, D: X, RUNS: [], RUN: null, SLUG_OF: {}, IDX_OF_SLUG: {}, sel: new Set() };
     withPanel(ctx, function () {
@@ -75,7 +76,7 @@ function buildUnion(ctxs) {
   live.forEach(function (c) { c.D.shared.configs.forEach(function (cf, i) { if (cf.run) return; var sl = c.SLUG_OF[i] || cf.id; if (seen[sl]) return; seen[sl] = 1; var copy = Object.assign({}, cf); copy.slug = sl; configs.push(copy);
     if (c.D.avgById[cf.id]) avgRows.push(c.D.avgById[cf.id]); if (anyMed && c.D.medById[cf.id]) medRows.push(c.D.medById[cf.id]); if (c.D.bayById[cf.id]) bayRows.push(c.D.bayById[cf.id]); }); });
   var c0 = live[0], cb = live.filter(function (c) { return !!c.D.bay; })[0] || null;   
-  var U = { man: D.man, allDs: D.allDs, defaultData: D.defaultData, dsId: 'panels', dataId: c0.key, ds: { missing: {} }, golden: false, runRaw: null,
+  var U = { man: D.man, allDs: D.allDs, defaultData: D.defaultData, dsId: 'panels', dataId: c0.key, ds: { missing: {} }, golden: false, goldenSet: D.goldenSet, runRaw: null,
     shared: { configs: configs, limits: c0.D.shared.limits, reachable: c0.D.shared.reachable, frame: c0.D.shared.frame, axis: c0.D.shared.axis, capC: null, capC_z: null, capC_j: null, artifact_flags: {}, fit_excluded: null },
     avg: { lev_grid: c0.D.avg.lev_grid, rows: avgRows }, med: anyMed && c0.D.med ? { rows: medRows } : null,
     bay: cb ? { rows: bayRows, lev_fail: cb.D.bay.lev_fail, lev_logit: cb.D.bay.lev_logit, unfitted: [], disclosures: {}, kde_grid: cb.D.bay.kde_grid, fit_set: cb.D.bay.fit_set } : null, bayPrev: null, bayPrevById: {}, unfitted: {} };
@@ -107,9 +108,9 @@ function buildControls(ctxs) {
     var prevName = live.length === 1 ? names[0] : (oneDate ? 'the ' + oneDate + ' cut of each set shown' : 'the previous cut of each set shown');
     sw(moreRow, 'move', CONTROL_WORDS.move.label + prevName, CONTROL_WORDS.onoff, 'off', function (v) { state.move = v === 'on' ? 'on' : 'off'; }); }
   var pm = document.getElementById('armsbar') || row;   
-  var anyGolden = SET_KEYS.some(function (k) { return D.allDs['golden-' + k] && D.allDs['golden-' + k].files; });
+  var anyGolden = !!D.goldenSet;   
   SW.arms = Kit.switchControl({ mount: pm, key: 'arms', label: CONTROL_WORDS.arms.label, options: CONTROL_WORDS.arms.options, dflt: 'all', onchange: function (v) { if (!GRID) return; if (v === 'golden' && !anyGolden) { SW.arms.set(state.arms); return; } if (v !== state.arms) { Kit.state.set('arms', v === 'golden' ? 'golden' : null, null); location.reload(); } } });
-  if (!anyGolden) { var gb = pm.querySelector('.kit-switch[data-key="arms"] button[data-value="golden"]'); if (gb) { gb.disabled = true; gb.setAttribute('aria-disabled', 'true'); gb.title = CONTROL_WORDS.arms.goldenMissing; } }
+  if (!anyGolden) { var gb = pm.querySelector('.kit-switch[data-key="arms"] button[data-value="golden"]'); if (gb) { gb.disabled = true; gb.setAttribute('aria-disabled', 'true'); gb.title = CONTROL_WORDS.arms.goldenUnlisted; } }
   Kit.switchControl({ mount: pm, key: 'partial', label: CONTROL_WORDS.partial.label, options: CONTROL_WORDS.partial.options, dflt: 'hide', onchange: function (v) { state.partial = v === 'show' ? 'show' : 'hide'; Kit.state.set('partial', state.partial, 'hide'); if (GRID) { refreshPartialChips(); render(); } } });
 }
 function syncChains(ctxs) {   

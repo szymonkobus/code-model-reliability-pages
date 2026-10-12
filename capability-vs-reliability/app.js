@@ -51,18 +51,20 @@ fetch(MOUNT + 'data/manifest.json')
 
 
 
-    var armsWant = Kit.state.get('arms', 'all'), armsKey = armsWant === 'golden' ? 'golden-' + want : want;
+
+    var armsWant = Kit.state.get('arms', 'all'), armsKey = armsWant === 'golden' ? 'golden-' + want : want;   
     if (armsWant !== 'all' && armsWant !== 'golden') { dataNote = (dataNote ? dataNote + ' \u00b7 ' : '') + 'arms=' + String(armsWant).slice(0, 40) + ' is not one of all | golden; showing all models'; armsWant = 'all'; armsKey = want; Kit.state.set('arms', null, null); }
-    else if (armsWant === 'golden' && !ds[armsKey]) { dataNote = (dataNote ? dataNote + ' \u00b7 ' : '') + 'the golden set is not served yet for \u201c' + DATASETS[want].label + '\u201d; showing all models'; armsWant = 'all'; armsKey = want; Kit.state.set('arms', null, null); }
-    state.data = want; state.arms = armsWant; D.dsId = armsKey; D.dataId = want; D.ds = ds[armsKey]; D.golden = armsWant === 'golden'; D.allDs = ds;
-    var files = ds[armsKey].files;   
+    state.data = want; state.arms = armsWant; D.dsId = armsKey; D.dataId = want; D.ds = ds[want]; D.golden = armsWant === 'golden'; D.allDs = ds;
+    var files = ds[want].files;   
     return Promise.all(['shared', 'chain_average', 'chain_median', 'bayes', 'bayes_prev'].map(function (k) {
       return files[k] ? fetch(MOUNT + 'data/' + files[k]).then(function (r) { return r.json(); }) : Promise.resolve(null);
     }).concat([(window.MIRROR_MOUNT && !window.MIRROR_RUN_SETS) ? Promise.resolve(null) : fetch(window.MIRROR_RUN_SETS || (MOUNT + 'data/olmo_run.json')).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; })]));   
   }).then(function (all) {
     D.shared = all[0]; D.avg = all[1]; D.med = all[2]; D.bay = all[3]; D.bayPrev = all[4] || null;
     D.runRaw = all[5] || null;   
-    return namesOverlay(D).then(function () {
+    return Promise.all([namesOverlay(D), goldenSetLoad(MOUNT)]).then(function (res) {
+      D.goldenSet = res[1];   
+      if (D.golden) goldenView();   
       prepareSet(D);   
       boot();
     });
@@ -72,6 +74,15 @@ function namesOverlay(D) {
   return namesOverlayLoad(MOUNT).then(function (ov) { var moved = namesOverlayApply(ov, D.shared, D.runRaw); D.namesOverlay = ov ? { file: ov.file, ids: Object.keys(ov.names).length, moved: moved, labels_sha12: ov.labels_sha12 } : null; });
 }
 
+
+function goldenView() {   
+  var n = goldenCount(D.goldenSet, D.shared);
+  if (!n) {
+    dataNote = (dataNote ? dataNote + ' · ' : '') + (D.goldenSet ? 'the golden set has no model in “' + DATASETS[D.dataId].label + '”; showing all models' : 'the golden set’s list of models is not served yet; showing all models');
+    state.arms = 'all'; D.golden = false; D.dsId = D.dataId; Kit.state.set('arms', null, null); return;
+  }
+  goldenApply(D.goldenSet, D.shared); D.runRaw = null;   
+}
 
 function boot() {
   mergeRunSet(D.runRaw);
@@ -163,11 +174,11 @@ function boot() {
     options: CONTROL_WORDS.arms.options,
     dflt: 'all',
     onchange: function (v) {
-      if (v === 'golden' && !D.allDs['golden-' + D.dataId]) { if (armsSw) armsSw.set(state.arms); return; }
+      if (v === 'golden' && !goldenCount(D.goldenSet, D.shared)) { if (armsSw) armsSw.set(state.arms); return; }
       if (v !== state.arms) location.reload();
     } });
   if (armsSw.value() !== state.arms) armsSw.set(state.arms);
-  if (!D.allDs['golden-' + D.dataId]) { var gb = document.querySelector('.kit-switch[data-key="arms"] button[data-value="golden"]'); if (gb) { gb.disabled = true; gb.setAttribute('aria-disabled', 'true'); gb.title = CONTROL_WORDS.arms.goldenMissing; } }
+  if (!goldenCount(D.goldenSet, D.shared)) { var gb = document.querySelector('.kit-switch[data-key="arms"] button[data-value="golden"]'); if (gb) { gb.disabled = true; gb.setAttribute('aria-disabled', 'true'); gb.title = D.goldenSet ? CONTROL_WORDS.arms.goldenMissing : CONTROL_WORDS.arms.goldenUnlisted; } }   
   var partialSw = Kit.switchControl({ mount: document.getElementById('armsbar') || row, key: 'partial', label: CONTROL_WORDS.partial.label,   
     options: CONTROL_WORDS.partial.options,
     dflt: 'hide',
@@ -673,7 +684,8 @@ function asOf(ts) {
 }
 function bayesNote() {   
   if (!(D.bay && (D.bay.interim && D.bay.interim.n || !bayesDefault()))) return '';
-  return 'Bayesian: ' + D.bay.rows.length + ' of ' + D.shared.configs.length + ' models with posteriors' + (D.bay.interim && D.bay.interim.n ? ', ' + D.bay.interim.n + ' interim (from the newer fit)' : '') + (bayesDefault() ? '' : ' \u2014 project estimator shown by default, Bayesian one click away');
+  var ids = {}; D.shared.configs.forEach(function (c) { ids[c.id] = 1; }); var withPosterior = D.bay.rows.filter(function (r) { return ids[r.cfg]; }).length;   
+  return 'Bayesian: ' + withPosterior + ' of ' + D.shared.configs.length + ' models with posteriors' + (D.bay.interim && D.bay.interim.n ? ', ' + D.bay.interim.n + ' interim (from the newer fit)' : '') + (bayesDefault() ? '' : ' \u2014 project estimator shown by default, Bayesian one click away');
 }
 function recordCount(dataId) {   
   var C = D && D.man && D.man.counts_of_record; if (!C) return null;
@@ -681,7 +693,7 @@ function recordCount(dataId) {
   return k && C[k] != null ? +C[k] : null;
 }
 function tasksText(f, dsId) {   
-  var t = tasksTextBase(f, dsId), rc = D && D.golden ? null : recordCount(D && D.dataId), shown = f.tasks_kept != null ? f.tasks_kept : f.tasks;
+  var t = tasksTextBase(f, dsId), rc = recordCount(D && D.dataId), shown = f.tasks_kept != null ? f.tasks_kept : f.tasks;
   if (rc == null || shown == null || rc === shown) return t;
   var fmt = function (n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ','); };
   var clause = rc < shown ? 'the kept count is now ' + fmt(rc) + '; this fit frame predates a withdrawal' : 'the kept count is ' + fmt(rc) + '; the rest awaits the axis';
@@ -717,7 +729,7 @@ function setHeld(msg, kind) {
 function frameLine() {
   var el = document.getElementById('framebar'); if (!el || !D || !D.shared) return;
   var f = D.shared.frame || {};
-  var base = (D.golden ? 'golden set (12) \u00b7 ' : '') + (DATASETS[D.dataId] ? (DATASETS[D.dataId].frameLabel || DATASETS[D.dataId].label) + ' \u00b7 ' : '') + mainConfigs().length + ' models';   
+  var base = (D.golden ? 'golden set (' + D.goldenSet.n + ') · ' : '') + (DATASETS[D.dataId] ? (DATASETS[D.dataId].frameLabel || DATASETS[D.dataId].label) + ' \u00b7 ' : '') + mainConfigs().length + ' models';   
   
   el.textContent = base;
   var mc = document.getElementById('machinery'); if (mc) mc.textContent = 'as of ' + asOf(f.build_ts || f.build_date) + ', ' + CADENCE + '.';   
@@ -830,7 +842,7 @@ function stamp() {
   
   (document.getElementById('stamp') || document.createElement('div')).innerHTML =   
     '<span data-chain-inv>' + mainConfigs().length + ' models · keep-set ' + f.keep_set_hash + ' · data fingerprint ' + f.runs_fingerprint + (f.runs_window ? ' · runs window ' + plainTs(f.runs_window) : '')
-    + ' · axis ' + D.shared.axis.axis_id + (D.golden ? ' · ' + String(f.golden_note || 'golden set: a data point, not the difficulty definition').replace(new RegExp('\\s*\\((' + String.fromCharCode(83, 122, 121, 109, 111, 110) + ' [0-9-]+|as adopted)\\)'), '') : '') + '</span>'
+    + ' · axis ' + D.shared.axis.axis_id + (D.golden ? ' · golden set: ' + mainConfigs().length + ' of its ' + D.goldenSet.n + ' models in this set' : '') + '</span>'
     + (D.bay && D.bay.fit_set && D.bay.fit_set.sha12 ? ' · Bayesian fit set <span data-fit-set>' + D.bay.fit_set.sha12 + '</span> (' + fitSetCount() + ')' : '')
     + ' · <a href="' + MOUNT + 'data/manifest.json">data manifest</a>';
   var more = document.getElementById('stampmore');

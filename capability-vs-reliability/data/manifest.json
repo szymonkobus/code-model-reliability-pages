@@ -82,33 +82,33 @@
   },
   "new": {
    "files": {
-    "shared": "shared.new.34512a2e0ec4.json",
-    "chain_average": "chain_average.new.34512a2e0ec4.json"
+    "shared": "shared.new.13a463c38646.json",
+    "chain_average": "chain_average.new.13a463c38646.json"
    },
    "label": "wave 2 and wave 2 parked",
-   "fingerprint": "34512a2e0ec4",
+   "fingerprint": "13a463c38646",
    "frame": {
     "population_M": 59,
     "tasks": 1737,
     "keep_set_hash": "abc6c6e65227",
-    "runs_fingerprint": "34512a2e0ec4",
-    "runs_window": "2026-10-12T10:02:07Z",
+    "runs_fingerprint": "13a463c38646",
+    "runs_window": "2026-10-12T11:04:51Z",
     "build_date": "2026-10-12",
-    "build_ts": "2026-10-12T10:14:10Z",
+    "build_ts": "2026-10-12T11:14:12Z",
     "vocab_ruled": "2026-08-27",
     "set": "new",
     "set_label": "wave 2 and wave 2 parked",
     "tasks_used": "wave 2 and wave 2 parked \u2014 1737 tasks, axis wave combined-20260903T1502Z",
-    "source": "pool-pages-lead build_pool_curves.py stamp 2026-10-12T10:14:10+00:00 \u00b7 cross_rows on lev_grid f3d40b6fb872",
+    "source": "pool-pages-lead build_pool_curves.py stamp 2026-10-12T11:14:12+00:00 \u00b7 cross_rows on lev_grid f3d40b6fb872",
     "skipped_no_rows": []
    },
-   "source_stamp": "2026-10-12T10:14:10+00:00",
+   "source_stamp": "2026-10-12T11:14:12+00:00",
    "missing": {
     "chain_median": "the median-task chain needs the pool's per-task results, which the pool bundle does not carry",
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-12T11:00:24Z"
+   "updated_at": "2026-10-12T11:21:54Z"
   },
   "all": {
    "files": {
@@ -150,153 +150,6 @@
     "unfitted": 9,
     "served_wave": "combined-20260903T1502Z",
     "served_arms": 55
-   },
-   "missing": {
-    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
-    "capC": "Capability C is computed for wave 1 (the original tasks) only",
-    "capC_z": "this Capability C variant is computed for wave 1 and wave 1+2 only",
-    "capC_j": "this Capability C variant is computed for wave 1 and wave 1+2 only"
-   }
-  },
-  "golden-board": {
-   "files": {
-    "shared": "shared.golden-board.f4a962081dd8.json",
-    "chain_average": "chain_average.golden-board.f4a962081dd8.json",
-    "bayes": "bayes.golden-board.f4a962081dd8-ffd6e0604cc9.json"
-   },
-   "label": "wave 1",
-   "arms": "golden",
-   "fingerprint": "f4a962081dd8",
-   "frame": {
-    "population_M": 12,
-    "tasks": 430,
-    "keep_set_hash": "c3f08ea1a903",
-    "runs_fingerprint": "ebe50fb3fc5f",
-    "build_date": "2026-10-12",
-    "build_ts": "2026-10-12T10:55:04Z",
-    "vocab_ruled": "2026-08-27",
-    "set": "board",
-    "set_label": "wave 1",
-    "arms": "golden",
-    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
-    "tasks_on_axis": 430,
-    "tasks_kept": 430,
-    "tasks_awaiting_axis": 0,
-    "axis_set_hash": "c3f08ea1a903",
-    "tasks_used": "wave 1 \u2014 430 tasks, golden-set axis over the 12 arms",
-    "source": "failure-vs-difficulty data-golden-board fp 9804248afd6c (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "c076522ff536",
-    "withheld_configs": [],
-    "withdrawn": {}
-   },
-   "source_stamp": "2026-10-12T10:55:04Z",
-   "source_fp": "9804248afd6c",
-   "updated_at": "2026-10-12T11:08:44Z",
-   "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
-   "bayes_interim": {
-    "wave": null,
-    "n": 0,
-    "unfitted": 0,
-    "served_wave": "golden-board-20260904T1407Z",
-    "served_arms": 12
-   },
-   "missing": {
-    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
-    "capC": "Capability C is computed for wave 1 (the original tasks) only",
-    "capC_z": "this Capability C variant is computed for wave 1 and wave 1+2 only",
-    "capC_j": "this Capability C variant is computed for wave 1 and wave 1+2 only"
-   }
-  },
-  "golden-new": {
-   "files": {
-    "shared": "shared.golden-new.6686baa9e8d3.json",
-    "chain_average": "chain_average.golden-new.6686baa9e8d3.json",
-    "bayes": "bayes.golden-new.6686baa9e8d3-f397260cc9fb.json"
-   },
-   "label": "wave 2 and wave 2 parked",
-   "arms": "golden",
-   "fingerprint": "6686baa9e8d3",
-   "frame": {
-    "population_M": 12,
-    "tasks": 1737,
-    "keep_set_hash": "abc6c6e65227",
-    "runs_fingerprint": "ebe50fb3fc5f",
-    "build_date": "2026-10-12",
-    "build_ts": "2026-10-12T10:55:52Z",
-    "vocab_ruled": "2026-08-27",
-    "set": "new",
-    "set_label": "wave 2 and wave 2 parked",
-    "arms": "golden",
-    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
-    "tasks_on_axis": 1737,
-    "tasks_kept": 1737,
-    "tasks_awaiting_axis": 0,
-    "axis_set_hash": "abc6c6e65227",
-    "tasks_used": "wave 2 and wave 2 parked \u2014 1737 tasks, golden-set axis over the 12 arms",
-    "source": "failure-vs-difficulty data-golden-new fp a108ea59e0ef (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "aeb913f885ac",
-    "withheld_configs": [],
-    "withdrawn": {}
-   },
-   "source_stamp": "2026-10-12T10:55:52Z",
-   "source_fp": "a108ea59e0ef",
-   "updated_at": "2026-10-12T11:09:00Z",
-   "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
-   "bayes_interim": {
-    "wave": null,
-    "n": 0,
-    "unfitted": 0,
-    "served_wave": "golden-pool-20260904T1407Z-m100",
-    "served_arms": 12
-   },
-   "missing": {
-    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
-    "capC": "Capability C is computed for wave 1 (the original tasks) only",
-    "capC_z": "this Capability C variant is computed for wave 1 and wave 1+2 only",
-    "capC_j": "this Capability C variant is computed for wave 1 and wave 1+2 only"
-   }
-  },
-  "golden-all": {
-   "files": {
-    "shared": "shared.golden-all.3dfbc9d112dc.json",
-    "chain_average": "chain_average.golden-all.3dfbc9d112dc.json",
-    "bayes": "bayes.golden-all.3dfbc9d112dc-df9662871186.json"
-   },
-   "label": "all waves",
-   "arms": "golden",
-   "fingerprint": "3dfbc9d112dc",
-   "frame": {
-    "population_M": 12,
-    "tasks": 2167,
-    "keep_set_hash": "60ede5d24001",
-    "runs_fingerprint": "ebe50fb3fc5f",
-    "build_date": "2026-10-12",
-    "build_ts": "2026-10-12T10:57:01Z",
-    "vocab_ruled": "2026-08-27",
-    "set": "all",
-    "set_label": "all waves",
-    "arms": "golden",
-    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
-    "tasks_on_axis": 2167,
-    "tasks_kept": 2167,
-    "tasks_awaiting_axis": 0,
-    "axis_set_hash": "60ede5d24001",
-    "tasks_used": "all waves \u2014 2167 tasks, golden-set axis over the 12 arms",
-    "source": "failure-vs-difficulty data-golden-all fp 543e052fd6aa (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "0e1bf6f2ed4a",
-    "withheld_configs": [],
-    "withdrawn": {}
-   },
-   "source_stamp": "2026-10-12T10:57:01Z",
-   "source_fp": "543e052fd6aa",
-   "updated_at": "2026-10-12T11:09:15Z",
-   "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
-   "bayes_interim": {
-    "wave": null,
-    "n": 0,
-    "unfitted": 0,
-    "served_wave": "golden-combined-20260909T1322Z",
-    "served_arms": 12
    },
    "missing": {
     "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
@@ -390,104 +243,6 @@
     "unfitted": 6,
     "served_wave": "top-20260910T2211Z",
     "served_arms": 55
-   },
-   "missing": {
-    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
-    "capC": "Capability C is computed for wave 1 (the original tasks) only",
-    "capC_z": "this Capability C variant is computed for wave 1 and wave 1+2 only",
-    "capC_j": "this Capability C variant is computed for wave 1 and wave 1+2 only"
-   }
-  },
-  "golden-board_top": {
-   "files": {
-    "shared": "shared.golden-board_top.32ea007da8dc.json",
-    "chain_average": "chain_average.golden-board_top.32ea007da8dc.json",
-    "bayes": "bayes.golden-board_top.32ea007da8dc-b8c1e660acdf.json"
-   },
-   "label": "wave 1+2",
-   "arms": "golden",
-   "fingerprint": "32ea007da8dc",
-   "frame": {
-    "population_M": 12,
-    "tasks": 1288,
-    "keep_set_hash": "ba4c3eb57ad5",
-    "runs_fingerprint": "ebe50fb3fc5f",
-    "build_date": "2026-10-12",
-    "build_ts": "2026-10-12T10:44:24Z",
-    "vocab_ruled": "2026-08-27",
-    "set": "board_top",
-    "set_label": "wave 1+2",
-    "arms": "golden",
-    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
-    "tasks_on_axis": 1288,
-    "tasks_kept": 1288,
-    "tasks_awaiting_axis": 0,
-    "axis_set_hash": "ba4c3eb57ad5",
-    "tasks_used": "wave 1+2 \u2014 1288 tasks, golden-set axis over the 12 arms",
-    "source": "failure-vs-difficulty data-golden-board_top fp a446ca79d8ee (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "ca942189a3a9",
-    "withheld_configs": [],
-    "withdrawn": {}
-   },
-   "source_stamp": "2026-10-12T10:44:24Z",
-   "source_fp": "a446ca79d8ee",
-   "updated_at": "2026-10-12T11:12:00Z",
-   "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
-   "bayes_interim": {
-    "wave": null,
-    "n": 0,
-    "unfitted": 0,
-    "served_wave": "golden-board_top-20260913T1641Z",
-    "served_arms": 12
-   },
-   "missing": {
-    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
-    "capC": "Capability C is computed for wave 1 (the original tasks) only",
-    "capC_z": "this Capability C variant is computed for wave 1 and wave 1+2 only",
-    "capC_j": "this Capability C variant is computed for wave 1 and wave 1+2 only"
-   }
-  },
-  "golden-top": {
-   "files": {
-    "shared": "shared.golden-top.f190dceb80b5.json",
-    "chain_average": "chain_average.golden-top.f190dceb80b5.json",
-    "bayes": "bayes.golden-top.f190dceb80b5-ac86d9d75102.json"
-   },
-   "label": "wave 2",
-   "arms": "golden",
-   "fingerprint": "f190dceb80b5",
-   "frame": {
-    "population_M": 12,
-    "tasks": 858,
-    "keep_set_hash": "532d0efad8a5",
-    "runs_fingerprint": "ebe50fb3fc5f",
-    "build_date": "2026-10-12",
-    "build_ts": "2026-10-12T10:45:27Z",
-    "vocab_ruled": "2026-08-27",
-    "set": "top",
-    "set_label": "wave 2",
-    "arms": "golden",
-    "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
-    "tasks_on_axis": 858,
-    "tasks_kept": 858,
-    "tasks_awaiting_axis": 0,
-    "axis_set_hash": "532d0efad8a5",
-    "tasks_used": "wave 2 \u2014 858 tasks, golden-set axis over the 12 arms",
-    "source": "failure-vs-difficulty data-golden-top fp 387bd8b2c49a (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "6445539e59a2",
-    "withheld_configs": [],
-    "withdrawn": {}
-   },
-   "source_stamp": "2026-10-12T10:45:27Z",
-   "source_fp": "387bd8b2c49a",
-   "updated_at": "2026-10-12T11:12:21Z",
-   "golden_note": "golden set: a data point, not the difficulty definition (by ruling)",
-   "bayes_interim": {
-    "wave": null,
-    "n": 0,
-    "unfitted": 0,
-    "served_wave": "golden-top-20260905T1420Z-m100",
-    "served_arms": 12
    },
    "missing": {
     "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
@@ -660,21 +415,21 @@
   },
   "cruxeval_i": {
    "files": {
-    "shared": "shared.cruxeval_i.d48674d408f2.json",
-    "chain_average": "chain_average.cruxeval_i.d48674d408f2.json",
-    "bayes": "bayes.cruxeval_i.d48674d408f2-3c2b8c401ec7.json",
+    "shared": "shared.cruxeval_i.88b3567b7961.json",
+    "chain_average": "chain_average.cruxeval_i.88b3567b7961.json",
+    "bayes": "bayes.cruxeval_i.88b3567b7961-3c2b8c401ec7.json",
     "bayes_prev": "bayes.cruxeval_i.c1810984d98e-44e95b59c373.json"
    },
    "label": "CRUXEval input",
    "arms": "all",
-   "fingerprint": "d48674d408f2",
+   "fingerprint": "88b3567b7961",
    "frame": {
     "population_M": 42,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
-    "runs_fingerprint": "a5280cb6354d",
-    "build_date": "2026-10-11",
-    "build_ts": "2026-10-11T17:50:27Z",
+    "runs_fingerprint": "310dc6422a16",
+    "build_date": "2026-10-12",
+    "build_ts": "2026-10-12T11:12:07Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_i",
     "set_label": "CRUXEval input",
@@ -685,14 +440,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
     "tasks_used": "CRUXEval input \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_i fp 1e7c2cbc6a16 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-cruxeval_i fp be34ef9df387 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "1fbf8e9080ba",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-11T17:50:27Z",
-   "source_fp": "1e7c2cbc6a16",
-   "updated_at": "2026-10-11T17:57:50Z",
+   "source_stamp": "2026-10-12T11:12:07Z",
+   "source_fp": "be34ef9df387",
+   "updated_at": "2026-10-12T11:24:11Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -768,21 +523,21 @@
   },
   "aime": {
    "files": {
-    "shared": "shared.aime.d31abe183fec.json",
-    "chain_average": "chain_average.aime.d31abe183fec.json",
-    "bayes": "bayes.aime.d31abe183fec-6882b0209e1c.json",
+    "shared": "shared.aime.e393899003aa.json",
+    "chain_average": "chain_average.aime.e393899003aa.json",
+    "bayes": "bayes.aime.e393899003aa-6882b0209e1c.json",
     "bayes_prev": "bayes.aime.0ada76201b10-1758047dd617.json"
    },
    "label": "AIME",
    "arms": "all",
-   "fingerprint": "d31abe183fec",
+   "fingerprint": "e393899003aa",
    "frame": {
     "population_M": 41,
     "tasks": 60,
     "keep_set_hash": "dc5cbadfe267",
-    "runs_fingerprint": "a5280cb6354d",
-    "build_date": "2026-10-11",
-    "build_ts": "2026-10-11T17:48:34Z",
+    "runs_fingerprint": "310dc6422a16",
+    "build_date": "2026-10-12",
+    "build_ts": "2026-10-12T11:10:15Z",
     "vocab_ruled": "2026-08-27",
     "set": "aime",
     "set_label": "AIME",
@@ -793,14 +548,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "dc5cbadfe267",
     "tasks_used": "AIME \u2014 60 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-aime fp 298336fa12c3 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-aime fp c8d7f7f90f9a (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "8f916de288b0",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-11T17:48:34Z",
-   "source_fp": "298336fa12c3",
-   "updated_at": "2026-10-11T17:58:26Z",
+   "source_stamp": "2026-10-12T11:10:15Z",
+   "source_fp": "c8d7f7f90f9a",
+   "updated_at": "2026-10-12T11:25:51Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,

@@ -1,9 +1,9 @@
 {
- "fingerprint": "ed3a94d393b0",
+ "fingerprint": "036467e106d0",
  "fingerprint_inputs": {
   "content": "c1a7ebf9da27",
   "wave": "combined-20260910T2209Z",
-  "body": "6c0042a3a670"
+  "body": "37cbda9c5d1b"
  },
  "frame": {
   "dataset": "board_top",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "ebe50fb3fc5f",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-12",
-  "stamp": "2026-10-12T10:46:32Z",
+  "stamp": "2026-10-12T11:15:38Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -427,6 +427,7 @@
     "Qwen/Qwen3-32B",
     "Qwen/Qwen3-4B",
     "Qwen/Qwen3-8B",
+    "claude-haiku-5-5",
     "claude-sonnet-5",
     "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct",
     "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
@@ -442,13 +443,13 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/board_top-20260910T2111Z/results",
    "set_fingerprint": "030de536de92",
-   "pointer_updated_at": "2026-10-11T09:24:59Z",
-   "n_fits": 59,
+   "pointer_updated_at": "2026-10-12T11:14:15Z",
+   "n_fits": 61,
    "note": null,
    "gates": {
     "convention": "0.5%-of-draws convention",
-    "n_pass": 30,
-    "n_arms": 61,
+    "n_pass": 31,
+    "n_arms": 63,
     "max_divergence_share_pct": 0.03,
     "rhat_max": 1.148,
     "bulk_ess_min": 18,
@@ -472,6 +473,7 @@
      "Qwen--Qwen3-32B_temp_0.8",
      "Qwen--Qwen3-4B_temp_0.8",
      "Qwen--Qwen3-8B_temp_0.8",
+     "claude-haiku-5-5_batch",
      "claude-sonnet-5_batch",
      "deepseek-ai--DeepSeek-Coder-V2-Lite-Instruct_temp_0.8",
      "deepseek-ai--DeepSeek-R1-Distill-Llama-8B_think_temp_0.6",
@@ -521,6 +523,8 @@
     "Qwen/Qwen3-32B-Thinking",
     "Qwen/Qwen3-4B-Instruct-2507",
     "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+    "claude-haiku-5-5",
+    "claude-haiku-5-5-thinking",
     "claude-opus-5",
     "claude-opus-5-thinking",
     "deepseek-ai/DeepSeek-Coder-V2-Instruct",
@@ -557,11 +561,11 @@
    },
    "concentration_counts": {
     "diffuse": 5,
-    "extreme": 35,
+    "extreme": 37,
     "intermediate": 5,
     "concentrated": 14
    },
-   "drawn": 61
+   "drawn": 63
   },
   "vocab_ruled": "2026-08-27",
   "interim": "kernel fits on all results available at build; refit hourly as results land",
@@ -1128,10 +1132,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-12T09:15:11Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261012T091511Z.json",
-   "sha16": "b56684116a6ba8a3",
-   "census_mtime": "2026-10-12T09:16:03Z",
+   "stamp": "2026-10-12T10:13:13Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261012T101313Z.json",
+   "sha16": "d5829746d82f1bd9",
+   "census_mtime": "2026-10-12T10:13:58Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "series_rows": [
@@ -1209,9 +1213,9 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.ed3a94d393b0.json",
-  "chain_average": "chain_average.ed3a94d393b0.json",
-  "chain_median": "chain_median.ed3a94d393b0.json",
-  "dots": "dots.ed3a94d393b0.json"
+  "shared": "shared.036467e106d0.json",
+  "chain_average": "chain_average.036467e106d0.json",
+  "chain_median": "chain_median.036467e106d0.json",
+  "dots": "dots.036467e106d0.json"
  }
 }
