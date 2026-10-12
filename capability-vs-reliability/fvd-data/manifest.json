@@ -1,5 +1,5 @@
 {
- "fingerprint": "be48fd64be2b",
+ "fingerprint": "63360feaa8c1",
  "frame": {
   "population_M": 60,
   "tasks": 430,
@@ -87,7 +87,7 @@
   "scorer": "plus_status (a sample counts as solved if its plus run passed; difficulty ruled base AND plus on 2026-09-02 \u2014 the switch of served numbers waits for Szymon's gate; under base AND plus a result can read differently, e.g. Mbpp/274 for Qwen3-30B-A3B: 128 passes here vs 127)",
   "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\\t<task>\\t<passes>\\t<attempts>\\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column verbatim; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) \u2014 reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
   "build_date": "2026-10-12",
-  "built_at": "2026-10-12T15:47:55Z",
+  "built_at": "2026-10-12T16:05:01Z",
   "vocab_ruled": "2026-08-27",
   "counts_of_record": {
    "original_kept": 430,
@@ -360,10 +360,10 @@
   "newest_input_mtime": "2026-10-12T15:36:56Z"
  },
  "files": {
-  "shared": "shared.be48fd64be2b.json",
-  "chain_average": "chain_average.be48fd64be2b.json",
-  "chain_median": "chain_median.be48fd64be2b.json",
-  "dots": "dots.be48fd64be2b.json",
-  "levels": "levels.be48fd64be2b.json"
+  "shared": "shared.63360feaa8c1.json",
+  "chain_average": "chain_average.63360feaa8c1.json",
+  "chain_median": "chain_median.63360feaa8c1.json",
+  "dots": "dots.63360feaa8c1.json",
+  "levels": "levels.63360feaa8c1.json"
  }
 }
