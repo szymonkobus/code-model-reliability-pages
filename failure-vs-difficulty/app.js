@@ -2011,7 +2011,7 @@ function crossingName(lvl) { return lvl === '1' ? 'D99' : 'D50'; }
 function crossingRate(isAvg) { return isAvg ? 'average failure rate' : 'median task\'s failure rate'; }
 function crossingWords(lvl, isAvg) {   
   return crossingName(lvl) + ' is the difficulty at which the fitted ' + crossingRate(isAvg) + ' crosses ' + (lvl === '1' ? '1%' : '50%')
-    + ': the median over the fit\'s draws of each draw\'s own crossing, the middle one where a draw crosses the level several times; its band the 10th to 90th percentiles of those crossings.';
+    + ': the median over the fit\'s draws of each draw\'s own crossing, the middle one where a draw crosses the level several times; its uncertainty band the 10th to 90th percentiles of those crossings.';   
 }
 function crossingHover(lvl, isAvg) {   
   return crossingName(lvl) + ' \u2014 where the fitted ' + crossingRate(isAvg) + ' crosses ' + (lvl === '1' ? '1%' : '50%')
@@ -2112,7 +2112,7 @@ function crossingsTable(visible) {
   var h = document.createElement('p');
   h.innerHTML = isB
     ? '<span data-chain-val>' + crossingWords('50', isAvg) + '</span> ' + crossingWords('1', isAvg)   
-      + ' The drawn curve is the median of the draws\' curves at each difficulty, so where it crosses a level can differ from the printed number. Positions in difficulty %; each cell\'s hover carries its band; * where the model has no fit; '
+      + ' The drawn curve is the median of the draws\' curves at each difficulty, so where it crosses a level can differ from the printed number. Positions in difficulty %; each cell\'s hover carries its uncertainty band; * where the model has no fit; '
       + 'the same crossings with their bands live on Capability vs reliability.'
     : '<span data-chain-val>' + n50 + '</span> — ' + hov50.replace(/^D50 — /, '') + '; ' + n1 + ' — ' + hov1.replace(/^D99 — /, '')
       + '. Positions in difficulty %, from the ' + houseName().toLowerCase() + ' for the source picked'
