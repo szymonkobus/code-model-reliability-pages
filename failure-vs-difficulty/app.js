@@ -231,14 +231,19 @@ function loadBundle(dir, label) {
             faceLine('Drawn without the ' + (k === 'dots' ? 'task dots' : 'median fits'), 'the file did not load', e); return { configs: {}, frame: {}, missing: true };
           }); }));
     }).then(function (all) {
-      D.shared = all[0]; D.avg = all[1]; D.med = all[2]; D.dots = all[3];
+      D.shared = all[0]; D.avg = all[1]; D.med = all[2]; D.dots = all[3]; D.levels = null;
       D.shared.frame.dataset = D.shared.frame.dataset || 'board';
       D.shared.frame.dataset_label = D.shared.frame.dataset_label || label;
       D.shared.vocab = D.shared.vocab || {};
       
+      D.levelsUrl = (D.man && D.man.files && D.man.files.levels) ? dir + '/' + D.man.files.levels : null;   
+      var lvP = (DRAW_LEVELS && D.man && D.man.files && D.man.files.levels)
+        ? fetchFresh(dir + '/' + D.man.files.levels).then(function (r) { return r.ok ? r.json() : null; }).then(function (l) { D.levels = l || false; }).catch(function () { D.levels = false; })
+        : Promise.resolve();
+      
       
       var key = D.shared.frame.dataset;
-      if (key) return fetchFresh(dir + '/current.json').then(function (r) { return r.ok ? r.json() : null; }).then(function (c) { D.shared.current = c; }).catch(function () { D.shared.current = null; });
+      return lvP.then(function () { if (key) return fetchFresh(dir + '/current.json').then(function (r) { return r.ok ? r.json() : null; }).then(function (c) { D.shared.current = c; }).catch(function () { D.shared.current = null; }); });
     });
 }
 function loadBoard() {
@@ -252,9 +257,13 @@ function loadBoard() {
           });
         }));
     }).then(function (all) {
-      D.shared = all[0]; D.avg = all[1]; D.med = all[2]; D.dots = all[3];
+      D.shared = all[0]; D.avg = all[1]; D.med = all[2]; D.dots = all[3]; D.levels = null;
       D.shared.frame.dataset = 'board'; D.shared.frame.dataset_label = DATASETS.board ? DATASETS.board.label : 'wave 1';
-      return fetchFresh('data/current.json').then(function (r) { return r.ok ? r.json() : null; }).then(function (c) { D.shared.current = c; }).catch(function () { D.shared.current = null; });   
+      D.levelsUrl = (D.man && D.man.files && D.man.files.levels) ? 'data/' + D.man.files.levels : null;   
+      var lvP = (DRAW_LEVELS && D.man && D.man.files && D.man.files.levels)   
+        ? fetchFresh('data/' + D.man.files.levels).then(function (r) { return r.ok ? r.json() : null; }).then(function (l) { D.levels = l || false; }).catch(function () { D.levels = false; })
+        : Promise.resolve();
+      return lvP.then(function () { return fetchFresh('data/current.json').then(function (r) { return r.ok ? r.json() : null; }).then(function (c) { D.shared.current = c; }).catch(function () { D.shared.current = null; }); });   
     });
 }
 
@@ -298,7 +307,7 @@ Promise.all([
 
  
 var ROW_KEPT = {};   
-var state = { def: 'average', src: 'project', band: '90',
+var state = { def: 'average', src: 'project', band: '90', curve: 'rate',
               xs: 'logit', ys: 'logit', dots: '0', rm: '0', trend: 'on', partial: 'hide', pin: 'off' };
 
 
@@ -330,7 +339,7 @@ var srcMount = null;
 var ready = false;      
 var DOTS_MAX = 24;      
 var coercing = false;   
-var bandCtl = null, dotsCtl = null;
+var bandCtl = null, dotsCtl = null, curveCtl = null;
 var EXPORTING = false;  
 var K = 1;              
 function quietSet(ctl, v) { coercing = true; try { ctl.set(v); } finally { coercing = false; } }
@@ -600,6 +609,13 @@ function boot() {
     var anyMed = Object.keys(_mc).some(function (k) { var c = _mc[k] || {}; return (c.bin_median || []).some(function (v) { return v != null; }) || (c.bin_censor || []).some(function (f) { return f !== 0; }); });
     if (!anyMed) { setDisabled(defCtl.element.querySelector('button[data-value="median"]'), true, ''); if (state.def === 'median') { state.def = 'average'; quietSet(defCtl, 'average'); buildSrcSwitch(); } }
   })();
+  curveCtl = Kit.switchControl({ mount: row, key: 'curve', label: 'View',   
+    options: [{ value: 'rate', label: 'median failure rate' },
+              { value: 'difficulty', label: 'median difficulty' }],
+    dflt: 'rate',
+    onchange: function (v) { state.curve = v; DRAW_LEVELS = (v === 'difficulty'); if (!ready || coercing) return; if (DRAW_LEVELS && D.levels == null && D.levelsUrl) ensureLevels().then(function () { render(); }); else render(); } });
+  curveCtl.element.title = 'at each difficulty the median of the draws\' failure rates, or at each failure-rate level the median of the draws\' crossings, through the printed D50 and D99';
+  state.curve = DRAW_LEVELS ? 'difficulty' : 'rate';   
   bandCtl = Kit.switchControl({ mount: row, key: 'band', label: 'Uncertainty bands',
     options: [{ value: 'off', label: 'Off' },
               { value: '80', label: '80%' },
@@ -879,6 +895,7 @@ function chainCurve(i) {
       h.houseOnly = true; h.lo = null; h.hi = null;
       return h;
     }
+    var lcv = levelsCurve(levelsBlockFor(id), lvl !== 'off'); if (lcv) return lcv;   
     var rows = { '80': [1, 5], '90': [0, 6], '95': [0, 6] };
     if (src.levels && src.levels.indexOf(lvl) < 0 && lvl !== 'off') lvl = src.levels[src.levels.length - 1];
     var r = rows[lvl === 'off' ? (src.levels ? src.levels[src.levels.length - 1] : '90') : lvl];
@@ -1063,6 +1080,58 @@ function curveAt(curve, z) {
 function inX(z) {   
   var L = xlimT(), v = xt(z) - PIN_DX; return v >= L[0] - 1e-9 && v <= L[1] + 1e-9;
 }
+
+
+
+
+
+
+
+
+var DRAW_LEVELS = (typeof Kit !== 'undefined' && Kit.state) ? Kit.state.get('curve', 'rate') === 'difficulty' : false;   
+function levelsCurve(blk, bandOn) {   
+  if (!blk || !blk.lv || !blk.zmed) return null;
+  var zs = [], mid = [], bl = [], blo = [], bhi = [];
+  for (var k = 0; k < blk.lv.length; k++) {
+    var pl = blk.pl ? blk.pl[k] : 0, pr = blk.pr ? blk.pr[k] : 0, zm = blk.zmed[k];
+    if (zm == null || pl == null || pr == null || pl > 0.5 || pr > 0.5) continue;   
+    zs.push(zm); mid.push(blk.lv[k]);
+    if (bandOn && blk.zlo && blk.zhi && blk.zlo[k] != null && blk.zhi[k] != null && pl <= 0.1 && pr <= 0.1) { bl.push(blk.lv[k]); blo.push(blk.zlo[k]); bhi.push(blk.zhi[k]); }
+  }
+  if (zs.length < 2) return null;
+  return { zs: zs, mid: mid, lo: bl.length ? blo : null, hi: bl.length ? bhi : null, bz: { lv: bl, lo: blo, hi: bhi }, horizontal: true, form: 'line', levels: true };
+}
+function pathBandH(lv, lo, hi) {   
+  var segs = [], cur = null;
+  for (var k = 0; k < lv.length; k++) {
+    if (lo[k] == null || hi[k] == null) { cur = null; continue; }
+    if (!cur) { cur = []; segs.push(cur); }
+    cur.push(k);
+  }
+  return segs.map(function (seg) {
+    var up = '', dn = '';
+    seg.forEach(function (k, j) {
+      up += (j ? 'L' : 'M') + sx(lo[k]).toFixed(1) + ' ' + sy(clampY(lv[k])).toFixed(1);
+      dn = 'L' + sx(hi[k]).toFixed(1) + ' ' + sy(clampY(lv[k])).toFixed(1) + dn;
+    });
+    return up + dn + 'Z';
+  }).join('');
+}
+function bandPath(cv) { return cv.horizontal ? pathBandH(cv.bz.lv, cv.bz.lo, cv.bz.hi) : pathBand(cv.zs, cv.lo, cv.hi); }   
+function ensureLevels() {   
+  if (D.levels != null || !D.levelsUrl) return Promise.resolve();
+  return fetchFresh(D.levelsUrl).then(function (r) { return r.ok ? r.json() : null; }).then(function (l) { D.levels = l || false; }).catch(function () { D.levels = false; });
+}
+function levelsBlockFor(id) { var L = D.levels; if (!DRAW_LEVELS || !L || !L.configs || !L.configs[id]) return null; return L.configs[id][state.def === 'average' ? 'avg' : 'med'] || null; }
+function rowLevelsBlock(id) {   
+  if (!DRAW_LEVELS || !D.levels) return null;
+  var cfgB = (state.def === 'average' ? D.avg : D.med).configs[id];
+  if (cfgB && cfgB.bayes) return levelsBlockFor(id);
+  var ra = runFitFor(id); if (ra) return levelsBlockForArm(ra);
+  var sa = sideFitFor(id); if (sa) return levelsBlockForArm(sa);
+  return null;
+}
+function levelsBlockForArm(a) { var L = D.levels; if (!DRAW_LEVELS || !L || !L.arms || !a || !a.levels_key || !L.arms[a.levels_key]) return null; return L.arms[a.levels_key][state.def === 'average' ? 'avg' : 'med'] || null; }
 function pathLine(zs, ys) {
   var d = '', pen = false;
   for (var k = 0; k < zs.length; k++) {
@@ -1263,6 +1332,7 @@ function sideHidden(a) { return !!(a && a.partial) && state.partial !== 'show'; 
 function sideCurve(a) {   
   var src = state.def === 'average' ? a.bayes_avg : a.bayes_med;
   if (!src || !src.q) return null;
+  var lcv = levelsCurve(levelsBlockForArm(a), state.band !== 'off'); if (lcv) { lcv.src = src; return lcv; }   
   var rows = { '80': [1, 5], '90': [0, 6], '95': [0, 6] };
   var r = rows[state.band === 'off' ? '90' : state.band] || [0, 6];
   return { zs: src.zgrid, mid: src.q[3], lo: state.band === 'off' ? null : src.q[r[0]], hi: state.band === 'off' ? null : src.q[r[1]], src: src };
@@ -1553,7 +1623,12 @@ function render() {
 
 
 
-  var bayesLevels = (DATASET === 'new') ? ['80'] : ['80', '90'];
+  var bayesLevels = (DRAW_LEVELS && D.levels) ? ['80'] : ((DATASET === 'new') ? ['80'] : ['80', '90']);   
+  if (curveCtl) {   
+    var _noLv = !(state.src === 'bayes' && D.levelsUrl);
+    setDisabled(curveCtl.element.querySelector('button[data-value="difficulty"]'), _noLv, '');
+    if (_noLv && state.curve === 'difficulty') { state.curve = 'rate'; DRAW_LEVELS = false; quietSet(curveCtl, 'rate'); }
+  }
   if (state.src === 'bayes' && bandCtl && state.band !== 'off' && bayesLevels.indexOf(state.band) < 0)
     quietSet(bandCtl, bayesLevels[bayesLevels.length - 1]);
   if (state.dots === '1' && visible.length > DOTS_MAX && dotsCtl)
@@ -1662,7 +1737,7 @@ function render() {
     var shC = pinShift(cv); if (shC == null) return; PIN_DX = shC;   
     if (c.excluded) { cv.lo = null; cv.hi = null; }   
     if (cv.lo)
-      bands += '<path d="' + pathBand(cv.zs, cv.lo, cv.hi)
+      bands += '<path d="' + bandPath(cv)
         + '" fill="' + c.color + '" fill-opacity="0.10" '
         + 'data-chain-val data-i="' + i + '"/>';
     curves += '<path d="' + pathLine(cv.zs, cv.mid)
@@ -1717,7 +1792,7 @@ function render() {
       if (!sideOn(k) || sideHidden(a)) return;
       var cvS = sideCurve(a); if (!cvS) return;
       var shS = pinShift(cvS); if (shS == null) return; PIN_DX = shS;
-      if (cvS.lo) bands += '<path d="' + pathBand(cvS.zs, cvS.lo, cvS.hi) + '" fill="' + a.color + '" fill-opacity="0.10" data-chain-val data-side="' + k + '"/>';
+      if (cvS.lo) bands += '<path d="' + bandPath(cvS) + '" fill="' + a.color + '" fill-opacity="0.10" data-chain-val data-side="' + k + '"/>';
       curves += '<path d="' + pathLine(cvS.zs, cvS.mid) + '" fill="none" stroke="' + a.color + '" stroke-width="' + (a.thin ? '1.0' : '1.6') + '"' + (a.gates_failed ? ' stroke-opacity="0.55"' : '')
         + (curveDash(a) ? ' stroke-dasharray="' + curveDash(a) + '"' : '')   
         + ' data-chain-val data-side="' + k + '" data-label="' + String(a.label).replace(/"/g, '&quot;') + ' — ' + String(headingShort(sbC)).replace(/"/g, '&quot;') + '"/>';
@@ -1730,7 +1805,7 @@ function render() {
       if (a._twin || !seriesSel.has(k)) return;   
       var cvR = sideCurve(a); if (!cvR) return;
       var shR = pinShift(cvR); if (shR == null) return; PIN_DX = shR;
-      if (cvR.lo) bands += '<path d="' + pathBand(cvR.zs, cvR.lo, cvR.hi) + '" fill="' + a.color + '" fill-opacity="0.10" data-chain-val data-series="' + k + '" data-row="' + srC._row + '"/>';
+      if (cvR.lo) bands += '<path d="' + bandPath(cvR) + '" fill="' + a.color + '" fill-opacity="0.10" data-chain-val data-series="' + k + '" data-row="' + srC._row + '"/>';
       curves += '<path d="' + pathLine(cvR.zs, cvR.mid) + '" fill="none" stroke="' + a.color + '" stroke-width="' + (a.thin ? '1.0' : '1.6') + '"' + (a.gates_failed ? ' stroke-opacity="0.55"' : '') + (curveDash(a) ? ' stroke-dasharray="' + curveDash(a) + '"' : '') + ' data-chain-val data-series="' + k + '" data-row="' + srC._row + '" data-label="' + String(a.short_label || a.label).replace(/"/g, '&quot;') + ' — ' + String((a.run || headingShort(srC))).replace(/"/g, '&quot;') + '"/>';
     });
   });
@@ -2089,6 +2164,7 @@ function crossingsTable(visible) {
   var hov1 = isB ? crossingHover('1', isAvg)
                  : 'where the ' + estWord + ' of the ' + rateWord + ' ' + crossV + ' 1% (' + chainWord + '); D99, the fitted curve\'s, is under the Bayesian estimator';
   var nRowsR = 0, nFirstR = 0;   
+  var nLevR = 0, nNoLevR = 0;   
   var h = document.createElement('p');
   var readoutWords = function () {   
     var tr = tableRule(nRowsR, nFirstR);
@@ -2096,7 +2172,10 @@ function crossingsTable(visible) {
     h.innerHTML = isB
       ? '<span data-chain-val>' + crossingWords('50', isAvg, tr) + '</span> ' + crossingWords('1', isAvg, tr)   
         + (tr === 'middle' && nFirstR ? ' On ' + nFirstR + ' of these rows each draw\'s first upward crossing is taken rather than the middle one; their hovers say so.' : '')
-        + ' The drawn curve is the median of the draws\' curves at each difficulty, so where it crosses a level can differ from the printed number. Positions in difficulty %; each cell\'s hover carries its uncertainty band; * where the model has no fit; '
+        + (nLevR ? ' The drawn curve passes through the printed numbers: at each failure-rate level it is the median over the fit\'s draws of each draw\'s crossing of that level, its uncertainty band the 10th to 90th percentiles, and it ends where a level\'s median is censored.'
+                   + (nNoLevR ? ' For ' + nNoLevR + ' of these rows no such table exists and the drawn curve is the median of the draws\' curves at each difficulty.' : '') + ' '
+                 : ' The drawn curve is the median of the draws\' curves at each difficulty, so where it crosses a level can differ from the printed number. ')   
+        + 'Positions in difficulty %; each cell\'s hover carries its uncertainty band; * where the model has no fit; '
         + 'the same crossings with their bands live on Capability vs reliability.'
       : '<span data-chain-val>' + n50 + '</span> — ' + hov50.replace(/^D50 — /, '') + '; ' + n1 + ' — ' + hov1.replace(/^D99 — /, '')
         + '. Positions in difficulty %, from the ' + houseName().toLowerCase() + ' for the source picked'
@@ -2129,7 +2208,7 @@ function crossingsTable(visible) {
         
         var recSrc = bbT ? (isAvg ? bbT.cross_record : bbT.cross_record_med) : null;
         var rec = recSrc ? recSrc[lvl === '1' ? 'd1' : 'd50'] : null;
-        if (lvl === '1') { nRowsR++; if (rec && rec.rule === 'first') nFirstR++; }   
+        if (lvl === '1') { nRowsR++; if (rec && rec.rule === 'first') nFirstR++; if (DRAW_LEVELS && D.levels) { if (rowLevelsBlock(c.id)) nLevR++; else nNoLevR++; } }   
         var defWord = isAvg ? '' : 'median-task definition · ';   
         
         if (rec && rec.status_kind === 'bound' && (rec.bound != null || rec.z != null)) {
@@ -2553,6 +2632,7 @@ function exportView(nDrawn) {
   parts.push(state.def === 'average' ? 'average rate' : 'median task');
   parts.push(state.src === 'bayes' ? 'Bayesian curves' : houseName().toLowerCase());
   parts.push(state.band === 'off' ? 'uncertainty bands off' : state.band + '% uncertainty bands');
+  if (DRAW_LEVELS && D.levels) parts.push('median difficulty');   
   if (state.src === 'bayes' && state.trend !== 'off') parts.push('linear trends');
   if (state.dots === '1') parts.push('task dots');
   if (pinOn()) parts.push('pinned at ' + PIN_LEVEL + '% failure');
