@@ -1,9 +1,9 @@
 {
- "fingerprint": "c8d7f7f90f9a",
+ "fingerprint": "1fc16de9904a",
  "fingerprint_inputs": {
   "content": "8f916de288b0",
   "wave": "aime-live",
-  "body": "78cea02406e1"
+  "body": "5099bf25e841"
  },
  "frame": {
   "dataset": "aime",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "dc5cbadfe267",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "310dc6422a16",
+  "runs_fingerprint": "221d20a6e376",
   "axis_wave": "aime-live",
   "build_date": "2026-10-12",
-  "stamp": "2026-10-12T11:10:15Z",
+  "stamp": "2026-10-12T12:41:16Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/aime",
-   "unified_built_at": "2026-10-12T10:42:53Z",
+   "unified_built_at": "2026-10-12T12:09:10Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.aime.csv"
@@ -260,7 +260,12 @@
    "concentration_counts": {
     "inputs unavailable for this served set (pre-31g custody copy)": 41
    },
-   "drawn": 36
+   "drawn": 36,
+   "levels_file": {
+    "file": "levels",
+    "configs": 36,
+    "note": "the per-level crossing tables of every element of record (the median over the draws of each draw's crossing of each failure-rate level, its 10th to 90th band, the censored shares), thinned to every second level; read by the shell only under the drawing of the crossings' medians at each level"
+   }
   },
   "vocab_ruled": "2026-08-27",
   "interim": "kernel fits on all results available at build; refit hourly as results land",
@@ -345,7 +350,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-12T10:25:09Z",
+   "_stamp": "2026-10-12T12:26:32Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -510,10 +515,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-12T09:15:11Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261012T091511Z.json",
-   "sha16": "b56684116a6ba8a3",
-   "census_mtime": "2026-10-12T09:16:03Z",
+   "stamp": "2026-10-12T11:32:44Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261012T113244Z.json",
+   "sha16": "88e19c90aca1d91b",
+   "census_mtime": "2026-10-12T11:34:22Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "side_arms": {
@@ -529,9 +534,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.c8d7f7f90f9a.json",
-  "chain_average": "chain_average.c8d7f7f90f9a.json",
-  "chain_median": "chain_median.c8d7f7f90f9a.json",
-  "dots": "dots.c8d7f7f90f9a.json"
+  "shared": "shared.1fc16de9904a.json",
+  "chain_average": "chain_average.1fc16de9904a.json",
+  "chain_median": "chain_median.1fc16de9904a.json",
+  "dots": "dots.1fc16de9904a.json",
+  "levels": "levels.1fc16de9904a.json"
  }
 }
