@@ -1305,6 +1305,7 @@ function renderScatter() {
   layout();
   var chart = PANEL ? PANEL.svg : document.getElementById('chart');
   chart.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+  if (SPAN && !PANEL) { if (state.yq !== 'ent' && (EXPORTING ? state.xs === state.ys : state.zoom !== 'fit')) chart.setAttribute('data-equal-scale', ''); else chart.removeAttribute('data-equal-scale'); }   
   var la = logit(state.a / 100), lc = logit(state.c / 100);
   if (SPAN && !EXPORTING && !PANEL) {   
     
