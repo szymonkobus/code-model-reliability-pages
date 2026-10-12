@@ -1,9 +1,9 @@
 {
- "fingerprint": "036467e106d0",
+ "fingerprint": "9ac0ec521fca",
  "fingerprint_inputs": {
-  "content": "c1a7ebf9da27",
+  "content": "3c401ae0421c",
   "wave": "combined-20260910T2209Z",
-  "body": "37cbda9c5d1b"
+  "body": "12e81c054e6e"
  },
  "frame": {
   "dataset": "board_top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 64,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "c1a7ebf9da27",
+  "inputs_content_sha": "3c401ae0421c",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "ebe50fb3fc5f",
+  "runs_fingerprint": "1f60654ace68",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-12",
-  "stamp": "2026-10-12T11:15:38Z",
+  "stamp": "2026-10-12T11:44:05Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -122,7 +122,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-12T10:16:16Z",
+   "unified_built_at": "2026-10-12T11:16:04Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -141,7 +141,7 @@
     "of": 1288
    },
    "claude-haiku-5-5": {
-    "tasks": 1287,
+    "tasks": 1288,
     "of": 1288
    },
    "claude-haiku-5-5-thinking": {
@@ -443,7 +443,7 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/board_top-20260910T2111Z/results",
    "set_fingerprint": "030de536de92",
-   "pointer_updated_at": "2026-10-12T11:14:15Z",
+   "pointer_updated_at": "2026-10-12T11:27:36Z",
    "n_fits": 61,
    "note": null,
    "gates": {
@@ -967,7 +967,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-12T10:25:09Z",
+   "_stamp": "2026-10-12T11:27:24Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1213,9 +1213,9 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.036467e106d0.json",
-  "chain_average": "chain_average.036467e106d0.json",
-  "chain_median": "chain_median.036467e106d0.json",
-  "dots": "dots.036467e106d0.json"
+  "shared": "shared.9ac0ec521fca.json",
+  "chain_average": "chain_average.9ac0ec521fca.json",
+  "chain_median": "chain_median.9ac0ec521fca.json",
+  "dots": "dots.9ac0ec521fca.json"
  }
 }
