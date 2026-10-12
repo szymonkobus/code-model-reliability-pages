@@ -1860,17 +1860,17 @@ function narrate(visible, dotsOn, unfitted) {
   var dotTxt = dotsOn ? 'task dots on'
     : 'task dots off' + (visible.length > DOTS_MAX
         ? ' (available for ' + DOTS_MAX + ' or fewer models)' : '');
+  var drawnN = drawnCount();   
   var narrateEl = document.getElementById('narrate'); narrateEl.textContent =
     defName + ' · ' + srcName + ' · ' + bandTxt + ' · '
-    + visible.length + ' of ' + D.shared.configs.filter(function (c, i) { return shownArm(i); }).length
-    + ' models · ' + dotTxt;
+    + drawnCountWords(drawnN) + ' drawn · ' + dotTxt;
   var builtIso = D.shared.frame && D.shared.frame.stamp; var builtTxt = humanTime(builtIso);   
   if (builtTxt) { var builtEl = document.createElement('span'); builtEl.setAttribute('data-generated', String(builtIso)); builtEl.textContent = ' · built ' + builtTxt; narrateEl.appendChild(builtEl); }
   
   var fp = document.getElementById('fitpanel');
   if (fp) {
     var bf = D.shared.frame && D.shared.frame.bayes_fits;
-    var drawnN = drawnCount();   
+    
     
     fp.textContent = drawnCountWords(drawnN);   
   }
