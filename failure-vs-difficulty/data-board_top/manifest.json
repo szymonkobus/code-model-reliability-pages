@@ -1,13 +1,13 @@
 {
- "fingerprint": "93ed36e79cbb",
+ "fingerprint": "271f90640aa9",
  "fingerprint_inputs": {
-  "content": "a5a99d085d68",
+  "content": "a867b2cf5229",
   "wave": "combined-20260910T2209Z",
-  "body": "73d0573ceadb"
+  "body": "70b2f77dedc1"
  },
  "frame": {
   "dataset": "board_top",
-  "dataset_label": "wave 1+2 (1,297 tasks): 431 of wave 1 + 866 of wave 2; wave 2 parked (879 tasks) left out \u00b7 positioned on this axis today: 430 of wave 1, 857 of wave 2",
+  "dataset_label": "wave 1+2 (1,297 tasks): 431 of wave 1 + 866 of wave 2; wave 2 parked (879 tasks) left out \u00b7 positioned on this axis today: 430 of wave 1, 858 of wave 2",
   "dataset_label_head": "wave 1+2 (1,297 tasks)",
   "dataset_label_source": {
    "field": "label_of_record",
@@ -22,22 +22,22 @@
   "complete_M": 64,
   "sampled_M": 64,
   "difficulty_population_M": 64,
-  "tasks": 1287,
-  "keep_set_hash": "b8fb9d0c4677",
-  "inputs_content_sha": "a5a99d085d68",
-  "tasks_on_axis": 1287,
-  "tasks_kept": 1287,
+  "tasks": 1288,
+  "keep_set_hash": "ba4c3eb57ad5",
+  "inputs_content_sha": "a867b2cf5229",
+  "tasks_on_axis": 1288,
+  "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
-  "axis_set_hash": "b8fb9d0c4677",
+  "axis_set_hash": "ba4c3eb57ad5",
   "on_axis_by_wave": {
    "wave_1": 430,
-   "wave_2": 857,
+   "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "8ce66ef452c1",
+  "runs_fingerprint": "7670df8f276c",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-12",
-  "stamp": "2026-10-12T21:47:07Z",
+  "stamp": "2026-10-12T22:39:39Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -124,7 +124,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-12T21:16:15Z",
+   "unified_built_at": "2026-10-12T22:16:16Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -135,260 +135,260 @@
   "fit_excluded": [],
   "coverage": {
    "claude-haiku-4-5": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "claude-haiku-4-5-thinking": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "claude-sonnet-5": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "claude-sonnet-5-thinking": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "claude-haiku-5-5": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "claude-haiku-5-5-thinking": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "claude-opus-5": {
-    "tasks": 1274,
-    "of": 1287
+    "tasks": 1275,
+    "of": 1288
    },
    "claude-opus-5-thinking": {
-    "tasks": 1285,
-    "of": 1287
+    "tasks": 1286,
+    "of": 1288
    },
    "deepseek-ai/deepseek-coder-1.3b-instruct": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "deepseek-ai/deepseek-coder-6.7b-instruct": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "deepseek-ai/deepseek-coder-33b-instruct": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "deepseek-ai/DeepSeek-Coder-V2-Instruct": {
-    "tasks": 614,
-    "of": 1287
+    "tasks": 615,
+    "of": 1288
    },
    "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B": {
-    "tasks": 1286,
-    "of": 1287
+    "tasks": 1287,
+    "of": 1288
    },
    "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "deepseek-ai/DeepSeek-R1-Distill-Llama-8B": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B": {
-    "tasks": 1285,
-    "of": 1287
+    "tasks": 1286,
+    "of": 1288
    },
    "deepseek-ai/DeepSeek-V3-0324": {
-    "tasks": 642,
-    "of": 1287
+    "tasks": 643,
+    "of": 1288
    },
    "deepseek-ai/DeepSeek-R1-0528": {
     "tasks": 430,
-    "of": 1287
+    "of": 1288
    },
    "deepseek-ai/DeepSeek-V3.2": {
-    "tasks": 670,
-    "of": 1287
+    "tasks": 671,
+    "of": 1288
    },
    "deepseek-ai/DeepSeek-V3.2-Thinking": {
     "tasks": 430,
-    "of": 1287
+    "of": 1288
    },
    "zai-org/GLM-4.7-Flash": {
-    "tasks": 1280,
-    "of": 1287
+    "tasks": 1281,
+    "of": 1288
    },
    "openai/gpt-5-nano": {
-    "tasks": 1286,
-    "of": 1287
+    "tasks": 1287,
+    "of": 1288
    },
    "openai/gpt-5-mini": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "google/gemini-3.5-flash-lite": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "google/gemini-3.6-flash": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "google/gemma-4-12B-it": {
-    "tasks": 1285,
-    "of": 1287
+    "tasks": 1286,
+    "of": 1288
    },
    "google/gemma-4-31B-it": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "moonshotai/Moonlight-16B-A3B-Instruct": {
-    "tasks": 1278,
-    "of": 1287
+    "tasks": 1279,
+    "of": 1288
    },
    "moonshotai/Kimi-Linear-48B-A3B-Instruct": {
-    "tasks": 728,
-    "of": 1287
+    "tasks": 729,
+    "of": 1288
    },
    "moonshotai/Kimi-Dev-72B": {
-    "tasks": 1254,
-    "of": 1287
+    "tasks": 1255,
+    "of": 1288
    },
    "moonshotai/Kimi-K2-Instruct": {
-    "tasks": 807,
-    "of": 1287
+    "tasks": 808,
+    "of": 1288
    },
    "olmo-3.1-7b-rl-zero-code-final_completion": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "olmo-3-7b-think-final-Thinking": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "Qwen/Qwen2.5-Coder-0.5B-Instruct": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "Qwen/Qwen2.5-Coder-1.5B-Instruct": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "Qwen/Qwen2.5-Coder-3B-Instruct": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "Qwen/Qwen2.5-Coder-7B-Instruct": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "Qwen/Qwen2.5-Coder-14B-Instruct": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "Qwen/Qwen2.5-Coder-32B-Instruct": {
-    "tasks": 1286,
-    "of": 1287
+    "tasks": 1287,
+    "of": 1288
    },
    "Qwen/Qwen2.5-0.5B-Instruct": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "Qwen/Qwen2.5-1.5B-Instruct": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "Qwen/Qwen2.5-3B-Instruct": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "Qwen/Qwen2.5-7B-Instruct": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "Qwen/Qwen2.5-14B-Instruct": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "Qwen/Qwen2.5-32B-Instruct": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "Qwen/Qwen3-0.6B": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "Qwen/Qwen3-0.6B-Thinking": {
-    "tasks": 1284,
-    "of": 1287
+    "tasks": 1285,
+    "of": 1288
    },
    "Qwen/Qwen3-1.7B": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "Qwen/Qwen3-1.7B-Thinking": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "Qwen/Qwen3-4B": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "Qwen/Qwen3-4B-Thinking": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "Qwen/Qwen3-4B-Instruct-2507": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "Qwen/Qwen3-8B": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "Qwen/Qwen3-8B-Thinking": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "Qwen/Qwen3-14B": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "Qwen/Qwen3-14B-Thinking": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "Qwen/Qwen3-32B": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "Qwen/Qwen3-32B-Thinking": {
-    "tasks": 1281,
-    "of": 1287
+    "tasks": 1282,
+    "of": 1288
    },
    "Qwen/Qwen3-30B-A3B": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "Qwen/Qwen3-30B-A3B-Thinking": {
     "tasks": 144,
-    "of": 1287
+    "of": 1288
    },
    "Qwen/Qwen3-Coder-30B-A3B-Instruct": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    },
    "Qwen/Qwen3.5-9B-Base_completion": {
-    "tasks": 1287,
-    "of": 1287
+    "tasks": 1288,
+    "of": 1288
    }
   },
   "scorer": "unified results: passes/n per configuration x task (board results under plus_status; pool results \u00a71b-valid), Definitions' unified frame",
@@ -510,10 +510,10 @@
    "served_axis_note": null,
    "membership_lag": {
     "kept_set_fitted": 1297,
-    "landing_kept_set": 1287,
+    "landing_kept_set": 1288,
     "n_tasks_dropped": 8,
     "source": "Definitions' mirror stamp",
-    "folded_twins": 2,
+    "folded_twins": 1,
     "wave_2_left_service": 7,
     "fit_relabelled_after_cut": 1,
     "fit_disclosure": "this fit stands on 431 wave 1 tasks and 866 wave 2 tasks; one wave 1 task was relabelled after the cut (one 'underspecification') and left the kept sets (430 wave 1 tasks and 859 wave 2 tasks at the landing); it stays in this fit as cut and leaves at the next cut made for another reason"
@@ -995,7 +995,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-12T21:25:38Z",
+   "_stamp": "2026-10-12T22:25:30Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1160,10 +1160,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-12T20:14:42Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261012T201442Z.json",
-   "sha16": "0d9e7c14de74757d",
-   "census_mtime": "2026-10-12T20:15:31Z",
+   "stamp": "2026-10-12T21:13:17Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261012T211317Z.json",
+   "sha16": "2801244d7b447646",
+   "census_mtime": "2026-10-12T21:14:04Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "series_rows": [
@@ -1231,10 +1231,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.93ed36e79cbb.json",
-  "chain_average": "chain_average.93ed36e79cbb.json",
-  "chain_median": "chain_median.93ed36e79cbb.json",
-  "dots": "dots.93ed36e79cbb.json",
-  "levels": "levels.93ed36e79cbb.json"
+  "shared": "shared.271f90640aa9.json",
+  "chain_average": "chain_average.271f90640aa9.json",
+  "chain_median": "chain_median.271f90640aa9.json",
+  "dots": "dots.271f90640aa9.json",
+  "levels": "levels.271f90640aa9.json"
  }
 }
