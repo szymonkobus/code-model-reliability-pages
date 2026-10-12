@@ -114,7 +114,7 @@
    "files": {
     "shared": "shared.all.6c777c2ba30d.json",
     "chain_average": "chain_average.all.6c777c2ba30d.json",
-    "bayes": "bayes.all.6c777c2ba30d-fcea34c566d7.json"
+    "bayes": "bayes.all.6c777c2ba30d-369140b65255.json"
    },
    "label": "all waves",
    "arms": "all",
@@ -143,7 +143,7 @@
    },
    "source_stamp": "2026-10-12T12:13:09Z",
    "source_fp": "d2f9cbc4ef6b",
-   "updated_at": "2026-10-12T12:29:51Z",
+   "updated_at": "2026-10-12T12:50:51Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -191,7 +191,7 @@
    },
    "source_stamp": "2026-10-12T12:18:54Z",
    "source_fp": "cefe31985e84",
-   "updated_at": "2026-10-12T12:34:27Z",
+   "updated_at": "2026-10-12T12:53:08Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -205,20 +205,20 @@
   },
   "top": {
    "files": {
-    "shared": "shared.top.43be7af884f0.json",
-    "chain_average": "chain_average.top.43be7af884f0.json",
-    "bayes": "bayes.top.43be7af884f0-b51e8bb32c49.json"
+    "shared": "shared.top.e76faf5aedd7.json",
+    "chain_average": "chain_average.top.e76faf5aedd7.json",
+    "bayes": "bayes.top.e76faf5aedd7-b51e8bb32c49.json"
    },
    "label": "wave 2",
    "arms": "all",
-   "fingerprint": "43be7af884f0",
+   "fingerprint": "e76faf5aedd7",
    "frame": {
     "population_M": 61,
     "tasks": 858,
     "keep_set_hash": "532d0efad8a5",
-    "runs_fingerprint": "ebe50fb3fc5f",
+    "runs_fingerprint": "1f60654ace68",
     "build_date": "2026-10-12",
-    "build_ts": "2026-10-12T10:53:04Z",
+    "build_ts": "2026-10-12T12:30:56Z",
     "vocab_ruled": "2026-08-27",
     "set": "top",
     "set_label": "wave 2",
@@ -229,14 +229,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "532d0efad8a5",
     "tasks_used": "wave 2 \u2014 858 tasks, axis wave pool-20260910T2244Z",
-    "source": "failure-vs-difficulty data-top fp d2a9cee5ac1f (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "00d5fde066d6",
+    "source": "failure-vs-difficulty data-top fp 86b7d66d0875 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "8e824ed6f645",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-12T10:53:04Z",
-   "source_fp": "d2a9cee5ac1f",
-   "updated_at": "2026-10-12T12:37:04Z",
+   "source_stamp": "2026-10-12T12:30:56Z",
+   "source_fp": "86b7d66d0875",
+   "updated_at": "2026-10-12T12:54:34Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
