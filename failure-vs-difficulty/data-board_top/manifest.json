@@ -1,9 +1,9 @@
 {
- "fingerprint": "4371df0b8147",
+ "fingerprint": "b1aa0b36574a",
  "fingerprint_inputs": {
   "content": "3c401ae0421c",
   "wave": "combined-20260910T2209Z",
-  "body": "3fb2422e993a"
+  "body": "6774fb3ec462"
  },
  "frame": {
   "dataset": "board_top",
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "1f60654ace68",
+  "runs_fingerprint": "63b949f919c7",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-12",
-  "stamp": "2026-10-12T13:26:16Z",
+  "stamp": "2026-10-12T14:07:38Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -122,7 +122,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-12T12:23:37Z",
+   "unified_built_at": "2026-10-12T13:36:52Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -564,7 +564,7 @@
    "drawn": 62,
    "levels_file": {
     "file": "levels",
-    "configs": 61,
+    "configs": 62,
     "note": "the per-level crossing tables of every element of record (the median over the draws of each draw's crossing of each failure-rate level, its 10th to 90th band, the censored shares), thinned to every second level; read by the shell only under the drawing of the crossings' medians at each level"
    }
   },
@@ -1214,10 +1214,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.4371df0b8147.json",
-  "chain_average": "chain_average.4371df0b8147.json",
-  "chain_median": "chain_median.4371df0b8147.json",
-  "dots": "dots.4371df0b8147.json",
-  "levels": "levels.4371df0b8147.json"
+  "shared": "shared.b1aa0b36574a.json",
+  "chain_average": "chain_average.b1aa0b36574a.json",
+  "chain_median": "chain_median.b1aa0b36574a.json",
+  "dots": "dots.b1aa0b36574a.json",
+  "levels": "levels.b1aa0b36574a.json"
  }
 }
