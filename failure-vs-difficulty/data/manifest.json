@@ -1,5 +1,5 @@
 {
- "fingerprint": "646ef094c5a0",
+ "fingerprint": "72b15bf2b09d",
  "frame": {
   "population_M": 60,
   "tasks": 430,
@@ -88,16 +88,16 @@
   "scorer": "plus_status (a sample counts as solved if its plus run passed; difficulty ruled base AND plus on 2026-09-02 \u2014 the switch of served numbers waits for Szymon's gate; under base AND plus a result can read differently, e.g. Mbpp/274 for Qwen3-30B-A3B: 128 passes here vs 127)",
   "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\\t<task>\\t<passes>\\t<attempts>\\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column verbatim; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) \u2014 reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
   "build_date": "2026-10-12",
-  "built_at": "2026-10-12T20:52:49Z",
+  "built_at": "2026-10-12T21:39:18Z",
   "vocab_ruled": "2026-08-27",
   "counts_of_record": {
    "original_kept": 430,
    "new_focused": 869,
    "new_parked": 893,
    "new_total": 1762,
-   "new_focused_kept": 857,
+   "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-12T20:28:54Z",
+   "_stamp": "2026-10-12T21:25:38Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -149,7 +149,7 @@
      "figure_count": 869,
      "label": "wave 2 (869 tasks)",
      "figure_label": "wave 2 (869 tasks)",
-     "kept_count": 857,
+     "kept_count": 858,
      "members": 869,
      "tasks": 869,
      "never_includes": "wave 2 parked"
@@ -194,10 +194,10 @@
      "figure_count": 1299,
      "label": "wave 1+2 (1,299 tasks)",
      "figure_label": "wave 1+2 (1,299 tasks)",
-     "kept_count": 1287,
+     "kept_count": 1288,
      "members": 1411,
      "composition": "wave 1 + wave 2; never includes wave 2 parked",
-     "fit_population_note": "fit_population 1,287 = fit_original 430 (the range explorer's matrix frame at its last build) + the wave 2 kept count 857 after the twin fold (22 Sep 2026: the kept frame the served fits stand on; until then this figure added the wave 2 members); a served fit states its own task count from its owner's stamp, never from this figure"
+     "fit_population_note": "fit_population 1,288 = fit_original 430 (the range explorer's matrix frame at its last build) + the wave 2 kept count 858 after the twin fold (22 Sep 2026: the kept frame the served fits stand on; until then this figure added the wave 2 members); a served fit states its own task count from its owner's stamp, never from this figure"
     },
     "wave_2_plus_parked": {
      "name": "wave 2 and wave 2 parked",
@@ -218,7 +218,7 @@
      "figure_label": "wave 2 and wave 2 parked (1,762 tasks)",
      "figure_label_template": "wave 2 and wave 2 parked (1,762 tasks)",
      "template_rule": "the label of record (13 Sep ruling): the set name with its count of record; a FIT that draws this set states its frame count BESIDE the label from the fit owner's stamp (fitting's serving stamp), never inside it; the 10 Sep frame-count template is superseded; a page naming the SET uses label (the membership count new_total)",
-     "kept_count": 1736,
+     "kept_count": 1737,
      "members": 1762,
      "never_includes": "the pilot; 'wave 2' alone never means this union"
     },
@@ -230,7 +230,7 @@
      "count_source": "the fit owner's stamp (fitting's serving_golden_combined.json task count as cut) \u2014 never this file",
      "figure_label_template": "wave 1 + wave 2 + wave 2 parked (2,192 tasks) + the easy-tasks pilot (100 tasks)",
      "template_rule": "the label of record (13 Sep ruling): the waves' count of record in the label, the pilot named with its plain what and the hundred of record as its own count (ruling 07:51:54Z 13 Sep); the fit owner's frame as cut is stated beside the label from its stamp, never inside it (supersedes the 10 Sep frame-count template)",
-     "kept_count": 2266,
+     "kept_count": 2267,
      "members": 2404,
      "hundred_of_record_check": {
       "ruled": 100,
@@ -358,13 +358,13 @@
    "openai/gpt-5-nano": "20260907T154051Z",
    "openai/gpt-5-mini": "20260907T154051Z"
   },
-  "newest_input_mtime": "2026-10-12T20:39:35Z"
+  "newest_input_mtime": "2026-10-12T21:35:46Z"
  },
  "files": {
-  "shared": "shared.646ef094c5a0.json",
-  "chain_average": "chain_average.646ef094c5a0.json",
-  "chain_median": "chain_median.646ef094c5a0.json",
-  "dots": "dots.646ef094c5a0.json",
-  "levels": "levels.646ef094c5a0.json"
+  "shared": "shared.72b15bf2b09d.json",
+  "chain_average": "chain_average.72b15bf2b09d.json",
+  "chain_median": "chain_median.72b15bf2b09d.json",
+  "dots": "dots.72b15bf2b09d.json",
+  "levels": "levels.72b15bf2b09d.json"
  }
 }
