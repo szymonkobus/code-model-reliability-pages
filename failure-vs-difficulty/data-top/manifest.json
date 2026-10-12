@@ -1,9 +1,9 @@
 {
- "fingerprint": "86b7d66d0875",
+ "fingerprint": "a424d413a4bc",
  "fingerprint_inputs": {
   "content": "8e824ed6f645",
   "wave": "pool-20260910T2244Z",
-  "body": "8af5db5c3e0d"
+  "body": "f9a8561b6fc4"
  },
  "frame": {
   "dataset": "top",
@@ -34,17 +34,17 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "1f60654ace68",
+  "runs_fingerprint": "63b949f919c7",
   "axis_wave": "pool-20260910T2244Z",
   "build_date": "2026-10-12",
-  "stamp": "2026-10-12T12:30:56Z",
+  "stamp": "2026-10-12T14:15:11Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-12T12:23:37Z",
+   "unified_built_at": "2026-10-12T13:36:52Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.top.csv"
@@ -350,8 +350,8 @@
    "note": null,
    "gates": {
     "convention": "0.5%-of-draws convention",
-    "n_pass": 33,
-    "n_arms": 57,
+    "n_pass": 32,
+    "n_arms": 56,
     "max_divergence_share_pct": 0.01,
     "rhat_max": 1.045,
     "bulk_ess_min": 95,
@@ -438,10 +438,6 @@
     "olmo-3.1-7b-rl-zero-code-final_completion": {
      "wave_id": "olmo-code-pooled64-20261007T1903Z",
      "pointer": "serving_olmo_board_top.json"
-    },
-    "Qwen/Qwen3.5-9B-Base_completion": {
-     "wave_id": "sft-board_top-20260921T1415Z",
-     "pointer": "serving_sft_board_top.json"
     }
    },
    "concentration_counts": {
@@ -451,10 +447,10 @@
     "intermediate": 6,
     "unclassified (no easy-third failures)": 1
    },
-   "drawn": 57,
+   "drawn": 56,
    "levels_file": {
     "file": "levels",
-    "configs": 55,
+    "configs": 56,
     "note": "the per-level crossing tables of every element of record (the median over the draws of each draw's crossing of each failure-rate level, its 10th to 90th band, the censored shares), thinned to every second level; read by the shell only under the drawing of the crossings' medians at each level"
    }
   },
@@ -842,7 +838,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-12T12:26:32Z",
+   "_stamp": "2026-10-12T13:28:22Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1007,19 +1003,19 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-12T11:32:44Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261012T113244Z.json",
-   "sha16": "88e19c90aca1d91b",
-   "census_mtime": "2026-10-12T11:34:22Z",
+   "stamp": "2026-10-12T13:02:39Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261012T130239Z.json",
+   "sha16": "feb0938b3d28d538",
+   "census_mtime": "2026-10-12T13:04:32Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.86b7d66d0875.json",
-  "chain_average": "chain_average.86b7d66d0875.json",
-  "chain_median": "chain_median.86b7d66d0875.json",
-  "dots": "dots.86b7d66d0875.json",
-  "levels": "levels.86b7d66d0875.json"
+  "shared": "shared.a424d413a4bc.json",
+  "chain_average": "chain_average.a424d413a4bc.json",
+  "chain_median": "chain_median.a424d413a4bc.json",
+  "dots": "dots.a424d413a4bc.json",
+  "levels": "levels.a424d413a4bc.json"
  }
 }
