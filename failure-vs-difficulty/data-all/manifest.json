@@ -1,9 +1,9 @@
 {
- "fingerprint": "e15e79f683a7",
+ "fingerprint": "fcd7678a1ec3",
  "fingerprint_inputs": {
-  "content": "e3e18415bd95",
+  "content": "ecc56458c8e5",
   "wave": "unified-live",
-  "body": "6dc1defd7a47"
+  "body": "360427a71f44"
  },
  "frame": {
   "dataset": "all",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 64,
   "tasks": 2167,
   "keep_set_hash": "60ede5d24001",
-  "inputs_content_sha": "e3e18415bd95",
+  "inputs_content_sha": "ecc56458c8e5",
   "tasks_on_axis": 2167,
   "tasks_kept": 2167,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "7709846c8620",
+  "runs_fingerprint": "c2310c82a7cc",
   "axis_wave": "unified-live",
   "build_date": "2026-10-12",
-  "stamp": "2026-10-12T18:37:36Z",
+  "stamp": "2026-10-12T19:27:07Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -117,13 +117,14 @@
    "r1d7b-rl-f12-pen-step0050-Thinking": 430,
    "r1d7b-rl-f12-pen-step0075-Thinking": 430,
    "r1d7b-rl-f12-redraw-kl-step0050-Thinking": 430,
+   "r1d7b-rl-f12-redraw-kl-step0100-Thinking": 430,
    "r1d7b-rl-f17-kl-step0050-Thinking": 430,
    "r1d7b-rl-f17-kl-step0100-Thinking": 430,
    "r1d7b-rl-f17-kl-step0250-Thinking": 430
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-12T18:16:45Z",
+   "unified_built_at": "2026-10-12T19:23:06Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -537,7 +538,7 @@
   "interim": "kernel fits on all results available at build; refit hourly as results land",
   "partial_attempts": null,
   "off_panel": {
-   "n_with_cells": 74,
+   "n_with_cells": 75,
    "arms": [
     {
      "id": "deepseek-coder-6.7b-rl-night1-step250",
@@ -795,6 +796,11 @@
      "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, redraw every 50, KL penalty \u00b7 50 steps"
     },
     {
+     "id": "r1d7b-rl-f12-redraw-kl-step0100-Thinking",
+     "arm_id": "r1d7b-rl-f12-redraw-kl-s100",
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, redraw every 50, KL penalty \u00b7 100 steps"
+    },
+    {
      "id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
      "arm_id": "olmo3.1-7b-rlzc-s0050",
      "label": "Olmo 3.1 7B RL-Zero Code \u00b7 checkpoint 0"
@@ -914,7 +920,7 @@
    "unregistered": [],
    "in_side_block": [],
    "panel_conflicts": [],
-   "line": "74 study models with results are off the panel; the models with a fit appear in their own block"
+   "line": "75 study models with results are off the panel; the models with a fit appear in their own block"
   },
   "cleaned_arms_unified": [
    "openai/gpt-5-mini",
@@ -927,7 +933,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-12T18:24:48Z",
+   "_stamp": "2026-10-12T19:26:39Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1101,10 +1107,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.e15e79f683a7.json",
-  "chain_average": "chain_average.e15e79f683a7.json",
-  "chain_median": "chain_median.e15e79f683a7.json",
-  "dots": "dots.e15e79f683a7.json",
-  "levels": "levels.e15e79f683a7.json"
+  "shared": "shared.fcd7678a1ec3.json",
+  "chain_average": "chain_average.fcd7678a1ec3.json",
+  "chain_median": "chain_median.fcd7678a1ec3.json",
+  "dots": "dots.fcd7678a1ec3.json",
+  "levels": "levels.fcd7678a1ec3.json"
  }
 }
