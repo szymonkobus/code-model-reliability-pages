@@ -610,8 +610,8 @@ function boot() {
     if (!anyMed) { setDisabled(defCtl.element.querySelector('button[data-value="median"]'), true, ''); if (state.def === 'median') { state.def = 'average'; quietSet(defCtl, 'average'); buildSrcSwitch(); } }
   })();
   curveCtl = Kit.switchControl({ mount: row, key: 'curve', label: 'View',   
-    options: [{ value: 'rate', label: 'median failure rate' },
-              { value: 'difficulty', label: 'median difficulty' }],
+    options: [{ value: 'rate', label: 'Median failure rate' },
+              { value: 'difficulty', label: 'Median difficulty' }],   
     dflt: 'rate',
     onchange: function (v) { state.curve = v; DRAW_LEVELS = (v === 'difficulty'); if (!ready || coercing) return; if (DRAW_LEVELS && D.levels == null && D.levelsUrl) ensureLevels().then(function () { render(); }); else render(); } });
   curveCtl.element.title = 'at each difficulty the median of the draws\' failure rates, or at each failure-rate level the median of the draws\' crossings, through the printed D50 and D99';
@@ -2650,7 +2650,7 @@ function exportOptions() {
   var pick = function (t) { return (parts.find(function (q) { return q.type === t; }) || {}).value || ''; };
   var slug = String(f.dataset_label || (DATASETS[DATASET] || {}).label || DATASET).split(' (')[0].split(':')[0].replace(/\+/g, '-').replace(/[^\w-]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
   return { svg: chart, legend: legend, title: 'Failure rate vs difficulty', page: 'failure-vs-difficulty', view: view,   
-    stamp: '', fileBase: 'failure-vs-difficulty_' + slug + (ARMS === 'golden' ? '_golden' : '') + '_' + pick('year') + '-' + pick('month') + '-' + pick('day'), crop: null };
+    stamp: '', fileBase: 'failure-vs-difficulty_' + slug + (ARMS === 'golden' ? '_golden' : '') + ((DRAW_LEVELS && D.levels) ? '_median-difficulty' : '') + '_' + pick('year') + '-' + pick('month') + '-' + pick('day'), crop: null };
 }
 
  
