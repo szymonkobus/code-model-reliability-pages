@@ -1,12 +1,13 @@
 {
- "generated_at": "2026-10-12T10:38:25Z",
+ "generated_at": "2026-10-12T12:12:25Z",
  "builder": "pages/failure-vs-difficulty/build_curves_site_data.py",
  "outputs": [
-  "pages/failure-vs-difficulty/curves-site/data/chain_average.70b5f0062bc1.json",
-  "pages/failure-vs-difficulty/curves-site/data/chain_median.70b5f0062bc1.json",
-  "pages/failure-vs-difficulty/curves-site/data/dots.70b5f0062bc1.json",
+  "pages/failure-vs-difficulty/curves-site/data/chain_average.a7b09ea07561.json",
+  "pages/failure-vs-difficulty/curves-site/data/chain_median.a7b09ea07561.json",
+  "pages/failure-vs-difficulty/curves-site/data/dots.a7b09ea07561.json",
+  "pages/failure-vs-difficulty/curves-site/data/levels.a7b09ea07561.json",
   "pages/failure-vs-difficulty/curves-site/data/manifest.json",
-  "pages/failure-vs-difficulty/curves-site/data/shared.70b5f0062bc1.json"
+  "pages/failure-vs-difficulty/curves-site/data/shared.a7b09ea07561.json"
  ],
  "inputs": [
   {
@@ -413,21 +414,21 @@
   },
   {
    "path": "runs/arms.jsonl",
-   "mtime_at_open": "2026-10-12T08:33:19Z",
-   "size": 637753,
-   "sha12": "a7b66391fb6d"
+   "mtime_at_open": "2026-10-12T12:05:59Z",
+   "size": 638121,
+   "sha12": "de9ed664fcd8"
   },
   {
    "path": "runs/arms_readouts.jsonl",
-   "mtime_at_open": "2026-10-12T08:33:19Z",
+   "mtime_at_open": "2026-10-12T12:05:59Z",
    "size": 532321,
-   "sha12": "afccdb1b20ac"
+   "sha12": "4d406aaf3f48"
   },
   {
    "path": "runs/models.jsonl",
-   "mtime_at_open": "2026-10-11T11:28:15Z",
+   "mtime_at_open": "2026-10-12T11:46:29Z",
    "size": 54326,
-   "sha12": "48afcb815566"
+   "sha12": "943fb1957742"
   },
   {
    "path": "runs/store/wave-1/mbpp/gpt-5-mini_openai_temp_1.0.eval_results.json.recut_20260907T154051Z.json",
@@ -443,27 +444,27 @@
   },
   {
    "path": "runs/watch/forecast/watch/held_arms.json",
-   "mtime_at_open": "2026-10-12T10:27:34Z",
-   "size": 220974,
-   "sha12": "9ba4fc6fb0f6"
+   "mtime_at_open": "2026-10-12T11:34:17Z",
+   "size": 221185,
+   "sha12": "65c66c86d3c3"
   },
   {
    "path": "side-projects/newbench/labels_cells.jsonl",
-   "mtime_at_open": "2026-10-12T08:34:31Z",
-   "size": 2708135,
-   "sha12": "dea9f1cf58bc"
+   "mtime_at_open": "2026-10-12T11:54:15Z",
+   "size": 2731253,
+   "sha12": "2f6b757a80fa"
   },
   {
    "path": "tasks/knowledge/counts_of_record.json",
-   "mtime_at_open": "2026-10-12T10:26:00Z",
+   "mtime_at_open": "2026-10-12T11:28:51Z",
    "size": 43794,
-   "sha12": "6097b704ba5e"
+   "sha12": "082f0886ee51"
   },
   {
    "path": "tasks/knowledge/disclosures.published.json",
-   "mtime_at_open": "2026-10-12T10:33:26Z",
+   "mtime_at_open": "2026-10-12T11:41:25Z",
    "size": 672567,
-   "sha12": "fe83f7ff7ea2"
+   "sha12": "2038b71ae086"
   }
  ],
  "streams": [],
