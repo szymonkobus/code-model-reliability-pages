@@ -1,5 +1,5 @@
 {
- "fingerprint": "22ed4f70fff2",
+ "fingerprint": "5743e265fe11",
  "frame": {
   "population_M": 60,
   "tasks": 430,
@@ -62,6 +62,7 @@
    "r1d7b-rl-f12-pen-s25",
    "r1d7b-rl-f12-pen-s50",
    "r1d7b-rl-f12-pen-s75",
+   "r1d7b-rl-f12-redraw-kl-s50",
    "r1d7b-rl-f17-kl-s100",
    "r1d7b-rl-f17-kl-s250",
    "r1d7b-rl-f17-kl-s50"
@@ -76,7 +77,7 @@
    "Qwen/Qwen3-30B-A3B-Thinking"
   ],
   "withheld_reasons": {
-   "Qwen/Qwen3-30B-A3B-Thinking": "held by ruling of 2 Sep 23:23 (kept off the cloud machines (not counted in coverage or in the figures to finish); runs on the free machines after everything else)"
+   "Qwen/Qwen3-30B-A3B-Thinking": "held since 2 Sep: kept off the cloud machines; runs on the free machines after everything else"
   },
   "keep_set_hash": "c3f08ea1a903",
   "axis_order_hash": "583c22d70b3d",
@@ -86,7 +87,7 @@
   "scorer": "plus_status (a sample counts as solved if its plus run passed; difficulty ruled base AND plus on 2026-09-02 \u2014 the switch of served numbers waits for Szymon's gate; under base AND plus a result can read differently, e.g. Mbpp/274 for Qwen3-30B-A3B: 128 passes here vs 127)",
   "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\\t<task>\\t<passes>\\t<attempts>\\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column verbatim; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) \u2014 reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
   "build_date": "2026-10-12",
-  "built_at": "2026-10-12T13:58:48Z",
+  "built_at": "2026-10-12T14:44:40Z",
   "vocab_ruled": "2026-08-27",
   "counts_of_record": {
    "original_kept": 430,
@@ -95,7 +96,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-12T13:28:22Z",
+   "_stamp": "2026-10-12T14:25:48Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -297,7 +298,7 @@
    "served_not_in_population": [
     {
      "model_id": "Qwen/Qwen3-30B-A3B-Thinking",
-     "reason": "held by ruling of 2 Sep 23:23 (kept off the cloud machines (not counted in coverage or in the figures to finish); runs on the free machines after everything else) \u2014 fitted on its partial board results only, a fraction of the frame"
+     "reason": "held since 2 Sep: kept off the cloud machines; runs on the free machines after everything else \u2014 fitted on its partial board results only, a fraction of the frame"
     }
    ],
    "provisional_classes": null,
@@ -356,13 +357,13 @@
    "openai/gpt-5-nano": "20260907T154051Z",
    "openai/gpt-5-mini": "20260907T154051Z"
   },
-  "newest_input_mtime": "2026-10-12T13:54:53Z"
+  "newest_input_mtime": "2026-10-12T14:39:56Z"
  },
  "files": {
-  "shared": "shared.22ed4f70fff2.json",
-  "chain_average": "chain_average.22ed4f70fff2.json",
-  "chain_median": "chain_median.22ed4f70fff2.json",
-  "dots": "dots.22ed4f70fff2.json",
-  "levels": "levels.22ed4f70fff2.json"
+  "shared": "shared.5743e265fe11.json",
+  "chain_average": "chain_average.5743e265fe11.json",
+  "chain_median": "chain_median.5743e265fe11.json",
+  "dots": "dots.5743e265fe11.json",
+  "levels": "levels.5743e265fe11.json"
  }
 }
