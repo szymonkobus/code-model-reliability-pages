@@ -1,9 +1,9 @@
 {
- "fingerprint": "cd891524a53b",
+ "fingerprint": "69ae5b7e00c4",
  "fingerprint_inputs": {
-  "content": "c1ea3fbe307e",
+  "content": "3add2532fd7b",
   "wave": "combined-20260910T2209Z",
-  "body": "9530bb49db13"
+  "body": "bf6c08b05e79"
  },
  "frame": {
   "dataset": "board_top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 66,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "c1ea3fbe307e",
+  "inputs_content_sha": "3add2532fd7b",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "07417c1fc576",
+  "runs_fingerprint": "994740925d65",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-13",
-  "stamp": "2026-10-13T20:26:06Z",
+  "stamp": "2026-10-13T21:44:29Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -124,7 +124,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-13T20:21:49Z",
+   "unified_built_at": "2026-10-13T21:16:36Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -1010,7 +1010,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-13T20:26:54Z",
+   "_stamp": "2026-10-13T21:25:40Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1175,10 +1175,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-13T19:03:49Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261013T190349Z.json",
-   "sha16": "1a0148b9fadd70c6",
-   "census_mtime": "2026-10-13T19:04:53Z",
+   "stamp": "2026-10-13T20:19:14Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261013T201914Z.json",
+   "sha16": "4765540da7416121",
+   "census_mtime": "2026-10-13T20:20:51Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
@@ -1247,10 +1247,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.cd891524a53b.json",
-  "chain_average": "chain_average.cd891524a53b.json",
-  "chain_median": "chain_median.cd891524a53b.json",
-  "dots": "dots.cd891524a53b.json",
-  "levels": "levels.cd891524a53b.json"
+  "shared": "shared.69ae5b7e00c4.json",
+  "chain_average": "chain_average.69ae5b7e00c4.json",
+  "chain_median": "chain_median.69ae5b7e00c4.json",
+  "dots": "dots.69ae5b7e00c4.json",
+  "levels": "levels.69ae5b7e00c4.json"
  }
 }
