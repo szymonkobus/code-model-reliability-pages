@@ -1,9 +1,9 @@
 {
- "fingerprint": "e9b2355d695d",
+ "fingerprint": "6a4679c3bf03",
  "fingerprint_inputs": {
   "content": "70d747405cdf",
   "wave": "combined-20260910T2209Z",
-  "body": "e9e1fc035a31"
+  "body": "419ff41aa02d"
  },
  "frame": {
   "dataset": "board_top",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "e48b000baf7b",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-13",
-  "stamp": "2026-10-13T14:45:27Z",
+  "stamp": "2026-10-13T15:53:48Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -124,7 +124,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-13T14:21:33Z",
+   "unified_built_at": "2026-10-13T15:17:53Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -439,6 +439,7 @@
     "Qwen/Qwen3-8B",
     "claude-haiku-5-5",
     "claude-sonnet-5",
+    "claude-sonnet-5-5-thinking",
     "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct",
     "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
     "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
@@ -453,13 +454,13 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/board_top-20260910T2111Z/results",
    "set_fingerprint": "030de536de92",
-   "pointer_updated_at": "2026-10-12T13:21:25Z",
-   "n_fits": 61,
+   "pointer_updated_at": "2026-10-13T15:54:10Z",
+   "n_fits": 62,
    "note": null,
    "gates": {
     "convention": "0.5%-of-draws convention",
     "n_pass": 31,
-    "n_arms": 63,
+    "n_arms": 64,
     "max_divergence_share_pct": 0.03,
     "rhat_max": 1.148,
     "bulk_ess_min": 18,
@@ -484,6 +485,7 @@
      "Qwen--Qwen3-4B_temp_0.8",
      "Qwen--Qwen3-8B_temp_0.8",
      "claude-haiku-5-5_batch",
+     "claude-sonnet-5-5-thinking_batch",
      "claude-sonnet-5_batch",
      "deepseek-ai--DeepSeek-Coder-V2-Lite-Instruct_temp_0.8",
      "deepseek-ai--DeepSeek-R1-Distill-Llama-8B_think_temp_0.6",
@@ -537,6 +539,7 @@
     "claude-haiku-5-5-thinking",
     "claude-opus-5",
     "claude-opus-5-thinking",
+    "claude-sonnet-5-5-thinking",
     "deepseek-ai/DeepSeek-Coder-V2-Instruct",
     "deepseek-ai/DeepSeek-R1-0528",
     "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
@@ -571,14 +574,14 @@
    },
    "concentration_counts": {
     "diffuse": 5,
-    "extreme": 37,
+    "extreme": 38,
     "intermediate": 5,
     "concentrated": 14
    },
-   "drawn": 63,
+   "drawn": 64,
    "levels_file": {
     "file": "levels",
-    "configs": 63,
+    "configs": 64,
     "note": "the per-level crossing tables of every element of record (the median over the draws of each draw's crossing of each failure-rate level, its 10th to 90th band, the censored shares), thinned to every second level; read by the shell only under the drawing of the crossings' medians at each level"
    }
   },
@@ -998,7 +1001,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-13T14:25:04Z",
+   "_stamp": "2026-10-13T15:25:39Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1235,10 +1238,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.e9b2355d695d.json",
-  "chain_average": "chain_average.e9b2355d695d.json",
-  "chain_median": "chain_median.e9b2355d695d.json",
-  "dots": "dots.e9b2355d695d.json",
-  "levels": "levels.e9b2355d695d.json"
+  "shared": "shared.6a4679c3bf03.json",
+  "chain_average": "chain_average.6a4679c3bf03.json",
+  "chain_median": "chain_median.6a4679c3bf03.json",
+  "dots": "dots.6a4679c3bf03.json",
+  "levels": "levels.6a4679c3bf03.json"
  }
 }
