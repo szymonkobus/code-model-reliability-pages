@@ -245,7 +245,7 @@ function ensureDots() {
   if (D.dots || !D.dotsUrl) return Promise.resolve();
   if (DOTS_P) return DOTS_P;
   var u = D.dotsUrl;
-  DOTS_P = fetchFresh(u).then(function (r) { if (!r.ok) throw new Error('status ' + r.status); return r.json(); }).then(function (d) { if (D.dotsUrl === u) D.dots = d; })
+  DOTS_P = fetchFresh(u).then(function (r) { if (!r.ok) throw new Error('status ' + r.status); return r.json(); }).then(function (d) { if (D.dotsUrl === u) D.dots = D.dotsConvert ? D.dotsConvert(d) : d; })   
     .catch(function (e) { if (D.dotsUrl === u) { faceLine('Drawn without the task dots', 'the file did not load', e); D.dots = { configs: {}, frame: {}, missing: true }; } })
     .then(function () { DOTS_P = null; });
   return DOTS_P;
@@ -271,7 +271,7 @@ function loadBundle(dir, label) {
           }); }));
     }).then(function (all) {
       D.shared = all[0]; D.avg = all[1]; D.med = all[2]; D.dots = all[3]; D.levels = null;
-      D.medUrl = (D.man && D.man.files && D.man.files.chain_median) ? dir + '/' + D.man.files.chain_median : null; D.dotsUrl = (D.man && D.man.files && D.man.files.dots) ? dir + '/' + D.man.files.dots : null;   
+      D.medUrl = (D.man && D.man.files && D.man.files.chain_median) ? dir + '/' + D.man.files.chain_median : null; D.dotsUrl = (D.man && D.man.files && D.man.files.dots) ? dir + '/' + D.man.files.dots : null; D.dotsConvert = null;   
       D.shared.frame.dataset = D.shared.frame.dataset || 'board';
       D.shared.frame.dataset_label = D.shared.frame.dataset_label || label;
       D.shared.vocab = D.shared.vocab || {};
@@ -300,7 +300,7 @@ function loadBoard() {
         }));
     }).then(function (all) {
       D.shared = all[0]; D.avg = all[1]; D.med = all[2]; D.dots = all[3]; D.levels = null;
-      D.medUrl = (D.man && D.man.files && D.man.files.chain_median) ? 'data/' + D.man.files.chain_median : null; D.dotsUrl = (D.man && D.man.files && D.man.files.dots) ? 'data/' + D.man.files.dots : null;   
+      D.medUrl = (D.man && D.man.files && D.man.files.chain_median) ? 'data/' + D.man.files.chain_median : null; D.dotsUrl = (D.man && D.man.files && D.man.files.dots) ? 'data/' + D.man.files.dots : null; D.dotsConvert = null;   
       D.shared.frame.dataset = 'board'; D.shared.frame.dataset_label = DATASETS.board ? DATASETS.board.label : 'wave 1';
       D.levelsUrl = (D.man && D.man.files && D.man.files.levels) ? 'data/' + D.man.files.levels : null;   
       var lvP = (DRAW_LEVELS && D.man && D.man.files && D.man.files.levels)   
@@ -319,9 +319,11 @@ function loadPool() {
       .then(function (man) { return fetchFresh('data/' + man.files.shared).then(function (r) { return r.json(); }); })
       .then(function (sh) { return sh.vocab || {}; }).catch(function () { return {}; })
   ]).then(function (all) {
-    var B = PoolDataset.toBoard(all[0]);
-    D.shared = B.shared; D.avg = B.avg; D.med = B.med; D.dots = B.dots; D.man = B.man; D.medUrl = null; D.dotsUrl = null;   
+    var B = PoolDataset.toBoard(all[0], DATASETS['new'].src);
+    D.shared = B.shared; D.avg = B.avg; D.med = B.med; D.dots = B.dots; D.man = B.man; D.medUrl = null; D.dotsUrl = B.dotsUrl || null; D.dotsConvert = B.dotsConvert || null;   
     D.shared.vocab = all[1];   
+    var st = (typeof Kit !== 'undefined' && Kit.state) ? Kit.state : null;
+    if (!D.dots && D.dotsUrl && st && st.get('dots', '0') === '1') return ensureDots();   
   });
 }
 function probeOk(u) {   

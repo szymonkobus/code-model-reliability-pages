@@ -45,7 +45,7 @@ function withCommas(n) { return String(parseInt(n, 10)).replace(/\B(?=(\d{3})+(?
     return out;
   }
 
-  function poolToBoard(P) {
+  function poolToBoard(P, srcUrl) {   
     
     
     function armKey(ident) {
@@ -79,12 +79,17 @@ function withCommas(n) { return String(parseInt(n, 10)).replace(/\B(?=(\d{3})+(?
     var cfgs = P.configs || [];
     var frame = P.frame || {};
     
-    var zById = {};
-    cfgs.forEach(function (c) {
-      var d = c.dots || {}; var t = d.t || [], z = d.z || [];
-      for (var i = 0; i < t.length; i++) if (!(t[i] in zById)) zById[t[i]] = z[i];
-    });
-    var ids = Object.keys(zById).sort(function (a, b) { return zById[a] - zById[b]; });
+    
+    var zById = {}, ids;
+    if (P.tasks && P.tasks.ids && P.tasks.z && P.tasks.ids.length === P.tasks.z.length) {
+      ids = P.tasks.ids.slice(); ids.forEach(function (t, i) { zById[t] = P.tasks.z[i]; });
+    } else {
+      cfgs.forEach(function (c) {
+        var d = c.dots || {}; var t = d.t || [], z = d.z || [];
+        for (var i = 0; i < t.length; i++) if (!(t[i] in zById)) zById[t[i]] = z[i];
+      });
+      ids = Object.keys(zById).sort(function (a, b) { return zById[a] - zById[b]; });
+    }
     var idx = {}; ids.forEach(function (t, i) { idx[t] = i; });
     var tasks = { id: ids, z: ids.map(function (t) { return r4(zById[t]); }) };
 
@@ -134,10 +139,32 @@ function withCommas(n) { return String(parseInt(n, 10)).replace(/\B(?=(\d{3})+(?
       med.configs[c.id] = { bin_median: bm, bands: mbands, bin_censor: mb.map(function (b) { return b.cens || 0; }),
                             raw_median: rm, crossings: medCross(c.cross_med) };
       
-      var d = c.dots || {}; var fails = new Array(ids.length).fill(null), ns = new Array(ids.length).fill(null);
-      (d.t || []).forEach(function (t, i) { var k = idx[t]; if (k != null) { fails[k] = d.f[i]; ns[k] = d.n[i]; } });
-      dots.configs[c.id] = { fails: fails, n: ns };
+      if (c.dots) {
+        var d = c.dots || {}; var fails = new Array(ids.length).fill(null), ns = new Array(ids.length).fill(null);
+        (d.t || []).forEach(function (t, i) { var k = idx[t]; if (k != null) { fails[k] = d.f[i]; ns[k] = d.n[i]; } });
+        dots.configs[c.id] = { fails: fails, n: ns };
+      }
     });
+    
+    
+    
+    
+    var inlineDots = Object.keys(dots.configs).length > 0;
+    var dotsUrl = null, dotsConvert = null;
+    if (!inlineDots && P.dots_file) {
+      var base = (typeof srcUrl === 'string' && srcUrl.indexOf('/') >= 0) ? srcUrl.replace(/[^\/]*$/, '') : '';
+      dotsUrl = base + String(P.dots_file) + (P.dots_sha12 ? '?v=' + String(P.dots_sha12) : '');
+      dotsConvert = function (side) {
+        var out = { configs: {} }; var sc = (side && side.configs) || {};
+        Object.keys(sc).forEach(function (id) {
+          var e = sc[id] || {}; var ti = e.ti || [], f = e.f || [], n = e.n || [];
+          var fails = new Array(ids.length).fill(null), ns = new Array(ids.length).fill(null);
+          for (var k = 0; k < ti.length; k++) { var j = ti[k]; if (j != null && j >= 0 && j < ids.length) { fails[j] = f[k]; ns[j] = n[k]; } }
+          out.configs[id] = { fails: fails, n: ns };
+        });
+        return out;
+      };
+    }
 
     
     var B = P.bayes || {};
@@ -229,7 +256,11 @@ function withCommas(n) { return String(parseInt(n, 10)).replace(/\B(?=(\d{3})+(?
                                           axis_sha12: ax && ax.mirror ? (ax.mirror.axis_sha12 || null) : null,
                                           axis_plain: ax && ax.mirror ? (ax.mirror.axis_plain || null) : null },
                    tasks: tasks, bins: bins, configs: shared_configs, vocab: {}, withdrawn: [] };
-    return { shared: shared, avg: avg, med: med, dots: dots, man: { files: {}, frame: sframe, dataset: 'new' } };
+    
+    
+    
+    if (!inlineDots && !sframe.coverage) { sframe.coverage = {}; cfgs.forEach(function (c) { if (c.n_axis_cells != null) sframe.coverage[c.id] = { tasks: c.n_axis_cells, of: ids.length }; }); }
+    return { shared: shared, avg: avg, med: med, dots: inlineDots ? dots : null, dotsUrl: dotsUrl, dotsConvert: dotsConvert, man: { files: {}, frame: sframe, dataset: 'new' } };   
   }
   global.PoolDataset = { toBoard: poolToBoard };
 })(typeof window !== 'undefined' ? window : globalThis);
