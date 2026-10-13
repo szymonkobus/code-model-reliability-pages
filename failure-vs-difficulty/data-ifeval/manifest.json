@@ -1,9 +1,9 @@
 {
- "fingerprint": "a0f1b5a7e1e5",
+ "fingerprint": "e7b3ce0c56d2",
  "fingerprint_inputs": {
   "content": "f598763f0d98",
   "wave": "ifeval-live",
-  "body": "4e6d1e9fe9a9"
+  "body": "df81447bb50f"
  },
  "frame": {
   "dataset": "ifeval",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ea009d5c6cd1",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "038ba77a0106",
+  "runs_fingerprint": "e88a77ca5ce1",
   "axis_wave": "ifeval-live",
   "build_date": "2026-10-13",
-  "stamp": "2026-10-13T20:58:51Z",
+  "stamp": "2026-10-13T22:34:00Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/ifeval",
-   "unified_built_at": "2026-10-13T19:58:31Z",
+   "unified_built_at": "2026-10-13T21:58:55Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.ifeval.csv"
@@ -259,15 +259,14 @@
     "Qwen/Qwen2.5-14B-Instruct",
     "Qwen/Qwen2.5-Coder-1.5B-Instruct",
     "allenai/OLMo-2-1124-7B-Instruct",
-    "claude-opus-5-thinking",
     "deepseek-ai/DeepSeek-R1-Distill-Qwen-14B",
     "olmo-3-7b-think-step0025-Thinking",
     "openai/gpt-5-nano"
    ],
    "served_not_drawn": null,
-   "custody_dir": "definitions/fitting/waves/nb-ifeval-20261005T1138Z/view_v3/results",
-   "set_fingerprint": "90299c2f1547",
-   "pointer_updated_at": "2026-10-13T20:14:35Z",
+   "custody_dir": "definitions/fitting/waves/nb-ifeval-20261005T1138Z/view_v4/results",
+   "set_fingerprint": "05acd0b252d5",
+   "pointer_updated_at": "2026-10-13T22:23:57Z",
    "n_fits": 53,
    "note": null,
    "gates": {
@@ -282,7 +281,7 @@
      "Qwen--Qwen3-1.7B_think-t0.6",
      "Qwen--Qwen3-32B_t0.8"
     ],
-    "source": "definitions/fitting/waves/nb-ifeval-20261005T1138Z/view_v3/gates_summary.json"
+    "source": "definitions/fitting/waves/nb-ifeval-20261005T1138Z/view_v4/gates_summary.json"
    },
    "provisional_classes": null,
    "basis_truncation": null,
@@ -373,7 +372,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-13T20:26:54Z",
+   "_stamp": "2026-10-13T22:25:17Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -538,10 +537,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-13T19:03:49Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261013T190349Z.json",
-   "sha16": "1a0148b9fadd70c6",
-   "census_mtime": "2026-10-13T19:04:53Z",
+   "stamp": "2026-10-13T21:31:01Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261013T213101Z.json",
+   "sha16": "db4e62000af480f5",
+   "census_mtime": "2026-10-13T21:32:08Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
@@ -558,10 +557,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.a0f1b5a7e1e5.json",
-  "chain_average": "chain_average.a0f1b5a7e1e5.json",
-  "chain_median": "chain_median.a0f1b5a7e1e5.json",
-  "dots": "dots.a0f1b5a7e1e5.json",
-  "levels": "levels.a0f1b5a7e1e5.json"
+  "shared": "shared.e7b3ce0c56d2.json",
+  "chain_average": "chain_average.e7b3ce0c56d2.json",
+  "chain_median": "chain_median.e7b3ce0c56d2.json",
+  "dots": "dots.e7b3ce0c56d2.json",
+  "levels": "levels.e7b3ce0c56d2.json"
  }
 }
