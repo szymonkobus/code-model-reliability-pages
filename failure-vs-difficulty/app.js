@@ -221,12 +221,49 @@ function applyNames() {
   if (f.series_arms && f.series_arms.arms) { f.series_arms.arms.forEach(put); f.series_arms.arms = keep(f.series_arms.arms); }
   if (f.side_arms && f.side_arms.arms) { f.side_arms.arms.forEach(put); f.side_arms.arms = keep(f.side_arms.arms); }
 }
+
+
+
+
+
+function lazyWant(man) {
+  var fr = (man && man.frame) || {}; var st = (typeof Kit !== 'undefined' && Kit.state) ? Kit.state : null;
+  var defAtOpen = st ? st.get('def', 'average') : 'average', dotsAtOpen = st ? st.get('dots', '0') : '0';
+  return { shared: true, chain_average: true, chain_median: (defAtOpen === 'median' || fr.median_curves == null), dots: dotsAtOpen === '1' };
+}
+var MED_P = null, DOTS_P = null;   
+function ensureMed() {   
+  if (D.med || !D.medUrl) return Promise.resolve();
+  if (MED_P) return MED_P;
+  var u = D.medUrl;
+  MED_P = fetchFresh(u).then(function (r) { if (!r.ok) throw new Error('status ' + r.status); return r.json(); }).then(function (m) { if (D.medUrl === u) { D.med = m; medAvailability(); } })
+    .catch(function (e) { if (D.medUrl === u) { faceLine('Drawn without the median fits', 'the file did not load', e); D.med = { configs: {}, frame: {}, missing: true }; medAvailability(); } })
+    .then(function () { MED_P = null; });
+  return MED_P;
+}
+function ensureDots() {   
+  if (D.dots || !D.dotsUrl) return Promise.resolve();
+  if (DOTS_P) return DOTS_P;
+  var u = D.dotsUrl;
+  DOTS_P = fetchFresh(u).then(function (r) { if (!r.ok) throw new Error('status ' + r.status); return r.json(); }).then(function (d) { if (D.dotsUrl === u) D.dots = d; })
+    .catch(function (e) { if (D.dotsUrl === u) { faceLine('Drawn without the task dots', 'the file did not load', e); D.dots = { configs: {}, frame: {}, missing: true }; } })
+    .then(function () { DOTS_P = null; });
+  return DOTS_P;
+}
+function medAvailability() {   
+  if (!defCtl) return;
+  var anyMed;
+  if (D.med) { var _mc = D.med.configs || {}; anyMed = Object.keys(_mc).some(function (k) { var c = _mc[k] || {}; return (c.bin_median || []).some(function (v) { return v != null; }) || (c.bin_censor || []).some(function (f) { return f !== 0; }); }); }
+  else { var fr = (D.shared && D.shared.frame) || {}; anyMed = (fr.median_curves == null) ? !!D.medUrl : !!fr.median_curves; }
+  if (!anyMed) { setDisabled(defCtl.element.querySelector('button[data-value="median"]'), true, ''); if (state.def === 'median') { state.def = 'average'; quietSet(defCtl, 'average'); buildSrcSwitch(); } }
+}
 function loadBundle(dir, label) {   
   return fetchFresh(dir + '/manifest.json').then(function (r) { if (!r.ok) throw new Error('no bundle at ' + dir); return r.json(); })
     .then(function (man) {
       D.man = man;
+      var want = lazyWant(man);   
       return Promise.all(['shared', 'chain_average', 'chain_median', 'dots']
-        .map(function (k) { return fetchFresh(dir + '/' + man.files[k]).then(function (r) { if (!r.ok) throw new Error('status ' + r.status); return r.json(); })
+        .map(function (k) { if (!want[k]) return Promise.resolve(null); return fetchFresh(dir + '/' + man.files[k]).then(function (r) { if (!r.ok) throw new Error('status ' + r.status); return r.json(); })
           .catch(function (e) {   
             var why = (e && e.message) || String(e);
             if (k === 'shared' || k === 'chain_average') throw new Error('the ' + k.replace('_', ' ') + ' file did not load (' + why + ')');
@@ -234,6 +271,7 @@ function loadBundle(dir, label) {
           }); }));
     }).then(function (all) {
       D.shared = all[0]; D.avg = all[1]; D.med = all[2]; D.dots = all[3]; D.levels = null;
+      D.medUrl = (D.man && D.man.files && D.man.files.chain_median) ? dir + '/' + D.man.files.chain_median : null; D.dotsUrl = (D.man && D.man.files && D.man.files.dots) ? dir + '/' + D.man.files.dots : null;   
       D.shared.frame.dataset = D.shared.frame.dataset || 'board';
       D.shared.frame.dataset_label = D.shared.frame.dataset_label || label;
       D.shared.vocab = D.shared.vocab || {};
@@ -252,14 +290,17 @@ function loadBoard() {
   return fetchFresh('data/manifest.json').then(function (r) { return r.json(); })
     .then(function (man) {
       D.man = man;
+      var want = lazyWant(man);   
       return Promise.all(['shared', 'chain_average', 'chain_median', 'dots']
         .map(function (k) {
+          if (!want[k]) return Promise.resolve(null);
           return fetchFresh('data/' + man.files[k]).then(function (r) {
             return r.json();
           });
         }));
     }).then(function (all) {
       D.shared = all[0]; D.avg = all[1]; D.med = all[2]; D.dots = all[3]; D.levels = null;
+      D.medUrl = (D.man && D.man.files && D.man.files.chain_median) ? 'data/' + D.man.files.chain_median : null; D.dotsUrl = (D.man && D.man.files && D.man.files.dots) ? 'data/' + D.man.files.dots : null;   
       D.shared.frame.dataset = 'board'; D.shared.frame.dataset_label = DATASETS.board ? DATASETS.board.label : 'wave 1';
       D.levelsUrl = (D.man && D.man.files && D.man.files.levels) ? 'data/' + D.man.files.levels : null;   
       var lvP = (DRAW_LEVELS && D.man && D.man.files && D.man.files.levels)   
@@ -279,7 +320,7 @@ function loadPool() {
       .then(function (sh) { return sh.vocab || {}; }).catch(function () { return {}; })
   ]).then(function (all) {
     var B = PoolDataset.toBoard(all[0]);
-    D.shared = B.shared; D.avg = B.avg; D.med = B.med; D.dots = B.dots; D.man = B.man;
+    D.shared = B.shared; D.avg = B.avg; D.med = B.med; D.dots = B.dots; D.man = B.man; D.medUrl = null; D.dotsUrl = null;   
     D.shared.vocab = all[1];   
   });
 }
@@ -341,7 +382,7 @@ var srcMount = null;
 var ready = false;      
 var DOTS_MAX = 24;      
 var coercing = false;   
-var bandCtl = null, dotsCtl = null, curveCtl = null;
+var bandCtl = null, dotsCtl = null, curveCtl = null, defCtl = null;   
 var EXPORTING = false;  
 var K = 1;              
 function quietSet(ctl, v) { coercing = true; try { ctl.set(v); } finally { coercing = false; } }
@@ -594,23 +635,19 @@ function boot() {
     var tip = 'models with attempts on fewer than 90% of the dataset\'s tasks' + (pa.length ? ' — ' + pa.length + ' here, named in the notes below the chart' : '');
     partialCtl.element.title = tip;
   })();
-  var defCtl = Kit.switchControl({ mount: row, key: 'def', label: 'Definition',
+  defCtl = Kit.switchControl({ mount: row, key: 'def', label: 'Definition',
     options: [{ value: 'average', label: 'Average rate' },
               { value: 'median', label: 'Median task' }],
     dflt: 'average',
     onchange: function (v) {
       state.def = v;
       if (srcMount) buildSrcSwitch();   
-      if (ready && !coercing) render();
+      if (ready && !coercing) { if (v === 'median' && !D.med && D.medUrl) ensureMed().then(function () { render(); }); else render(); }   
     } });
   srcMount = document.createElement('span');
   row.appendChild(srcMount);
   buildSrcSwitch();
-  (function () {   
-    var _mc = (D.med && D.med.configs) || {};
-    var anyMed = Object.keys(_mc).some(function (k) { var c = _mc[k] || {}; return (c.bin_median || []).some(function (v) { return v != null; }) || (c.bin_censor || []).some(function (f) { return f !== 0; }); });
-    if (!anyMed) { setDisabled(defCtl.element.querySelector('button[data-value="median"]'), true, ''); if (state.def === 'median') { state.def = 'average'; quietSet(defCtl, 'average'); buildSrcSwitch(); } }
-  })();
+  medAvailability();   
   curveCtl = Kit.switchControl({ mount: row, key: 'curve', label: 'View',   
     options: [{ value: 'rate', label: 'Median failure rate' },
               { value: 'difficulty', label: 'Median difficulty' }],   
@@ -654,7 +691,7 @@ function boot() {
     options: [{ value: '0', label: 'Off' },
               { value: '1', label: 'On' }],
     dflt: '0',
-    onchange: function (v) { state.dots = v; if (ready && !coercing) render(); } });
+    onchange: function (v) { state.dots = v; if (ready && !coercing) { if (v === '1' && !D.dots && D.dotsUrl) ensureDots().then(function () { render(); }); else render(); } } });   
   Kit.switchControl({ mount: row, key: 'rm',
     label: 'Raw running median',
     options: [{ value: '0', label: 'Off' },
@@ -1051,12 +1088,18 @@ function sideFitFor(id) {
   return null;
 }
 function hasBayes(i) { var id = D.shared.configs[i].id; return hasOwnBayes(i) || !!runFitFor(id) || !!sideFitFor(id); }
+var BAND_Z = { '80': 1.2816, '90': 1.6449, '95': 1.96 };   
+function bandEdge(c, lvl, sign) {   
+  if (c.bands && c.bands[lvl]) return sign < 0 ? c.bands[lvl].lo : c.bands[lvl].hi;
+  var se = c.se, z = BAND_Z[lvl]; if (!se || !z || !c.trend) return null;
+  return c.trend.map(function (m, i) { var sv = se[i]; return (m == null || sv == null) ? null : m + sign * z * sv; });
+}
 function houseCurve(id, lvl) {
   if (state.def === 'average') {
     var c = D.avg.configs[id];
     return { zs: c.trend_zs || D.avg.trend_zs, mid: c.trend,
-             lo: lvl === 'off' ? null : c.bands[lvl].lo,
-             hi: lvl === 'off' ? null : c.bands[lvl].hi, form: 'line' };
+             lo: lvl === 'off' ? null : bandEdge(c, lvl, -1),
+             hi: lvl === 'off' ? null : bandEdge(c, lvl, +1), form: 'line' };
   }
   var m = D.med.configs[id];
   return { zs: D.shared.bins.centers, mid: m.bin_median,
@@ -1602,6 +1645,7 @@ function nameFamilies(shared) {
   shared._fam_named = true;
 }
 function render() {
+  if (state.def === 'median' && !D.med && D.medUrl) { ensureMed().then(function () { render(); }); return; }   
   PIN_DX = 0;
   nameFamilies(D.shared);   
   var chart = document.getElementById('chart');
