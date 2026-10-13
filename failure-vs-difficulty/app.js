@@ -51,8 +51,10 @@ function fitGeometry(chart) {
   PW = W - ML - MR;
   
   
-  if (sameUnits()) { var xl = xlimT(), yl = ylimT(); PH = Math.max(120, Math.round(PW * (yl[1] - yl[0]) / (xl[1] - xl[0]))); H = MT + PH + MB; }
-  else { H = 560; PH = H - MT - MB; }
+  if (sameUnits()) { var xl = xlimT(), yl = ylimT(); PH = Math.max(120, Math.round(PW * (yl[1] - yl[0]) / (xl[1] - xl[0]))); H = MT + PH + MB; chart.setAttribute('data-equal-scale', state.xs); }
+  else { H = 560; PH = H - MT - MB; chart.removeAttribute('data-equal-scale'); }
+  
+  
   chart.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
 }
 var LOGIT_TICKS = [0.5, 1, 2, 5, 10, 20, 50, 80, 90, 95, 98, 99, 99.5];
