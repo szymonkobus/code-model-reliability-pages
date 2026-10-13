@@ -108,7 +108,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-13T19:25:44Z"
+   "updated_at": "2026-10-13T19:51:19Z"
   },
   "all": {
    "files": {
@@ -236,7 +236,7 @@
    },
    "source_stamp": "2026-10-13T18:53:53Z",
    "source_fp": "58cd17eb64b4",
-   "updated_at": "2026-10-13T19:16:27Z",
+   "updated_at": "2026-10-13T19:41:40Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -523,21 +523,21 @@
   },
   "aime": {
    "files": {
-    "shared": "shared.aime.16bb51069e54.json",
-    "chain_average": "chain_average.aime.16bb51069e54.json",
-    "bayes": "bayes.aime.16bb51069e54-1a89ae2c279d.json",
+    "shared": "shared.aime.c0d511d68ab3.json",
+    "chain_average": "chain_average.aime.c0d511d68ab3.json",
+    "bayes": "bayes.aime.c0d511d68ab3-1a89ae2c279d.json",
     "bayes_prev": "bayes.aime.0ada76201b10-1758047dd617.json"
    },
    "label": "AIME",
    "arms": "all",
-   "fingerprint": "16bb51069e54",
+   "fingerprint": "c0d511d68ab3",
    "frame": {
     "population_M": 41,
     "tasks": 60,
     "keep_set_hash": "dc5cbadfe267",
-    "runs_fingerprint": "2f0832e8b50b",
+    "runs_fingerprint": "b2cfce52a8a5",
     "build_date": "2026-10-13",
-    "build_ts": "2026-10-13T18:15:12Z",
+    "build_ts": "2026-10-13T19:46:19Z",
     "vocab_ruled": "2026-08-27",
     "set": "aime",
     "set_label": "AIME",
@@ -548,14 +548,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "dc5cbadfe267",
     "tasks_used": "AIME \u2014 60 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-aime fp 237c0a62464a (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-aime fp b973aa463985 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "85c7ea8c65d2",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-13T18:15:12Z",
-   "source_fp": "237c0a62464a",
-   "updated_at": "2026-10-13T19:36:12Z",
+   "source_stamp": "2026-10-13T19:46:19Z",
+   "source_fp": "b973aa463985",
+   "updated_at": "2026-10-13T19:50:31Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
