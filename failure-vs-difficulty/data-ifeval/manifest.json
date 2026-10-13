@@ -1,9 +1,9 @@
 {
- "fingerprint": "6cc3e7b5837d",
+ "fingerprint": "e01cef73f252",
  "fingerprint_inputs": {
   "content": "37f9f33f0934",
   "wave": "ifeval-live",
-  "body": "cba879cbf8da"
+  "body": "0065899981f2"
  },
  "frame": {
   "dataset": "ifeval",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ea009d5c6cd1",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "38f8729711b3",
+  "runs_fingerprint": "ec7a2021bcce",
   "axis_wave": "ifeval-live",
-  "build_date": "2026-10-12",
-  "stamp": "2026-10-12T21:34:17Z",
+  "build_date": "2026-10-13",
+  "stamp": "2026-10-13T10:50:00Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/ifeval",
-   "unified_built_at": "2026-10-12T18:50:00Z",
+   "unified_built_at": "2026-10-13T09:12:54Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.ifeval.csv"
@@ -372,7 +372,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-12T21:25:38Z",
+   "_stamp": "2026-10-13T10:27:35Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -537,12 +537,13 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-12T20:14:42Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261012T201442Z.json",
-   "sha16": "0d9e7c14de74757d",
-   "census_mtime": "2026-10-12T20:15:31Z",
+   "stamp": "2026-10-13T09:50:15Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261013T095015Z.json",
+   "sha16": "d04e03de8572ae35",
+   "census_mtime": "2026-10-13T09:51:28Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
+  "median_curves": true,
   "side_arms": {
    "updated_at": "2026-10-06T06:20:22Z",
    "pointer": "definitions/fitting/serving_sft_nb_ifeval.json",
@@ -556,10 +557,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.6cc3e7b5837d.json",
-  "chain_average": "chain_average.6cc3e7b5837d.json",
-  "chain_median": "chain_median.6cc3e7b5837d.json",
-  "dots": "dots.6cc3e7b5837d.json",
-  "levels": "levels.6cc3e7b5837d.json"
+  "shared": "shared.e01cef73f252.json",
+  "chain_average": "chain_average.e01cef73f252.json",
+  "chain_median": "chain_median.e01cef73f252.json",
+  "dots": "dots.e01cef73f252.json",
+  "levels": "levels.e01cef73f252.json"
  }
 }
