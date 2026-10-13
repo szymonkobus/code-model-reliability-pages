@@ -1,9 +1,9 @@
 {
- "fingerprint": "6a4679c3bf03",
+ "fingerprint": "4e1f3ee98b6c",
  "fingerprint_inputs": {
-  "content": "70d747405cdf",
+  "content": "265dd8df0327",
   "wave": "combined-20260910T2209Z",
-  "body": "419ff41aa02d"
+  "body": "b3d3c72c91d1"
  },
  "frame": {
   "dataset": "board_top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 66,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "70d747405cdf",
+  "inputs_content_sha": "265dd8df0327",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "e48b000baf7b",
+  "runs_fingerprint": "3aa322587c68",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-13",
-  "stamp": "2026-10-13T15:53:48Z",
+  "stamp": "2026-10-13T16:51:44Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -124,7 +124,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-13T15:17:53Z",
+   "unified_built_at": "2026-10-13T16:28:38Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -454,7 +454,7 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/board_top-20260910T2111Z/results",
    "set_fingerprint": "030de536de92",
-   "pointer_updated_at": "2026-10-13T15:54:10Z",
+   "pointer_updated_at": "2026-10-13T16:25:59Z",
    "n_fits": 62,
    "note": null,
    "gates": {
@@ -589,7 +589,7 @@
   "interim": "kernel fits on all results available at build; refit hourly as results land",
   "partial_attempts": null,
   "off_panel": {
-   "n_with_cells": 76,
+   "n_with_cells": 78,
    "arms": [
     {
      "id": "deepseek-coder-6.7b-rl-night1-step250",
@@ -970,6 +970,16 @@
    "stopped_not_listed": [],
    "unregistered": [
     {
+     "id": "r1d7b-rl-f17-kl-step0150-Thinking",
+     "arm_id": "r1d7b-rl-f17-kl-s150",
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL penalty \u00b7 150 steps"
+    },
+    {
+     "id": "r1d7b-rl-f17-kl-step0200-Thinking",
+     "arm_id": "r1d7b-rl-f17-kl-s200",
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL penalty \u00b7 200 steps"
+    },
+    {
      "id": "r1d7b-rl-f12-redraw-kl-step0250-Thinking",
      "arm_id": "r1d7b-rl-f12-redraw-kl-s250",
      "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, redraw every 50, KL penalty \u00b7 250 steps"
@@ -1001,7 +1011,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-13T15:25:39Z",
+   "_stamp": "2026-10-13T16:33:04Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1166,10 +1176,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-13T13:49:13Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261013T134913Z.json",
-   "sha16": "d7a93a9f3c2aa74e",
-   "census_mtime": "2026-10-13T13:50:54Z",
+   "stamp": "2026-10-13T15:10:00Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261013T151000Z.json",
+   "sha16": "2749fc1a536e0be6",
+   "census_mtime": "2026-10-13T15:11:09Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
@@ -1238,10 +1248,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.6a4679c3bf03.json",
-  "chain_average": "chain_average.6a4679c3bf03.json",
-  "chain_median": "chain_median.6a4679c3bf03.json",
-  "dots": "dots.6a4679c3bf03.json",
-  "levels": "levels.6a4679c3bf03.json"
+  "shared": "shared.4e1f3ee98b6c.json",
+  "chain_average": "chain_average.4e1f3ee98b6c.json",
+  "chain_median": "chain_median.4e1f3ee98b6c.json",
+  "dots": "dots.4e1f3ee98b6c.json",
+  "levels": "levels.4e1f3ee98b6c.json"
  }
 }
