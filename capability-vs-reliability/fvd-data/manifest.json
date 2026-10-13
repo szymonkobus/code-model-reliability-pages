@@ -1,5 +1,5 @@
 {
- "fingerprint": "72b15bf2b09d",
+ "fingerprint": "89aed58bad0b",
  "frame": {
   "population_M": 60,
   "tasks": 430,
@@ -87,8 +87,8 @@
   "inputs_content_sha": "8f56643c4719",
   "scorer": "plus_status (a sample counts as solved if its plus run passed; difficulty ruled base AND plus on 2026-09-02 \u2014 the switch of served numbers waits for Szymon's gate; under base AND plus a result can read differently, e.g. Mbpp/274 for Qwen3-30B-A3B: 128 passes here vs 127)",
   "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\\t<task>\\t<passes>\\t<attempts>\\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column verbatim; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) \u2014 reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
-  "build_date": "2026-10-12",
-  "built_at": "2026-10-12T21:39:18Z",
+  "build_date": "2026-10-13",
+  "built_at": "2026-10-13T05:45:46Z",
   "vocab_ruled": "2026-08-27",
   "counts_of_record": {
    "original_kept": 430,
@@ -97,7 +97,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-12T21:25:38Z",
+   "_stamp": "2026-10-13T05:24:48Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -358,13 +358,13 @@
    "openai/gpt-5-nano": "20260907T154051Z",
    "openai/gpt-5-mini": "20260907T154051Z"
   },
-  "newest_input_mtime": "2026-10-12T21:35:46Z"
+  "newest_input_mtime": "2026-10-13T05:33:14Z"
  },
  "files": {
-  "shared": "shared.72b15bf2b09d.json",
-  "chain_average": "chain_average.72b15bf2b09d.json",
-  "chain_median": "chain_median.72b15bf2b09d.json",
-  "dots": "dots.72b15bf2b09d.json",
-  "levels": "levels.72b15bf2b09d.json"
+  "shared": "shared.89aed58bad0b.json",
+  "chain_average": "chain_average.89aed58bad0b.json",
+  "chain_median": "chain_median.89aed58bad0b.json",
+  "dots": "dots.89aed58bad0b.json",
+  "levels": "levels.89aed58bad0b.json"
  }
 }
