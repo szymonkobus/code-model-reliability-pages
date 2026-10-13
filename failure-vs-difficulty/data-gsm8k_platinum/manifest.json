@@ -1,9 +1,9 @@
 {
- "fingerprint": "9539c45f22aa",
+ "fingerprint": "1f3effe6996a",
  "fingerprint_inputs": {
   "content": "97cebacbe056",
   "wave": "gsm8k_platinum-live",
-  "body": "96e31b056db6"
+  "body": "402813e71ba6"
  },
  "frame": {
   "dataset": "gsm8k_platinum",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ff1457decdf7",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "38f8729711b3",
+  "runs_fingerprint": "ec7a2021bcce",
   "axis_wave": "gsm8k_platinum-live",
-  "build_date": "2026-10-12",
-  "stamp": "2026-10-12T21:28:21Z",
+  "build_date": "2026-10-13",
+  "stamp": "2026-10-13T10:42:58Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/gsm8k_platinum",
-   "unified_built_at": "2026-10-12T18:50:00Z",
+   "unified_built_at": "2026-10-13T09:12:54Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.gsm8k_platinum.csv"
@@ -392,7 +392,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-12T21:25:38Z",
+   "_stamp": "2026-10-13T10:27:35Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -557,12 +557,13 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-12T20:14:42Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261012T201442Z.json",
-   "sha16": "0d9e7c14de74757d",
-   "census_mtime": "2026-10-12T20:15:31Z",
+   "stamp": "2026-10-13T09:50:15Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261013T095015Z.json",
+   "sha16": "d04e03de8572ae35",
+   "census_mtime": "2026-10-13T09:51:28Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
+  "median_curves": true,
   "side_arms": {
    "updated_at": "2026-10-06T06:31:42Z",
    "pointer": "definitions/fitting/serving_sft_nb_gsm8k_platinum.json",
@@ -576,10 +577,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.9539c45f22aa.json",
-  "chain_average": "chain_average.9539c45f22aa.json",
-  "chain_median": "chain_median.9539c45f22aa.json",
-  "dots": "dots.9539c45f22aa.json",
-  "levels": "levels.9539c45f22aa.json"
+  "shared": "shared.1f3effe6996a.json",
+  "chain_average": "chain_average.1f3effe6996a.json",
+  "chain_median": "chain_median.1f3effe6996a.json",
+  "dots": "dots.1f3effe6996a.json",
+  "levels": "levels.1f3effe6996a.json"
  }
 }
