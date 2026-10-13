@@ -1,9 +1,9 @@
 {
- "fingerprint": "8ad83ef69175",
+ "fingerprint": "0185b319a238",
  "fingerprint_inputs": {
   "content": "1fbf8e9080ba",
   "wave": "cruxeval_i-live",
-  "body": "ff5d25f68d0d"
+  "body": "aa18335252ec"
  },
  "frame": {
   "dataset": "cruxeval_i",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ceaae2d92751",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "38f8729711b3",
+  "runs_fingerprint": "ec7a2021bcce",
   "axis_wave": "cruxeval_i-live",
-  "build_date": "2026-10-12",
-  "stamp": "2026-10-12T21:15:43Z",
+  "build_date": "2026-10-13",
+  "stamp": "2026-10-13T10:24:09Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/cruxeval_i",
-   "unified_built_at": "2026-10-12T18:50:00Z",
+   "unified_built_at": "2026-10-13T09:12:54Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.cruxeval_i.csv"
@@ -356,7 +356,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-12T21:10:47Z",
+   "_stamp": "2026-10-13T10:27:35Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -521,12 +521,13 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-12T20:14:42Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261012T201442Z.json",
-   "sha16": "0d9e7c14de74757d",
-   "census_mtime": "2026-10-12T20:15:31Z",
+   "stamp": "2026-10-13T09:50:15Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261013T095015Z.json",
+   "sha16": "d04e03de8572ae35",
+   "census_mtime": "2026-10-13T09:51:28Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
+  "median_curves": true,
   "side_arms": {
    "updated_at": "2026-10-06T06:20:21Z",
    "pointer": "definitions/fitting/serving_sft_nb_cruxeval_i.json",
@@ -540,10 +541,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.8ad83ef69175.json",
-  "chain_average": "chain_average.8ad83ef69175.json",
-  "chain_median": "chain_median.8ad83ef69175.json",
-  "dots": "dots.8ad83ef69175.json",
-  "levels": "levels.8ad83ef69175.json"
+  "shared": "shared.0185b319a238.json",
+  "chain_average": "chain_average.0185b319a238.json",
+  "chain_median": "chain_median.0185b319a238.json",
+  "dots": "dots.0185b319a238.json",
+  "levels": "levels.0185b319a238.json"
  }
 }
