@@ -1,9 +1,9 @@
 {
- "fingerprint": "4dbe25c2abc1",
+ "fingerprint": "31f5ce06e799",
  "fingerprint_inputs": {
-  "content": "b52295e6655c",
+  "content": "c1ea3fbe307e",
   "wave": "combined-20260910T2209Z",
-  "body": "b5e474f515c3"
+  "body": "4007abc415cd"
  },
  "frame": {
   "dataset": "board_top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 66,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "b52295e6655c",
+  "inputs_content_sha": "c1ea3fbe307e",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "cafebc695bc5",
+  "runs_fingerprint": "07417c1fc576",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-13",
-  "stamp": "2026-10-13T18:46:25Z",
+  "stamp": "2026-10-13T19:26:21Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -124,7 +124,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-13T18:18:38Z",
+   "unified_built_at": "2026-10-13T19:20:45Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -443,7 +443,6 @@
     "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct",
     "deepseek-ai/DeepSeek-R1-Distill-Llama-8B",
     "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
-    "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
     "deepseek-ai/deepseek-coder-1.3b-instruct",
     "deepseek-ai/deepseek-coder-33b-instruct",
     "deepseek-ai/deepseek-coder-6.7b-instruct",
@@ -454,12 +453,12 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/board_top-20260910T2111Z/results",
    "set_fingerprint": "030de536de92",
-   "pointer_updated_at": "2026-10-13T17:13:13Z",
+   "pointer_updated_at": "2026-10-13T19:24:59Z",
    "n_fits": 63,
    "note": null,
    "gates": {
     "convention": "0.5%-of-draws convention",
-    "n_pass": 32,
+    "n_pass": 33,
     "n_arms": 65,
     "max_divergence_share_pct": 0.03,
     "rhat_max": 1.148,
@@ -490,7 +489,6 @@
      "deepseek-ai--DeepSeek-Coder-V2-Lite-Instruct_temp_0.8",
      "deepseek-ai--DeepSeek-R1-Distill-Llama-8B_think_temp_0.6",
      "deepseek-ai--DeepSeek-R1-Distill-Qwen-1.5B_think_temp_0.6",
-     "deepseek-ai--DeepSeek-R1-Distill-Qwen-7B_think_temp_0.6",
      "deepseek-ai--deepseek-coder-1.3b-instruct_temp_0.8",
      "deepseek-ai--deepseek-coder-33b-instruct_temp_0.8",
      "deepseek-ai--deepseek-coder-6.7b-instruct_temp_0.8",
@@ -1012,7 +1010,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-13T18:25:18Z",
+   "_stamp": "2026-10-13T19:25:42Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1177,10 +1175,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-13T17:54:11Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261013T175411Z.json",
-   "sha16": "25056ef8c23ecb81",
-   "census_mtime": "2026-10-13T17:55:04Z",
+   "stamp": "2026-10-13T19:03:49Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261013T190349Z.json",
+   "sha16": "1a0148b9fadd70c6",
+   "census_mtime": "2026-10-13T19:04:53Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
@@ -1249,10 +1247,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.4dbe25c2abc1.json",
-  "chain_average": "chain_average.4dbe25c2abc1.json",
-  "chain_median": "chain_median.4dbe25c2abc1.json",
-  "dots": "dots.4dbe25c2abc1.json",
-  "levels": "levels.4dbe25c2abc1.json"
+  "shared": "shared.31f5ce06e799.json",
+  "chain_average": "chain_average.31f5ce06e799.json",
+  "chain_median": "chain_median.31f5ce06e799.json",
+  "dots": "dots.31f5ce06e799.json",
+  "levels": "levels.31f5ce06e799.json"
  }
 }
