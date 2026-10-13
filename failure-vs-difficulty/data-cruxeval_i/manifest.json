@@ -1,9 +1,9 @@
 {
- "fingerprint": "47f5b312c99c",
+ "fingerprint": "39b76c1e9fba",
  "fingerprint_inputs": {
   "content": "d4ab72db4284",
   "wave": "cruxeval_i-live",
-  "body": "3623a053c968"
+  "body": "bafcaa1bdd3a"
  },
  "frame": {
   "dataset": "cruxeval_i",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ceaae2d92751",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "2f0832e8b50b",
+  "runs_fingerprint": "038ba77a0106",
   "axis_wave": "cruxeval_i-live",
   "build_date": "2026-10-13",
-  "stamp": "2026-10-13T18:17:47Z",
+  "stamp": "2026-10-13T21:37:13Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/cruxeval_i",
-   "unified_built_at": "2026-10-13T18:12:31Z",
+   "unified_built_at": "2026-10-13T19:58:31Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.cruxeval_i.csv"
@@ -243,14 +243,15 @@
     "Qwen/Qwen3-32B_chat",
     "Qwen/Qwen3-4B",
     "allenai/OLMo-2-1124-13B-Instruct",
+    "claude-sonnet-5-thinking",
     "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct",
     "deepseek-ai/deepseek-coder-1.3b-instruct",
     "mistralai/Mistral-7B-Instruct-v0.3"
    ],
    "served_not_drawn": null,
-   "custody_dir": "definitions/fitting/waves/nb-cruxeval_i-20261005T1138Z/view_v2/results",
-   "set_fingerprint": "3c2b8c401ec7",
-   "pointer_updated_at": "2026-10-07T16:16:30Z",
+   "custody_dir": "definitions/fitting/waves/nb-cruxeval_i-20261005T1138Z/view_v3/results",
+   "set_fingerprint": "51fc05ff6962",
+   "pointer_updated_at": "2026-10-13T21:17:27Z",
    "n_fits": 56,
    "note": null,
    "gates": {
@@ -270,7 +271,7 @@
      "Qwen--Qwen3-8B_t0.8",
      "mistralai--Mistral-7B-Instruct-v0.3_t0.8"
     ],
-    "source": "definitions/fitting/waves/nb-cruxeval_i-20261005T1138Z/view_v2/gates_summary.json"
+    "source": "definitions/fitting/waves/nb-cruxeval_i-20261005T1138Z/view_v3/gates_summary.json"
    },
    "provisional_classes": null,
    "basis_truncation": null,
@@ -356,7 +357,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-13T17:25:53Z",
+   "_stamp": "2026-10-13T21:25:40Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -521,10 +522,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-13T17:54:11Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261013T175411Z.json",
-   "sha16": "25056ef8c23ecb81",
-   "census_mtime": "2026-10-13T17:55:04Z",
+   "stamp": "2026-10-13T20:19:14Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261013T201914Z.json",
+   "sha16": "4765540da7416121",
+   "census_mtime": "2026-10-13T20:20:51Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
@@ -541,10 +542,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.47f5b312c99c.json",
-  "chain_average": "chain_average.47f5b312c99c.json",
-  "chain_median": "chain_median.47f5b312c99c.json",
-  "dots": "dots.47f5b312c99c.json",
-  "levels": "levels.47f5b312c99c.json"
+  "shared": "shared.39b76c1e9fba.json",
+  "chain_average": "chain_average.39b76c1e9fba.json",
+  "chain_median": "chain_median.39b76c1e9fba.json",
+  "dots": "dots.39b76c1e9fba.json",
+  "levels": "levels.39b76c1e9fba.json"
  }
 }
