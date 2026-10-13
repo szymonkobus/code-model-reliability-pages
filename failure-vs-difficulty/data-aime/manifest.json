@@ -1,9 +1,9 @@
 {
- "fingerprint": "237c0a62464a",
+ "fingerprint": "b973aa463985",
  "fingerprint_inputs": {
   "content": "85c7ea8c65d2",
   "wave": "aime-live",
-  "body": "8385dfda29e1"
+  "body": "f0acbff7d885"
  },
  "frame": {
   "dataset": "aime",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "dc5cbadfe267",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "2f0832e8b50b",
+  "runs_fingerprint": "b2cfce52a8a5",
   "axis_wave": "aime-live",
   "build_date": "2026-10-13",
-  "stamp": "2026-10-13T18:15:12Z",
+  "stamp": "2026-10-13T19:46:19Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/aime",
-   "unified_built_at": "2026-10-13T18:12:31Z",
+   "unified_built_at": "2026-10-13T18:58:12Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.aime.csv"
@@ -231,22 +231,24 @@
     "label": null,
     "qualifiers": null
    },
-   "strict_gate_flagged": [],
+   "strict_gate_flagged": [
+    "claude-opus-5"
+   ],
    "served_not_drawn": null,
-   "custody_dir": "definitions/fitting/waves/nb-aime-20261005T0933Z/view_v4/results",
-   "set_fingerprint": "6882b0209e1c",
-   "pointer_updated_at": "2026-10-12T15:02:27Z",
+   "custody_dir": "definitions/fitting/waves/nb-aime-20261005T0933Z/view_v5/results",
+   "set_fingerprint": "415d53546e92",
+   "pointer_updated_at": "2026-10-13T19:35:12Z",
    "n_fits": 41,
    "note": null,
    "gates": {
     "convention": "0.5%-of-draws convention",
     "n_pass": 36,
     "n_arms": 36,
-    "max_divergence_share_pct": 0.01,
+    "max_divergence_share_pct": 0.02,
     "rhat_max": 1.002,
     "bulk_ess_min": 2312,
     "flagged": [],
-    "source": "definitions/fitting/waves/nb-aime-20261005T0933Z/view_v4/gates_summary.json"
+    "source": "definitions/fitting/waves/nb-aime-20261005T0933Z/view_v5/gates_summary.json"
    },
    "provisional_classes": null,
    "basis_truncation": null,
@@ -350,7 +352,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-13T17:25:53Z",
+   "_stamp": "2026-10-13T19:25:42Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -515,10 +517,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-13T15:10:00Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261013T151000Z.json",
-   "sha16": "2749fc1a536e0be6",
-   "census_mtime": "2026-10-13T15:11:09Z",
+   "stamp": "2026-10-13T19:03:49Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261013T190349Z.json",
+   "sha16": "1a0148b9fadd70c6",
+   "census_mtime": "2026-10-13T19:04:53Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": false,
@@ -535,10 +537,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.237c0a62464a.json",
-  "chain_average": "chain_average.237c0a62464a.json",
-  "chain_median": "chain_median.237c0a62464a.json",
-  "dots": "dots.237c0a62464a.json",
-  "levels": "levels.237c0a62464a.json"
+  "shared": "shared.b973aa463985.json",
+  "chain_average": "chain_average.b973aa463985.json",
+  "chain_median": "chain_median.b973aa463985.json",
+  "dots": "dots.b973aa463985.json",
+  "levels": "levels.b973aa463985.json"
  }
 }
