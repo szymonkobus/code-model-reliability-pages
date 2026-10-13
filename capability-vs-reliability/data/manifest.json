@@ -108,24 +108,24 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-12T23:31:15Z"
+   "updated_at": "2026-10-12T23:52:07Z"
   },
   "all": {
    "files": {
-    "shared": "shared.all.519f7170cc26.json",
-    "chain_average": "chain_average.all.519f7170cc26.json",
-    "bayes": "bayes.all.519f7170cc26-369140b65255.json"
+    "shared": "shared.all.91b234ba8aa9.json",
+    "chain_average": "chain_average.all.91b234ba8aa9.json",
+    "bayes": "bayes.all.91b234ba8aa9-369140b65255.json"
    },
    "label": "all waves",
    "arms": "all",
-   "fingerprint": "519f7170cc26",
+   "fingerprint": "91b234ba8aa9",
    "frame": {
     "population_M": 64,
     "tasks": 2167,
     "keep_set_hash": "60ede5d24001",
-    "runs_fingerprint": "7670df8f276c",
+    "runs_fingerprint": "338fde2bd4f7",
     "build_date": "2026-10-12",
-    "build_ts": "2026-10-12T22:35:23Z",
+    "build_ts": "2026-10-12T23:36:28Z",
     "vocab_ruled": "2026-08-27",
     "set": "all",
     "set_label": "all waves",
@@ -136,14 +136,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "60ede5d24001",
     "tasks_used": "all waves \u2014 2167 tasks, axis wave unified-live",
-    "source": "failure-vs-difficulty data-all fp d7a4daa7cc32 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "53ca0d36001a",
+    "source": "failure-vs-difficulty data-all fp dab1438031fa (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "c6172654a0a7",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-12T22:35:23Z",
-   "source_fp": "d7a4daa7cc32",
-   "updated_at": "2026-10-12T23:19:44Z",
+   "source_stamp": "2026-10-12T23:36:28Z",
+   "source_fp": "dab1438031fa",
+   "updated_at": "2026-10-12T23:59:12Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -191,7 +191,7 @@
    },
    "source_stamp": "2026-10-12T22:57:44Z",
    "source_fp": "46a7185e8ee1",
-   "updated_at": "2026-10-12T23:21:44Z",
+   "updated_at": "2026-10-12T23:40:55Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -236,7 +236,7 @@
    },
    "source_stamp": "2026-10-12T22:47:13Z",
    "source_fp": "f0f4fab7facc",
-   "updated_at": "2026-10-12T23:22:42Z",
+   "updated_at": "2026-10-12T23:42:01Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
