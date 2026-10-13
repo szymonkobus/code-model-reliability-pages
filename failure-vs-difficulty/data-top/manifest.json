@@ -1,9 +1,9 @@
 {
- "fingerprint": "5f95ef9ea99f",
+ "fingerprint": "28c24fdabe8f",
  "fingerprint_inputs": {
   "content": "2571982b88e2",
   "wave": "pool-20260910T2244Z",
-  "body": "e0609b513100"
+  "body": "08f0bb8d22c9"
  },
  "frame": {
   "dataset": "top",
@@ -17,11 +17,11 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 61,
-  "fitted_M": 61,
-  "complete_M": 61,
-  "sampled_M": 61,
-  "difficulty_population_M": 61,
+  "population_M": 63,
+  "fitted_M": 63,
+  "complete_M": 63,
+  "sampled_M": 63,
+  "difficulty_population_M": 63,
   "tasks": 858,
   "keep_set_hash": "532d0efad8a5",
   "inputs_content_sha": "2571982b88e2",
@@ -37,14 +37,14 @@
   "runs_fingerprint": "c8bca1905b67",
   "axis_wave": "pool-20260910T2244Z",
   "build_date": "2026-10-13",
-  "stamp": "2026-10-13T07:50:45Z",
+  "stamp": "2026-10-13T09:03:02Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-13T07:19:15Z",
+   "unified_built_at": "2026-10-13T08:20:16Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.top.csv"
@@ -76,6 +76,14 @@
    },
    "claude-haiku-5-5-thinking": {
     "tasks": 858,
+    "of": 858
+   },
+   "claude-sonnet-5-5_batch": {
+    "tasks": 633,
+    "of": 858
+   },
+   "claude-sonnet-5-5-thinking_batch": {
+    "tasks": 595,
     "of": 858
    },
    "claude-opus-5": {
@@ -462,7 +470,7 @@
   "interim": "kernel fits on all results available at build; refit hourly as results land",
   "partial_attempts": null,
   "off_panel": {
-   "n_with_cells": 76,
+   "n_with_cells": 74,
    "arms": [
     {
      "id": "deepseek-coder-6.7b-rl-night1-step250",
@@ -836,18 +844,7 @@
     }
    ],
    "stopped_not_listed": [],
-   "unregistered": [
-    {
-     "id": "claude-sonnet-5-5_batch",
-     "arm_id": "sonnet55",
-     "label": "Sonnet 5.5"
-    },
-    {
-     "id": "claude-sonnet-5-5-thinking_batch",
-     "arm_id": "sonnet55-think",
-     "label": "Sonnet 5.5 (thinking)"
-    }
-   ],
+   "unregistered": [],
    "in_side_block": [],
    "panel_conflicts": [],
    "line": "74 study models with results are off the panel; the models with a fit appear in their own block"
@@ -863,7 +860,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-13T07:25:47Z",
+   "_stamp": "2026-10-13T08:25:47Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1037,10 +1034,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.5f95ef9ea99f.json",
-  "chain_average": "chain_average.5f95ef9ea99f.json",
-  "chain_median": "chain_median.5f95ef9ea99f.json",
-  "dots": "dots.5f95ef9ea99f.json",
-  "levels": "levels.5f95ef9ea99f.json"
+  "shared": "shared.28c24fdabe8f.json",
+  "chain_average": "chain_average.28c24fdabe8f.json",
+  "chain_median": "chain_median.28c24fdabe8f.json",
+  "dots": "dots.28c24fdabe8f.json",
+  "levels": "levels.28c24fdabe8f.json"
  }
 }
