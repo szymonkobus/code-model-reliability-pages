@@ -108,7 +108,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-13T23:16:17Z"
+   "updated_at": "2026-10-13T23:49:29Z"
   },
   "all": {
    "files": {
@@ -236,7 +236,7 @@
    },
    "source_stamp": "2026-10-13T22:52:33Z",
    "source_fp": "042e13caf675",
-   "updated_at": "2026-10-13T23:26:46Z",
+   "updated_at": "2026-10-13T23:40:45Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -415,21 +415,21 @@
   },
   "cruxeval_i": {
    "files": {
-    "shared": "shared.cruxeval_i.10aa5c149577.json",
-    "chain_average": "chain_average.cruxeval_i.10aa5c149577.json",
-    "bayes": "bayes.cruxeval_i.10aa5c149577-22b1644a7dbe.json",
+    "shared": "shared.cruxeval_i.d9b22233693a.json",
+    "chain_average": "chain_average.cruxeval_i.d9b22233693a.json",
+    "bayes": "bayes.cruxeval_i.d9b22233693a-22b1644a7dbe.json",
     "bayes_prev": "bayes.cruxeval_i.c1810984d98e-44e95b59c373.json"
    },
    "label": "CRUXEval input",
    "arms": "all",
-   "fingerprint": "10aa5c149577",
+   "fingerprint": "d9b22233693a",
    "frame": {
     "population_M": 42,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
-    "runs_fingerprint": "038ba77a0106",
+    "runs_fingerprint": "1cc41972d12c",
     "build_date": "2026-10-13",
-    "build_ts": "2026-10-13T21:37:13Z",
+    "build_ts": "2026-10-13T23:39:33Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_i",
     "set_label": "CRUXEval input",
@@ -440,14 +440,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
     "tasks_used": "CRUXEval input \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_i fp 39b76c1e9fba (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-cruxeval_i fp 2380cd3ca8c4 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "d4ab72db4284",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-13T21:37:13Z",
-   "source_fp": "39b76c1e9fba",
-   "updated_at": "2026-10-13T23:03:43Z",
+   "source_stamp": "2026-10-13T23:39:33Z",
+   "source_fp": "2380cd3ca8c4",
+   "updated_at": "2026-10-13T23:45:07Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
