@@ -1,73 +1,73 @@
 {
- "fingerprint": "78ed7b08940a",
+ "fingerprint": "ff7809a17924",
  "frame": {
-  "population_M": 60,
+  "population_M": 62,
   "tasks": 430,
-  "n_arms_sampled": 61,
-  "difficulty_population_M": 61,
+  "n_arms_sampled": 63,
+  "difficulty_population_M": 63,
   "partial_arms_withheld": [
    "Qwen/Qwen3-30B-A3B-Thinking"
   ],
   "withheld_reasons": {
-   "Qwen/Qwen3-30B-A3B-Thinking": "held by ruling of 2 Sep 23:23 (kept off the cloud machines (not counted in coverage or in the figures to finish); runs on the free machines after everything else)"
+   "Qwen/Qwen3-30B-A3B-Thinking": "held since 2 Sep: kept off the cloud machines; runs on the free machines after everything else"
   },
   "keep_set_hash": "c3f08ea1a903",
-  "axis_order_hash": "583c22d70b3d",
-  "runs_fingerprint": "7d9853089563",
+  "axis_order_hash": "027f018064c8",
+  "runs_fingerprint": "c828139b257b",
   "runs_fingerprint_rule": "sha1 over path:mtime_ns:size of the consumed *.eval_results.json files (since 2026-09-02; before: every file under runs/)",
-  "inputs_content_sha": "8f56643c4719",
+  "inputs_content_sha": "802a10f150ae",
   "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\t<task>\t<passes>\t<attempts>\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column verbatim; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) \u2014 reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
   "scorer": "plus_status",
-  "build_date": "2026-10-12",
-  "build_ts": "2026-10-12T12:46:13Z",
+  "build_date": "2026-10-13",
+  "build_ts": "2026-10-13T11:47:10Z",
   "rebuild_condition": "re-pulls when failure-vs-difficulty's board handoff changes (each landing) or the Bayesian/capability_C chains re-emit; frame is a snapshot at build_ts",
   "vocab_ruled": "2026-08-27",
-  "fitted_M": 60,
-  "axis_M": 61,
+  "fitted_M": 62,
+  "axis_M": 63,
   "fit_excluded": []
  },
  "files": {
-  "shared": "shared.78ed7b08940a.json",
-  "chain_average": "chain_average.78ed7b08940a.json",
-  "chain_median": "chain_median.78ed7b08940a.json",
-  "bayes": "bayes.78ed7b08940a-012305544cee.json",
+  "shared": "shared.ff7809a17924.json",
+  "chain_average": "chain_average.ff7809a17924.json",
+  "chain_median": "chain_median.ff7809a17924.json",
+  "bayes": "bayes.ff7809a17924-012305544cee.json",
   "bayes_prev": "bayes.d5fc7b013c92.json"
  },
  "datasets": {
   "board": {
    "files": {
-    "shared": "shared.78ed7b08940a.json",
-    "chain_average": "chain_average.78ed7b08940a.json",
-    "chain_median": "chain_median.78ed7b08940a.json",
-    "bayes": "bayes.78ed7b08940a-012305544cee.json",
+    "shared": "shared.ff7809a17924.json",
+    "chain_average": "chain_average.ff7809a17924.json",
+    "chain_median": "chain_median.ff7809a17924.json",
+    "bayes": "bayes.ff7809a17924-012305544cee.json",
     "bayes_prev": "bayes.d5fc7b013c92.json"
    },
    "label": "wave 1",
-   "fingerprint": "78ed7b08940a",
+   "fingerprint": "ff7809a17924",
    "frame": {
-    "population_M": 60,
+    "population_M": 62,
     "tasks": 430,
-    "n_arms_sampled": 61,
-    "difficulty_population_M": 61,
+    "n_arms_sampled": 63,
+    "difficulty_population_M": 63,
     "partial_arms_withheld": [
      "Qwen/Qwen3-30B-A3B-Thinking"
     ],
     "withheld_reasons": {
-     "Qwen/Qwen3-30B-A3B-Thinking": "held by ruling of 2 Sep 23:23 (kept off the cloud machines (not counted in coverage or in the figures to finish); runs on the free machines after everything else)"
+     "Qwen/Qwen3-30B-A3B-Thinking": "held since 2 Sep: kept off the cloud machines; runs on the free machines after everything else"
     },
     "keep_set_hash": "c3f08ea1a903",
-    "axis_order_hash": "583c22d70b3d",
-    "runs_fingerprint": "7d9853089563",
+    "axis_order_hash": "027f018064c8",
+    "runs_fingerprint": "c828139b257b",
     "runs_fingerprint_rule": "sha1 over path:mtime_ns:size of the consumed *.eval_results.json files (since 2026-09-02; before: every file under runs/)",
-    "inputs_content_sha": "8f56643c4719",
+    "inputs_content_sha": "802a10f150ae",
     "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\t<task>\t<passes>\t<attempts>\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column verbatim; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) \u2014 reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
     "scorer": "plus_status",
-    "build_date": "2026-10-12",
-    "build_ts": "2026-10-12T12:46:13Z",
+    "build_date": "2026-10-13",
+    "build_ts": "2026-10-13T11:47:10Z",
     "rebuild_condition": "re-pulls when failure-vs-difficulty's board handoff changes (each landing) or the Bayesian/capability_C chains re-emit; frame is a snapshot at build_ts",
     "vocab_ruled": "2026-08-27",
-    "fitted_M": 60,
-    "axis_M": 61,
+    "fitted_M": 62,
+    "axis_M": 63,
     "fit_excluded": []
    },
    "flip": {
@@ -108,7 +108,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-13T11:27:37Z"
+   "updated_at": "2026-10-13T11:49:59Z"
   },
   "all": {
    "files": {
@@ -143,7 +143,7 @@
    },
    "source_stamp": "2026-10-13T09:32:57Z",
    "source_fp": "9160d2bcc474",
-   "updated_at": "2026-10-13T11:14:50Z",
+   "updated_at": "2026-10-13T11:35:23Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -191,7 +191,7 @@
    },
    "source_stamp": "2026-10-13T10:57:34Z",
    "source_fp": "494745e728a7",
-   "updated_at": "2026-10-13T11:17:02Z",
+   "updated_at": "2026-10-13T11:37:58Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -236,7 +236,7 @@
    },
    "source_stamp": "2026-10-13T09:43:27Z",
    "source_fp": "a03d5caa9a30",
-   "updated_at": "2026-10-13T11:18:30Z",
+   "updated_at": "2026-10-13T11:39:05Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
