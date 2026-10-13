@@ -82,33 +82,33 @@
   },
   "new": {
    "files": {
-    "shared": "shared.new.6d9ba676ea05.json",
-    "chain_average": "chain_average.new.6d9ba676ea05.json"
+    "shared": "shared.new.a351d96e51b9.json",
+    "chain_average": "chain_average.new.a351d96e51b9.json"
    },
    "label": "wave 2 and wave 2 parked",
-   "fingerprint": "6d9ba676ea05",
+   "fingerprint": "a351d96e51b9",
    "frame": {
     "population_M": 61,
     "tasks": 1737,
     "keep_set_hash": "abc6c6e65227",
-    "runs_fingerprint": "6d9ba676ea05",
-    "runs_window": "2026-10-13T09:03:56Z",
+    "runs_fingerprint": "a351d96e51b9",
+    "runs_window": "2026-10-13T09:58:09Z",
     "build_date": "2026-10-13",
-    "build_ts": "2026-10-13T09:14:45Z",
+    "build_ts": "2026-10-13T10:16:21Z",
     "vocab_ruled": "2026-08-27",
     "set": "new",
     "set_label": "wave 2 and wave 2 parked",
     "tasks_used": "wave 2 and wave 2 parked \u2014 1737 tasks, axis wave combined-20260903T1502Z",
-    "source": "pool-pages-lead build_pool_curves.py stamp 2026-10-13T09:14:45+00:00 \u00b7 cross_rows on lev_grid f3d40b6fb872",
+    "source": "pool-pages-lead build_pool_curves.py stamp 2026-10-13T10:16:21+00:00 \u00b7 cross_rows on lev_grid f3d40b6fb872",
     "skipped_no_rows": []
    },
-   "source_stamp": "2026-10-13T09:14:45+00:00",
+   "source_stamp": "2026-10-13T10:16:21+00:00",
    "missing": {
     "chain_median": "the median-task chain needs the pool's per-task results, which the pool bundle does not carry",
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-13T10:10:04Z"
+   "updated_at": "2026-10-13T10:40:46Z"
   },
   "all": {
    "files": {
@@ -415,21 +415,21 @@
   },
   "cruxeval_i": {
    "files": {
-    "shared": "shared.cruxeval_i.78f3e0148987.json",
-    "chain_average": "chain_average.cruxeval_i.78f3e0148987.json",
-    "bayes": "bayes.cruxeval_i.78f3e0148987-b1af2c85d4d2.json",
+    "shared": "shared.cruxeval_i.510bd4cf82ed.json",
+    "chain_average": "chain_average.cruxeval_i.510bd4cf82ed.json",
+    "bayes": "bayes.cruxeval_i.510bd4cf82ed-b1af2c85d4d2.json",
     "bayes_prev": "bayes.cruxeval_i.c1810984d98e-44e95b59c373.json"
    },
    "label": "CRUXEval input",
    "arms": "all",
-   "fingerprint": "78f3e0148987",
+   "fingerprint": "510bd4cf82ed",
    "frame": {
     "population_M": 42,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
-    "runs_fingerprint": "38f8729711b3",
-    "build_date": "2026-10-12",
-    "build_ts": "2026-10-12T21:15:43Z",
+    "runs_fingerprint": "ec7a2021bcce",
+    "build_date": "2026-10-13",
+    "build_ts": "2026-10-13T10:24:09Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_i",
     "set_label": "CRUXEval input",
@@ -440,14 +440,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
     "tasks_used": "CRUXEval input \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_i fp 8ad83ef69175 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-cruxeval_i fp 0185b319a238 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "1fbf8e9080ba",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-12T21:15:43Z",
-   "source_fp": "8ad83ef69175",
-   "updated_at": "2026-10-13T09:06:25Z",
+   "source_stamp": "2026-10-13T10:24:09Z",
+   "source_fp": "0185b319a238",
+   "updated_at": "2026-10-13T10:44:22Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
