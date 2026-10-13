@@ -1,9 +1,9 @@
 {
- "fingerprint": "ccd81cc6d905",
+ "fingerprint": "5d01a468088b",
  "fingerprint_inputs": {
   "content": "3ea4859a86bc",
   "wave": "math500-live",
-  "body": "33c7be508a9f"
+  "body": "ef8cdc19299c"
  },
  "frame": {
   "dataset": "math500",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "326e66dcd9ab",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "38f8729711b3",
+  "runs_fingerprint": "ec7a2021bcce",
   "axis_wave": "math500-live",
-  "build_date": "2026-10-12",
-  "stamp": "2026-10-12T21:11:24Z",
+  "build_date": "2026-10-13",
+  "stamp": "2026-10-13T10:12:39Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/math500",
-   "unified_built_at": "2026-10-12T18:50:00Z",
+   "unified_built_at": "2026-10-13T09:12:54Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.math500.csv"
@@ -418,7 +418,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-12T21:10:47Z",
+   "_stamp": "2026-10-13T09:24:43Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -583,12 +583,13 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-12T16:44:41Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261012T164441Z.json",
-   "sha16": "ec3588e8b11826f6",
-   "census_mtime": "2026-10-12T16:45:58Z",
+   "stamp": "2026-10-13T08:25:45Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261013T082545Z.json",
+   "sha16": "bbea244700df32df",
+   "census_mtime": "2026-10-13T08:27:05Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
+  "median_curves": true,
   "side_arms": {
    "updated_at": "2026-10-06T06:20:22Z",
    "pointer": "definitions/fitting/serving_sft_nb_math500.json",
@@ -602,10 +603,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.ccd81cc6d905.json",
-  "chain_average": "chain_average.ccd81cc6d905.json",
-  "chain_median": "chain_median.ccd81cc6d905.json",
-  "dots": "dots.ccd81cc6d905.json",
-  "levels": "levels.ccd81cc6d905.json"
+  "shared": "shared.5d01a468088b.json",
+  "chain_average": "chain_average.5d01a468088b.json",
+  "chain_median": "chain_median.5d01a468088b.json",
+  "dots": "dots.5d01a468088b.json",
+  "levels": "levels.5d01a468088b.json"
  }
 }
