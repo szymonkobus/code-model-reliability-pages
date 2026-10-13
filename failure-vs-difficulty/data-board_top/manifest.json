@@ -1,9 +1,9 @@
 {
- "fingerprint": "2fcad5baf40a",
+ "fingerprint": "e9470bc958c6",
  "fingerprint_inputs": {
   "content": "ed95dc8d6fc5",
   "wave": "combined-20260910T2209Z",
-  "body": "b3f4794ae02c"
+  "body": "686677e78816"
  },
  "frame": {
   "dataset": "board_top",
@@ -17,11 +17,11 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 64,
-  "fitted_M": 64,
-  "complete_M": 64,
-  "sampled_M": 64,
-  "difficulty_population_M": 64,
+  "population_M": 66,
+  "fitted_M": 66,
+  "complete_M": 66,
+  "sampled_M": 66,
+  "difficulty_population_M": 66,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
   "inputs_content_sha": "ed95dc8d6fc5",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "c8bca1905b67",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-13",
-  "stamp": "2026-10-13T07:44:48Z",
+  "stamp": "2026-10-13T08:54:31Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -124,7 +124,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-13T07:19:15Z",
+   "unified_built_at": "2026-10-13T08:20:16Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -156,6 +156,14 @@
    },
    "claude-haiku-5-5-thinking": {
     "tasks": 1288,
+    "of": 1288
+   },
+   "claude-sonnet-5-5_batch": {
+    "tasks": 633,
+    "of": 1288
+   },
+   "claude-sonnet-5-5-thinking_batch": {
+    "tasks": 595,
     "of": 1288
    },
    "claude-opus-5": {
@@ -578,7 +586,7 @@
   "interim": "kernel fits on all results available at build; refit hourly as results land",
   "partial_attempts": null,
   "off_panel": {
-   "n_with_cells": 77,
+   "n_with_cells": 75,
    "arms": [
     {
      "id": "deepseek-coder-6.7b-rl-night1-step250",
@@ -957,18 +965,7 @@
     }
    ],
    "stopped_not_listed": [],
-   "unregistered": [
-    {
-     "id": "claude-sonnet-5-5_batch",
-     "arm_id": "sonnet55",
-     "label": "Sonnet 5.5"
-    },
-    {
-     "id": "claude-sonnet-5-5-thinking_batch",
-     "arm_id": "sonnet55-think",
-     "label": "Sonnet 5.5 (thinking)"
-    }
-   ],
+   "unregistered": [],
    "in_side_block": [
     "qwen3-8b-4k32",
     "qwen3-8b-code-rl",
@@ -995,7 +992,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-13T07:25:47Z",
+   "_stamp": "2026-10-13T08:25:47Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1231,10 +1228,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.2fcad5baf40a.json",
-  "chain_average": "chain_average.2fcad5baf40a.json",
-  "chain_median": "chain_median.2fcad5baf40a.json",
-  "dots": "dots.2fcad5baf40a.json",
-  "levels": "levels.2fcad5baf40a.json"
+  "shared": "shared.e9470bc958c6.json",
+  "chain_average": "chain_average.e9470bc958c6.json",
+  "chain_median": "chain_median.e9470bc958c6.json",
+  "dots": "dots.e9470bc958c6.json",
+  "levels": "levels.e9470bc958c6.json"
  }
 }
