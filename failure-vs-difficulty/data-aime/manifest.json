@@ -1,9 +1,9 @@
 {
- "fingerprint": "8b5303f8b526",
+ "fingerprint": "ee0616cbc8b0",
  "fingerprint_inputs": {
   "content": "8f916de288b0",
   "wave": "aime-live",
-  "body": "5c86dedecb99"
+  "body": "bf2439b4979b"
  },
  "frame": {
   "dataset": "aime",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "dc5cbadfe267",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "38f8729711b3",
+  "runs_fingerprint": "ec7a2021bcce",
   "axis_wave": "aime-live",
-  "build_date": "2026-10-12",
-  "stamp": "2026-10-12T21:13:34Z",
+  "build_date": "2026-10-13",
+  "stamp": "2026-10-13T10:15:04Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/aime",
-   "unified_built_at": "2026-10-12T18:50:00Z",
+   "unified_built_at": "2026-10-13T09:12:54Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.aime.csv"
@@ -350,7 +350,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-12T21:10:47Z",
+   "_stamp": "2026-10-13T09:24:43Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -515,12 +515,13 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-12T16:44:41Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261012T164441Z.json",
-   "sha16": "ec3588e8b11826f6",
-   "census_mtime": "2026-10-12T16:45:58Z",
+   "stamp": "2026-10-13T08:25:45Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261013T082545Z.json",
+   "sha16": "bbea244700df32df",
+   "census_mtime": "2026-10-13T08:27:05Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
+  "median_curves": false,
   "side_arms": {
    "updated_at": "2026-10-06T06:20:20Z",
    "pointer": "definitions/fitting/serving_sft_nb_aime.json",
@@ -534,10 +535,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.8b5303f8b526.json",
-  "chain_average": "chain_average.8b5303f8b526.json",
-  "chain_median": "chain_median.8b5303f8b526.json",
-  "dots": "dots.8b5303f8b526.json",
-  "levels": "levels.8b5303f8b526.json"
+  "shared": "shared.ee0616cbc8b0.json",
+  "chain_average": "chain_average.ee0616cbc8b0.json",
+  "chain_median": "chain_median.ee0616cbc8b0.json",
+  "dots": "dots.ee0616cbc8b0.json",
+  "levels": "levels.ee0616cbc8b0.json"
  }
 }
