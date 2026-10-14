@@ -143,7 +143,7 @@
    },
    "source_stamp": "2026-10-14T21:36:54Z",
    "source_fp": "f50c9e51a00c",
-   "updated_at": "2026-10-14T22:06:56Z",
+   "updated_at": "2026-10-14T22:26:41Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -191,7 +191,7 @@
    },
    "source_stamp": "2026-10-14T21:41:28Z",
    "source_fp": "2d20a6fec6d8",
-   "updated_at": "2026-10-14T22:09:08Z",
+   "updated_at": "2026-10-14T22:28:39Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -236,7 +236,7 @@
    },
    "source_stamp": "2026-10-14T21:49:09Z",
    "source_fp": "0cd7a8aebcf3",
-   "updated_at": "2026-10-14T22:10:06Z",
+   "updated_at": "2026-10-14T22:29:33Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -469,21 +469,21 @@
   },
   "cruxeval_o": {
    "files": {
-    "shared": "shared.cruxeval_o.77126f1e251d.json",
-    "chain_average": "chain_average.cruxeval_o.77126f1e251d.json",
-    "bayes": "bayes.cruxeval_o.77126f1e251d-82fb754f764f.json",
+    "shared": "shared.cruxeval_o.1c3767f02b67.json",
+    "chain_average": "chain_average.cruxeval_o.1c3767f02b67.json",
+    "bayes": "bayes.cruxeval_o.1c3767f02b67-82fb754f764f.json",
     "bayes_prev": "bayes.cruxeval_o.f622cb20231d-b8d5b88d30a4.json"
    },
    "label": "CRUXEval output",
    "arms": "all",
-   "fingerprint": "77126f1e251d",
+   "fingerprint": "1c3767f02b67",
    "frame": {
     "population_M": 51,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
-    "runs_fingerprint": "514756b11946",
+    "runs_fingerprint": "c94b1aecdf8a",
     "build_date": "2026-10-14",
-    "build_ts": "2026-10-14T19:18:32Z",
+    "build_ts": "2026-10-14T22:16:34Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_o",
     "set_label": "CRUXEval output",
@@ -494,14 +494,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
     "tasks_used": "CRUXEval output \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_o fp 9f575e1c9849 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-cruxeval_o fp d99437b437b6 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "cd06528a4146",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-14T19:18:32Z",
-   "source_fp": "9f575e1c9849",
-   "updated_at": "2026-10-14T19:38:40Z",
+   "source_stamp": "2026-10-14T22:16:34Z",
+   "source_fp": "d99437b437b6",
+   "updated_at": "2026-10-14T22:25:50Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -577,7 +577,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-10-14T21:25:26Z",
+  "stamp": "2026-10-14T22:24:57Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,
