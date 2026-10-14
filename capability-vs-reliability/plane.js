@@ -345,7 +345,7 @@ var HOUSE_DATASETS = {
   board_top: { label: 'wave 1+2', hover: 'wave 1+2, on one difficulty axis', available: false, reason: 'this set is not served yet' },
   board: { label: 'wave 1', hover: 'wave 1', available: true, reason: 'wave 1 are always served' },
   top: { label: 'wave 2', hover: 'wave 2 (the parked tasks are not in it)', available: false, reason: 'this set is not served yet' },
-  'new': { label: 'wave 2 + parked', hover: 'wave 2 + parked', available: false, reason: 'crossing rows for wave 2 over the frozen level grid are not published yet' },
+  'new': { label: 'wave 2 + parked', hover: 'wave 2 + parked', available: false, reason: 'crossings for wave 2 over the frozen level grid are not published' },
   all: { label: 'wave 1+2 + parked', hover: 'wave 1+2 + parked, on one difficulty axis', available: false, reason: 'no single axis covers the original and wave 2 yet (difficulty computes one over the combined set)' },
   
   

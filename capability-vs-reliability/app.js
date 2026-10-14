@@ -748,7 +748,7 @@ function reliabilityDefinition() {
   var el = document.getElementById('reliability-def'); if (!el || !D.shared) return;
   var f = D.shared.frame, ft = D.bay && D.bay.fit_frame ? D.bay.fit_frame.tasks : f.tasks;
   var frameClause = 'an estimate names the keep-set it was fitted on (the current keep-set ' + f.keep_set_hash
-    + (ft !== f.tasks ? '; the fitted rows on this page were fitted on the keep-set before its latest label decisions' : '') + ')';   
+    + (ft !== f.tasks ? '; the fitted curves on this page were fitted on the keep-set before its latest label decisions' : '') + ')';   
   el.textContent = 'Reliability: the difficulty up to which a model fails fewer than one attempt in a hundred. Its adopted name is the average-rate D99: '
     + 'the difficulty at which the model\u2019s fitted average failure rate first reaches 1%, on the kept tasks; ' + frameClause + '. '
     + 'Two estimators of this one quantity appear on this site and are named wherever a number is shown: the average-rate estimate (a local-logistic fit of failure rate against pooled task difficulty) '
@@ -847,7 +847,7 @@ function stamp() {
     + ' · <a href="' + MOUNT + 'data/manifest.json">data manifest</a>';
   var more = document.getElementById('stampmore');
   if (!more) { more = document.createElement('div'); }   
-  more.innerHTML = (D.bay ? 'estimators: <span data-chain-val="def src">median-task ' + D.bay.estimator_version + ' · average-rate ' + D.bay.estimator_version_avg + '</span>' : 'estimator: project average-rate chain (crossing rows from the pool curves; no posterior tables yet)')
+  more.innerHTML = (D.bay ? 'estimators: <span data-chain-val="def src">median-task ' + D.bay.estimator_version + ' · average-rate ' + D.bay.estimator_version_avg + '</span>' : 'estimator: project average-rate chain (crossings from the pool curves; no posterior tables)')
     + (D.shared.capC ? ' · ' + CAP_KEYS.capC.name() + ' <span data-chain-val="xdef">' + D.shared.capC.method_version + '</span>' + (D.shared.capC.frame && D.shared.capC.frame.population_M ? ' (population ' + D.shared.capC.frame.population_M + ')' : '') : '')
     + (D.shared.capC_z ? ' · ' + CAP_KEYS.capC_z.name() + ' <span data-chain-val="xdef">' + D.shared.capC_z.method_version + '</span>' : '')
     + (D.shared.capC_j ? ' · ' + CAP_KEYS.capC_j.name() + ' <span data-chain-val="xdef">' + D.shared.capC_j.method_version + '</span>' : '')

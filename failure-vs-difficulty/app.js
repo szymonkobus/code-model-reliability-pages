@@ -861,7 +861,7 @@ function buildChips() {
   
   runs.forEach(function (r) {
     var br = document.createElement('div'); br.className = 'runrow'; br.style.flexBasis = '100%'; box.appendChild(br);
-    var nm = document.createElement('span'); nm.className = 'fam'; nm.textContent = r.name; nm.title = 'the checkpoints of one training run, positioned on this scale; the bulk buttons leave this row alone';
+    var nm = document.createElement('span'); nm.className = 'fam'; nm.textContent = r.name; nm.title = 'the checkpoints of one training run, positioned on this scale; the bulk buttons leave this run\'s block alone';
     var sbHead = null; seriesRows().forEach(function (sbH) { if (!sbHead && sbH && (((sbH.arms[0] && sbH.arms[0].run) || headingShort(sbH)) === r.name)) sbHead = sbH; });   
     var colR = r.members.length ? D.shared.configs[r.members[0]].color : (sbHead && sbHead.arms[0] ? sbHead.arms[0].color : null);
     if (colR) nm.style.color = colR;
@@ -1282,7 +1282,7 @@ function toggleSeriesAll(sb, ri, merged, members) {
 }
 function paintSeriesToggle(tb) {
   var on = seriesAllFor(+tb.dataset.row); tb.setAttribute('aria-pressed', String(on)); tb.style.fontWeight = on ? '700' : '';
-  tb.title = on ? 'every checkpoint of the row is a chip; off, the row keeps checkpoint 0 and each run\'s last position' : 'the row shows checkpoint 0 and each run\'s last position; on, every checkpoint is a chip, selected and drawn';
+  tb.title = on ? 'every checkpoint of the run is a chip; off, the block keeps checkpoint 0 and each run\'s last position' : 'the block shows checkpoint 0 and each run\'s last position; on, every checkpoint is a chip, selected and drawn';
 }
 function paintSeriesToggles() { Array.prototype.forEach.call(document.querySelectorAll('button[data-series-toggle]'), paintSeriesToggle); }
 function seriesAllButton(sb, ri, merged, members) {
@@ -1487,7 +1487,7 @@ function renderSideBlock() {
       } else if (rr && rr.z != null && lvl === '50') {
         td.textContent = pct(rr.z).toFixed(1);
       } else if (rr && rr.status_kind === 'empty') {   
-        td.textContent = '*'; td.title = defWord + (rr.status || 'the table carries no median-task number for this row');
+        td.textContent = '*'; td.title = defWord + (rr.status || 'the table carries no median-task number for this curve');
       } else {
         if (cv) { var fbc = fmtBayesCross(cv.src, lvl); td.textContent = fbc.cell; if (fbc.hover) td.title = fbc.hover; } else { td.textContent = '*'; td.title = 'no fit'; }   
       }
@@ -1586,7 +1586,7 @@ function renderSeriesRow(sb, ri) {
   var p = document.createElement('p'); p.className = 'sub';
   p.textContent = ((sb.arms[0] && sb.arms[0].run) || headingShort(sb)) + ' — ' + headingShort(sb); if (sb.heading) p.title = oneSentence(noSpecTags(String(sb.heading)));   
   st.appendChild(p);
-  if (sb.merged_ids && sb.merged_ids.length) { var pm = document.createElement('p'); pm.className = 'sub'; pm.textContent = 'the run\'s final is a member of the served set: its chip ends the run\'s row above, and its D50 and D99 are in the main table'; st.appendChild(pm); }
+  if (sb.merged_ids && sb.merged_ids.length) { var pm = document.createElement('p'); pm.className = 'sub'; pm.textContent = 'the run\'s final is a member of the served set: its chip ends the run\'s block above, and its D50 and D99 are in the main table'; st.appendChild(pm); }
   if (sb.axis_rule) { var pr = document.createElement('p'); pr.className = 'sub'; pr.textContent = sb.axis_rule; st.appendChild(pr); }
   var isAvg = state.def === 'average';
   var sideUnresolved = false;   
@@ -1612,7 +1612,7 @@ function renderSeriesRow(sb, ri) {
       } else if (rr && rr.z != null && lvl === '50') {
         td.textContent = pct(rr.z).toFixed(1);
       } else if (rr && rr.status_kind === 'empty') {   
-        td.textContent = '*'; td.title = defWord + (rr.status || 'the table carries no median-task number for this row');
+        td.textContent = '*'; td.title = defWord + (rr.status || 'the table carries no median-task number for this curve');
       } else {
         if (cv) { var fbc = fmtBayesCross(cv.src, lvl); td.textContent = fbc.cell; if (fbc.hover) td.title = fbc.hover; } else { td.textContent = '*'; td.title = 'no fit'; }   
       }
@@ -2219,9 +2219,9 @@ function crossingsTable(visible) {
     if (isB) { hov50 = crossingHover('50', isAvg, tr); hov1 = crossingHover('1', isAvg, tr); }
     h.innerHTML = isB
       ? '<span data-chain-val>' + crossingWords('50', isAvg, tr) + '</span> ' + crossingWords('1', isAvg, tr)   
-        + (tr === 'middle' && nFirstR ? ' On ' + nFirstR + ' of these rows each draw\'s first upward crossing is taken rather than the middle one; their hovers say so.' : '')
+        + (tr === 'middle' && nFirstR ? ' On ' + nFirstR + ' of these curves each draw\'s first upward crossing is taken rather than the middle one; their hovers say so.' : '')
         + (nLevR ? ' The drawn curve passes through the printed numbers: at each failure-rate level it is the median over the fit\'s draws of each draw\'s crossing of that level, its uncertainty band the 10th to 90th percentiles, and it ends where a level\'s median is censored.'
-                   + (nNoLevR ? ' For ' + nNoLevR + ' of these rows no such table exists and the drawn curve is the median of the draws\' curves at each difficulty.' : '') + ' '
+                   + (nNoLevR ? ' For ' + nNoLevR + ' of these curves no such table exists and the drawn curve is the median of the draws\' curves at each difficulty.' : '') + ' '
                  : ' The drawn curve is the median of the draws\' curves at each difficulty, so where it crosses a level can differ from the printed number. ')   
         + 'Positions in difficulty %; each cell\'s hover carries its uncertainty band; * where the model has no fit; '
         + 'the same crossings with their bands live on Capability vs reliability.'
@@ -2273,7 +2273,7 @@ function crossingsTable(visible) {
         } else if (rec && rec.z != null && rec.status_kind !== 'bound' && rec.status_kind !== 'unresolved') {   
           td.textContent = pct(rec.z).toFixed(1); if (defWord) td.title = defWord.replace(/ · $/, '');
         } else if (rec && rec.status_kind === 'empty') {   
-          td.textContent = '*'; td.title = defWord + (rec.status || 'the table carries no median-task number for this row');
+          td.textContent = '*'; td.title = defWord + (rec.status || 'the table carries no median-task number for this curve');
         } else {
           if (bbT) { var fb = fmtBayesCross(bbT, lvl); td.textContent = fb.cell; if (fb.hover) td.title = fb.hover; } else { td.textContent = '*'; td.title = 'no fit'; }   
         }

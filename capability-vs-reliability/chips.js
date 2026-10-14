@@ -193,7 +193,7 @@ function buildChips() {
       if (R.idx.length) {
         var rAll = document.createElement('button'); rAll.className = 'util'; rAll.textContent = 'all'; rAll.onclick = function () { R.idx.forEach(function (i) { sel.add(i); }); writeSel(); render(); }; line.appendChild(rAll);
         var rNone = document.createElement('button'); rNone.className = 'util'; rNone.textContent = 'none'; rNone.onclick = function () { R.idx.forEach(function (i) { sel.delete(i); }); writeSel(); render(); }; line.appendChild(rNone);
-        R.idx.forEach(function (i) { var ch = makeChip(i); if (R.dual.indexOf(i) >= 0) { ch.classList.add('run'); ch.dataset.dual = '1'; var fl = ch.querySelector('.flag'); ch.textContent = (R.dualLabel || {})[i] || ch.textContent; if (fl) ch.appendChild(fl); ch.title = capTitle((D.shared.configs[i].display_name || D.shared.configs[i].label) + ' \u2014 a model of the all-models rows, shown here as the run\u2019s final too'); } line.appendChild(ch); });
+        R.idx.forEach(function (i) { var ch = makeChip(i); if (R.dual.indexOf(i) >= 0) { ch.classList.add('run'); ch.dataset.dual = '1'; var fl = ch.querySelector('.flag'); ch.textContent = (R.dualLabel || {})[i] || ch.textContent; if (fl) ch.appendChild(fl); ch.title = capTitle((D.shared.configs[i].display_name || D.shared.configs[i].label) + ' \u2014 a model of the all-models list, shown here as the run\u2019s final too'); } line.appendChild(ch); });
       }
       
       line.hidden = !runOnPlane(R);
