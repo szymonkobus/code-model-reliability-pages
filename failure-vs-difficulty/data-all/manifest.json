@@ -1,9 +1,9 @@
 {
- "fingerprint": "51e5fc9db2a5",
+ "fingerprint": "4c1a11728159",
  "fingerprint_inputs": {
-  "content": "9d428020bc2c",
+  "content": "3d29cb57fffe",
   "wave": "unified-live",
-  "body": "c26cb1d34193"
+  "body": "3c6401b6f414"
  },
  "frame": {
   "dataset": "all",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 66,
   "tasks": 2167,
   "keep_set_hash": "60ede5d24001",
-  "inputs_content_sha": "9d428020bc2c",
+  "inputs_content_sha": "3d29cb57fffe",
   "tasks_on_axis": 2167,
   "tasks_kept": 2167,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "fe452919846e",
+  "runs_fingerprint": "aa3267ea9c5d",
   "axis_wave": "unified-live",
   "build_date": "2026-10-14",
-  "stamp": "2026-10-14T05:44:28Z",
+  "stamp": "2026-10-14T06:44:38Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -109,6 +109,7 @@
    "r1d7b-rl-f12-a-step0050-Thinking": 430,
    "r1d7b-rl-f12-a-step0075-Thinking": 430,
    "r1d7b-rl-f12-a-step0100-Thinking": 430,
+   "r1d7b-rl-f12-alltasks-kl-step0050-Thinking": 430,
    "r1d7b-rl-f12-drift-step0025-Thinking": 430,
    "r1d7b-rl-f12-drift-step0050-Thinking": 430,
    "r1d7b-rl-f12-drift5-step0075-Thinking": 430,
@@ -125,7 +126,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-14T05:15:36Z",
+   "unified_built_at": "2026-10-14T06:20:54Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -730,11 +731,6 @@
      "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, fails 1\u20132/8, Gemma 4 12B \u00b7 240 steps"
     },
     {
-     "id": "r1d7b-rl-f12-alltasks-kl-step0050-Thinking",
-     "arm_id": "r1d7b-rl-f12-alltasks-kl-s50",
-     "label": "DeepSeek-R1-Distill 20B (thinking, fine-tune)"
-    },
-    {
      "id": "r1d7b-rl-f12-a-step0025-Thinking",
      "arm_id": "r1d7b-rl-f12-a-s25",
      "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8 \u00b7 25 steps"
@@ -818,6 +814,16 @@
      "id": "r1d7b-rl-f12-redraw-kl-step0250-Thinking",
      "arm_id": "r1d7b-rl-f12-redraw-kl-s250",
      "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, redraw every 50, KL penalty \u00b7 250 steps"
+    },
+    {
+     "id": "r1d7b-rl-f12-alltasks-kl-step0050-Thinking",
+     "arm_id": "r1d7b-rl-f12-alltasks-kl-s50",
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, drawn from all tasks, KL penalty \u00b7 50 steps"
+    },
+    {
+     "id": "r1d7b-rl-f17-alltasks-ent-kl-step0050-Thinking",
+     "arm_id": "r1d7b-rl-f17-alltasks-ent-kl-s50",
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, drawn from all tasks, entropy control, KL penalty \u00b7 50 steps"
     },
     {
      "id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
@@ -946,16 +952,11 @@
      "id": "r1d7b-rl-f17-kl-step0200-Thinking",
      "arm_id": "r1d7b-rl-f17-kl-s200",
      "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL penalty \u00b7 200 steps"
-    },
-    {
-     "id": "r1d7b-rl-f17-alltasks-ent-kl-step0050-Thinking",
-     "arm_id": "r1d7b-rl-f17-alltasks-ent-kl-s50",
-     "label": "r1d7b-rl-f17-alltasks-ent-kl-step0050 7B (thinking)"
     }
    ],
    "in_side_block": [],
    "panel_conflicts": [],
-   "line": "77 study models with results are off the panel; the models with a fit appear in their own block"
+   "line": "78 study models with results are off the panel; the models with a fit appear in their own block"
   },
   "cleaned_arms_unified": [
    "openai/gpt-5-mini",
@@ -968,7 +969,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-14T05:25:14Z",
+   "_stamp": "2026-10-14T06:25:12Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1133,20 +1134,20 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-14T04:31:59Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261014T043159Z.json",
-   "sha16": "38ed23453af359c8",
-   "census_mtime": "2026-10-14T04:33:31Z",
+   "stamp": "2026-10-14T05:54:21Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261014T055421Z.json",
+   "sha16": "011df7c4280de673",
+   "census_mtime": "2026-10-14T05:55:16Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.51e5fc9db2a5.json",
-  "chain_average": "chain_average.51e5fc9db2a5.json",
-  "chain_median": "chain_median.51e5fc9db2a5.json",
-  "dots": "dots.51e5fc9db2a5.json",
-  "levels": "levels.51e5fc9db2a5.json"
+  "shared": "shared.4c1a11728159.json",
+  "chain_average": "chain_average.4c1a11728159.json",
+  "chain_median": "chain_median.4c1a11728159.json",
+  "dots": "dots.4c1a11728159.json",
+  "levels": "levels.4c1a11728159.json"
  }
 }
