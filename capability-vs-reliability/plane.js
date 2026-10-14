@@ -1960,7 +1960,11 @@ var tipPinned = false;
 
 
 
+
+
+var TWO_READING_SETS = { math500: 1, ifeval: 1, gsm8k_platinum: 1, cruxeval_i: 1, cruxeval_o: 1, aime: 1 };
 function secondReadingLine(c) {
+  if (!TWO_READING_SETS[D.dataId]) return [];
   var r = D.bayById && D.bayById[c.id], aj = r && r.as_judged, rd = D.bay && D.bay.readings;
   if (!aj || !rd || !rd.beside || !rd.beside.short || !rd.served || !rd.served.short) return [];
   function f(s) {   
