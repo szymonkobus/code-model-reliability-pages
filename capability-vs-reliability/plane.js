@@ -1956,6 +1956,25 @@ function exportOptions() {
 
  
 var tipPinned = false;
+
+
+
+
+function secondReadingLine(c) {
+  var r = D.bayById && D.bayById[c.id], aj = r && r.as_judged, rd = D.bay && D.bay.readings;
+  if (!aj || !rd || !rd.beside || !rd.beside.short || !rd.served || !rd.served.short) return [];
+  function f(s) {   
+    if (!s || s[3] == null) return 'no reading';
+    var v = fmtPct(s[3]), side = String(s[1] || '');
+    if (s[0] !== 'point') return (/below|lower|left/.test(side) || s[0] === 'lo-bound' ? '\u2264 ' : '\u2265 ') + v;   
+    return v + (s[4] != null && s[5] != null ? ' [' + fmtPct(s[4]) + ', ' + fmtPct(s[5]) + ']' : '');
+  }
+  var text = rd.served.short + ' is the mark \u00b7 ' + rd.beside.short + ': ';
+  if (aj.same_as_served) text += 'the same position' + (aj.refused_attempts === 0 ? ' (no refused attempts)' : '');
+  else text += 'D50 ' + f(aj.sor && aj.sor['50']) + ' \u00b7 D99 ' + f(aj.sor && aj.sor['1']);
+  if (aj.gate_flag) text += ' \u00b7 flagged fit: ' + aj.gate_flag;
+  return [{ key: '#8b8477', value: '', label: text }];
+}
 function hoverWire() {
   var box = document.getElementById('chartbox');
   function showFor(ev) {
@@ -1993,7 +2012,7 @@ function hoverWire() {
       { key: c.color, value: SPAN ? fmtSpan(ry) : fmt(ry), label: axisName('y') },
       { key: null, value: '', label: rx.extra },
       { key: null, value: '', label: ry.extra === rx.extra ? '' : ry.extra },
-    ].concat(D.moves && D.moves[c.id] ? [{ key: '#8b8477', value: 'moved', label: 'from ' + prevFitName() + ': x ' + D.moves[c.id].dx + ', y ' + D.moves[c.id].dy + ' (percent of the scale)' }] : []).concat(coverageText(c) ? [{ key: null, value: isPartial(i) ? 'partial' : '', label: coverageText(c) }] : []).concat(armNote(c) ? [{ key: '#8b8477', value: 'note', label: armNote(c) }] : []).concat(cf ? [{ key: '#8b8477', value: 'cut flag', label: cf }] : []).concat(fl ? [{ key: '#b3261e', value: '\u2020 non-quotable',
+    ].concat(secondReadingLine(c)).concat(D.moves && D.moves[c.id] ? [{ key: '#8b8477', value: 'moved', label: 'from ' + prevFitName() + ': x ' + D.moves[c.id].dx + ', y ' + D.moves[c.id].dy + ' (percent of the scale)' }] : []).concat(coverageText(c) ? [{ key: null, value: isPartial(i) ? 'partial' : '', label: coverageText(c) }] : []).concat(armNote(c) ? [{ key: '#8b8477', value: 'note', label: armNote(c) }] : []).concat(cf ? [{ key: '#8b8477', value: 'cut flag', label: cf }] : []).concat(fl ? [{ key: '#b3261e', value: '\u2020 non-quotable',
       label: fl.reason + ' \u2014 until ' + fl.until
         + ' (spec 2026-09-02a)' }] : []).concat(fe ? [{ key: '#8b8477', value: 'out of the fit population',
       label: (fe.short || 'protocol defect under correction') + (fe.reversible_when ? ' \u2014 reversible when ' + fe.reversible_when : '') + ' (Definitions decision 2026-09-03: drawn greyed, out of the drawn fit and the difficulty axis)' }] : []), c.label);
