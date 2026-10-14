@@ -1,9 +1,9 @@
 {
- "fingerprint": "c4109a72a0af",
+ "fingerprint": "ac519e69f246",
  "fingerprint_inputs": {
-  "content": "fb6ca75a1ac5",
+  "content": "07cc0bbf1265",
   "wave": "combined-20260910T2209Z",
-  "body": "bc74c889990b"
+  "body": "8de3f95cea37"
  },
  "frame": {
   "dataset": "board_top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 66,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "fb6ca75a1ac5",
+  "inputs_content_sha": "07cc0bbf1265",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "4047efebb634",
+  "runs_fingerprint": "c0d0578c2b62",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-14",
-  "stamp": "2026-10-14T04:09:35Z",
+  "stamp": "2026-10-14T04:20:25Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -125,7 +125,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-14T03:19:09Z",
+   "unified_built_at": "2026-10-14T04:17:30Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -454,7 +454,7 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/board_top-20260910T2111Z/results",
    "set_fingerprint": "030de536de92",
-   "pointer_updated_at": "2026-10-14T03:59:56Z",
+   "pointer_updated_at": "2026-10-14T04:14:17Z",
    "n_fits": 63,
    "note": null,
    "gates": {
@@ -589,7 +589,7 @@
   "interim": "kernel fits on all results available at build; refit hourly as results land",
   "partial_attempts": null,
   "off_panel": {
-   "n_with_cells": 79,
+   "n_with_cells": 80,
    "arms": [
     {
      "id": "deepseek-coder-6.7b-rl-night1-step250",
@@ -988,6 +988,11 @@
      "id": "r1d7b-rl-f12-alltasks-kl-step0050-Thinking",
      "arm_id": "r1d7b-rl-f12-alltasks-kl-s50",
      "label": "r1d7b-rl-f12-alltasks-kl-step0050 7B (thinking)"
+    },
+    {
+     "id": "r1d7b-rl-f17-alltasks-ent-kl-step0050-Thinking",
+     "arm_id": "r1d7b-rl-f17-alltasks-ent-kl-s50",
+     "label": "r1d7b-rl-f17-alltasks-ent-kl-step0050 7B (thinking)"
     }
    ],
    "in_side_block": [
@@ -1016,7 +1021,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-14T03:25:28Z",
+   "_stamp": "2026-10-14T04:25:39Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1181,10 +1186,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-14T00:54:39Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261014T005439Z.json",
-   "sha16": "967edf13fec798c4",
-   "census_mtime": "2026-10-14T00:55:29Z",
+   "stamp": "2026-10-14T03:10:31Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261014T031031Z.json",
+   "sha16": "547fbe4bd4e6fc8b",
+   "census_mtime": "2026-10-14T03:11:25Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
@@ -1253,10 +1258,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.c4109a72a0af.json",
-  "chain_average": "chain_average.c4109a72a0af.json",
-  "chain_median": "chain_median.c4109a72a0af.json",
-  "dots": "dots.c4109a72a0af.json",
-  "levels": "levels.c4109a72a0af.json"
+  "shared": "shared.ac519e69f246.json",
+  "chain_average": "chain_average.ac519e69f246.json",
+  "chain_median": "chain_median.ac519e69f246.json",
+  "dots": "dots.ac519e69f246.json",
+  "levels": "levels.ac519e69f246.json"
  }
 }
