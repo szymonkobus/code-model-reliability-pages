@@ -199,12 +199,13 @@ function isExtra(k) { return !!(DATASETS[k] && !BUILTIN_KEYS[k]); }
 function extraDir(k) { return String(DATASETS[k].src || '').replace(/\/?manifest\.json$/, '') || ('data-' + k); }
 var DATASET = (typeof Kit !== 'undefined' && Kit.state) ? Kit.state.get('data', DEFAULT_DATASET) : DEFAULT_DATASET;   
 if (!DATASETS[DATASET]) DATASET = FALLBACK_DATASET;
+var SLUG_ALIASES = [], SLUGS_OF_RECORD = [];   
 var NAMES = null;   
 var NAMES_BASE = MIRROR ? ((typeof window.MIRROR_NAMES_BASE === 'string') ? window.MIRROR_NAMES_BASE : './') : '';   
 function loadNames() {
   return fetchFresh(NAMES_BASE + 'names-manifest.json').then(function (r) { if (!r.ok) throw new Error('no names manifest'); return r.json(); })
     .then(function (m) { return fetchFresh(NAMES_BASE + String(m.file)).then(function (r) { if (!r.ok) throw new Error('no names file'); return r.json(); }); })
-    .then(function (o) { NAMES = (o && o.names && typeof o.names === 'object') ? o.names : null; return NAMES; });
+    .then(function (o) { NAMES = (o && o.names && typeof o.names === 'object') ? o.names : null; SLUG_ALIASES = (o && Array.isArray(o.slug_aliases)) ? o.slug_aliases : []; SLUGS_OF_RECORD = (o && Array.isArray(o.slugs_of_record)) ? o.slugs_of_record : []; return NAMES; });   
 }
 function applyNames() {   
   if (!NAMES || !D.shared) return;
@@ -499,7 +500,7 @@ function boot() {
     } else {
       var extraKeys = [];   
       selParam.split(',').forEach(function (raw) {
-        var id = decodeURIComponent(raw); var k = slugs.indexOf(id);
+        var id = aliasOf(decodeURIComponent(raw)); var k = slugs.indexOf(id);   
         if (k < 0) k = keys.indexOf(id);
         if (k < 0) k = ids.indexOf(id);
         if (k >= 0) sel.add(k); else extraKeys.push(id);
@@ -753,8 +754,8 @@ function readExtraKeys(keys) {
   var rows = [], sbS = null;
   try { rows = seriesRows(); } catch (e) { }
   try { sbS = sideBlock(); } catch (e) { }
-  keys.forEach(function (id) {
-    var hit = false;
+  keys.forEach(function (id0) {
+    var id = aliasOf(id0), hit = false;   
     rows.forEach(function (sb) { sb.arms.forEach(function (a, k) { if (hit || a._twin) return; if (slugOfRecord(a.label) === id || a.id === id) { seriesSelFor(sb._row).add(k); hit = true; } }); });
     if (!hit && sbS && sbS.arms) sbS.arms.forEach(function (a, k) { if (hit) return; if (slugOfRecord(a.label) === id || a.id === id) { if (!sideSel) sideSel = new Set(); sideSel.add(k); hit = true; } });
   });
@@ -1344,6 +1345,15 @@ function nameOfRecord(label) { var l = String(label || ''); return NAMES_OF_RECO
 function slugOfRecord(label) {
   var n = nameOfRecord(label).replace(/\((?:checkpoint|position)\s+(\d+)\)/i, ' $1');
   return n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+function aliasOf(key) {   
+  
+  var k = String(key || ''); var matchLen = function (s) { s = String(s || ''); return (s && (k === s || k.indexOf(s + '-') === 0)) ? s.length : 0; };
+  var cur = 0; SLUGS_OF_RECORD.forEach(function (s) { cur = Math.max(cur, matchLen(s)); });
+  try { (D.shared.configs || []).forEach(function (c) { cur = Math.max(cur, matchLen(slugOfRecord(c.label))); }); } catch (e) { }
+  var best = null;
+  SLUG_ALIASES.forEach(function (p) { var o = String(p[0] || ''); if (!o || o === p[1]) return; var m = matchLen(o); if (m > cur && (!best || m > best[0].length)) best = p; });
+  return best ? String(best[1]) + k.slice(best[0].length) : k;
 }
 function sideBlock() {
   if (ARMS === 'golden') return null;   
