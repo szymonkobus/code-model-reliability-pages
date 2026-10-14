@@ -415,21 +415,21 @@
   },
   "cruxeval_i": {
    "files": {
-    "shared": "shared.cruxeval_i.28676af04966.json",
-    "chain_average": "chain_average.cruxeval_i.28676af04966.json",
-    "bayes": "bayes.cruxeval_i.28676af04966-22b1644a7dbe.json",
+    "shared": "shared.cruxeval_i.43c318fa95cf.json",
+    "chain_average": "chain_average.cruxeval_i.43c318fa95cf.json",
+    "bayes": "bayes.cruxeval_i.43c318fa95cf-22b1644a7dbe.json",
     "bayes_prev": "bayes.cruxeval_i.c1810984d98e-44e95b59c373.json"
    },
    "label": "CRUXEval input",
    "arms": "all",
-   "fingerprint": "28676af04966",
+   "fingerprint": "43c318fa95cf",
    "frame": {
     "population_M": 42,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
-    "runs_fingerprint": "614b4f5d119d",
+    "runs_fingerprint": "1125165872e2",
     "build_date": "2026-10-14",
-    "build_ts": "2026-10-14T15:17:14Z",
+    "build_ts": "2026-10-14T17:18:21Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_i",
     "set_label": "CRUXEval input",
@@ -440,14 +440,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
     "tasks_used": "CRUXEval input \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_i fp 2c0c564a4146 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-cruxeval_i fp 5a9e806aece6 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "d4ab72db4284",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-14T15:17:14Z",
-   "source_fp": "2c0c564a4146",
-   "updated_at": "2026-10-14T16:54:57Z",
+   "source_stamp": "2026-10-14T17:18:21Z",
+   "source_fp": "5a9e806aece6",
+   "updated_at": "2026-10-14T17:28:57Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -577,7 +577,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-10-14T16:26:08Z",
+  "stamp": "2026-10-14T17:27:34Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,
