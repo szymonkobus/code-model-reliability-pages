@@ -1,9 +1,9 @@
 {
- "fingerprint": "ac8cb8c0fbba",
+ "fingerprint": "930f2951b170",
  "fingerprint_inputs": {
   "content": "f04515cf303d",
   "wave": "math500-live",
-  "body": "a457ea162c2e"
+  "body": "8a65484bbbf2"
  },
  "frame": {
   "dataset": "math500",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "326e66dcd9ab",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "c8f9457a1811",
+  "runs_fingerprint": "d6c77018354c",
   "axis_wave": "math500-live",
   "build_date": "2026-10-14",
-  "stamp": "2026-10-14T06:10:19Z",
+  "stamp": "2026-10-14T06:59:47Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/math500",
-   "unified_built_at": "2026-10-14T05:46:30Z",
+   "unified_built_at": "2026-10-14T06:52:55Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.math500.csv"
@@ -301,7 +301,7 @@
    },
    "provisional_classes": null,
    "basis_truncation": null,
-   "served_axis_note": null,
+   "served_axis_note": "Bayesian curve fitted on this live axis as it stood at the cut; the axis has moved with results landing since, so positions may differ slightly",
    "membership_lag": null,
    "partial_coverage_arms": [],
    "matches_axis": false,
@@ -423,7 +423,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-14T05:25:14Z",
+   "_stamp": "2026-10-14T06:25:12Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -588,10 +588,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-14T04:31:59Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261014T043159Z.json",
-   "sha16": "38ed23453af359c8",
-   "census_mtime": "2026-10-14T04:33:31Z",
+   "stamp": "2026-10-14T05:54:21Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261014T055421Z.json",
+   "sha16": "011df7c4280de673",
+   "census_mtime": "2026-10-14T05:55:16Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
@@ -608,10 +608,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.ac8cb8c0fbba.json",
-  "chain_average": "chain_average.ac8cb8c0fbba.json",
-  "chain_median": "chain_median.ac8cb8c0fbba.json",
-  "dots": "dots.ac8cb8c0fbba.json",
-  "levels": "levels.ac8cb8c0fbba.json"
+  "shared": "shared.930f2951b170.json",
+  "chain_average": "chain_average.930f2951b170.json",
+  "chain_median": "chain_median.930f2951b170.json",
+  "dots": "dots.930f2951b170.json",
+  "levels": "levels.930f2951b170.json"
  }
 }

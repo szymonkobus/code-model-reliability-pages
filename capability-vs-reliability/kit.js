@@ -1,31 +1,52 @@
  
 (function (global) {
   'use strict';
+  var KITJS = '2026-10-14';
+  if (global.Kit && global.Kit.state && typeof global.Kit.state.onChange === 'function') { if (global.console && global.Kit.kitjs !== KITJS) console.warn('kit.js loaded twice: ' + global.Kit.kitjs + ' kept, ' + KITJS + ' skipped'); return; }
   var Kit = global.Kit || {};
+
+  Kit.kitjs = KITJS;
   var listeners = [];
   function params() { return new URLSearchParams(location.search); }
+  function notify(key, value) { listeners.forEach(function (fn) { try { fn(key, value); } catch (e) { if (global.console) console.error(e); } }); }
   Kit.state = {
     get: function (key, dflt) {
       var v = params().get(key);
       return v === null ? dflt : v;
     },
+    among: function (key, dflt, values) {
+      var v = Kit.state.get(key, dflt);
+      if (values && values.indexOf(v) < 0) { v = dflt; Kit.state.set(key, dflt, dflt); }
+      return v;
+    },
     set: function (key, value, dflt) {
       var p = params();
+      var before = p.toString();
       if (value === null || value === undefined || value === dflt) p.delete(key);
       else p.set(key, value);
       var qs = p.toString();
+      if (qs === before) return;
       history.replaceState(null, '',
         location.pathname + (qs ? '?' + qs : '') + location.hash);
-      listeners.forEach(function (fn) { fn(key, value); });
+      notify(key, value);
     },
     onChange: function (fn) { listeners.push(fn); },
+  };
+  global.addEventListener('popstate', function () { notify(null, null); });
+  Kit.render = function (fn) {
+    var pending = false;
+    function run() { pending = false; fn(); }
+    function schedule() { if (pending) return; pending = true; (global.requestAnimationFrame || function (f) { setTimeout(f, 0); })(run); }
+    Kit.state.onChange(schedule);
+    run();
+    return schedule;
   };
   Kit.switchControl = function (cfg) {
     var el = typeof cfg.mount === 'string'
       ? document.querySelector(cfg.mount) : cfg.mount;
+    var valid = function (v) { return cfg.options.some(function (o) { return o.value === v; }); };
     var current = Kit.state.get(cfg.key, cfg.dflt);
-    if (!cfg.options.some(function (o) { return o.value === current; }))
-      current = cfg.dflt;
+    if (!valid(current)) { current = cfg.dflt; Kit.state.set(cfg.key, cfg.dflt, cfg.dflt); }
 
     var wrap = document.createElement('div');
     wrap.className = 'kit-switch';
@@ -70,12 +91,20 @@
       });
     }
     function set(value) {
-      if (value === current) return;
+      if (value === current || !valid(value)) return;
       current = value;
       paint();
       Kit.state.set(cfg.key, value, cfg.dflt);
       if (cfg.onchange) cfg.onchange(value);
     }
+    Kit.state.onChange(function (key) {
+      if (key !== null && key !== cfg.key) return;
+      var v = Kit.state.get(cfg.key, cfg.dflt);
+      if (!valid(v)) v = cfg.dflt;
+      if (v === current) return;
+      current = v; paint();
+      if (cfg.onchange) cfg.onchange(v);
+    });
 
     el.appendChild(wrap);
     paint();
@@ -86,9 +115,9 @@
   Kit.selectControl = function (cfg) {
     var el = typeof cfg.mount === 'string' ? document.querySelector(cfg.mount) : cfg.mount;
     var all = (cfg.options || []).concat((cfg.groups || []).reduce(function (a, g) { return a.concat(g.options || []); }, []));
+    var okay = function (v) { var o = all.filter(function (x) { return x.value === v; })[0]; return !!o && !o.disabled; };
     var current = Kit.state.get(cfg.key, cfg.dflt);
-    var found = all.filter(function (o) { return o.value === current; })[0];
-    if (!found || found.disabled) current = cfg.dflt;
+    if (!okay(current)) { current = cfg.dflt; Kit.state.set(cfg.key, cfg.dflt, cfg.dflt); }
     var wrap = document.createElement('div');
     wrap.className = 'kit-select'; wrap.dataset.key = cfg.key; wrap.setAttribute('role', 'group');
     var lab = document.createElement('label'); lab.className = 'kit-switch-label'; lab.textContent = cfg.label;
@@ -106,6 +135,13 @@
       if (cfg.onchange) cfg.onchange(value);
     }
     sel.addEventListener('change', function () { set(sel.value); });
+    Kit.state.onChange(function (key) {
+      if (key !== null && key !== cfg.key) return;
+      var v = Kit.state.get(cfg.key, cfg.dflt); if (!okay(v)) v = cfg.dflt;
+      if (v === current) return;
+      current = v; sel.value = v;
+      if (cfg.onchange) cfg.onchange(v);
+    });
     wrap.appendChild(sel); el.appendChild(wrap);
     if (cfg.onchange) cfg.onchange(current); 
     return { value: function () { return current; }, set: set, element: wrap };
@@ -242,13 +278,14 @@
     ['fails 1–2/8', /fails?\s*1\s*[–—-]\s*2\s*(?:\/|of)\s*8\b/i, 'circle'],
     ['fails 3–5/8', /fails?\s*3\s*[–—-]\s*5\s*(?:\/|of)\s*8\b/i, 'square'],
     ['fails 6–7/8', /fails?\s*6\s*[–—-]\s*7\s*(?:\/|of)\s*8\b/i, 'triangle'],
-    ['all tasks', /\ball tasks\b/i, 'diamond'],
     ['fails 1–3/32', /fails?\s*1\s*[–—-]\s*3\s*(?:\/|of)\s*32\b/i, 'circle'],
-    ['fails 1–7/8', /solves sometimes|fails?\s*1\s*[–—-]\s*7\s*(?:\/|of)\s*8\b/i, 'diamond']
+    ['fails 1–7/8', /solves sometimes|fails?\s*1\s*[–—-]\s*7\s*(?:\/|of)\s*8\b/i, 'diamond'],
+    ['all tasks', /(?:^|\bon\s+|,\s*|·\s*)all tasks\b/i, 'diamond']
   ];
   var RUN_VARIANTS = [
-    ['fixed', /\bfixed(?:\s+set)?\b/i], ['0 redraws', /\b(?:0|zero|no)\s+re-?draws?\b/i],
+    ['fixed', /\bfixed(?:\s+set)?\b/i], ['0 redraws', /\b(?:0|zero|no)\s+re-?draws?\b/i], ['1 redraw', /\b(?:1|one)\s+re-?draws?\b/i], ['2 redraws', /\b(?:2|two)\s+re-?draws?\b/i],
     ['*', /re-?drawn\s+every\s+(?!25\b)\d+(?:\s+steps?)?/i],
+    ['*', /\bdrawn from [^,·(]+/i],
     ['*', /\b(?:[A-Za-z][\w-]*\s+)?penalty(?:\s+×\s?\d+)?\b/i],
     ['32 answers', /(?:\/|of)\s*32\b/i], ['the tasks it solves sometimes', /solves sometimes|fails?\s*1\s*[–—-]\s*7\s*(?:\/|of)\s*8\b/i],
     ["a teacher's answers", /passing answers|teacher/i], ['fine-tune', /fine-?tune|\bsft\b/i], ['colder sampling', /colder\s+sampling|\btemperature\s+0\.[0-5]\b/i]
@@ -293,13 +330,25 @@
     return [String(color || '').toLowerCase(), r.shape, r.open ? 'open' : 'filled', r.dot ? 'dot' : 'plain', r.teacher ? 'teacher:' + r.teacher : '', r.treatment].join('|');
   };
   var runBase = function (name) { return String(name || '').replace(/\s*·\s*\d+\s+steps?\s*$/i, '').replace(/\s*\((?:step|checkpoint)?\s*\d+\s*steps?\)\s*$/i, '').trim(); };
+  var cellParts = function (name) {
+    var cell = runBase(name).split('·')[1] || ''; return cell.split(/\s*,\s*/).map(function (p) { return p.trim(); }).filter(function (p) { return p && !/^(?:RL|fine-?tune|sft)$/i.test(p); });
+  };
+  var distinguishingParts = function (name, others) {
+    var mine = cellParts(name), base = runBase(name), theirs = (others || []).filter(function (o) { return runBase(o) !== base; }).map(cellParts);
+    if (!theirs.length) return mine;
+    var unique = mine.filter(function (p) { return theirs.every(function (t) { return t.indexOf(p) < 0; }); });
+    if (unique.length) return unique;
+    return mine.filter(function (p) { return theirs.some(function (t) { return t.indexOf(p) < 0; }); });
+  };
   Kit.sharedMarkGroups = function (rows) {
     var by = {}, out = [];
     (rows || []).forEach(function (row) { var sig = Kit.runMarkSignature(row && row.name, row && row.color); if (!sig) return; (by[sig] = by[sig] || []).push(row); });
-    Object.keys(by).forEach(function (k) { var g = by[k], runs = {}; g.forEach(function (row) { runs[runBase(row.name)] = 1; }); if (Object.keys(runs).length >= 2) out.push(g); });
+    Object.keys(by).forEach(function (k) { var g = by[k], runs = {}; g.forEach(function (row) { runs[runBase(row.name)] = 1; }); if (Object.keys(runs).length < 2) return;
+      var names = g.map(function (row) { return row.name; }); g.forEach(function (row) { row.endLabel = distinguishingParts(row.name, names).join(', '); }); out.push(g); });
     return out;
   };
-  Kit.runEndLabelWords = function (name) {
+  Kit.runEndLabelWords = function (name, others) {
+    if (others && others.length) return distinguishingParts(name, others).join(', ');
     var r = Kit.runMarks(name); if (!r) return ''; if (r.variant) return r.variant;
     var cell = runBase(name).split('·')[1]; return cell ? cell.trim() : '';
   };

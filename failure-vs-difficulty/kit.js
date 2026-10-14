@@ -1,7 +1,11 @@
  
 (function (global) {
   'use strict';
+  var KITJS = '2026-10-14';
+  if (global.Kit && global.Kit.state && typeof global.Kit.state.onChange === 'function') { if (global.console && global.Kit.kitjs !== KITJS) console.warn('kit.js loaded twice: ' + global.Kit.kitjs + ' kept, ' + KITJS + ' skipped'); return; }
   var Kit = global.Kit || {};
+
+  Kit.kitjs = KITJS;
   var listeners = [];
   function params() { return new URLSearchParams(location.search); }
   function notify(key, value) { listeners.forEach(function (fn) { try { fn(key, value); } catch (e) { if (global.console) console.error(e); } }); }
@@ -274,13 +278,14 @@
     ['fails 1–2/8', /fails?\s*1\s*[–—-]\s*2\s*(?:\/|of)\s*8\b/i, 'circle'],
     ['fails 3–5/8', /fails?\s*3\s*[–—-]\s*5\s*(?:\/|of)\s*8\b/i, 'square'],
     ['fails 6–7/8', /fails?\s*6\s*[–—-]\s*7\s*(?:\/|of)\s*8\b/i, 'triangle'],
-    ['all tasks', /\ball tasks\b/i, 'diamond'],
     ['fails 1–3/32', /fails?\s*1\s*[–—-]\s*3\s*(?:\/|of)\s*32\b/i, 'circle'],
-    ['fails 1–7/8', /solves sometimes|fails?\s*1\s*[–—-]\s*7\s*(?:\/|of)\s*8\b/i, 'diamond']
+    ['fails 1–7/8', /solves sometimes|fails?\s*1\s*[–—-]\s*7\s*(?:\/|of)\s*8\b/i, 'diamond'],
+    ['all tasks', /(?:^|\bon\s+|,\s*|·\s*)all tasks\b/i, 'diamond']
   ];
   var RUN_VARIANTS = [
-    ['fixed', /\bfixed(?:\s+set)?\b/i], ['0 redraws', /\b(?:0|zero|no)\s+re-?draws?\b/i],
+    ['fixed', /\bfixed(?:\s+set)?\b/i], ['0 redraws', /\b(?:0|zero|no)\s+re-?draws?\b/i], ['1 redraw', /\b(?:1|one)\s+re-?draws?\b/i], ['2 redraws', /\b(?:2|two)\s+re-?draws?\b/i],
     ['*', /re-?drawn\s+every\s+(?!25\b)\d+(?:\s+steps?)?/i],
+    ['*', /\bdrawn from [^,·(]+/i],
     ['*', /\b(?:[A-Za-z][\w-]*\s+)?penalty(?:\s+×\s?\d+)?\b/i],
     ['32 answers', /(?:\/|of)\s*32\b/i], ['the tasks it solves sometimes', /solves sometimes|fails?\s*1\s*[–—-]\s*7\s*(?:\/|of)\s*8\b/i],
     ["a teacher's answers", /passing answers|teacher/i], ['fine-tune', /fine-?tune|\bsft\b/i], ['colder sampling', /colder\s+sampling|\btemperature\s+0\.[0-5]\b/i]
