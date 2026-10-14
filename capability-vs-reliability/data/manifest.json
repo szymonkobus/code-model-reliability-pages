@@ -108,7 +108,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-14T22:18:56Z"
+   "updated_at": "2026-10-14T22:38:51Z"
   },
   "all": {
    "files": {
@@ -307,21 +307,21 @@
   },
   "ifeval": {
    "files": {
-    "shared": "shared.ifeval.308c98f8e3d6.json",
-    "chain_average": "chain_average.ifeval.308c98f8e3d6.json",
-    "bayes": "bayes.ifeval.308c98f8e3d6-0e350e3e4b87.json",
+    "shared": "shared.ifeval.ccb18aa35557.json",
+    "chain_average": "chain_average.ifeval.ccb18aa35557.json",
+    "bayes": "bayes.ifeval.ccb18aa35557-0e350e3e4b87.json",
     "bayes_prev": "bayes.ifeval.86b061913de2-4e95778148c9.json"
    },
    "label": "IFEval",
    "arms": "all",
-   "fingerprint": "308c98f8e3d6",
+   "fingerprint": "ccb18aa35557",
    "frame": {
     "population_M": 47,
     "tasks": 541,
     "keep_set_hash": "ea009d5c6cd1",
-    "runs_fingerprint": "514756b11946",
+    "runs_fingerprint": "c94b1aecdf8a",
     "build_date": "2026-10-14",
-    "build_ts": "2026-10-14T19:29:33Z",
+    "build_ts": "2026-10-14T22:24:34Z",
     "vocab_ruled": "2026-08-27",
     "set": "ifeval",
     "set_label": "IFEval",
@@ -332,14 +332,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ea009d5c6cd1",
     "tasks_used": "IFEval \u2014 541 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-ifeval fp 734dff47aa0c (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-ifeval fp 971fd5b12d69 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "f598763f0d98",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-14T19:29:33Z",
-   "source_fp": "734dff47aa0c",
-   "updated_at": "2026-10-14T19:49:49Z",
+   "source_stamp": "2026-10-14T22:24:34Z",
+   "source_fp": "971fd5b12d69",
+   "updated_at": "2026-10-14T22:35:14Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -361,21 +361,21 @@
   },
   "gsm8k_platinum": {
    "files": {
-    "shared": "shared.gsm8k_platinum.f091f7af5bfa.json",
-    "chain_average": "chain_average.gsm8k_platinum.f091f7af5bfa.json",
-    "bayes": "bayes.gsm8k_platinum.f091f7af5bfa-940122679e5a.json",
+    "shared": "shared.gsm8k_platinum.f0ce2cc12b13.json",
+    "chain_average": "chain_average.gsm8k_platinum.f0ce2cc12b13.json",
+    "bayes": "bayes.gsm8k_platinum.f0ce2cc12b13-940122679e5a.json",
     "bayes_prev": "bayes.gsm8k_platinum.51ec4ce84fb5-81c9d84b6741.json"
    },
    "label": "GSM8K-Platinum",
    "arms": "all",
-   "fingerprint": "f091f7af5bfa",
+   "fingerprint": "f0ce2cc12b13",
    "frame": {
     "population_M": 52,
     "tasks": 1209,
     "keep_set_hash": "ff1457decdf7",
-    "runs_fingerprint": "514756b11946",
+    "runs_fingerprint": "c94b1aecdf8a",
     "build_date": "2026-10-14",
-    "build_ts": "2026-10-14T19:24:37Z",
+    "build_ts": "2026-10-14T22:21:03Z",
     "vocab_ruled": "2026-08-27",
     "set": "gsm8k_platinum",
     "set_label": "GSM8K-Platinum",
@@ -386,14 +386,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ff1457decdf7",
     "tasks_used": "GSM8K-Platinum \u2014 1209 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-gsm8k_platinum fp aa837f6f160e (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-gsm8k_platinum fp b5097a9bf4b3 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "b254879e615d",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-14T19:24:37Z",
-   "source_fp": "aa837f6f160e",
-   "updated_at": "2026-10-14T19:34:49Z",
+   "source_stamp": "2026-10-14T22:21:03Z",
+   "source_fp": "b5097a9bf4b3",
+   "updated_at": "2026-10-14T22:36:58Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
