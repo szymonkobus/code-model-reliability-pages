@@ -108,24 +108,24 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-14T17:46:24Z"
+   "updated_at": "2026-10-14T18:13:03Z"
   },
   "all": {
    "files": {
-    "shared": "shared.all.10e12e64468c.json",
-    "chain_average": "chain_average.all.10e12e64468c.json",
-    "bayes": "bayes.all.10e12e64468c-369140b65255.json"
+    "shared": "shared.all.298b1e1a466f.json",
+    "chain_average": "chain_average.all.298b1e1a466f.json",
+    "bayes": "bayes.all.298b1e1a466f-369140b65255.json"
    },
    "label": "all waves",
    "arms": "all",
-   "fingerprint": "10e12e64468c",
+   "fingerprint": "298b1e1a466f",
    "frame": {
     "population_M": 66,
     "tasks": 2167,
     "keep_set_hash": "60ede5d24001",
-    "runs_fingerprint": "a71ab69a997c",
+    "runs_fingerprint": "0987c0a59771",
     "build_date": "2026-10-14",
-    "build_ts": "2026-10-14T16:27:08Z",
+    "build_ts": "2026-10-14T18:02:55Z",
     "vocab_ruled": "2026-08-27",
     "set": "all",
     "set_label": "all waves",
@@ -136,14 +136,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "60ede5d24001",
     "tasks_used": "all waves \u2014 2167 tasks, axis wave unified-live",
-    "source": "failure-vs-difficulty data-all fp 330d31f94c9a (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "cd20234609e3",
+    "source": "failure-vs-difficulty data-all fp bd7b9aff53fa (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "6fddb7ffbfdd",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-14T16:27:08Z",
-   "source_fp": "330d31f94c9a",
-   "updated_at": "2026-10-14T17:58:41Z",
+   "source_stamp": "2026-10-14T18:02:55Z",
+   "source_fp": "bd7b9aff53fa",
+   "updated_at": "2026-10-14T18:21:32Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -160,20 +160,20 @@
   },
   "board_top": {
    "files": {
-    "shared": "shared.board_top.671706c0a24d.json",
-    "chain_average": "chain_average.board_top.671706c0a24d.json",
-    "bayes": "bayes.board_top.671706c0a24d-ef604520a317.json"
+    "shared": "shared.board_top.3d118c942ae0.json",
+    "chain_average": "chain_average.board_top.3d118c942ae0.json",
+    "bayes": "bayes.board_top.3d118c942ae0-ef604520a317.json"
    },
    "label": "wave 1+2",
    "arms": "all",
-   "fingerprint": "671706c0a24d",
+   "fingerprint": "3d118c942ae0",
    "frame": {
     "population_M": 66,
     "tasks": 1288,
     "keep_set_hash": "ba4c3eb57ad5",
     "runs_fingerprint": "0987c0a59771",
     "build_date": "2026-10-14",
-    "build_ts": "2026-10-14T17:48:32Z",
+    "build_ts": "2026-10-14T18:07:01Z",
     "vocab_ruled": "2026-08-27",
     "set": "board_top",
     "set_label": "wave 1+2",
@@ -189,9 +189,9 @@
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-14T17:48:32Z",
+   "source_stamp": "2026-10-14T18:07:01Z",
    "source_fp": "c6c9b5bd0ef0",
-   "updated_at": "2026-10-14T18:01:46Z",
+   "updated_at": "2026-10-14T18:23:48Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -205,20 +205,20 @@
   },
   "top": {
    "files": {
-    "shared": "shared.top.84ba8bb863d2.json",
-    "chain_average": "chain_average.top.84ba8bb863d2.json",
-    "bayes": "bayes.top.84ba8bb863d2-b51e8bb32c49.json"
+    "shared": "shared.top.50e389a78e7e.json",
+    "chain_average": "chain_average.top.50e389a78e7e.json",
+    "bayes": "bayes.top.50e389a78e7e-b51e8bb32c49.json"
    },
    "label": "wave 2",
    "arms": "all",
-   "fingerprint": "84ba8bb863d2",
+   "fingerprint": "50e389a78e7e",
    "frame": {
     "population_M": 63,
     "tasks": 858,
     "keep_set_hash": "532d0efad8a5",
-    "runs_fingerprint": "a71ab69a997c",
+    "runs_fingerprint": "0987c0a59771",
     "build_date": "2026-10-14",
-    "build_ts": "2026-10-14T16:40:33Z",
+    "build_ts": "2026-10-14T18:14:36Z",
     "vocab_ruled": "2026-08-27",
     "set": "top",
     "set_label": "wave 2",
@@ -229,14 +229,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "532d0efad8a5",
     "tasks_used": "wave 2 \u2014 858 tasks, axis wave pool-20260910T2244Z",
-    "source": "failure-vs-difficulty data-top fp 1a85959f13bb (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "d84866bb9ba2",
+    "source": "failure-vs-difficulty data-top fp 84a85c7325a7 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "4588faf79d11",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-14T16:40:33Z",
-   "source_fp": "1a85959f13bb",
-   "updated_at": "2026-10-14T18:03:35Z",
+   "source_stamp": "2026-10-14T18:14:36Z",
+   "source_fp": "84a85c7325a7",
+   "updated_at": "2026-10-14T18:24:51Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
