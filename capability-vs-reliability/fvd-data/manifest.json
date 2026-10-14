@@ -1,5 +1,5 @@
 {
- "fingerprint": "fe16441d3df9",
+ "fingerprint": "ad351bf8a320",
  "frame": {
   "population_M": 62,
   "tasks": 430,
@@ -72,6 +72,8 @@
    "r1d7b-rl-f17-alltasks-ent-kl-s250",
    "r1d7b-rl-f17-alltasks-ent-kl-s50",
    "r1d7b-rl-f17-kl-s100",
+   "r1d7b-rl-f17-kl-s150",
+   "r1d7b-rl-f17-kl-s200",
    "r1d7b-rl-f17-kl-s250",
    "r1d7b-rl-f17-kl-s50"
   ],
@@ -95,7 +97,7 @@
   "scorer": "plus_status (a sample counts as solved if its plus run passed; difficulty ruled base AND plus on 2026-09-02 \u2014 the switch of served numbers waits for Szymon's gate; under base AND plus a result can read differently, e.g. Mbpp/274 for Qwen3-30B-A3B: 128 passes here vs 127)",
   "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\\t<task>\\t<passes>\\t<attempts>\\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column verbatim; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) \u2014 reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
   "build_date": "2026-10-14",
-  "built_at": "2026-10-14T15:47:15Z",
+  "built_at": "2026-10-14T16:22:06Z",
   "vocab_ruled": "2026-08-27",
   "counts_of_record": {
    "original_kept": 430,
@@ -365,13 +367,13 @@
    "openai/gpt-5-nano": "20260907T154051Z",
    "openai/gpt-5-mini": "20260907T154051Z"
   },
-  "newest_input_mtime": "2026-10-14T15:39:09Z"
+  "newest_input_mtime": "2026-10-14T15:49:03Z"
  },
  "files": {
-  "shared": "shared.fe16441d3df9.json",
-  "chain_average": "chain_average.fe16441d3df9.json",
-  "chain_median": "chain_median.fe16441d3df9.json",
-  "dots": "dots.fe16441d3df9.json",
-  "levels": "levels.fe16441d3df9.json"
+  "shared": "shared.ad351bf8a320.json",
+  "chain_average": "chain_average.ad351bf8a320.json",
+  "chain_median": "chain_median.ad351bf8a320.json",
+  "dots": "dots.ad351bf8a320.json",
+  "levels": "levels.ad351bf8a320.json"
  }
 }
