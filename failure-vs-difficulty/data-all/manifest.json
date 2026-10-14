@@ -1,9 +1,9 @@
 {
- "fingerprint": "0fa7b1ec8ab3",
+ "fingerprint": "51e5fc9db2a5",
  "fingerprint_inputs": {
-  "content": "b0bf3399731c",
+  "content": "9d428020bc2c",
   "wave": "unified-live",
-  "body": "c31456e4c0c0"
+  "body": "c26cb1d34193"
  },
  "frame": {
   "dataset": "all",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 66,
   "tasks": 2167,
   "keep_set_hash": "60ede5d24001",
-  "inputs_content_sha": "b0bf3399731c",
+  "inputs_content_sha": "9d428020bc2c",
   "tasks_on_axis": 2167,
   "tasks_kept": 2167,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "c0d0578c2b62",
+  "runs_fingerprint": "fe452919846e",
   "axis_wave": "unified-live",
   "build_date": "2026-10-14",
-  "stamp": "2026-10-14T05:09:51Z",
+  "stamp": "2026-10-14T05:44:28Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -125,7 +125,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-14T04:17:30Z",
+   "unified_built_at": "2026-10-14T05:15:36Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -730,6 +730,11 @@
      "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, fails 1\u20132/8, Gemma 4 12B \u00b7 240 steps"
     },
     {
+     "id": "r1d7b-rl-f12-alltasks-kl-step0050-Thinking",
+     "arm_id": "r1d7b-rl-f12-alltasks-kl-s50",
+     "label": "DeepSeek-R1-Distill 20B (thinking, fine-tune)"
+    },
+    {
      "id": "r1d7b-rl-f12-a-step0025-Thinking",
      "arm_id": "r1d7b-rl-f12-a-s25",
      "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8 \u00b7 25 steps"
@@ -943,11 +948,6 @@
      "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL penalty \u00b7 200 steps"
     },
     {
-     "id": "r1d7b-rl-f12-alltasks-kl-step0050-Thinking",
-     "arm_id": "r1d7b-rl-f12-alltasks-kl-s50",
-     "label": "r1d7b-rl-f12-alltasks-kl-step0050 7B (thinking)"
-    },
-    {
      "id": "r1d7b-rl-f17-alltasks-ent-kl-step0050-Thinking",
      "arm_id": "r1d7b-rl-f17-alltasks-ent-kl-s50",
      "label": "r1d7b-rl-f17-alltasks-ent-kl-step0050 7B (thinking)"
@@ -955,7 +955,7 @@
    ],
    "in_side_block": [],
    "panel_conflicts": [],
-   "line": "76 study models with results are off the panel; the models with a fit appear in their own block"
+   "line": "77 study models with results are off the panel; the models with a fit appear in their own block"
   },
   "cleaned_arms_unified": [
    "openai/gpt-5-mini",
@@ -968,7 +968,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-14T04:25:39Z",
+   "_stamp": "2026-10-14T05:25:14Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1133,20 +1133,20 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-14T03:10:31Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261014T031031Z.json",
-   "sha16": "547fbe4bd4e6fc8b",
-   "census_mtime": "2026-10-14T03:11:25Z",
+   "stamp": "2026-10-14T04:31:59Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261014T043159Z.json",
+   "sha16": "38ed23453af359c8",
+   "census_mtime": "2026-10-14T04:33:31Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.0fa7b1ec8ab3.json",
-  "chain_average": "chain_average.0fa7b1ec8ab3.json",
-  "chain_median": "chain_median.0fa7b1ec8ab3.json",
-  "dots": "dots.0fa7b1ec8ab3.json",
-  "levels": "levels.0fa7b1ec8ab3.json"
+  "shared": "shared.51e5fc9db2a5.json",
+  "chain_average": "chain_average.51e5fc9db2a5.json",
+  "chain_median": "chain_median.51e5fc9db2a5.json",
+  "dots": "dots.51e5fc9db2a5.json",
+  "levels": "levels.51e5fc9db2a5.json"
  }
 }
