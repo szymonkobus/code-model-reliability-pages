@@ -82,33 +82,33 @@
   },
   "new": {
    "files": {
-    "shared": "shared.new.7a8080f8eb7b.json",
-    "chain_average": "chain_average.new.7a8080f8eb7b.json"
+    "shared": "shared.new.6dd32e304802.json",
+    "chain_average": "chain_average.new.6dd32e304802.json"
    },
    "label": "wave 2 and wave 2 parked",
-   "fingerprint": "7a8080f8eb7b",
+   "fingerprint": "6dd32e304802",
    "frame": {
     "population_M": 61,
     "tasks": 1737,
     "keep_set_hash": "abc6c6e65227",
-    "runs_fingerprint": "7a8080f8eb7b",
-    "runs_window": "2026-10-14T07:59:13Z",
+    "runs_fingerprint": "6dd32e304802",
+    "runs_window": "2026-10-14T09:07:07Z",
     "build_date": "2026-10-14",
-    "build_ts": "2026-10-14T08:13:44Z",
+    "build_ts": "2026-10-14T09:15:37Z",
     "vocab_ruled": "2026-08-27",
     "set": "new",
     "set_label": "wave 2 and wave 2 parked",
     "tasks_used": "wave 2 and wave 2 parked \u2014 1737 tasks, axis wave combined-20260903T1502Z",
-    "source": "pool-pages-lead build_pool_curves.py stamp 2026-10-14T08:13:44+00:00 \u00b7 cross_rows on lev_grid f3d40b6fb872",
+    "source": "pool-pages-lead build_pool_curves.py stamp 2026-10-14T09:15:37+00:00 \u00b7 cross_rows on lev_grid f3d40b6fb872",
     "skipped_no_rows": []
    },
-   "source_stamp": "2026-10-14T08:13:44+00:00",
+   "source_stamp": "2026-10-14T09:15:37+00:00",
    "missing": {
     "chain_median": "the median-task chain needs the pool's per-task results, which the pool bundle does not carry",
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-14T09:14:36Z"
+   "updated_at": "2026-10-14T09:36:20Z"
   },
   "all": {
    "files": {
@@ -361,21 +361,21 @@
   },
   "gsm8k_platinum": {
    "files": {
-    "shared": "shared.gsm8k_platinum.4051b9b01125.json",
-    "chain_average": "chain_average.gsm8k_platinum.4051b9b01125.json",
-    "bayes": "bayes.gsm8k_platinum.4051b9b01125-940122679e5a.json",
+    "shared": "shared.gsm8k_platinum.e2e22cf9bdd9.json",
+    "chain_average": "chain_average.gsm8k_platinum.e2e22cf9bdd9.json",
+    "bayes": "bayes.gsm8k_platinum.e2e22cf9bdd9-940122679e5a.json",
     "bayes_prev": "bayes.gsm8k_platinum.51ec4ce84fb5-81c9d84b6741.json"
    },
    "label": "GSM8K-Platinum",
    "arms": "all",
-   "fingerprint": "4051b9b01125",
+   "fingerprint": "e2e22cf9bdd9",
    "frame": {
     "population_M": 52,
     "tasks": 1209,
     "keep_set_hash": "ff1457decdf7",
-    "runs_fingerprint": "53aba164a46e",
+    "runs_fingerprint": "457607727bf7",
     "build_date": "2026-10-14",
-    "build_ts": "2026-10-14T06:29:09Z",
+    "build_ts": "2026-10-14T09:26:40Z",
     "vocab_ruled": "2026-08-27",
     "set": "gsm8k_platinum",
     "set_label": "GSM8K-Platinum",
@@ -386,14 +386,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ff1457decdf7",
     "tasks_used": "GSM8K-Platinum \u2014 1209 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-gsm8k_platinum fp 8c5d0a167bf9 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-gsm8k_platinum fp 093cabb5ccb0 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "b254879e615d",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-14T06:29:09Z",
-   "source_fp": "8c5d0a167bf9",
-   "updated_at": "2026-10-14T06:58:00Z",
+   "source_stamp": "2026-10-14T09:26:40Z",
+   "source_fp": "093cabb5ccb0",
+   "updated_at": "2026-10-14T09:37:53Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
