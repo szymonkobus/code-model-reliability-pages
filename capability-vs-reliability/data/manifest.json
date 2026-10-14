@@ -108,7 +108,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-14T14:49:14Z"
+   "updated_at": "2026-10-14T15:13:21Z"
   },
   "all": {
    "files": {
@@ -253,21 +253,21 @@
   },
   "math500": {
    "files": {
-    "shared": "shared.math500.c815eac805ff.json",
-    "chain_average": "chain_average.math500.c815eac805ff.json",
-    "bayes": "bayes.math500.c815eac805ff-54ee4bddf33e.json",
+    "shared": "shared.math500.0b4aced7d150.json",
+    "chain_average": "chain_average.math500.0b4aced7d150.json",
+    "bayes": "bayes.math500.0b4aced7d150-54ee4bddf33e.json",
     "bayes_prev": "bayes.math500.512ae990f467-2e38bc937e1f.json"
    },
    "label": "MATH-500",
    "arms": "all",
-   "fingerprint": "c815eac805ff",
+   "fingerprint": "0b4aced7d150",
    "frame": {
     "population_M": 53,
     "tasks": 500,
     "keep_set_hash": "326e66dcd9ab",
     "runs_fingerprint": "614b4f5d119d",
     "build_date": "2026-10-14",
-    "build_ts": "2026-10-14T13:51:44Z",
+    "build_ts": "2026-10-14T15:10:53Z",
     "vocab_ruled": "2026-08-27",
     "set": "math500",
     "set_label": "MATH-500",
@@ -283,9 +283,9 @@
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-14T13:51:44Z",
+   "source_stamp": "2026-10-14T15:10:53Z",
    "source_fp": "eec04ea45f13",
-   "updated_at": "2026-10-14T14:07:22Z",
+   "updated_at": "2026-10-14T15:16:41Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
