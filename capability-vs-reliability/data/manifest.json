@@ -1,5 +1,5 @@
 {
- "fingerprint": "a1fe793c4287",
+ "fingerprint": "3ec42afff31c",
  "frame": {
   "population_M": 62,
   "tasks": 430,
@@ -18,8 +18,8 @@
   "inputs_content_sha": "802a10f150ae",
   "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\t<task>\t<passes>\t<attempts>\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column verbatim; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) \u2014 reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
   "scorer": "plus_status",
-  "build_date": "2026-10-13",
-  "build_ts": "2026-10-13T12:37:26Z",
+  "build_date": "2026-10-14",
+  "build_ts": "2026-10-14T17:05:12Z",
   "rebuild_condition": "re-pulls when failure-vs-difficulty's board handoff changes (each landing) or the Bayesian/capability_C chains re-emit; frame is a snapshot at build_ts",
   "vocab_ruled": "2026-08-27",
   "fitted_M": 62,
@@ -27,23 +27,23 @@
   "fit_excluded": []
  },
  "files": {
-  "shared": "shared.a1fe793c4287.json",
-  "chain_average": "chain_average.a1fe793c4287.json",
-  "chain_median": "chain_median.a1fe793c4287.json",
-  "bayes": "bayes.a1fe793c4287-012305544cee.json",
+  "shared": "shared.3ec42afff31c.json",
+  "chain_average": "chain_average.3ec42afff31c.json",
+  "chain_median": "chain_median.3ec42afff31c.json",
+  "bayes": "bayes.3ec42afff31c-012305544cee.json",
   "bayes_prev": "bayes.d5fc7b013c92.json"
  },
  "datasets": {
   "board": {
    "files": {
-    "shared": "shared.a1fe793c4287.json",
-    "chain_average": "chain_average.a1fe793c4287.json",
-    "chain_median": "chain_median.a1fe793c4287.json",
-    "bayes": "bayes.a1fe793c4287-012305544cee.json",
+    "shared": "shared.3ec42afff31c.json",
+    "chain_average": "chain_average.3ec42afff31c.json",
+    "chain_median": "chain_median.3ec42afff31c.json",
+    "bayes": "bayes.3ec42afff31c-012305544cee.json",
     "bayes_prev": "bayes.d5fc7b013c92.json"
    },
    "label": "wave 1",
-   "fingerprint": "a1fe793c4287",
+   "fingerprint": "3ec42afff31c",
    "frame": {
     "population_M": 62,
     "tasks": 430,
@@ -62,8 +62,8 @@
     "inputs_content_sha": "802a10f150ae",
     "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\t<task>\t<passes>\t<attempts>\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column verbatim; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) \u2014 reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
     "scorer": "plus_status",
-    "build_date": "2026-10-13",
-    "build_ts": "2026-10-13T12:37:26Z",
+    "build_date": "2026-10-14",
+    "build_ts": "2026-10-14T17:05:12Z",
     "rebuild_condition": "re-pulls when failure-vs-difficulty's board handoff changes (each landing) or the Bayesian/capability_C chains re-emit; frame is a snapshot at build_ts",
     "vocab_ruled": "2026-08-27",
     "fitted_M": 62,
@@ -108,7 +108,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-14T16:41:17Z"
+   "updated_at": "2026-10-14T17:07:06Z"
   },
   "all": {
    "files": {
