@@ -241,7 +241,15 @@ function layout() {
   UPX = rw > 0 ? W / rw : 1;
   if (!NARROW) DR = Math.max(4.5, 4 * UPX);   
   FS = NARROW ? 13 : Math.max(12, Math.ceil(11.5 * UPX)); FT = NARROW ? 13 : Math.max(11, Math.ceil(10.5 * UPX));   
-  TRK.x0 = ML; TRK.x1 = ML + PW; TRK.y = NARROW ? 22 : 18;
+  if (!NARROW) {   
+    
+    var tfsL = Math.max(FS + 1, Math.ceil(13 * UPX)), needMB = (FS + 5) + Math.ceil(0.3 * FS) + 6 + tfsL + 6;
+    if (needMB > MB) { MB = needMB; H = PH + MT + MB; }
+    var needML = 15 + Math.ceil(0.5 * tfsL) + 6 + Math.ceil(4 * 0.56 * FS) + 6;   
+    if (needML > ML) { ML = needML; PW = W - ML - MR; PH = PW; H = PH + MT + MB; }
+    if (UPX > 1) { MT = Math.ceil(40 * UPX); H = PH + MT + MB; }   
+  }
+  TRK.x0 = ML; TRK.x1 = ML + PW; TRK.y = NARROW ? 22 : Math.ceil(18 * Math.max(1, UPX));
 }
 var LOGIT_TICKS = [0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50, 80, 90, 95, 98, 99, 99.5];   
 var AXIS_FLOOR_PCT = 0.1;   
@@ -1146,13 +1154,15 @@ function axisGrid(xOnly, hOverride) {
     xt = thin(xt, function (v) { return sx(zOf(v)); }, function (v) { return (String(v).length + 1) * FS * 0.62 + 4; });
     yt2 = thin(yt2, function (v) { return -sy(zOf(v)); }, function () { return FS + 3; });
   }
+  var lastTickX = null, lastTickW = 0;   
   xt.forEach(function (v) {
     var z = zOf(v), L = limT(state.xs === 'raw', 'x');
     if (tf(z, state.xs === 'raw') <= L[0]
         || tf(z, state.xs === 'raw') >= L[1]) return;
     g += '<line x1="' + sx(z) + '" y1="' + MT + '" x2="' + sx(z)
-      + '" y2="' + plotBot + '" stroke="#e0d9c8" stroke-width="0.6"/>'
-      + '<text x="' + sx(z) + '" y="' + (plotBot + FS + 5)
+      + '" y2="' + plotBot + '" stroke="#e0d9c8" stroke-width="0.6"/>';
+    var tx = sx(z), tw = (String(v) + '%').length * 0.56 * FS; if (lastTickX !== null && Math.abs(tx - lastTickX) < (tw + lastTickW) / 2 + 4) return; lastTickX = tx; lastTickW = tw;
+    g += '<text x="' + tx + '" y="' + (plotBot + FS + 5)
       + '" text-anchor="middle" fill="#52514e" font-size="' + FS + '" data-role="tick">'
       + v + '%</text>';
   });
@@ -1172,13 +1182,16 @@ function axisGrid(xOnly, hOverride) {
     }
     yt2 = [];
   }
+  var lastTickY = null;   
+  
   yt2.forEach(function (v) {
     var z = zOf(v), L = limT(state.ys === 'raw', 'y');
     if (tf(z, state.ys === 'raw') <= L[0]
         || tf(z, state.ys === 'raw') >= L[1]) return;
     g += '<line x1="' + ML + '" y1="' + sy(z) + '" x2="' + (ML + PW)
-      + '" y2="' + sy(z) + '" stroke="#e0d9c8" stroke-width="0.6"/>'
-      + '<text x="' + (ML - 6) + '" y="' + (sy(z) + Math.round(FS / 3))
+      + '" y2="' + sy(z) + '" stroke="#e0d9c8" stroke-width="0.6"/>';
+    var ty = sy(z) + Math.round(FS / 3); if (lastTickY !== null && Math.abs(ty - lastTickY) < FS * 1.15) return; lastTickY = ty;
+    g += '<text x="' + (ML - 6) + '" y="' + ty
       + '" text-anchor="end" fill="#52514e" font-size="' + FS + '" data-role="tick">'
       + v + '%</text>';
   });
@@ -1274,12 +1287,12 @@ function levelTrack() {
     + '" text-anchor="middle" font-size="' + FT + '" fill="' + ink + '">y '
     + state.c + '%</text>'
     + (isCap()
-      ? '<text x="' + (TRK.x0 + 6) + '" y="' + (TRK.y + 16) + '" font-size="' + FT + '" fill="#8b8477">no horizontal level (the Capability view is level-free)</text>'
+      ? '<text x="' + (TRK.x0 + 6) + '" y="' + (TRK.y + 6 + Math.ceil(FT * 0.9)) + '" font-size="' + FT + '" fill="#8b8477">no horizontal level (the Capability view is level-free)</text>'
       : '<circle data-handle="a" class="handle" cx="' + xa + '" cy="'
     + TRK.y + '" r="' + (NARROW ? 16 : 12) + '" fill="transparent"/>'
     + '<circle class="knob" data-knob="a" pointer-events="none" cx="' + xa
     + '" cy="' + TRK.y + '" r="5" fill="#fcfaf3" stroke="' + ink + '" stroke-width="1.6"/>' + (held('a') ? heldRing('a', xa, ink) : '')
-    + '<text data-handle="a" class="handle" x="' + xa + '" y="' + (TRK.y + 16)
+    + '<text data-handle="a" class="handle" x="' + xa + '" y="' + (TRK.y + 6 + Math.ceil(FT * 0.9))
     + '" text-anchor="middle" font-size="' + FT + '" fill="' + ink + '">x '
     + state.a + '%</text>') + '</g>';
 }
