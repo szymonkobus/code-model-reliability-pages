@@ -31,14 +31,29 @@ function spanEndNames() { return ['D' + fmtLev(100 - (+state.c || 1)), 'D' + fmt
 
 var SPAN_LEAF = null, SPAN_LEAF_STATE = 'off';   
 function spanNum(v) { return (v === '' || v == null || v !== v) ? null : +v; }
+function spanLeafText(name) {   
+  return fetch(MOUNT + 'data/' + name, { cache: 'no-store' }).then(function (r) { return r.ok ? r.text() : null; }).catch(function () { return null; });
+}
+function parseSpanLeaf(t) {
+  
+  
+  return JSON.parse(t.replace(/:(-?Infinity|NaN)(?=[,}\]])/g, ':null'));
+}
 function loadSpanLeaf() {
   SPAN_LEAF_STATE = 'loading';
-  return fetch(MOUNT + 'data/curve_span_of_record.json', { cache: 'no-store' }).then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); }).then(function (t) {
-    
-    
-    var j = JSON.parse(t.replace(/:(-?Infinity|NaN)(?=[,}\]])/g, ':null'));
+  
+  
+  
+  return spanLeafText('curve_span_of_record.json').then(function (t) {
+    if (t != null) return parseSpanLeaf(t);
+    return Promise.all([spanLeafText('curve_span_of_record.a.json'), spanLeafText('curve_span_of_record.b.json')]).then(function (parts) {
+      if (parts[0] == null || parts[1] == null) throw new Error('the span of record answers in neither form');
+      var a = parseSpanLeaf(parts[0]), b = parseSpanLeaf(parts[1]);
+      return { form: a.form || b.form || {}, rows: (a.rows || []).concat(b.rows || []), parts: 2 };
+    });
+  }).then(function (j) {
     var by = {}; (j.rows || []).forEach(function (row) { if (!row || !row.arm) return; (by[row.arm] = by[row.arm] || []).push(row); var k2 = String(row.arm).replace(/_eiv(?:on|off)$/, ''); if (k2 !== row.arm) (by[k2] = by[k2] || []).push(row); });   
-    SPAN_LEAF = { byArm: by, written: (j.form || {}).written_at || null, n: (j.rows || []).length }; SPAN_LEAF_STATE = 'ok';
+    SPAN_LEAF = { byArm: by, written: (j.form || {}).written_at || null, n: (j.rows || []).length, parts: j.parts || 1 }; SPAN_LEAF_STATE = 'ok';
   }).catch(function () { SPAN_LEAF = null; SPAN_LEAF_STATE = 'missing'; }).then(function () { try { if (typeof render === 'function' && typeof sel !== 'undefined' && sel && D.shared) render(); } catch (e) {} });
 }
 
