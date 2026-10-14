@@ -1939,6 +1939,8 @@ function paintChips() {
     if (c.continuation_flag) parts.push(c.continuation_flag);   
     var covPart = covText(i) + (isPartial(i) ? (shownArm(i) ? ' — partial model' : ' — partial model, hidden; the Partial models switch shows it') : ''); parts.push(covPart);
     if (c.protocol) parts.push('read by ' + c.protocol + ': the base model continues the prompt, no chat turn');   
+    var RWp = readingsBlock(); var ajP = (RWp && bb) ? ajRecordFor(bb, state.def === 'average') : null;   
+    if (ajP) { var a50 = ajCell(ajP.d50), a1 = ajCell(ajP.d1); parts.push(RWp.beside.label + ': D50 ' + (a50 ? a50.num : '*') + ', D99 ' + (a1 ? a1.num : '*') + ' (difficulty %)' + (ajP.gate_flag ? '; ' + ajP.gate_flag : '')); }
     if (parts.length) {
       var full = noSpecTags(parts.join(' · ')); if (c.notes_flags && c.notes_flags.length) full += ' · ' + c.notes_flags.map(function (nf) { return noSpecTags(nf.hover || ''); }).join(' · '); b.dataset.state = full;   
       var lead = parts[0];   
@@ -2125,6 +2127,29 @@ function crossingHover(lvl, isAvg, rule) {
     + (rule === 'first' ? ': the median of the draws\' first upward crossings' : ': the median of the draws\' own crossings, the middle one where a draw crosses several times');
 }
 var BAND_WORDS = ', the 10th to 90th percentiles of the draws\' crossings';   
+
+
+
+
+
+
+function readingsBlock() { var bf = D.shared.frame && D.shared.frame.bayes_fits; var r = bf && bf.readings; return (r && r.beside && r.beside.label && r.served && r.served.label) ? r : null; }
+function ajRecordFor(bb, isAvg) {   
+  var a = bb && bb.cross_record_as_judged; if (!a) return null;
+  if (isAvg) return a;
+  return a.med ? { d50: a.med.d50, d1: a.med.d1, gate_flag: a.gate_flag } : null;
+}
+function ajCell(r) {   
+  if (!r || r.z == null) return null;
+  if (r.status_kind === 'bound' && (r.bound != null || r.z != null)) { var bf = boundFace(r); return { num: bf.num.toFixed(1), hover: bf.hover + ' \u00b7 uncertainty band ' + bf.lo.toFixed(1) + ' to ' + bf.hi.toFixed(1) + ' (difficulty %)' }; }
+  if (r.status_kind === 'unresolved') return { num: '*', hover: oneSentence(faceNumbers(noSpecTags((r.status || 'not resolved') + (r.reason_text ? ' ' + r.reason_text : '')))) + unresolvedFitHover(r) };
+  return { num: pct(r.z).toFixed(1), hover: (r.lo != null && r.hi != null) ? bandHover(r) : '' };
+}
+function readingsSentence(n) {   
+  var R = readingsBlock(); if (!R) return '';
+  return 'The positions and the drawn curves read a refused answer as ' + R.served.label + (R.served.words ? ' (' + R.served.words + ')' : '') + '. '
+    + (n === 1 ? 'One curve carries' : n + ' curves carry') + ' a second position beneath the first, ' + R.beside.label + (R.beside.words ? ' (' + R.beside.words + ')' : '') + '; no second curve is drawn.';
+}
 function bandHover(r) {   
   var band = 'uncertainty band ' + pct(r.lo).toFixed(1) + ' to ' + pct(r.hi).toFixed(1) + ' (difficulty %)';
   return r.rule === 'first' ? 'the median of the draws\' first upward crossings \u00b7 ' + band + ', the 10th to 90th percentiles of those crossings' : band + BAND_WORDS;
@@ -2221,7 +2246,7 @@ function crossingsTable(visible) {
                   : 'where the ' + estWord + ' of the ' + rateWord + ' ' + crossV + ' 50% (' + chainWord + '); D50, the fitted curve\'s, is under the Bayesian estimator';   
   var hov1 = isB ? crossingHover('1', isAvg)
                  : 'where the ' + estWord + ' of the ' + rateWord + ' ' + crossV + ' 1% (' + chainWord + '); D99, the fitted curve\'s, is under the Bayesian estimator';
-  var nRowsR = 0, nFirstR = 0;   
+  var nRowsR = 0, nFirstR = 0, nAjR = 0;   
   var nLevR = 0, nNoLevR = 0;   
   var h = document.createElement('p');
   var readoutWords = function () {   
@@ -2233,6 +2258,7 @@ function crossingsTable(visible) {
         + (nLevR ? ' The drawn curve passes through the printed numbers: at each failure-rate level it is the median over the fit\'s draws of each draw\'s crossing of that level, its uncertainty band the 10th to 90th percentiles, and it ends where a level\'s median is censored.'
                    + (nNoLevR ? ' For ' + nNoLevR + ' of these curves no such table exists and the drawn curve is the median of the draws\' curves at each difficulty.' : '') + ' '
                  : ' The drawn curve is the median of the draws\' curves at each difficulty, so where it crosses a level can differ from the printed number. ')   
+        + (nAjR ? readingsSentence(nAjR) + ' ' : '')   
         + 'Positions in difficulty %; each cell\'s hover carries its uncertainty band; * where the model has no fit; '
         + 'the same crossings with their bands live on Capability vs reliability.'
       : '<span data-chain-val>' + n50 + '</span> — ' + hov50.replace(/^D50 — /, '') + '; ' + n1 + ' — ' + hov1.replace(/^D99 — /, '')
@@ -2286,6 +2312,15 @@ function crossingsTable(visible) {
           td.textContent = '*'; td.title = defWord + (rec.status || 'the table carries no median-task number for this curve');
         } else {
           if (bbT) { var fb = fmtBayesCross(bbT, lvl); td.textContent = fb.cell; if (fb.hover) td.title = fb.hover; } else { td.textContent = '*'; td.title = 'no fit'; }   
+        }
+        var RWc = readingsBlock(); var ajC = (RWc && bbT) ? ajRecordFor(bbT, isAvg) : null;   
+        if (ajC) {
+          var ajF = ajCell(ajC[lvl === '1' ? 'd1' : 'd50']);
+          if (ajF) {
+            var sub = document.createElement('span'); sub.className = 'aj'; sub.textContent = RWc.beside.short + ' \u00b7 ' + ajF.num;
+            sub.title = RWc.beside.label + (ajF.hover ? ': ' + ajF.hover : '') + (ajC.gate_flag ? ' \u00b7 ' + ajC.gate_flag : '');
+            td.appendChild(document.createTextNode(' ')); td.appendChild(sub); if (lvl === '1') nAjR++;
+          }
         }
         if (rec && rec.mixing_note) { td.title = oneSentence(noNames(noSpecTags(String(rec.mixing_note)))) + (td.title ? ' · ' + td.title : ''); anyMixing = true; }   
         if (!bbT) td.style.color = '#8a8477';
