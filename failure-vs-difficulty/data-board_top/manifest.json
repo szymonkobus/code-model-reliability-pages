@@ -1,9 +1,9 @@
 {
- "fingerprint": "384ae0735d0b",
+ "fingerprint": "d62deb95a93b",
  "fingerprint_inputs": {
-  "content": "e470dc3458f4",
+  "content": "1c311d37174d",
   "wave": "combined-20260910T2209Z",
-  "body": "aa7a6b0ed66b"
+  "body": "857f77465127"
  },
  "frame": {
   "dataset": "board_top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 66,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "e470dc3458f4",
+  "inputs_content_sha": "1c311d37174d",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "c1419e922c5b",
+  "runs_fingerprint": "a3e273902c23",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-14",
-  "stamp": "2026-10-14T10:01:18Z",
+  "stamp": "2026-10-14T10:26:00Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -127,7 +127,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-14T09:18:19Z",
+   "unified_built_at": "2026-10-14T10:18:49Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -1021,7 +1021,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-14T09:25:42Z",
+   "_stamp": "2026-10-14T10:25:51Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1186,10 +1186,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-14T07:16:42Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261014T071642Z.json",
-   "sha16": "6c1742a7943dd0b0",
-   "census_mtime": "2026-10-14T07:17:53Z",
+   "stamp": "2026-10-14T09:40:46Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261014T094046Z.json",
+   "sha16": "2242f1fd19d11ef8",
+   "census_mtime": "2026-10-14T09:42:57Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
@@ -1225,21 +1225,11 @@
     "arms_in": "shared"
    },
    {
-    "updated_at": "2026-10-14T09:45:46Z+2026-10-14T09:45:39Z+2026-10-14T09:45:52Z+2026-10-14T09:45:57Z+2026-10-13T20:24:18Z+2026-10-14T10:00:40Z+2026-10-14T09:27:49Z",
+    "updated_at": "2026-10-14T09:45:46Z+2026-10-14T09:45:39Z+2026-10-14T09:45:52Z+2026-10-14T09:45:57Z+2026-10-13T20:24:18Z+2026-10-14T10:00:40Z+2026-10-14T09:27:49Z+2026-10-14T10:24:41Z",
     "pointer": "definitions/fitting/serving_series_r1d7b-rl-f12-a.json",
     "row": 3,
     "served": true,
     "n_arms": 5,
-    "arms": [],
-    "slim": true,
-    "arms_in": "shared"
-   },
-   {
-    "updated_at": "2026-10-14T05:44:17Z",
-    "pointer": "definitions/fitting/serving_series_r1d7b-rl-f17-alltasks-ent-kl.json",
-    "row": 4,
-    "served": true,
-    "n_arms": 0,
     "arms": [],
     "slim": true,
     "arms_in": "shared"
@@ -1268,10 +1258,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.384ae0735d0b.json",
-  "chain_average": "chain_average.384ae0735d0b.json",
-  "chain_median": "chain_median.384ae0735d0b.json",
-  "dots": "dots.384ae0735d0b.json",
-  "levels": "levels.384ae0735d0b.json"
+  "shared": "shared.d62deb95a93b.json",
+  "chain_average": "chain_average.d62deb95a93b.json",
+  "chain_median": "chain_median.d62deb95a93b.json",
+  "dots": "dots.d62deb95a93b.json",
+  "levels": "levels.d62deb95a93b.json"
  }
 }
