@@ -1,9 +1,9 @@
 {
- "fingerprint": "51bf69a033e0",
+ "fingerprint": "330d31f94c9a",
  "fingerprint_inputs": {
-  "content": "57341bdf694a",
+  "content": "cd20234609e3",
   "wave": "unified-live",
-  "body": "4c2757ab4761"
+  "body": "d4d4b292609e"
  },
  "frame": {
   "dataset": "all",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 66,
   "tasks": 2167,
   "keep_set_hash": "60ede5d24001",
-  "inputs_content_sha": "57341bdf694a",
+  "inputs_content_sha": "cd20234609e3",
   "tasks_on_axis": 2167,
   "tasks_kept": 2167,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "489b7d79e95b",
+  "runs_fingerprint": "a71ab69a997c",
   "axis_wave": "unified-live",
   "build_date": "2026-10-14",
-  "stamp": "2026-10-14T15:52:04Z",
+  "stamp": "2026-10-14T16:27:08Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -127,7 +127,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-14T15:20:39Z",
+   "unified_built_at": "2026-10-14T16:19:13Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -550,7 +550,7 @@
   "interim": "kernel fits on all results available at build; refit hourly as results land",
   "partial_attempts": null,
   "off_panel": {
-   "n_with_cells": 80,
+   "n_with_cells": 78,
    "arms": [
     {
      "id": "deepseek-coder-6.7b-rl-night1-step250",
@@ -798,16 +798,6 @@
      "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL \u00b7 100 steps"
     },
     {
-     "id": "r1d7b-rl-f17-kl-step0150-Thinking",
-     "arm_id": "r1d7b-rl-f17-kl-s150",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL \u00b7 150 steps"
-    },
-    {
-     "id": "r1d7b-rl-f17-kl-step0200-Thinking",
-     "arm_id": "r1d7b-rl-f17-kl-s200",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL \u00b7 200 steps"
-    },
-    {
      "id": "r1d7b-rl-f17-kl-step0250-Thinking",
      "arm_id": "r1d7b-rl-f17-kl-s250",
      "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL \u00b7 250 steps"
@@ -957,7 +947,7 @@
    "unregistered": [],
    "in_side_block": [],
    "panel_conflicts": [],
-   "line": "80 study models with results are off the panel; the models with a fit appear in their own block"
+   "line": "78 study models with results are off the panel; the models with a fit appear in their own block"
   },
   "cleaned_arms_unified": [
    "openai/gpt-5-mini",
@@ -970,7 +960,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-14T15:25:54Z",
+   "_stamp": "2026-10-14T16:26:08Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1145,10 +1135,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.51bf69a033e0.json",
-  "chain_average": "chain_average.51bf69a033e0.json",
-  "chain_median": "chain_median.51bf69a033e0.json",
-  "dots": "dots.51bf69a033e0.json",
-  "levels": "levels.51bf69a033e0.json"
+  "shared": "shared.330d31f94c9a.json",
+  "chain_average": "chain_average.330d31f94c9a.json",
+  "chain_median": "chain_median.330d31f94c9a.json",
+  "dots": "dots.330d31f94c9a.json",
+  "levels": "levels.330d31f94c9a.json"
  }
 }
