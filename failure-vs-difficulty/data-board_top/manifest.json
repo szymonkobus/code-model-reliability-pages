@@ -1,9 +1,9 @@
 {
- "fingerprint": "805f369c7472",
+ "fingerprint": "0b0a6a184a86",
  "fingerprint_inputs": {
   "content": "61b7a7d5f438",
   "wave": "combined-20260910T2209Z",
-  "body": "eb08a65c77de"
+  "body": "8956a824cb6b"
  },
  "frame": {
   "dataset": "board_top",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "fe452919846e",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-14",
-  "stamp": "2026-10-14T05:33:19Z",
+  "stamp": "2026-10-14T05:48:53Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -770,6 +770,11 @@
      "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, fails 1\u20132/8, Gemma 4 12B \u00b7 240 steps"
     },
     {
+     "id": "r1d7b-rl-f12-alltasks-kl-step0050-Thinking",
+     "arm_id": "r1d7b-rl-f12-alltasks-kl-s50",
+     "label": "DeepSeek-R1-Distill 20B (thinking, fine-tune)"
+    },
+    {
      "id": "r1d7b-rl-f12-a-step0025-Thinking",
      "arm_id": "r1d7b-rl-f12-a-s25",
      "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8 \u00b7 25 steps"
@@ -983,11 +988,6 @@
      "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL penalty \u00b7 200 steps"
     },
     {
-     "id": "r1d7b-rl-f12-alltasks-kl-step0050-Thinking",
-     "arm_id": "r1d7b-rl-f12-alltasks-kl-s50",
-     "label": "r1d7b-rl-f12-alltasks-kl-step0050 7B (thinking)"
-    },
-    {
      "id": "r1d7b-rl-f17-alltasks-ent-kl-step0050-Thinking",
      "arm_id": "r1d7b-rl-f17-alltasks-ent-kl-s50",
      "label": "r1d7b-rl-f17-alltasks-ent-kl-step0050 7B (thinking)"
@@ -1006,7 +1006,7 @@
     "qwen35_9b_base_sft_maths_completion"
    ],
    "panel_conflicts": [],
-   "line": "66 study models with results are off the panel; the models with a fit appear in their own block"
+   "line": "67 study models with results are off the panel; the models with a fit appear in their own block"
   },
   "cleaned_arms_unified": [
    "openai/gpt-5-mini",
@@ -1231,6 +1231,26 @@
     "arms": [],
     "slim": true,
     "arms_in": "shared"
+   },
+   {
+    "updated_at": "2026-10-14T05:44:16Z",
+    "pointer": "definitions/fitting/serving_series_r1d7b-rl-f12-alltasks-kl.json",
+    "row": 4,
+    "served": true,
+    "n_arms": 0,
+    "arms": [],
+    "slim": true,
+    "arms_in": "shared"
+   },
+   {
+    "updated_at": "2026-10-14T05:44:17Z",
+    "pointer": "definitions/fitting/serving_series_r1d7b-rl-f17-alltasks-ent-kl.json",
+    "row": 5,
+    "served": true,
+    "n_arms": 0,
+    "arms": [],
+    "slim": true,
+    "arms_in": "shared"
    }
   ],
   "series_arms": {
@@ -1256,10 +1276,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.805f369c7472.json",
-  "chain_average": "chain_average.805f369c7472.json",
-  "chain_median": "chain_median.805f369c7472.json",
-  "dots": "dots.805f369c7472.json",
-  "levels": "levels.805f369c7472.json"
+  "shared": "shared.0b0a6a184a86.json",
+  "chain_average": "chain_average.0b0a6a184a86.json",
+  "chain_median": "chain_median.0b0a6a184a86.json",
+  "dots": "dots.0b0a6a184a86.json",
+  "levels": "levels.0b0a6a184a86.json"
  }
 }
