@@ -108,7 +108,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-14T08:43:07Z"
+   "updated_at": "2026-10-14T09:14:36Z"
   },
   "all": {
    "files": {
@@ -253,21 +253,21 @@
   },
   "math500": {
    "files": {
-    "shared": "shared.math500.6075bbe650f4.json",
-    "chain_average": "chain_average.math500.6075bbe650f4.json",
-    "bayes": "bayes.math500.6075bbe650f4-54ee4bddf33e.json",
+    "shared": "shared.math500.16e7454ef002.json",
+    "chain_average": "chain_average.math500.16e7454ef002.json",
+    "bayes": "bayes.math500.16e7454ef002-54ee4bddf33e.json",
     "bayes_prev": "bayes.math500.512ae990f467-2e38bc937e1f.json"
    },
    "label": "MATH-500",
    "arms": "all",
-   "fingerprint": "6075bbe650f4",
+   "fingerprint": "16e7454ef002",
    "frame": {
     "population_M": 53,
     "tasks": 500,
     "keep_set_hash": "326e66dcd9ab",
-    "runs_fingerprint": "d6c77018354c",
+    "runs_fingerprint": "457607727bf7",
     "build_date": "2026-10-14",
-    "build_ts": "2026-10-14T06:59:47Z",
+    "build_ts": "2026-10-14T09:10:53Z",
     "vocab_ruled": "2026-08-27",
     "set": "math500",
     "set_label": "MATH-500",
@@ -278,14 +278,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "326e66dcd9ab",
     "tasks_used": "MATH-500 \u2014 500 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-math500 fp 930f2951b170 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-math500 fp 79cb234ebe29 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "f04515cf303d",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-14T06:59:47Z",
-   "source_fp": "930f2951b170",
-   "updated_at": "2026-10-14T07:10:30Z",
+   "source_stamp": "2026-10-14T09:10:53Z",
+   "source_fp": "79cb234ebe29",
+   "updated_at": "2026-10-14T09:14:43Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
