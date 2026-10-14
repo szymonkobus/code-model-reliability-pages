@@ -1,9 +1,9 @@
 {
- "fingerprint": "0d5c34041013",
+ "fingerprint": "ac8cb8c0fbba",
  "fingerprint_inputs": {
-  "content": "08c132cb4dcc",
+  "content": "f04515cf303d",
   "wave": "math500-live",
-  "body": "3f261ee781a3"
+  "body": "a457ea162c2e"
  },
  "frame": {
   "dataset": "math500",
@@ -17,28 +17,28 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 52,
-  "fitted_M": 52,
-  "complete_M": 52,
-  "sampled_M": 52,
-  "difficulty_population_M": 52,
+  "population_M": 53,
+  "fitted_M": 53,
+  "complete_M": 53,
+  "sampled_M": 53,
+  "difficulty_population_M": 53,
   "tasks": 500,
   "keep_set_hash": "326e66dcd9ab",
-  "inputs_content_sha": "08c132cb4dcc",
+  "inputs_content_sha": "f04515cf303d",
   "tasks_on_axis": 500,
   "tasks_kept": 500,
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "326e66dcd9ab",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "a235b16dfdeb",
+  "runs_fingerprint": "c8f9457a1811",
   "axis_wave": "math500-live",
   "build_date": "2026-10-14",
-  "stamp": "2026-10-14T04:20:37Z",
+  "stamp": "2026-10-14T06:10:19Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/math500",
-   "unified_built_at": "2026-10-14T03:55:07Z",
+   "unified_built_at": "2026-10-14T05:46:30Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.math500.csv"
@@ -121,6 +121,10 @@
     "of": 500
    },
    "google/gemma-4-31B-it": {
+    "tasks": 500,
+    "of": 500
+   },
+   "moonshotai/Kimi-K2-Instruct": {
     "tasks": 500,
     "of": 500
    },
@@ -300,7 +304,7 @@
    "served_axis_note": null,
    "membership_lag": null,
    "partial_coverage_arms": [],
-   "matches_axis": true,
+   "matches_axis": false,
    "population": "all",
    "dataset": "math500",
    "cleaned": {},
@@ -408,7 +412,8 @@
    "Qwen/Qwen2.5-0.5B-Instruct": "Qwen--Qwen2.5-0.5B-Instruct_t0.5",
    "mistralai/Mistral-7B-Instruct-v0.3": "mistralai--Mistral-7B-Instruct-v0.3_t0.5",
    "dsc6.7b-rl-night4-s500": "dsc6.7b-rl-night4-s500_t0.5",
-   "deepseek-ai/deepseek-coder-6.7b-instruct": "deepseek-ai--deepseek-coder-6.7b-instruct_t0.5"
+   "deepseek-ai/deepseek-coder-6.7b-instruct": "deepseek-ai--deepseek-coder-6.7b-instruct_t0.5",
+   "moonshotai/Kimi-K2-Instruct": "moonshotai--Kimi-K2-Instruct_t0.5"
   },
   "cleaned_arms_unified": [],
   "counts_of_record": {
@@ -418,7 +423,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-14T03:25:28Z",
+   "_stamp": "2026-10-14T05:25:14Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -583,10 +588,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-14T03:10:31Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261014T031031Z.json",
-   "sha16": "547fbe4bd4e6fc8b",
-   "census_mtime": "2026-10-14T03:11:25Z",
+   "stamp": "2026-10-14T04:31:59Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261014T043159Z.json",
+   "sha16": "38ed23453af359c8",
+   "census_mtime": "2026-10-14T04:33:31Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
@@ -603,10 +608,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.0d5c34041013.json",
-  "chain_average": "chain_average.0d5c34041013.json",
-  "chain_median": "chain_median.0d5c34041013.json",
-  "dots": "dots.0d5c34041013.json",
-  "levels": "levels.0d5c34041013.json"
+  "shared": "shared.ac8cb8c0fbba.json",
+  "chain_average": "chain_average.ac8cb8c0fbba.json",
+  "chain_median": "chain_median.ac8cb8c0fbba.json",
+  "dots": "dots.ac8cb8c0fbba.json",
+  "levels": "levels.ac8cb8c0fbba.json"
  }
 }
