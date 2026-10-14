@@ -1,9 +1,9 @@
 {
- "fingerprint": "093cabb5ccb0",
+ "fingerprint": "4b2ee0a9b5a3",
  "fingerprint_inputs": {
   "content": "b254879e615d",
   "wave": "gsm8k_platinum-live",
-  "body": "f7416bcc51fd"
+  "body": "a17fdee79809"
  },
  "frame": {
   "dataset": "gsm8k_platinum",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ff1457decdf7",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "457607727bf7",
+  "runs_fingerprint": "614b4f5d119d",
   "axis_wave": "gsm8k_platinum-live",
   "build_date": "2026-10-14",
-  "stamp": "2026-10-14T09:26:40Z",
+  "stamp": "2026-10-14T14:47:51Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/gsm8k_platinum",
-   "unified_built_at": "2026-10-14T08:43:43Z",
+   "unified_built_at": "2026-10-14T13:16:07Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.gsm8k_platinum.csv"
@@ -220,6 +220,14 @@
     "tasks": 1209,
     "of": 1209
    },
+   "qwen3-8b-sft-code": {
+    "tasks": 1209,
+    "of": 1209
+   },
+   "qwen3-8b-sft-maths": {
+    "tasks": 1209,
+    "of": 1209
+   },
    "Qwen/Qwen3-14B": {
     "tasks": 1209,
     "of": 1209
@@ -233,14 +241,6 @@
     "of": 1209
    },
    "Qwen/Qwen3-32B-Thinking": {
-    "tasks": 1209,
-    "of": 1209
-   },
-   "qwen3-8b-sft-code": {
-    "tasks": 1209,
-    "of": 1209
-   },
-   "qwen3-8b-sft-maths": {
     "tasks": 1209,
     "of": 1209
    },
@@ -285,7 +285,7 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/nb-gsm8k_platinum-20261003T0522Z/view_v6/results",
    "set_fingerprint": "76ce089b49b7",
-   "pointer_updated_at": "2026-10-13T20:15:12Z",
+   "pointer_updated_at": "2026-10-14T12:51:28Z",
    "n_fits": 63,
    "note": null,
    "gates": {
@@ -309,6 +309,33 @@
    "cleaned": {},
    "concentration_counts": {
     "inputs unavailable for this served set (pre-31g custody copy)": 53
+   },
+   "readings": {
+    "source": {
+     "path": "runs/knowledge/readings_of_record.json",
+     "sha16": "7eda1fe83aa41165"
+    },
+    "table": {
+     "csv": "definitions/fitting/waves/as-judged-nb-gsm8k_platinum-20261014T112049Z/crossings_of_record.csv",
+     "csv_sha256_12": "145a742f0c8c",
+     "written_at": "2026-10-14T11:20:58Z",
+     "n_arms": 1
+    },
+    "served": {
+     "key": "no_data",
+     "label": "refusals left out",
+     "short": "refusals out",
+     "words": "a refused answer, the Claude service stopping the reply with its refusal stop, is no data: each task is measured on the answers the model wrote, and a task with no written answer leaves that model's result"
+    },
+    "beside": {
+     "key": "refusals_counted_as_failures",
+     "label": "refusals counted as failures",
+     "short": "refusals in",
+     "words": "a refused answer counts as a failed answer of the model, as the judge found the stopped text or its absence"
+    },
+    "n_lines": 1,
+    "n_same_as_served": 0,
+    "n_arms_without_line": 0
    },
    "drawn": 45,
    "levels_file": {
@@ -392,7 +419,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-14T09:25:42Z",
+   "_stamp": "2026-10-14T14:26:49Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -557,10 +584,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-14T07:16:42Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261014T071642Z.json",
-   "sha16": "6c1742a7943dd0b0",
-   "census_mtime": "2026-10-14T07:17:53Z",
+   "stamp": "2026-10-14T12:43:05Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261014T124305Z.json",
+   "sha16": "2457d7e1c1290b79",
+   "census_mtime": "2026-10-14T12:44:33Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
@@ -577,10 +604,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.093cabb5ccb0.json",
-  "chain_average": "chain_average.093cabb5ccb0.json",
-  "chain_median": "chain_median.093cabb5ccb0.json",
-  "dots": "dots.093cabb5ccb0.json",
-  "levels": "levels.093cabb5ccb0.json"
+  "shared": "shared.4b2ee0a9b5a3.json",
+  "chain_average": "chain_average.4b2ee0a9b5a3.json",
+  "chain_median": "chain_median.4b2ee0a9b5a3.json",
+  "dots": "dots.4b2ee0a9b5a3.json",
+  "levels": "levels.4b2ee0a9b5a3.json"
  }
 }
