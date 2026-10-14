@@ -1,9 +1,9 @@
 {
- "fingerprint": "f98d35f8aa17",
+ "fingerprint": "b9d5899452aa",
  "fingerprint_inputs": {
   "content": "f598763f0d98",
   "wave": "ifeval-live",
-  "body": "653534af7311"
+  "body": "31631a0c91bf"
  },
  "frame": {
   "dataset": "ifeval",
@@ -33,7 +33,7 @@
   "runs_fingerprint": "614b4f5d119d",
   "axis_wave": "ifeval-live",
   "build_date": "2026-10-14",
-  "stamp": "2026-10-14T14:09:00Z",
+  "stamp": "2026-10-14T15:35:58Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
@@ -399,7 +399,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-14T13:25:45Z",
+   "_stamp": "2026-10-14T15:25:54Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -564,10 +564,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-14T12:43:05Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261014T124305Z.json",
-   "sha16": "2457d7e1c1290b79",
-   "census_mtime": "2026-10-14T12:44:33Z",
+   "stamp": "2026-10-14T14:08:47Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261014T140847Z.json",
+   "sha16": "e779cdfa5a891353",
+   "census_mtime": "2026-10-14T14:10:01Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
@@ -584,10 +584,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.f98d35f8aa17.json",
-  "chain_average": "chain_average.f98d35f8aa17.json",
-  "chain_median": "chain_median.f98d35f8aa17.json",
-  "dots": "dots.f98d35f8aa17.json",
-  "levels": "levels.f98d35f8aa17.json"
+  "shared": "shared.b9d5899452aa.json",
+  "chain_average": "chain_average.b9d5899452aa.json",
+  "chain_median": "chain_median.b9d5899452aa.json",
+  "dots": "dots.b9d5899452aa.json",
+  "levels": "levels.b9d5899452aa.json"
  }
 }
