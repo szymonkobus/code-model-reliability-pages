@@ -1,9 +1,9 @@
 {
- "fingerprint": "79cb234ebe29",
+ "fingerprint": "eec04ea45f13",
  "fingerprint_inputs": {
   "content": "f04515cf303d",
   "wave": "math500-live",
-  "body": "e6548afdb474"
+  "body": "bbcb3302f93b"
  },
  "frame": {
   "dataset": "math500",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "326e66dcd9ab",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "457607727bf7",
+  "runs_fingerprint": "614b4f5d119d",
   "axis_wave": "math500-live",
   "build_date": "2026-10-14",
-  "stamp": "2026-10-14T09:10:53Z",
+  "stamp": "2026-10-14T13:51:44Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/math500",
-   "unified_built_at": "2026-10-14T08:43:43Z",
+   "unified_built_at": "2026-10-14T13:16:07Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.math500.csv"
@@ -228,6 +228,14 @@
     "tasks": 500,
     "of": 500
    },
+   "qwen3-8b-sft-code": {
+    "tasks": 500,
+    "of": 500
+   },
+   "qwen3-8b-sft-maths": {
+    "tasks": 500,
+    "of": 500
+   },
    "Qwen/Qwen3-14B": {
     "tasks": 500,
     "of": 500
@@ -241,14 +249,6 @@
     "of": 500
    },
    "Qwen/Qwen3-32B-Thinking": {
-    "tasks": 500,
-    "of": 500
-   },
-   "qwen3-8b-sft-code": {
-    "tasks": 500,
-    "of": 500
-   },
-   "qwen3-8b-sft-maths": {
     "tasks": 500,
     "of": 500
    },
@@ -286,7 +286,7 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/nb-math500-20261002T2118Z/view_v7/results",
    "set_fingerprint": "5ab5d40321fc",
-   "pointer_updated_at": "2026-10-13T20:15:49Z",
+   "pointer_updated_at": "2026-10-14T12:51:44Z",
    "n_fits": 52,
    "note": null,
    "gates": {
@@ -310,6 +310,33 @@
    "cleaned": {},
    "concentration_counts": {
     "inputs unavailable for this served set (pre-31g custody copy)": 52
+   },
+   "readings": {
+    "source": {
+     "path": "runs/knowledge/readings_of_record.json",
+     "sha16": "7eda1fe83aa41165"
+    },
+    "table": {
+     "csv": "definitions/fitting/waves/as-judged-nb-math500-20261014T112100Z/crossings_of_record.csv",
+     "csv_sha256_12": "7e4b1387fbc1",
+     "written_at": "2026-10-14T11:21:04Z",
+     "n_arms": 1
+    },
+    "served": {
+     "key": "no_data",
+     "label": "refusals left out",
+     "short": "refusals out",
+     "words": "a refused answer, the Claude service stopping the reply with its refusal stop, is no data: each task is measured on the answers the model wrote, and a task with no written answer leaves that model's result"
+    },
+    "beside": {
+     "key": "refusals_counted_as_failures",
+     "label": "refusals counted as failures",
+     "short": "refusals in",
+     "words": "a refused answer counts as a failed answer of the model, as the judge found the stopped text or its absence"
+    },
+    "n_lines": 1,
+    "n_same_as_served": 0,
+    "n_arms_without_line": 0
    },
    "drawn": 45,
    "levels_file": {
@@ -423,7 +450,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-14T08:24:58Z",
+   "_stamp": "2026-10-14T13:25:45Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -588,10 +615,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-14T07:16:42Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261014T071642Z.json",
-   "sha16": "6c1742a7943dd0b0",
-   "census_mtime": "2026-10-14T07:17:53Z",
+   "stamp": "2026-10-14T12:43:05Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261014T124305Z.json",
+   "sha16": "2457d7e1c1290b79",
+   "census_mtime": "2026-10-14T12:44:33Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
@@ -608,10 +635,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.79cb234ebe29.json",
-  "chain_average": "chain_average.79cb234ebe29.json",
-  "chain_median": "chain_median.79cb234ebe29.json",
-  "dots": "dots.79cb234ebe29.json",
-  "levels": "levels.79cb234ebe29.json"
+  "shared": "shared.eec04ea45f13.json",
+  "chain_average": "chain_average.eec04ea45f13.json",
+  "chain_median": "chain_median.eec04ea45f13.json",
+  "dots": "dots.eec04ea45f13.json",
+  "levels": "levels.eec04ea45f13.json"
  }
 }

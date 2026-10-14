@@ -20,7 +20,7 @@
     "EasyTail/E3G/percent_progress_label",
     "Mbpp/63~twin1"
    ],
-   "note": "the tasks it refused on every attempt are excluded from this model's results and fit (a refusal is not a failure); the refusals page keeps the record"
+   "note": "the tasks it refused on every attempt are left out of this model's results and fit; the refusals page keeps the record"
   },
   "claude-opus-5-thinking": {
    "n_tasks": 2,
@@ -28,7 +28,7 @@
     "EasyTail/E1/payroll_overtime_count",
     "EasyTail/E1B/last_zero_item"
    ],
-   "note": "the tasks it refused on every attempt are excluded from this model's results and fit (a refusal is not a failure); the refusals page keeps the record"
+   "note": "the tasks it refused on every attempt are left out of this model's results and fit; the refusals page keeps the record"
   }
  }
 }
