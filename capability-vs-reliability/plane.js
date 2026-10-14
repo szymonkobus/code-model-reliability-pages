@@ -1976,6 +1976,18 @@ var tipPinned = false;
 
 
 var TWO_READING_SETS = { math500: 1, ifeval: 1, gsm8k_platinum: 1, cruxeval_i: 1, cruxeval_o: 1, aime: 1 };
+function bandNoteLines(c) {   
+  var r = D.bayById && D.bayById[c.id], bn = r && r.band_note;
+  if (!bn || typeof bn !== 'object') return [];
+  var want = [+state.c]; if (SPAN || !isCap()) want.push(+state.a);
+  var out = [];
+  Object.keys(bn).forEach(function (k) {
+    var v = bn[k], hit = want.some(function (p) { return Math.abs(+k - p) < 1e-4; });
+    if (!hit || !v || !v.cause) return;
+    out.push({ key: '#8b8477', value: '', label: String(v.cause) });
+  });
+  return out;
+}
 function secondReadingLine(c) {
   if (!TWO_READING_SETS[D.dataId]) return [];
   var r = D.bayById && D.bayById[c.id], aj = r && r.as_judged, rd = D.bay && D.bay.readings;
@@ -2029,7 +2041,7 @@ function hoverWire() {
       { key: c.color, value: SPAN ? fmtSpan(ry) : fmt(ry), label: axisName('y') },
       { key: null, value: '', label: rx.extra },
       { key: null, value: '', label: ry.extra === rx.extra ? '' : ry.extra },
-    ].concat(secondReadingLine(c)).concat(D.moves && D.moves[c.id] ? [{ key: '#8b8477', value: 'moved', label: 'from ' + prevFitName() + ': x ' + D.moves[c.id].dx + ', y ' + D.moves[c.id].dy + ' (percent of the scale)' }] : []).concat(coverageText(c) ? [{ key: null, value: isPartial(i) ? 'partial' : '', label: coverageText(c) }] : []).concat(armNote(c) ? [{ key: '#8b8477', value: 'note', label: armNote(c) }] : []).concat(cf ? [{ key: '#8b8477', value: 'cut flag', label: cf }] : []).concat(fl ? [{ key: '#b3261e', value: '\u2020 non-quotable',
+    ].concat(secondReadingLine(c)).concat(bandNoteLines(c)).concat(D.moves && D.moves[c.id] ? [{ key: '#8b8477', value: 'moved', label: 'from ' + prevFitName() + ': x ' + D.moves[c.id].dx + ', y ' + D.moves[c.id].dy + ' (percent of the scale)' }] : []).concat(coverageText(c) ? [{ key: null, value: isPartial(i) ? 'partial' : '', label: coverageText(c) }] : []).concat(armNote(c) ? [{ key: '#8b8477', value: 'note', label: armNote(c) }] : []).concat(cf ? [{ key: '#8b8477', value: 'cut flag', label: cf }] : []).concat(fl ? [{ key: '#b3261e', value: '\u2020 non-quotable',
       label: fl.reason + ' \u2014 until ' + fl.until
         + ' (spec 2026-09-02a)' }] : []).concat(fe ? [{ key: '#8b8477', value: 'out of the fit population',
       label: (fe.short || 'protocol defect under correction') + (fe.reversible_when ? ' \u2014 reversible when ' + fe.reversible_when : '') + ' (Definitions decision 2026-09-03: drawn greyed, out of the drawn fit and the difficulty axis)' }] : []), c.label);
