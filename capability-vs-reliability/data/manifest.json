@@ -108,24 +108,24 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-14T00:18:28Z"
+   "updated_at": "2026-10-14T00:36:57Z"
   },
   "all": {
    "files": {
-    "shared": "shared.all.9cd3558c24dd.json",
-    "chain_average": "chain_average.all.9cd3558c24dd.json",
-    "bayes": "bayes.all.9cd3558c24dd-369140b65255.json"
+    "shared": "shared.all.ef7c2dbd1b41.json",
+    "chain_average": "chain_average.all.ef7c2dbd1b41.json",
+    "bayes": "bayes.all.ef7c2dbd1b41-369140b65255.json"
    },
    "label": "all waves",
    "arms": "all",
-   "fingerprint": "9cd3558c24dd",
+   "fingerprint": "ef7c2dbd1b41",
    "frame": {
     "population_M": 66,
     "tasks": 2167,
     "keep_set_hash": "60ede5d24001",
-    "runs_fingerprint": "55335dfc0e8d",
-    "build_date": "2026-10-13",
-    "build_ts": "2026-10-13T23:57:09Z",
+    "runs_fingerprint": "1903f05be429",
+    "build_date": "2026-10-14",
+    "build_ts": "2026-10-14T00:31:46Z",
     "vocab_ruled": "2026-08-27",
     "set": "all",
     "set_label": "all waves",
@@ -136,14 +136,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "60ede5d24001",
     "tasks_used": "all waves \u2014 2167 tasks, axis wave unified-live",
-    "source": "failure-vs-difficulty data-all fp 14aa1b34f1df (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "b28849b17299",
+    "source": "failure-vs-difficulty data-all fp f621be40636b (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "0fc0a904232b",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-13T23:57:09Z",
-   "source_fp": "14aa1b34f1df",
-   "updated_at": "2026-10-14T00:25:44Z",
+   "source_stamp": "2026-10-14T00:31:46Z",
+   "source_fp": "f621be40636b",
+   "updated_at": "2026-10-14T00:44:26Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
