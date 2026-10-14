@@ -108,7 +108,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-14T18:54:34Z"
+   "updated_at": "2026-10-14T19:14:55Z"
   },
   "all": {
    "files": {
@@ -236,7 +236,7 @@
    },
    "source_stamp": "2026-10-14T18:32:58Z",
    "source_fp": "84a85c7325a7",
-   "updated_at": "2026-10-14T18:45:09Z",
+   "updated_at": "2026-10-14T19:05:35Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -253,21 +253,21 @@
   },
   "math500": {
    "files": {
-    "shared": "shared.math500.b7a8e394b2b4.json",
-    "chain_average": "chain_average.math500.b7a8e394b2b4.json",
-    "bayes": "bayes.math500.b7a8e394b2b4-54ee4bddf33e.json",
+    "shared": "shared.math500.3966c567b0da.json",
+    "chain_average": "chain_average.math500.3966c567b0da.json",
+    "bayes": "bayes.math500.3966c567b0da-54ee4bddf33e.json",
     "bayes_prev": "bayes.math500.512ae990f467-2e38bc937e1f.json"
    },
    "label": "MATH-500",
    "arms": "all",
-   "fingerprint": "b7a8e394b2b4",
+   "fingerprint": "3966c567b0da",
    "frame": {
     "population_M": 53,
     "tasks": 500,
     "keep_set_hash": "326e66dcd9ab",
-    "runs_fingerprint": "d172762a4d63",
+    "runs_fingerprint": "514756b11946",
     "build_date": "2026-10-14",
-    "build_ts": "2026-10-14T17:12:23Z",
+    "build_ts": "2026-10-14T19:09:06Z",
     "vocab_ruled": "2026-08-27",
     "set": "math500",
     "set_label": "MATH-500",
@@ -278,14 +278,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "326e66dcd9ab",
     "tasks_used": "MATH-500 \u2014 500 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-math500 fp 528f99809a57 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-math500 fp 0dcbc51d0f3d (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "f04515cf303d",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-14T17:12:23Z",
-   "source_fp": "528f99809a57",
-   "updated_at": "2026-10-14T17:17:41Z",
+   "source_stamp": "2026-10-14T19:09:06Z",
+   "source_fp": "0dcbc51d0f3d",
+   "updated_at": "2026-10-14T19:13:00Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
