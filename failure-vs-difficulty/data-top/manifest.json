@@ -1,9 +1,9 @@
 {
- "fingerprint": "646439715dc9",
+ "fingerprint": "97010785f4ee",
  "fingerprint_inputs": {
-  "content": "a335a14434dd",
+  "content": "fcc671256317",
   "wave": "pool-20260910T2244Z",
-  "body": "af370bb7162a"
+  "body": "d8e36703436a"
  },
  "frame": {
   "dataset": "top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 63,
   "tasks": 858,
   "keep_set_hash": "532d0efad8a5",
-  "inputs_content_sha": "a335a14434dd",
+  "inputs_content_sha": "fcc671256317",
   "tasks_on_axis": 858,
   "tasks_kept": 858,
   "tasks_awaiting_axis": 0,
@@ -34,17 +34,17 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "a3e273902c23",
+  "runs_fingerprint": "dd5842335708",
   "axis_wave": "pool-20260910T2244Z",
   "build_date": "2026-10-14",
-  "stamp": "2026-10-14T10:55:30Z",
+  "stamp": "2026-10-14T12:44:45Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-14T10:18:49Z",
+   "unified_built_at": "2026-10-14T11:51:06Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.top.csv"
@@ -690,62 +690,62 @@
     {
      "id": "r1d7b-rl-f12-drift-step0025-Thinking",
      "arm_id": "r1d7b-rl-f12-drift-s25",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, KL penalty \u00b7 25 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, KL \u00b7 25 steps"
     },
     {
      "id": "r1d7b-rl-f12-drift-step0050-Thinking",
      "arm_id": "r1d7b-rl-f12-drift-s50",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, KL penalty \u00b7 50 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, KL \u00b7 50 steps"
     },
     {
      "id": "r1d7b-rl-f12-drift5-step0075-Thinking",
      "arm_id": "r1d7b-rl-f12-drift5-s75",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, KL penalty \u00b7 75 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, KL \u00b7 75 steps"
     },
     {
      "id": "r1d7b-rl-f12-drift5-step0100-Thinking",
      "arm_id": "r1d7b-rl-f12-drift5-s100",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, KL penalty \u00b7 100 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, KL \u00b7 100 steps"
     },
     {
      "id": "r1d7b-rl-f17-kl-step0050-Thinking",
      "arm_id": "r1d7b-rl-f17-kl-s50",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL penalty \u00b7 50 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL \u00b7 50 steps"
     },
     {
      "id": "r1d7b-rl-f17-kl-step0100-Thinking",
      "arm_id": "r1d7b-rl-f17-kl-s100",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL penalty \u00b7 100 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL \u00b7 100 steps"
     },
     {
      "id": "r1d7b-rl-f17-kl-step0250-Thinking",
      "arm_id": "r1d7b-rl-f17-kl-s250",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL penalty \u00b7 250 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL \u00b7 250 steps"
     },
     {
      "id": "r1d7b-rl-f12-redraw-kl-step0050-Thinking",
      "arm_id": "r1d7b-rl-f12-redraw-kl-s50",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, redraw every 50, KL penalty \u00b7 50 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, redraw every 50, KL \u00b7 50 steps"
     },
     {
      "id": "r1d7b-rl-f12-redraw-kl-step0100-Thinking",
      "arm_id": "r1d7b-rl-f12-redraw-kl-s100",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, redraw every 50, KL penalty \u00b7 100 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, redraw every 50, KL \u00b7 100 steps"
     },
     {
      "id": "r1d7b-rl-f12-redraw-kl-step0250-Thinking",
      "arm_id": "r1d7b-rl-f12-redraw-kl-s250",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, redraw every 50, KL penalty \u00b7 250 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, redraw every 50, KL \u00b7 250 steps"
     },
     {
      "id": "r1d7b-rl-f12-alltasks-kl-step0050-Thinking",
      "arm_id": "r1d7b-rl-f12-alltasks-kl-s50",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, drawn from all tasks, KL penalty \u00b7 50 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, drawn from all tasks, KL \u00b7 50 steps"
     },
     {
      "id": "r1d7b-rl-f17-alltasks-ent-kl-step0050-Thinking",
      "arm_id": "r1d7b-rl-f17-alltasks-ent-kl-s50",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, drawn from all tasks, entropy control, KL penalty \u00b7 50 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, drawn from all tasks, entropy control, KL \u00b7 50 steps"
     },
     {
      "id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
@@ -886,7 +886,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-14T10:25:51Z",
+   "_stamp": "2026-10-14T12:28:25Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1051,20 +1051,20 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-14T09:40:46Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261014T094046Z.json",
-   "sha16": "2242f1fd19d11ef8",
-   "census_mtime": "2026-10-14T09:42:57Z",
+   "stamp": "2026-10-14T10:55:52Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261014T105552Z.json",
+   "sha16": "9c6543e761420b0e",
+   "census_mtime": "2026-10-14T10:57:29Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.646439715dc9.json",
-  "chain_average": "chain_average.646439715dc9.json",
-  "chain_median": "chain_median.646439715dc9.json",
-  "dots": "dots.646439715dc9.json",
-  "levels": "levels.646439715dc9.json"
+  "shared": "shared.97010785f4ee.json",
+  "chain_average": "chain_average.97010785f4ee.json",
+  "chain_median": "chain_median.97010785f4ee.json",
+  "dots": "dots.97010785f4ee.json",
+  "levels": "levels.97010785f4ee.json"
  }
 }
