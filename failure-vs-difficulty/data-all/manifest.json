@@ -1,9 +1,9 @@
 {
- "fingerprint": "4afcea087b98",
+ "fingerprint": "51bf69a033e0",
  "fingerprint_inputs": {
-  "content": "52eeec92e147",
+  "content": "57341bdf694a",
   "wave": "unified-live",
-  "body": "a424e2c3b993"
+  "body": "4c2757ab4761"
  },
  "frame": {
   "dataset": "all",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 66,
   "tasks": 2167,
   "keep_set_hash": "60ede5d24001",
-  "inputs_content_sha": "52eeec92e147",
+  "inputs_content_sha": "57341bdf694a",
   "tasks_on_axis": 2167,
   "tasks_kept": 2167,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "bb619531162f",
+  "runs_fingerprint": "489b7d79e95b",
   "axis_wave": "unified-live",
   "build_date": "2026-10-14",
-  "stamp": "2026-10-14T13:54:56Z",
+  "stamp": "2026-10-14T15:52:04Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -127,7 +127,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-14T13:21:04Z",
+   "unified_built_at": "2026-10-14T15:20:39Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -798,6 +798,16 @@
      "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL \u00b7 100 steps"
     },
     {
+     "id": "r1d7b-rl-f17-kl-step0150-Thinking",
+     "arm_id": "r1d7b-rl-f17-kl-s150",
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL \u00b7 150 steps"
+    },
+    {
+     "id": "r1d7b-rl-f17-kl-step0200-Thinking",
+     "arm_id": "r1d7b-rl-f17-kl-s200",
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL \u00b7 200 steps"
+    },
+    {
      "id": "r1d7b-rl-f17-kl-step0250-Thinking",
      "arm_id": "r1d7b-rl-f17-kl-s250",
      "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL \u00b7 250 steps"
@@ -944,21 +954,10 @@
     }
    ],
    "stopped_not_listed": [],
-   "unregistered": [
-    {
-     "id": "r1d7b-rl-f17-kl-step0150-Thinking",
-     "arm_id": "r1d7b-rl-f17-kl-s150",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL \u00b7 150 steps"
-    },
-    {
-     "id": "r1d7b-rl-f17-kl-step0200-Thinking",
-     "arm_id": "r1d7b-rl-f17-kl-s200",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL \u00b7 200 steps"
-    }
-   ],
+   "unregistered": [],
    "in_side_block": [],
    "panel_conflicts": [],
-   "line": "78 study models with results are off the panel; the models with a fit appear in their own block"
+   "line": "80 study models with results are off the panel; the models with a fit appear in their own block"
   },
   "cleaned_arms_unified": [
    "openai/gpt-5-mini",
@@ -971,7 +970,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-14T13:25:45Z",
+   "_stamp": "2026-10-14T15:25:54Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1136,20 +1135,20 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-14T12:43:05Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261014T124305Z.json",
-   "sha16": "2457d7e1c1290b79",
-   "census_mtime": "2026-10-14T12:44:33Z",
+   "stamp": "2026-10-14T14:08:47Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261014T140847Z.json",
+   "sha16": "e779cdfa5a891353",
+   "census_mtime": "2026-10-14T14:10:01Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.4afcea087b98.json",
-  "chain_average": "chain_average.4afcea087b98.json",
-  "chain_median": "chain_median.4afcea087b98.json",
-  "dots": "dots.4afcea087b98.json",
-  "levels": "levels.4afcea087b98.json"
+  "shared": "shared.51bf69a033e0.json",
+  "chain_average": "chain_average.51bf69a033e0.json",
+  "chain_median": "chain_median.51bf69a033e0.json",
+  "dots": "dots.51bf69a033e0.json",
+  "levels": "levels.51bf69a033e0.json"
  }
 }

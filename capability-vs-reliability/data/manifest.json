@@ -108,7 +108,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-14T15:22:45Z"
+   "updated_at": "2026-10-14T15:51:10Z"
   },
   "all": {
    "files": {
@@ -307,21 +307,21 @@
   },
   "ifeval": {
    "files": {
-    "shared": "shared.ifeval.282b134ca8de.json",
-    "chain_average": "chain_average.ifeval.282b134ca8de.json",
-    "bayes": "bayes.ifeval.282b134ca8de-0e350e3e4b87.json",
+    "shared": "shared.ifeval.fc066b0c81bc.json",
+    "chain_average": "chain_average.ifeval.fc066b0c81bc.json",
+    "bayes": "bayes.ifeval.fc066b0c81bc-0e350e3e4b87.json",
     "bayes_prev": "bayes.ifeval.86b061913de2-4e95778148c9.json"
    },
    "label": "IFEval",
    "arms": "all",
-   "fingerprint": "282b134ca8de",
+   "fingerprint": "fc066b0c81bc",
    "frame": {
     "population_M": 47,
     "tasks": 541,
     "keep_set_hash": "ea009d5c6cd1",
     "runs_fingerprint": "614b4f5d119d",
     "build_date": "2026-10-14",
-    "build_ts": "2026-10-14T14:09:00Z",
+    "build_ts": "2026-10-14T15:35:58Z",
     "vocab_ruled": "2026-08-27",
     "set": "ifeval",
     "set_label": "IFEval",
@@ -332,14 +332,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ea009d5c6cd1",
     "tasks_used": "IFEval \u2014 541 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-ifeval fp f98d35f8aa17 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-ifeval fp b9d5899452aa (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "f598763f0d98",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-14T14:09:00Z",
-   "source_fp": "f98d35f8aa17",
-   "updated_at": "2026-10-14T14:20:08Z",
+   "source_stamp": "2026-10-14T15:35:58Z",
+   "source_fp": "b9d5899452aa",
+   "updated_at": "2026-10-14T15:55:39Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
