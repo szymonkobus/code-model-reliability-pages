@@ -1,9 +1,9 @@
 {
- "fingerprint": "f0b2a5b94a1a",
+ "fingerprint": "3d5f2482642f",
  "fingerprint_inputs": {
   "content": "cd06528a4146",
   "wave": "cruxeval_o-live",
-  "body": "1607a3fe3be2"
+  "body": "aeca6c1f162b"
  },
  "frame": {
   "dataset": "cruxeval_o",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ceaae2d92751",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "457607727bf7",
+  "runs_fingerprint": "614b4f5d119d",
   "axis_wave": "cruxeval_o-live",
   "build_date": "2026-10-14",
-  "stamp": "2026-10-14T09:20:53Z",
+  "stamp": "2026-10-14T14:41:51Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/cruxeval_o",
-   "unified_built_at": "2026-10-14T08:43:43Z",
+   "unified_built_at": "2026-10-14T13:16:07Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.cruxeval_o.csv"
@@ -275,7 +275,7 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/nb-cruxeval_o-20261005T1144Z/view_v3/results",
    "set_fingerprint": "1fe2f3f7a5c6",
-   "pointer_updated_at": "2026-10-13T21:17:36Z",
+   "pointer_updated_at": "2026-10-14T12:50:50Z",
    "n_fits": 64,
    "note": null,
    "gates": {
@@ -301,6 +301,33 @@
    "cleaned": {},
    "concentration_counts": {
     "inputs unavailable for this served set (pre-31g custody copy)": 53
+   },
+   "readings": {
+    "source": {
+     "path": "runs/knowledge/readings_of_record.json",
+     "sha16": "7eda1fe83aa41165"
+    },
+    "table": {
+     "csv": "definitions/fitting/waves/as-judged-nb-cruxeval_o-20261014T112026Z/crossings_of_record.csv",
+     "csv_sha256_12": "8141c1992564",
+     "written_at": "2026-10-14T11:20:32Z",
+     "n_arms": 3
+    },
+    "served": {
+     "key": "no_data",
+     "label": "refusals left out",
+     "short": "refusals out",
+     "words": "a refused answer, the Claude service stopping the reply with its refusal stop, is no data: each task is measured on the answers the model wrote, and a task with no written answer leaves that model's result"
+    },
+    "beside": {
+     "key": "refusals_counted_as_failures",
+     "label": "refusals counted as failures",
+     "short": "refusals in",
+     "words": "a refused answer counts as a failed answer of the model, as the judge found the stopped text or its absence"
+    },
+    "n_lines": 3,
+    "n_same_as_served": 0,
+    "n_arms_without_line": 0
    },
    "drawn": 48,
    "levels_file": {
@@ -383,7 +410,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-14T08:24:58Z",
+   "_stamp": "2026-10-14T14:26:49Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -548,10 +575,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-14T07:16:42Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261014T071642Z.json",
-   "sha16": "6c1742a7943dd0b0",
-   "census_mtime": "2026-10-14T07:17:53Z",
+   "stamp": "2026-10-14T12:43:05Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261014T124305Z.json",
+   "sha16": "2457d7e1c1290b79",
+   "census_mtime": "2026-10-14T12:44:33Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
@@ -568,10 +595,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.f0b2a5b94a1a.json",
-  "chain_average": "chain_average.f0b2a5b94a1a.json",
-  "chain_median": "chain_median.f0b2a5b94a1a.json",
-  "dots": "dots.f0b2a5b94a1a.json",
-  "levels": "levels.f0b2a5b94a1a.json"
+  "shared": "shared.3d5f2482642f.json",
+  "chain_average": "chain_average.3d5f2482642f.json",
+  "chain_median": "chain_median.3d5f2482642f.json",
+  "dots": "dots.3d5f2482642f.json",
+  "levels": "levels.3d5f2482642f.json"
  }
 }
