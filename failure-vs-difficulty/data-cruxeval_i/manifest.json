@@ -1,9 +1,9 @@
 {
- "fingerprint": "c403fc69b15c",
+ "fingerprint": "8457499a9578",
  "fingerprint_inputs": {
   "content": "d4ab72db4284",
   "wave": "cruxeval_i-live",
-  "body": "bd98e88a9ab8"
+  "body": "6417a4f5c7ea"
  },
  "frame": {
   "dataset": "cruxeval_i",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ceaae2d92751",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "59b78c76bff9",
+  "runs_fingerprint": "4ddc9e7d76dc",
   "axis_wave": "cruxeval_i-live",
   "build_date": "2026-10-15",
-  "stamp": "2026-10-15T02:12:23Z",
+  "stamp": "2026-10-15T14:01:56Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/cruxeval_i",
-   "unified_built_at": "2026-10-15T01:59:54Z",
+   "unified_built_at": "2026-10-15T13:45:37Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.cruxeval_i.csv"
@@ -215,6 +215,30 @@
    "Qwen/Qwen3-32B-Thinking": {
     "tasks": 800,
     "of": 800
+   },
+   "claude-haiku-4-5@refusals-as-failures": {
+    "tasks": 800,
+    "of": 800
+   },
+   "claude-haiku-4-5-thinking@refusals-as-failures": {
+    "tasks": 800,
+    "of": 800
+   },
+   "claude-sonnet-5@refusals-as-failures": {
+    "tasks": 800,
+    "of": 800
+   },
+   "claude-sonnet-5-thinking@refusals-as-failures": {
+    "tasks": 800,
+    "of": 800
+   },
+   "claude-opus-5@refusals-as-failures": {
+    "tasks": 795,
+    "of": 800
+   },
+   "claude-opus-5-thinking@refusals-as-failures": {
+    "tasks": 795,
+    "of": 800
    }
   },
   "scorer": "unified results: passes/n per configuration x task (board results under plus_status; pool results \u00a71b-valid), Definitions' unified frame",
@@ -250,7 +274,7 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/nb-cruxeval_i-20261005T1138Z/view_v4/results",
    "set_fingerprint": "25c5b100f1d8",
-   "pointer_updated_at": "2026-10-14T12:49:25Z",
+   "pointer_updated_at": "2026-10-15T13:02:36Z",
    "n_fits": 56,
    "note": null,
    "gates": {
@@ -282,7 +306,7 @@
    "dataset": "cruxeval_i",
    "cleaned": {},
    "concentration_counts": {
-    "inputs unavailable for this served set (pre-31g custody copy)": 45
+    "inputs unavailable for this served set (pre-31g custody copy)": 51
    },
    "readings": {
     "source": {
@@ -312,9 +336,25 @@
     "n_arms_without_line": 0
    },
    "drawn": 41,
+   "second_configurations": {
+    "n": 6,
+    "n_same_as_served": 2,
+    "suffix": "@refusals-as-failures",
+    "reading": "refusals_counted_as_failures",
+    "file": "definitions/fitting/knowledge/as_judged_nb_second_configuration_of_record_20261015.json",
+    "sha16": "f4452eca9dea698a",
+    "ids": [
+     "claude-haiku-4-5-thinking@refusals-as-failures",
+     "claude-haiku-4-5@refusals-as-failures",
+     "claude-opus-5-thinking@refusals-as-failures",
+     "claude-opus-5@refusals-as-failures",
+     "claude-sonnet-5-thinking@refusals-as-failures",
+     "claude-sonnet-5@refusals-as-failures"
+    ]
+   },
    "levels_file": {
     "file": "levels",
-    "configs": 41,
+    "configs": 47,
     "note": "the per-level crossing tables of every element of record (the median over the draws of each draw's crossing of each failure-rate level, its 10th to 90th band, the censored shares), thinned to every second level; read by the shell only under the drawing of the crossings' medians at each level"
    }
   },
@@ -383,7 +423,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-15T01:25:21Z",
+   "_stamp": "2026-10-15T13:28:00Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -548,10 +588,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-15T00:11:26Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261015T001126Z.json",
-   "sha16": "700bdf801170b3fd",
-   "census_mtime": "2026-10-15T00:12:21Z",
+   "stamp": "2026-10-15T11:31:53Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261015T113153Z.json",
+   "sha16": "7d53d29a124bfded",
+   "census_mtime": "2026-10-15T11:33:11Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
@@ -568,10 +608,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.c403fc69b15c.json",
-  "chain_average": "chain_average.c403fc69b15c.json",
-  "chain_median": "chain_median.c403fc69b15c.json",
-  "dots": "dots.c403fc69b15c.json",
-  "levels": "levels.c403fc69b15c.json"
+  "shared": "shared.8457499a9578.json",
+  "chain_average": "chain_average.8457499a9578.json",
+  "chain_median": "chain_median.8457499a9578.json",
+  "dots": "dots.8457499a9578.json",
+  "levels": "levels.8457499a9578.json"
  }
 }
