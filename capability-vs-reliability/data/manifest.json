@@ -82,33 +82,33 @@
   },
   "new": {
    "files": {
-    "shared": "shared.new.bbf346b4923c.json",
-    "chain_average": "chain_average.new.bbf346b4923c.json"
+    "shared": "shared.new.37a2c8b85285.json",
+    "chain_average": "chain_average.new.37a2c8b85285.json"
    },
    "label": "wave 2 and wave 2 parked",
-   "fingerprint": "bbf346b4923c",
+   "fingerprint": "37a2c8b85285",
    "frame": {
     "population_M": 61,
     "tasks": 1737,
     "keep_set_hash": "abc6c6e65227",
-    "runs_fingerprint": "bbf346b4923c",
-    "runs_window": "2026-10-15T07:56:41Z",
+    "runs_fingerprint": "37a2c8b85285",
+    "runs_window": "2026-10-15T08:51:07Z",
     "build_date": "2026-10-15",
-    "build_ts": "2026-10-15T08:17:53Z",
+    "build_ts": "2026-10-15T09:17:06Z",
     "vocab_ruled": "2026-08-27",
     "set": "new",
     "set_label": "wave 2 and wave 2 parked",
     "tasks_used": "wave 2 and wave 2 parked \u2014 1737 tasks, axis wave combined-20260903T1502Z",
-    "source": "pool-pages-lead build_pool_curves.py stamp 2026-10-15T08:17:53+00:00 \u00b7 cross_rows on lev_grid f3d40b6fb872",
+    "source": "pool-pages-lead build_pool_curves.py stamp 2026-10-15T09:17:06+00:00 \u00b7 cross_rows on lev_grid f3d40b6fb872",
     "skipped_no_rows": []
    },
-   "source_stamp": "2026-10-15T08:17:53+00:00",
+   "source_stamp": "2026-10-15T09:17:06+00:00",
    "missing": {
     "chain_median": "the median-task chain needs the pool's per-task results, which the pool bundle does not carry",
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-15T09:11:46Z"
+   "updated_at": "2026-10-15T09:28:16Z"
   },
   "all": {
    "files": {
@@ -577,7 +577,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-10-15T08:25:40Z",
+  "stamp": "2026-10-15T09:25:37Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,
