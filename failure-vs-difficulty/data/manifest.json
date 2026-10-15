@@ -1,5 +1,5 @@
 {
- "fingerprint": "237fe8dfa582",
+ "fingerprint": "657882a08289",
  "frame": {
   "population_M": 62,
   "tasks": 430,
@@ -99,7 +99,7 @@
   "scorer": "plus_status (a sample counts as solved if its plus run passed; difficulty ruled base AND plus on 2026-09-02 \u2014 the switch of served numbers waits for the project owner's gate; under base AND plus a result can read differently, e.g. Mbpp/274 for Qwen3-30B-A3B: 128 passes here vs 127)",
   "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\\t<task>\\t<passes>\\t<attempts>\\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column verbatim; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) \u2014 reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
   "build_date": "2026-10-15",
-  "built_at": "2026-10-15T12:26:59Z",
+  "built_at": "2026-10-15T13:02:42Z",
   "vocab_ruled": "2026-08-27",
   "counts_of_record": {
    "original_kept": 430,
@@ -369,13 +369,13 @@
    "openai/gpt-5-nano": "20260907T154051Z",
    "openai/gpt-5-mini": "20260907T154051Z"
   },
-  "newest_input_mtime": "2026-10-15T12:29:35Z"
+  "newest_input_mtime": "2026-10-15T12:58:56Z"
  },
  "files": {
-  "shared": "shared.237fe8dfa582.json",
-  "chain_average": "chain_average.237fe8dfa582.json",
-  "chain_median": "chain_median.237fe8dfa582.json",
-  "dots": "dots.237fe8dfa582.json",
-  "levels": "levels.237fe8dfa582.json"
+  "shared": "shared.657882a08289.json",
+  "chain_average": "chain_average.657882a08289.json",
+  "chain_median": "chain_median.657882a08289.json",
+  "dots": "dots.657882a08289.json",
+  "levels": "levels.657882a08289.json"
  }
 }
