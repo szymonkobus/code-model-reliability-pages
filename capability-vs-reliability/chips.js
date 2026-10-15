@@ -81,17 +81,55 @@ function placeUnmeasured(order) {
   });
   return out;
 }
+
+
+
+
+
+var TIER_FAMS = { 'Claude': 1, 'GPT-5': 1, 'Gemini': 1 };
+var BASE_SPLIT = /\s*(?:\(|·|—|–|:|\|)|\s+(?=(?:thinking|think|chat|fine-?tune[sd]?|arm|rl|re-?run|rerun|raw|coverage|solutions?|code|maths?|math|sft|dpo|grpo|lora|tuned|trained)\b)|-(?=(?:think|thinking|chat|rl|sft|dpo)\b)/i;
+function registryBase(label) { return String(label || '').toLowerCase().split(BASE_SPLIT)[0].replace(/[\s,;:·—–-]+$/, '').replace(/\s+/g, ' ').trim().replace(/^claude\s+/, ''); }
+function idxOfId(id) { for (var k = 0; k < D.shared.configs.length; k++) if (D.shared.configs[k].id === id) return k; return -1; }
+function rootIdx(i) { var cur = i, seen = {}; for (var t = 0; t < 6; t++) { var c = D.shared.configs[cur]; if (!c || !c.model || c.model === c.id || seen[cur]) break; seen[cur] = 1; var j = idxOfId(c.model); if (j < 0) break; cur = j; } return cur; }
+function ladderRanks(heads, fam, reg) {   
+  var out = {}, tier = {}, regs = [];
+  heads.forEach(function (i) { var root = D.shared.configs[rootIdx(i)]; var r = reg[registryBase(root.label)], t = tierKey(root.label, fam); tier[i] = t; if (typeof r === 'number') { out[i] = r; if (t !== null) regs.push({ t: t, reg: r }); } });
+  if (!regs.length) { heads.forEach(function (i) { out[i] = null; }); return out; }
+  heads.forEach(function (i) { if (out[i] !== undefined) return; var t = tier[i]; if (t === null) { out[i] = null; return; }
+    var same = regs.filter(function (g) { return g.t === t; })[0]; if (same) { out[i] = same.reg; return; }
+    var below = regs.filter(function (g) { return g.t < t; }).sort(function (a, b) { return b.t - a.t; })[0], above = regs.filter(function (g) { return g.t > t; }).sort(function (a, b) { return a.t - b.t; })[0];
+    out[i] = below && above ? (below.reg + above.reg) / 2 : below ? below.reg + 0.5 : above.reg - 0.5; });
+  return out;
+}
+function unitsOf(seq) {   
+  var units = [], cur = null, heads = variantsAfterBase.heads || {};
+  seq.forEach(function (i) { if (heads[i] || !cur) { cur = { head: i, members: [i] }; units.push(cur); } else cur.members.push(i); });
+  return units;
+}
+function ladderWithinTierFamilies(seq) {
+  var R = D.shared.registry_ranks; if (!R || typeof R !== 'object') return seq;
+  var units = unitsOf(seq), slotsOf = {}, out = units.slice();
+  units.forEach(function (u, pos) { var c = D.shared.configs[u.head]; if (c && TIER_FAMS[c.fam] && R[c.fam]) (slotsOf[c.fam] = slotsOf[c.fam] || []).push(pos); });
+  Object.keys(slotsOf).forEach(function (fam) {
+    var slots = slotsOf[fam], heads = slots.map(function (pos) { return units[pos].head; }), rk = ladderRanks(heads, fam, R[fam]), pos0 = {};
+    slots.forEach(function (pos) { pos0[units[pos].head] = pos; });
+    var ranked = heads.filter(function (h) { return typeof rk[h] === 'number'; }).sort(function (a, b) { return (rk[a] - rk[b]) || (pos0[a] - pos0[b]); });
+    var rankedSlots = slots.filter(function (pos) { return typeof rk[units[pos].head] === 'number'; });
+    rankedSlots.forEach(function (pos, k) { out[pos] = units[pos0[ranked[k]]]; });
+  });
+  var flat = []; out.forEach(function (u) { flat.push.apply(flat, u.members); }); return flat;
+}
 function capOrder(indices) {
   if (PANELS) {   
     var bySize = indices.slice().sort(function (a, b) { var sa = sizeOf(D.shared.configs[a].label), sb = sizeOf(D.shared.configs[b].label); return sa === sb ? a - b : (sa < sb ? -1 : 1); });
-    return variantsAfterBase(famOrder(bySize));
+    return ladderWithinTierFamilies(variantsAfterBase(famOrder(bySize)));   
   }
   var out = indices.slice().sort(function (a, b) {
     var ka = capKey(a), kb = capKey(b); ka = isFinite(ka) ? ka : 1e9; kb = isFinite(kb) ? kb : 1e9;
     if (ka !== kb) return ka - kb;
     return D.shared.configs[a].label < D.shared.configs[b].label ? -1 : 1;
   });
-  return variantsAfterBase(placeUnmeasured(out));   
+  return ladderWithinTierFamilies(variantsAfterBase(placeUnmeasured(out)));   
 }
 
 
@@ -115,10 +153,10 @@ function variantsAfterBase(order) {
     else { var base = variantBase(c.label); baseIdx = (base && base !== c.label && byLabel[base] !== undefined && byLabel[base] !== i) ? byLabel[base] : undefined; }
     if (baseIdx !== undefined && baseIdx !== i) { (after[baseIdx] = after[baseIdx] || []).push(i); placed[i] = true; }
   });
-  var out = [], seen = {};
+  var out = [], seen = {}, heads = {}; variantsAfterBase.heads = heads;   
   function emit(i) { if (seen[i]) return; seen[i] = true; out.push(i); var vs = after[i] || [], id = D.shared.configs[i].id; vs.filter(function (v) { return D.shared.configs[v].model === id; }).forEach(emit); vs.filter(function (v) { return D.shared.configs[v].model !== id; }).forEach(emit); }
-  order.forEach(function (i) { if (!placed[i]) emit(i); });
-  order.forEach(function (i) { if (!seen[i]) emit(i); });   
+  order.forEach(function (i) { if (!placed[i]) { heads[i] = true; emit(i); } });
+  order.forEach(function (i) { if (!seen[i]) { heads[i] = true; emit(i); } });   
   return out;
 }
 
@@ -283,12 +321,13 @@ function namesOverlayLoad(mount) {
   var base = (typeof window !== 'undefined' && window.MIRROR_MOUNT) ? (window.MIRROR_NAMES_BASE || './') : mount;
   return fetch(base + 'data/names-manifest.json', { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; })
     .then(function (m) { mf = m; return (m && m.file) ? fetch(base + 'data/' + String(m.file).replace(/[^A-Za-z0-9_.-]/g, '')).then(function (r) { return r.ok ? r.json() : null; }) : null; })
-    .then(function (o) { var names = o && o.names; return (names && typeof names === 'object') ? { names: names, file: String((mf && mf.file) || ''), labels_sha12: o.labels_sha12 || null } : null; })
+    .then(function (o) { var names = o && o.names; return (names && typeof names === 'object') ? { names: names, file: String((mf && mf.file) || ''), labels_sha12: o.labels_sha12 || null, ranks: (o.ranks && typeof o.ranks === 'object') ? o.ranks : null } : null; })
     .catch(function () { return null; });
 }
 function namesOverlayApply(ov, shared, runRaw) {   
   if (!ov || !ov.names) return 0;
   var names = ov.names, moved = 0;
+  if (shared && ov.ranks) shared.registry_ranks = ov.ranks;   
   ((shared && shared.configs) || []).forEach(function (c) { var n = names[c.id]; if (n && typeof n.label === 'string' && n.label && c.label !== n.label) { c.label_bundle = c.label; c.label = n.label; moved++; } });
   var sets = runRaw ? ((runRaw.sets && runRaw.sets.length) ? runRaw.sets : (runRaw.configs ? [runRaw] : [])) : [];
   sets.forEach(function (s) {
