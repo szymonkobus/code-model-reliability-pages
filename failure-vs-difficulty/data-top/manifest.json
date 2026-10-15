@@ -1,9 +1,9 @@
 {
- "fingerprint": "92c0e78641b6",
+ "fingerprint": "3caf08044e0b",
  "fingerprint_inputs": {
-  "content": "f7259ca369d7",
+  "content": "95550fa8322a",
   "wave": "pool-20260910T2244Z",
-  "body": "97b45a40584e"
+  "body": "50ccca79b027"
  },
  "frame": {
   "dataset": "top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 63,
   "tasks": 858,
   "keep_set_hash": "532d0efad8a5",
-  "inputs_content_sha": "f7259ca369d7",
+  "inputs_content_sha": "95550fa8322a",
   "tasks_on_axis": 858,
   "tasks_kept": 858,
   "tasks_awaiting_axis": 0,
@@ -34,17 +34,17 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "dc767f056514",
+  "runs_fingerprint": "54f58a636d4c",
   "axis_wave": "pool-20260910T2244Z",
   "build_date": "2026-10-15",
-  "stamp": "2026-10-15T13:27:16Z",
+  "stamp": "2026-10-15T14:57:44Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-15T11:32:35Z",
+   "unified_built_at": "2026-10-15T14:20:18Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.top.csv"
@@ -427,6 +427,7 @@
     "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
     "deepseek-ai/DeepSeek-R1-Distill-Qwen-32B",
     "deepseek-ai/DeepSeek-V3.2",
+    "google/gemma-4-12B-it",
     "moonshotai/Kimi-Dev-72B",
     "moonshotai/Kimi-K2-Instruct",
     "moonshotai/Kimi-Linear-48B-A3B-Instruct",
@@ -459,7 +460,7 @@
     "unclassified (no easy-third failures)": 1
    },
    "readings": null,
-   "drawn": 55,
+   "drawn": 57,
    "levels_file": {
     "file": "levels",
     "configs": 57,
@@ -905,7 +906,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-15T13:28:00Z",
+   "_stamp": "2026-10-15T14:26:22Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1070,20 +1071,20 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-15T10:09:03Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261015T100903Z.json",
-   "sha16": "d4c2974253e9f967",
-   "census_mtime": "2026-10-15T10:10:38Z",
+   "stamp": "2026-10-15T11:31:53Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261015T113153Z.json",
+   "sha16": "7d53d29a124bfded",
+   "census_mtime": "2026-10-15T11:33:11Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.92c0e78641b6.json",
-  "chain_average": "chain_average.92c0e78641b6.json",
-  "chain_median": "chain_median.92c0e78641b6.json",
-  "dots": "dots.92c0e78641b6.json",
-  "levels": "levels.92c0e78641b6.json"
+  "shared": "shared.3caf08044e0b.json",
+  "chain_average": "chain_average.3caf08044e0b.json",
+  "chain_median": "chain_median.3caf08044e0b.json",
+  "dots": "dots.3caf08044e0b.json",
+  "levels": "levels.3caf08044e0b.json"
  }
 }
