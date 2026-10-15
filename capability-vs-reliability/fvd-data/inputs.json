@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-10-14T23:53:07Z",
+ "generated_at": "2026-10-15T00:06:51Z",
  "builder": "pages/failure-vs-difficulty/build_curves_site_data.py",
  "outputs": [
-  "pages/failure-vs-difficulty/curves-site/data/chain_average.7f4ed62928e4.json",
-  "pages/failure-vs-difficulty/curves-site/data/chain_median.7f4ed62928e4.json",
-  "pages/failure-vs-difficulty/curves-site/data/dots.7f4ed62928e4.json",
-  "pages/failure-vs-difficulty/curves-site/data/levels.7f4ed62928e4.json",
+  "pages/failure-vs-difficulty/curves-site/data/chain_average.333289acba91.json",
+  "pages/failure-vs-difficulty/curves-site/data/chain_median.333289acba91.json",
+  "pages/failure-vs-difficulty/curves-site/data/dots.333289acba91.json",
+  "pages/failure-vs-difficulty/curves-site/data/levels.333289acba91.json",
   "pages/failure-vs-difficulty/curves-site/data/manifest.json",
-  "pages/failure-vs-difficulty/curves-site/data/shared.7f4ed62928e4.json"
+  "pages/failure-vs-difficulty/curves-site/data/shared.333289acba91.json"
  ],
  "inputs": [
   {
@@ -830,7 +830,7 @@
    "Bayesian serving-pointer flip (fitting's ping -> pointer-flip chain)",
    "registry/palette or wording ruling touching plot_difficulty.py",
    "hold-register move flagged on the /plots stamp (fail-matrix rebuild)",
-   "consumed canon eval file moved -> watch_and_reland.sh relaunches the full chain (checked every 20 min, one chain at a time; Szymon 2026-09-03: continuously)"
+   "consumed canon eval file moved -> watch_and_reland.sh relaunches the full chain (checked every 20 min, one chain at a time; the project owner 2026-09-03: continuously)"
   ],
   "freshness_rule": "an input newer than generated_at is stale only when its change is one of the triggers above and no rebuild followed; judge by trigger, not by interval"
  },
