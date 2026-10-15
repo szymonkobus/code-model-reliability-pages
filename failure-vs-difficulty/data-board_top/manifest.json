@@ -1,9 +1,9 @@
 {
- "fingerprint": "bb3c79203b9f",
+ "fingerprint": "0950cf419f4e",
  "fingerprint_inputs": {
   "content": "9c6397d636ad",
   "wave": "combined-20260910T2209Z",
-  "body": "e32f18b3ad4f"
+  "body": "7f469cf2ff50"
  },
  "frame": {
   "dataset": "board_top",
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "162924a9a14d",
+  "runs_fingerprint": "9b5d9b4a8522",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-15",
-  "stamp": "2026-10-15T06:48:35Z",
+  "stamp": "2026-10-15T07:17:35Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -132,7 +132,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-15T06:16:17Z",
+   "unified_built_at": "2026-10-15T07:16:20Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -460,7 +460,7 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/board_top-20260910T2111Z/results",
    "set_fingerprint": "030de536de92",
-   "pointer_updated_at": "2026-10-14T19:48:49Z",
+   "pointer_updated_at": "2026-10-15T07:16:35Z",
    "n_fits": 63,
    "note": null,
    "gates": {
@@ -1206,10 +1206,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-15T04:52:07Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261015T045207Z.json",
-   "sha16": "5592e458aeefec26",
-   "census_mtime": "2026-10-15T04:53:11Z",
+   "stamp": "2026-10-15T06:12:58Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261015T061258Z.json",
+   "sha16": "b87cc4db7217188c",
+   "census_mtime": "2026-10-15T06:13:49Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
@@ -1278,10 +1278,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.bb3c79203b9f.json",
-  "chain_average": "chain_average.bb3c79203b9f.json",
-  "chain_median": "chain_median.bb3c79203b9f.json",
-  "dots": "dots.bb3c79203b9f.json",
-  "levels": "levels.bb3c79203b9f.json"
+  "shared": "shared.0950cf419f4e.json",
+  "chain_average": "chain_average.0950cf419f4e.json",
+  "chain_median": "chain_median.0950cf419f4e.json",
+  "dots": "dots.0950cf419f4e.json",
+  "levels": "levels.0950cf419f4e.json"
  }
 }
