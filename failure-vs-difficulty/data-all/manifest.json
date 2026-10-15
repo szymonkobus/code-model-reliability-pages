@@ -1,9 +1,9 @@
 {
- "fingerprint": "dabf40729dd7",
+ "fingerprint": "eda53240ec90",
  "fingerprint_inputs": {
   "content": "8d796b968c83",
   "wave": "unified-live",
-  "body": "1e4edc1a81f3"
+  "body": "64f2921867b3"
  },
  "frame": {
   "dataset": "all",
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "4fbc1921e831",
+  "runs_fingerprint": "baa6d2c0bc2c",
   "axis_wave": "unified-live",
   "build_date": "2026-10-15",
-  "stamp": "2026-10-15T00:30:54Z",
+  "stamp": "2026-10-15T01:20:19Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -131,7 +131,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-15T00:16:38Z",
+   "unified_built_at": "2026-10-15T01:17:22Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -1149,20 +1149,20 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-14T23:09:45Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261014T230945Z.json",
-   "sha16": "f3684c19eac231f5",
-   "census_mtime": "2026-10-14T23:11:20Z",
+   "stamp": "2026-10-15T00:11:26Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261015T001126Z.json",
+   "sha16": "700bdf801170b3fd",
+   "census_mtime": "2026-10-15T00:12:21Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.dabf40729dd7.json",
-  "chain_average": "chain_average.dabf40729dd7.json",
-  "chain_median": "chain_median.dabf40729dd7.json",
-  "dots": "dots.dabf40729dd7.json",
-  "levels": "levels.dabf40729dd7.json"
+  "shared": "shared.eda53240ec90.json",
+  "chain_average": "chain_average.eda53240ec90.json",
+  "chain_median": "chain_median.eda53240ec90.json",
+  "dots": "dots.eda53240ec90.json",
+  "levels": "levels.eda53240ec90.json"
  }
 }
