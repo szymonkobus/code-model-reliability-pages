@@ -86,13 +86,16 @@ function placeUnmeasured(order) {
 
 
 
+
 var TIER_FAMS = { 'Claude': 1, 'GPT-5': 1, 'Gemini': 1 };
 var BASE_SPLIT = /\s*(?:\(|·|—|–|:|\|)|\s+(?=(?:thinking|think|chat|fine-?tune[sd]?|arm|rl|re-?run|rerun|raw|coverage|solutions?|code|maths?|math|sft|dpo|grpo|lora|tuned|trained)\b)|-(?=(?:think|thinking|chat|rl|sft|dpo)\b)/i;
 function registryBase(label) { return String(label || '').toLowerCase().split(BASE_SPLIT)[0].replace(/[\s,;:·—–-]+$/, '').replace(/\s+/g, ' ').trim().replace(/^claude\s+/, ''); }
 function idxOfId(id) { for (var k = 0; k < D.shared.configs.length; k++) if (D.shared.configs[k].id === id) return k; return -1; }
 function rootIdx(i) { var cur = i, seen = {}; for (var t = 0; t < 6; t++) { var c = D.shared.configs[cur]; if (!c || !c.model || c.model === c.id || seen[cur]) break; seen[cur] = 1; var j = idxOfId(c.model); if (j < 0) break; cur = j; } return cur; }
+function sizeRank(label) { var s = String(label || ''); if (/b-a\d/i.test(s)) return null; var m = /(\d+(?:\.\d+)?)\s?b\b/i.exec(s); return m ? parseFloat(m[1]) : null; }   
 function ladderRanks(heads, fam, reg) {   
   var out = {}, tier = {}, regs = [];
+  if (!TIER_FAMS[fam]) { heads.forEach(function (i) { out[i] = sizeRank(D.shared.configs[rootIdx(i)].label); }); return out; }   
   heads.forEach(function (i) { var root = D.shared.configs[rootIdx(i)]; var r = reg[registryBase(root.label)], t = tierKey(root.label, fam); tier[i] = t; if (typeof r === 'number') { out[i] = r; if (t !== null) regs.push({ t: t, reg: r }); } });
   if (!regs.length) { heads.forEach(function (i) { out[i] = null; }); return out; }
   heads.forEach(function (i) { if (out[i] !== undefined) return; var t = tier[i]; if (t === null) { out[i] = null; return; }
@@ -106,30 +109,50 @@ function unitsOf(seq) {
   seq.forEach(function (i) { if (heads[i] || !cur) { cur = { head: i, members: [i] }; units.push(cur); } else cur.members.push(i); });
   return units;
 }
-function ladderWithinTierFamilies(seq) {
-  var R = D.shared.registry_ranks; if (!R || typeof R !== 'object') return seq;
-  var units = unitsOf(seq), slotsOf = {}, out = units.slice();
-  units.forEach(function (u, pos) { var c = D.shared.configs[u.head]; if (c && TIER_FAMS[c.fam] && R[c.fam]) (slotsOf[c.fam] = slotsOf[c.fam] || []).push(pos); });
-  Object.keys(slotsOf).forEach(function (fam) {
-    var slots = slotsOf[fam], heads = slots.map(function (pos) { return units[pos].head; }), rk = ladderRanks(heads, fam, R[fam]), pos0 = {};
+function ladderWithinFamilies(seq) {
+  
+  
+  
+  var R = (D.shared.registry_ranks && typeof D.shared.registry_ranks === 'object') ? D.shared.registry_ranks : null;
+  var units = unitsOf(seq), out = units.slice(), byFam = {};
+  var measured = function (u) { return isFinite(capKey(u.head)); };
+  units.forEach(function (u, pos) { var c = D.shared.configs[u.head]; if (c && c.fam && (!TIER_FAMS[c.fam] || (R && R[c.fam]))) (byFam[c.fam] = byFam[c.fam] || []).push(pos); });
+  Object.keys(byFam).forEach(function (fam) {
+    var slots = byFam[fam].filter(function (pos) { return measured(units[pos]); });
+    var heads = slots.map(function (pos) { return units[pos].head; }), rk = ladderRanks(heads, fam, R ? (R[fam] || {}) : {}), pos0 = {};
     slots.forEach(function (pos) { pos0[units[pos].head] = pos; });
     var ranked = heads.filter(function (h) { return typeof rk[h] === 'number'; }).sort(function (a, b) { return (rk[a] - rk[b]) || (pos0[a] - pos0[b]); });
     var rankedSlots = slots.filter(function (pos) { return typeof rk[units[pos].head] === 'number'; });
     rankedSlots.forEach(function (pos, k) { out[pos] = units[pos0[ranked[k]]]; });
+  });
+  Object.keys(byFam).forEach(function (fam) {
+    var um = byFam[fam].filter(function (pos) { return !measured(units[pos]); }).map(function (pos) { return units[pos]; });
+    if (!um.length) return;
+    var reg = R ? (R[fam] || {}) : {};
+    um.forEach(function (u) {
+      var ms = out.filter(function (v) { var c = D.shared.configs[v.head]; return c && c.fam === fam && measured(v); });
+      var rk = ladderRanks(ms.map(function (v) { return v.head; }).concat([u.head]), fam, reg), r = rk[u.head];
+      if (typeof r !== 'number') return;
+      var pred = null, first = null;
+      ms.forEach(function (v) { var rv = rk[v.head]; if (typeof rv !== 'number') return; if (rv <= r) pred = v; else if (first === null) first = v; });
+      var cur = out.indexOf(u); if (cur < 0 || (!pred && !first)) return;
+      out.splice(cur, 1);
+      out.splice(pred ? out.indexOf(pred) + 1 : out.indexOf(first), 0, u);
+    });
   });
   var flat = []; out.forEach(function (u) { flat.push.apply(flat, u.members); }); return flat;
 }
 function capOrder(indices) {
   if (PANELS) {   
     var bySize = indices.slice().sort(function (a, b) { var sa = sizeOf(D.shared.configs[a].label), sb = sizeOf(D.shared.configs[b].label); return sa === sb ? a - b : (sa < sb ? -1 : 1); });
-    return ladderWithinTierFamilies(variantsAfterBase(famOrder(bySize)));   
+    return ladderWithinFamilies(variantsAfterBase(famOrder(bySize)));   
   }
   var out = indices.slice().sort(function (a, b) {
     var ka = capKey(a), kb = capKey(b); ka = isFinite(ka) ? ka : 1e9; kb = isFinite(kb) ? kb : 1e9;
     if (ka !== kb) return ka - kb;
     return D.shared.configs[a].label < D.shared.configs[b].label ? -1 : 1;
   });
-  return ladderWithinTierFamilies(variantsAfterBase(placeUnmeasured(out)));   
+  return ladderWithinFamilies(variantsAfterBase(placeUnmeasured(out)));   
 }
 
 
