@@ -1,9 +1,9 @@
 {
- "fingerprint": "004d929a7c50",
+ "fingerprint": "d61c84e861ac",
  "fingerprint_inputs": {
-  "content": "9c6397d636ad",
+  "content": "4601ac46bad0",
   "wave": "combined-20260910T2209Z",
-  "body": "4f0897e6aba5"
+  "body": "65aebed7dde4"
  },
  "frame": {
   "dataset": "board_top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 66,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "9c6397d636ad",
+  "inputs_content_sha": "4601ac46bad0",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "9b5d9b4a8522",
+  "runs_fingerprint": "60d7fccd657b",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-15",
-  "stamp": "2026-10-15T09:17:32Z",
+  "stamp": "2026-10-15T09:28:23Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -111,6 +111,7 @@
    "r1d7b-rl-f12-a-step0100-Thinking": 430,
    "r1d7b-rl-f12-alltasks-kl-step0050-Thinking": 430,
    "r1d7b-rl-f12-alltasks-kl-step0100-Thinking": 430,
+   "r1d7b-rl-f12-alltasks-kl-step0250-Thinking": 430,
    "r1d7b-rl-f12-drift-step0025-Thinking": 430,
    "r1d7b-rl-f12-drift-step0050-Thinking": 430,
    "r1d7b-rl-f12-drift5-step0075-Thinking": 430,
@@ -132,7 +133,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-15T08:24:28Z",
+   "unified_built_at": "2026-10-15T09:22:43Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -595,7 +596,7 @@
   "interim": "kernel fits on all results available at build; refit hourly as results land",
   "partial_attempts": null,
   "off_panel": {
-   "n_with_cells": 83,
+   "n_with_cells": 84,
    "arms": [
     {
      "id": "deepseek-coder-6.7b-rl-night1-step250",
@@ -883,6 +884,11 @@
      "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, drawn from all tasks, KL \u00b7 100 steps"
     },
     {
+     "id": "r1d7b-rl-f12-alltasks-kl-step0250-Thinking",
+     "arm_id": "r1d7b-rl-f12-alltasks-kl-s250",
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, drawn from all tasks, KL \u00b7 250 steps"
+    },
+    {
      "id": "r1d7b-rl-f17-alltasks-ent-kl-step0050-Thinking",
      "arm_id": "r1d7b-rl-f17-alltasks-ent-kl-s50",
      "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, drawn from all tasks, entropy control, KL \u00b7 50 steps"
@@ -1028,7 +1034,7 @@
     "qwen35_9b_base_sft_maths_completion"
    ],
    "panel_conflicts": [],
-   "line": "73 study models with results are off the panel; the models with a fit appear in their own block"
+   "line": "74 study models with results are off the panel; the models with a fit appear in their own block"
   },
   "cleaned_arms_unified": [
    "openai/gpt-5-mini",
@@ -1278,10 +1284,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.004d929a7c50.json",
-  "chain_average": "chain_average.004d929a7c50.json",
-  "chain_median": "chain_median.004d929a7c50.json",
-  "dots": "dots.004d929a7c50.json",
-  "levels": "levels.004d929a7c50.json"
+  "shared": "shared.d61c84e861ac.json",
+  "chain_average": "chain_average.d61c84e861ac.json",
+  "chain_median": "chain_median.d61c84e861ac.json",
+  "dots": "dots.d61c84e861ac.json",
+  "levels": "levels.d61c84e861ac.json"
  }
 }
