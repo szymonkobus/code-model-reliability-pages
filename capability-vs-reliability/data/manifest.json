@@ -1,5 +1,5 @@
 {
- "fingerprint": "3ec42afff31c",
+ "fingerprint": "41e81c997e1f",
  "frame": {
   "population_M": 62,
   "tasks": 430,
@@ -18,8 +18,8 @@
   "inputs_content_sha": "802a10f150ae",
   "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\t<task>\t<passes>\t<attempts>\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column verbatim; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) \u2014 reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
   "scorer": "plus_status",
-  "build_date": "2026-10-14",
-  "build_ts": "2026-10-14T17:05:12Z",
+  "build_date": "2026-10-15",
+  "build_ts": "2026-10-15T00:42:39Z",
   "rebuild_condition": "re-pulls when failure-vs-difficulty's board handoff changes (each landing) or the Bayesian/capability_C chains re-emit; frame is a snapshot at build_ts",
   "vocab_ruled": "2026-08-27",
   "fitted_M": 62,
@@ -27,23 +27,23 @@
   "fit_excluded": []
  },
  "files": {
-  "shared": "shared.3ec42afff31c.json",
-  "chain_average": "chain_average.3ec42afff31c.json",
-  "chain_median": "chain_median.3ec42afff31c.json",
-  "bayes": "bayes.3ec42afff31c-012305544cee.json",
+  "shared": "shared.41e81c997e1f.json",
+  "chain_average": "chain_average.41e81c997e1f.json",
+  "chain_median": "chain_median.41e81c997e1f.json",
+  "bayes": "bayes.41e81c997e1f-012305544cee.json",
   "bayes_prev": "bayes.d5fc7b013c92.json"
  },
  "datasets": {
   "board": {
    "files": {
-    "shared": "shared.3ec42afff31c.json",
-    "chain_average": "chain_average.3ec42afff31c.json",
-    "chain_median": "chain_median.3ec42afff31c.json",
-    "bayes": "bayes.3ec42afff31c-012305544cee.json",
+    "shared": "shared.41e81c997e1f.json",
+    "chain_average": "chain_average.41e81c997e1f.json",
+    "chain_median": "chain_median.41e81c997e1f.json",
+    "bayes": "bayes.41e81c997e1f-012305544cee.json",
     "bayes_prev": "bayes.d5fc7b013c92.json"
    },
    "label": "wave 1",
-   "fingerprint": "3ec42afff31c",
+   "fingerprint": "41e81c997e1f",
    "frame": {
     "population_M": 62,
     "tasks": 430,
@@ -62,8 +62,8 @@
     "inputs_content_sha": "802a10f150ae",
     "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\t<task>\t<passes>\t<attempts>\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column verbatim; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) \u2014 reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
     "scorer": "plus_status",
-    "build_date": "2026-10-14",
-    "build_ts": "2026-10-14T17:05:12Z",
+    "build_date": "2026-10-15",
+    "build_ts": "2026-10-15T00:42:39Z",
     "rebuild_condition": "re-pulls when failure-vs-difficulty's board handoff changes (each landing) or the Bayesian/capability_C chains re-emit; frame is a snapshot at build_ts",
     "vocab_ruled": "2026-08-27",
     "fitted_M": 62,
@@ -393,7 +393,7 @@
    },
    "source_stamp": "2026-10-14T22:21:03Z",
    "source_fp": "b5097a9bf4b3",
-   "updated_at": "2026-10-14T22:36:58Z",
+   "updated_at": "2026-10-15T00:36:25Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -447,7 +447,7 @@
    },
    "source_stamp": "2026-10-14T22:12:27Z",
    "source_fp": "84d4d1b345e2",
-   "updated_at": "2026-10-14T22:24:09Z",
+   "updated_at": "2026-10-15T00:38:56Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -501,7 +501,7 @@
    },
    "source_stamp": "2026-10-14T22:16:34Z",
    "source_fp": "d99437b437b6",
-   "updated_at": "2026-10-14T22:25:50Z",
+   "updated_at": "2026-10-15T00:42:15Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -555,7 +555,7 @@
    },
    "source_stamp": "2026-10-14T22:10:20Z",
    "source_fp": "d9ad981b5151",
-   "updated_at": "2026-10-15T00:19:26Z",
+   "updated_at": "2026-10-15T00:43:16Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
