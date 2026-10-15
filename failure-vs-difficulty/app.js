@@ -1941,6 +1941,7 @@ function paintChips() {
     if (c.protocol) parts.push('read by ' + c.protocol + ': the base model continues the prompt, no chat turn');   
     var RWp = readingsBlock(); var ajP = (RWp && bb) ? ajRecordFor(bb, state.def === 'average') : null;   
     if (ajP) { var a50 = ajCell(ajP.d50), a1 = ajCell(ajP.d1); parts.push(RWp.beside.label + ': D50 ' + (a50 ? a50.num : '*') + ', D99 ' + (a1 ? a1.num : '*') + ' (difficulty %)' + (ajP.gate_flag ? '; ' + ajP.gate_flag : '')); }
+    var crP = bb && bb.cross_record; if (crP) { ['d50', 'd1'].forEach(function (lv) { var cz = bandNoteCause(crP[lv]); if (cz) parts.push((lv === 'd1' ? 'D99' : 'D50') + ' band: ' + cz); }); }   
     if (parts.length) {
       var full = noSpecTags(parts.join(' · ')); if (c.notes_flags && c.notes_flags.length) full += ' · ' + c.notes_flags.map(function (nf) { return noSpecTags(nf.hover || ''); }).join(' · '); b.dataset.state = full;   
       var lead = parts[0];   
@@ -2116,17 +2117,25 @@ function crossingRate(isAvg) { return isAvg ? 'average failure rate' : 'median t
 
 
 
-function crossingWords(lvl, isAvg, rule) {   
+function crossingWords(lvl, isAvg, rule, form) {   
   return crossingName(lvl) + ' is the difficulty at which the fitted ' + crossingRate(isAvg) + ' crosses ' + (lvl === '1' ? '1%' : '50%')
     + (rule === 'first' ? ': the median over the fit\'s draws of each draw\'s first upward crossing'
                         : ': the median over the fit\'s draws of each draw\'s own crossing, the middle one where a draw crosses the level several times')
-    + '; its uncertainty band holds 80% of those crossings.';   
+    + (form === 'shortest80' ? '; its uncertainty band the shortest range holding 80% of those crossings.'   
+       : form === 'mixed' ? '; its uncertainty band the shortest range holding 80% of those crossings, or their 10th to 90th percentiles where a fifth or more of the draws are censored on one side (the cell\'s hover says which).'
+       : form === 'equal_tailed' ? '; its uncertainty band the 10th to 90th percentiles of those crossings.'
+       : '; its uncertainty band holds 80% of those crossings.');   
 }
+function tableBandForm(nShort, nEq) { return nShort && nEq ? 'mixed' : nShort ? 'shortest80' : nEq ? 'equal_tailed' : null; }   
 function crossingHover(lvl, isAvg, rule) {   
   return crossingName(lvl) + ' \u2014 where the fitted ' + crossingRate(isAvg) + ' crosses ' + (lvl === '1' ? '1%' : '50%')
     + (rule === 'first' ? ': the median of the draws\' first upward crossings' : ': the median of the draws\' own crossings, the middle one where a draw crosses several times');
 }
 var BAND_WORDS = ', holding 80% of the draws\' crossings';   
+var BAND_WORDS_SHORTEST = ', the shortest range holding 80% of the draws\' crossings';   
+var BAND_WORDS_EQUAL = ', the 10th to 90th percentiles of the draws\' crossings';   
+function bandWords(r) { var f = r && r.band_form; return f === 'shortest80' ? BAND_WORDS_SHORTEST : f === 'equal_tailed' ? BAND_WORDS_EQUAL : BAND_WORDS; }   
+function bandWordsShort(r) { var f = r && r.band_form; return f === 'shortest80' ? ', the shortest 80% range of the draws\' crossings' : f === 'equal_tailed' ? ', the 10th to 90th percentiles' : BAND_WORDS; }   
 
 
 
@@ -2152,7 +2161,16 @@ function readingsSentence(n) {
 }
 function bandHover(r) {   
   var band = 'uncertainty band ' + pct(r.lo).toFixed(1) + ' to ' + pct(r.hi).toFixed(1) + ' (difficulty %)';
-  return r.rule === 'first' ? 'the median of the draws\' first upward crossings \u00b7 ' + band + ', holding 80% of those crossings' : band + BAND_WORDS;
+  var note = bandNoteClause(r), tail = note ? (r.rule === 'first' ? '' : bandWordsShort(r)) : bandWords(r);   
+  return (r.rule === 'first' ? 'the median of the draws\' first upward crossings \u00b7 ' : '') + band + tail + note;
+}
+function bandNoteClause(r) {   
+  var bn = r && r.band_note; if (!bn || bn.share == null || !bn.side) return '';
+  var sh = Math.round(Number(bn.share) * 100); if (!(sh > 0)) return '';
+  return '; ' + sh + '% of the draws lie a band width or more past the ' + String(bn.side) + ' end';
+}
+function bandNoteCause(rec) {   
+  var bn = rec && rec.band_note; return (bn && bn.cause) ? String(bn.cause) : '';
 }
 function tableRule(nRows, nFirst) { return nRows && nFirst === nRows ? 'first' : 'middle'; }   
 function firstUp(zs, ys, L) {   
@@ -2247,15 +2265,17 @@ function crossingsTable(visible) {
   var hov1 = isB ? crossingHover('1', isAvg)
                  : 'where the ' + estWord + ' of the ' + rateWord + ' ' + crossV + ' 1% (' + chainWord + '); D99, the fitted curve\'s, is under the Bayesian estimator';
   var nRowsR = 0, nFirstR = 0, nAjR = 0;   
+  var nShort50 = 0, nEq50 = 0, nShort1 = 0, nEq1 = 0;   
   var nLevR = 0, nNoLevR = 0;   
   var h = document.createElement('p');
   var readoutWords = function () {   
     var tr = tableRule(nRowsR, nFirstR);
     if (isB) { hov50 = crossingHover('50', isAvg, tr); hov1 = crossingHover('1', isAvg, tr); }
     h.innerHTML = isB
-      ? '<span data-chain-val>' + crossingWords('50', isAvg, tr) + '</span> ' + crossingWords('1', isAvg, tr)   
+      ? '<span data-chain-val>' + crossingWords('50', isAvg, tr, tableBandForm(nShort50, nEq50)) + '</span> ' + crossingWords('1', isAvg, tr, tableBandForm(nShort1, nEq1))   
         + (tr === 'middle' && nFirstR ? ' On ' + nFirstR + ' of these curves each draw\'s first upward crossing is taken rather than the middle one; their hovers say so.' : '')
-        + (nLevR ? ' The drawn curve passes through the printed numbers: at each failure-rate level it is the median over the fit\'s draws of each draw\'s crossing of that level, its uncertainty band the 10th to 90th percentiles, and it ends where a level\'s median is censored.'
+        + (nLevR ? ' The drawn curve passes through the printed numbers: at each failure-rate level it is the median over the fit\'s draws of each draw\'s crossing of that level, its drawn band the 10th to 90th percentiles of those crossings, and it ends where a level\'s median is censored.'
+                   + ((nShort50 || nShort1) ? ' The printed D50 and D99 bands are the shortest range holding 80% of the crossings at those two levels, so there the drawn band\'s edges differ from the printed band\'s.' : '')   
                    + (nNoLevR ? ' For ' + nNoLevR + ' of these curves no such table exists and the drawn curve is the median of the draws\' curves at each difficulty.' : '') + ' '
                  : ' The drawn curve is the median of the draws\' curves at each difficulty, so where it crosses a level can differ from the printed number. ')   
         + (nAjR ? readingsSentence(nAjR) + ' ' : '')   
@@ -2293,6 +2313,7 @@ function crossingsTable(visible) {
         var recSrc = bbT ? (isAvg ? bbT.cross_record : bbT.cross_record_med) : null;
         var rec = recSrc ? recSrc[lvl === '1' ? 'd1' : 'd50'] : null;
         if (lvl === '1') { nRowsR++; if (rec && rec.rule === 'first') nFirstR++; if (DRAW_LEVELS && D.levels) { if (rowLevelsBlock(c.id)) nLevR++; else nNoLevR++; } }   
+        var bfR = rec && rec.band_form; if (bfR === 'shortest80') { if (lvl === '1') nShort1++; else nShort50++; } else if (bfR === 'equal_tailed') { if (lvl === '1') nEq1++; else nEq50++; }   
         var defWord = isAvg ? '' : 'median-task definition · ';   
         
         if (rec && rec.status_kind === 'bound' && (rec.bound != null || rec.z != null)) {
