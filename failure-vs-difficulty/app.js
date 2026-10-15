@@ -2120,13 +2120,13 @@ function crossingWords(lvl, isAvg, rule) {
   return crossingName(lvl) + ' is the difficulty at which the fitted ' + crossingRate(isAvg) + ' crosses ' + (lvl === '1' ? '1%' : '50%')
     + (rule === 'first' ? ': the median over the fit\'s draws of each draw\'s first upward crossing'
                         : ': the median over the fit\'s draws of each draw\'s own crossing, the middle one where a draw crosses the level several times')
-    + '; its uncertainty band the 10th to 90th percentiles of those crossings.';   
+    + '; its uncertainty band holds 80% of those crossings.';   
 }
 function crossingHover(lvl, isAvg, rule) {   
   return crossingName(lvl) + ' \u2014 where the fitted ' + crossingRate(isAvg) + ' crosses ' + (lvl === '1' ? '1%' : '50%')
     + (rule === 'first' ? ': the median of the draws\' first upward crossings' : ': the median of the draws\' own crossings, the middle one where a draw crosses several times');
 }
-var BAND_WORDS = ', the 10th to 90th percentiles of the draws\' crossings';   
+var BAND_WORDS = ', holding 80% of the draws\' crossings';   
 
 
 
@@ -2152,7 +2152,7 @@ function readingsSentence(n) {
 }
 function bandHover(r) {   
   var band = 'uncertainty band ' + pct(r.lo).toFixed(1) + ' to ' + pct(r.hi).toFixed(1) + ' (difficulty %)';
-  return r.rule === 'first' ? 'the median of the draws\' first upward crossings \u00b7 ' + band + ', the 10th to 90th percentiles of those crossings' : band + BAND_WORDS;
+  return r.rule === 'first' ? 'the median of the draws\' first upward crossings \u00b7 ' + band + ', holding 80% of those crossings' : band + BAND_WORDS;
 }
 function tableRule(nRows, nFirst) { return nRows && nFirst === nRows ? 'first' : 'middle'; }   
 function firstUp(zs, ys, L) {   
