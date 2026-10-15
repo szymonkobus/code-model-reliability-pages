@@ -1,9 +1,9 @@
 {
- "fingerprint": "deadb89793df",
+ "fingerprint": "2e7e7aa847c9",
  "fingerprint_inputs": {
   "content": "f7259ca369d7",
   "wave": "pool-20260910T2244Z",
-  "body": "f7063f978668"
+  "body": "091d3a7c78e5"
  },
  "frame": {
   "dataset": "top",
@@ -34,17 +34,17 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "60d7fccd657b",
+  "runs_fingerprint": "dc767f056514",
   "axis_wave": "pool-20260910T2244Z",
   "build_date": "2026-10-15",
-  "stamp": "2026-10-15T10:31:07Z",
+  "stamp": "2026-10-15T11:49:45Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-15T10:21:50Z",
+   "unified_built_at": "2026-10-15T11:32:35Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.top.csv"
@@ -551,7 +551,7 @@
     {
      "id": "deepseek-coder-6.7b-rl-redraw25-a-step250",
      "arm_id": "dsc6.7b-rl-redraw25-a-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20132/8 \u00b7 250 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20132/8, redraw every 25 \u00b7 250 steps"
     },
     {
      "id": "dsc6.7b-sft-qwen3-14b-step0025",
@@ -656,57 +656,57 @@
     {
      "id": "r1d7b-rl-f12-a-step0025-Thinking",
      "arm_id": "r1d7b-rl-f12-a-s25",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8 \u00b7 25 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, fixed \u00b7 25 steps"
     },
     {
      "id": "r1d7b-rl-f12-a-step0050-Thinking",
      "arm_id": "r1d7b-rl-f12-a-s50",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8 \u00b7 50 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, fixed \u00b7 50 steps"
     },
     {
      "id": "r1d7b-rl-f12-a-step0075-Thinking",
      "arm_id": "r1d7b-rl-f12-a-s75",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8 \u00b7 75 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, fixed \u00b7 75 steps"
     },
     {
      "id": "r1d7b-rl-f12-a-step0100-Thinking",
      "arm_id": "r1d7b-rl-f12-a-s100",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8 \u00b7 100 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, fixed \u00b7 100 steps"
     },
     {
      "id": "r1d7b-rl-f12-pen-step0025-Thinking",
      "arm_id": "r1d7b-rl-f12-pen-s25",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, length penalty \u00b7 25 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, fixed, length penalty \u00b7 25 steps"
     },
     {
      "id": "r1d7b-rl-f12-pen-step0050-Thinking",
      "arm_id": "r1d7b-rl-f12-pen-s50",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, length penalty \u00b7 50 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, fixed, length penalty \u00b7 50 steps"
     },
     {
      "id": "r1d7b-rl-f12-pen-step0075-Thinking",
      "arm_id": "r1d7b-rl-f12-pen-s75",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, length penalty \u00b7 75 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, fixed, length penalty \u00b7 75 steps"
     },
     {
      "id": "r1d7b-rl-f12-drift-step0025-Thinking",
      "arm_id": "r1d7b-rl-f12-drift-s25",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, KL \u00b7 25 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, redraw every 25, KL \u00b7 25 steps"
     },
     {
      "id": "r1d7b-rl-f12-drift-step0050-Thinking",
      "arm_id": "r1d7b-rl-f12-drift-s50",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, KL \u00b7 50 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, redraw every 25, KL \u00b7 50 steps"
     },
     {
      "id": "r1d7b-rl-f12-drift5-step0075-Thinking",
      "arm_id": "r1d7b-rl-f12-drift5-s75",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, KL \u00b7 75 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, redraw every 25, KL \u00b7 75 steps"
     },
     {
      "id": "r1d7b-rl-f12-drift5-step0100-Thinking",
      "arm_id": "r1d7b-rl-f12-drift5-s100",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, KL \u00b7 100 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, redraw every 25, KL \u00b7 100 steps"
     },
     {
      "id": "r1d7b-rl-f17-kl-step0050-Thinking",
@@ -751,32 +751,32 @@
     {
      "id": "r1d7b-rl-f12-alltasks-kl-step0050-Thinking",
      "arm_id": "r1d7b-rl-f12-alltasks-kl-s50",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, open draw, KL \u00b7 50 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, KL \u00b7 50 steps"
     },
     {
      "id": "r1d7b-rl-f12-alltasks-kl-step0100-Thinking",
      "arm_id": "r1d7b-rl-f12-alltasks-kl-s100",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, open draw, KL \u00b7 100 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, KL \u00b7 100 steps"
     },
     {
      "id": "r1d7b-rl-f12-alltasks-kl-step0250-Thinking",
      "arm_id": "r1d7b-rl-f12-alltasks-kl-s250",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, open draw, KL \u00b7 250 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, KL \u00b7 250 steps"
     },
     {
      "id": "r1d7b-rl-f17-alltasks-ent-kl-step0050-Thinking",
      "arm_id": "r1d7b-rl-f17-alltasks-ent-kl-s50",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, open draw, H, KL \u00b7 50 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, H, KL \u00b7 50 steps"
     },
     {
      "id": "r1d7b-rl-f17-alltasks-ent-kl-step0100-Thinking",
      "arm_id": "r1d7b-rl-f17-alltasks-ent-kl-s100",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, open draw, H, KL \u00b7 100 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, H, KL \u00b7 100 steps"
     },
     {
      "id": "r1d7b-rl-f17-alltasks-ent-kl-step0150-Thinking",
      "arm_id": "r1d7b-rl-f17-alltasks-ent-kl-s150",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, open draw, H, KL \u00b7 150 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, H, KL \u00b7 150 steps"
     },
     {
      "id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
@@ -906,7 +906,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-15T10:26:24Z",
+   "_stamp": "2026-10-15T11:27:08Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1071,20 +1071,20 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-15T08:39:39Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261015T083939Z.json",
-   "sha16": "73c18a8459b67800",
-   "census_mtime": "2026-10-15T08:41:10Z",
+   "stamp": "2026-10-15T10:09:03Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261015T100903Z.json",
+   "sha16": "d4c2974253e9f967",
+   "census_mtime": "2026-10-15T10:10:38Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.deadb89793df.json",
-  "chain_average": "chain_average.deadb89793df.json",
-  "chain_median": "chain_median.deadb89793df.json",
-  "dots": "dots.deadb89793df.json",
-  "levels": "levels.deadb89793df.json"
+  "shared": "shared.2e7e7aa847c9.json",
+  "chain_average": "chain_average.2e7e7aa847c9.json",
+  "chain_median": "chain_median.2e7e7aa847c9.json",
+  "dots": "dots.2e7e7aa847c9.json",
+  "levels": "levels.2e7e7aa847c9.json"
  }
 }
