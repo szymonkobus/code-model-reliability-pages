@@ -143,7 +143,7 @@
    },
    "source_stamp": "2026-10-15T13:36:32Z",
    "source_fp": "7a5fd7f0e1c1",
-   "updated_at": "2026-10-15T14:00:51Z",
+   "updated_at": "2026-10-15T14:25:55Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -191,7 +191,7 @@
    },
    "source_stamp": "2026-10-15T13:48:45Z",
    "source_fp": "5bf2cd30a414",
-   "updated_at": "2026-10-15T14:04:31Z",
+   "updated_at": "2026-10-15T14:31:39Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -236,7 +236,7 @@
    },
    "source_stamp": "2026-10-15T13:27:16Z",
    "source_fp": "92c0e78641b6",
-   "updated_at": "2026-10-15T14:05:50Z",
+   "updated_at": "2026-10-15T14:33:38Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -253,21 +253,21 @@
   },
   "math500": {
    "files": {
-    "shared": "shared.math500.a41120410cca.json",
-    "chain_average": "chain_average.math500.a41120410cca.json",
-    "bayes": "bayes.math500.a41120410cca-54ee4bddf33e.json",
+    "shared": "shared.math500.6bf899abb4e8.json",
+    "chain_average": "chain_average.math500.6bf899abb4e8.json",
+    "bayes": "bayes.math500.6bf899abb4e8-54ee4bddf33e.json",
     "bayes_prev": "bayes.math500.512ae990f467-2e38bc937e1f.json"
    },
    "label": "MATH-500",
    "arms": "all",
-   "fingerprint": "a41120410cca",
+   "fingerprint": "6bf899abb4e8",
    "frame": {
     "population_M": 53,
     "tasks": 500,
     "keep_set_hash": "326e66dcd9ab",
-    "runs_fingerprint": "59b78c76bff9",
+    "runs_fingerprint": "4ddc9e7d76dc",
     "build_date": "2026-10-15",
-    "build_ts": "2026-10-15T02:08:25Z",
+    "build_ts": "2026-10-15T14:21:10Z",
     "vocab_ruled": "2026-08-27",
     "set": "math500",
     "set_label": "MATH-500",
@@ -278,20 +278,20 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "326e66dcd9ab",
     "tasks_used": "MATH-500 \u2014 500 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-math500 fp c43be4c0480f (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-math500 fp 6665a11e8f27 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "f04515cf303d",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-15T02:08:25Z",
-   "source_fp": "c43be4c0480f",
-   "updated_at": "2026-10-15T13:53:50Z",
+   "source_stamp": "2026-10-15T14:21:10Z",
+   "source_fp": "6665a11e8f27",
+   "updated_at": "2026-10-15T14:32:00Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
     "unfitted": 4,
     "served_wave": "nb-math500-20261002T2118Z",
-    "served_arms": 49
+    "served_arms": 55
    },
    "flip": {
     "from_wave": "nb-math500-20261002T0518Z",
@@ -307,21 +307,21 @@
   },
   "ifeval": {
    "files": {
-    "shared": "shared.ifeval.9e04326bb2dd.json",
-    "chain_average": "chain_average.ifeval.9e04326bb2dd.json",
-    "bayes": "bayes.ifeval.9e04326bb2dd-0e350e3e4b87.json",
+    "shared": "shared.ifeval.3bab6c36a110.json",
+    "chain_average": "chain_average.ifeval.3bab6c36a110.json",
+    "bayes": "bayes.ifeval.3bab6c36a110-0e350e3e4b87.json",
     "bayes_prev": "bayes.ifeval.86b061913de2-4e95778148c9.json"
    },
    "label": "IFEval",
    "arms": "all",
-   "fingerprint": "9e04326bb2dd",
+   "fingerprint": "3bab6c36a110",
    "frame": {
     "population_M": 47,
     "tasks": 541,
     "keep_set_hash": "ea009d5c6cd1",
-    "runs_fingerprint": "59b78c76bff9",
+    "runs_fingerprint": "4ddc9e7d76dc",
     "build_date": "2026-10-15",
-    "build_ts": "2026-10-15T02:23:09Z",
+    "build_ts": "2026-10-15T14:16:58Z",
     "vocab_ruled": "2026-08-27",
     "set": "ifeval",
     "set_label": "IFEval",
@@ -332,20 +332,20 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ea009d5c6cd1",
     "tasks_used": "IFEval \u2014 541 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-ifeval fp fa48685223c1 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-ifeval fp 35e4cc0c6d10 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "f598763f0d98",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-15T02:23:09Z",
-   "source_fp": "fa48685223c1",
-   "updated_at": "2026-10-15T13:56:16Z",
+   "source_stamp": "2026-10-15T14:16:58Z",
+   "source_fp": "35e4cc0c6d10",
+   "updated_at": "2026-10-15T14:34:43Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
     "unfitted": 0,
     "served_wave": "nb-ifeval-20261005T1138Z",
-    "served_arms": 47
+    "served_arms": 53
    },
    "flip": {
     "from_wave": "nb-ifeval-20261003T0522Z",
@@ -577,7 +577,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-10-15T13:28:00Z",
+  "stamp": "2026-10-15T14:26:22Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,
