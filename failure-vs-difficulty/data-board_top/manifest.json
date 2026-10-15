@@ -1,9 +1,9 @@
 {
- "fingerprint": "6e16d4ddd7bc",
+ "fingerprint": "8fdc2f0d069d",
  "fingerprint_inputs": {
   "content": "4601ac46bad0",
   "wave": "combined-20260910T2209Z",
-  "body": "b2f1b74e73b6"
+  "body": "2b9905dfb9c6"
  },
  "frame": {
   "dataset": "board_top",
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "60d7fccd657b",
+  "runs_fingerprint": "dc767f056514",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-15",
-  "stamp": "2026-10-15T11:31:46Z",
+  "stamp": "2026-10-15T12:09:16Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -133,7 +133,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-15T10:21:50Z",
+   "unified_built_at": "2026-10-15T11:32:35Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -826,12 +826,12 @@
     {
      "id": "r1d7b-rl-f12-drift5-step0075-Thinking",
      "arm_id": "r1d7b-rl-f12-drift5-s75",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, redraw every 25, KL \u00d75 from step 50 \u00b7 75 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, redraw every 25, KL \u00b7 75 steps"
     },
     {
      "id": "r1d7b-rl-f12-drift5-step0100-Thinking",
      "arm_id": "r1d7b-rl-f12-drift5-s100",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, redraw every 25, KL \u00d75 from step 50 \u00b7 100 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, redraw every 25, KL \u00b7 100 steps"
     },
     {
      "id": "r1d7b-rl-f17-kl-step0050-Thinking",
@@ -1251,7 +1251,7 @@
     "arms_in": "shared"
    },
    {
-    "updated_at": "2026-10-15T09:52:27Z+2026-10-15T09:52:33Z+2026-10-15T09:52:38Z+2026-10-15T09:52:43Z+2026-10-15T08:44:23Z+2026-10-15T09:13:29Z+2026-10-15T08:17:35Z+2026-10-15T08:13:01Z",
+    "updated_at": "2026-10-15T09:52:27Z+2026-10-15T09:52:33Z+2026-10-15T09:52:38Z+2026-10-15T09:52:43Z+2026-10-15T08:44:23Z+2026-10-15T09:13:29Z+2026-10-15T11:52:30Z+2026-10-15T08:13:01Z",
     "pointer": "definitions/fitting/serving_series_r1d7b-rl-f12-a.json",
     "row": 3,
     "served": true,
@@ -1284,10 +1284,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.6e16d4ddd7bc.json",
-  "chain_average": "chain_average.6e16d4ddd7bc.json",
-  "chain_median": "chain_median.6e16d4ddd7bc.json",
-  "dots": "dots.6e16d4ddd7bc.json",
-  "levels": "levels.6e16d4ddd7bc.json"
+  "shared": "shared.8fdc2f0d069d.json",
+  "chain_average": "chain_average.8fdc2f0d069d.json",
+  "chain_median": "chain_median.8fdc2f0d069d.json",
+  "dots": "dots.8fdc2f0d069d.json",
+  "levels": "levels.8fdc2f0d069d.json"
  }
 }
