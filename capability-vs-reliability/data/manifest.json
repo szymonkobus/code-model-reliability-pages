@@ -160,20 +160,20 @@
   },
   "board_top": {
    "files": {
-    "shared": "shared.board_top.1de01fdb1512.json",
-    "chain_average": "chain_average.board_top.1de01fdb1512.json",
-    "bayes": "bayes.board_top.1de01fdb1512-618e663c68c2.json"
+    "shared": "shared.board_top.90a376c83a1f.json",
+    "chain_average": "chain_average.board_top.90a376c83a1f.json",
+    "bayes": "bayes.board_top.90a376c83a1f-618e663c68c2.json"
    },
    "label": "wave 1+2",
    "arms": "all",
-   "fingerprint": "1de01fdb1512",
+   "fingerprint": "90a376c83a1f",
    "frame": {
     "population_M": 66,
     "tasks": 1288,
     "keep_set_hash": "ba4c3eb57ad5",
     "runs_fingerprint": "083bde87f3ab",
-    "build_date": "2026-10-14",
-    "build_ts": "2026-10-14T23:53:38Z",
+    "build_date": "2026-10-15",
+    "build_ts": "2026-10-15T00:10:42Z",
     "vocab_ruled": "2026-08-27",
     "set": "board_top",
     "set_label": "wave 1+2",
@@ -184,14 +184,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ba4c3eb57ad5",
     "tasks_used": "wave 1+2 \u2014 1288 tasks, axis wave combined-20260910T2209Z",
-    "source": "failure-vs-difficulty data-board_top fp 0f2d0ee44cb2 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-board_top fp c3468d5f34fd (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "64042c7eb0a5",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-14T23:53:38Z",
-   "source_fp": "0f2d0ee44cb2",
-   "updated_at": "2026-10-15T00:08:50Z",
+   "source_stamp": "2026-10-15T00:10:42Z",
+   "source_fp": "c3468d5f34fd",
+   "updated_at": "2026-10-15T00:31:08Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -205,20 +205,20 @@
   },
   "top": {
    "files": {
-    "shared": "shared.top.fd1d11d5dc78.json",
-    "chain_average": "chain_average.top.fd1d11d5dc78.json",
-    "bayes": "bayes.top.fd1d11d5dc78-b51e8bb32c49.json"
+    "shared": "shared.top.4b0622054ba7.json",
+    "chain_average": "chain_average.top.4b0622054ba7.json",
+    "bayes": "bayes.top.4b0622054ba7-b51e8bb32c49.json"
    },
    "label": "wave 2",
    "arms": "all",
-   "fingerprint": "fd1d11d5dc78",
+   "fingerprint": "4b0622054ba7",
    "frame": {
     "population_M": 63,
     "tasks": 858,
     "keep_set_hash": "532d0efad8a5",
-    "runs_fingerprint": "083bde87f3ab",
-    "build_date": "2026-10-14",
-    "build_ts": "2026-10-14T23:47:38Z",
+    "runs_fingerprint": "4fbc1921e831",
+    "build_date": "2026-10-15",
+    "build_ts": "2026-10-15T00:17:52Z",
     "vocab_ruled": "2026-08-27",
     "set": "top",
     "set_label": "wave 2",
@@ -229,14 +229,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "532d0efad8a5",
     "tasks_used": "wave 2 \u2014 858 tasks, axis wave pool-20260910T2244Z",
-    "source": "failure-vs-difficulty data-top fp aca27bf07c70 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-top fp b9d508aaeb29 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "020714611e17",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-14T23:47:38Z",
-   "source_fp": "aca27bf07c70",
-   "updated_at": "2026-10-15T00:09:37Z",
+   "source_stamp": "2026-10-15T00:17:52Z",
+   "source_fp": "b9d508aaeb29",
+   "updated_at": "2026-10-15T00:32:58Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -285,7 +285,7 @@
    },
    "source_stamp": "2026-10-14T22:07:58Z",
    "source_fp": "695ae31c30a8",
-   "updated_at": "2026-10-14T22:14:05Z",
+   "updated_at": "2026-10-15T00:31:46Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -339,7 +339,7 @@
    },
    "source_stamp": "2026-10-14T22:24:34Z",
    "source_fp": "971fd5b12d69",
-   "updated_at": "2026-10-14T22:35:14Z",
+   "updated_at": "2026-10-15T00:33:57Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -577,7 +577,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-10-14T23:26:26Z",
+  "stamp": "2026-10-15T00:26:27Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,
