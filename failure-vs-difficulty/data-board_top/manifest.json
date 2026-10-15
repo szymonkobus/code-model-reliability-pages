@@ -1,9 +1,9 @@
 {
- "fingerprint": "04acd8177ada",
+ "fingerprint": "803c4e897345",
  "fingerprint_inputs": {
   "content": "4601ac46bad0",
   "wave": "combined-20260910T2209Z",
-  "body": "640697543667"
+  "body": "00b34ef58e27"
  },
  "frame": {
   "dataset": "board_top",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "60d7fccd657b",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-15",
-  "stamp": "2026-10-15T09:56:49Z",
+  "stamp": "2026-10-15T10:11:23Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -876,32 +876,32 @@
     {
      "id": "r1d7b-rl-f12-alltasks-kl-step0050-Thinking",
      "arm_id": "r1d7b-rl-f12-alltasks-kl-s50",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, drawn from all tasks, KL \u00b7 50 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, open draw, KL \u00b7 50 steps"
     },
     {
      "id": "r1d7b-rl-f12-alltasks-kl-step0100-Thinking",
      "arm_id": "r1d7b-rl-f12-alltasks-kl-s100",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, drawn from all tasks, KL \u00b7 100 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, open draw, KL \u00b7 100 steps"
     },
     {
      "id": "r1d7b-rl-f12-alltasks-kl-step0250-Thinking",
      "arm_id": "r1d7b-rl-f12-alltasks-kl-s250",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, drawn from all tasks, KL \u00b7 250 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, open draw, KL \u00b7 250 steps"
     },
     {
      "id": "r1d7b-rl-f17-alltasks-ent-kl-step0050-Thinking",
      "arm_id": "r1d7b-rl-f17-alltasks-ent-kl-s50",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, drawn from all tasks, entropy control, KL \u00b7 50 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, open draw, H, KL \u00b7 50 steps"
     },
     {
      "id": "r1d7b-rl-f17-alltasks-ent-kl-step0100-Thinking",
      "arm_id": "r1d7b-rl-f17-alltasks-ent-kl-s100",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, drawn from all tasks, entropy control, KL \u00b7 100 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, open draw, H, KL \u00b7 100 steps"
     },
     {
      "id": "r1d7b-rl-f17-alltasks-ent-kl-step0150-Thinking",
      "arm_id": "r1d7b-rl-f17-alltasks-ent-kl-s150",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, drawn from all tasks, entropy control, KL \u00b7 150 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, open draw, H, KL \u00b7 150 steps"
     },
     {
      "id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
@@ -1284,10 +1284,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.04acd8177ada.json",
-  "chain_average": "chain_average.04acd8177ada.json",
-  "chain_median": "chain_median.04acd8177ada.json",
-  "dots": "dots.04acd8177ada.json",
-  "levels": "levels.04acd8177ada.json"
+  "shared": "shared.803c4e897345.json",
+  "chain_average": "chain_average.803c4e897345.json",
+  "chain_median": "chain_median.803c4e897345.json",
+  "dots": "dots.803c4e897345.json",
+  "levels": "levels.803c4e897345.json"
  }
 }
