@@ -636,7 +636,7 @@ function notes() {
     
     var gaps = D.bay.rows.filter(function (r) {
       return r.gap_range_grade;
-    }).map(function (r) { return r.d50.median_z - r.d1.median_z; });
+    }).filter(function (r) { return r.d50 && r.d1 && r.d50.median_z != null && r.d1.median_z != null; }).map(function (r) { return r.d50.median_z - r.d1.median_z; });   
     var nEx = D.bay.rows.length - gaps.length;
     var glo = Math.min.apply(null, gaps).toFixed(1);
     var ghi = Math.max.apply(null, gaps).toFixed(1);

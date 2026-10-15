@@ -299,6 +299,8 @@ function prepareSet(X, quiet) {
   
 
 
+  
+  X.shared.configs.forEach(function (c) { if (c && c.reading && c.reading !== 'no_data' && !c.bayes_only) c.bayes_only = true; });
   X.avgById = {}; X.medById = {}; X.bayById = {};
   X.avg.rows.forEach(function (r) { X.avgById[r.cfg] = r; });
   if (X.med) X.med.rows.forEach(function (r) { X.medById[r.cfg] = r; });
@@ -322,8 +324,9 @@ function prepareSet(X, quiet) {
   });
   
   X.unfitted = {}; (X.bay && X.bay.unfitted || []).forEach(function (id) { X.unfitted[id] = true; });
+  
   var missing = X.shared.configs.filter(function (c) {
-    return !X.avgById[c.id] || (X.med && !X.medById[c.id]) || (X.bay && !X.bayById[c.id] && !X.unfitted[c.id]);
+    return (!c.bayes_only && (!X.avgById[c.id] || (X.med && !X.medById[c.id]))) || (X.bay && !X.bayById[c.id] && !X.unfitted[c.id]);
   });
   if (missing.length) {
     if (!quiet) document.body.insertAdjacentText('afterbegin',
@@ -636,6 +639,8 @@ function readBayesRow(r, levLogit, B) {
   
   
   var lt = state.def === 'average' ? r.levels_avg : r.levels;
+  
+  if (!lt || !lt.zg || !lt.kind || !lt.mid) return { z: null, lo: null, hi: null, kind: 'none', extra: 'no reading at this level \u2014 this entry carries its figures at the adopted levels 50, 10, 5, 3 and 1 alone' };
   var LV = B.lev_logit;
   
   
