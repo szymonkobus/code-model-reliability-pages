@@ -985,6 +985,7 @@ if (!MIRROR) fetch('not_fitted_cells.json').then(function (r) { return r.json();
 function notFittedNote(i) {
   if (!NOT_FITTED || !D || !D.shared) return '';
   var c = D.shared.configs[i] || {};
+  if (c.bayes_only && c.reading) return '';   
   var norm = function (s) { return String(s || '').toLowerCase().replace(/[|_]batch$/, ''); };
   var ids = [c.id, c.name, c.model, c.arm_key].filter(Boolean).map(norm);
   var hit = Object.keys(NOT_FITTED.arms).filter(function (k) { return ids.indexOf(norm(k)) >= 0; });
@@ -996,7 +997,7 @@ function notShown(i) {
   var idn = [c.id, c.name, c.model, c.label, c.arm_key].filter(Boolean).join(' ').toLowerCase();
   return NOT_SHOWN.arms.some(function (a) { return a.match && idn.indexOf(String(a.match).toLowerCase()) >= 0; });
 }
-function shownArm(i) { if (notShown(i)) return false; if (!goldenOk(D.shared.configs[i])) return false; return state.partial === 'show' || !isPartial(i); }   
+function shownArm(i) { if (notShown(i)) return false; if (!goldenOk(D.shared.configs[i])) return false; if (bayesOnlyHidden(i)) return false; return state.partial === 'show' || !isPartial(i); }   
 function partialArms() { var out = []; D.shared.configs.forEach(function (c, i) { if (isPartial(i)) out.push(i); }); return out; }
 function axisWords(id, when, basis) {   
   var live = basis === 'live' || /unified-live/.test(String(id || ''));   
@@ -1671,6 +1672,10 @@ function render() {
     if (hasVariant && !vkEl) { vkEl = document.createElement('span'); vkEl.id = 'variantkey'; lkEl.appendChild(vkEl); }
     if (hasVariant && vkEl) vkEl.textContent = ' Solid lines are base models' + (hasThin ? ', a thinner solid line a sampling or protocol variant of one' : '') + '; a dotted line is a fine-tune of the base named in its label.';   
     else if (!hasVariant && vkEl) { vkEl.remove(); }
+    var rkEl = document.getElementById('readingkey'), RWk = readingsBlock(), hasTwin = !!RWk && state.src === 'bayes' && Array.from(sel).some(function (i) { var c = D.shared.configs[i]; return c && c.bayes_only && c.reading && shownArm(i); });   
+    if (hasTwin && !rkEl) { rkEl = document.createElement('span'); rkEl.id = 'readingkey'; lkEl.appendChild(rkEl); }
+    if (hasTwin && rkEl) rkEl.textContent = ' A dash-dotted line in a model\u2019s colour is the model\u2019s second chip, ' + RWk.beside.label + '.';
+    else if (!hasTwin && rkEl) { rkEl.remove(); }
   }
   fitGeometry(chart);
   var TS = EXPORTING ? 2 : 1, TK = EXPORTING ? 1.5 : 1;   
@@ -1934,6 +1939,7 @@ function paintChips() {
     if (bb && bb.axis_flag) parts.push(bb.axis_flag);   
     var nfn = notFittedNote(i); if (nfn) parts.push(nfn);   
     if (unf && !c.excluded) parts.push('outside the Bayesian fit set — no fit drawn');
+    var twP = twinParts(c); if (twP.length) { parts.unshift(twP[0]); for (var tq = 1; tq < twP.length; tq++) parts.push(twP[tq]); }   
     var _ra = (!unf && !hasOwnBayes(i)) ? runFitFor(c.id) : null; if (_ra && _ra.disclosure) parts.push(currentTruth(_ra.disclosure));   
     if (c.disclosure) parts.push(String(c.disclosure));   
     if (c.continuation_flag) parts.push(c.continuation_flag);   
@@ -1947,7 +1953,7 @@ function paintChips() {
       var lead = parts[0];   
       var pri = parts.filter(function (t) { return /^not shown:|^\d+ tasks? refused|^interim fit|^this fit did not pass|^R-hat|^out of the fit|^gpt-5 arms|^for the Claude|^Bayesian curve fitted|^outside the Bayesian/.test(t) || (c.disclosure && t === String(c.disclosure)); });   
       if (pri.length) lead = pri[0];
-      if (hiddenPartial) lead = covPart;   
+      if (hiddenPartial) lead = bayesOnlyHidden(i) ? BAYES_ONLY_WORDS : covPart;   
       b.title = oneSentence(noSpecTags) + ((c.protocol && !/^read by /.test) ? ' (read by ' + c.protocol + ')' : '');   
     } else b.removeAttribute('title');   
   });
@@ -2159,6 +2165,24 @@ function readingsSentence(n) {
   return 'The positions and the drawn curves read a refused answer as ' + R.served.label + (R.served.words ? ' (' + R.served.words + ')' : '') + '. '
     + (n === 1 ? 'One curve carries' : n + ' curves carry') + ' a second position beneath the first, ' + R.beside.label + (R.beside.words ? ' (' + R.beside.words + ')' : '') + '; no second curve is drawn.';
 }
+var TWIN_DASH = '7 3 2 3';   
+var BAYES_ONLY_WORDS = 'drawn under the Bayesian curves only \u2014 a second reading of the same answers, with no curve from the answers alone';   
+function bayesOnlyHidden(i) { var c = D && D.shared && D.shared.configs[i]; return !!(c && c.bayes_only && c.reading) && state.src !== 'bayes'; }   
+function baseLabelOf(c) { if (!c || !c.model || !D || !D.shared) return ''; for (var k = 0; k < D.shared.configs.length; k++) { var b = D.shared.configs[k]; if (b && b.id === c.model) return String(b.label || ''); } return ''; }   
+function twinParts(c) {   
+  var R = readingsBlock(); if (!R || !c || !c.bayes_only || !c.reading) return [];
+  var base = baseLabelOf(c), out = [R.beside.label + (base ? ': the same answers as ' + base + ', read with a refused answer counted as a failure' : '')];   
+  if (R.beside.words) out.push(R.beside.words);
+  if (c.same_as_served) out.push('no answer was refused on this set, so this curve and its positions equal ' + (base || 'its model') + '\u2019s');
+  return out;
+}
+function twinSentence(n, nSame) {   
+  var R = readingsBlock(); if (!R) return '';
+  return 'On this set ' + (n === 1 ? 'one model appears' : n + ' models appear') + ' twice, as two chips: the chip under the model\u2019s name reads a refused answer as ' + R.served.label + (R.served.words ? ' (' + R.served.words + ')' : '')
+    + '; the chip named for ' + R.beside.label + ' reads it as ' + (R.beside.words || R.beside.label) + ' and is drawn dash-dotted with its own D50 and D99.'
+    + (nSame ? ' ' + (nSame === n ? 'No answer was refused on this set, so each second chip\u2019s curve and positions equal its model\u2019s.' : nSame + ' of the ' + n + ' second chips had no refused answer behind them; their curves and positions equal their models\u2019.') : '')
+    + ' The difficulty axis is set from the first reading.';
+}
 function bandHover(r) {   
   var band = 'uncertainty band ' + pct(r.lo).toFixed(1) + ' to ' + pct(r.hi).toFixed(1) + ' (difficulty %)';
   var note = bandNoteClause(r), tail = note ? (r.rule === 'first' ? '' : bandWordsShort(r)) : bandWords(r);   
@@ -2265,6 +2289,7 @@ function crossingsTable(visible) {
   var hov1 = isB ? crossingHover('1', isAvg)
                  : 'where the ' + estWord + ' of the ' + rateWord + ' ' + crossV + ' 1% (' + chainWord + '); D99, the fitted curve\'s, is under the Bayesian estimator';
   var nRowsR = 0, nFirstR = 0, nAjR = 0;   
+  var nTwinR = 0, nSameR = 0;   
   var nShort50 = 0, nEq50 = 0, nShort1 = 0, nEq1 = 0;   
   var nLevR = 0, nNoLevR = 0;   
   var h = document.createElement('p');
@@ -2279,6 +2304,7 @@ function crossingsTable(visible) {
                    + (nNoLevR ? ' For ' + nNoLevR + ' of these curves no such table exists and the drawn curve is the median of the draws\' curves at each difficulty.' : '') + ' '
                  : ' The drawn curve is the median of the draws\' curves at each difficulty, so where it crosses a level can differ from the printed number. ')   
         + (nAjR ? readingsSentence(nAjR) + ' ' : '')   
+        + (nTwinR ? twinSentence(nTwinR, nSameR) + ' ' : '')   
         + 'Positions in difficulty %; each cell\'s hover carries its uncertainty band; * where the model has no fit; '
         + 'the same crossings with their bands live on Capability vs reliability.'
       : '<span data-chain-val>' + n50 + '</span> — ' + hov50.replace(/^D50 — /, '') + '; ' + n1 + ' — ' + hov1.replace(/^D99 — /, '')
@@ -2294,6 +2320,7 @@ function crossingsTable(visible) {
   visible.forEach(function (i) {
     if (isB && !hasBayes(i)) return;   
     var c = D.shared.configs[i];
+    if (c.bayes_only && c.reading) { nTwinR++; if (c.same_as_served) nSameR++; }   
     var tr = document.createElement('tr');
     var td0 = document.createElement('td');
     var key = document.createElement('span');
@@ -2706,7 +2733,7 @@ function runMarkOf(a) {
   if (!a || !a.marker || !RUN_SHAPE_OF_LETTER[a.marker] || typeof Kit.drawRunMark !== 'function') return null;
   return { shape: RUN_SHAPE_OF_LETTER[a.marker], dot: !!a.quiet_mark, open: !!(a.open || isThinkArm(a)), dotColor: a.quiet_mark_color || null };   
 }
-function curveDash(c) { if (c && c.run_dash != null && String(c.run_dash) !== '') return String(c.run_dash); return (c.think || isThinkArm(c)) ? '6 4' : (c.variant ? '1.5 2.5' : ''); }   
+function curveDash(c) { if (c && c.bayes_only && c.reading) return TWIN_DASH; if (c && c.run_dash != null && String(c.run_dash) !== '') return String(c.run_dash); return (c.think || isThinkArm(c)) ? '6 4' : (c.variant ? '1.5 2.5' : ''); }   
 
 
 
