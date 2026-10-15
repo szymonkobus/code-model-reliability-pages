@@ -579,6 +579,15 @@ function notes() {
       : 'Median-task definition: exact crossing draws from the fits\u2019 levels tables; the default reliability is the average-rate D99 (the \u201cAverage rate\u201d definition), one to two steps of the difficulty scale easier for most models.');
   }
   
+  
+  if (state.src === 'bayes' && D.bay) {
+    var prevRows = D.bay.rows.filter(function (r) { return r.band_form && Object.keys(r.band_form).some(function (k) { return r.band_form[k] === 'previous'; }); });
+    if (prevRows.length) {
+      var byRun = {}; prevRows.forEach(function (r) { var c2 = D.shared.configs.find(function (c3) { return c3.id === r.cfg; }); var nm = String((c2 && (c2.display_name || c2.label)) || r.label || '').replace(/\s*\u00b7\s*[^\u00b7]*$/, ''); byRun[nm] = (byRun[nm] || 0) + 1; });
+      warn(prevRows.length + ' run position' + (prevRows.length === 1 ? '' : 's') + ' (' + Object.keys(byRun).map(function (nm) { return nm + ': ' + byRun[nm]; }).join('; ') + ') carr' + (prevRows.length === 1 ? 'ies' : 'y') + ' the equal-tailed 10th-to-90th band, the previous form, until their fits are re-tabled; the hover names it on each. Every other band on this page is the shortest range holding 80% of the fit\u2019s draws, the median unchanged.');
+    }
+  }
+  
   if (state.src === 'bayes' && D.bay) {
     warn('Reliability and Bayesian capability come from the served Gaussian-task-effect fit; on models with concentrated failures it places D99 too early by up to 1.3 steps of the difficulty scale and D50 about 0.5 too late (the bias note); the count-average reading beside them is the check.');
   }

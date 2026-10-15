@@ -606,7 +606,7 @@ function prevFitName() {
 }
 function sorAt(r, levLogit) {   
   if (!r || !r.sor) return null;
-  var p = pct(levLogit), hit = null; Object.keys(r.sor).forEach(function (k) { if (Math.abs(+k - p) < 1e-4) hit = r.sor[k]; });
+  var p = pct(levLogit), hit = null, hitKey = null; Object.keys(r.sor).forEach(function (k) { if (Math.abs(+k - p) < 1e-4) { hit = r.sor[k]; hitKey = k; } });
   if (!hit || hit.length < 6 || hit[3] == null) return null;   
   var lt = (state.def === 'average' ? r.levels_avg : r.levels) || r.levels_avg || r.levels, zg = lt && lt.zg ? lt.zg : null;
   var z = hit[3], lo = hit[4], hi = hit[5];
@@ -616,7 +616,12 @@ function sorAt(r, levLogit) {
     return { z: z, lo: low ? z : lo, hi: low ? hi : z, kind: low ? 'lo-bound' : 'hi-bound', lo_open: low ? true : loOpen, hi_open: low ? hiOpen : true,
              extra: (low ? 'the curve crosses this level below the easiest tasks: the bottom of the scale, a bound' : 'the curve crosses this level beyond the hardest tasks: the top of the scale, a bound') + ' — drawn with its band, out of the fitted line' };
   }
-  return { z: z, lo: lo, hi: hi, kind: 'point', lo_open: loOpen, hi_open: hiOpen, extra: '80% uncertainty band (crossing draws, average-rate)' };
+  
+  
+  var bf = r.band_form && hitKey != null ? r.band_form[hitKey] : null;
+  return { z: z, lo: lo, hi: hi, kind: 'point', lo_open: loOpen, hi_open: hiOpen, extra: bf === 'previous'
+    ? 'the equal-tailed 10th-to-90th band (the previous form) \u2014 this position carries it until its fits are re-tabled'
+    : '80% uncertainty band (crossing draws, average-rate)' };
 }
 function asEdgePoint(rd) {   
   if (!rd || (rd.kind !== 'lo-bound' && rd.kind !== 'hi-bound')) return rd;
