@@ -1,7 +1,7 @@
  
 (function (global) {
   'use strict';
-  var KITJS = '2026-10-14';
+  var KITJS = '2026-10-15';
   if (global.Kit && global.Kit.state && typeof global.Kit.state.onChange === 'function') { if (global.console && global.Kit.kitjs !== KITJS) console.warn('kit.js loaded twice: ' + global.Kit.kitjs + ' kept, ' + KITJS + ' skipped'); return; }
   var Kit = global.Kit || {};
 
@@ -284,7 +284,7 @@
   ];
   var RUN_VARIANTS = [
     ['fixed', /\bfixed(?:\s+set)?\b/i], ['0 redraws', /\b(?:0|zero|no)\s+re-?draws?\b/i], ['1 redraw', /\b(?:1|one)\s+re-?draws?\b/i], ['2 redraws', /\b(?:2|two)\s+re-?draws?\b/i],
-    ['*', /re-?drawn\s+every\s+(?!25\b)\d+(?:\s+steps?)?/i],
+    ['*', /\bredraw\s+every\s+\d+(?:\s+steps?)?|re-?drawn\s+every\s+(?!25\b)\d+(?:\s+steps?)?/i],
     ['*', /\bdrawn from [^,·(]+/i],
     ['*', /\b(?:[A-Za-z][\w-]*\s+)?penalty(?:\s+×\s?\d+)?\b/i],
     ['32 answers', /(?:\/|of)\s*32\b/i], ['the tasks it solves sometimes', /solves sometimes|fails?\s*1\s*[–—-]\s*7\s*(?:\/|of)\s*8\b/i],
@@ -366,7 +366,7 @@
     { mark: 'triangle', text: 'fails 6–7 of 8' },
     { mark: 'diamond', text: 'all tasks' },
     { mark: 'darker', text: 'later in training' },
-    { mark: 'dot', text: 'another cadence, a penalty, a teacher’s answers, or another failure count', title: 'a minor departure from the plain recipe, re-drawn every 25 steps and nothing else: another cadence or a fixed set, a penalty, a teacher’s passing answers, or a failure count outside the four shapes; the row says which; where the answers are a teacher’s, the dot takes the teacher’s colour' },
+    { mark: 'dot', text: 'another cadence, a penalty, a teacher’s answers, or another failure count', title: 'a minor departure from the plain recipe, every task eligible, re-drawn every 25 steps: another draw or cadence, a fixed set, a penalty or a control, a teacher’s answers, or a failure count outside the four shapes; the row says which; a teacher’s answers give the dot the teacher’s colour' },
     { mark: 'open', text: 'thinking' }
   ];
   Kit.runMarksKey = function (opts) {
