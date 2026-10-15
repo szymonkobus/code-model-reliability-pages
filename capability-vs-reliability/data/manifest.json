@@ -361,21 +361,21 @@
   },
   "gsm8k_platinum": {
    "files": {
-    "shared": "shared.gsm8k_platinum.cdd4801049d6.json",
-    "chain_average": "chain_average.gsm8k_platinum.cdd4801049d6.json",
-    "bayes": "bayes.gsm8k_platinum.cdd4801049d6-940122679e5a.json",
+    "shared": "shared.gsm8k_platinum.9ba7070ddc9a.json",
+    "chain_average": "chain_average.gsm8k_platinum.9ba7070ddc9a.json",
+    "bayes": "bayes.gsm8k_platinum.9ba7070ddc9a-940122679e5a.json",
     "bayes_prev": "bayes.gsm8k_platinum.51ec4ce84fb5-81c9d84b6741.json"
    },
    "label": "GSM8K-Platinum",
    "arms": "all",
-   "fingerprint": "cdd4801049d6",
+   "fingerprint": "9ba7070ddc9a",
    "frame": {
     "population_M": 52,
     "tasks": 1209,
     "keep_set_hash": "ff1457decdf7",
-    "runs_fingerprint": "59b78c76bff9",
+    "runs_fingerprint": "4ddc9e7d76dc",
     "build_date": "2026-10-15",
-    "build_ts": "2026-10-15T02:19:43Z",
+    "build_ts": "2026-10-15T14:12:32Z",
     "vocab_ruled": "2026-08-27",
     "set": "gsm8k_platinum",
     "set_label": "GSM8K-Platinum",
@@ -386,20 +386,20 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ff1457decdf7",
     "tasks_used": "GSM8K-Platinum \u2014 1209 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-gsm8k_platinum fp e3c42bb9ea9e (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-gsm8k_platinum fp 509fffafba4b (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "b254879e615d",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-15T02:19:43Z",
-   "source_fp": "e3c42bb9ea9e",
-   "updated_at": "2026-10-15T13:58:16Z",
+   "source_stamp": "2026-10-15T14:12:32Z",
+   "source_fp": "509fffafba4b",
+   "updated_at": "2026-10-15T14:37:28Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
     "unfitted": 1,
     "served_wave": "nb-gsm8k_platinum-20261003T0522Z",
-    "served_arms": 51
+    "served_arms": 57
    },
    "flip": {
     "from_wave": "nb-gsm8k_platinum-20261001T0902Z",
@@ -523,21 +523,21 @@
   },
   "aime": {
    "files": {
-    "shared": "shared.aime.e79540a8cf0f.json",
-    "chain_average": "chain_average.aime.e79540a8cf0f.json",
-    "bayes": "bayes.aime.e79540a8cf0f-1a89ae2c279d.json",
+    "shared": "shared.aime.3a03807aeac2.json",
+    "chain_average": "chain_average.aime.3a03807aeac2.json",
+    "bayes": "bayes.aime.3a03807aeac2-1a89ae2c279d.json",
     "bayes_prev": "bayes.aime.0ada76201b10-1758047dd617.json"
    },
    "label": "AIME",
    "arms": "all",
-   "fingerprint": "e79540a8cf0f",
+   "fingerprint": "3a03807aeac2",
    "frame": {
     "population_M": 41,
     "tasks": 60,
     "keep_set_hash": "dc5cbadfe267",
-    "runs_fingerprint": "59b78c76bff9",
+    "runs_fingerprint": "4ddc9e7d76dc",
     "build_date": "2026-10-15",
-    "build_ts": "2026-10-15T02:10:23Z",
+    "build_ts": "2026-10-15T14:24:35Z",
     "vocab_ruled": "2026-08-27",
     "set": "aime",
     "set_label": "AIME",
@@ -548,20 +548,20 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "dc5cbadfe267",
     "tasks_used": "AIME \u2014 60 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-aime fp 8d6df0fa7d23 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-aime fp dca98a0e38e2 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "85c7ea8c65d2",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-15T02:10:23Z",
-   "source_fp": "8d6df0fa7d23",
-   "updated_at": "2026-10-15T14:04:41Z",
+   "source_stamp": "2026-10-15T14:24:35Z",
+   "source_fp": "dca98a0e38e2",
+   "updated_at": "2026-10-15T14:38:29Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
     "unfitted": 3,
     "served_wave": "nb-aime-20261005T0933Z",
-    "served_arms": 38
+    "served_arms": 44
    },
    "flip": {
     "from_wave": "nb-aime-20261003T0800Z",
