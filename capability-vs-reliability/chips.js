@@ -105,14 +105,20 @@ function variantBase(label) {
   return m && m[1].trim() ? m[1].trim() : null;
 }
 function variantsAfterBase(order) {
-  var byLabel = {}; order.forEach(function (i) { byLabel[D.shared.configs[i].label] = i; });
+  
+  
+  var byLabel = {}, byId = {}; order.forEach(function (i) { byLabel[D.shared.configs[i].label] = i; byId[D.shared.configs[i].id] = i; });
   var after = {}, placed = {};
   order.forEach(function (i) {
-    var base = variantBase(D.shared.configs[i].label);
-    if (base && base !== D.shared.configs[i].label && byLabel[base] !== undefined && byLabel[base] !== i) { (after[byLabel[base]] = after[byLabel[base]] || []).push(i); placed[i] = true; }
+    var c = D.shared.configs[i], baseIdx;
+    if (c.model && c.model !== c.id && byId[c.model] !== undefined) baseIdx = byId[c.model];
+    else { var base = variantBase(c.label); baseIdx = (base && base !== c.label && byLabel[base] !== undefined && byLabel[base] !== i) ? byLabel[base] : undefined; }
+    if (baseIdx !== undefined && baseIdx !== i) { (after[baseIdx] = after[baseIdx] || []).push(i); placed[i] = true; }
   });
-  var out = [];
-  order.forEach(function (i) { if (placed[i]) return; out.push(i); (after[i] || []).forEach(function (v) { out.push(v); }); });
+  var out = [], seen = {};
+  function emit(i) { if (seen[i]) return; seen[i] = true; out.push(i); var vs = after[i] || [], id = D.shared.configs[i].id; vs.filter(function (v) { return D.shared.configs[v].model === id; }).forEach(emit); vs.filter(function (v) { return D.shared.configs[v].model !== id; }).forEach(emit); }
+  order.forEach(function (i) { if (!placed[i]) emit(i); });
+  order.forEach(function (i) { if (!seen[i]) emit(i); });   
   return out;
 }
 
