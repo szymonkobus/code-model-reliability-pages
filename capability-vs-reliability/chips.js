@@ -6,6 +6,7 @@ function refreshPartialChips() {
   chips.forEach(function (b) { var i = +b.dataset.idx, c = D.shared.configs[i]; if (!c) return;
     var words = [];   
     if (c.think) words.push('thinking mode \u2014 open marker on the chart');
+    if (typeof c.single_form_note === 'string' && c.single_form_note.trim()) words.push(c.single_form_note.trim());   
     if (c.run) { var Rw = runOf(i) || RUN; words.push(c.shared_page_label || c.display_name || (Rw ? Rw.name + ' \u2014 ' : '') + c.label); }   
     if (c.alongside) words.push('positioned on the served axis, not shaping it \u2014 its fit from the ' + c.alongside + ' series, read alongside the board fit set');   
     if (c.provisional) words.push(c.provisional_note || 'provisional position: a fast estimate; the full fit replaces it');
