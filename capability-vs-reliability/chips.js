@@ -327,7 +327,7 @@ function paintChips() {
     var nofit = (state.src === 'bayes' && !!D.bay && !D.bayById[cfgId]) || ((isRun(+b.dataset.idx) || !!(cfgC && cfgC.bayes_only)) && state.src !== 'bayes');   
     b.classList.toggle('nofit', nofit);
     var cfgC = D.shared.configs[+b.dataset.idx] || {};
-    if (nofit) { b.title = capTitle((isRun(+b.dataset.idx) && state.src !== 'bayes' ? 'a run\u2019s checkpoints are Bayesian fits \u2014 not drawn under the reference chain' : 'awaiting its Bayesian fit \u2014 not drawn under the Bayesian estimator') + (cfgC.gates_failed ? ' \u00b7 flagged fit: ' + (cfgC.gate_flag || 'the fit failed a sampler gate') : '')); b.dataset.nofit = '1'; }   
+    if (nofit) { b.title = capTitle((isRun(+b.dataset.idx) && state.src !== 'bayes' ? 'a run\u2019s checkpoints are Bayesian fits \u2014 not drawn under the reference chain' : 'no Bayesian fit for this model \u2014 not drawn under the Bayesian estimator') + (cfgC.gates_failed ? ' \u00b7 flagged fit: ' + (cfgC.gate_flag || 'the fit failed a sampler gate') : '')); b.dataset.nofit = '1'; }   
     else if (b.dataset.nofit) { b.title = ''; delete b.dataset.nofit; recompose = true; }
   });
   if (recompose) refreshPartialChips();   

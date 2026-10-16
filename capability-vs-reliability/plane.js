@@ -66,7 +66,7 @@ function entropyNats(p) { return (p <= 0 || p >= 1) ? 0 : -(p * Math.log(p) + (1
 function readingEntropy(i) {
   var c = D.shared.configs[i], pairs = [];
   if (state.src === 'bayes' || bayesOnly(i)) {
-    if (D.unfitted[c.id] || !D.bayById[c.id]) return { z: null, kind: 'none', lo: null, hi: null, extra: 'awaiting its Bayesian fit' };
+    if (D.unfitted[c.id] || !D.bayById[c.id]) return { z: null, kind: 'none', lo: null, hi: null, extra: 'no Bayesian fit for this model' };
     
     
     
@@ -131,7 +131,7 @@ function spanRowFor(i) {
 function readingSpan(i) {   
   var c = D.shared.configs[i], pend = '';
   if (state.src === 'bayes' || bayesOnly(i)) {
-    if (D.unfitted[c.id] || !D.bayById[c.id]) return { z: null, kind: 'none', lo: null, hi: null, extra: 'awaiting its Bayesian fit' };
+    if (D.unfitted[c.id] || !D.bayById[c.id]) return { z: null, kind: 'none', lo: null, hi: null, extra: 'no Bayesian fit for this model' };
     if (state.def === 'average' && spanDefaultLevels()) {
       var row = SPAN_LEAF_STATE === 'ok' ? spanRowFor(i) : null;
       if (row) {
@@ -623,7 +623,7 @@ function sorAt(r, levLogit) {
   
   var bf = r.band_form && hitKey != null ? r.band_form[hitKey] : null;
   return { z: z, lo: lo, hi: hi, kind: 'point', lo_open: loOpen, hi_open: hiOpen, extra: bf === 'previous'
-    ? 'the equal-tailed 10th-to-90th band (the previous form) \u2014 this position carries it until its fits are re-tabled'
+    ? 'the equal-tailed 10th-to-90th band (the previous form) \u2014 this position carries the previous form'
     : '80% uncertainty band (crossing draws, average-rate)' };
 }
 function asEdgePoint(rd) {   
@@ -755,7 +755,7 @@ function reading(i, levLogit, axis) {
   if (state.src === 'bayes' || bayesOnly(i)) {
     var cid = D.shared.configs[i].id;
     if (D.unfitted[cid] || !D.bayById[cid]) {   
-      return { z: null, kind: 'none', lo: null, hi: null, extra: 'awaiting its Bayesian fit' };
+      return { z: null, kind: 'none', lo: null, hi: null, extra: 'no Bayesian fit for this model' };
     }
     var rb = readBayes(i, levLogit);
     if (cleanedScope(D.shared.configs[i])) rb.extra = (rb.extra ? rb.extra + ' \u00b7 ' : '') + 'cleaned fit, partial: ' + cleanedScope(D.shared.configs[i]);

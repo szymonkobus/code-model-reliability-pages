@@ -680,7 +680,7 @@ function sampledNote(f) {
   var parts = wh.map(function (x) { var r = reasons[x]; return x.replace(/^[^/]+\//, '') + (r ? ' \u2014 ' + String(r).split(' (')[0] : ''); });   
   var unexplained = wh.some(function (x) { return !reasons[x]; });
   return ' (' + f.n_arms_sampled + ' sampled \u00b7 ' + wh.length + ' withheld: ' + parts.join(', ')
-    + (unexplained ? (pending.length ? ', ' + pending.join(' + ') + ' pending' : ', a benchmark pending') : '') + ')';
+    + (unexplained ? (pending.length ? ', ' + pending.join(' + ') + ' not complete' : ', a benchmark not complete') : '') + ')';
 }
 
 
@@ -705,11 +705,11 @@ function tasksText(f, dsId) {
   var t = tasksTextBase(f, dsId), rc = recordCount(D && D.dataId), shown = f.tasks_kept != null ? f.tasks_kept : f.tasks;
   if (rc == null || shown == null || rc === shown) return t;
   var fmt = function (n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ','); };
-  var clause = rc < shown ? 'the kept count is now ' + fmt(rc) + '; this fit frame predates a withdrawal' : 'the kept count is ' + fmt(rc) + '; the rest awaits the axis';
+  var clause = rc < shown ? 'the kept count is now ' + fmt(rc) + '; this fit frame predates a withdrawal' : 'the kept count is ' + fmt(rc) + '; the rest is off the axis';
   return /\)$/.test(t) ? t.replace(/\)$/, '; ' + clause + ')') : t + ' (' + clause + ')';   
 }
 function tasksTextBase(f, dsId) {   
-  if (f.tasks_kept != null && f.tasks_kept !== f.tasks) return f.tasks + ' tasks on the axis (' + f.tasks_kept + ' kept; ' + (f.tasks_awaiting_axis != null ? f.tasks_awaiting_axis : f.tasks_kept - f.tasks) + ' await the next axis fit)';
+  if (f.tasks_kept != null && f.tasks_kept !== f.tasks) return f.tasks + ' tasks on the axis (' + f.tasks_kept + ' kept; ' + (f.tasks_awaiting_axis != null ? f.tasks_awaiting_axis : f.tasks_kept - f.tasks) + ' not on the axis)';
   if (f.tasks_on_axis != null) return f.tasks + ' tasks on the axis';
   return f.tasks + (dsId === 'board' ? ' kept tasks' : ' tasks');
 }
