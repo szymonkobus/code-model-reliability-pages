@@ -1222,7 +1222,7 @@ function axisShort(axis) {
 
 
 function dName(axis) {
-  if (axis === 'y' && SPAN) { if (state.yq === 'ent') return 'Entropy over logit difficulty, ' + edWord() + ' (nats)'; var en = spanEndNames(); return en[1] + ' \u2212 ' + en[0] + (state.ys === 'raw' ? ' (percentage points of the difficulty scale)' : ' (logit)'); }   
+  if (axis === 'y' && SPAN) { if (state.yq === 'ent') return 'Entropy over logit difficulty, ' + edWord() + ' (nats)'; var en = spanEndNames(); return en[1] + ' \u2212 ' + en[0] + (state.ys === 'raw' ? ' (percentage points of the difficulty scale)' : ''); }   
   var lev = axis === 'x' ? +state.a : +state.c;
   return 'D' + fmtLev(100 - lev);
 }
