@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-10-16T20:22:53Z",
+ "generated_at": "2026-10-16T20:59:21Z",
  "builder": "pages/failure-vs-difficulty/build_curves_site_data.py",
  "outputs": [
-  "pages/failure-vs-difficulty/curves-site/data/chain_average.adac034c7fa4.json",
-  "pages/failure-vs-difficulty/curves-site/data/chain_median.adac034c7fa4.json",
-  "pages/failure-vs-difficulty/curves-site/data/dots.adac034c7fa4.json",
-  "pages/failure-vs-difficulty/curves-site/data/levels.adac034c7fa4.json",
+  "pages/failure-vs-difficulty/curves-site/data/chain_average.a4f39311edef.json",
+  "pages/failure-vs-difficulty/curves-site/data/chain_median.a4f39311edef.json",
+  "pages/failure-vs-difficulty/curves-site/data/dots.a4f39311edef.json",
+  "pages/failure-vs-difficulty/curves-site/data/levels.a4f39311edef.json",
   "pages/failure-vs-difficulty/curves-site/data/manifest.json",
-  "pages/failure-vs-difficulty/curves-site/data/shared.adac034c7fa4.json"
+  "pages/failure-vs-difficulty/curves-site/data/shared.a4f39311edef.json"
  ],
  "inputs": [
   {
@@ -767,16 +767,22 @@
    "sha12": "631160006aac"
   },
   {
+   "path": "pages/failure-vs-difficulty/knowledge/service_forms.json",
+   "mtime_at_open": "2026-10-16T20:05:24Z",
+   "size": 2147,
+   "sha12": "c3c5e2bb8ec2"
+  },
+  {
    "path": "runs/arms.jsonl",
-   "mtime_at_open": "2026-10-16T18:03:06Z",
-   "size": 697825,
-   "sha12": "c1a7dfa63c00"
+   "mtime_at_open": "2026-10-16T20:47:05Z",
+   "size": 697637,
+   "sha12": "652eec8eb525"
   },
   {
    "path": "runs/arms_readouts.jsonl",
-   "mtime_at_open": "2026-10-16T18:03:06Z",
+   "mtime_at_open": "2026-10-16T20:47:05Z",
    "size": 532321,
-   "sha12": "3d405dd634d1"
+   "sha12": "7629ba127160"
   },
   {
    "path": "runs/models.jsonl",
@@ -798,27 +804,27 @@
   },
   {
    "path": "runs/watch/forecast/watch/held_arms.json",
-   "mtime_at_open": "2026-10-16T19:29:14Z",
-   "size": 243129,
-   "sha12": "2732f880c976"
+   "mtime_at_open": "2026-10-16T20:28:56Z",
+   "size": 243340,
+   "sha12": "f7f36e94e103"
   },
   {
    "path": "side-projects/newbench/labels_cells.jsonl",
    "mtime_at_open": "2026-10-16T18:07:33Z",
    "size": 3944784,
-   "sha12": "854276f1a94f"
+   "sha12": "38b25cc98b87"
   },
   {
    "path": "tasks/knowledge/counts_of_record.json",
-   "mtime_at_open": "2026-10-16T19:27:17Z",
-   "size": 43616,
-   "sha12": "952c4dbc549f"
+   "mtime_at_open": "2026-10-16T20:27:35Z",
+   "size": 43630,
+   "sha12": "18b39c4da441"
   },
   {
    "path": "tasks/knowledge/disclosures.published.json",
-   "mtime_at_open": "2026-10-16T19:40:15Z",
-   "size": 693113,
-   "sha12": "09c16ba2c14d"
+   "mtime_at_open": "2026-10-16T20:37:19Z",
+   "size": 693141,
+   "sha12": "817bcb98f1d5"
   }
  ],
  "streams": [],

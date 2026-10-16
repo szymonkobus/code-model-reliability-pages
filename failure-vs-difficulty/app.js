@@ -1943,6 +1943,7 @@ function paintChips() {
     var _ra = (!unf && !hasOwnBayes(i)) ? runFitFor(c.id) : null; if (_ra && _ra.disclosure) parts.push(currentTruth(_ra.disclosure));   
     if (c.disclosure) parts.push(String(c.disclosure));   
     if (c.continuation_flag) parts.push(c.continuation_flag);   
+    if (c.single_form_note) parts.push(String(c.single_form_note));   
     var covPart = covText(i) + (isPartial(i) ? (shownArm(i) ? ' — partial model' : ' — partial model, hidden; the Partial models switch shows it') : ''); parts.push(covPart);
     if (c.protocol) parts.push('read by ' + c.protocol + ': the base model continues the prompt, no chat turn');   
     var RWp = readingsBlock(); var ajP = (RWp && bb) ? ajRecordFor(bb, state.def === 'average') : null;   
@@ -2290,6 +2291,7 @@ function crossingsTable(visible) {
                  : 'where the ' + estWord + ' of the ' + rateWord + ' ' + crossV + ' 1% (' + chainWord + '); D99, the fitted curve\'s, is under the Bayesian estimator';
   var nRowsR = 0, nFirstR = 0, nAjR = 0;   
   var nTwinR = 0, nSameR = 0;   
+  var singlesR = [];   
   var nShort50 = 0, nEq50 = 0, nShort1 = 0, nEq1 = 0;   
   var nLevR = 0, nNoLevR = 0;   
   var h = document.createElement('p');
@@ -2305,6 +2307,7 @@ function crossingsTable(visible) {
                  : ' The drawn curve is the median of the draws\' curves at each difficulty, so where it crosses a level can differ from the printed number. ')   
         + (nAjR ? readingsSentence(nAjR) + ' ' : '')   
         + (nTwinR ? twinSentence(nTwinR, nSameR) + ' ' : '')   
+        + (singlesR.length ? singlesR.join(' ') + ' ' : '')   
         + 'Positions in difficulty %; each cell\'s hover carries its uncertainty band; * where the model has no fit; '
         + 'the same crossings with their bands live on Capability vs reliability.'
       : '<span data-chain-val>' + n50 + '</span> — ' + hov50.replace(/^D50 — /, '') + '; ' + n1 + ' — ' + hov1.replace(/^D99 — /, '')
@@ -2321,6 +2324,7 @@ function crossingsTable(visible) {
     if (isB && !hasBayes(i)) return;   
     var c = D.shared.configs[i];
     if (c.bayes_only && c.reading) { nTwinR++; if (c.same_as_served) nSameR++; }   
+    if (c.single_form_note) singlesR.push(String(c.single_form_note));   
     var tr = document.createElement('tr');
     var td0 = document.createElement('td');
     var key = document.createElement('span');
