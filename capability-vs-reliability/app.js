@@ -575,7 +575,7 @@ function notes() {
   if (state.src === 'bayes' && D.bay) {
     var nEx = D.bay.rows.filter(function (r) { return r.avg_source === 'exact'; }).length, nAll = D.bay.rows.length;
     warn(state.def === 'average'
-      ? 'Bayesian reliability shown = the average-rate D99 (the default reliability): ' + (nEx === nAll ? 'exact crossing draws for every model.' : nEx ? 'exact crossing draws for ' + nEx + ' of ' + nAll + ' models; the rest read off the fit\u2019s average-rate curves (an interim estimator; the served set predates the fits\u2019 export switch \u2014 those numbers move at the switch, per model, announced).' : 'read off the fit\u2019s pointwise average-rate curves \u2014 an interim estimator until the fits\u2019 maintainers exports exact average-rate crossing draws; the numbers move at that switch, per model, announced.')
+      ? 'Bayesian reliability shown = the average-rate D99 (the default reliability): ' + (nEx === nAll ? 'exact crossing draws for every model.' : nEx ? 'exact crossing draws for ' + nEx + ' of ' + nAll + ' models; the rest read off the fit\u2019s average-rate curves (an interim estimator; the served set predates the fits\u2019 export of exact crossing draws).' : 'read off the fit\u2019s pointwise average-rate curves \u2014 an interim estimator; this set has no exported exact average-rate crossing draws.')
       : 'Median-task definition: exact crossing draws from the fits\u2019 levels tables; the default reliability is the average-rate D99 (the \u201cAverage rate\u201d definition), one to two steps of the difficulty scale easier for most models.');
   }
   
@@ -584,7 +584,7 @@ function notes() {
     var prevRows = D.bay.rows.filter(function (r) { return r.band_form && Object.keys(r.band_form).some(function (k) { return r.band_form[k] === 'previous'; }); });
     if (prevRows.length) {
       var byRun = {}; prevRows.forEach(function (r) { var c2 = D.shared.configs.find(function (c3) { return c3.id === r.cfg; }); var nm = String((c2 && (c2.display_name || c2.label)) || r.label || '').replace(/\s*\u00b7\s*[^\u00b7]*$/, ''); byRun[nm] = (byRun[nm] || 0) + 1; });
-      warn(prevRows.length + ' run position' + (prevRows.length === 1 ? '' : 's') + ' (' + Object.keys(byRun).map(function (nm) { return nm + ': ' + byRun[nm]; }).join('; ') + ') carr' + (prevRows.length === 1 ? 'ies' : 'y') + ' the equal-tailed 10th-to-90th band, the previous form, until ' + (prevRows.length === 1 ? 'its' : 'their') + ' fits are re-tabled; the hover names it' + (prevRows.length === 1 ? '' : ' on each') + '. Every other band on this page is the shortest range holding 80% of the fit\u2019s draws, the median unchanged.');
+      warn(prevRows.length + ' run position' + (prevRows.length === 1 ? '' : 's') + ' (' + Object.keys(byRun).map(function (nm) { return nm + ': ' + byRun[nm]; }).join('; ') + ') carr' + (prevRows.length === 1 ? 'ies' : 'y') + ' the equal-tailed 10th-to-90th band, the previous form; the hover names it' + (prevRows.length === 1 ? '' : ' on each') + '. Every other band on this page is the shortest range holding 80% of the fit\u2019s draws, the median unchanged.');
     }
   }
   
