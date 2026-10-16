@@ -1,9 +1,9 @@
 {
- "fingerprint": "aed05496a03d",
+ "fingerprint": "7fb421df3abb",
  "fingerprint_inputs": {
   "content": "178222eb707f",
   "wave": "combined-20260910T2209Z",
-  "body": "43c02c817feb"
+  "body": "ed25c86cd0f2"
  },
  "frame": {
   "dataset": "board_top",
@@ -36,8 +36,8 @@
   },
   "runs_fingerprint": "27db40f64c6b",
   "axis_wave": "combined-20260910T2209Z",
-  "build_date": "2026-10-15",
-  "stamp": "2026-10-15T22:44:00Z",
+  "build_date": "2026-10-16",
+  "stamp": "2026-10-16T00:15:08Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -134,7 +134,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-15T22:18:57Z",
+   "unified_built_at": "2026-10-15T23:15:31Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -1053,7 +1053,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-15T22:25:09Z",
+   "_stamp": "2026-10-15T23:25:09Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1218,10 +1218,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-15T21:50:40Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261015T215040Z.json",
-   "sha16": "6c26a1f4050e35d4",
-   "census_mtime": "2026-10-15T21:51:41Z",
+   "stamp": "2026-10-15T23:13:12Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261015T231312Z.json",
+   "sha16": "a8c2c1d6addec18d",
+   "census_mtime": "2026-10-15T23:14:13Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
@@ -1257,7 +1257,7 @@
     "arms_in": "shared"
    },
    {
-    "updated_at": "2026-10-15T12:24:48Z+2026-10-15T12:25:00Z+2026-10-15T12:25:07Z+2026-10-15T12:25:19Z+2026-10-15T08:44:23Z+2026-10-15T09:13:29Z+2026-10-15T13:43:21Z+2026-10-15T17:59:15Z",
+    "updated_at": "2026-10-15T12:24:48Z+2026-10-15T12:25:00Z+2026-10-15T12:25:07Z+2026-10-15T12:25:19Z+2026-10-15T08:44:23Z+2026-10-15T09:13:29Z+2026-10-16T00:14:25Z+2026-10-15T17:59:15Z",
     "pointer": "definitions/fitting/serving_series_r1d7b-rl-f12-a.json",
     "row": 3,
     "served": true,
@@ -1290,10 +1290,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.aed05496a03d.json",
-  "chain_average": "chain_average.aed05496a03d.json",
-  "chain_median": "chain_median.aed05496a03d.json",
-  "dots": "dots.aed05496a03d.json",
-  "levels": "levels.aed05496a03d.json"
+  "shared": "shared.7fb421df3abb.json",
+  "chain_average": "chain_average.7fb421df3abb.json",
+  "chain_median": "chain_median.7fb421df3abb.json",
+  "dots": "dots.7fb421df3abb.json",
+  "levels": "levels.7fb421df3abb.json"
  }
 }
