@@ -215,7 +215,7 @@ var NARROW = false, FS = 12, FT = 11, DR = 5, UPX = 1;
 function layout() {
   if (PANEL) {   
     NARROW = false; W = PANEL.size.width; UPX = 1;
-    if (EXPORTING) { ML = 90; MR = 30; MT = 40; MB = 62; DR = 4.5; FS = PANEL_EXPORT_TICK_PX; FT = 11; } else { ML = 44; MR = 10; MT = 10; MB = 34; DR = 3.5; FS = 10; FT = 9; }   
+    if (EXPORTING) { ML = 90; MR = 30; MT = 40; MB = 62; DR = 4.5; FS = PANEL_EXPORT_TICK_PX; FT = 11; } else { MR = 10; MT = 10; DR = 3.5; FS = 10; FT = 9; var tfsP = Math.max(FS + 1, 13); MB = (FS + 5) + Math.ceil(0.3 * FS) + 6 + tfsP + 6; ML = 13 + Math.ceil(0.3 * tfsP) + 6 + Math.ceil(4 * 0.56 * FS) + 6; }   
     PW = W - ML - MR; PH = PW; H = PH + MT + MB; TRK.x0 = ML; TRK.x1 = ML + PW; TRK.y = 6; return;
   }
   if (EXPORTING) {   
@@ -245,7 +245,7 @@ function layout() {
     
     var tfsL = Math.max(FS + 1, Math.ceil(13 * UPX)), needMB = (FS + 5) + Math.ceil(0.3 * FS) + 6 + tfsL + 6;
     if (needMB > MB) { MB = needMB; H = PH + MT + MB; }
-    var needML = 15 + Math.ceil(0.5 * tfsL) + 6 + Math.ceil(4 * 0.56 * FS) + 6;   
+    var tyxD = Math.max(15, tfsL), needML = tyxD + Math.ceil(0.3 * tfsL) + 6 + Math.ceil(4 * 0.56 * FS) + 6;   
     if (needML > ML) { ML = needML; PW = W - ML - MR; PH = PW; H = PH + MT + MB; }
     if (UPX > 1) { MT = Math.ceil(40 * UPX); H = PH + MT + MB; }   
   }
@@ -1712,7 +1712,7 @@ function renderScatter() {
     + '<g clip-path="url(#expclip' + (PANEL ? '-p' + PANEL.idx : '') + ')">' + out.slice(clipAt) + '</g>';   
   
   
-  var tyx = EXPORTING ? (PANEL ? 20 : 44) : NARROW ? 11 : 15, tfs = EXPORTING ? (PANEL ? PANEL_EXPORT_TITLE_PX : EXPORT_TITLE_PX) : NARROW ? 13 : Math.max(FS + 1, Math.ceil(13 * UPX));   
+  var tfs = EXPORTING ? (PANEL ? PANEL_EXPORT_TITLE_PX : EXPORT_TITLE_PX) : NARROW ? 13 : Math.max(FS + 1, Math.ceil(13 * UPX)), tyx = EXPORTING ? (PANEL ? 20 : 44) : (NARROW || PANEL) ? 13 : Math.max(15, tfs);   
   var ytt = axisShort('y'), tfsY = tfs;   
   if (EXPORTING && !PANEL) { var needY = ytt.length * tfs * 0.56; if (needY > PH * 0.96) tfsY = Math.max(28, Math.floor(tfs * PH * 0.96 / needY)); }
   out += '<text x="' + (ML + PW / 2) + '" y="' + (H - 6)
