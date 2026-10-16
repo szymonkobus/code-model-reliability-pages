@@ -143,7 +143,7 @@
    },
    "source_stamp": "2026-10-16T11:43:46Z",
    "source_fp": "604db69a180f",
-   "updated_at": "2026-10-16T12:01:21Z",
+   "updated_at": "2026-10-16T12:31:32Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -191,7 +191,7 @@
    },
    "source_stamp": "2026-10-16T11:47:56Z",
    "source_fp": "c832a5952e3a",
-   "updated_at": "2026-10-16T12:03:22Z",
+   "updated_at": "2026-10-16T12:33:52Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -307,21 +307,21 @@
   },
   "ifeval": {
    "files": {
-    "shared": "shared.ifeval.42a7d1b100f2.json",
-    "chain_average": "chain_average.ifeval.42a7d1b100f2.json",
-    "bayes": "bayes.ifeval.42a7d1b100f2-0e350e3e4b87.json",
+    "shared": "shared.ifeval.c3fdbc37e57f.json",
+    "chain_average": "chain_average.ifeval.c3fdbc37e57f.json",
+    "bayes": "bayes.ifeval.c3fdbc37e57f-0e350e3e4b87.json",
     "bayes_prev": "bayes.ifeval.86b061913de2-4e95778148c9.json"
    },
    "label": "IFEval",
    "arms": "all",
-   "fingerprint": "42a7d1b100f2",
+   "fingerprint": "c3fdbc37e57f",
    "frame": {
     "population_M": 47,
     "tasks": 541,
     "keep_set_hash": "ea009d5c6cd1",
-    "runs_fingerprint": "782b17ea8e5a",
-    "build_date": "2026-10-15",
-    "build_ts": "2026-10-15T16:33:45Z",
+    "runs_fingerprint": "768256fc4078",
+    "build_date": "2026-10-16",
+    "build_ts": "2026-10-16T12:27:02Z",
     "vocab_ruled": "2026-08-27",
     "set": "ifeval",
     "set_label": "IFEval",
@@ -332,14 +332,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ea009d5c6cd1",
     "tasks_used": "IFEval \u2014 541 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-ifeval fp c2f89566fb8d (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-ifeval fp bb9fccdc243d (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "f598763f0d98",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-15T16:33:45Z",
-   "source_fp": "c2f89566fb8d",
-   "updated_at": "2026-10-15T16:40:10Z",
+   "source_stamp": "2026-10-16T12:27:02Z",
+   "source_fp": "bb9fccdc243d",
+   "updated_at": "2026-10-16T12:33:37Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -577,7 +577,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-10-16T11:25:52Z",
+  "stamp": "2026-10-16T12:25:50Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,
