@@ -1748,10 +1748,10 @@ function render() {
   });
   grid += '<text data-role="axis-title" x="' + (ML + PW / 2) + '" y="' + (H - 6)
     + '" text-anchor="middle" fill="#52514e" font-size="' + (12 * K * TS) + '" '
-    + 'data-chain-inv>' + (pinOn() ? 'difficulty, relative to the pin' + (narrow ? '' : (state.xs === 'raw' ? ' (percentage points)' : ' (logit steps)')) : 'task difficulty' + ((narrow || state.xs === 'raw') ? '' : ' (logit)')) + '</text>'
+    + 'data-chain-inv>' + (pinOn() ? 'difficulty, relative to the pin' + ((narrow || state.xs !== 'raw') ? '' : ' (percentage points)') : 'task difficulty' + ((narrow || state.xs !== 'raw') ? '' : ' (linear spacing)')) + '</text>'   
     + '<text data-role="axis-title" transform="rotate(-90)" x="' + (-(MT + PH / 2)) + '" y="'
     + (12 * K * TS) + '" text-anchor="middle" fill="#52514e" font-size="'
-    + (12 * K * TS) + '" data-chain-inv>failure rate' + ((narrow || state.ys === 'raw') ? '' : ' (logit)') + '</text>';
+    + (12 * K * TS) + '" data-chain-inv>failure rate' + ((narrow || state.ys !== 'raw') ? '' : ' (linear spacing)') + '</text>';
 
   var dotsSvg = '', bands = '', curves = '';
   var dotsOn = state.dots === '1' && visible.length > 0
