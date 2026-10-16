@@ -1,5 +1,5 @@
 {
- "fingerprint": "698da234b293",
+ "fingerprint": "a474a88449f0",
  "frame": {
   "population_M": 62,
   "tasks": 430,
@@ -18,8 +18,8 @@
   "inputs_content_sha": "802a10f150ae",
   "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\t<task>\t<passes>\t<attempts>\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column verbatim; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) \u2014 reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
   "scorer": "plus_status",
-  "build_date": "2026-10-15",
-  "build_ts": "2026-10-15T09:09:26Z",
+  "build_date": "2026-10-16",
+  "build_ts": "2026-10-16T22:40:21Z",
   "rebuild_condition": "re-pulls when failure-vs-difficulty's board handoff changes (each landing) or the Bayesian/capability_C chains re-emit; frame is a snapshot at build_ts",
   "vocab_ruled": "2026-08-27",
   "fitted_M": 62,
@@ -27,23 +27,23 @@
   "fit_excluded": []
  },
  "files": {
-  "shared": "shared.698da234b293.json",
-  "chain_average": "chain_average.698da234b293.json",
-  "chain_median": "chain_median.698da234b293.json",
-  "bayes": "bayes.698da234b293-012305544cee.json",
+  "shared": "shared.a474a88449f0.json",
+  "chain_average": "chain_average.a474a88449f0.json",
+  "chain_median": "chain_median.a474a88449f0.json",
+  "bayes": "bayes.a474a88449f0-012305544cee.json",
   "bayes_prev": "bayes.d5fc7b013c92.json"
  },
  "datasets": {
   "board": {
    "files": {
-    "shared": "shared.698da234b293.json",
-    "chain_average": "chain_average.698da234b293.json",
-    "chain_median": "chain_median.698da234b293.json",
-    "bayes": "bayes.698da234b293-012305544cee.json",
+    "shared": "shared.a474a88449f0.json",
+    "chain_average": "chain_average.a474a88449f0.json",
+    "chain_median": "chain_median.a474a88449f0.json",
+    "bayes": "bayes.a474a88449f0-012305544cee.json",
     "bayes_prev": "bayes.d5fc7b013c92.json"
    },
    "label": "wave 1",
-   "fingerprint": "698da234b293",
+   "fingerprint": "a474a88449f0",
    "frame": {
     "population_M": 62,
     "tasks": 430,
@@ -62,8 +62,8 @@
     "inputs_content_sha": "802a10f150ae",
     "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\t<task>\t<passes>\t<attempts>\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column verbatim; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) \u2014 reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
     "scorer": "plus_status",
-    "build_date": "2026-10-15",
-    "build_ts": "2026-10-15T09:09:26Z",
+    "build_date": "2026-10-16",
+    "build_ts": "2026-10-16T22:40:21Z",
     "rebuild_condition": "re-pulls when failure-vs-difficulty's board handoff changes (each landing) or the Bayesian/capability_C chains re-emit; frame is a snapshot at build_ts",
     "vocab_ruled": "2026-08-27",
     "fitted_M": 62,
@@ -108,7 +108,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-16T22:17:29Z"
+   "updated_at": "2026-10-16T22:42:31Z"
   },
   "all": {
    "files": {
@@ -361,21 +361,21 @@
   },
   "gsm8k_platinum": {
    "files": {
-    "shared": "shared.gsm8k_platinum.c69ee4125ca5.json",
-    "chain_average": "chain_average.gsm8k_platinum.c69ee4125ca5.json",
-    "bayes": "bayes.gsm8k_platinum.c69ee4125ca5-940122679e5a.json",
+    "shared": "shared.gsm8k_platinum.915fc5ea6c96.json",
+    "chain_average": "chain_average.gsm8k_platinum.915fc5ea6c96.json",
+    "bayes": "bayes.gsm8k_platinum.915fc5ea6c96-940122679e5a.json",
     "bayes_prev": "bayes.gsm8k_platinum.51ec4ce84fb5-81c9d84b6741.json"
    },
    "label": "GSM8K-Platinum",
    "arms": "all",
-   "fingerprint": "c69ee4125ca5",
+   "fingerprint": "915fc5ea6c96",
    "frame": {
     "population_M": 52,
     "tasks": 1209,
     "keep_set_hash": "ff1457decdf7",
-    "runs_fingerprint": "6c41c0220664",
+    "runs_fingerprint": "1cd708a2f08d",
     "build_date": "2026-10-16",
-    "build_ts": "2026-10-16T16:50:53Z",
+    "build_ts": "2026-10-16T22:25:03Z",
     "vocab_ruled": "2026-08-27",
     "set": "gsm8k_platinum",
     "set_label": "GSM8K-Platinum",
@@ -386,14 +386,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ff1457decdf7",
     "tasks_used": "GSM8K-Platinum \u2014 1209 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-gsm8k_platinum fp 0cded64e5669 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-gsm8k_platinum fp c735b4cdea97 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "b254879e615d",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-16T16:50:53Z",
-   "source_fp": "0cded64e5669",
-   "updated_at": "2026-10-16T21:41:17Z",
+   "source_stamp": "2026-10-16T22:25:03Z",
+   "source_fp": "c735b4cdea97",
+   "updated_at": "2026-10-16T22:41:11Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -469,21 +469,21 @@
   },
   "cruxeval_o": {
    "files": {
-    "shared": "shared.cruxeval_o.60c10c127a16.json",
-    "chain_average": "chain_average.cruxeval_o.60c10c127a16.json",
-    "bayes": "bayes.cruxeval_o.60c10c127a16-82fb754f764f.json",
+    "shared": "shared.cruxeval_o.320e88a7e44f.json",
+    "chain_average": "chain_average.cruxeval_o.320e88a7e44f.json",
+    "bayes": "bayes.cruxeval_o.320e88a7e44f-82fb754f764f.json",
     "bayes_prev": "bayes.cruxeval_o.f622cb20231d-b8d5b88d30a4.json"
    },
    "label": "CRUXEval output",
    "arms": "all",
-   "fingerprint": "60c10c127a16",
+   "fingerprint": "320e88a7e44f",
    "frame": {
     "population_M": 51,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
-    "runs_fingerprint": "6c41c0220664",
+    "runs_fingerprint": "1cd708a2f08d",
     "build_date": "2026-10-16",
-    "build_ts": "2026-10-16T16:43:46Z",
+    "build_ts": "2026-10-16T22:19:45Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_o",
     "set_label": "CRUXEval output",
@@ -494,14 +494,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
     "tasks_used": "CRUXEval output \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_o fp 7926ea0bd7a2 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-cruxeval_o fp 2c13c1bb0f8a (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "cd06528a4146",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-16T16:43:46Z",
-   "source_fp": "7926ea0bd7a2",
-   "updated_at": "2026-10-16T21:45:48Z",
+   "source_stamp": "2026-10-16T22:19:45Z",
+   "source_fp": "2c13c1bb0f8a",
+   "updated_at": "2026-10-16T22:43:05Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
