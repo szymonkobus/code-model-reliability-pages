@@ -1,9 +1,9 @@
 {
- "fingerprint": "87292344f36e",
+ "fingerprint": "b34f4e59f471",
  "fingerprint_inputs": {
-  "content": "239ad43b3aba",
+  "content": "9bc67ef30fcd",
   "wave": "combined-20260910T2209Z",
-  "body": "b5cd02e204ba"
+  "body": "5409d4dd8498"
  },
  "frame": {
   "dataset": "board_top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 66,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "239ad43b3aba",
+  "inputs_content_sha": "9bc67ef30fcd",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "3e8af3a67f95",
+  "runs_fingerprint": "64421b28906c",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-16",
-  "stamp": "2026-10-16T16:15:51Z",
+  "stamp": "2026-10-16T17:12:57Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -135,7 +135,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-16T15:19:08Z",
+   "unified_built_at": "2026-10-16T16:19:18Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -598,7 +598,7 @@
   "interim": "kernel fits on all results available at build; refit hourly as results land",
   "partial_attempts": null,
   "off_panel": {
-   "n_with_cells": 86,
+   "n_with_cells": 88,
    "arms": [
     {
      "id": "deepseek-coder-6.7b-rl-night1-step250",
@@ -1032,7 +1032,18 @@
     }
    ],
    "stopped_not_listed": [],
-   "unregistered": [],
+   "unregistered": [
+    {
+     "id": "XiaomiMiMo/MiMo-7B-SFT-Thinking",
+     "arm_id": "mimo-7b-sft",
+     "label": "MiMo-SFT 7B (thinking)"
+    },
+    {
+     "id": "Skywork/Skywork-OR1-7B",
+     "arm_id": "skywork-or1-7b",
+     "label": "Skywork-OR1 7B"
+    }
+   ],
    "in_side_block": [
     "qwen3-8b-4k32",
     "qwen3-8b-code-rl",
@@ -1059,7 +1070,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-16T15:25:59Z",
+   "_stamp": "2026-10-16T16:25:22Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1296,10 +1307,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.87292344f36e.json",
-  "chain_average": "chain_average.87292344f36e.json",
-  "chain_median": "chain_median.87292344f36e.json",
-  "dots": "dots.87292344f36e.json",
-  "levels": "levels.87292344f36e.json"
+  "shared": "shared.b34f4e59f471.json",
+  "chain_average": "chain_average.b34f4e59f471.json",
+  "chain_median": "chain_median.b34f4e59f471.json",
+  "dots": "dots.b34f4e59f471.json",
+  "levels": "levels.b34f4e59f471.json"
  }
 }
