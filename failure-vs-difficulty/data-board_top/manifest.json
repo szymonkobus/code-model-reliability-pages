@@ -1,9 +1,9 @@
 {
- "fingerprint": "fc1ce4c8921c",
+ "fingerprint": "06b619d520c9",
  "fingerprint_inputs": {
   "content": "4bdddbdfb2f5",
   "wave": "combined-20260910T2209Z",
-  "body": "0f6ebf136ea9"
+  "body": "ad49b2e10a99"
  },
  "frame": {
   "dataset": "board_top",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "53df1cf1beda",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-17",
-  "stamp": "2026-10-17T16:37:42Z",
+  "stamp": "2026-10-17T17:24:50Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -135,7 +135,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-17T16:16:10Z",
+   "unified_built_at": "2026-10-17T17:19:30Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -468,13 +468,13 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/board_top-20260910T2111Z/results",
    "set_fingerprint": "030de536de92",
-   "pointer_updated_at": "2026-10-16T19:46:36Z",
-   "n_fits": 63,
+   "pointer_updated_at": "2026-10-17T17:23:39Z",
+   "n_fits": 64,
    "note": null,
    "gates": {
     "convention": "0.5%-of-draws convention",
-    "n_pass": 33,
-    "n_arms": 65,
+    "n_pass": 34,
+    "n_arms": 66,
     "max_divergence_share_pct": 0.03,
     "rhat_max": 1.148,
     "bulk_ess_min": 18,
@@ -551,6 +551,7 @@
     "claude-haiku-5-5",
     "claude-haiku-5-5-thinking",
     "claude-opus-5",
+    "claude-opus-5-5-thinking",
     "claude-opus-5-thinking",
     "claude-sonnet-5-5",
     "claude-sonnet-5-5-thinking",
@@ -588,15 +589,15 @@
    },
    "concentration_counts": {
     "diffuse": 5,
-    "extreme": 39,
+    "extreme": 40,
     "intermediate": 5,
     "concentrated": 14
    },
    "readings": null,
-   "drawn": 65,
+   "drawn": 66,
    "levels_file": {
     "file": "levels",
-    "configs": 65,
+    "configs": 66,
     "note": "the per-level crossing tables of every element of record (the median over the draws of each draw's crossing of each failure-rate level, its 10th to 90th band, the censored shares), thinned to every second level; read by the shell only under the drawing of the crossings' medians at each level"
    }
   },
@@ -1081,7 +1082,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-17T16:25:40Z",
+   "_stamp": "2026-10-17T17:25:26Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1318,10 +1319,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.fc1ce4c8921c.json",
-  "chain_average": "chain_average.fc1ce4c8921c.json",
-  "chain_median": "chain_median.fc1ce4c8921c.json",
-  "dots": "dots.fc1ce4c8921c.json",
-  "levels": "levels.fc1ce4c8921c.json"
+  "shared": "shared.06b619d520c9.json",
+  "chain_average": "chain_average.06b619d520c9.json",
+  "chain_median": "chain_median.06b619d520c9.json",
+  "dots": "dots.06b619d520c9.json",
+  "levels": "levels.06b619d520c9.json"
  }
 }
