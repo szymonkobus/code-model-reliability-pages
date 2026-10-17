@@ -230,7 +230,7 @@ function applyNames() {
 function lazyWant(man) {
   var fr = (man && man.frame) || {}; var st = (typeof Kit !== 'undefined' && Kit.state) ? Kit.state : null;
   var defAtOpen = st ? st.get('def', 'average') : 'average', dotsAtOpen = st ? st.get('dots', '0') : '0';
-  return { shared: true, chain_average: true, chain_median: (defAtOpen === 'median' || fr.median_curves == null), dots: dotsAtOpen === '1' };
+  return { shared: true, chain_average: true, chain_median: (defAtOpen === 'median' || fr.median_curves == null), dots: dotsAtOpen === '1' || fr.coverage == null };   
 }
 var MED_P = null, DOTS_P = null;   
 function ensureMed() {   
@@ -957,12 +957,12 @@ function covOf(i) {
   var dd = D.dots && D.dots.configs && D.dots.configs[c.id];
   var n = 0;
   if (dd && dd.fails) for (var t = 0; t < dd.fails.length; t++) if (dd.fails[t] != null) n++;
-  return { tasks: n, of: of };
+  return dd ? { tasks: n, of: of } : { tasks: null, of: of };   
 }
 function attemptsPartial(i) {   
   var f = D.shared.frame || {}; var pa = f.partial_attempts; var c = D.shared.configs[i]; return !!(pa && c && pa[c.id]);
 }
-function isPartial(i) { var cv = covOf(i); return (cv.of > 0 && cv.tasks / cv.of < PARTIAL_MIN) || attemptsPartial(i) || sidePartialOf(i); }
+function isPartial(i) { var cv = covOf(i); return (cv.of > 0 && cv.tasks != null && cv.tasks / cv.of < PARTIAL_MIN) || attemptsPartial(i) || sidePartialOf(i); }   
 function sidePartialOf(i) { if (MERGED[i] == null) return false; var sb = sideBlock(); var a = sb && sb.arms ? sb.arms[MERGED[i]] : null; return !!(a && a.partial); }   
 
 
@@ -1074,7 +1074,7 @@ function noSpecTagsRaw(s) {
 }
 function covText(i) {
   if (attemptsPartial(i)) { var pa = (D.shared.frame || {}).partial_attempts[D.shared.configs[i].id] || {}; var pc = Array.isArray(pa.per_cell) ? pa.per_cell.filter(function (v) { return typeof v === 'number'; }) : []; var cnt = (pa.declared_n != null) ? String(pa.declared_n) : (pc.length > 1 ? pc[0] + ' to ' + pc[pc.length - 1] : (pc.length === 1 ? String(pc[0]) : String(pa.per_cell || ''))); return 'partial: ' + cnt + ' answers a task' + (pa.standard ? ' against ' + pa.standard : ''); }   
-  var cv = covOf(i); return 'attempts on ' + (cv.of ? Math.round(100 * cv.tasks / cv.of) + '% of the tasks' : 'the tasks'); }   
+  var cv = covOf(i); return 'attempts on ' + (cv.of && cv.tasks != null ? Math.round(100 * cv.tasks / cv.of) + '% of the tasks' : 'the tasks'); }   
 function hasOwnBayes(i) {
   var id = D.shared.configs[i].id;
   var cfgB = (state.def === 'average' ? D.avg : D.med).configs[id];
