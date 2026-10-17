@@ -176,6 +176,10 @@ function drawInto(ctx, svg, size) {
   if (typeof refreshRunKey === 'function') refreshRunKey();   
   return drawn;
 }
+function labelMarks(ctx, svg) {   
+  if (!svg) return; var cfs = ctx.D.shared.configs;
+  Array.prototype.forEach.call(svg.querySelectorAll('[data-i]'), function (el) { var c = cfs[+el.getAttribute('data-i')]; if (c && typeof c.label === 'string' && c.label) el.setAttribute('data-label', c.label); });
+}
 function drawPanel(key, panelEl, size) {   
   var ctx = null; for (var k = 0; k < PANELS.length; k++) if (PANELS[k].key === key) ctx = PANELS[k];
   if (!ctx) return;
@@ -183,6 +187,7 @@ function drawPanel(key, panelEl, size) {
   svg.dataset.p = ctx.idx; svg.style.width = '100%'; svg.style.height = 'auto'; svg.style.display = 'block';
   if (ctx.held) { svg.setAttribute('viewBox', '0 0 ' + size.width + ' ' + size.width); svg.firstChild.innerHTML = '<text x="' + (size.width / 2) + '" y="' + (size.width / 2) + '" text-anchor="middle" font-size="11" fill="#52514e">held: ' + ctx.held + '</text>'; ctx.drawn = 0; return; }
   ctx.drawn = drawInto(ctx, svg, size);
+  labelMarks(ctx, svg);
   if (ctx.idx === PANELS.length - 1) { var total = PANELS.reduce(function (a, c) { return a + (c.drawn || 0); }, 0);
     var h = document.getElementById('headline'); if (h) h.textContent = PANELS.length + ' sets side by side: ' + axisShort('y') + ' against ' + axisShort('x') + ' on each set’s own difficulty axis; ' + total + ' points drawn.'; }
 }
