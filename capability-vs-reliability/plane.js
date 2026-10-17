@@ -1164,15 +1164,26 @@ function axisGrid(xOnly, hOverride) {
     xt = thin(xt, function (v) { return sx(zOf(v)); }, function (v) { return (String(v).length + 1) * FS * 0.62 + 4; });
     yt2 = thin(yt2, function (v) { return -sy(zOf(v)); }, function () { return FS + 3; });
   }
-  var lastTickX = null, lastTickW = 0;   
-  xt.forEach(function (v) {
-    var z = zOf(v), L = limT(state.xs === 'raw', 'x');
-    if (tf(z, state.xs === 'raw') <= L[0]
-        || tf(z, state.xs === 'raw') >= L[1]) return;
-    g += '<line x1="' + sx(z) + '" y1="' + MT + '" x2="' + sx(z)
+  
+  
+  
+  
+  
+  var rawX = state.xs === 'raw', xIn = xt.filter(function (v) { var L = limT(rawX, 'x'), t = tf(zOf(v), rawX); return t > L[0] && t < L[1]; });
+  var labelW = function (s) { var w = 0; for (var i = 0; i < s.length; i++) w += s.charAt(i) === '.' ? 0.32 : s.charAt(i) === '%' ? 0.95 : 0.64; return w * FS; };
+  var gapX = FS * Math.max(0.12, 0.2 * UPX - 0.08), keepX = [1, 5, 20, 50, 80, 95, 99], placedX = [];   
+  xIn.map(function (v, i) { return { v: v, i: i, p: i === 0 ? 0 : keepX.indexOf(v) >= 0 ? 1 : 2 }; }).sort(function (a, b) { return a.p - b.p || a.i - b.i; }).forEach(function (o) {
+    var tx = sx(zOf(o.v)), w = labelW(String(o.v) + '%'), cx = Math.min(Math.max(tx, 2 + w / 2), W - 2 - w / 2);   
+    for (var k = 0; k < placedX.length; k++) if (Math.abs(cx - placedX[k].x) < (w + placedX[k].w) / 2 + gapX) return;
+    placedX.push({ v: o.v, x: cx, w: w });
+  });
+  var cxOf = {}; placedX.forEach(function (q) { cxOf[q.v] = q.x; });
+  xIn.forEach(function (v) {
+    var tx = sx(zOf(v));
+    g += '<line x1="' + tx + '" y1="' + MT + '" x2="' + tx
       + '" y2="' + plotBot + '" stroke="#e0d9c8" stroke-width="0.6"/>';
-    var tx = sx(z), tw = (String(v) + '%').length * 0.56 * FS; if (lastTickX !== null && Math.abs(tx - lastTickX) < (tw + lastTickW) / 2 + 4) return; lastTickX = tx; lastTickW = tw;
-    g += '<text x="' + tx + '" y="' + (plotBot + FS + 5)
+    if (!(v in cxOf)) return;
+    g += '<text x="' + cxOf[v] + '" y="' + (plotBot + FS + 5)
       + '" text-anchor="middle" fill="#52514e" font-size="' + FS + '" data-role="tick">'
       + v + '%</text>';
   });
