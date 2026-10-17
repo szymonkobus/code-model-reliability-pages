@@ -1,9 +1,9 @@
 {
- "fingerprint": "a6bde2ed5a4d",
+ "fingerprint": "aabad11d73b4",
  "fingerprint_inputs": {
-  "content": "fc82b64e87ca",
+  "content": "4285ddc02607",
   "wave": "combined-20260910T2209Z",
-  "body": "cc3f16adc944"
+  "body": "58a57df97602"
  },
  "frame": {
   "dataset": "board_top",
@@ -17,14 +17,14 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 66,
-  "fitted_M": 66,
-  "complete_M": 66,
-  "sampled_M": 66,
-  "difficulty_population_M": 66,
+  "population_M": 67,
+  "fitted_M": 67,
+  "complete_M": 67,
+  "sampled_M": 67,
+  "difficulty_population_M": 67,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "fc82b64e87ca",
+  "inputs_content_sha": "4285ddc02607",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "1dfbd2aac7a9",
+  "runs_fingerprint": "948eaa00a6ce",
   "axis_wave": "combined-20260910T2209Z",
-  "build_date": "2026-10-16",
-  "stamp": "2026-10-16T23:44:41Z",
+  "build_date": "2026-10-17",
+  "stamp": "2026-10-17T00:43:09Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -135,7 +135,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-16T23:16:54Z",
+   "unified_built_at": "2026-10-17T00:17:53Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -183,6 +183,10 @@
    },
    "claude-opus-5-thinking": {
     "tasks": 1286,
+    "of": 1288
+   },
+   "claude-opus-5-5-thinking": {
+    "tasks": 144,
     "of": 1288
    },
    "deepseek-ai/deepseek-coder-1.3b-instruct": {
@@ -1077,7 +1081,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-16T23:24:54Z",
+   "_stamp": "2026-10-17T00:26:09Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1314,10 +1318,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.a6bde2ed5a4d.json",
-  "chain_average": "chain_average.a6bde2ed5a4d.json",
-  "chain_median": "chain_median.a6bde2ed5a4d.json",
-  "dots": "dots.a6bde2ed5a4d.json",
-  "levels": "levels.a6bde2ed5a4d.json"
+  "shared": "shared.aabad11d73b4.json",
+  "chain_average": "chain_average.aabad11d73b4.json",
+  "chain_median": "chain_median.aabad11d73b4.json",
+  "dots": "dots.aabad11d73b4.json",
+  "levels": "levels.aabad11d73b4.json"
  }
 }
