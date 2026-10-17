@@ -1,13 +1,13 @@
 {
- "generated_at": "2026-10-17T02:47:25Z",
+ "generated_at": "2026-10-17T06:04:11Z",
  "builder": "pages/failure-vs-difficulty/build_curves_site_data.py",
  "outputs": [
-  "pages/failure-vs-difficulty/curves-site/data/chain_average.3df9ab2d8a47.json",
-  "pages/failure-vs-difficulty/curves-site/data/chain_median.3df9ab2d8a47.json",
-  "pages/failure-vs-difficulty/curves-site/data/dots.3df9ab2d8a47.json",
-  "pages/failure-vs-difficulty/curves-site/data/levels.3df9ab2d8a47.json",
+  "pages/failure-vs-difficulty/curves-site/data/chain_average.c154d4347eb9.json",
+  "pages/failure-vs-difficulty/curves-site/data/chain_median.c154d4347eb9.json",
+  "pages/failure-vs-difficulty/curves-site/data/dots.c154d4347eb9.json",
+  "pages/failure-vs-difficulty/curves-site/data/levels.c154d4347eb9.json",
   "pages/failure-vs-difficulty/curves-site/data/manifest.json",
-  "pages/failure-vs-difficulty/curves-site/data/shared.3df9ab2d8a47.json"
+  "pages/failure-vs-difficulty/curves-site/data/shared.c154d4347eb9.json"
  ],
  "inputs": [
   {
@@ -18,15 +18,15 @@
   },
   {
    "path": "definitions/fitting/serving_board.json",
-   "mtime_at_open": "2026-10-12T12:30:27Z",
-   "size": 857247,
-   "sha12": "3d14c94de8e4"
+   "mtime_at_open": "2026-10-17T05:57:33Z",
+   "size": 950593,
+   "sha12": "a46e1c5ee28a"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/crossings_of_record.csv",
-   "mtime_at_open": "2026-10-12T12:30:15Z",
-   "size": 285655,
-   "sha12": "1303e38df1b5"
+   "mtime_at_open": "2026-10-17T05:52:06Z",
+   "size": 404042,
+   "sha12": "7bb81683b1f3"
   },
   {
    "path": "definitions/fitting/waves/old-20260910T2211Z/gates_summary.json",
@@ -774,15 +774,15 @@
   },
   {
    "path": "runs/arms.jsonl",
-   "mtime_at_open": "2026-10-17T01:46:04Z",
+   "mtime_at_open": "2026-10-17T05:33:57Z",
    "size": 701477,
-   "sha12": "cb958a68ce1b"
+   "sha12": "2aca7778702c"
   },
   {
    "path": "runs/arms_readouts.jsonl",
-   "mtime_at_open": "2026-10-17T01:46:04Z",
+   "mtime_at_open": "2026-10-17T05:33:57Z",
    "size": 532321,
-   "sha12": "0cb29bdec87e"
+   "sha12": "2c1682fdff6e"
   },
   {
    "path": "runs/models.jsonl",
@@ -804,27 +804,27 @@
   },
   {
    "path": "runs/watch/forecast/watch/held_arms.json",
-   "mtime_at_open": "2026-10-17T02:25:33Z",
-   "size": 244606,
-   "sha12": "d5a6b77531a1"
+   "mtime_at_open": "2026-10-17T05:25:33Z",
+   "size": 245239,
+   "sha12": "dd2e2458d68a"
   },
   {
    "path": "side-projects/newbench/labels_cells.jsonl",
-   "mtime_at_open": "2026-10-17T01:47:56Z",
-   "size": 4011672,
-   "sha12": "f030833ee73a"
+   "mtime_at_open": "2026-10-17T05:36:24Z",
+   "size": 4036146,
+   "sha12": "eee3761dec71"
   },
   {
    "path": "tasks/knowledge/counts_of_record.json",
-   "mtime_at_open": "2026-10-17T02:25:25Z",
-   "size": 43646,
-   "sha12": "4c502ca6fa0c"
+   "mtime_at_open": "2026-10-17T05:25:48Z",
+   "size": 43616,
+   "sha12": "200c059c0b62"
   },
   {
    "path": "tasks/knowledge/disclosures.published.json",
-   "mtime_at_open": "2026-10-17T02:39:38Z",
-   "size": 693255,
-   "sha12": "8b74590ee69a"
+   "mtime_at_open": "2026-10-17T05:32:36Z",
+   "size": 693307,
+   "sha12": "6bef62ee6960"
   }
  ],
  "streams": [],
