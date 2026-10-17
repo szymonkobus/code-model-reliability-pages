@@ -118,7 +118,7 @@ function ladderWithinFamilies(seq) {
   var units = unitsOf(seq), out = units.slice(), byFam = {};
   
   
-  var measured = function (u) { return isFinite(capKey(u.head)) && !isPartial(u.head) && !isWithheld(u.head); }, unmeasured = function (u) { return !isFinite(capKey(u.head)); };
+  var unmeasured = function (u) { return !isFinite(capKey(u.head)) || isPartial(u.head) || isWithheld(u.head); }, measured = function (u) { return !unmeasured(u); };
   units.forEach(function (u, pos) { var c = D.shared.configs[u.head]; if (c && c.fam && (!TIER_FAMS[c.fam] || (R && R[c.fam]))) (byFam[c.fam] = byFam[c.fam] || []).push(pos); });
   Object.keys(byFam).forEach(function (fam) {
     var slots = byFam[fam].filter(function (pos) { return measured(units[pos]); });
@@ -132,8 +132,12 @@ function ladderWithinFamilies(seq) {
     var um = byFam[fam].filter(function (pos) { return unmeasured(units[pos]); }).map(function (pos) { return units[pos]; });
     if (!um.length) return;
     var reg = R ? (R[fam] || {}) : {};
+    
+    
+    var placed = [], rkAll = ladderRanks(units.filter(function (v) { var c = D.shared.configs[v.head]; return c && c.fam === fam; }).map(function (v) { return v.head; }), fam, reg);
+    um.sort(function (a, b) { var ra = rkAll[a.head], rb = rkAll[b.head]; return (typeof ra === 'number' && typeof rb === 'number') ? ra - rb : 0; });
     um.forEach(function (u) {
-      var ms = out.filter(function (v) { var c = D.shared.configs[v.head]; return c && c.fam === fam && !unmeasured(v); });   
+      var ms = out.filter(function (v) { var c = D.shared.configs[v.head]; return c && c.fam === fam && (measured(v) || placed.indexOf(v) >= 0); });
       var rk = ladderRanks(ms.map(function (v) { return v.head; }).concat([u.head]), fam, reg), r = rk[u.head];
       if (typeof r !== 'number') return;
       var pred = null, first = null;
@@ -141,6 +145,7 @@ function ladderWithinFamilies(seq) {
       var cur = out.indexOf(u); if (cur < 0 || (!pred && !first)) return;
       out.splice(cur, 1);
       out.splice(pred ? out.indexOf(pred) + 1 : out.indexOf(first), 0, u);
+      placed.push(u);
     });
   });
   var flat = []; out.forEach(function (u) { flat.push.apply(flat, u.members); }); return flat;
