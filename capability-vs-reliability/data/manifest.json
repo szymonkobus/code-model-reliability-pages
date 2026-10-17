@@ -1,5 +1,5 @@
 {
- "fingerprint": "32d4fcd08622",
+ "fingerprint": "77989ff6deed",
  "frame": {
   "population_M": 63,
   "tasks": 430,
@@ -13,13 +13,13 @@
   },
   "keep_set_hash": "c3f08ea1a903",
   "axis_order_hash": "e39ebe415615",
-  "runs_fingerprint": "5c5de7fb79ae",
+  "runs_fingerprint": "106a7812ab6a",
   "runs_fingerprint_rule": "sha1 over path:mtime_ns:size of the consumed *.eval_results.json files (since 2026-09-02; before: every file under runs/)",
-  "inputs_content_sha": "8cb62d370cd2",
+  "inputs_content_sha": "f93609707993",
   "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\t<task>\t<passes>\t<attempts>\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column verbatim; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) \u2014 reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
   "scorer": "plus_status",
   "build_date": "2026-10-17",
-  "build_ts": "2026-10-17T06:04:14Z",
+  "build_ts": "2026-10-17T09:49:52Z",
   "rebuild_condition": "re-pulls when failure-vs-difficulty's board handoff changes (each landing) or the Bayesian/capability_C chains re-emit; frame is a snapshot at build_ts",
   "vocab_ruled": "2026-08-27",
   "fitted_M": 63,
@@ -27,23 +27,23 @@
   "fit_excluded": []
  },
  "files": {
-  "shared": "shared.32d4fcd08622.json",
-  "chain_average": "chain_average.32d4fcd08622.json",
-  "chain_median": "chain_median.32d4fcd08622.json",
-  "bayes": "bayes.32d4fcd08622-012305544cee.json",
+  "shared": "shared.77989ff6deed.json",
+  "chain_average": "chain_average.77989ff6deed.json",
+  "chain_median": "chain_median.77989ff6deed.json",
+  "bayes": "bayes.77989ff6deed-012305544cee.json",
   "bayes_prev": "bayes.d5fc7b013c92.json"
  },
  "datasets": {
   "board": {
    "files": {
-    "shared": "shared.32d4fcd08622.json",
-    "chain_average": "chain_average.32d4fcd08622.json",
-    "chain_median": "chain_median.32d4fcd08622.json",
-    "bayes": "bayes.32d4fcd08622-012305544cee.json",
+    "shared": "shared.77989ff6deed.json",
+    "chain_average": "chain_average.77989ff6deed.json",
+    "chain_median": "chain_median.77989ff6deed.json",
+    "bayes": "bayes.77989ff6deed-012305544cee.json",
     "bayes_prev": "bayes.d5fc7b013c92.json"
    },
    "label": "wave 1",
-   "fingerprint": "32d4fcd08622",
+   "fingerprint": "77989ff6deed",
    "frame": {
     "population_M": 63,
     "tasks": 430,
@@ -57,13 +57,13 @@
     },
     "keep_set_hash": "c3f08ea1a903",
     "axis_order_hash": "e39ebe415615",
-    "runs_fingerprint": "5c5de7fb79ae",
+    "runs_fingerprint": "106a7812ab6a",
     "runs_fingerprint_rule": "sha1 over path:mtime_ns:size of the consumed *.eval_results.json files (since 2026-09-02; before: every file under runs/)",
-    "inputs_content_sha": "8cb62d370cd2",
+    "inputs_content_sha": "f93609707993",
     "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\t<task>\t<passes>\t<attempts>\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column verbatim; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) \u2014 reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
     "scorer": "plus_status",
     "build_date": "2026-10-17",
-    "build_ts": "2026-10-17T06:04:14Z",
+    "build_ts": "2026-10-17T09:49:52Z",
     "rebuild_condition": "re-pulls when failure-vs-difficulty's board handoff changes (each landing) or the Bayesian/capability_C chains re-emit; frame is a snapshot at build_ts",
     "vocab_ruled": "2026-08-27",
     "fitted_M": 63,
@@ -108,7 +108,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-17T09:18:27Z"
+   "updated_at": "2026-10-17T09:51:52Z"
   },
   "all": {
    "files": {
@@ -143,7 +143,7 @@
    },
    "source_stamp": "2026-10-17T07:39:24Z",
    "source_fp": "12a0616c514b",
-   "updated_at": "2026-10-17T08:24:33Z",
+   "updated_at": "2026-10-17T09:26:57Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -191,7 +191,7 @@
    },
    "source_stamp": "2026-10-17T07:43:24Z",
    "source_fp": "61fa5f6ee549",
-   "updated_at": "2026-10-17T08:26:36Z",
+   "updated_at": "2026-10-17T09:29:03Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -236,7 +236,7 @@
    },
    "source_stamp": "2026-10-17T07:51:19Z",
    "source_fp": "46419e4547b8",
-   "updated_at": "2026-10-17T08:27:44Z",
+   "updated_at": "2026-10-17T09:30:06Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -577,7 +577,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-10-17T08:25:08Z",
+  "stamp": "2026-10-17T09:25:21Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,
