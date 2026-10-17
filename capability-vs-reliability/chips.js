@@ -116,7 +116,9 @@ function ladderWithinFamilies(seq) {
   
   var R = (D.shared.registry_ranks && typeof D.shared.registry_ranks === 'object') ? D.shared.registry_ranks : null;
   var units = unitsOf(seq), out = units.slice(), byFam = {};
-  var measured = function (u) { return isFinite(capKey(u.head)); };
+  
+  
+  var measured = function (u) { return isFinite(capKey(u.head)) && !isPartial(u.head) && !isWithheld(u.head); }, unmeasured = function (u) { return !isFinite(capKey(u.head)); };
   units.forEach(function (u, pos) { var c = D.shared.configs[u.head]; if (c && c.fam && (!TIER_FAMS[c.fam] || (R && R[c.fam]))) (byFam[c.fam] = byFam[c.fam] || []).push(pos); });
   Object.keys(byFam).forEach(function (fam) {
     var slots = byFam[fam].filter(function (pos) { return measured(units[pos]); });
@@ -127,11 +129,11 @@ function ladderWithinFamilies(seq) {
     rankedSlots.forEach(function (pos, k) { out[pos] = units[pos0[ranked[k]]]; });
   });
   Object.keys(byFam).forEach(function (fam) {
-    var um = byFam[fam].filter(function (pos) { return !measured(units[pos]); }).map(function (pos) { return units[pos]; });
+    var um = byFam[fam].filter(function (pos) { return unmeasured(units[pos]); }).map(function (pos) { return units[pos]; });
     if (!um.length) return;
     var reg = R ? (R[fam] || {}) : {};
     um.forEach(function (u) {
-      var ms = out.filter(function (v) { var c = D.shared.configs[v.head]; return c && c.fam === fam && measured(v); });
+      var ms = out.filter(function (v) { var c = D.shared.configs[v.head]; return c && c.fam === fam && !unmeasured(v); });   
       var rk = ladderRanks(ms.map(function (v) { return v.head; }).concat([u.head]), fam, reg), r = rk[u.head];
       if (typeof r !== 'number') return;
       var pred = null, first = null;
