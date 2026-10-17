@@ -2579,6 +2579,17 @@ function stamp() {
 }
 
 
+
+
+function overlayName(id) { var n = NAMES && NAMES[String(id || '')]; return (n && n.label) ? String(n.label).replace(/&/g, '&amp;').replace(/</g, '&lt;') : null; }
+function namedInManifest() { return 'a model named in ' + (DATASET === 'new' ? 'the pool bundle' : 'the data manifest'); }
+function namesOrCount(ids) {
+  var named = [], miss = 0;
+  (ids || []).forEach(function (id) { var n = overlayName(id); if (n) named.push(n); else miss += 1; });
+  var out = named.join('; ');
+  if (miss) out += (named.length ? '; ' : '') + (({ 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five' })[miss] || String(miss)) + ' more model' + (miss > 1 ? 's' : '') + ' named in ' + (DATASET === 'new' ? 'the pool bundle' : 'the data manifest');
+  return out;
+}
 function withheldLine(f) {
   var w = f.withheld_configs || [];
   var out = '';
@@ -2586,7 +2597,7 @@ function withheldLine(f) {
     var r = f.withheld_reasons || {};
     
     
-    out += ' · not on this panel (' + (DATASET === 'new' ? 'not run on these tasks' : 'results on one task set only') + '): ' + w.join('; ');
+    out += ' · not on this panel (' + (DATASET === 'new' ? 'not run on these tasks' : 'results on one task set only') + '): ' + namesOrCount(w);   
   }
   
   
@@ -2596,7 +2607,7 @@ function withheldLine(f) {
   if (ex.length) {
     var sh = f.fit_exclusion_short || {}, rw = f.fit_reversible_when || {};
     out += ' · <span style="color:#9a5b00">greyed, out of the fit population: ' + ex.map(function (m) {
-      return m + ' (' + (sh[m] || 'excluded') + (rw[m] ? '; reversible when ' + rw[m] : '') + ')';
+      return (overlayName(m) || namedInManifest()) + ' (' + (sh[m] || 'excluded') + (rw[m] ? '; reversible when ' + rw[m] : '') + ')';   
     }).join('; ') + '</span>';
   }
   return out;
@@ -2693,7 +2704,7 @@ function notDrawnClause(b) {
   var xs = b && b.served_not_in_population;
   if (!xs || !xs.length) return '';
   return ' · ' + xs.length + ' served fit' + (xs.length > 1 ? 's' : '') + ' not drawn: ' + xs.map(function (x) {
-    return '<span title="' + String(x.reason || '').replace(/"/g, '&quot;') + '" style="text-decoration:underline dotted">' + String(x.model_id).split('/').pop() + '</span>';
+    return '<span title="' + String(x.reason || '').replace(/"/g, '&quot;') + '" style="text-decoration:underline dotted">' + (overlayName(x.model_id) || namedInManifest()) + '</span>';   
   }).join(', ') + ' (hover for the reason)';
 }
 
