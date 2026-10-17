@@ -112,7 +112,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut by ruling (difficulty's word): the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-16T23:41:51Z"
+   "updated_at": "2026-10-17T00:12:30Z"
   },
   "all": {
    "files": {
@@ -257,21 +257,21 @@
   },
   "math500": {
    "files": {
-    "shared": "shared.math500.ca14c16eb9da.json",
-    "chain_average": "chain_average.math500.ca14c16eb9da.json",
-    "bayes": "bayes.math500.ca14c16eb9da-54ee4bddf33e.json",
+    "shared": "shared.math500.5b081e1fb5b6.json",
+    "chain_average": "chain_average.math500.5b081e1fb5b6.json",
+    "bayes": "bayes.math500.5b081e1fb5b6-54ee4bddf33e.json",
     "bayes_prev": "bayes.math500.512ae990f467-2e38bc937e1f.json"
    },
    "label": "MATH-500",
    "arms": "all",
-   "fingerprint": "ca14c16eb9da",
+   "fingerprint": "5b081e1fb5b6",
    "frame": {
     "population_M": 53,
     "tasks": 500,
     "keep_set_hash": "326e66dcd9ab",
-    "runs_fingerprint": "1cd708a2f08d",
-    "build_date": "2026-10-16",
-    "build_ts": "2026-10-16T22:12:06Z",
+    "runs_fingerprint": "f865d1605e61",
+    "build_date": "2026-10-17",
+    "build_ts": "2026-10-17T00:10:44Z",
     "vocab_ruled": "2026-08-27",
     "set": "math500",
     "set_label": "MATH-500",
@@ -282,14 +282,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "326e66dcd9ab",
     "tasks_used": "MATH-500 \u2014 500 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-math500 fp 18e41a3fe657 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-math500 fp 8379e6d05817 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "f04515cf303d",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-16T22:12:06Z",
-   "source_fp": "18e41a3fe657",
-   "updated_at": "2026-10-16T22:53:52Z",
+   "source_stamp": "2026-10-17T00:10:44Z",
+   "source_fp": "8379e6d05817",
+   "updated_at": "2026-10-17T00:14:47Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
