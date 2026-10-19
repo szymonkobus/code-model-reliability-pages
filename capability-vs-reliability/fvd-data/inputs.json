@@ -1,20 +1,20 @@
 {
- "generated_at": "2026-10-17T09:47:32Z",
+ "generated_at": "2026-10-19T10:59:35Z",
  "builder": "pages/failure-vs-difficulty/build_curves_site_data.py",
  "outputs": [
-  "pages/failure-vs-difficulty/curves-site/data/chain_average.d34faad28955.json",
-  "pages/failure-vs-difficulty/curves-site/data/chain_median.d34faad28955.json",
-  "pages/failure-vs-difficulty/curves-site/data/dots.d34faad28955.json",
-  "pages/failure-vs-difficulty/curves-site/data/levels.d34faad28955.json",
+  "pages/failure-vs-difficulty/curves-site/data/chain_average.52d4f25b4bf3.json",
+  "pages/failure-vs-difficulty/curves-site/data/chain_median.52d4f25b4bf3.json",
+  "pages/failure-vs-difficulty/curves-site/data/dots.52d4f25b4bf3.json",
+  "pages/failure-vs-difficulty/curves-site/data/levels.52d4f25b4bf3.json",
   "pages/failure-vs-difficulty/curves-site/data/manifest.json",
-  "pages/failure-vs-difficulty/curves-site/data/shared.d34faad28955.json"
+  "pages/failure-vs-difficulty/curves-site/data/shared.52d4f25b4bf3.json"
  ],
  "inputs": [
   {
    "path": "deep-dives/gpt5-reliability/cleaning_disclosure.json",
-   "mtime_at_open": "2026-10-17T09:23:58Z",
+   "mtime_at_open": "2026-10-17T11:23:26Z",
    "size": 17608,
-   "sha12": "034e25779040"
+   "sha12": "3d919000c1ea"
   },
   {
    "path": "definitions/fitting/serving_board.json",
@@ -773,16 +773,22 @@
    "sha12": "e2d952e69738"
   },
   {
+   "path": "research/training/post-training-lead/names_of_record.json",
+   "mtime_at_open": "2026-10-19T09:33:25Z",
+   "size": 40328,
+   "sha12": "31afb1aa773a"
+  },
+  {
    "path": "runs/arms.jsonl",
-   "mtime_at_open": "2026-10-17T08:56:44Z",
-   "size": 701477,
-   "sha12": "a968992cfb5d"
+   "mtime_at_open": "2026-10-19T09:53:05Z",
+   "size": 709084,
+   "sha12": "1c59e5c4847c"
   },
   {
    "path": "runs/arms_readouts.jsonl",
-   "mtime_at_open": "2026-10-17T08:56:44Z",
+   "mtime_at_open": "2026-10-19T09:53:05Z",
    "size": 532321,
-   "sha12": "d24f54b3c3b9"
+   "sha12": "74948dabe504"
   },
   {
    "path": "runs/models.jsonl",
@@ -804,27 +810,27 @@
   },
   {
    "path": "runs/watch/forecast/watch/held_arms.json",
-   "mtime_at_open": "2026-10-17T09:27:40Z",
-   "size": 246083,
-   "sha12": "aa58b68f6fcb"
+   "mtime_at_open": "2026-10-19T10:31:27Z",
+   "size": 256422,
+   "sha12": "64242960bf9a"
   },
   {
    "path": "side-projects/newbench/labels_cells.jsonl",
-   "mtime_at_open": "2026-10-17T08:54:48Z",
-   "size": 4061014,
-   "sha12": "23894680eda0"
+   "mtime_at_open": "2026-10-19T09:46:43Z",
+   "size": 4415743,
+   "sha12": "cfbf2a0b59a4"
   },
   {
    "path": "tasks/knowledge/counts_of_record.json",
-   "mtime_at_open": "2026-10-17T09:26:18Z",
-   "size": 43616,
-   "sha12": "ba306e695513"
+   "mtime_at_open": "2026-10-19T10:28:11Z",
+   "size": 43630,
+   "sha12": "2154a8884d2c"
   },
   {
    "path": "tasks/knowledge/disclosures.published.json",
-   "mtime_at_open": "2026-10-17T09:33:15Z",
-   "size": 693204,
-   "sha12": "d75afa15d28e"
+   "mtime_at_open": "2026-10-19T10:44:19Z",
+   "size": 693063,
+   "sha12": "27bfa79ba2ac"
   }
  ],
  "streams": [],
