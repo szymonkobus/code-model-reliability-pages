@@ -44,12 +44,16 @@ function loadSpanLeaf() {
   
   
   
-  return spanLeafText('curve_span_of_record.json').then(function (t) {
-    if (t != null) return parseSpanLeaf(t);
-    return Promise.all([spanLeafText('curve_span_of_record.a.json'), spanLeafText('curve_span_of_record.b.json')]).then(function (parts) {
-      if (parts[0] == null || parts[1] == null) throw new Error('the span of record answers in neither form');
+  
+  
+  return Promise.all([spanLeafText('curve_span_of_record.a.json'), spanLeafText('curve_span_of_record.b.json')]).then(function (parts) {
+    if (parts[0] != null && parts[1] != null) {
       var a = parseSpanLeaf(parts[0]), b = parseSpanLeaf(parts[1]);
       return { form: a.form || b.form || {}, rows: (a.rows || []).concat(b.rows || []), parts: 2 };
+    }
+    return spanLeafText('curve_span_of_record.json').then(function (t) {
+      if (t == null) throw new Error('the span of record answers in neither form');
+      return parseSpanLeaf(t);
     });
   }).then(function (j) {
     var by = {}; (j.rows || []).forEach(function (row) { if (!row || !row.arm) return; (by[row.arm] = by[row.arm] || []).push(row); var k2 = String(row.arm).replace(/_eiv(?:on|off)$/, ''); if (k2 !== row.arm) (by[k2] = by[k2] || []).push(row); });   
