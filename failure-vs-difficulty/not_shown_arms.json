@@ -1,17 +1,17 @@
 {
  "_stamp": "2026-09-10T13:47:24Z",
- "ruled_by": "the project owner at the terminal 2026-09-09 13:1xZ (verbatim via router; also relayed by capability-vs-reliability)",
- "verbatim": "the project owner's words: held/maintainer/not_shown_arms-verbatim.json",
+ "ruled_by": "the project maintainers at the terminal 2026-09-09",
+ "verbatim": "the project maintainers' words: held/maintainer/not_shown_arms-literal.json",
  "note": "",
  "rule": "arms whose identity contains a match string are not drawn and unselectable on every dataset (the partial-arms switch does not reveal them); one note line under the chart names them",
  "arms": [],
  "lifted": {
-  "when": "the project owner at infra's terminal ≈13:3xZ 10 Sep (infra relayed verbatim to runs-lead 13:36:42Z; router; capability-vs-reliability relayed to me 13:5xZ)",
-  "verbatim": "the project owner's words: held/maintainer/not_shown_arms-verbatim.json",
-  "record": "runs-lead knowledge/COMMISSION.md (10 Sep ≈13:3xZ entry) and knowledge/RULINGS.md 'GEMMA 4 (12B) UNCENSORED': every exclusion, withholding or flag resting on Gemma-4-12B not finishing is lifted",
+  "when": "the project maintainers at ops's terminal ≈ 10 Sep",
+  "verbatim": "the project maintainers' words: held/maintainer/not_shown_arms-literal.json",
+  "record": "the maintainers knowledge/request.md and knowledge/the record 'GEMMA 4 (12B) UNCENSORED': every exclusion, withholding or flag resting on Gemma-4-12B not finishing is lifted",
   "effect": "google/gemma-4-12B-it drawn and selectable like any other arm on every dataset and in every figure; the note line is gone; its cut answers stand as generated (the 4,096 continuation is the fit frame)",
   "was": {
-   "verbatim": "the project owner's words: held/maintainer/not_shown_arms-verbatim.json",
+   "verbatim": "the project maintainers' words: held/maintainer/not_shown_arms-literal.json",
    "note": "not shown: a quarter of its answers were cut at the token cap, so its performance is not measured",
    "arms": [
     {

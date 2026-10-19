@@ -12,7 +12,7 @@
   "dataset_label_source": {
    "field": "label_of_record",
    "pointer": "serving_top.json",
-   "note": "label = set name + the count the figure stands on, at its stamp (the served wave's axis at the cut of 10 September 2026: 866 of wave 2); the kept lists of today (the kept set at 22 Sep 13:24): 858 of wave 2 of this axis still kept \u2014 a task that left the kept set after the cut stays in the fit as cut (the ruling of 8 Sep); the count is the cut's, the split by the waves' membership today (the wave-1 pin of 10 September 2026 and the wave-2 list with its parked members); Definitions' rule of 22 September 2026: one string written by the fit's writer, printed by every composer, never a count composed on a page from two sources"
+   "note": "label = set name + the count the figure stands on, at its stamp (the served wave's axis at the cut of 10 September 2026: 866 of wave 2); the kept lists of today (the kept set at 22 Sep 13:24): 858 of wave 2 of this axis still kept — a task that left the kept set after the cut stays in the fit as cut; the count is the cut's, the split by the waves' membership today (the wave-1 pin of 10 September 2026 and the wave-2 list with its parked members); Definitions' rule of 22 September 2026: one string written by the fit's writer, printed by every composer, never a count composed on a page from two sources"
   },
   "population": "all",
   "population_source": null,
@@ -407,7 +407,7 @@
     "min_ell_median": 0.386,
     "r_at_min_ell": 0.1529,
     "disclosure": "basis beyond the measured no-move range (r 0.15; range to 0.129): whether the served crossings moved is measured at this set's re-fit",
-    "disclosure_rule": "a served fit's basis is adequate when its re-fit at the ruled basis moves none of the served crossings beyond the run-to-run noise floor (measured no-move range); the 1% design criterion applies to new cuts only",
+    "disclosure_rule": "a served fit's basis is adequate when its re-fit at the adopted basis moves none of the served crossings beyond the run-to-run noise floor (measured no-move range); the 1% design criterion applies to new cuts only",
     "computed_at": "2026-09-13T06:54:37Z",
     "rule": "design rule for new cuts: adequate iff r(min ell) <= 1e-2, r = exp(-1/4(ell w_M)^2)/exp(-1/4(ell w_1)^2), w_j = j*pi/(2L); served fits are judged by the measured no-move range (see the disclosure rule)"
    },
@@ -965,7 +965,7 @@
      "members": 542,
      "tasks_total": 542,
      "fit_frame_tasks": null,
-     "fit_frame_note": "the tasks a served fit stands on come from the fit owner's own stamp (fitting's served stamp read 438 wave 1 / 877 wave 2 / 1,315 as cut on 2026-09-08; difficulty's served board wave old-20260908T0037Z 433), never from this file"
+     "fit_frame_note": "the tasks a served fit stands on come from the fit maintainers' own stamp (fitting's served stamp read 438 wave 1 / 877 wave 2 / 1,315 as cut on 2026-09-08; difficulty's served board wave old-20260908T0037Z 433), never from this file"
     },
     "wave_2": {
      "name": "wave 2",
@@ -1036,7 +1036,7 @@
      "kept_count": 1288,
      "members": 1411,
      "composition": "wave 1 + wave 2; never includes wave 2 parked",
-     "fit_population_note": "fit_population 1,288 = fit_original 430 (the range explorer's matrix frame at its last build) + the wave 2 kept count 858 after the twin fold (22 Sep 2026: the kept frame the served fits stand on; until then this figure added the wave 2 members); a served fit states its own task count from its owner's stamp, never from this figure"
+     "fit_population_note": "fit_population 1,288 = fit_original 430 (the range explorer's matrix frame at its last build) + the wave 2 kept count 858 after the twin fold (22 Sep 2026: the kept frame the served fits stand on; until then this figure added the wave 2 members); a served fit states its own task count from its maintainers' stamp, never from this figure"
     },
     "wave_2_plus_parked": {
      "name": "wave 2 and wave 2 parked",
@@ -1056,7 +1056,7 @@
      "label": "wave 2 and wave 2 parked (1,762 tasks)",
      "figure_label": "wave 2 and wave 2 parked (1,762 tasks)",
      "figure_label_template": "wave 2 and wave 2 parked (1,762 tasks)",
-     "template_rule": "the label of record (13 Sep ruling): the set name with its count of record; a FIT that draws this set states its frame count BESIDE the label from the fit owner's stamp (fitting's serving stamp), never inside it; the 10 Sep frame-count template is superseded; a page naming the SET uses label (the membership count new_total)",
+     "template_rule": "the label of record: the set name with its count of record; a FIT that draws this set states its frame count BESIDE the label from the fit maintainers' stamp (fitting's serving stamp), never inside it; the 10 Sep frame-count template is superseded; a page naming the SET uses label (the membership count new_total)",
      "kept_count": 1737,
      "members": 1762,
      "never_includes": "the pilot; 'wave 2' alone never means this union"
@@ -1066,24 +1066,24 @@
      "composition": "wave 1 + wave 2 + wave 2 parked + the pilot's hundred",
      "count": null,
      "count_key": null,
-     "count_source": "the fit owner's stamp (fitting's serving_golden_combined.json task count as cut) \u2014 never this file",
+     "count_source": "the fit maintainers' stamp (fitting's serving_golden_combined.json task count as cut) — never this file",
      "figure_label_template": "wave 1 + wave 2 + wave 2 parked (2,192 tasks) + the easy-tasks pilot (100 tasks)",
-     "template_rule": "the label of record (13 Sep ruling): the waves' count of record in the label, the pilot named with its plain what and the hundred of record as its own count (ruling 07:51:54Z 13 Sep); the fit owner's frame as cut is stated beside the label from its stamp, never inside it (supersedes the 10 Sep frame-count template)",
+     "template_rule": "the label of record: the waves' count of record in the label, the pilot named with its plain what and the hundred of record as its own count; the fit maintainers' frame as cut is stated beside the label from its stamp, never inside it (supersedes the 10 Sep frame-count template)",
      "kept_count": 2267,
      "members": 2404,
      "hundred_of_record_check": {
       "ruled": 100,
       "population_file_yes_ways_1_to_5": 100,
       "agree": true,
-      "rule": "the label carries the ruled 100; a file count that differs is a departure to surface, never a silent relabel"
+      "rule": "the label carries the adopted 100; a file count that differs is a departure to surface, never a silent relabel"
      },
-     "pilot_part": "the pilot's hundred (100); the 72 surplus pilot tasks of ways 1 to 5 and the doers' way-6 tasks (20 population + 10 surplus) are not in this label unless the fit owner's stamp says so",
+     "pilot_part": "the pilot's hundred (100); the 72 surplus pilot tasks of ways 1 to 5 and the doers' way-6 tasks (20 population + 10 surplus) are not in this label unless the fit maintainers' stamp says so",
      "never_without": "the word 'pilot' \u2014 the pilot is a third named set outside every wave and never enters a wave count or fit by default",
-     "words_of_record": "the owner's word of 2026-09-08, relayed by the router, interpreted in this block's sentence; the verbatim in the store's record"
+     "words_of_record": "the maintainers' word of 2026-09-08, note by the coordination, interpreted in this block's sentence; the literal in the store's record"
     },
-    "_basis": "LABEL COUNT = the set as it appears on the approved surfaces, as changed only by the owner's rulings (the 9 Sep HumanEval/132 ruling moved wave 1 from 432 to its present count): each wave's label is its count field in this file (count_key names the field). wave 1 = the board's graded set with a valid label (original_kept; the label-excluded originals were never board tasks on the approved surfaces), wave 2 = the frozen focus membership after the twin fold (new_focused), wave 2 parked = new_parked, wave 1+2 = original_kept + new_focused. Qualifiers beside every wave: kept_count (tasks with a valid label) and members (every admitted task) \u2014 both computed here, never typed. Pages that do not draw their label from this file name their own basis in their notes: a fitted figure names the fit frame from fitting's served stamp (following at each re-cut); a census of all runs names members. Basis settled with pool-pages-lead on 2026-09-08 against the approved surfaces (RULINGS.md WAVE LABEL BASIS SETTLED); the kept-everywhere word of that evening is withdrawn (no ruling behind it); re-decided 2026-09-10 under cleanup F1a-24 (RULINGS.md COUNT OF RECORD BASIS): the fields are the single source, the prose carries no typed count. 'wave 2' never includes 'wave 2 parked'",
-    "_rule": "official names in figures with the count in parentheses; old names understood as aliases; 'wave 2' never means 'wave 2 parked'; the pilot set is a separate named set outside every wave (see pilot); a fit over every wave plus the pilot is labelled 'wave 1 + wave 2 + wave 2 parked + pilot (N tasks)' with N from the fit owner's stamp (all_waves_plus_pilot)",
-    "_word_of_record": "the owner's word of 2026-09-08, relayed by the router, interpreted in this block's sentence; the verbatim in the store's record",
+    "_basis": "LABEL COUNT = the set as it appears on the approved surfaces, as changed only by the maintainers' decisions: each wave's label is its count field in this file (count_key names the field). wave 1 = the board's graded set with a valid label (original_kept; the label-excluded originals were never board tasks on the approved surfaces), wave 2 = the frozen focus membership after the twin fold (new_focused), wave 2 parked = new_parked, wave 1+2 = original_kept + new_focused. Qualifiers beside every wave: kept_count (tasks with a valid label) and members (every admitted task) — both computed here, never typed. Pages that do not draw their label from this file name their own basis in their notes: a fitted figure names the fit frame from fitting's served stamp (following at each re-cut); a census of all runs names members. Basis settled with the maintainers on 2026-09-08 against the approved surfaces; the kept-everywhere word of that evening is withdrawn; re-decided 2026-09-10 under cleanup F1a-24: the fields are the single source, the prose carries no typed count. 'wave 2' never includes 'wave 2 parked'",
+    "_rule": "official names in figures with the count in parentheses; old names understood as aliases; 'wave 2' never means 'wave 2 parked'; the pilot set is a separate named set outside every wave (see pilot); a fit over every wave plus the pilot is labelled 'wave 1 + wave 2 + wave 2 parked + pilot (N tasks)' with N from the fit maintainers' stamp (all_waves_plus_pilot)",
+    "_word_of_record": "the maintainers' word of 2026-09-08, note by the coordination, interpreted in this block's sentence; the literal in the store's record",
     "testbed_situations": {
      "name": "testbed situations",
      "aliases": [
@@ -1093,7 +1093,7 @@
      "composition": "a third-kind set apart; never part of any wave",
      "count": 10133,
      "count_key": "testbed.admitted",
-     "label": "testbed situations (1,964 derisking-pilot rows: 1,021 pilot designs under review by ruling of 11 Sep + 945 golden-pilot rows marked to run on the golden models (about 20 tasks per shape, by ruling of 11 Sep); 8,169 probe design rows held (roles baseline 136 / control 1,172 / positive-control 2 / situation 6,859); none in the pool store)",
+     "label": "testbed situations (1,964 derisking-pilot rows: 1,021 pilot designs under review as adopted of 11 Sep + 945 golden-pilot rows marked to run on the golden models; 8,169 probe design rows held (roles baseline 136 / control 1,172 / positive-control 2 / situation 6,859); none in the pool store)",
      "figure_label_template": "testbed situations ({n:,} tasks)",
      "planned_not_built": true,
      "never_includes": "any wave task; a situation is a new task id even when its parent is a wave-1 task"

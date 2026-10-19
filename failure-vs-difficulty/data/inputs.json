@@ -832,11 +832,11 @@
   "mode": "event-driven",
   "cadence_minutes": null,
   "triggers": [
-   "board landing (runs-lead publication ping -> full chain)",
+   "board landing",
    "Bayesian serving-pointer flip (fitting's ping -> pointer-flip chain)",
-   "registry/palette or wording ruling touching plot_difficulty.py",
+   "registry/palette or wording decision touching plot_difficulty.py",
    "hold-register move flagged on the /plots stamp (fail-matrix rebuild)",
-   "consumed canon eval file moved -> watch_and_reland.sh relaunches the full chain (checked every 20 min, one chain at a time; the project owner 2026-09-03: continuously)"
+   "consumed canon eval file moved -> watch_and_reland.sh relaunches the full chain (checked every 20 min, one chain at a time; the project maintainers 2026-09-03: continuously)"
   ],
   "freshness_rule": "an input newer than generated_at is stale only when its change is one of the triggers above and no rebuild followed; judge by trigger, not by interval"
  },
