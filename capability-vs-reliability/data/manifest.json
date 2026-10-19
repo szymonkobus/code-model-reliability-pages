@@ -143,7 +143,7 @@
    },
    "source_stamp": "2026-10-19T11:28:48Z",
    "source_fp": "b58ff70b2244",
-   "updated_at": "2026-10-19T12:05:10Z",
+   "updated_at": "2026-10-19T12:37:20Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -415,21 +415,21 @@
   },
   "cruxeval_i": {
    "files": {
-    "shared": "shared.cruxeval_i.3eeebd3930fd.json",
-    "chain_average": "chain_average.cruxeval_i.3eeebd3930fd.json",
-    "bayes": "bayes.cruxeval_i.3eeebd3930fd-22b1644a7dbe.json",
+    "shared": "shared.cruxeval_i.507bdeff4b6b.json",
+    "chain_average": "chain_average.cruxeval_i.507bdeff4b6b.json",
+    "bayes": "bayes.cruxeval_i.507bdeff4b6b-22b1644a7dbe.json",
     "bayes_prev": "bayes.cruxeval_i.c1810984d98e-44e95b59c373.json"
    },
    "label": "CRUXEval input",
    "arms": "all",
-   "fingerprint": "3eeebd3930fd",
+   "fingerprint": "507bdeff4b6b",
    "frame": {
     "population_M": 42,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
-    "runs_fingerprint": "677bc1bb5b3a",
-    "build_date": "2026-10-17",
-    "build_ts": "2026-10-17T03:14:55Z",
+    "runs_fingerprint": "3b0c330f5928",
+    "build_date": "2026-10-19",
+    "build_ts": "2026-10-19T12:29:29Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_i",
     "set_label": "CRUXEval input",
@@ -440,14 +440,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
     "tasks_used": "CRUXEval input \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_i fp f6654bf69dec (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-cruxeval_i fp 1d6a489eb868 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "d4ab72db4284",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-17T03:14:55Z",
-   "source_fp": "f6654bf69dec",
-   "updated_at": "2026-10-17T03:20:08Z",
+   "source_stamp": "2026-10-19T12:29:29Z",
+   "source_fp": "1d6a489eb868",
+   "updated_at": "2026-10-19T12:39:24Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -577,7 +577,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-10-19T11:27:15Z",
+  "stamp": "2026-10-19T12:26:56Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,
