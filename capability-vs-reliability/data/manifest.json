@@ -108,7 +108,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut as adopted: the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-19T12:51:59Z"
+   "updated_at": "2026-10-19T13:09:01Z"
   },
   "all": {
    "files": {
@@ -307,21 +307,21 @@
   },
   "ifeval": {
    "files": {
-    "shared": "shared.ifeval.1e0f4d793084.json",
-    "chain_average": "chain_average.ifeval.1e0f4d793084.json",
-    "bayes": "bayes.ifeval.1e0f4d793084-0e350e3e4b87.json",
+    "shared": "shared.ifeval.96d332d4cdee.json",
+    "chain_average": "chain_average.ifeval.96d332d4cdee.json",
+    "bayes": "bayes.ifeval.96d332d4cdee-0e350e3e4b87.json",
     "bayes_prev": "bayes.ifeval.86b061913de2-4e95778148c9.json"
    },
    "label": "IFEval",
    "arms": "all",
-   "fingerprint": "1e0f4d793084",
+   "fingerprint": "96d332d4cdee",
    "frame": {
     "population_M": 47,
     "tasks": 541,
     "keep_set_hash": "ea009d5c6cd1",
-    "runs_fingerprint": "677bc1bb5b3a",
-    "build_date": "2026-10-17",
-    "build_ts": "2026-10-17T03:26:30Z",
+    "runs_fingerprint": "3b0c330f5928",
+    "build_date": "2026-10-19",
+    "build_ts": "2026-10-19T12:51:19Z",
     "vocab_ruled": "2026-08-27",
     "set": "ifeval",
     "set_label": "IFEval",
@@ -332,14 +332,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ea009d5c6cd1",
     "tasks_used": "IFEval \u2014 541 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-ifeval fp 85240827d79a (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-ifeval fp 61d95bc148b1 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "f598763f0d98",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-17T03:26:30Z",
-   "source_fp": "85240827d79a",
-   "updated_at": "2026-10-17T03:33:37Z",
+   "source_stamp": "2026-10-19T12:51:19Z",
+   "source_fp": "61d95bc148b1",
+   "updated_at": "2026-10-19T13:09:07Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
