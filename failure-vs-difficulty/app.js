@@ -2204,6 +2204,7 @@ function bandHover(r) {
 }
 function bandNoteClause(r) {   
   var bn = r && r.band_note; if (!bn || bn.share == null || !bn.side) return '';
+  if (bn.side !== 'easy' && bn.side !== 'hard') return '';   
   var sh = Math.round(Number(bn.share) * 100); if (!(sh > 0)) return '';
   return '; ' + sh + '% of the draws lie a band width or more past the ' + String(bn.side) + ' end';
 }
