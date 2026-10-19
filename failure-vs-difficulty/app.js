@@ -1521,6 +1521,19 @@ function renderSeriesBlock() {
   var rows = seriesRows(); rows.forEach(function (sb, i) { renderSeriesRow(sb, i); });
   for (var j = Math.max(rows.length, 1); j < 8; j++) { var e1 = document.getElementById('serieschips' + j), e2 = document.getElementById('seriescrossings' + j); if (e1) e1.remove(); if (e2) e2.remove(); }
   renderMarksKey(rows);
+  renderStruckLine();
+}
+function renderStruckLine() {   
+  var old = document.getElementById('struckline'); if (old) old.remove();
+  var fr = (D.shared && D.shared.frame && D.shared.frame.struck_runs) || null;
+  if (!fr || !fr.line || !fr.named_here || ARMS === 'golden') return;
+  var rs = []; try { rs = seriesRows(); } catch (e) { }
+  var last = document.getElementById('markskey');
+  if (!last) { for (var j = rs.length - 1; j >= 0; j--) { last = document.getElementById('serieschips' + (j ? String(j) : '')); if (last) break; } }
+  if (!last) last = document.getElementById('runrows-end');
+  if (!last) return;
+  var p = document.createElement('p'); p.id = 'struckline'; p.className = 'sub'; p.textContent = String(fr.line); p.style.flexBasis = '100%'; p.style.margin = '.3rem 0 0';
+  last.parentNode.insertBefore(p, last.nextSibling);
 }
 function renderMarksKey(rows) {   
   
