@@ -1,9 +1,9 @@
 {
- "fingerprint": "85240827d79a",
+ "fingerprint": "61d95bc148b1",
  "fingerprint_inputs": {
   "content": "f598763f0d98",
   "wave": "ifeval-live",
-  "body": "90902858ec01"
+  "body": "a65011ff431f"
  },
  "frame": {
   "dataset": "ifeval",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ea009d5c6cd1",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "677bc1bb5b3a",
+  "runs_fingerprint": "3b0c330f5928",
   "axis_wave": "ifeval-live",
-  "build_date": "2026-10-17",
-  "stamp": "2026-10-17T03:26:30Z",
+  "build_date": "2026-10-19",
+  "stamp": "2026-10-19T12:51:19Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/ifeval",
-   "unified_built_at": "2026-10-17T01:55:06Z",
+   "unified_built_at": "2026-10-19T12:30:41Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.ifeval.csv"
@@ -376,10 +376,33 @@
    "n_with_cells": 0,
    "arms": [],
    "stopped_not_listed": [],
+   "struck_not_listed": [],
    "unregistered": [],
    "in_side_block": [],
    "panel_conflicts": [],
    "line": null
+  },
+  "struck_runs": {
+   "keys": [
+    "r1d7b-rl-f12-a",
+    "r1d7b-rl-f12-drift",
+    "r1d7b-rl-f12-drift5",
+    "r1d7b-rl-f12-pen"
+   ],
+   "names": [
+    "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, fixed",
+    "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, redraw every 25, KL",
+    "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, fixed, length penalty"
+   ],
+   "n_positions": 11,
+   "line": "The three R1-Distill Qwen 7B (thinking) training courses stopped in the collapse of early October are not datapoints on this page.",
+   "named_here": false,
+   "source": {
+    "register": "research/training/post-training-lead/names_of_record.json",
+    "sha12": "f1afdb03779f",
+    "built_at": "2026-10-19T11:12:52Z",
+    "state_word": "stopped"
+   }
   },
   "nb_held_arms": {},
   "nb_run_keys": {
@@ -439,7 +462,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-17T03:24:54Z",
+   "_stamp": "2026-10-19T12:26:56Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -604,10 +627,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-17T02:40:56Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261017T024056Z.json",
-   "sha16": "539fffde4e75b7e3",
-   "census_mtime": "2026-10-17T02:42:08Z",
+   "stamp": "2026-10-19T10:46:46Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261019T104646Z.json",
+   "sha16": "822538290d05125a",
+   "census_mtime": "2026-10-19T10:48:28Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
@@ -624,10 +647,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.85240827d79a.json",
-  "chain_average": "chain_average.85240827d79a.json",
-  "chain_median": "chain_median.85240827d79a.json",
-  "dots": "dots.85240827d79a.json",
-  "levels": "levels.85240827d79a.json"
+  "shared": "shared.61d95bc148b1.json",
+  "chain_average": "chain_average.61d95bc148b1.json",
+  "chain_median": "chain_median.61d95bc148b1.json",
+  "dots": "dots.61d95bc148b1.json",
+  "levels": "levels.61d95bc148b1.json"
  }
 }
