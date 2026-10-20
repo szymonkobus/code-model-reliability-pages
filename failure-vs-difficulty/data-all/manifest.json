@@ -1,9 +1,9 @@
 {
- "fingerprint": "21233b7d6394",
+ "fingerprint": "ccfd617c53ef",
  "fingerprint_inputs": {
   "content": "9bd4cf458f64",
   "wave": "unified-live",
-  "body": "e22436bc7f1e"
+  "body": "c7f76bc74f55"
  },
  "frame": {
   "dataset": "all",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "e0578983b960",
   "axis_wave": "unified-live",
   "build_date": "2026-10-20",
-  "stamp": "2026-10-20T18:56:59Z",
+  "stamp": "2026-10-20T19:25:02Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -124,7 +124,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-20T18:18:27Z",
+   "unified_built_at": "2026-10-20T19:18:12Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -439,7 +439,6 @@
     "Qwen/Qwen3-1.7B",
     "Qwen/Qwen3-1.7B-Thinking",
     "Qwen/Qwen3-4B",
-    "Qwen/Qwen3-4B-Thinking",
     "Qwen/Qwen3-8B",
     "Qwen/Qwen3-8B-Thinking",
     "claude-haiku-4-5",
@@ -448,7 +447,6 @@
     "claude-sonnet-5-thinking",
     "deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct",
     "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
-    "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
     "deepseek-ai/deepseek-coder-1.3b-instruct",
     "deepseek-ai/deepseek-coder-33b-instruct",
     "deepseek-ai/deepseek-coder-6.7b-instruct",
@@ -461,7 +459,7 @@
    "served_not_drawn": "Bayesian curves for 55 models exist for this dataset but were fitted on a different difficulty axis than this view uses; they draw when a fit set cut on this view's axis is served (local-logistic curves shown meanwhile)",
    "custody_dir": null,
    "set_fingerprint": null,
-   "pointer_updated_at": "2026-10-20T16:14:06Z",
+   "pointer_updated_at": "2026-10-20T19:03:16Z",
    "n_fits": 0,
    "note": "Bayesian curves for 55 models exist for this dataset but were fitted on a different difficulty axis than this view uses; they draw when a fit set cut on this view's axis is served",
    "gates": null,
@@ -1040,7 +1038,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-20T18:25:32Z",
+   "_stamp": "2026-10-20T19:26:17Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1215,10 +1213,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.21233b7d6394.json",
-  "chain_average": "chain_average.21233b7d6394.json",
-  "chain_median": "chain_median.21233b7d6394.json",
-  "dots": "dots.21233b7d6394.json",
-  "levels": "levels.21233b7d6394.json"
+  "shared": "shared.ccfd617c53ef.json",
+  "chain_average": "chain_average.ccfd617c53ef.json",
+  "chain_median": "chain_median.ccfd617c53ef.json",
+  "dots": "dots.ccfd617c53ef.json",
+  "levels": "levels.ccfd617c53ef.json"
  }
 }
