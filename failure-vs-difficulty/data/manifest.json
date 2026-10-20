@@ -1,7 +1,7 @@
 {
- "fingerprint": "75561c7ef35a",
+ "fingerprint": "dae9899b5d7b",
  "frame": {
-  "population_M": 64,
+  "population_M": 63,
   "tasks": 430,
   "coverage": {
    "claude-haiku-4-5": {
@@ -255,16 +255,12 @@
    "Qwen/Qwen3-Coder-30B-A3B-Instruct": {
     "tasks": 430,
     "of": 430
-   },
-   "openai/gpt-6-astra": {
-    "tasks": 430,
-    "of": 430
    }
   },
   "difficulty_population_M": 65,
-  "axis_M": 65,
-  "fitted_M": 64,
-  "complete_M": 64,
+  "axis_M": 64,
+  "fitted_M": 63,
+  "complete_M": 63,
   "sampled_M": 64,
   "frame_M": 64,
   "off_panel_arms": [
@@ -355,20 +351,22 @@
   "fit_reversible_when": {},
   "fit_disclosures": {},
   "withheld_configs": [
-   "Qwen/Qwen3-30B-A3B-Thinking"
+   "Qwen/Qwen3-30B-A3B-Thinking",
+   "openai/gpt-6-astra"
   ],
   "withheld_reasons": {
-   "Qwen/Qwen3-30B-A3B-Thinking": "held since 2 Sep: kept off the cloud machines; runs on the free machines after everything else"
+   "Qwen/Qwen3-30B-A3B-Thinking": "held since 2 Sep: kept off the cloud machines; runs on the free machines after everything else",
+   "openai/gpt-6-astra": "one answer a task: no failure rate to draw"
   },
   "keep_set_hash": "c3f08ea1a903",
   "axis_order_hash": "ad17a77d6254",
-  "runs_fingerprint": "8dee5849c948",
+  "runs_fingerprint": "234a9eb6a1ba",
   "runs_fingerprint_rule": "sha1 over path:mtime_ns:size of the consumed *.eval_results.json files (since 2026-09-02; before: every file under runs/)",
   "inputs_content_sha": "08b49e05ca89",
   "scorer": "plus_status (a sample counts as solved if its plus run passed; difficulty adopted base AND plus on 2026-09-02 — the switch of served numbers waits for the project maintainers' gate; under base AND plus a result can read differently, e.g. Mbpp/274 for Qwen3-30B-A3B: 128 passes here vs 127)",
   "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\\t<task>\\t<passes>\\t<attempts>\\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column literal; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) — reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
   "build_date": "2026-10-20",
-  "built_at": "2026-10-20T17:50:18Z",
+  "built_at": "2026-10-20T18:51:36Z",
   "vocab_ruled": "2026-08-27",
   "counts_of_record": {
    "original_kept": 430,
@@ -377,7 +375,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-20T17:25:48Z",
+   "_stamp": "2026-10-20T18:25:32Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -638,13 +636,13 @@
    "openai/gpt-5-nano": "20260907T154051Z",
    "openai/gpt-5-mini": "20260907T154051Z"
   },
-  "newest_input_mtime": "2026-10-20T17:48:02Z"
+  "newest_input_mtime": "2026-10-20T18:45:17Z"
  },
  "files": {
-  "shared": "shared.75561c7ef35a.json",
-  "chain_average": "chain_average.75561c7ef35a.json",
-  "chain_median": "chain_median.75561c7ef35a.json",
-  "dots": "dots.75561c7ef35a.json",
-  "levels": "levels.75561c7ef35a.json"
+  "shared": "shared.dae9899b5d7b.json",
+  "chain_average": "chain_average.dae9899b5d7b.json",
+  "chain_median": "chain_median.dae9899b5d7b.json",
+  "dots": "dots.dae9899b5d7b.json",
+  "levels": "levels.dae9899b5d7b.json"
  }
 }
