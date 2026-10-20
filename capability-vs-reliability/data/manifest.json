@@ -108,7 +108,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut as adopted: the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-20T20:27:13Z"
+   "updated_at": "2026-10-20T20:39:06Z"
   },
   "all": {
    "files": {
@@ -307,21 +307,21 @@
   },
   "ifeval": {
    "files": {
-    "shared": "shared.ifeval.96d332d4cdee.json",
-    "chain_average": "chain_average.ifeval.96d332d4cdee.json",
-    "bayes": "bayes.ifeval.96d332d4cdee-0e350e3e4b87.json",
+    "shared": "shared.ifeval.6c5a7a7885a5.json",
+    "chain_average": "chain_average.ifeval.6c5a7a7885a5.json",
+    "bayes": "bayes.ifeval.6c5a7a7885a5-0e350e3e4b87.json",
     "bayes_prev": "bayes.ifeval.86b061913de2-4e95778148c9.json"
    },
    "label": "IFEval",
    "arms": "all",
-   "fingerprint": "96d332d4cdee",
+   "fingerprint": "6c5a7a7885a5",
    "frame": {
     "population_M": 47,
     "tasks": 541,
     "keep_set_hash": "ea009d5c6cd1",
-    "runs_fingerprint": "3b0c330f5928",
-    "build_date": "2026-10-19",
-    "build_ts": "2026-10-19T12:51:19Z",
+    "runs_fingerprint": "55b6048dac84",
+    "build_date": "2026-10-20",
+    "build_ts": "2026-10-20T20:30:21Z",
     "vocab_ruled": "2026-08-27",
     "set": "ifeval",
     "set_label": "IFEval",
@@ -332,14 +332,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ea009d5c6cd1",
     "tasks_used": "IFEval \u2014 541 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-ifeval fp 61d95bc148b1 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-ifeval fp 0eaf8b445920 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "f598763f0d98",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-19T12:51:19Z",
-   "source_fp": "61d95bc148b1",
-   "updated_at": "2026-10-19T13:09:07Z",
+   "source_stamp": "2026-10-20T20:30:21Z",
+   "source_fp": "0eaf8b445920",
+   "updated_at": "2026-10-20T20:37:30Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -361,21 +361,21 @@
   },
   "gsm8k_platinum": {
    "files": {
-    "shared": "shared.gsm8k_platinum.327a97d40fda.json",
-    "chain_average": "chain_average.gsm8k_platinum.327a97d40fda.json",
-    "bayes": "bayes.gsm8k_platinum.327a97d40fda-940122679e5a.json",
+    "shared": "shared.gsm8k_platinum.23912453c497.json",
+    "chain_average": "chain_average.gsm8k_platinum.23912453c497.json",
+    "bayes": "bayes.gsm8k_platinum.23912453c497-940122679e5a.json",
     "bayes_prev": "bayes.gsm8k_platinum.51ec4ce84fb5-81c9d84b6741.json"
    },
    "label": "GSM8K-Platinum",
    "arms": "all",
-   "fingerprint": "327a97d40fda",
+   "fingerprint": "23912453c497",
    "frame": {
     "population_M": 52,
     "tasks": 1209,
     "keep_set_hash": "ff1457decdf7",
-    "runs_fingerprint": "3b0c330f5928",
-    "build_date": "2026-10-19",
-    "build_ts": "2026-10-19T12:42:18Z",
+    "runs_fingerprint": "55b6048dac84",
+    "build_date": "2026-10-20",
+    "build_ts": "2026-10-20T20:26:08Z",
     "vocab_ruled": "2026-08-27",
     "set": "gsm8k_platinum",
     "set_label": "GSM8K-Platinum",
@@ -386,14 +386,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ff1457decdf7",
     "tasks_used": "GSM8K-Platinum \u2014 1209 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-gsm8k_platinum fp 2bdca127c196 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-gsm8k_platinum fp f98a099babea (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "b254879e615d",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-19T12:42:18Z",
-   "source_fp": "2bdca127c196",
-   "updated_at": "2026-10-19T12:53:43Z",
+   "source_stamp": "2026-10-20T20:26:08Z",
+   "source_fp": "f98a099babea",
+   "updated_at": "2026-10-20T20:38:56Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
