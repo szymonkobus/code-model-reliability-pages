@@ -1,5 +1,5 @@
 {
- "fingerprint": "dae9899b5d7b",
+ "fingerprint": "f1932ee79927",
  "frame": {
   "population_M": 63,
   "tasks": 430,
@@ -257,7 +257,7 @@
     "of": 430
    }
   },
-  "difficulty_population_M": 65,
+  "difficulty_population_M": 66,
   "axis_M": 64,
   "fitted_M": 63,
   "complete_M": 63,
@@ -352,21 +352,23 @@
   "fit_disclosures": {},
   "withheld_configs": [
    "Qwen/Qwen3-30B-A3B-Thinking",
+   "muse-wonder-1.0_meta",
    "openai/gpt-6-astra"
   ],
   "withheld_reasons": {
    "Qwen/Qwen3-30B-A3B-Thinking": "held since 2 Sep: kept off the cloud machines; runs on the free machines after everything else",
+   "muse-wonder-1.0_meta": "one answer a task: no failure rate to draw",
    "openai/gpt-6-astra": "one answer a task: no failure rate to draw"
   },
   "keep_set_hash": "c3f08ea1a903",
-  "axis_order_hash": "ad17a77d6254",
+  "axis_order_hash": "e39ebe415615",
   "runs_fingerprint": "234a9eb6a1ba",
   "runs_fingerprint_rule": "sha1 over path:mtime_ns:size of the consumed *.eval_results.json files (since 2026-09-02; before: every file under runs/)",
-  "inputs_content_sha": "08b49e05ca89",
+  "inputs_content_sha": "f1eb54e5fc65",
   "scorer": "plus_status (a sample counts as solved if its plus run passed; difficulty adopted base AND plus on 2026-09-02 — the switch of served numbers waits for the project maintainers' gate; under base AND plus a result can read differently, e.g. Mbpp/274 for Qwen3-30B-A3B: 128 passes here vs 127)",
   "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\\t<task>\\t<passes>\\t<attempts>\\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column literal; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) — reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
   "build_date": "2026-10-20",
-  "built_at": "2026-10-20T18:51:36Z",
+  "built_at": "2026-10-20T19:19:17Z",
   "vocab_ruled": "2026-08-27",
   "counts_of_record": {
    "original_kept": 430,
@@ -636,13 +638,13 @@
    "openai/gpt-5-nano": "20260907T154051Z",
    "openai/gpt-5-mini": "20260907T154051Z"
   },
-  "newest_input_mtime": "2026-10-20T18:45:17Z"
+  "newest_input_mtime": "2026-10-20T19:17:38Z"
  },
  "files": {
-  "shared": "shared.dae9899b5d7b.json",
-  "chain_average": "chain_average.dae9899b5d7b.json",
-  "chain_median": "chain_median.dae9899b5d7b.json",
-  "dots": "dots.dae9899b5d7b.json",
-  "levels": "levels.dae9899b5d7b.json"
+  "shared": "shared.f1932ee79927.json",
+  "chain_average": "chain_average.f1932ee79927.json",
+  "chain_median": "chain_median.f1932ee79927.json",
+  "dots": "dots.f1932ee79927.json",
+  "levels": "levels.f1932ee79927.json"
  }
 }
