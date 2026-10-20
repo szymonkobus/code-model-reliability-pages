@@ -1,9 +1,9 @@
 {
- "fingerprint": "959e145390d5",
+ "fingerprint": "cfe3710d9fea",
  "fingerprint_inputs": {
-  "content": "fddcf2fae8ac",
+  "content": "5e8a51881c7b",
   "wave": "combined-20260910T2209Z",
-  "body": "ef106f5b6eaf"
+  "body": "756c0834fb49"
  },
  "frame": {
   "dataset": "board_top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 67,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "fddcf2fae8ac",
+  "inputs_content_sha": "5e8a51881c7b",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -34,97 +34,17 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "89196441ce3d",
+  "runs_fingerprint": "44d0012442e6",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-20",
-  "stamp": "2026-10-20T06:46:47Z",
+  "stamp": "2026-10-20T08:46:38Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
-  "census_wave1_cells_by_arm": {
-   "Qwen/Qwen3.5-9B-Base_completion": 430,
-   "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B": 430,
-   "deepseek-coder-6.7b-rl-night1-step250": 430,
-   "deepseek-coder-6.7b-rl-night1-step500": 430,
-   "deepseek-coder-6.7b-rl-night2-step250": 430,
-   "deepseek-coder-6.7b-rl-night2-step500": 430,
-   "deepseek-coder-6.7b-rl-night3-step250": 430,
-   "deepseek-coder-6.7b-rl-night3-step500": 430,
-   "deepseek-coder-6.7b-rl-night4-step250": 430,
-   "deepseek-coder-6.7b-rl-night4-step500": 430,
-   "deepseek-coder-6.7b-rl-night5-step250": 430,
-   "deepseek-coder-6.7b-rl-night5-step500": 430,
-   "deepseek-coder-6.7b-rl-night6-step100": 430,
-   "deepseek-coder-6.7b-rl-night6-step250": 430,
-   "deepseek-coder-6.7b-rl-redraw-a-step250": 430,
-   "deepseek-coder-6.7b-rl-redraw-b-step250": 430,
-   "deepseek-coder-6.7b-rl-redraw-c-step250": 430,
-   "deepseek-coder-6.7b-rl-redraw25-a-step250": 430,
-   "dsc6.7b-sft-gemma-4-12b-step0025": 430,
-   "dsc6.7b-sft-gemma-4-12b-step0050": 430,
-   "dsc6.7b-sft-gemma-4-12b-step0075": 430,
-   "dsc6.7b-sft-gemma-4-12b-step0100": 430,
-   "dsc6.7b-sft-gemma-4-12b-step0125": 430,
-   "dsc6.7b-sft-gemma-4-12b-step0150": 430,
-   "dsc6.7b-sft-gemma-4-12b-step0175": 430,
-   "dsc6.7b-sft-gemma-4-12b-step0200": 430,
-   "dsc6.7b-sft-gemma-4-12b-step0225": 430,
-   "dsc6.7b-sft-gemma-4-12b-step0240": 430,
-   "dsc6.7b-sft-qwen3-14b-step0025": 430,
-   "dsc6.7b-sft-qwen3-14b-step0050": 430,
-   "dsc6.7b-sft-qwen3-14b-step0075": 430,
-   "dsc6.7b-sft-qwen3-14b-step0100": 430,
-   "dsc6.7b-sft-qwen3-14b-step0125": 430,
-   "dsc6.7b-sft-qwen3-14b-step0150": 430,
-   "dsc6.7b-sft-qwen3-14b-step0175": 430,
-   "dsc6.7b-sft-qwen3-14b-step0200": 430,
-   "dsc6.7b-sft-qwen3-14b-step0225": 430,
-   "dsc6.7b-sft-qwen3-14b-step0240": 430,
-   "olmo-3-7b-think-final-Thinking": 430,
-   "olmo-3-7b-think-step0025-Thinking": 430,
-   "olmo-3-7b-think-step0050-Thinking": 430,
-   "olmo-3-7b-think-step0100-Thinking": 430,
-   "olmo-3-7b-think-step0200-Thinking": 430,
-   "olmo-3-7b-think-step0400-Thinking": 430,
-   "olmo-3-7b-think-step0800-Thinking": 430,
-   "olmo-3.1-7b-rl-zero-code-final_completion": 430,
-   "olmo-3.1-7b-rl-zero-code-step0050_completion": 430,
-   "olmo-3.1-7b-rl-zero-code-step0100_completion": 430,
-   "olmo-3.1-7b-rl-zero-code-step0150_completion": 430,
-   "olmo-3.1-7b-rl-zero-code-step0250_completion": 430,
-   "olmo-3.1-7b-rl-zero-code-step0450_completion": 430,
-   "olmo-3.1-7b-rl-zero-code-step0900_completion": 430,
-   "qwen3-8b-4k32": 430,
-   "qwen3-8b-code-rl": 430,
-   "qwen3-8b-sft-code-coverage": 430,
-   "qwen3-8b-sft-code-harder": 430,
-   "qwen3-8b-sft-code-think-Thinking": 430,
-   "qwen3-8b-sft-code": 430,
-   "qwen3-8b-sft-maths": 430,
-   "qwen3-8b-think-w1x32-Thinking": 430,
-   "qwen35_9b_base_sft_code_completion": 430,
-   "qwen35_9b_base_sft_code_harder_completion": 430,
-   "qwen35_9b_base_sft_maths_completion": 430,
-   "r1d7b-rl-f12-alltasks-kl-step0050-Thinking": 430,
-   "r1d7b-rl-f12-alltasks-kl-step0100-Thinking": 430,
-   "r1d7b-rl-f12-alltasks-kl-step0250-Thinking": 430,
-   "r1d7b-rl-f12-redraw-kl-step0050-Thinking": 430,
-   "r1d7b-rl-f12-redraw-kl-step0100-Thinking": 430,
-   "r1d7b-rl-f12-redraw-kl-step0250-Thinking": 430,
-   "r1d7b-rl-f17-alltasks-ent-kl-step0050-Thinking": 430,
-   "r1d7b-rl-f17-alltasks-ent-kl-step0100-Thinking": 430,
-   "r1d7b-rl-f17-alltasks-ent-kl-step0150-Thinking": 430,
-   "r1d7b-rl-f17-alltasks-ent-kl-step0200-Thinking": 430,
-   "r1d7b-rl-f17-alltasks-ent-kl-step0250-Thinking": 430,
-   "r1d7b-rl-f17-kl-step0050-Thinking": 430,
-   "r1d7b-rl-f17-kl-step0100-Thinking": 430,
-   "r1d7b-rl-f17-kl-step0150-Thinking": 430,
-   "r1d7b-rl-f17-kl-step0200-Thinking": 430,
-   "r1d7b-rl-f17-kl-step0250-Thinking": 430
-  },
+  "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-20T05:16:32Z",
+   "unified_built_at": "2026-10-20T08:00:28Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -279,11 +199,11 @@
     "of": 1288
    },
    "olmo-3.1-7b-rl-zero-code-final_completion": {
-    "tasks": 1288,
+    "tasks": 858,
     "of": 1288
    },
    "olmo-3-7b-think-final-Thinking": {
-    "tasks": 1288,
+    "tasks": 858,
     "of": 1288
    },
    "Qwen/Qwen2.5-Coder-0.5B-Instruct": {
@@ -399,7 +319,7 @@
     "of": 1288
    },
    "Qwen/Qwen3.5-9B-Base_completion": {
-    "tasks": 1288,
+    "tasks": 858,
     "of": 1288
    }
   },
@@ -597,7 +517,7 @@
   "interim": "kernel fits on all results available at build; refit hourly as results land",
   "partial_attempts": null,
   "off_panel": {
-   "n_with_cells": 89,
+   "n_with_cells": 88,
    "arms": [
     {
      "id": "deepseek-coder-6.7b-rl-night1-step250",
@@ -950,11 +870,6 @@
      "label": "Qwen3 8B \u00b7 code fine-tune on the coverage set"
     },
     {
-     "id": "qwen3-8b-think-w1x32-Thinking",
-     "arm_id": "q3-8B-think-w1x32",
-     "label": "Qwen3 8B (thinking) \u00b7 at the fine-tunes' settings"
-    },
-    {
      "id": "qwen3-8b-code-rl",
      "arm_id": "q3-8B-code-rl",
      "label": "Qwen3 8B \u00b7 RL on code tasks"
@@ -1052,7 +967,7 @@
     "qwen35_9b_base_sft_maths_completion"
    ],
    "panel_conflicts": [],
-   "line": "65 study models with results are off the panel; the models with a fit appear in their own block"
+   "line": "64 study models with results are off the panel; the models with a fit appear in their own block"
   },
   "struck_runs": {
    "keys": [
@@ -1087,7 +1002,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-20T05:25:24Z",
+   "_stamp": "2026-10-20T08:25:19Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1251,13 +1166,7 @@
     }
    }
   },
-  "census_pinned": {
-   "stamp": "2026-10-20T04:13:11Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/census_keep/bound.20261020T041311Z.json",
-   "sha16": "12e127f5940550e1",
-   "census_mtime": "2026-10-20T04:14:04Z",
-   "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
-  },
+  "census_pinned": null,
   "median_curves": true,
   "series_rows": [
    {
@@ -1324,10 +1233,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.959e145390d5.json",
-  "chain_average": "chain_average.959e145390d5.json",
-  "chain_median": "chain_median.959e145390d5.json",
-  "dots": "dots.959e145390d5.json",
-  "levels": "levels.959e145390d5.json"
+  "shared": "shared.cfe3710d9fea.json",
+  "chain_average": "chain_average.cfe3710d9fea.json",
+  "chain_median": "chain_median.cfe3710d9fea.json",
+  "dots": "dots.cfe3710d9fea.json",
+  "levels": "levels.cfe3710d9fea.json"
  }
 }
