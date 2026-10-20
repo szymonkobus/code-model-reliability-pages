@@ -469,21 +469,21 @@
   },
   "cruxeval_o": {
    "files": {
-    "shared": "shared.cruxeval_o.46117e049fbc.json",
-    "chain_average": "chain_average.cruxeval_o.46117e049fbc.json",
-    "bayes": "bayes.cruxeval_o.46117e049fbc-82fb754f764f.json",
+    "shared": "shared.cruxeval_o.be6260c196af.json",
+    "chain_average": "chain_average.cruxeval_o.be6260c196af.json",
+    "bayes": "bayes.cruxeval_o.be6260c196af-82fb754f764f.json",
     "bayes_prev": "bayes.cruxeval_o.f622cb20231d-b8d5b88d30a4.json"
    },
    "label": "CRUXEval output",
    "arms": "all",
-   "fingerprint": "46117e049fbc",
+   "fingerprint": "be6260c196af",
    "frame": {
-    "population_M": 51,
+    "population_M": 50,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
-    "runs_fingerprint": "3b0c330f5928",
-    "build_date": "2026-10-19",
-    "build_ts": "2026-10-19T12:35:48Z",
+    "runs_fingerprint": "55b6048dac84",
+    "build_date": "2026-10-20",
+    "build_ts": "2026-10-20T20:21:25Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_o",
     "set_label": "CRUXEval output",
@@ -494,20 +494,20 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
     "tasks_used": "CRUXEval output \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_o fp ca7d740bb399 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-cruxeval_o fp a3a49d3fdad3 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "cd06528a4146",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-19T12:35:48Z",
-   "source_fp": "ca7d740bb399",
-   "updated_at": "2026-10-19T12:57:35Z",
+   "source_stamp": "2026-10-20T20:21:25Z",
+   "source_fp": "a3a49d3fdad3",
+   "updated_at": "2026-10-20T20:40:43Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
     "unfitted": 0,
     "served_wave": "nb-cruxeval_o-20261005T1144Z",
-    "served_arms": 57
+    "served_arms": 55
    },
    "flip": {
     "from_wave": "nb-cruxeval_o-20261003T0522Z",
