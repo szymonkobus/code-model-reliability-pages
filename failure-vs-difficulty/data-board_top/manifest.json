@@ -1,9 +1,9 @@
 {
- "fingerprint": "d69ffd96c66e",
+ "fingerprint": "e0e0234167c5",
  "fingerprint_inputs": {
   "content": "fddcf2fae8ac",
   "wave": "combined-20260910T2209Z",
-  "body": "0081bc65afe5"
+  "body": "617569bd4e37"
  },
  "frame": {
   "dataset": "board_top",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "89196441ce3d",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-20",
-  "stamp": "2026-10-20T13:19:03Z",
+  "stamp": "2026-10-20T13:37:20Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -1252,10 +1252,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-20T11:47:05Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261020T114705Z.json",
-   "sha16": "09fccaa6de55af03",
-   "census_mtime": "2026-10-20T11:48:34Z",
+   "stamp": "2026-10-20T13:04:41Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261020T130441Z.json",
+   "sha16": "5aaef5fff301f4eb",
+   "census_mtime": "2026-10-20T13:05:38Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
@@ -1312,7 +1312,7 @@
    "arms_in": "shared"
   },
   "side_arms": {
-   "updated_at": "2026-10-12T13:19:19Z",
+   "updated_at": "2026-10-20T13:44:08Z",
    "pointer": "definitions/fitting/serving_sft_board_top.json",
    "row": null,
    "served": true,
@@ -1324,10 +1324,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.d69ffd96c66e.json",
-  "chain_average": "chain_average.d69ffd96c66e.json",
-  "chain_median": "chain_median.d69ffd96c66e.json",
-  "dots": "dots.d69ffd96c66e.json",
-  "levels": "levels.d69ffd96c66e.json"
+  "shared": "shared.e0e0234167c5.json",
+  "chain_average": "chain_average.e0e0234167c5.json",
+  "chain_median": "chain_median.e0e0234167c5.json",
+  "dots": "dots.e0e0234167c5.json",
+  "levels": "levels.e0e0234167c5.json"
  }
 }
