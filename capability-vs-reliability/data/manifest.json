@@ -143,7 +143,7 @@
    },
    "source_stamp": "2026-10-20T12:11:45Z",
    "source_fp": "b8bc2c7e6eaa",
-   "updated_at": "2026-10-20T12:29:34Z",
+   "updated_at": "2026-10-20T13:37:09Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -160,20 +160,20 @@
   },
   "board_top": {
    "files": {
-    "shared": "shared.board_top.04584d0af1f5.json",
-    "chain_average": "chain_average.board_top.04584d0af1f5.json",
-    "bayes": "bayes.board_top.04584d0af1f5-3e6e88486240.json"
+    "shared": "shared.board_top.a0782bbda5ec.json",
+    "chain_average": "chain_average.board_top.a0782bbda5ec.json",
+    "bayes": "bayes.board_top.a0782bbda5ec-3e6e88486240.json"
    },
    "label": "wave 1+2",
    "arms": "all",
-   "fingerprint": "04584d0af1f5",
+   "fingerprint": "a0782bbda5ec",
    "frame": {
     "population_M": 67,
     "tasks": 1288,
     "keep_set_hash": "ba4c3eb57ad5",
     "runs_fingerprint": "89196441ce3d",
     "build_date": "2026-10-20",
-    "build_ts": "2026-10-20T09:50:50Z",
+    "build_ts": "2026-10-20T13:19:03Z",
     "vocab_ruled": "2026-08-27",
     "set": "board_top",
     "set_label": "wave 1+2",
@@ -184,14 +184,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ba4c3eb57ad5",
     "tasks_used": "wave 1+2 \u2014 1288 tasks, axis wave combined-20260910T2209Z",
-    "source": "failure-vs-difficulty data-board_top fp f200d2d73ac8 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-board_top fp d69ffd96c66e (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "fddcf2fae8ac",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-20T09:50:50Z",
-   "source_fp": "f200d2d73ac8",
-   "updated_at": "2026-10-20T12:31:47Z",
+   "source_stamp": "2026-10-20T13:19:03Z",
+   "source_fp": "d69ffd96c66e",
+   "updated_at": "2026-10-20T13:40:42Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -236,7 +236,7 @@
    },
    "source_stamp": "2026-10-20T10:00:19Z",
    "source_fp": "ab024e74bfbf",
-   "updated_at": "2026-10-20T12:32:59Z",
+   "updated_at": "2026-10-20T13:42:42Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -577,7 +577,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-10-20T12:25:14Z",
+  "stamp": "2026-10-20T13:28:42Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,
