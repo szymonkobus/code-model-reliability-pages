@@ -1,9 +1,9 @@
 {
- "fingerprint": "79169d7b2928",
+ "fingerprint": "7cca8b61b7a6",
  "fingerprint_inputs": {
-  "content": "2e03ee887827",
+  "content": "746d4f074b0d",
   "wave": "pool-20260910T2244Z",
-  "body": "9973cdf62353"
+  "body": "e17c4ab2d1ec"
  },
  "frame": {
   "dataset": "top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 64,
   "tasks": 858,
   "keep_set_hash": "532d0efad8a5",
-  "inputs_content_sha": "2e03ee887827",
+  "inputs_content_sha": "746d4f074b0d",
   "tasks_on_axis": 858,
   "tasks_kept": 858,
   "tasks_awaiting_axis": 0,
@@ -34,17 +34,17 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "7023c95ec1ae",
+  "runs_fingerprint": "e0578983b960",
   "axis_wave": "pool-20260910T2244Z",
   "build_date": "2026-10-20",
-  "stamp": "2026-10-20T17:17:50Z",
+  "stamp": "2026-10-20T19:10:04Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-20T16:21:22Z",
+   "unified_built_at": "2026-10-20T18:18:27Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.top.csv"
@@ -846,6 +846,11 @@
      "id": "qwen35_9b_base_sft_code_harder_completion",
      "arm_id": "q35-9B-base-sft-code-harder",
      "label": "Qwen3.5 9B Base \u00b7 code fine-tune on other models' solutions"
+    },
+    {
+     "id": "gpt-6-astra_batch",
+     "arm_id": "astra",
+     "label": "gpt-6-astra_batch gpt-6-astra_batch"
     }
    ],
    "stopped_not_listed": [],
@@ -910,16 +915,11 @@
      "id": "Skywork/Skywork-OR1-7B",
      "arm_id": "skywork-or1-7b",
      "label": "Skywork-OR1 7B"
-    },
-    {
-     "id": "gpt-6-astra_batch",
-     "arm_id": "astra",
-     "label": "gpt-6-astra_batch gpt-6-astra_batch"
     }
    ],
    "in_side_block": [],
    "panel_conflicts": [],
-   "line": "74 study models with results are off the panel; the models with a fit appear in their own block"
+   "line": "75 study models with results are off the panel; the models with a fit appear in their own block"
   },
   "struck_runs": {
    "keys": [
@@ -954,7 +954,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-20T16:25:30Z",
+   "_stamp": "2026-10-20T18:25:32Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1119,20 +1119,20 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-20T15:25:24Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261020T152524Z.json",
-   "sha16": "d6d416247b3771c8",
-   "census_mtime": "2026-10-20T15:26:31Z",
+   "stamp": "2026-10-20T17:59:24Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261020T175924Z.json",
+   "sha16": "0423e05ac74f923b",
+   "census_mtime": "2026-10-20T18:00:35Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.79169d7b2928.json",
-  "chain_average": "chain_average.79169d7b2928.json",
-  "chain_median": "chain_median.79169d7b2928.json",
-  "dots": "dots.79169d7b2928.json",
-  "levels": "levels.79169d7b2928.json"
+  "shared": "shared.7cca8b61b7a6.json",
+  "chain_average": "chain_average.7cca8b61b7a6.json",
+  "chain_median": "chain_median.7cca8b61b7a6.json",
+  "dots": "dots.7cca8b61b7a6.json",
+  "levels": "levels.7cca8b61b7a6.json"
  }
 }
