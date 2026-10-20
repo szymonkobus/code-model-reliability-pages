@@ -1,9 +1,9 @@
 {
- "fingerprint": "4db3a1e5098a",
+ "fingerprint": "4607c383c4bc",
  "fingerprint_inputs": {
   "content": "156b492e26c8",
   "wave": "unified-live",
-  "body": "d0d6795d9489"
+  "body": "07bc06d43a3d"
  },
  "frame": {
   "dataset": "all",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "458ddddb5e78",
   "axis_wave": "unified-live",
   "build_date": "2026-10-20",
-  "stamp": "2026-10-20T22:12:30Z",
+  "stamp": "2026-10-20T23:48:29Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -124,7 +124,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-20T21:17:37Z",
+   "unified_built_at": "2026-10-20T23:17:46Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -1023,7 +1023,7 @@
    "named_here": false,
    "source": {
     "register": "research/training/post-training-lead/names_of_record.json",
-    "sha12": "4a56a4cbe59c",
+    "sha12": "5c2eb86d5402",
     "built_at": "2026-10-19T11:12:52Z",
     "state_word": "stopped"
    }
@@ -1039,7 +1039,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-20T21:25:15Z",
+   "_stamp": "2026-10-20T23:25:15Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1204,20 +1204,20 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-20T20:31:11Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261020T203111Z.json",
-   "sha16": "2869edc9d14b25fd",
-   "census_mtime": "2026-10-20T20:32:31Z",
+   "stamp": "2026-10-20T21:54:50Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261020T215450Z.json",
+   "sha16": "bd1f26e4121b7239",
+   "census_mtime": "2026-10-20T21:55:55Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.4db3a1e5098a.json",
-  "chain_average": "chain_average.4db3a1e5098a.json",
-  "chain_median": "chain_median.4db3a1e5098a.json",
-  "dots": "dots.4db3a1e5098a.json",
-  "levels": "levels.4db3a1e5098a.json"
+  "shared": "shared.4607c383c4bc.json",
+  "chain_average": "chain_average.4607c383c4bc.json",
+  "chain_median": "chain_median.4607c383c4bc.json",
+  "dots": "dots.4607c383c4bc.json",
+  "levels": "levels.4607c383c4bc.json"
  }
 }
