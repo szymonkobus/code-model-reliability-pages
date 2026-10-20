@@ -1,9 +1,9 @@
 {
- "fingerprint": "4659a4c4a8d5",
+ "fingerprint": "b97e931c7a07",
  "fingerprint_inputs": {
-  "content": "15c65f17d56b",
+  "content": "c0deba8c91d9",
   "wave": "combined-20260910T2209Z",
-  "body": "ab7b035c87f4"
+  "body": "c6ebbbf201f4"
  },
  "frame": {
   "dataset": "board_top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 67,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "15c65f17d56b",
+  "inputs_content_sha": "c0deba8c91d9",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "e0578983b960",
+  "runs_fingerprint": "458ddddb5e78",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-20",
-  "stamp": "2026-10-20T19:01:09Z",
+  "stamp": "2026-10-20T20:45:20Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -124,7 +124,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-20T18:18:27Z",
+   "unified_built_at": "2026-10-20T20:18:56Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -1029,11 +1029,6 @@
    ],
    "unregistered": [
     {
-     "id": "openai/gpt-6-astra",
-     "arm_id": "",
-     "label": "GPT-6 Astra (thinking)"
-    },
-    {
      "id": "XiaomiMiMo/MiMo-7B-RL-Thinking",
      "arm_id": "mimo-7b-rl",
      "label": "MiMo-RL 7B (thinking)"
@@ -1042,6 +1037,11 @@
      "id": "XiaomiMiMo/MiMo-7B-SFT-Thinking",
      "arm_id": "mimo-7b-sft",
      "label": "MiMo-SFT 7B (thinking)"
+    },
+    {
+     "id": "muse-wonder-1.0_meta",
+     "arm_id": "",
+     "label": "Muse Wonder (thinking)"
     },
     {
      "id": "Skywork/Skywork-OR1-7B",
@@ -1081,7 +1081,7 @@
    "named_here": true,
    "source": {
     "register": "research/training/post-training-lead/names_of_record.json",
-    "sha12": "e0e7491dcf31",
+    "sha12": "4a56a4cbe59c",
     "built_at": "2026-10-19T11:12:52Z",
     "state_word": "stopped"
    }
@@ -1097,7 +1097,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-20T18:25:32Z",
+   "_stamp": "2026-10-20T20:25:23Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1334,10 +1334,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.4659a4c4a8d5.json",
-  "chain_average": "chain_average.4659a4c4a8d5.json",
-  "chain_median": "chain_median.4659a4c4a8d5.json",
-  "dots": "dots.4659a4c4a8d5.json",
-  "levels": "levels.4659a4c4a8d5.json"
+  "shared": "shared.b97e931c7a07.json",
+  "chain_average": "chain_average.b97e931c7a07.json",
+  "chain_median": "chain_median.b97e931c7a07.json",
+  "dots": "dots.b97e931c7a07.json",
+  "levels": "levels.b97e931c7a07.json"
  }
 }
