@@ -1524,16 +1524,13 @@ function renderSeriesBlock() {
   renderStruckLine();
 }
 function renderStruckLine() {   
-  var old = document.getElementById('struckline'); if (old) old.remove();
+  var old = document.getElementById('struckline');
   var fr = (D.shared && D.shared.frame && D.shared.frame.struck_runs) || null;
-  if (!fr || !fr.line || !fr.named_here || ARMS === 'golden') return;
-  var rs = []; try { rs = seriesRows(); } catch (e) { }
-  var last = document.getElementById('markskey');
-  if (!last) { for (var j = rs.length - 1; j >= 0; j--) { last = document.getElementById('serieschips' + (j ? String(j) : '')); if (last) break; } }
-  if (!last) last = document.getElementById('runrows-end');
-  if (!last) return;
-  var p = document.createElement('p'); p.id = 'struckline'; p.className = 'sub'; p.textContent = String(fr.line); p.style.flexBasis = '100%'; p.style.margin = '.3rem 0 0';
-  last.parentNode.insertBefore(p, last.nextSibling);
+  var fold = document.getElementById('statefold');
+  if (!fr || !fr.line || !fr.named_here || ARMS === 'golden' || !fold) { if (old) old.remove(); return; }
+  if (old && old.parentNode !== fold) { old.remove(); old = null; }
+  if (!old) { old = document.createElement('p'); old.id = 'struckline'; old.className = 'sub'; old.style.margin = '.2rem 0 .3rem'; fold.appendChild(old); }
+  old.textContent = String(fr.line);
 }
 function renderMarksKey(rows) {   
   
