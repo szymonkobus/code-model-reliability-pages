@@ -1,9 +1,9 @@
 {
- "fingerprint": "d345a38d126f",
+ "fingerprint": "ae1139f1781b",
  "fingerprint_inputs": {
   "content": "f598763f0d98",
   "wave": "ifeval-live",
-  "body": "ed8f2b825c17"
+  "body": "b6481c51523a"
  },
  "frame": {
   "dataset": "ifeval",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ea009d5c6cd1",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "7629e5db3a34",
+  "runs_fingerprint": "1df3378ed34c",
   "axis_wave": "ifeval-live",
   "build_date": "2026-10-21",
-  "stamp": "2026-10-21T14:45:03Z",
+  "stamp": "2026-10-21T19:30:42Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/ifeval",
-   "unified_built_at": "2026-10-21T14:13:52Z",
+   "unified_built_at": "2026-10-21T18:37:17Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.ifeval.csv"
@@ -261,6 +261,12 @@
     "of": 541
    }
   },
+  "one_answer": {
+   "floor": 8,
+   "arms": [],
+   "labels": {},
+   "sentence": ""
+  },
   "scorer": "unified results: passes/n per configuration x task (board results under plus_status; pool results \u00a71b-valid), Definitions' unified frame",
   "estimators": "local-logistic trend with shipped bands (rho/deff), binned medians (15 bins) with bootstrap bands and crossings, raw running median; average-chain crossings read off the trend and its band (first upward crossing)",
   "bayes_fits": {
@@ -399,7 +405,7 @@
    "named_here": false,
    "source": {
     "register": "research/training/post-training-lead/names_of_record.json",
-    "sha12": "428cd4276d89",
+    "sha12": "e857658d1819",
     "built_at": "2026-10-19T11:12:52Z",
     "state_word": "stopped"
    }
@@ -462,7 +468,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-21T14:27:00Z",
+   "_stamp": "2026-10-21T19:25:21Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -627,10 +633,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-21T13:48:00Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261021T134800Z.json",
-   "sha16": "77c6b31d9ff5e403",
-   "census_mtime": "2026-10-21T13:49:36Z",
+   "stamp": "2026-10-21T18:15:26Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261021T181526Z.json",
+   "sha16": "9c1326af1d7b21fd",
+   "census_mtime": "2026-10-21T18:16:29Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
@@ -647,10 +653,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.d345a38d126f.json",
-  "chain_average": "chain_average.d345a38d126f.json",
-  "chain_median": "chain_median.d345a38d126f.json",
-  "dots": "dots.d345a38d126f.json",
-  "levels": "levels.d345a38d126f.json"
+  "shared": "shared.ae1139f1781b.json",
+  "chain_average": "chain_average.ae1139f1781b.json",
+  "chain_median": "chain_median.ae1139f1781b.json",
+  "dots": "dots.ae1139f1781b.json",
+  "levels": "levels.ae1139f1781b.json"
  }
 }
