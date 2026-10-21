@@ -1,5 +1,5 @@
 {
- "fingerprint": "98a4bd834755",
+ "fingerprint": "3cd017fea833",
  "frame": {
   "population_M": 63,
   "tasks": 430,
@@ -255,7 +255,27 @@
    "Qwen/Qwen3-Coder-30B-A3B-Instruct": {
     "tasks": 430,
     "of": 430
+   },
+   "openai/gpt-6-astra": {
+    "tasks": 430,
+    "of": 430
+   },
+   "muse-wonder-1.0_meta": {
+    "tasks": 430,
+    "of": 430
    }
+  },
+  "one_answer": {
+   "floor": 8,
+   "arms": [
+    "openai/gpt-6-astra",
+    "muse-wonder-1.0_meta"
+   ],
+   "labels": {
+    "openai/gpt-6-astra": "GPT-6 Astra (thinking)",
+    "muse-wonder-1.0_meta": "Muse Wonder (thinking)"
+   },
+   "sentence": "two models are read at one answer a task and drawn as binned average failure rates, with no fit and no crossing: GPT-6 Astra (thinking), Muse Wonder (thinking)"
   },
   "difficulty_population_M": 66,
   "axis_M": 64,
@@ -305,6 +325,11 @@
    "q3-8B-sft-code",
    "q35-9B-base",
    "q35-9B-base-sft-code",
+   "r1d7b-rl-f12-alltasks-ent-kl-s100",
+   "r1d7b-rl-f12-alltasks-ent-kl-s150",
+   "r1d7b-rl-f12-alltasks-ent-kl-s200",
+   "r1d7b-rl-f12-alltasks-ent-kl-s250",
+   "r1d7b-rl-f12-alltasks-ent-kl-s50",
    "r1d7b-rl-f12-alltasks-kl-s100",
    "r1d7b-rl-f12-alltasks-kl-s250",
    "r1d7b-rl-f12-alltasks-kl-s50",
@@ -351,14 +376,10 @@
   "fit_reversible_when": {},
   "fit_disclosures": {},
   "withheld_configs": [
-   "Qwen/Qwen3-30B-A3B-Thinking",
-   "muse-wonder-1.0_meta",
-   "openai/gpt-6-astra"
+   "Qwen/Qwen3-30B-A3B-Thinking"
   ],
   "withheld_reasons": {
-   "Qwen/Qwen3-30B-A3B-Thinking": "held since 2 Sep: kept off the cloud machines; runs on the free machines after everything else",
-   "muse-wonder-1.0_meta": "one answer a task: no failure rate to draw",
-   "openai/gpt-6-astra": "one answer a task: no failure rate to draw"
+   "Qwen/Qwen3-30B-A3B-Thinking": "held since 2 Sep: kept off the cloud machines; runs on the free machines after everything else"
   },
   "keep_set_hash": "c3f08ea1a903",
   "axis_order_hash": "e39ebe415615",
@@ -367,8 +388,8 @@
   "inputs_content_sha": "f1eb54e5fc65",
   "scorer": "plus_status (a sample counts as solved if its plus run passed; difficulty adopted base AND plus on 2026-09-02 — the switch of served numbers waits for the project maintainers' gate; under base AND plus a result can read differently, e.g. Mbpp/274 for Qwen3-30B-A3B: 128 passes here vs 127)",
   "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\\t<task>\\t<passes>\\t<attempts>\\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column literal; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) — reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
-  "build_date": "2026-10-20",
-  "built_at": "2026-10-20T23:44:33Z",
+  "build_date": "2026-10-21",
+  "built_at": "2026-10-21T06:49:11Z",
   "vocab_ruled": "2026-08-27",
   "counts_of_record": {
    "original_kept": 430,
@@ -377,7 +398,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-20T23:25:15Z",
+   "_stamp": "2026-10-21T06:26:03Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -638,13 +659,13 @@
    "openai/gpt-5-nano": "20260907T154051Z",
    "openai/gpt-5-mini": "20260907T154051Z"
   },
-  "newest_input_mtime": "2026-10-20T23:36:29Z"
+  "newest_input_mtime": "2026-10-21T06:43:03Z"
  },
  "files": {
-  "shared": "shared.98a4bd834755.json",
-  "chain_average": "chain_average.98a4bd834755.json",
-  "chain_median": "chain_median.98a4bd834755.json",
-  "dots": "dots.98a4bd834755.json",
-  "levels": "levels.98a4bd834755.json"
+  "shared": "shared.3cd017fea833.json",
+  "chain_average": "chain_average.3cd017fea833.json",
+  "chain_median": "chain_median.3cd017fea833.json",
+  "dots": "dots.3cd017fea833.json",
+  "levels": "levels.3cd017fea833.json"
  }
 }
