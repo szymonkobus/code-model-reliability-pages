@@ -59,6 +59,7 @@ svg { width:100%; height:auto; display:block; touch-action:pan-y; }
 #framebar.tear { color:#7a4a12; }
 #vocabnote { font-size:.8rem; color:#8b8477; min-height:1.7em; line-height:1.6; margin:0 0 .3rem; }
 .chip.think { border-style:dashed; }
+.chips .chip.oneanswer { border-style:double; }    
 #headline { font-size:1.02rem; color:#1f1e1b; margin:.15rem 0 .3rem; line-height:1.45; min-height:1.5em; }
 #fitbox { margin:0 0 .55rem; max-width:100%; min-height:1.5em; }    
 .kit-switch-seg button[disabled] { opacity:.45; cursor:not-allowed; }

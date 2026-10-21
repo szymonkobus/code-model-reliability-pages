@@ -621,6 +621,11 @@ function prevFitName() {
 function sorAt(r, levLogit) {   
   if (!r || !r.sor) return null;
   var p = pct(levLogit), hit = null, hitKey = null; Object.keys(r.sor).forEach(function (k) { if (Math.abs(+k - p) < 1e-4) { hit = r.sor[k]; hitKey = k; } });
+  
+  
+  
+  if (hit && hit[0] === 'withheld') return { z: null, lo: null, hi: null, kind: 'none', unresolved: true, side: 'upper', withheld: true,
+    extra: (r.depth_statement && String(r.depth_statement).trim()) || 'one answer a task: this level carries no information and is withheld; D50 alone is read' };
   if (!hit || hit.length < 6 || hit[3] == null) return null;   
   var lt = (state.def === 'average' ? r.levels_avg : r.levels) || r.levels_avg || r.levels, zg = lt && lt.zg ? lt.zg : null;
   var z = hit[3], lo = hit[4], hi = hit[5];
@@ -643,7 +648,17 @@ function asEdgePoint(rd) {
   return Object.assign({}, rd, { lo: low ? rd.z : rd.lo, hi: low ? rd.hi : rd.z, lo_open: low ? true : !!rd.lo_open, hi_open: low ? !!rd.hi_open : true,
     extra: (low ? 'the curve crosses this level below the easiest tasks: the bottom of the scale, a bound' : 'the curve crosses this level beyond the hardest tasks: the top of the scale, a bound') + ' — drawn with its band, out of the fitted line' });
 }
-function readBayes(i, levLogit) { var r = D.bayById[D.shared.configs[i].id]; return asEdgePoint((state.def === 'average' ? sorAt(r, levLogit) : null) || readBayesRow(r, levLogit, D.bay)); }   
+function readBayes(i, levLogit) {
+  var r = D.bayById[D.shared.configs[i].id];
+  
+  
+  if (r && r.one_answer) {
+    var one = sorAt(r, levLogit);
+    return asEdgePoint(one || { z: null, lo: null, hi: null, kind: 'none', unresolved: true, side: 'upper', withheld: true,
+      extra: (r.depth_statement && String(r.depth_statement).trim()) || 'one answer a task: this level carries no information and is withheld; D50 alone is read' });
+  }
+  return asEdgePoint((state.def === 'average' ? sorAt(r, levLogit) : null) || readBayesRow(r, levLogit, D.bay));
+}   
 function readBayesRow(r, levLogit, B) {   
   
   
