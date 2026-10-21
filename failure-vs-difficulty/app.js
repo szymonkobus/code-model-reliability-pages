@@ -1771,6 +1771,7 @@ function render() {
   if (dotsOn) {
     var zs = D.shared.tasks.z;
     visible.forEach(function (i) {
+      if (isOneAnswer(i)) return;   
       var id = D.shared.configs[i].id;
       var dd = D.dots && D.dots.configs ? D.dots.configs[id] : null; if (!dd || !dd.fails) return;   
       var shI = pinShift(chainCurve(i)); if (shI == null) return; PIN_DX = shI;   
