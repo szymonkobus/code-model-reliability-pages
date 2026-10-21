@@ -1,5 +1,5 @@
 {
- "fingerprint": "b141c2db031d",
+ "fingerprint": "e849bc5d3c91",
  "frame": {
   "population_M": 63,
   "tasks": 430,
@@ -367,7 +367,7 @@
    "named_here": false,
    "source": {
     "register": "research/training/post-training-lead/names_of_record.json",
-    "sha12": "428cd4276d89",
+    "sha12": "e857658d1819",
     "built_at": "2026-10-19T11:12:52Z",
     "state_word": "stopped"
    }
@@ -392,7 +392,7 @@
   "scorer": "plus_status (a sample counts as solved if its plus run passed; difficulty adopted base AND plus on 2026-09-02 — the switch of served numbers waits for the project maintainers' gate; under base AND plus a result can read differently, e.g. Mbpp/274 for Qwen3-30B-A3B: 128 passes here vs 127)",
   "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\\t<task>\\t<passes>\\t<attempts>\\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column literal; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) — reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
   "build_date": "2026-10-21",
-  "built_at": "2026-10-21T16:49:56Z",
+  "built_at": "2026-10-21T17:07:00Z",
   "vocab_ruled": "2026-08-27",
   "counts_of_record": {
    "original_kept": 430,
@@ -662,13 +662,13 @@
    "openai/gpt-5-nano": "20260907T154051Z",
    "openai/gpt-5-mini": "20260907T154051Z"
   },
-  "newest_input_mtime": "2026-10-21T16:42:27Z"
+  "newest_input_mtime": "2026-10-21T17:04:27Z"
  },
  "files": {
-  "shared": "shared.b141c2db031d.json",
-  "chain_average": "chain_average.b141c2db031d.json",
-  "chain_median": "chain_median.b141c2db031d.json",
-  "dots": "dots.b141c2db031d.json",
-  "levels": "levels.b141c2db031d.json"
+  "shared": "shared.e849bc5d3c91.json",
+  "chain_average": "chain_average.e849bc5d3c91.json",
+  "chain_median": "chain_median.e849bc5d3c91.json",
+  "dots": "dots.e849bc5d3c91.json",
+  "levels": "levels.e849bc5d3c91.json"
  }
 }

@@ -206,7 +206,7 @@ function withCommas(n) { return String(parseInt(n, 10)).replace(/\B(?=(\d{3})+(?
     var display = {};   
     landing.forEach(function (l) { reasons[l] = 'landing in progress (difficulty\'s flag of record): out of the curves and counts until the run role\'s whole word'; display[l] = 'results still arriving'; });
     var sframe = {
-      dataset: 'new', dataset_label: 'new tasks (pool)',
+      dataset: 'wave-2-and-wave-2-parked', dataset_label: 'wave 2 and wave 2 parked (' + Number(frame.axis_tasks || 0).toLocaleString('en-US') + ' tasks)',   
       one_answer: frame.one_answer || null,   
       off_panel: frame.off_panel || null, landing: frame.landing || null, landing_hidden_n: landingN,   
       population_M: cfgs.length, fitted_M: cfgs.length, complete_M: cfgs.length,
@@ -272,7 +272,7 @@ function withCommas(n) { return String(parseInt(n, 10)).replace(/\B(?=(\d{3})+(?
     
     
     if (!inlineDots && !sframe.coverage) { sframe.coverage = {}; cfgs.forEach(function (c) { if (c.n_axis_cells != null) sframe.coverage[c.id] = { tasks: c.n_axis_cells, of: ids.length }; }); }
-    return { shared: shared, avg: avg, med: med, dots: inlineDots ? dots : null, dotsUrl: dotsUrl, dotsConvert: dotsConvert, man: { files: {}, frame: sframe, dataset: 'new' } };   
+    return { shared: shared, avg: avg, med: med, dots: inlineDots ? dots : null, dotsUrl: dotsUrl, dotsConvert: dotsConvert, man: { files: {}, frame: sframe, dataset: 'wave-2-and-wave-2-parked' } };   
   }
   global.PoolDataset = { toBoard: poolToBoard };
 })(typeof window !== 'undefined' ? window : globalThis);

@@ -82,7 +82,7 @@ var DATASETS = {
          hover: 'wave 2 alone',
          disabled: '' },
   board: { label: 'wave 1', short: 'wave 1', hover: 'wave 1 alone' },
-  'new': { label: 'wave 2 and wave 2 parked', short: 'wave 2 and wave 2 parked', src: './pool/failure-vs-difficulty/data.json',
+  'wave-2-and-wave-2-parked': { label: 'wave 2 and wave 2 parked', short: 'wave 2 and wave 2 parked', src: './pool/failure-vs-difficulty/data.json',
            hover: 'wave 2 and wave 2 parked together' },
   all: { label: 'all waves', short: 'all waves', src: 'data-all/manifest.json',
          hover: 'all waves on one difficulty axis',
@@ -139,7 +139,7 @@ function officialLabels(C) {
     board_top: { label: fl(['wave_1_plus_2', 'wave_1_2'], 'wave 1+2 (' + f(C.original_kept + C.new_focused) + ' tasks)'), hover: 'wave 1+2: wave 1 plus wave 2 on one difficulty axis' },
     top: { label: fl(['wave_2'], 'wave 2 (' + f(C.new_focused) + ' tasks)'), hover: 'wave 2 alone; wave 2 parked left out' },
     board: { label: fl(['wave_1'], 'wave 1 (' + f(C.original_kept) + ' tasks)'), hover: 'wave 1 alone' },
-    'new': { label: fl(['wave_2_plus_parked', 'wave_2_all'], 'wave 2 and wave 2 parked (' + f(C.new_total) + ' tasks)'), hover: 'wave 2 and wave 2 parked together' },
+    'wave-2-and-wave-2-parked': { label: fl(['wave_2_plus_parked', 'wave_2_all'], 'wave 2 and wave 2 parked (' + f(C.new_total) + ' tasks)'), hover: 'wave 2 and wave 2 parked together' },
     all: { label: 'all waves (' + f(C.original_kept + C.new_total) + ' tasks)', hover: 'every task: wave 1, wave 2 and wave 2 parked on one difficulty axis' }
   };
 }
@@ -187,7 +187,7 @@ function goldenOk(c) { if (ARMS !== 'golden' || !c) return true; return GOLDEN_I
 
 
 
-var BUILTIN_KEYS = { board_top: 1, top: 1, board: 1, 'new': 1, all: 1 };
+var BUILTIN_KEYS = { board_top: 1, top: 1, board: 1, 'wave-2-and-wave-2-parked': 1, all: 1 };
 var MIRROR = (typeof window !== 'undefined' && window.MIRROR_DATASETS && typeof window.MIRROR_DATASETS === 'object') ? window.MIRROR_DATASETS : null;
 if (MIRROR) { DATASETS = MIRROR; }
 var DEFAULT_DATASET = (MIRROR && typeof window.MIRROR_DEFAULT === 'string' && DATASETS[window.MIRROR_DEFAULT]) ? window.MIRROR_DEFAULT
@@ -198,6 +198,7 @@ function setWord(s) { return String(s == null ? '' : s).replace(/\s*\([\d,]+ (ta
 function isExtra(k) { return !!(DATASETS[k] && !BUILTIN_KEYS[k]); }
 function extraDir(k) { return String(DATASETS[k].src || '').replace(/\/?manifest\.json$/, '') || ('data-' + k); }
 var DATASET = (typeof Kit !== 'undefined' && Kit.state) ? Kit.state.get('data', DEFAULT_DATASET) : DEFAULT_DATASET;   
+if (DATASET === 'new') DATASET = 'wave-2-and-wave-2-parked';   
 if (!DATASETS[DATASET]) DATASET = FALLBACK_DATASET;
 var SLUG_ALIASES = [], SLUGS_OF_RECORD = [];   
 var NAMES = null;   
@@ -315,12 +316,12 @@ function loadBoard() {
 
 function loadPool() {
   return Promise.all([
-    fetchFresh(DATASETS['new'].src).then(function (r) { return r.json(); }),
+    fetchFresh(DATASETS['wave-2-and-wave-2-parked'].src).then(function (r) { return r.json(); }),
     fetchFresh('data/manifest.json').then(function (r) { return r.json(); })
       .then(function (man) { return fetchFresh('data/' + man.files.shared).then(function (r) { return r.json(); }); })
       .then(function (sh) { return sh.vocab || {}; }).catch(function () { return {}; })
   ]).then(function (all) {
-    var B = PoolDataset.toBoard(all[0], DATASETS['new'].src);
+    var B = PoolDataset.toBoard(all[0], DATASETS['wave-2-and-wave-2-parked'].src);
     D.shared = B.shared; D.avg = B.avg; D.med = B.med; D.dots = B.dots; D.man = B.man; D.medUrl = null; D.dotsUrl = B.dotsUrl || null; D.dotsConvert = B.dotsConvert || null;   
     D.shared.vocab = all[1];   
     var st = (typeof Kit !== 'undefined' && Kit.state) ? Kit.state : null;
@@ -335,19 +336,19 @@ Promise.all([
   (DATASETS.all ? probeOk('data-all/manifest.json').then(function (ok) { ALL_AVAILABLE = ok; }) : Promise.resolve(ALL_AVAILABLE = false))
 ].concat(['board_top', 'top'].filter(function (ds) { return !!DATASETS[ds]; }).map(function (ds) {
   return probeOk(DATASETS[ds].src).then(function (ok) { TOP_AVAILABLE[ds] = ok; });
-})).concat(DATASETS['new'] ? [probeOk(DATASETS['new'].src).then(function (ok) { NEW_AVAILABLE = ok; })] : []
+})).concat(DATASETS['wave-2-and-wave-2-parked'] ? [probeOk(DATASETS['wave-2-and-wave-2-parked'].src).then(function (ok) { NEW_AVAILABLE = ok; })] : []
 ).concat(Object.keys(DATASETS).filter(isExtra).map(function (ds) {
   return probeOk(DATASETS[ds].src).then(function (ok) { EXTRA_AVAILABLE[ds] = ok; });
 }))).then(function () {   
     if (DATASET === 'all' && !ALL_AVAILABLE) DATASET = FALLBACK_DATASET;
     if ((DATASET === 'board_top' || DATASET === 'top') && !TOP_AVAILABLE[DATASET]) DATASET = FALLBACK_DATASET;
     if (isExtra(DATASET) && !EXTRA_AVAILABLE[DATASET]) DATASET = FALLBACK_DATASET;
-    if (DATASET === 'new' && !NEW_AVAILABLE) DATASET = (DATASETS.board_top && TOP_AVAILABLE.board_top) ? 'board_top' : FALLBACK_DATASET;   
+    if (DATASET === 'wave-2-and-wave-2-parked' && !NEW_AVAILABLE) DATASET = (DATASETS.board_top && TOP_AVAILABLE.board_top) ? 'board_top' : FALLBACK_DATASET;   
     if (!DATASETS[DATASET]) DATASET = (DATASETS.board_top && TOP_AVAILABLE.board_top) ? 'board_top' : FALLBACK_DATASET;
     
     if (DATASET === 'board_top' || DATASET === 'top') return loadBundle('data-' + DATASET, DATASETS[DATASET].label);
     if (isExtra(DATASET)) return loadBundle(extraDir(DATASET), DATASETS[DATASET].label);   
-    return DATASET === 'new' ? loadPool() : (DATASET === 'all' ? loadBundle('data-all', DATASETS.all.label) : loadBoard());
+    return DATASET === 'wave-2-and-wave-2-parked' ? loadPool() : (DATASET === 'all' ? loadBundle('data-all', DATASETS.all.label) : loadBoard());
   }).then(function () { return loadNames().then(applyNames).catch(function () { NAMES = null; }); }).then(boot)   
   .catch(function (e) { failLine('the page did not start', e); if (window.console) console.error(e); });   
 
@@ -524,12 +525,12 @@ function boot() {
   
   
   
-  var dsAvail = function (k) { if (k === 'all') return ALL_AVAILABLE; if (k === 'board_top' || k === 'top') return !!TOP_AVAILABLE[k]; if (k === 'new') return NEW_AVAILABLE; if (isExtra(k)) return !!EXTRA_AVAILABLE[k]; return true; };
+  var dsAvail = function (k) { if (k === 'all') return ALL_AVAILABLE; if (k === 'board_top' || k === 'top') return !!TOP_AVAILABLE[k]; if (k === 'wave-2-and-wave-2-parked') return NEW_AVAILABLE; if (isExtra(k)) return !!EXTRA_AVAILABLE[k]; return true; };
   var dsOpt = function (k) { return { value: k, label: setWord(DATASETS[k].label), disabled: !dsAvail(k) }; };
   var dsOnChange = function (v) {
       if (!ready || coercing) return;
       if (v === 'all' && !ALL_AVAILABLE) { quietSet(dsCtl, DATASET); return; }
-      if (v === 'new' && !NEW_AVAILABLE) { quietSet(dsCtl, DATASET); return; }
+      if (v === 'wave-2-and-wave-2-parked' && !NEW_AVAILABLE) { quietSet(dsCtl, DATASET); return; }
       if (isExtra(v) && !EXTRA_AVAILABLE[v]) { quietSet(dsCtl, DATASET); return; }
       if (v !== DATASET) window.location.reload();   
   };
@@ -548,7 +549,7 @@ function boot() {
   if (DATASETS.all) setDisabled(dsEl('all'), !ALL_AVAILABLE, DATASETS.all.disabled);
   if (DATASETS.board_top) setDisabled(dsEl('board_top'), !TOP_AVAILABLE.board_top, DATASETS.board_top.disabled);
   if (DATASETS.top) setDisabled(dsEl('top'), !TOP_AVAILABLE.top, DATASETS.top.disabled);
-  if (DATASETS['new']) setDisabled(dsEl('new'), !NEW_AVAILABLE, DATASETS['new'].disabled || '');   
+  if (DATASETS['wave-2-and-wave-2-parked']) setDisabled(dsEl('wave-2-and-wave-2-parked'), !NEW_AVAILABLE, DATASETS['wave-2-and-wave-2-parked'].disabled || '');   
   Object.keys(DATASETS).filter(isExtra).forEach(function (ds) {   
     var bt = dsEl(ds);
     setDisabled(bt, !EXTRA_AVAILABLE[ds], '');
@@ -592,11 +593,11 @@ function boot() {
       if (nk && ab && !OFFICIAL) { var lb = Number(nk).toLocaleString('en-US') + ' tasks'; DATASETS.all.label = lb; DATASETS.all.short = lb; ab.textContent = lb; }
       setOpen('all', b && (b.drawn || b.n_fits) ? 'opens on the Bayesian fit (' + (b.n_fits || 0) + ' served + ' + ((b.newer && b.newer.drawn_interim) || 0) + ' interim fits drawn; the rest have no fit)' : 'opens on the local-logistic fit (no Bayesian fit set for this view)');
     }).catch(function () {});
-    setOpen('new', 'opens on the Bayesian fit where the pool wave serves a model; the rest have no fit');
+    setOpen('wave-2-and-wave-2-parked', 'opens on the Bayesian fit where the pool wave serves a model; the rest have no fit');
     
     
     
-    var poolFrameSrc = DATASETS['new'] ? DATASETS['new'].src.replace(/data\.json$/, 'frame.json') : null;   
+    var poolFrameSrc = DATASETS['wave-2-and-wave-2-parked'] ? DATASETS['wave-2-and-wave-2-parked'].src.replace(/data\.json$/, 'frame.json') : null;   
     function composeNewHover(fr, by, B) {
       var n = fr.count, w = B.wave_id, m = B.n_tasks;
       return 'wave 2 and wave 2 parked = every pool task whose certificate is complete for admission and whose label is regular or tricky — '
@@ -609,12 +610,12 @@ function boot() {
     
     var FITTING_PARKED_SENTENCE = 'The fits use every certified task with data, labelled regular or tricky, whether it is in wave 2 or not.';
     if (poolFrameSrc) fetch(poolFrameSrc).then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; }).then(function (F) {
-      if (F && F.sentence) { setOpen('new', noWaveIds(F.sentence) + ' ' + FITTING_PARKED_SENTENCE + ' Opens on the Bayesian fit where a model has one.'); return; }
-      return fetch(DATASETS['new'].src).then(function (r) { return r.ok ? r.json() : null; }).then(function (P) {
+      if (F && F.sentence) { setOpen('wave-2-and-wave-2-parked', noWaveIds(F.sentence) + ' ' + FITTING_PARKED_SENTENCE + ' Opens on the Bayesian fit where a model has one.'); return; }
+      return fetch(DATASETS['wave-2-and-wave-2-parked'].src).then(function (r) { return r.ok ? r.json() : null; }).then(function (P) {
         if (!P || !P.frame || !P.frame.frame_of_record) return;
         var fr = P.frame.frame_of_record, by = fr.by_label || {};
         if (fr.count == null || by.regular == null) return;
-        setOpen('new', composeNewHover(fr, by, P.bayes || {}));
+        setOpen('wave-2-and-wave-2-parked', composeNewHover(fr, by, P.bayes || {}));
       });
     }).catch(function () {});
   })();
@@ -1698,7 +1699,7 @@ function render() {
 
 
 
-  var bayesLevels = (DRAW_LEVELS && D.levels) ? ['80'] : ((DATASET === 'new') ? ['80'] : ['80', '90']);   
+  var bayesLevels = (DRAW_LEVELS && D.levels) ? ['80'] : ((DATASET === 'wave-2-and-wave-2-parked') ? ['80'] : ['80', '90']);   
   if (curveCtl) {   
     var _noLv = !(state.src === 'bayes' && D.levelsUrl);
     setDisabled(curveCtl.element.querySelector('button[data-value="difficulty"]'), _noLv, '');
@@ -2047,7 +2048,7 @@ function notes(visible, unfitted) {
       });
     }
   }
-  if (DATASET === 'new' && D.shared.frame && D.shared.frame.coverage_by_cause) {
+  if (DATASET === 'wave-2-and-wave-2-parked' && D.shared.frame && D.shared.frame.coverage_by_cause) {
     
     var cb = D.shared.frame.coverage_by_cause, cl = document.createElement('div');
     var parts = [];
@@ -2070,9 +2071,9 @@ function notes(visible, unfitted) {
       el.appendChild(ll);
     }
   }
-  if (state.src === 'bayes' && DATASET === 'new') {
+  if (state.src === 'bayes' && DATASET === 'wave-2-and-wave-2-parked') {
     var wl = document.createElement('div');
-    wl.innerHTML = 'The Bayesian uncertainty bands for the new-tasks dataset carry the 80% level only, '
+    wl.innerHTML = 'The Bayesian uncertainty bands for the wave 2 and wave 2 parked dataset carry the 80% level only, '
       + 'so Uncertainty bands reads 80% under this source; 90% and 95% return with the local-logistic fit. The table below stays the '
       + 'local-logistic reading — the Bayesian crossings live on Capability vs reliability.';   
     el.appendChild(wl);
@@ -2516,7 +2517,7 @@ function oneAnswerHover() {
 function oneAnswerClause() { var n = oneAnswerDrawn(); return n ? ' \u00b7 ' + n + ' at one answer a task (binned rates, no fit)' : ''; }   
 function tasksUsedLabel(f, isPool) {   
   var lbl = f.dataset_label || (DATASETS[DATASET] && DATASETS[DATASET].label) || '';
-  if (isPool && OFFICIAL && OFFICIAL['new']) return OFFICIAL['new'].label;   
+  if (isPool && OFFICIAL && OFFICIAL['wave-2-and-wave-2-parked']) return OFFICIAL['wave-2-and-wave-2-parked'].label;   
   if (OFFICIAL && OFFICIAL[DATASET] && !/\(\s*[\d,]+/.test(lbl)) return OFFICIAL[DATASET].label;
   return lbl;
 }
@@ -2581,7 +2582,7 @@ function setDefinition(f, isPool) {
 }
 function stamp() {
   var f = D.shared.frame;
-  var isPool = f.dataset === 'new';   
+  var isPool = f.dataset === 'wave-2-and-wave-2-parked';   
   relabelDataset(f);
   var built = f.built_at || f.stamp || f.build_date || null;
   
@@ -2628,12 +2629,12 @@ function stamp() {
 
 
 function overlayName(id) { var n = NAMES && NAMES[String(id || '')]; return (n && n.label) ? String(n.label).replace(/&/g, '&amp;').replace(/</g, '&lt;') : null; }
-function namedInManifest() { return 'a model named in ' + (DATASET === 'new' ? 'the pool bundle' : 'the data manifest'); }
+function namedInManifest() { return 'a model named in ' + (DATASET === 'wave-2-and-wave-2-parked' ? 'the pool bundle' : 'the data manifest'); }
 function namesOrCount(ids) {
   var named = [], miss = 0;
   (ids || []).forEach(function (id) { var n = overlayName(id); if (n) named.push(n); else miss += 1; });
   var out = named.join('; ');
-  if (miss) out += (named.length ? '; ' : '') + (({ 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five' })[miss] || String(miss)) + ' more model' + (miss > 1 ? 's' : '') + ' named in ' + (DATASET === 'new' ? 'the pool bundle' : 'the data manifest');
+  if (miss) out += (named.length ? '; ' : '') + (({ 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five' })[miss] || String(miss)) + ' more model' + (miss > 1 ? 's' : '') + ' named in ' + (DATASET === 'wave-2-and-wave-2-parked' ? 'the pool bundle' : 'the data manifest');
   return out;
 }
 function withheldLine(f) {
@@ -2643,7 +2644,7 @@ function withheldLine(f) {
     var r = f.withheld_reasons || {};
     
     
-    out += ' · not on this panel (' + (DATASET === 'new' ? 'not run on these tasks' : 'results on one task set only') + '): ' + namesOrCount(w);   
+    out += ' · not on this panel (' + (DATASET === 'wave-2-and-wave-2-parked' ? 'not run on these tasks' : 'results on one task set only') + '): ' + namesOrCount(w);   
   }
   
   
