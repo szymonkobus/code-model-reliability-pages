@@ -1,9 +1,9 @@
 {
- "fingerprint": "17b4e2560476",
+ "fingerprint": "258b6e20e5f7",
  "fingerprint_inputs": {
   "content": "85c7ea8c65d2",
   "wave": "aime-live",
-  "body": "db3b1b0152b9"
+  "body": "5c75f00f2e40"
  },
  "frame": {
   "dataset": "aime",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "dc5cbadfe267",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "856bd8a4fb20",
+  "runs_fingerprint": "1df3378ed34c",
   "axis_wave": "aime-live",
   "build_date": "2026-10-21",
-  "stamp": "2026-10-21T14:13:32Z",
+  "stamp": "2026-10-21T19:15:02Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/aime",
-   "unified_built_at": "2026-10-21T13:13:22Z",
+   "unified_built_at": "2026-10-21T18:37:17Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.aime.csv"
@@ -237,6 +237,12 @@
     "of": 60
    }
   },
+  "one_answer": {
+   "floor": 8,
+   "arms": [],
+   "labels": {},
+   "sentence": ""
+  },
   "scorer": "unified results: passes/n per configuration x task (board results under plus_status; pool results \u00a71b-valid), Definitions' unified frame",
   "estimators": "local-logistic trend with shipped bands (rho/deff), binned medians (15 bins) with bootstrap bands and crossings, raw running median; average-chain crossings read off the trend and its band (first upward crossing)",
   "bayes_fits": {
@@ -385,7 +391,7 @@
    "named_here": false,
    "source": {
     "register": "research/training/post-training-lead/names_of_record.json",
-    "sha12": "428cd4276d89",
+    "sha12": "e857658d1819",
     "built_at": "2026-10-19T11:12:52Z",
     "state_word": "stopped"
    }
@@ -442,7 +448,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-21T13:25:28Z",
+   "_stamp": "2026-10-21T18:26:02Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -607,10 +613,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-21T11:20:36Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261021T112036Z.json",
-   "sha16": "09abefb88fc5f544",
-   "census_mtime": "2026-10-21T11:21:48Z",
+   "stamp": "2026-10-21T15:31:51Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261021T153151Z.json",
+   "sha16": "e2155f7b069af0a1",
+   "census_mtime": "2026-10-21T15:33:20Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": false,
@@ -627,10 +633,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.17b4e2560476.json",
-  "chain_average": "chain_average.17b4e2560476.json",
-  "chain_median": "chain_median.17b4e2560476.json",
-  "dots": "dots.17b4e2560476.json",
-  "levels": "levels.17b4e2560476.json"
+  "shared": "shared.258b6e20e5f7.json",
+  "chain_average": "chain_average.258b6e20e5f7.json",
+  "chain_median": "chain_median.258b6e20e5f7.json",
+  "dots": "dots.258b6e20e5f7.json",
+  "levels": "levels.258b6e20e5f7.json"
  }
 }
