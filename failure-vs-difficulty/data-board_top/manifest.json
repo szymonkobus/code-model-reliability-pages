@@ -1,9 +1,9 @@
 {
- "fingerprint": "031c0c8daa36",
+ "fingerprint": "4296ea0d54a7",
  "fingerprint_inputs": {
   "content": "afa956c1b554",
   "wave": "combined-20260910T2209Z",
-  "body": "c4e35b1ef139"
+  "body": "4d3e658f4d0b"
  },
  "frame": {
   "dataset": "board_top",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "149d3e5d45ea",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-21",
-  "stamp": "2026-10-21T17:18:28Z",
+  "stamp": "2026-10-21T18:12:01Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -127,7 +127,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-21T16:28:19Z",
+   "unified_built_at": "2026-10-21T17:29:48Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -416,7 +416,30 @@
    "Skywork/Skywork-OR1-7B": {
     "tasks": 1288,
     "of": 1288
+   },
+   "muse-wonder-1.0_meta": {
+    "tasks": 1288,
+    "of": 1288
+   },
+   "openai/gpt-6-astra": {
+    "tasks": 1288,
+    "of": 1288
    }
+  },
+  "one_answer": {
+   "floor": 8,
+   "arms": [
+    "muse-wonder-1.0_meta",
+    "openai/gpt-6-astra"
+   ],
+   "labels": {
+    "muse-wonder-1.0_meta": "Muse Wonder (thinking)",
+    "openai/gpt-6-astra": "GPT-6 Astra (thinking)"
+   },
+   "sentence": "two models are read at one answer a task and drawn as binned average failure rates, with no fit and no crossing: Muse Wonder (thinking), GPT-6 Astra (thinking)",
+   "records": [
+    "muse-wonder-1.0_meta"
+   ]
   },
   "scorer": "unified results: passes/n per configuration x task (board results under plus_status; pool results \u00a71b-valid), Definitions' unified frame",
   "estimators": "local-logistic trend with shipped bands (rho/deff), binned medians (15 bins) with bootstrap bands and crossings, raw running median; average-chain crossings read off the trend and its band (first upward crossing)",
@@ -1086,7 +1109,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-21T16:27:26Z",
+   "_stamp": "2026-10-21T17:28:09Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1333,10 +1356,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.031c0c8daa36.json",
-  "chain_average": "chain_average.031c0c8daa36.json",
-  "chain_median": "chain_median.031c0c8daa36.json",
-  "dots": "dots.031c0c8daa36.json",
-  "levels": "levels.031c0c8daa36.json"
+  "shared": "shared.4296ea0d54a7.json",
+  "chain_average": "chain_average.4296ea0d54a7.json",
+  "chain_median": "chain_median.4296ea0d54a7.json",
+  "dots": "dots.4296ea0d54a7.json",
+  "levels": "levels.4296ea0d54a7.json"
  }
 }
