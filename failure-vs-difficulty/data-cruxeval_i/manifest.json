@@ -1,9 +1,9 @@
 {
- "fingerprint": "d506953381bf",
+ "fingerprint": "1ec19ac030b2",
  "fingerprint_inputs": {
   "content": "d4ab72db4284",
   "wave": "cruxeval_i-live",
-  "body": "6a68cedf2d7c"
+  "body": "72ebfee9e84e"
  },
  "frame": {
   "dataset": "cruxeval_i",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ceaae2d92751",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "7629e5db3a34",
+  "runs_fingerprint": "1df3378ed34c",
   "axis_wave": "cruxeval_i-live",
   "build_date": "2026-10-21",
-  "stamp": "2026-10-21T14:17:37Z",
+  "stamp": "2026-10-21T19:17:28Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/cruxeval_i",
-   "unified_built_at": "2026-10-21T14:13:52Z",
+   "unified_built_at": "2026-10-21T18:37:17Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.cruxeval_i.csv"
@@ -208,6 +208,14 @@
     "tasks": 800,
     "of": 800
    },
+   "claude-opus-5": {
+    "tasks": 795,
+    "of": 800
+   },
+   "claude-opus-5-thinking": {
+    "tasks": 795,
+    "of": 800
+   },
    "claude-haiku-4-5@refusals-as-failures": {
     "tasks": 800,
     "of": 800
@@ -224,6 +232,22 @@
     "tasks": 800,
     "of": 800
    }
+  },
+  "one_answer": {
+   "floor": 8,
+   "arms": [
+    "claude-opus-5",
+    "claude-opus-5-thinking"
+   ],
+   "labels": {
+    "claude-opus-5": "Opus 5",
+    "claude-opus-5-thinking": "Opus 5 (thinking)"
+   },
+   "sentence": "two models are read at one answer a task and drawn as binned average failure rates, with no fit and no crossing: Opus 5, Opus 5 (thinking)",
+   "records": [
+    "claude-opus-5",
+    "claude-opus-5-thinking"
+   ]
   },
   "scorer": "unified results: passes/n per configuration x task (board results under plus_status; pool results \u00a71b-valid), Definitions' unified frame",
   "estimators": "local-logistic trend with shipped bands (rho/deff), binned medians (15 bins) with bootstrap bands and crossings, raw running median; average-chain crossings read off the trend and its band (first upward crossing)",
@@ -370,7 +394,7 @@
    "named_here": false,
    "source": {
     "register": "research/training/post-training-lead/names_of_record.json",
-    "sha12": "428cd4276d89",
+    "sha12": "e857658d1819",
     "built_at": "2026-10-19T11:12:52Z",
     "state_word": "stopped"
    }
@@ -428,7 +452,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-21T13:25:28Z",
+   "_stamp": "2026-10-21T18:26:02Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -593,10 +617,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-21T11:20:36Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261021T112036Z.json",
-   "sha16": "09abefb88fc5f544",
-   "census_mtime": "2026-10-21T11:21:48Z",
+   "stamp": "2026-10-21T18:15:26Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261021T181526Z.json",
+   "sha16": "9c1326af1d7b21fd",
+   "census_mtime": "2026-10-21T18:16:29Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
@@ -613,10 +637,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.d506953381bf.json",
-  "chain_average": "chain_average.d506953381bf.json",
-  "chain_median": "chain_median.d506953381bf.json",
-  "dots": "dots.d506953381bf.json",
-  "levels": "levels.d506953381bf.json"
+  "shared": "shared.1ec19ac030b2.json",
+  "chain_average": "chain_average.1ec19ac030b2.json",
+  "chain_median": "chain_median.1ec19ac030b2.json",
+  "dots": "dots.1ec19ac030b2.json",
+  "levels": "levels.1ec19ac030b2.json"
  }
 }
