@@ -1,9 +1,9 @@
 {
- "fingerprint": "5ad13fbdc6b4",
+ "fingerprint": "57c5452fc55b",
  "fingerprint_inputs": {
   "content": "c8bd82ff6609",
   "wave": "unified-live",
-  "body": "bf2610543910"
+  "body": "9ad4b77c69bb"
  },
  "frame": {
   "dataset": "all",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "149d3e5d45ea",
   "axis_wave": "unified-live",
   "build_date": "2026-10-21",
-  "stamp": "2026-10-21T17:43:10Z",
+  "stamp": "2026-10-21T18:08:52Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -416,7 +416,27 @@
    "Skywork/Skywork-OR1-7B": {
     "tasks": 1288,
     "of": 2167
+   },
+   "muse-wonder-1.0_meta": {
+    "tasks": 1288,
+    "of": 2167
+   },
+   "openai/gpt-6-astra": {
+    "tasks": 1288,
+    "of": 2167
    }
+  },
+  "one_answer": {
+   "floor": 8,
+   "arms": [
+    "muse-wonder-1.0_meta",
+    "openai/gpt-6-astra"
+   ],
+   "labels": {
+    "muse-wonder-1.0_meta": "Muse Wonder (thinking)",
+    "openai/gpt-6-astra": "GPT-6 Astra (thinking)"
+   },
+   "sentence": "two models are read at one answer a task and drawn as binned average failure rates, with no fit and no crossing: Muse Wonder (thinking), GPT-6 Astra (thinking)"
   },
   "scorer": "unified results: passes/n per configuration x task (board results under plus_status; pool results \u00a71b-valid), Definitions' unified frame",
   "estimators": "local-logistic trend with shipped bands (rho/deff), binned medians (15 bins) with bootstrap bands and crossings, raw running median; average-chain crossings read off the trend and its band (first upward crossing)",
@@ -1203,10 +1223,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.5ad13fbdc6b4.json",
-  "chain_average": "chain_average.5ad13fbdc6b4.json",
-  "chain_median": "chain_median.5ad13fbdc6b4.json",
-  "dots": "dots.5ad13fbdc6b4.json",
-  "levels": "levels.5ad13fbdc6b4.json"
+  "shared": "shared.57c5452fc55b.json",
+  "chain_average": "chain_average.57c5452fc55b.json",
+  "chain_median": "chain_median.57c5452fc55b.json",
+  "dots": "dots.57c5452fc55b.json",
+  "levels": "levels.57c5452fc55b.json"
  }
 }
