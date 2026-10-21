@@ -208,20 +208,20 @@
   },
   "top": {
    "files": {
-    "shared": "shared.top.261f70d29561.json",
-    "chain_average": "chain_average.top.261f70d29561.json",
-    "bayes": "bayes.top.261f70d29561-5cc418c051a8.json"
+    "shared": "shared.top.6876a9478873.json",
+    "chain_average": "chain_average.top.6876a9478873.json",
+    "bayes": "bayes.top.6876a9478873-5cc418c051a8.json"
    },
    "label": "wave 2",
    "arms": "all",
-   "fingerprint": "261f70d29561",
+   "fingerprint": "6876a9478873",
    "frame": {
-    "population_M": 64,
+    "population_M": 67,
     "tasks": 858,
     "keep_set_hash": "532d0efad8a5",
-    "runs_fingerprint": "f635ace505cb",
+    "runs_fingerprint": "149d3e5d45ea",
     "build_date": "2026-10-21",
-    "build_ts": "2026-10-21T13:33:38Z",
+    "build_ts": "2026-10-21T17:29:20Z",
     "vocab_ruled": "2026-08-27",
     "set": "top",
     "set_label": "wave 2",
@@ -232,18 +232,18 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "532d0efad8a5",
     "tasks_used": "wave 2 \u2014 858 tasks, axis wave pool-20260910T2244Z",
-    "source": "failure-vs-difficulty data-top fp cad52280db39 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "5ab80f813d62",
+    "source": "failure-vs-difficulty data-top fp 53cf033c014e (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "becbf664573b",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-21T13:33:38Z",
-   "source_fp": "cad52280db39",
-   "updated_at": "2026-10-21T17:13:17Z",
+   "source_stamp": "2026-10-21T17:29:20Z",
+   "source_fp": "53cf033c014e",
+   "updated_at": "2026-10-21T17:35:35Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
-    "unfitted": 9,
+    "unfitted": 12,
     "served_wave": "top-20260910T2211Z",
     "served_arms": 55
    },
@@ -288,7 +288,7 @@
    },
    "source_stamp": "2026-10-21T14:09:44Z",
    "source_fp": "8d0a95b456ca",
-   "updated_at": "2026-10-21T16:39:57Z",
+   "updated_at": "2026-10-21T17:39:44Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
