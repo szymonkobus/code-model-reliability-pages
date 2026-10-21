@@ -1,9 +1,9 @@
 {
- "fingerprint": "cad52280db39",
+ "fingerprint": "53cf033c014e",
  "fingerprint_inputs": {
-  "content": "5ab80f813d62",
+  "content": "becbf664573b",
   "wave": "pool-20260910T2244Z",
-  "body": "ae188a5961cf"
+  "body": "2eb7a4b901f2"
  },
  "frame": {
   "dataset": "top",
@@ -17,14 +17,14 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 64,
-  "fitted_M": 64,
-  "complete_M": 64,
-  "sampled_M": 66,
-  "difficulty_population_M": 66,
+  "population_M": 67,
+  "fitted_M": 67,
+  "complete_M": 67,
+  "sampled_M": 69,
+  "difficulty_population_M": 69,
   "tasks": 858,
   "keep_set_hash": "532d0efad8a5",
-  "inputs_content_sha": "5ab80f813d62",
+  "inputs_content_sha": "becbf664573b",
   "tasks_on_axis": 858,
   "tasks_kept": 858,
   "tasks_awaiting_axis": 0,
@@ -34,17 +34,17 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "f635ace505cb",
+  "runs_fingerprint": "149d3e5d45ea",
   "axis_wave": "pool-20260910T2244Z",
   "build_date": "2026-10-21",
-  "stamp": "2026-10-21T13:33:38Z",
+  "stamp": "2026-10-21T17:29:20Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-21T13:21:57Z",
+   "unified_built_at": "2026-10-21T16:28:19Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.top.csv"
@@ -190,6 +190,14 @@
     "tasks": 378,
     "of": 858
    },
+   "XiaomiMiMo/MiMo-7B-SFT-Thinking": {
+    "tasks": 858,
+    "of": 858
+   },
+   "XiaomiMiMo/MiMo-7B-RL-Thinking": {
+    "tasks": 858,
+    "of": 858
+   },
    "olmo-3.1-7b-rl-zero-code-final_completion": {
     "tasks": 858,
     "of": 858
@@ -307,6 +315,10 @@
     "of": 858
    },
    "Qwen/Qwen3.5-9B-Base_completion": {
+    "tasks": 858,
+    "of": 858
+   },
+   "Skywork/Skywork-OR1-7B": {
     "tasks": 858,
     "of": 858
    }
@@ -475,7 +487,7 @@
   "interim": "kernel fits on all results available at build; refit hourly as results land",
   "partial_attempts": null,
   "off_panel": {
-   "n_with_cells": 88,
+   "n_with_cells": 85,
    "arms": [
     {
      "id": "deepseek-coder-6.7b-rl-night1-step250",
@@ -895,23 +907,7 @@
      "arm_id": "r1d7b-rl-f12-drift5-s100"
     }
    ],
-   "unregistered": [
-    {
-     "id": "XiaomiMiMo/MiMo-7B-RL-Thinking",
-     "arm_id": "mimo-7b-rl",
-     "label": "MiMo-RL 7B (thinking)"
-    },
-    {
-     "id": "XiaomiMiMo/MiMo-7B-SFT-Thinking",
-     "arm_id": "mimo-7b-sft",
-     "label": "MiMo-SFT 7B (thinking)"
-    },
-    {
-     "id": "Skywork/Skywork-OR1-7B",
-     "arm_id": "skywork-or1-7b",
-     "label": "Skywork-OR1 7B"
-    }
-   ],
+   "unregistered": [],
    "in_side_block": [],
    "panel_conflicts": [],
    "line": "74 study models with results are off the panel; the models with a fit appear in their own block"
@@ -933,7 +929,7 @@
    "named_here": false,
    "source": {
     "register": "research/training/post-training-lead/names_of_record.json",
-    "sha12": "428cd4276d89",
+    "sha12": "e857658d1819",
     "built_at": "2026-10-19T11:12:52Z",
     "state_word": "stopped"
    }
@@ -949,7 +945,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-21T13:25:28Z",
+   "_stamp": "2026-10-21T17:28:09Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1114,20 +1110,20 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-21T11:20:36Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261021T112036Z.json",
-   "sha16": "09abefb88fc5f544",
-   "census_mtime": "2026-10-21T11:21:48Z",
+   "stamp": "2026-10-21T15:31:51Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261021T153151Z.json",
+   "sha16": "e2155f7b069af0a1",
+   "census_mtime": "2026-10-21T15:33:20Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.cad52280db39.json",
-  "chain_average": "chain_average.cad52280db39.json",
-  "chain_median": "chain_median.cad52280db39.json",
-  "dots": "dots.cad52280db39.json",
-  "levels": "levels.cad52280db39.json"
+  "shared": "shared.53cf033c014e.json",
+  "chain_average": "chain_average.53cf033c014e.json",
+  "chain_median": "chain_median.53cf033c014e.json",
+  "dots": "dots.53cf033c014e.json",
+  "levels": "levels.53cf033c014e.json"
  }
 }
