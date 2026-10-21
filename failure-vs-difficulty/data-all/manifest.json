@@ -1,9 +1,9 @@
 {
- "fingerprint": "a213d336ec75",
+ "fingerprint": "e6a4f05eb6dd",
  "fingerprint_inputs": {
-  "content": "da7e9266cc83",
+  "content": "1a50224162f2",
   "wave": "unified-live",
-  "body": "5c9c6b9fd4da"
+  "body": "dbe7e0bc5851"
  },
  "frame": {
   "dataset": "all",
@@ -17,14 +17,14 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 67,
-  "fitted_M": 67,
-  "complete_M": 67,
-  "sampled_M": 69,
-  "difficulty_population_M": 69,
+  "population_M": 70,
+  "fitted_M": 70,
+  "complete_M": 70,
+  "sampled_M": 72,
+  "difficulty_population_M": 72,
   "tasks": 2167,
   "keep_set_hash": "60ede5d24001",
-  "inputs_content_sha": "da7e9266cc83",
+  "inputs_content_sha": "1a50224162f2",
   "tasks_on_axis": 2167,
   "tasks_kept": 2167,
   "tasks_awaiting_axis": 0,
@@ -34,15 +34,18 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "f635ace505cb",
+  "runs_fingerprint": "6bb97f1d9d92",
   "axis_wave": "unified-live",
   "build_date": "2026-10-21",
-  "stamp": "2026-10-21T13:20:36Z",
+  "stamp": "2026-10-21T14:53:39Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": {
    "Qwen/Qwen3.5-9B-Base_completion": 430,
+   "Skywork/Skywork-OR1-7B": 430,
+   "XiaomiMiMo/MiMo-7B-RL-Thinking": 430,
+   "XiaomiMiMo/MiMo-7B-SFT-Thinking": 430,
    "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B": 430,
    "deepseek-coder-6.7b-rl-night1-step250": 430,
    "deepseek-coder-6.7b-rl-night1-step500": 430,
@@ -124,7 +127,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-21T12:17:16Z",
+   "unified_built_at": "2026-10-21T14:26:46Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -202,6 +205,10 @@
     "tasks": 2150,
     "of": 2167
    },
+   "Skywork/Skywork-OR1-7B": {
+    "tasks": 1288,
+    "of": 2167
+   },
    "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B": {
     "tasks": 2133,
     "of": 2167
@@ -276,6 +283,14 @@
    },
    "moonshotai/Kimi-K2-Instruct": {
     "tasks": 941,
+    "of": 2167
+   },
+   "XiaomiMiMo/MiMo-7B-RL-Thinking": {
+    "tasks": 1288,
+    "of": 2167
+   },
+   "XiaomiMiMo/MiMo-7B-SFT-Thinking": {
+    "tasks": 1288,
     "of": 2167
    },
    "olmo-3.1-7b-rl-zero-code-final_completion": {
@@ -460,7 +475,7 @@
    "served_not_drawn": "Bayesian curves for 55 models exist for this dataset but were fitted on a different difficulty axis than this view uses; they draw when a fit set cut on this view's axis is served (local-logistic curves shown meanwhile)",
    "custody_dir": null,
    "set_fingerprint": null,
-   "pointer_updated_at": "2026-10-21T06:25:36Z",
+   "pointer_updated_at": "2026-10-21T14:49:48Z",
    "n_fits": 0,
    "note": "Bayesian curves for 55 models exist for this dataset but were fitted on a different difficulty axis than this view uses; they draw when a fit set cut on this view's axis is served",
    "gates": null,
@@ -550,7 +565,7 @@
   "interim": "kernel fits on all results available at build; refit hourly as results land",
   "partial_attempts": null,
   "off_panel": {
-   "n_with_cells": 89,
+   "n_with_cells": 86,
    "arms": [
     {
      "id": "deepseek-coder-6.7b-rl-night1-step250",
@@ -975,23 +990,7 @@
      "arm_id": "r1d7b-rl-f12-drift5-s100"
     }
    ],
-   "unregistered": [
-    {
-     "id": "XiaomiMiMo/MiMo-7B-RL-Thinking",
-     "arm_id": "mimo-7b-rl",
-     "label": "MiMo-RL 7B (thinking)"
-    },
-    {
-     "id": "XiaomiMiMo/MiMo-7B-SFT-Thinking",
-     "arm_id": "mimo-7b-sft",
-     "label": "MiMo-SFT 7B (thinking)"
-    },
-    {
-     "id": "Skywork/Skywork-OR1-7B",
-     "arm_id": "skywork-or1-7b",
-     "label": "Skywork-OR1 7B"
-    }
-   ],
+   "unregistered": [],
    "in_side_block": [],
    "panel_conflicts": [],
    "line": "75 study models with results are off the panel; the models with a fit appear in their own block"
@@ -1029,7 +1028,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-21T12:25:25Z",
+   "_stamp": "2026-10-21T14:27:00Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1194,20 +1193,20 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-21T11:20:36Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261021T112036Z.json",
-   "sha16": "09abefb88fc5f544",
-   "census_mtime": "2026-10-21T11:21:48Z",
+   "stamp": "2026-10-21T13:48:00Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261021T134800Z.json",
+   "sha16": "77c6b31d9ff5e403",
+   "census_mtime": "2026-10-21T13:49:36Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.a213d336ec75.json",
-  "chain_average": "chain_average.a213d336ec75.json",
-  "chain_median": "chain_median.a213d336ec75.json",
-  "dots": "dots.a213d336ec75.json",
-  "levels": "levels.a213d336ec75.json"
+  "shared": "shared.e6a4f05eb6dd.json",
+  "chain_average": "chain_average.e6a4f05eb6dd.json",
+  "chain_median": "chain_median.e6a4f05eb6dd.json",
+  "dots": "dots.e6a4f05eb6dd.json",
+  "levels": "levels.e6a4f05eb6dd.json"
  }
 }
