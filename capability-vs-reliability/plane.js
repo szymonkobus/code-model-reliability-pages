@@ -1334,7 +1334,7 @@ function levelTrack() {
     + '" text-anchor="middle" font-size="' + FT + '" fill="' + ink + '">y '
     + state.c + '%</text>'
     + (isCap()
-      ? '<text x="' + (TRK.x0 + 6) + '" y="' + (TRK.y + 6 + Math.ceil(FT * 0.9)) + '" font-size="' + FT + '" fill="#8b8477">no horizontal level (the Capability view is level-free)</text>'
+      ? '<text x="' + (TRK.x0 + 6) + '" y="' + (TRK.y + 6 + Math.ceil(FT * 0.9)) + '" font-size="' + FT + '" fill="#8b8477">' + (NARROW ? 'no horizontal level (level-free view)' : 'no horizontal level (the Capability view is level-free)') + '</text>'   
       : '<circle data-handle="a" class="handle" cx="' + xa + '" cy="'
     + TRK.y + '" r="' + (NARROW ? 16 : 12) + '" fill="transparent"/>'
     + '<circle class="knob" data-knob="a" pointer-events="none" cx="' + xa
