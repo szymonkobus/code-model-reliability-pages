@@ -1,9 +1,9 @@
 {
- "fingerprint": "e79e5af65991",
+ "fingerprint": "3bc77d392d2c",
  "fingerprint_inputs": {
   "content": "1007cff681cd",
   "wave": "unified-live",
-  "body": "6710f749d7a5"
+  "body": "2a8e4366a19d"
  },
  "frame": {
   "dataset": "all",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "076fdc5d9386",
   "axis_wave": "unified-live",
   "build_date": "2026-10-21",
-  "stamp": "2026-10-21T05:35:28Z",
+  "stamp": "2026-10-21T06:27:25Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -124,7 +124,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-21T05:15:39Z",
+   "unified_built_at": "2026-10-21T06:25:14Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -460,7 +460,7 @@
    "served_not_drawn": "Bayesian curves for 55 models exist for this dataset but were fitted on a different difficulty axis than this view uses; they draw when a fit set cut on this view's axis is served (local-logistic curves shown meanwhile)",
    "custody_dir": null,
    "set_fingerprint": null,
-   "pointer_updated_at": "2026-10-20T22:03:13Z",
+   "pointer_updated_at": "2026-10-21T06:25:36Z",
    "n_fits": 0,
    "note": "Bayesian curves for 55 models exist for this dataset but were fitted on a different difficulty axis than this view uses; they draw when a fit set cut on this view's axis is served",
    "gates": null,
@@ -1039,7 +1039,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-21T05:24:47Z",
+   "_stamp": "2026-10-21T06:26:03Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1204,20 +1204,20 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-21T04:44:42Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261021T044442Z.json",
-   "sha16": "5cec81e9578fac02",
-   "census_mtime": "2026-10-21T04:45:42Z",
+   "stamp": "2026-10-21T06:02:38Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261021T060238Z.json",
+   "sha16": "655b80fa2cbf1263",
+   "census_mtime": "2026-10-21T06:03:48Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.e79e5af65991.json",
-  "chain_average": "chain_average.e79e5af65991.json",
-  "chain_median": "chain_median.e79e5af65991.json",
-  "dots": "dots.e79e5af65991.json",
-  "levels": "levels.e79e5af65991.json"
+  "shared": "shared.3bc77d392d2c.json",
+  "chain_average": "chain_average.3bc77d392d2c.json",
+  "chain_median": "chain_median.3bc77d392d2c.json",
+  "dots": "dots.3bc77d392d2c.json",
+  "levels": "levels.3bc77d392d2c.json"
  }
 }
