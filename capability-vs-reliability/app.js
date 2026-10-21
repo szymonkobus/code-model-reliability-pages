@@ -20,7 +20,7 @@ fetch(MOUNT + 'data/manifest.json')
   .then(function (r) { if (!r.ok) throw new Error('manifest: HTTP ' + r.status); return r.json(); })
   .catch(function (e) {   
     var why = String(e && e.message || e); why = /HTTP \d+/.test(why) ? why.replace(/^manifest: /, '') : 'not readable as data';   
-    setHeld('Held: the data manifest is missing or unreadable (' + why + '); nothing is drawn until the rebuild loop writes it.', 'manifest');
+    setHeld('Held: the data manifest is missing or unreadable (' + why + '); nothing is drawn. Checked every two minutes.', 'manifest');
     if (!heldTimer) { heldCheck(); heldTimer = setInterval(heldCheck, 120000); }
     return new Promise(function () {});   
   })
@@ -42,7 +42,7 @@ fetch(MOUNT + 'data/manifest.json')
     if (!DATASETS[want] && /^golden-/.test(want) && ds[want]) { want = want.slice(7); Kit.state.set('arms', 'golden', 'all'); Kit.state.set('data', want, DEFAULT_DATA); }   
     relabel();   
     if (!DATASETS[want] || !ds[want]) {   
-      dataNote = (DATASETS[want] ? 'dataset \u201c' + DATASETS[want].label + '\u201d is not served yet \u2014 ' + DATASETS[want].reason
+      dataNote = (DATASETS[want] ? 'dataset \u201c' + DATASETS[want].label + '\u201d is not served \u2014 ' + DATASETS[want].reason
                                  : RETIRED[want] && !DATASETS[want] ? RETIRED[want] + ' is not on this page (coding sets only; the maths results have their own mirror page)'
                                  : 'dataset \u201c' + String(want).slice(0, 40) + '\u201d is not one of ' + Object.keys(DATASETS).join(' | ')) + '; showing ' + DATASETS[DEFAULT_DATA].label;
       want = DEFAULT_DATA; Kit.state.set('data', null, null);
@@ -78,7 +78,7 @@ function namesOverlay(D) {
 function goldenView() {   
   var n = goldenCount(D.goldenSet, D.shared);
   if (!n) {
-    dataNote = (dataNote ? dataNote + ' · ' : '') + (D.goldenSet ? 'the golden set has no model in “' + DATASETS[D.dataId].label + '”; showing all models' : 'the golden set’s list of models is not served yet; showing all models');
+    dataNote = (dataNote ? dataNote + ' · ' : '') + (D.goldenSet ? 'the golden set has no model in “' + DATASETS[D.dataId].label + '”; showing all models' : 'the golden set’s list of models is not served; showing all models');
     state.arms = 'all'; D.golden = false; D.dsId = D.dataId; Kit.state.set('arms', null, null); return;
   }
   goldenApply(D.goldenSet, D.shared); D.runRaw = null;   
@@ -600,7 +600,7 @@ function notes() {
     warn('\u2020 Artifact defect (spec 2026-09-02a): positions for '
       + names.join(', ') + ' are NON-QUOTABLE \u2014 their fits ingest '
       + 'defect-flagged cells; dots drawn faded with a red dashed ring '
-      + 'until the store heals. ' + (flags.stamp || ''));
+      + 'while the defect stands. ' + (flags.stamp || ''));
   }
   var SPACING_CHECKS_RUNNING = false;  
   if ((state.xs === 'raw' || state.ys === 'raw') && SPACING_CHECKS_RUNNING) {
@@ -721,9 +721,9 @@ function heldCheck() { return;   /* standalone copy: no rebuild loop, no held li
     .then(function (t) {
       var ts = Date.parse(String(t).trim()), age = isFinite(ts) ? (Date.now() - ts) / 60000 : Infinity;
       
-      setHeld(age > 10 ? 'Held: the rebuild loop is not ticking; the numbers stand as built and refresh when it returns.' : '');
+      setHeld(age > 10 ? 'Held: the last rebuild is more than ten minutes old; the numbers stand as built. Checked every two minutes.' : '');
     })
-    .catch(function () { setHeld('Held: no liveness from the rebuild loop; the numbers stand as built and refresh when it returns.'); });
+    .catch(function () { setHeld('Held: the rebuild liveness is unreadable; the numbers stand as built. Checked every two minutes.'); });
 }
 var HELD = {};   
 function setHeld(msg, kind) {
@@ -818,7 +818,7 @@ function headline(nFit, fit, nFull, sweeping) {
     
     ans = 'The fitted line across the models, ' + dName('y') + ' against ' + xw + ': slope ' + fit.b.toFixed(2) + ' [' + fit.lo.toFixed(2) + ', ' + fit.hi.toFixed(2) + '], R ' + fit.r.toFixed(2) + (inAxes() ? ', in the axes as set' : ', in logit space') + (state.lw === 'bands' ? ', each dot weighted by its bands' : '') + '.';
   } else ans = 'Too few fully measured models at these levels to fit a line (' + nFull + ' measured; the fit needs three).';
-  if (isCap() && !capBlock()) { q = ''; ans = CAP_KEYS[state.xdef].name() + ' is not published for this set yet; no model is drawn.'; }   
+  if (isCap() && !capBlock()) { q = ''; ans = CAP_KEYS[state.xdef].name() + ' is not published for this set; no model is drawn.'; }   
   
   var fb = document.getElementById('fitbox');
   if (!fb) { fb = document.createElement('div'); fb.id = 'fitbox'; fb.className = 'kit-readout-box'; fb.setAttribute('data-chain-val', 'def src xdef fitci'); el.insertAdjacentElement('afterend', fb); }   

@@ -188,7 +188,7 @@ var CONTROL_WORDS = {
   move: { label: 'Move from ' },   
   line: { label: 'Fitted line', options: [{ value: 'off', label: 'Off' }, { value: 'steps', label: 'In logit' }, { value: 'axes', label: 'In the axes as set' }] },
   lw: { label: 'Line weighting', options: [{ value: 'equal', label: 'Each dot equal' }, { value: 'bands', label: 'By the 80% uncertainty bands' }] },
-  arms: { label: 'Models', options: [{ value: 'all', label: 'all models' }, { value: 'golden', label: 'golden set' }], goldenMissing: 'golden set: none of its models is in this set', goldenUnlisted: 'golden set: its list of models is not served yet' },
+  arms: { label: 'Models', options: [{ value: 'all', label: 'all models' }, { value: 'golden', label: 'golden set' }], goldenMissing: 'golden set: none of its models is in this set', goldenUnlisted: 'golden set: its list of models is not served' },
   more: 'More controls',
   view: { label: 'View', options: [{ value: 'scatter', label: 'Scatter' }, { value: 'ridges', label: 'Posterior ridges' }] },
 };
@@ -357,20 +357,20 @@ var HOUSE_DATASETS = {
   
   
   
-  board_top: { label: 'wave 1+2', hover: 'wave 1+2, on one difficulty axis', available: false, reason: 'this set is not served yet' },
+  board_top: { label: 'wave 1+2', hover: 'wave 1+2, on one difficulty axis', available: false, reason: 'this set is not served' },
   board: { label: 'wave 1', hover: 'wave 1', available: true, reason: 'wave 1 are always served' },
-  top: { label: 'wave 2', hover: 'wave 2 (the parked tasks are not in it)', available: false, reason: 'this set is not served yet' },
+  top: { label: 'wave 2', hover: 'wave 2 (the parked tasks are not in it)', available: false, reason: 'this set is not served' },
   'new': { label: 'wave 2 + parked', hover: 'wave 2 + parked', available: false, reason: 'crossings for wave 2 over the frozen level grid are not published' },
-  all: { label: 'wave 1+2 + parked', hover: 'wave 1+2 + parked, on one difficulty axis', available: false, reason: 'no single axis covers the original and wave 2 yet (difficulty computes one over the combined set)' },
+  all: { label: 'wave 1+2 + parked', hover: 'wave 1+2 + parked, on one difficulty axis', available: false, reason: 'no single axis covers the original and wave 2 (difficulty computes one over the combined set)' },
   
   
   
-  math500: { label: 'MATH-500', hover: 'MATH-500, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'Math' },
-  ifeval: { label: 'IFEval', hover: 'IFEval, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'Other' },
-  gsm8k_platinum: { label: 'GSM8K-Platinum', hover: 'GSM8K-Platinum, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'Math' },
-  cruxeval_i: { label: 'CRUXEval input', hover: 'CRUXEval input prediction, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'Other' },
-  cruxeval_o: { label: 'CRUXEval output', hover: 'CRUXEval output prediction, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'Other' },
-  aime: { label: 'AIME', hover: 'AIME, on its own difficulty axis', available: false, reason: 'this set is not served yet', group: 'Math' },
+  math500: { label: 'MATH-500', hover: 'MATH-500, on its own difficulty axis', available: false, reason: 'this set is not served', group: 'Math' },
+  ifeval: { label: 'IFEval', hover: 'IFEval, on its own difficulty axis', available: false, reason: 'this set is not served', group: 'Other' },
+  gsm8k_platinum: { label: 'GSM8K-Platinum', hover: 'GSM8K-Platinum, on its own difficulty axis', available: false, reason: 'this set is not served', group: 'Math' },
+  cruxeval_i: { label: 'CRUXEval input', hover: 'CRUXEval input prediction, on its own difficulty axis', available: false, reason: 'this set is not served', group: 'Other' },
+  cruxeval_o: { label: 'CRUXEval output', hover: 'CRUXEval output prediction, on its own difficulty axis', available: false, reason: 'this set is not served', group: 'Other' },
+  aime: { label: 'AIME', hover: 'AIME, on its own difficulty axis', available: false, reason: 'this set is not served', group: 'Math' },
   
   
 };
@@ -378,7 +378,7 @@ var HOUSE_DATASETS = {
 
 
 var CODING_KEYS = ['board_top', 'top', 'board', 'new', 'all'];
-function mirrorMap(m) { var o = {}; Object.keys(m).forEach(function (k) { var e = m[k] || {}; o[k] = { label: e.label || k, short: e.short || String(e.label || k).split(' (')[0], hover: e.hover || '', available: false, reason: e.reason || 'this set is not served yet' }; }); return o; }
+function mirrorMap(m) { var o = {}; Object.keys(m).forEach(function (k) { var e = m[k] || {}; o[k] = { label: e.label || k, short: e.short || String(e.label || k).split(' (')[0], hover: e.hover || '', available: false, reason: e.reason || 'this set is not served' }; }); return o; }
 var DATASETS = window.MIRROR_DATASETS ? mirrorMap(window.MIRROR_DATASETS) : HOUSE_DATASETS;
 var CADENCE = window.MIRROR_CADENCE_PLAIN || 'rebuilds with every landing of new results and every Bayesian fit flip (checked every two minutes)';   
 function shortMap() { var F = { board_top: 'original + new', top: 'first new', board: 'original', 'new': 'new', all: 'all' }, o = {}; Object.keys(DATASETS).forEach(function (k) { o[k] = DATASETS[k].short || F[k] || DATASETS[k].label; }); return o; }
@@ -738,7 +738,7 @@ function capBlock() { var k = CAP_KEYS[state.xdef]; return k ? k.block() : null;
 function reading(i, levLogit, axis) {
   if (axis === 'x' && isCap()) {
     var CB = capBlock();
-    if (!CB) return { z: null, kind: 'none', lo: null, hi: null, extra: 'no ' + CAP_KEYS[state.xdef].name() + ' for this set yet' };   
+    if (!CB) return { z: null, kind: 'none', lo: null, hi: null, extra: 'no ' + CAP_KEYS[state.xdef].name() + ' for this set' };   
     var bc = CB.by_cfg[D.shared.configs[i].id];
     if (!bc) {   
       var why = (CB.excluded || {})[D.shared.configs[i].id] || 'not in the Capability-C population';
@@ -2067,7 +2067,7 @@ function hoverWire() {
       { key: null, value: '', label: rx.extra },
       { key: null, value: '', label: ry.extra === rx.extra ? '' : ry.extra },
     ].concat(secondReadingLine(c)).concat(bandNoteLines(c)).concat(D.moves && D.moves[c.id] ? [{ key: '#8b8477', value: 'moved', label: 'from ' + prevFitName() + ': x ' + D.moves[c.id].dx + ', y ' + D.moves[c.id].dy + ' (percent of the scale)' }] : []).concat(coverageText(c) ? [{ key: null, value: isPartial(i) ? 'partial' : '', label: coverageText(c) }] : []).concat(armNote(c) ? [{ key: '#8b8477', value: 'note', label: armNote(c) }] : []).concat(cf ? [{ key: '#8b8477', value: 'cut flag', label: cf }] : []).concat(fl ? [{ key: '#b3261e', value: '\u2020 non-quotable',
-      label: fl.reason + ' \u2014 until ' + fl.until
+      label: fl.reason + ' \u2014 ends ' + fl.until
         + ' (spec 2026-09-02a)' }] : []).concat(fe ? [{ key: '#8b8477', value: 'out of the fit population',
       label: (fe.short || 'protocol defect under correction') + (fe.reversible_when ? ' \u2014 reversible when ' + fe.reversible_when : '') + ' (Definitions decision 2026-09-03: drawn greyed, out of the drawn fit and the difficulty axis)' }] : []), c.label);
   }

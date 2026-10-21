@@ -10,14 +10,14 @@ function heldLine(msg) { var h = document.getElementById('heldline'); if (!h) re
 function liveness() { return;   /* standalone copy: no rebuild loop, no held line */   
   fetch(MOUNT + 'liveness.txt', { cache: 'no-store' }).then(function (r) { return r.ok ? r.text() : ''; }).then(function (t) {
     var m = /\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z/.exec(t || ''); var age = m ? (Date.now() - Date.parse(m[0])) / 60000 : Infinity;
-    heldLine(age > 10 ? 'Held: the rebuild loop has not run for ' + (isFinite(age) ? Math.round(age) + ' minutes' : 'a while') + '; the panels show the last build.' : null);
-  }).catch(function () { heldLine('Held: the rebuild loop’s liveness is unreadable; the panels show the last build.'); });
+    heldLine(age > 10 ? 'Held: the last rebuild is more than ten minutes old; the panels show the last build. Checked every two minutes.' : null);
+  }).catch(function () { heldLine('Held: the rebuild liveness is unreadable; the panels show the last build. Checked every two minutes.'); });
 }
 function render() { syncPresets(); if (typeof syncWdLock === 'function') syncWdLock(); if (typeof syncXdefLock === 'function' && elA) syncXdefLock(); markControlData(); if (GRID) GRID.redraw(); paintChips(); }   
 function defaultKeys() { return DEFAULT_SETS.filter(function (k) { return SERVED.indexOf(k) >= 0; }); }
 
 fetch(MOUNT + 'data/manifest.json').then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
-  .catch(function (e) { var why = String(e && e.message || e); heldLine('Held: the data manifest is missing or unreadable (' + (/HTTP \d+/.test(why) ? why : 'not readable as data') + '); nothing is drawn until the rebuild loop writes it.'); return new Promise(function () {}); })
+  .catch(function (e) { var why = String(e && e.message || e); heldLine('Held: the data manifest is missing or unreadable (' + (/HTTP \d+/.test(why) ? why : 'not readable as data') + '); nothing is drawn.'); return new Promise(function () {}); })
   .then(function (man) {
     D.man = man; var ds = man.datasets || {}; D.allDs = ds; D.defaultData = ds.board_top ? 'board_top' : 'board';
     Object.keys(DATASETS).forEach(function (k) { DATASETS[k].available = !!(ds[k] && ds[k].files); });
@@ -168,7 +168,7 @@ function drawInto(ctx, svg, size) {
         if (!ctx.D.bay) { svg.setAttribute('viewBox', '0 0 ' + size.width + ' ' + size.width); PANEL.g.innerHTML = '<text x="' + (size.width / 2) + '" y="' + (size.width / 2) + '" text-anchor="middle" font-size="11" fill="#52514e">no posterior ridges for this set</text>'; PANEL.drawn = 0; return; }
         renderRidges(); return;
       }
-      if (isCap() && !capBlock()) { svg.setAttribute('viewBox', '0 0 ' + size.width + ' ' + size.width); PANEL.g.innerHTML = '<text x="' + (size.width / 2) + '" y="' + (size.width / 2) + '" text-anchor="middle" font-size="11" fill="#52514e">' + CAP_KEYS[state.xdef].name() + ' is not published for this set yet; no model is drawn.</text>'; PANEL.drawn = 0; return; }   
+      if (isCap() && !capBlock()) { svg.setAttribute('viewBox', '0 0 ' + size.width + ' ' + size.width); PANEL.g.innerHTML = '<text x="' + (size.width / 2) + '" y="' + (size.width / 2) + '" text-anchor="middle" font-size="11" fill="#52514e">' + CAP_KEYS[state.xdef].name() + ' is not published for this set; no model is drawn.</text>'; PANEL.drawn = 0; return; }   
       LIMX = null; LIMY = null; EXT = null; renderScatter();   
       var cr = cropRange(EXT, LIM); if (cr) { LIMX = cr.slice(); LIMY = cr.slice(); try { renderScatter(); } finally { LIMX = null; LIMY = null; } }   
     });
