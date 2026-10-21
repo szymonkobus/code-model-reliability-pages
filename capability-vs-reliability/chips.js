@@ -230,7 +230,7 @@ function buildChips() {
   var mainIdx = [], runIdx = [];
   D.shared.configs.forEach(function (c, i) { (c.run ? runIdx : mainIdx).push(i); });
   var ordered = capOrder(mainIdx);   
-  var famKey = function (f) { return Math.max.apply(null, f.members.map(function (i) { var k = capKey(i); return isFinite(k) ? k : -1e9; })); };
+  var famKey = function (f) { var ks = f.members.map(function (i) { return capKey(i); }).filter(function (k) { return isFinite(k); }); return ks.length ? Math.max.apply(null, ks) : 1e9; };   
   var isRunFam = function (f) { return f.members.length && isRun(f.members[0]); };
   fams.filter(function (f) { return !isRunFam(f); }).sort(function (p, q) { return famKey(p) - famKey(q); }).forEach(function (f) {   
     var nm = document.createElement('button');
