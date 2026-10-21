@@ -82,33 +82,36 @@
   },
   "new": {
    "files": {
-    "shared": "shared.new.3fe9e48ea0a5.json",
-    "chain_average": "chain_average.new.3fe9e48ea0a5.json"
+    "shared": "shared.new.6d6589ccded3.json",
+    "chain_average": "chain_average.new.6d6589ccded3.json"
    },
    "label": "wave 2 and wave 2 parked",
-   "fingerprint": "3fe9e48ea0a5",
+   "fingerprint": "6d6589ccded3",
    "frame": {
     "population_M": 62,
     "tasks": 1737,
     "keep_set_hash": "abc6c6e65227",
-    "runs_fingerprint": "3fe9e48ea0a5",
-    "runs_window": "2026-10-21T06:55:18Z",
+    "runs_fingerprint": "6d6589ccded3",
+    "runs_window": "2026-10-21T08:00:32Z",
     "build_date": "2026-10-21",
-    "build_ts": "2026-10-21T07:18:57Z",
+    "build_ts": "2026-10-21T08:15:42Z",
     "vocab_ruled": "2026-08-27",
     "set": "new",
     "set_label": "wave 2 and wave 2 parked",
     "tasks_used": "wave 2 and wave 2 parked \u2014 1737 tasks, axis wave combined-20260903T1502Z",
-    "source": "the maintainers build_pool_curves.py stamp 2026-10-21T07:18:57+00:00 · cross_rows on lev_grid f3d40b6fb872",
-    "skipped_no_rows": []
+    "source": "the maintainers build_pool_curves.py stamp 2026-10-21T08:15:42+00:00 · cross_rows on lev_grid f3d40b6fb872",
+    "skipped_no_rows": [
+     "gpt-6-astra|batch",
+     "muse-wonder-1.0_meta|t0"
+    ]
    },
-   "source_stamp": "2026-10-21T07:18:57+00:00",
+   "source_stamp": "2026-10-21T08:15:42+00:00",
    "missing": {
     "chain_median": "the median-task chain needs the pool's per-task results, which the pool bundle does not carry",
     "bayes": "no Bayesian fit for this set until a new pool wave is cut as adopted: the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-21T07:41:03Z"
+   "updated_at": "2026-10-21T08:17:58Z"
   },
   "all": {
    "files": {
