@@ -82,36 +82,36 @@
   },
   "new": {
    "files": {
-    "shared": "shared.new.cca2cdd9fb87.json",
-    "chain_average": "chain_average.new.cca2cdd9fb87.json"
+    "shared": "shared.new.f5eba0fdc360.json",
+    "chain_average": "chain_average.new.f5eba0fdc360.json"
    },
    "label": "wave 2 and wave 2 parked",
-   "fingerprint": "cca2cdd9fb87",
+   "fingerprint": "f5eba0fdc360",
    "frame": {
     "population_M": 62,
     "tasks": 1737,
     "keep_set_hash": "abc6c6e65227",
-    "runs_fingerprint": "cca2cdd9fb87",
-    "runs_window": "2026-10-21T09:03:42Z",
+    "runs_fingerprint": "f5eba0fdc360",
+    "runs_window": "2026-10-21T09:56:27Z",
     "build_date": "2026-10-21",
-    "build_ts": "2026-10-21T09:18:06Z",
+    "build_ts": "2026-10-21T10:16:27Z",
     "vocab_ruled": "2026-08-27",
     "set": "new",
     "set_label": "wave 2 and wave 2 parked",
     "tasks_used": "wave 2 and wave 2 parked \u2014 1737 tasks, axis wave combined-20260903T1502Z",
-    "source": "the maintainers build_pool_curves.py stamp 2026-10-21T09:18:06+00:00 · cross_rows on lev_grid f3d40b6fb872",
+    "source": "the maintainers build_pool_curves.py stamp 2026-10-21T10:16:27+00:00 · cross_rows on lev_grid f3d40b6fb872",
     "skipped_no_rows": [
      "gpt-6-astra|batch",
      "muse-wonder-1.0_meta|t0"
     ]
    },
-   "source_stamp": "2026-10-21T09:18:06+00:00",
+   "source_stamp": "2026-10-21T10:16:27+00:00",
    "missing": {
     "chain_median": "the median-task chain needs the pool's per-task results, which the pool bundle does not carry",
     "bayes": "no Bayesian fit for this set until a new pool wave is cut as adopted: the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-21T10:10:30Z"
+   "updated_at": "2026-10-21T10:33:46Z"
   },
   "all": {
    "files": {
@@ -580,7 +580,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-10-21T09:25:39Z",
+  "stamp": "2026-10-21T10:25:40Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,
