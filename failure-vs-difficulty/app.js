@@ -2080,7 +2080,7 @@ function notes(visible, unfitted) {
     
     
     var wa = document.createElement('div');
-    wa.textContent = 'Average-rate curves and crossings come from the served Gaussian-task-effect fit; on models with concentrated failures it places D99 well before its true position on the difficulty axis and the 10% and D50s slightly after it; the count-average reading beside them is the check.';
+    wa.textContent = 'Average-rate curves and crossings come from the served Gaussian-task-effect fit; on models with concentrated failures it places D99 well before its true position on the difficulty axis and the 10% and D50s slightly after it; the count-average reading beside them is the check.';   
     wa.textContent = noSpecTags(wa.textContent);   
     el.appendChild(wa);
   }

@@ -94,7 +94,7 @@ function withCommas(n) { return String(parseInt(n, 10)).replace(/\B(?=(\d{3})+(?
     var tasks = { id: ids, z: ids.map(function (t) { return r4(zById[t]); }) };
 
     
-    var c0 = cfgs[0] || {}; var med0 = c0.med || [];
+    var c0 = cfgs.filter(function (c) { return c.med && c.med.length; })[0] || cfgs[0] || {}; var med0 = c0.med || [];   
     var bins = { centers: med0.map(function (b) { return b.z; }), n: med0.map(function (b) { return b.n; }),
                  allocation: 'pool builder: ' + (frame.nbins || med0.length) + ' equal-count bins over the axis tasks' };
 
@@ -102,9 +102,10 @@ function withCommas(n) { return String(parseInt(n, 10)).replace(/\B(?=(\d{3})+(?
     var byId = {};
     var shared_configs = cfgs.map(function (c) {
       byId[c.id] = c;
-      return { id: c.id, label: c.label, family: c.family, think: think(c.id), color: c.color,
+      return { id: c.id, label: c.label, family: c.family, think: !!c.think || think(c.id), color: c.color,   
                arm_key: armKey(c.id),
                excluded: false, exclusion: '',
+               one_answer: !!c.one_answer, one_answer_note: c.one_answer ? 'one answer a task' : '',   
                
                
                disclosure: [c.flag ? (c.flag.mark + ' ' + c.flag.label) : '', c.partial && c.partial.label ? c.partial.label : '']
@@ -120,6 +121,16 @@ function withCommas(n) { return String(parseInt(n, 10)).replace(/\B(?=(\d{3})+(?
     var med = { configs: {}, chain: 'median', frame: frame };
     var dots = { configs: {} };
     cfgs.forEach(function (c) {
+      if (c.one_answer) {   
+        var ob = c.bins || {};
+        avg.configs[c.id] = { one_answer: true, trend: null, bands: null, crossings: {}, rule: c.rule || '',
+                              bins: { centers: ob.centers || [], value: (ob.value || []).map(function (v) { return v == null ? null : logit(v); }), censor: ob.censor || [],
+                                      tasks: ob.tasks || [], answers: ob.answers || [], fails: ob.fails || [], zlo: ob.zlo || [], zhi: ob.zhi || [] } };
+        var nb = (ob.centers || []).length, nulls = new Array(nb).fill(null), zeros = new Array(nb).fill(0), eb = {};
+        ['80', '90', '95'].forEach(function (lv) { eb[lv] = { lo: nulls.slice(), hi: nulls.slice() }; });
+        med.configs[c.id] = { one_answer: true, bin_median: nulls.slice(), bands: eb, bin_censor: zeros, raw_median: null, crossings: null };
+        return;
+      }
       var tr = c.trend || [], se = (c.band && c.band.se) || [];
       var bands = {};
       ['80', '90', '95'].forEach(function (lv) {
@@ -196,6 +207,7 @@ function withCommas(n) { return String(parseInt(n, 10)).replace(/\B(?=(\d{3})+(?
     landing.forEach(function (l) { reasons[l] = 'landing in progress (difficulty\'s flag of record): out of the curves and counts until the run role\'s whole word'; display[l] = 'results still arriving'; });
     var sframe = {
       dataset: 'new', dataset_label: 'new tasks (pool)',
+      one_answer: frame.one_answer || null,   
       off_panel: frame.off_panel || null, landing: frame.landing || null, landing_hidden_n: landingN,   
       population_M: cfgs.length, fitted_M: cfgs.length, complete_M: cfgs.length,
       sampled_M: cn.roster_total || cfgs.length, difficulty_population_M: cn.roster_total || cfgs.length,
