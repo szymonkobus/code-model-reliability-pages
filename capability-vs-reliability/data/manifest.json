@@ -208,20 +208,20 @@
   },
   "top": {
    "files": {
-    "shared": "shared.top.430dd8d7a5d3.json",
-    "chain_average": "chain_average.top.430dd8d7a5d3.json",
-    "bayes": "bayes.top.430dd8d7a5d3-5cc418c051a8.json"
+    "shared": "shared.top.d6265d7b9e56.json",
+    "chain_average": "chain_average.top.d6265d7b9e56.json",
+    "bayes": "bayes.top.d6265d7b9e56-5cc418c051a8.json"
    },
    "label": "wave 2",
    "arms": "all",
-   "fingerprint": "430dd8d7a5d3",
+   "fingerprint": "d6265d7b9e56",
    "frame": {
     "population_M": 67,
     "tasks": 858,
     "keep_set_hash": "532d0efad8a5",
     "runs_fingerprint": "149d3e5d45ea",
     "build_date": "2026-10-21",
-    "build_ts": "2026-10-21T17:59:15Z",
+    "build_ts": "2026-10-21T18:18:38Z",
     "vocab_ruled": "2026-08-27",
     "set": "top",
     "set_label": "wave 2",
@@ -232,18 +232,18 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "532d0efad8a5",
     "tasks_used": "wave 2 \u2014 858 tasks, axis wave pool-20260910T2244Z",
-    "source": "failure-vs-difficulty data-top fp 53cf033c014e (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-top fp 070130f1dd67 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "becbf664573b",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-21T17:59:15Z",
-   "source_fp": "53cf033c014e",
-   "updated_at": "2026-10-21T18:12:47Z",
+   "source_stamp": "2026-10-21T18:18:38Z",
+   "source_fp": "070130f1dd67",
+   "updated_at": "2026-10-21T19:05:14Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
-    "unfitted": 12,
+    "unfitted": 14,
     "served_wave": "top-20260910T2211Z",
     "served_arms": 55
    },
@@ -450,7 +450,7 @@
    },
    "source_stamp": "2026-10-21T14:17:37Z",
    "source_fp": "d506953381bf",
-   "updated_at": "2026-10-21T17:46:24Z",
+   "updated_at": "2026-10-21T19:05:08Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -504,7 +504,7 @@
    },
    "source_stamp": "2026-10-21T14:27:27Z",
    "source_fp": "e5492e363f2f",
-   "updated_at": "2026-10-21T17:49:24Z",
+   "updated_at": "2026-10-21T19:07:17Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -558,7 +558,7 @@
    },
    "source_stamp": "2026-10-21T14:13:32Z",
    "source_fp": "17b4e2560476",
-   "updated_at": "2026-10-21T17:50:32Z",
+   "updated_at": "2026-10-21T19:08:16Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
