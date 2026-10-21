@@ -163,20 +163,20 @@
   },
   "board_top": {
    "files": {
-    "shared": "shared.board_top.d11d2b530d0d.json",
-    "chain_average": "chain_average.board_top.d11d2b530d0d.json",
-    "bayes": "bayes.board_top.d11d2b530d0d-3e6e88486240.json"
+    "shared": "shared.board_top.62fd8e46aae2.json",
+    "chain_average": "chain_average.board_top.62fd8e46aae2.json",
+    "bayes": "bayes.board_top.62fd8e46aae2-3062c7666816.json"
    },
    "label": "wave 1+2",
    "arms": "all",
-   "fingerprint": "d11d2b530d0d",
+   "fingerprint": "62fd8e46aae2",
    "frame": {
     "population_M": 70,
     "tasks": 1288,
     "keep_set_hash": "ba4c3eb57ad5",
     "runs_fingerprint": "6bb97f1d9d92",
     "build_date": "2026-10-21",
-    "build_ts": "2026-10-21T14:58:13Z",
+    "build_ts": "2026-10-21T15:44:40Z",
     "vocab_ruled": "2026-08-27",
     "set": "board_top",
     "set_label": "wave 1+2",
@@ -187,14 +187,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ba4c3eb57ad5",
     "tasks_used": "wave 1+2 \u2014 1288 tasks, axis wave combined-20260910T2209Z",
-    "source": "failure-vs-difficulty data-board_top fp b5939db39d59 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-board_top fp 30fbe64f138a (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "d0a8cf4ffdc5",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-21T14:58:13Z",
-   "source_fp": "b5939db39d59",
-   "updated_at": "2026-10-21T15:38:48Z",
+   "source_stamp": "2026-10-21T15:44:40Z",
+   "source_fp": "30fbe64f138a",
+   "updated_at": "2026-10-21T17:09:53Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -203,10 +203,7 @@
     "served_arms": 64
    },
    "missing": {
-    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry",
-    "capC": "Capability C names neither a row nor an exclusion for 1 arm(s) (Skywork/Skywork-OR1-7B) — waits for the maintainers' re-emit",
-    "capC_z": "Capability C names neither a row nor an exclusion for 1 arm(s) (Skywork/Skywork-OR1-7B) — waits for the maintainers' re-emit",
-    "capC_j": "Capability C names neither a row nor an exclusion for 1 arm(s) (Skywork/Skywork-OR1-7B) — waits for the maintainers' re-emit"
+    "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry"
    }
   },
   "top": {
