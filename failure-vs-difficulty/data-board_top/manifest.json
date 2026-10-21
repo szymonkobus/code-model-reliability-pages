@@ -1,9 +1,9 @@
 {
- "fingerprint": "754776769745",
+ "fingerprint": "929e9a1cff67",
  "fingerprint_inputs": {
   "content": "afa956c1b554",
   "wave": "combined-20260910T2209Z",
-  "body": "64dc8085a1b1"
+  "body": "c8752ed6643b"
  },
  "frame": {
   "dataset": "board_top",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "149d3e5d45ea",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-21",
-  "stamp": "2026-10-21T21:01:32Z",
+  "stamp": "2026-10-21T23:08:46Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -127,7 +127,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-21T20:19:37Z",
+   "unified_built_at": "2026-10-21T22:17:23Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -438,7 +438,8 @@
    },
    "sentence": "two models are read at one answer a task and drawn as binned average failure rates, with no fit and no crossing: Muse Wonder (thinking), GPT-6 Astra (thinking)",
    "records": [
-    "muse-wonder-1.0_meta"
+    "muse-wonder-1.0_meta",
+    "openai/gpt-6-astra"
    ]
   },
   "scorer": "unified results: passes/n per configuration x task (board results under plus_status; pool results \u00a71b-valid), Definitions' unified frame",
@@ -495,13 +496,13 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/board_top-20260910T2111Z/results",
    "set_fingerprint": "030de536de92",
-   "pointer_updated_at": "2026-10-21T16:52:27Z",
-   "n_fits": 65,
+   "pointer_updated_at": "2026-10-21T22:51:33Z",
+   "n_fits": 66,
    "note": null,
    "gates": {
     "convention": "0.5%-of-draws convention",
-    "n_pass": 35,
-    "n_arms": 67,
+    "n_pass": 36,
+    "n_arms": 68,
     "max_divergence_share_pct": 0.03,
     "rhat_max": 1.148,
     "bulk_ess_min": 18,
@@ -621,13 +622,14 @@
     "diffuse": 5,
     "extreme": 41,
     "intermediate": 5,
-    "concentrated": 14
+    "concentrated": 14,
+    "unclassified (no easy-third failures)": 1
    },
    "readings": null,
    "drawn": 66,
    "levels_file": {
     "file": "levels",
-    "configs": 67,
+    "configs": 68,
     "note": "the per-level crossing tables of every element of record (the median over the draws of each draw's crossing of each failure-rate level, its 10th to 90th band, the censored shares), thinned to every second level; read by the shell only under the drawing of the crossings' medians at each level"
    }
   },
@@ -1109,7 +1111,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-21T20:25:06Z",
+   "_stamp": "2026-10-21T22:28:14Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1356,10 +1358,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.754776769745.json",
-  "chain_average": "chain_average.754776769745.json",
-  "chain_median": "chain_median.754776769745.json",
-  "dots": "dots.754776769745.json",
-  "levels": "levels.754776769745.json"
+  "shared": "shared.929e9a1cff67.json",
+  "chain_average": "chain_average.929e9a1cff67.json",
+  "chain_median": "chain_median.929e9a1cff67.json",
+  "dots": "dots.929e9a1cff67.json",
+  "levels": "levels.929e9a1cff67.json"
  }
 }
