@@ -1070,7 +1070,7 @@ function noSpecTags(s) {
   s = noBareDates(s);
   return bareClock(faceNumbers(noSpecTagsRaw(s))); }
 function noSpecTagsRaw(s) {   
-  return String(s).replace(/\s*\((?:fit-methods\s+)?spec\s+[0-9]{2}[a-z]?[^)]*\)/g, '')
+  return String(s).replace(/\s*\((?:the maintainers\s+)?spec\s+[0-9]{2}[a-z]?[^)]*\)/g, '')
     .replace(/\(config\.n_tasks = [\d,]+ of the ([\d,]+)-task frame\)/g, '(of the $1 tasks fitted)')   
     .replace(/\s+([;,.])/g, '$1');
 }
@@ -1943,7 +1943,7 @@ function paintChips() {
     
     if (bb && bb.concentration && /extreme|concentrated/.test(bb.concentration.regime)) {
       
-      parts.push('failures ' + bb.concentration.regime + ' on few tasks — ' + (bb.concentration.text || 'this fit tends to place D99 well before its true position on the difficulty axis and the 10% and D50s slightly after it (fit-methods 04m gives the sizes)'));
+      parts.push('failures ' + bb.concentration.regime + ' on few tasks — ' + (bb.concentration.text || 'this fit tends to place D99 well before its true position on the difficulty axis and the 10% and D50s slightly after it'));
       b.classList.add('disclosed');
     }
     if (bb && bb.coverage_flag) parts.push(bb.coverage_flag);   
@@ -2080,7 +2080,7 @@ function notes(visible, unfitted) {
     
     
     var wa = document.createElement('div');
-    wa.textContent = 'Average-rate curves and crossings come from the served Gaussian-task-effect fit; on models with concentrated failures it places D99 well before its true position on the difficulty axis and the 10% and D50s slightly after it (fit-methods spec 04m); the count-average reading beside them is the check.';
+    wa.textContent = 'Average-rate curves and crossings come from the served Gaussian-task-effect fit; on models with concentrated failures it places D99 well before its true position on the difficulty axis and the 10% and D50s slightly after it; the count-average reading beside them is the check.';
     wa.textContent = noSpecTags(wa.textContent);   
     el.appendChild(wa);
   }

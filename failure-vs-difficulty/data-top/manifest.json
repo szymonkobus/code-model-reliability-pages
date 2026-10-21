@@ -1,9 +1,9 @@
 {
- "fingerprint": "55a4a51cac70",
+ "fingerprint": "9597ff5e8016",
  "fingerprint_inputs": {
   "content": "8fc68fd74a2f",
   "wave": "pool-20260910T2244Z",
-  "body": "9d53f4982b1c"
+  "body": "704e40ffcd6a"
  },
  "frame": {
   "dataset": "top",
@@ -37,14 +37,14 @@
   "runs_fingerprint": "076fdc5d9386",
   "axis_wave": "pool-20260910T2244Z",
   "build_date": "2026-10-21",
-  "stamp": "2026-10-21T05:47:16Z",
+  "stamp": "2026-10-21T07:14:27Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-21T05:15:39Z",
+   "unified_built_at": "2026-10-21T06:25:14Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.top.csv"
@@ -959,7 +959,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-21T05:24:47Z",
+   "_stamp": "2026-10-21T06:26:03Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -988,7 +988,7 @@
      "members": 542,
      "tasks_total": 542,
      "fit_frame_tasks": null,
-     "fit_frame_note": "the tasks a served fit stands on come from the fit maintainers' own stamp (fitting's served stamp read 438 wave 1 / 877 wave 2 / 1,315 as cut on 2026-09-08; difficulty's served board wave old-20260908T0037Z 433), never from this file"
+     "fit_frame_note": "the tasks a served fit stands on come from the fit maintainers' own stamp, never from this file"
     },
     "wave_2": {
      "name": "wave 2",
@@ -1079,7 +1079,7 @@
      "label": "wave 2 and wave 2 parked (1,762 tasks)",
      "figure_label": "wave 2 and wave 2 parked (1,762 tasks)",
      "figure_label_template": "wave 2 and wave 2 parked (1,762 tasks)",
-     "template_rule": "the label of record: the set name with its count of record; a FIT that draws this set states its frame count BESIDE the label from the fit maintainers' stamp (fitting's serving stamp), never inside it; the 10 Sep frame-count template is superseded; a page naming the SET uses label (the membership count new_total)",
+     "template_rule": "the label of record: the set name with its count of record; a FIT that draws this set states its frame count BESIDE the label from the fit maintainers' stamp, never inside it; the 10 Sep frame-count template is superseded; a page naming the SET uses label (the membership count new_total)",
      "kept_count": 1737,
      "members": 1762,
      "never_includes": "the pilot; 'wave 2' alone never means this union"
@@ -1089,7 +1089,7 @@
      "composition": "wave 1 + wave 2 + wave 2 parked + the pilot's hundred",
      "count": null,
      "count_key": null,
-     "count_source": "the fit maintainers' stamp (fitting's serving_golden_combined.json task count as cut) — never this file",
+     "count_source": "the fit maintainers' stamp — never this file",
      "figure_label_template": "wave 1 + wave 2 + wave 2 parked (2,192 tasks) + the easy-tasks pilot (100 tasks)",
      "template_rule": "the label of record: the waves' count of record in the label, the pilot named with its plain what and the hundred of record as its own count; the fit maintainers' frame as cut is stated beside the label from its stamp, never inside it (supersedes the 10 Sep frame-count template)",
      "kept_count": 2267,
@@ -1104,7 +1104,7 @@
      "never_without": "the word 'pilot' \u2014 the pilot is a third named set outside every wave and never enters a wave count or fit by default",
      "words_of_record": "the maintainers' word of 2026-09-08, note by the coordination, interpreted in this block's sentence; the literal in the store's record"
     },
-    "_basis": "LABEL COUNT = the set as it appears on the approved surfaces, as changed only by the maintainers' decisions: each wave's label is its count field in this file (count_key names the field). wave 1 = the board's graded set with a valid label (original_kept; the label-excluded originals were never board tasks on the approved surfaces), wave 2 = the frozen focus membership after the twin fold (new_focused), wave 2 parked = new_parked, wave 1+2 = original_kept + new_focused. Qualifiers beside every wave: kept_count (tasks with a valid label) and members (every admitted task) — both computed here, never typed. Pages that do not draw their label from this file name their own basis in their notes: a fitted figure names the fit frame from fitting's served stamp (following at each re-cut); a census of all runs names members. Basis settled with the maintainers on 2026-09-08 against the approved surfaces; the kept-everywhere word of that evening is withdrawn; re-decided 2026-09-10 under cleanup F1a-24: the fields are the single source, the prose carries no typed count. 'wave 2' never includes 'wave 2 parked'",
+    "_basis": "LABEL COUNT = the set as it appears on the approved surfaces, as changed only by the maintainers' decisions: each wave's label is its count field in this file (count_key names the field). wave 1 = the board's graded set with a valid label (original_kept; the label-excluded originals were never board tasks on the approved surfaces), wave 2 = the frozen focus membership after the twin fold (new_focused), wave 2 parked = new_parked, wave 1+2 = original_kept + new_focused. Qualifiers beside every wave: kept_count (tasks with a valid label) and members (every admitted task) — both computed here, never typed. Pages that do not draw their label from this file name their own basis in their notes: a fitted figure names the fit frame from the maintainers' served stamp (following at each re-cut); a census of all runs names members. Basis settled with the maintainers on 2026-09-08 against the approved surfaces; the kept-everywhere word of that evening is withdrawn; re-decided 2026-09-10 under cleanup F1a-24: the fields are the single source, the prose carries no typed count. 'wave 2' never includes 'wave 2 parked'",
     "_rule": "official names in figures with the count in parentheses; old names understood as aliases; 'wave 2' never means 'wave 2 parked'; the pilot set is a separate named set outside every wave (see pilot); a fit over every wave plus the pilot is labelled 'wave 1 + wave 2 + wave 2 parked + pilot (N tasks)' with N from the fit maintainers' stamp (all_waves_plus_pilot)",
     "_word_of_record": "the maintainers' word of 2026-09-08, note by the coordination, interpreted in this block's sentence; the literal in the store's record",
     "testbed_situations": {
@@ -1124,20 +1124,20 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-21T04:44:42Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261021T044442Z.json",
-   "sha16": "5cec81e9578fac02",
-   "census_mtime": "2026-10-21T04:45:42Z",
+   "stamp": "2026-10-21T06:02:38Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261021T060238Z.json",
+   "sha16": "655b80fa2cbf1263",
+   "census_mtime": "2026-10-21T06:03:48Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.55a4a51cac70.json",
-  "chain_average": "chain_average.55a4a51cac70.json",
-  "chain_median": "chain_median.55a4a51cac70.json",
-  "dots": "dots.55a4a51cac70.json",
-  "levels": "levels.55a4a51cac70.json"
+  "shared": "shared.9597ff5e8016.json",
+  "chain_average": "chain_average.9597ff5e8016.json",
+  "chain_median": "chain_median.9597ff5e8016.json",
+  "dots": "dots.9597ff5e8016.json",
+  "levels": "levels.9597ff5e8016.json"
  }
 }

@@ -20,7 +20,7 @@
   "scorer": "plus_status",
   "build_date": "2026-10-20",
   "build_ts": "2026-10-20T22:40:31Z",
-  "rebuild_condition": "re-pulls when failure-vs-difficulty's board handoff changes (each landing) or the Bayesian/capability_C chains re-emit; frame is a snapshot at build_ts",
+  "rebuild_condition": "re-pulls when the failure-vs-difficulty page's board handoff changes (each landing) or the Bayesian/capability_C chains re-emit; frame is a snapshot at build_ts",
   "vocab_ruled": "2026-08-27",
   "fitted_M": 65,
   "axis_M": 64,
@@ -64,7 +64,7 @@
     "scorer": "plus_status",
     "build_date": "2026-10-20",
     "build_ts": "2026-10-20T22:40:31Z",
-    "rebuild_condition": "re-pulls when failure-vs-difficulty's board handoff changes (each landing) or the Bayesian/capability_C chains re-emit; frame is a snapshot at build_ts",
+    "rebuild_condition": "re-pulls when the failure-vs-difficulty page's board handoff changes (each landing) or the Bayesian/capability_C chains re-emit; frame is a snapshot at build_ts",
     "vocab_ruled": "2026-08-27",
     "fitted_M": 65,
     "axis_M": 64,
@@ -108,7 +108,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut as adopted: the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-21T06:41:57Z"
+   "updated_at": "2026-10-21T07:15:06Z"
   },
   "all": {
    "files": {
@@ -191,7 +191,7 @@
    },
    "source_stamp": "2026-10-21T05:39:20Z",
    "source_fp": "7cb91d799131",
-   "updated_at": "2026-10-21T06:29:45Z",
+   "updated_at": "2026-10-21T06:56:43Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -236,7 +236,7 @@
    },
    "source_stamp": "2026-10-21T05:47:16Z",
    "source_fp": "55a4a51cac70",
-   "updated_at": "2026-10-21T06:32:13Z",
+   "updated_at": "2026-10-21T06:58:32Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
