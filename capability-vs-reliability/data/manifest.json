@@ -112,7 +112,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut as adopted: the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-21T14:35:29Z"
+   "updated_at": "2026-10-21T14:46:29Z"
   },
   "all": {
    "files": {
@@ -311,21 +311,21 @@
   },
   "ifeval": {
    "files": {
-    "shared": "shared.ifeval.7219272a4012.json",
-    "chain_average": "chain_average.ifeval.7219272a4012.json",
-    "bayes": "bayes.ifeval.7219272a4012-0e350e3e4b87.json",
+    "shared": "shared.ifeval.3bd186757562.json",
+    "chain_average": "chain_average.ifeval.3bd186757562.json",
+    "bayes": "bayes.ifeval.3bd186757562-0e350e3e4b87.json",
     "bayes_prev": "bayes.ifeval.86b061913de2-4e95778148c9.json"
    },
    "label": "IFEval",
    "arms": "all",
-   "fingerprint": "7219272a4012",
+   "fingerprint": "3bd186757562",
    "frame": {
     "population_M": 47,
     "tasks": 541,
     "keep_set_hash": "ea009d5c6cd1",
-    "runs_fingerprint": "42597b09bce1",
+    "runs_fingerprint": "7629e5db3a34",
     "build_date": "2026-10-21",
-    "build_ts": "2026-10-21T09:33:32Z",
+    "build_ts": "2026-10-21T14:45:03Z",
     "vocab_ruled": "2026-08-27",
     "set": "ifeval",
     "set_label": "IFEval",
@@ -336,14 +336,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ea009d5c6cd1",
     "tasks_used": "IFEval \u2014 541 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-ifeval fp 52cbb9580abf (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-ifeval fp d345a38d126f (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "f598763f0d98",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-21T09:33:32Z",
-   "source_fp": "52cbb9580abf",
-   "updated_at": "2026-10-21T09:39:01Z",
+   "source_stamp": "2026-10-21T14:45:03Z",
+   "source_fp": "d345a38d126f",
+   "updated_at": "2026-10-21T14:54:51Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
