@@ -514,7 +514,7 @@ function boot() {
   } else {
     var _bfO = D.shared.frame && D.shared.frame.bayes_fits; var _nBO = Object.keys(D.avg.configs || {}).filter(function (k) { return !!(D.avg.configs[k] && D.avg.configs[k].bayes); }).length;
     var opensOnBayes = !!_bfO && _nBO > 0 && _nBO * 2 >= (D.shared.configs || []).length;   
-    D.shared.configs.forEach(function (c, i) { if (!isSeriesRunConfig(c) && !isTrainedConfig(c) && !(opensOnBayes && !hasBayes(i))) sel.add(i); });   
+    D.shared.configs.forEach(function (c, i) { if (!isSeriesRunConfig(c) && !isTrainedConfig(c) && !(opensOnBayes && !hasBayes(i) && !c.one_answer)) sel.add(i); });   
   }
 
   readCkpts();   
@@ -846,6 +846,7 @@ function buildChips() {
       b.className = 'chip';
       b.style.color = c.color; b.style.borderColor = c.color;
       b.textContent = c.label.replace(new RegExp('^' + f.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(?=[\\s/_:-]|$)[\\s/_:-]*'), '').trim() || c.label;   
+      if (c.one_answer) b.textContent += ' \u00b7 ' + ONE_ANSWER_WORDS;   
       b.dataset.label = b.textContent; b.dataset.name = (c && c.label) || b.textContent;   
       b.dataset.idx = i;
       b.onclick = function () {
@@ -925,6 +926,7 @@ function buildChips() {
 
 
 function chainCurve(i) {
+  if (isOneAnswer(i)) { var oc = oneAnswerCurve(i); if (oc) return oc; return { zs: [], mid: [], lo: null, hi: null, form: 'bins', oneAnswer: true, noCurve: true }; }   
   var id = D.shared.configs[i].id;
   var lvl = state.band;
   if (state.src === 'bayes') {
@@ -1807,6 +1809,7 @@ function render() {
     
     
     if (state.src === 'bayes' && cv.houseOnly) return;
+    if (cv.noCurve) return;   
     var shC = pinShift(cv); if (shC == null) return; PIN_DX = shC;   
     if (c.excluded) { cv.lo = null; cv.hi = null; }   
     if (cv.lo)
@@ -1820,6 +1823,7 @@ function render() {
       + (c.excluded ? ' data-excluded="1"' : '')
       + ' data-chain-val data-i="' + i + '" data-label="' + c.label
       + (c.excluded ? ' — out of the fit population: ' + (c.exclusion || 'excluded') : '')
+      + (cv.oneAnswer ? ' — one answer a task: binned average failure rate, no fit' : '')   
       + (cv.houseOnly ? ' — outside the Bayesian fit set; '
                         + houseName().toLowerCase() + ' shown' : '')
       + '"/>';
@@ -1920,14 +1924,16 @@ function paintChips() {
     b.classList.toggle('off', !sel.has(i));
     var hiddenPartial = !shownArm(i);   
     b.classList.toggle('partial-hidden', hiddenPartial); b.disabled = hiddenPartial; b.setAttribute('aria-disabled', String(hiddenPartial));
-    var unf = state.src === 'bayes' && !hasBayes(i);
+    var unf = state.src === 'bayes' && !hasBayes(i) && !isOneAnswer(i);   
     var c = D.shared.configs[i];
     b.classList.toggle('unfitted', unf);
     b.classList.toggle('excluded', !!c.excluded);
+    b.classList.toggle('oneanswer', !!c.one_answer); b.classList.toggle('nocurve', !!c.one_answer && state.def === 'median');   
     var bb = state.src === 'bayes' ? ((state.def === 'average' ? D.avg : D.med).configs[c.id] || {}).bayes : null;
     b.classList.toggle('disclosed', !!(c.disclosure || c.continuation_flag || (bb && (bb.gate_flag || bb.coverage_flag || bb.cut_flag || bb.cleaning_flag || bb.fit_asgraded_flag || bb.undercredit_flag || bb.axis_flag)) || notFittedNote(i)) && !c.excluded);   
     
     var parts = [];
+    if (c.one_answer) parts.push(oneAnswerHover());   
     if (notShown(i)) parts.push(NOT_SHOWN.note);   
     if (c.excluded) parts.push('out of the fit population — ' + (c.exclusion || 'excluded') + ' (drawn greyed, no uncertainty band; the decision of 3 Sep)');
     if (bb && bb.interim) parts.push('interim fit (newer fit' + (bb.interim.landed_at ? ', landed ' + relTime(bb.interim.landed_at) : '') + (bb.interim.axis_note ? '; ' + bb.interim.axis_note : '') + ')');
@@ -1962,7 +1968,7 @@ function paintChips() {
     if (parts.length) {
       var full = noSpecTags(parts.join(' · ')); if (c.notes_flags && c.notes_flags.length) full += ' · ' + c.notes_flags.map(function (nf) { return noSpecTags(nf.hover || ''); }).join(' · '); b.dataset.state = full;   
       var lead = parts[0];   
-      var pri = parts.filter(function (t) { return /^not shown:|^\d+ tasks? refused|^interim fit|^this fit did not pass|^R-hat|^out of the fit|^gpt-5 arms|^for the Claude|^Bayesian curve fitted|^outside the Bayesian/.test(t) || (c.disclosure && t === String(c.disclosure)); });   
+      var pri = parts.filter(function (t) { return /^one answer a task|^not shown:|^\d+ tasks? refused|^interim fit|^this fit did not pass|^R-hat|^out of the fit|^gpt-5 arms|^for the Claude|^Bayesian curve fitted|^outside the Bayesian/.test(t) || (c.disclosure && t === String(c.disclosure)); });   
       if (pri.length) lead = pri[0];
       if (hiddenPartial) lead = bayesOnlyHidden(i) ? BAYES_ONLY_WORDS : covPart;   
       b.title = oneSentence(noSpecTags) + ((c.protocol && !/^read by /.test) ? ' (read by ' + c.protocol + ')' : '');   
@@ -1984,7 +1990,7 @@ function narrate(visible, dotsOn, unfitted) {
   var drawnN = drawnCount();   
   var narrateEl = document.getElementById('narrate'); narrateEl.textContent =
     defName + ' · ' + srcName + ' · ' + bandTxt + ' · '
-    + drawnCountWords(drawnN) + ' drawn · ' + dotTxt;
+    + drawnCountWords(drawnN) + ' drawn' + oneAnswerClause() + ' · ' + dotTxt;   
   var builtIso = D.shared.frame && D.shared.frame.stamp; var builtTxt = humanTime(builtIso);   
   if (builtTxt) { var builtEl = document.createElement('span'); builtEl.setAttribute('data-generated', String(builtIso)); builtEl.textContent = ' · built ' + builtTxt; narrateEl.appendChild(builtEl); }
   
@@ -2096,7 +2102,7 @@ function notes(visible, unfitted) {
       + 'ceiling). Neither is a measurement of zero or of 100% — '
       + 'both are bounds.';
     el.appendChild(wt);
-    var ids = D.shared.configs.map(function (c) { return c.id; });
+    var ids = D.shared.configs.filter(function (c) { return !c.one_answer; }).map(function (c) { return c.id; });   
     var undef1 = ids.filter(function (id) {
       return !D.med.configs[id].crossings['1'].crossing_defined;
     }).length;
@@ -2332,6 +2338,7 @@ function crossingsTable(visible) {
   t.innerHTML = '<tr><th>model</th><th title="' + hov50.replace(/"/g, '&quot;') + '">' + n50 + '</th><th title="' + hov1.replace(/"/g, '&quot;') + '">'
     + n1 + '</th></tr>';
   visible.forEach(function (i) {
+    if (isOneAnswer(i)) return;   
     if (isB && !hasBayes(i)) return;   
     var c = D.shared.configs[i];
     if (c.bayes_only && c.reading) { nTwinR++; if (c.same_as_served) nSameR++; }   
@@ -2479,6 +2486,33 @@ function armPhrase(f) {
   return base;   
 }
 function isExcluded(i) { return !!D.shared.configs[i].excluded; }
+
+
+
+var ONE_ANSWER_WORDS = 'one answer a task';
+function isOneAnswer(i) { var c = D && D.shared && D.shared.configs[i]; return !!(c && c.one_answer); }
+function oneAnswerCurve(i) {   
+  var c = D.shared.configs[i]; var a = D.avg && D.avg.configs ? D.avg.configs[c.id] : null; var b = a && a.bins; if (!b || state.def !== 'average') return null;
+  return { zs: b.centers, mid: b.value, lo: null, hi: null, cens: b.censor, form: 'bins', oneAnswer: true, bins: b };
+}
+function oneAnswerBinAt(b, z) {   
+  var k = -1;
+  for (var q = 0; q < b.centers.length; q++) { if (b.zlo && b.zhi && z >= b.zlo[q] - 1e-9 && z <= b.zhi[q] + 1e-9) { k = q; break; } }
+  if (k < 0) { var best = Infinity; for (var p = 0; p < b.centers.length; p++) { var d = Math.abs(b.centers[p] - z); if (d < best) { best = d; k = p; } } }
+  return k;
+}
+function oneAnswerReadout(i, z) {   
+  var c = D.shared.configs[i]; var a = D.avg.configs[c.id]; var b = a && a.bins; if (!b) return null;
+  var k = oneAnswerBinAt(b, z); if (k < 0) return null;
+  var nT = b.tasks[k], nF = b.fails[k];
+  if (b.value[k] == null) return (b.censor[k] === 1 ? 'every one of ' + nT + ' tasks failed' : 'no failure in ' + nT + ' tasks');
+  return fmtPct(b.value[k]) + ' \u00b7 ' + nF + ' of ' + nT + ' tasks failed';
+}
+function oneAnswerHover() {   
+  return state.def === 'median' ? 'one answer a task: no median-task curve; the binned average failure rate draws under the average definition'
+                                : 'one answer a task: drawn as the binned average failure rate over the difficulty bins, with no fit, no uncertainty band and no crossing';
+}
+function oneAnswerClause() { var n = oneAnswerDrawn(); return n ? ' \u00b7 ' + n + ' at one answer a task (binned rates, no fit)' : ''; }   
 function tasksUsedLabel(f, isPool) {   
   var lbl = f.dataset_label || (DATASETS[DATASET] && DATASETS[DATASET].label) || '';
   if (isPool && OFFICIAL && OFFICIAL['new']) return OFFICIAL['new'].label;   
@@ -2621,6 +2655,7 @@ function withheldLine(f) {
       return (overlayName(m) || namedInManifest()) + ' (' + (sh[m] || 'excluded') + (rw[m] ? '; reversible when ' + rw[m] : '') + ')';   
     }).join('; ') + '</span>';
   }
+  if (f.one_answer && f.one_answer.arms && f.one_answer.arms.length && f.one_answer.sentence) out += ' · ' + String(f.one_answer.sentence);   
   return out;
 }
 
@@ -2771,7 +2806,8 @@ function exportLegend() {
   visible.forEach(function (i) {
     var c = D.shared.configs[i], cv = chainCurve(i);
     if (state.src === 'bayes' && cv.houseOnly) return;   
-    rows.push({ label: c.label, family: c.family || undefined, color: c.excluded ? '#9a9890' : c.color, dash: curveDash(c), width: c.thin ? 1.0 : 1.6,   
+    if (cv.noCurve) return;   
+    rows.push({ label: c.label + (c.one_answer ? ' \u00b7 ' + ONE_ANSWER_WORDS : ''), one_answer: !!c.one_answer, family: c.family || undefined, color: c.excluded ? '#9a9890' : c.color, dash: curveDash(c), width: c.thin ? 1.0 : 1.6,   
                 marker: cv.form === 'bins' ? ((c.think || c.variant) ? 'open-circle' : 'circle') : 'none' });
   });
   var sbC = sideBlock();
@@ -2790,7 +2826,8 @@ function exportLegend() {
 
 
 
-function drawnCount() { return exportLegend().length; }
+function drawnCount() { return exportLegend().filter(function (r) { return !r.one_answer; }).length; }   
+function oneAnswerDrawn() { return exportLegend().filter(function (r) { return !!r.one_answer; }).length; }
 function drawnCountWords(n) { return n + (n === 1 ? ' model' : ' models'); }
 function exportView(nDrawn) {   
   var f = D.shared.frame || {}, ds = DATASETS[DATASET] || {};
@@ -2804,13 +2841,13 @@ function exportView(nDrawn) {
   if (state.dots === '1') parts.push('task dots');
   if (pinOn()) parts.push('pinned at ' + PIN_LEVEL + '% failure');
   if (state.xs === 'raw' || state.ys === 'raw') parts.push((state.xs === 'raw' ? 'x' : '') + (state.xs === 'raw' && state.ys === 'raw' ? ' and ' : '') + (state.ys === 'raw' ? 'y' : '') + ' in raw percent spacing');
-  parts.push(drawnCountWords(nDrawn) + ' drawn');   
+  parts.push(drawnCountWords(nDrawn) + ' drawn' + oneAnswerClause());   
   return parts.join(' \u00b7 ');
 }
 function exportOptions() {
   var chart = document.getElementById('chart'), f = D.shared.frame || {};
   EXPORTING = true; render();   
-  var legend = exportLegend(), view = exportView(legend.length);
+  var legend = exportLegend(), view = exportView(legend.filter(function (r) { return !r.one_answer; }).length);   
   var restore = function () { EXPORTING = false; render(); };   
   if (window.queueMicrotask) queueMicrotask(restore); else Promise.resolve().then(restore);
   var parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date());
@@ -2889,6 +2926,12 @@ function buildCrosshair() {
         });
         visible.slice(0, 12).forEach(function (i) {
           var cvI = chainCurve(i), zI = zFor(cvI);
+          if (cvI.oneAnswer) {   
+            if (cvI.noCurve || zI == null) return;
+            var ro = oneAnswerReadout(i, zI); if (ro == null) return;
+            rows.push({ key: D.shared.configs[i].color, value: ro, label: D.shared.configs[i].label + ' \u00b7 ' + ONE_ANSWER_WORDS });
+            return;
+          }
           var v = zI == null ? null : curveAt(cvI, zI);
           rows.push({ key: D.shared.configs[i].color,
             value: v == null ? 'outside the fitted range' : fmtPct(v),
