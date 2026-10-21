@@ -111,7 +111,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut as adopted: the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-21T22:17:32Z"
+   "updated_at": "2026-10-21T22:42:31Z"
   },
   "all": {
    "files": {
@@ -472,21 +472,21 @@
   },
   "cruxeval_o": {
    "files": {
-    "shared": "shared.cruxeval_o.433084708339.json",
-    "chain_average": "chain_average.cruxeval_o.433084708339.json",
-    "bayes": "bayes.cruxeval_o.433084708339-82fb754f764f.json",
+    "shared": "shared.cruxeval_o.c9409dd45312.json",
+    "chain_average": "chain_average.cruxeval_o.c9409dd45312.json",
+    "bayes": "bayes.cruxeval_o.c9409dd45312-82fb754f764f.json",
     "bayes_prev": "bayes.cruxeval_o.f622cb20231d-b8d5b88d30a4.json"
    },
    "label": "CRUXEval output",
    "arms": "all",
-   "fingerprint": "433084708339",
+   "fingerprint": "c9409dd45312",
    "frame": {
     "population_M": 50,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
     "runs_fingerprint": "1df3378ed34c",
     "build_date": "2026-10-21",
-    "build_ts": "2026-10-21T19:22:06Z",
+    "build_ts": "2026-10-21T22:16:44Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_o",
     "set_label": "CRUXEval output",
@@ -502,9 +502,9 @@
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-21T19:22:06Z",
+   "source_stamp": "2026-10-21T22:16:44Z",
    "source_fp": "fb05239121ff",
-   "updated_at": "2026-10-21T20:03:56Z",
+   "updated_at": "2026-10-21T22:40:12Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
