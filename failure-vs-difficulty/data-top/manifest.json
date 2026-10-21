@@ -1,9 +1,9 @@
 {
- "fingerprint": "4179a0b93b07",
+ "fingerprint": "9fc3042963fe",
  "fingerprint_inputs": {
   "content": "746d4f074b0d",
   "wave": "pool-20260910T2244Z",
-  "body": "3d49b25c97e4"
+  "body": "38c1cf04c811"
  },
  "frame": {
   "dataset": "top",
@@ -37,14 +37,14 @@
   "runs_fingerprint": "458ddddb5e78",
   "axis_wave": "pool-20260910T2244Z",
   "build_date": "2026-10-20",
-  "stamp": "2026-10-20T20:54:21Z",
+  "stamp": "2026-10-20T23:59:04Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-20T20:18:56Z",
+   "unified_built_at": "2026-10-20T23:17:46Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.top.csv"
@@ -938,7 +938,7 @@
    "named_here": false,
    "source": {
     "register": "research/training/post-training-lead/names_of_record.json",
-    "sha12": "4a56a4cbe59c",
+    "sha12": "5c2eb86d5402",
     "built_at": "2026-10-19T11:12:52Z",
     "state_word": "stopped"
    }
@@ -954,7 +954,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-20T20:25:23Z",
+   "_stamp": "2026-10-20T23:25:15Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1119,20 +1119,20 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-20T17:59:24Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261020T175924Z.json",
-   "sha16": "0423e05ac74f923b",
-   "census_mtime": "2026-10-20T18:00:35Z",
+   "stamp": "2026-10-20T21:54:50Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261020T215450Z.json",
+   "sha16": "bd1f26e4121b7239",
+   "census_mtime": "2026-10-20T21:55:55Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.4179a0b93b07.json",
-  "chain_average": "chain_average.4179a0b93b07.json",
-  "chain_median": "chain_median.4179a0b93b07.json",
-  "dots": "dots.4179a0b93b07.json",
-  "levels": "levels.4179a0b93b07.json"
+  "shared": "shared.9fc3042963fe.json",
+  "chain_average": "chain_average.9fc3042963fe.json",
+  "chain_median": "chain_median.9fc3042963fe.json",
+  "dots": "dots.9fc3042963fe.json",
+  "levels": "levels.9fc3042963fe.json"
  }
 }
