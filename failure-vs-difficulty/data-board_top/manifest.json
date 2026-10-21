@@ -1,9 +1,9 @@
 {
- "fingerprint": "30fbe64f138a",
+ "fingerprint": "031c0c8daa36",
  "fingerprint_inputs": {
-  "content": "d0a8cf4ffdc5",
+  "content": "afa956c1b554",
   "wave": "combined-20260910T2209Z",
-  "body": "f5d3b448da5e"
+  "body": "c4e35b1ef139"
  },
  "frame": {
   "dataset": "board_top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 72,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "d0a8cf4ffdc5",
+  "inputs_content_sha": "afa956c1b554",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "6bb97f1d9d92",
+  "runs_fingerprint": "149d3e5d45ea",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-21",
-  "stamp": "2026-10-21T15:27:22Z",
+  "stamp": "2026-10-21T17:18:28Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -127,7 +127,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-21T14:26:46Z",
+   "unified_built_at": "2026-10-21T16:28:19Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -203,10 +203,6 @@
    },
    "deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B": {
     "tasks": 1287,
-    "of": 1288
-   },
-   "Skywork/Skywork-OR1-7B": {
-    "tasks": 1288,
     "of": 1288
    },
    "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B": {
@@ -285,11 +281,11 @@
     "tasks": 808,
     "of": 1288
    },
-   "XiaomiMiMo/MiMo-7B-RL-Thinking": {
+   "XiaomiMiMo/MiMo-7B-SFT-Thinking": {
     "tasks": 1288,
     "of": 1288
    },
-   "XiaomiMiMo/MiMo-7B-SFT-Thinking": {
+   "XiaomiMiMo/MiMo-7B-RL-Thinking": {
     "tasks": 1288,
     "of": 1288
    },
@@ -416,6 +412,10 @@
    "Qwen/Qwen3.5-9B-Base_completion": {
     "tasks": 1288,
     "of": 1288
+   },
+   "Skywork/Skywork-OR1-7B": {
+    "tasks": 1288,
+    "of": 1288
    }
   },
   "scorer": "unified results: passes/n per configuration x task (board results under plus_status; pool results \u00a71b-valid), Definitions' unified frame",
@@ -472,13 +472,13 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/board_top-20260910T2111Z/results",
    "set_fingerprint": "030de536de92",
-   "pointer_updated_at": "2026-10-20T06:43:20Z",
-   "n_fits": 64,
+   "pointer_updated_at": "2026-10-21T16:52:27Z",
+   "n_fits": 65,
    "note": null,
    "gates": {
     "convention": "0.5%-of-draws convention",
-    "n_pass": 34,
-    "n_arms": 66,
+    "n_pass": 35,
+    "n_arms": 67,
     "max_divergence_share_pct": 0.03,
     "rhat_max": 1.148,
     "bulk_ess_min": 18,
@@ -596,7 +596,7 @@
    },
    "concentration_counts": {
     "diffuse": 5,
-    "extreme": 40,
+    "extreme": 41,
     "intermediate": 5,
     "concentrated": 14
    },
@@ -604,7 +604,7 @@
    "drawn": 66,
    "levels_file": {
     "file": "levels",
-    "configs": 66,
+    "configs": 67,
     "note": "the per-level crossing tables of every element of record (the median over the draws of each draw's crossing of each failure-rate level, its 10th to 90th band, the censored shares), thinned to every second level; read by the shell only under the drawing of the crossings' medians at each level"
    }
   },
@@ -1070,7 +1070,7 @@
    "named_here": true,
    "source": {
     "register": "research/training/post-training-lead/names_of_record.json",
-    "sha12": "428cd4276d89",
+    "sha12": "e857658d1819",
     "built_at": "2026-10-19T11:12:52Z",
     "state_word": "stopped"
    }
@@ -1086,7 +1086,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-21T15:27:00Z",
+   "_stamp": "2026-10-21T16:27:26Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1251,10 +1251,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-21T13:48:00Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261021T134800Z.json",
-   "sha16": "77c6b31d9ff5e403",
-   "census_mtime": "2026-10-21T13:49:36Z",
+   "stamp": "2026-10-21T15:31:51Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261021T153151Z.json",
+   "sha16": "e2155f7b069af0a1",
+   "census_mtime": "2026-10-21T15:33:20Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
@@ -1333,10 +1333,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.30fbe64f138a.json",
-  "chain_average": "chain_average.30fbe64f138a.json",
-  "chain_median": "chain_median.30fbe64f138a.json",
-  "dots": "dots.30fbe64f138a.json",
-  "levels": "levels.30fbe64f138a.json"
+  "shared": "shared.031c0c8daa36.json",
+  "chain_average": "chain_average.031c0c8daa36.json",
+  "chain_median": "chain_median.031c0c8daa36.json",
+  "dots": "dots.031c0c8daa36.json",
+  "levels": "levels.031c0c8daa36.json"
  }
 }
