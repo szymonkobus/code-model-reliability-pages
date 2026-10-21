@@ -1,9 +1,9 @@
 {
- "fingerprint": "53cf033c014e",
+ "fingerprint": "070130f1dd67",
  "fingerprint_inputs": {
   "content": "becbf664573b",
   "wave": "pool-20260910T2244Z",
-  "body": "2eb7a4b901f2"
+  "body": "bd54eeede734"
  },
  "frame": {
   "dataset": "top",
@@ -37,14 +37,14 @@
   "runs_fingerprint": "149d3e5d45ea",
   "axis_wave": "pool-20260910T2244Z",
   "build_date": "2026-10-21",
-  "stamp": "2026-10-21T17:29:20Z",
+  "stamp": "2026-10-21T18:18:38Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-21T16:28:19Z",
+   "unified_built_at": "2026-10-21T18:16:41Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.top.csv"
@@ -321,7 +321,27 @@
    "Skywork/Skywork-OR1-7B": {
     "tasks": 858,
     "of": 858
+   },
+   "muse-wonder-1.0_meta": {
+    "tasks": 858,
+    "of": 858
+   },
+   "openai/gpt-6-astra": {
+    "tasks": 858,
+    "of": 858
    }
+  },
+  "one_answer": {
+   "floor": 8,
+   "arms": [
+    "muse-wonder-1.0_meta",
+    "openai/gpt-6-astra"
+   ],
+   "labels": {
+    "muse-wonder-1.0_meta": "Muse Wonder (thinking)",
+    "openai/gpt-6-astra": "GPT-6 Astra (thinking)"
+   },
+   "sentence": "two models are read at one answer a task and drawn as binned average failure rates, with no fit and no crossing: Muse Wonder (thinking), GPT-6 Astra (thinking)"
   },
   "scorer": "unified results: passes/n per configuration x task (board results under plus_status; pool results \u00a71b-valid), Definitions' unified frame",
   "estimators": "local-logistic trend with shipped bands (rho/deff), binned medians (15 bins) with bootstrap bands and crossings, raw running median; average-chain crossings read off the trend and its band (first upward crossing)",
@@ -1120,10 +1140,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.53cf033c014e.json",
-  "chain_average": "chain_average.53cf033c014e.json",
-  "chain_median": "chain_median.53cf033c014e.json",
-  "dots": "dots.53cf033c014e.json",
-  "levels": "levels.53cf033c014e.json"
+  "shared": "shared.070130f1dd67.json",
+  "chain_average": "chain_average.070130f1dd67.json",
+  "chain_median": "chain_median.070130f1dd67.json",
+  "dots": "dots.070130f1dd67.json",
+  "levels": "levels.070130f1dd67.json"
  }
 }
