@@ -46,14 +46,21 @@ function loadSpanLeaf() {
   
   
   
-  return Promise.all([spanLeafText('curve_span_of_record.a.json'), spanLeafText('curve_span_of_record.b.json')]).then(function (parts) {
-    if (parts[0] != null && parts[1] != null) {
-      var a = parseSpanLeaf(parts[0]), b = parseSpanLeaf(parts[1]);
-      return { form: a.form || b.form || {}, rows: (a.rows || []).concat(b.rows || []), parts: 2 };
-    }
-    return spanLeafText('curve_span_of_record.json').then(function (t) {
+  
+  
+  
+  
+  return spanLeafText('curve_span_of_record.a.json').then(function (ta) {
+    if (ta == null) return spanLeafText('curve_span_of_record.json').then(function (t) {
       if (t == null) throw new Error('the span of record answers in neither form');
       return parseSpanLeaf(t);
+    });
+    var a = parseSpanLeaf(ta), listed = a.form && Array.isArray(a.form.parts) ? a.form.parts.map(String).filter(function (x) { return /^[a-z]$/.test(x); }) : [];
+    var names = listed.length ? listed : ['a', 'b'], rest = names.filter(function (x) { return x !== 'a'; });
+    return Promise.all(rest.map(function (x) { return spanLeafText('curve_span_of_record.' + x + '.json'); })).then(function (texts) {
+      var rows = (a.rows || []).slice();
+      texts.forEach(function (t) { if (t == null) throw new Error('a part of the span of record does not answer'); rows = rows.concat(parseSpanLeaf(t).rows || []); });
+      return { form: a.form || {}, rows: rows, parts: names.length };
     });
   }).then(function (j) {
     var by = {}; (j.rows || []).forEach(function (row) { if (!row || !row.arm) return; (by[row.arm] = by[row.arm] || []).push(row); var k2 = String(row.arm).replace(/_eiv(?:on|off)$/, ''); if (k2 !== row.arm) (by[k2] = by[k2] || []).push(row); });   
