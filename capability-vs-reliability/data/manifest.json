@@ -112,20 +112,20 @@
   },
   "all": {
    "files": {
-    "shared": "shared.all.627cda3f1c07.json",
-    "chain_average": "chain_average.all.627cda3f1c07.json",
-    "bayes": "bayes.all.627cda3f1c07-aba8f21c3080.json"
+    "shared": "shared.all.884b94029c88.json",
+    "chain_average": "chain_average.all.884b94029c88.json",
+    "bayes": "bayes.all.884b94029c88-aba8f21c3080.json"
    },
    "label": "all waves",
    "arms": "all",
-   "fingerprint": "627cda3f1c07",
+   "fingerprint": "884b94029c88",
    "frame": {
     "population_M": 67,
     "tasks": 2167,
     "keep_set_hash": "60ede5d24001",
     "runs_fingerprint": "076fdc5d9386",
     "build_date": "2026-10-21",
-    "build_ts": "2026-10-21T06:27:25Z",
+    "build_ts": "2026-10-21T07:00:50Z",
     "vocab_ruled": "2026-08-27",
     "set": "all",
     "set_label": "all waves",
@@ -141,9 +141,9 @@
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-21T06:27:25Z",
+   "source_stamp": "2026-10-21T07:00:50Z",
    "source_fp": "3bc77d392d2c",
-   "updated_at": "2026-10-21T06:53:17Z",
+   "updated_at": "2026-10-21T07:26:25Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -160,20 +160,20 @@
   },
   "board_top": {
    "files": {
-    "shared": "shared.board_top.66cd8f760e86.json",
-    "chain_average": "chain_average.board_top.66cd8f760e86.json",
-    "bayes": "bayes.board_top.66cd8f760e86-3e6e88486240.json"
+    "shared": "shared.board_top.828f61b58a74.json",
+    "chain_average": "chain_average.board_top.828f61b58a74.json",
+    "bayes": "bayes.board_top.828f61b58a74-3e6e88486240.json"
    },
    "label": "wave 1+2",
    "arms": "all",
-   "fingerprint": "66cd8f760e86",
+   "fingerprint": "828f61b58a74",
    "frame": {
     "population_M": 67,
     "tasks": 1288,
     "keep_set_hash": "ba4c3eb57ad5",
     "runs_fingerprint": "076fdc5d9386",
     "build_date": "2026-10-21",
-    "build_ts": "2026-10-21T05:39:20Z",
+    "build_ts": "2026-10-21T07:05:20Z",
     "vocab_ruled": "2026-08-27",
     "set": "board_top",
     "set_label": "wave 1+2",
@@ -184,14 +184,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ba4c3eb57ad5",
     "tasks_used": "wave 1+2 \u2014 1288 tasks, axis wave combined-20260910T2209Z",
-    "source": "failure-vs-difficulty data-board_top fp 7cb91d799131 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-board_top fp f15c6844cb16 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "c7e5010e54a9",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-21T05:39:20Z",
-   "source_fp": "7cb91d799131",
-   "updated_at": "2026-10-21T06:56:43Z",
+   "source_stamp": "2026-10-21T07:05:20Z",
+   "source_fp": "f15c6844cb16",
+   "updated_at": "2026-10-21T07:29:28Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -577,7 +577,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-10-21T06:26:03Z",
+  "stamp": "2026-10-21T07:27:45Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,
