@@ -1,9 +1,9 @@
 {
- "fingerprint": "b23a110850bd",
+ "fingerprint": "f3c24e972fbb",
  "fingerprint_inputs": {
   "content": "f04515cf303d",
   "wave": "math500-live",
-  "body": "8f085ed4d509"
+  "body": "61018fd24d04"
  },
  "frame": {
   "dataset": "math500",
@@ -30,15 +30,15 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "326e66dcd9ab",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "98703b576183",
+  "runs_fingerprint": "6c8eac3da716",
   "axis_wave": "math500-live",
   "build_date": "2026-10-22",
-  "stamp": "2026-10-22T06:45:11Z",
+  "stamp": "2026-10-22T13:12:04Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/math500",
-   "unified_built_at": "2026-10-22T04:53:38Z",
+   "unified_built_at": "2026-10-22T12:16:14Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.math500.csv"
@@ -286,10 +286,8 @@
    }
   },
   "one_answer": {
-   "floor": 8,
    "arms": [],
-   "labels": {},
-   "sentence": ""
+   "labels": {}
   },
   "scorer": "unified results: passes/n per configuration x task (board results under plus_status; pool results \u00a71b-valid), Definitions' unified frame",
   "estimators": "local-logistic trend with shipped bands (rho/deff), binned medians (15 bins) with bootstrap bands and crossings, raw running median; average-chain crossings read off the trend and its band (first upward crossing)",
@@ -519,7 +517,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-22T06:27:48Z",
+   "_stamp": "2026-10-22T12:28:51Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -684,10 +682,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-22T05:23:26Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261022T052326Z.json",
-   "sha16": "0b33715e2475b43f",
-   "census_mtime": "2026-10-22T05:24:52Z",
+   "stamp": "2026-10-22T09:51:18Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261022T095118Z.json",
+   "sha16": "1aa159e06fa8cc09",
+   "census_mtime": "2026-10-22T09:52:52Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
@@ -704,10 +702,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.b23a110850bd.json",
-  "chain_average": "chain_average.b23a110850bd.json",
-  "chain_median": "chain_median.b23a110850bd.json",
-  "dots": "dots.b23a110850bd.json",
-  "levels": "levels.b23a110850bd.json"
+  "shared": "shared.f3c24e972fbb.json",
+  "chain_average": "chain_average.f3c24e972fbb.json",
+  "chain_median": "chain_median.f3c24e972fbb.json",
+  "dots": "dots.f3c24e972fbb.json",
+  "levels": "levels.f3c24e972fbb.json"
  }
 }
