@@ -6,7 +6,6 @@ function refreshPartialChips() {
   chips.forEach(function (b) { var i = +b.dataset.idx, c = D.shared.configs[i]; if (!c) return;
     var words = [];   
     if (c.think) words.push('thinking mode \u2014 open marker on the chart');
-    if (c.one_answer) words.push('one answer a task \u2014 D50 alone is read');   
     if (typeof c.single_form_note === 'string' && c.single_form_note.trim()) words.push(c.single_form_note.trim());   
     if (c.run) { var Rw = runOf(i) || RUN; words.push(c.shared_page_label || c.display_name || (Rw ? Rw.name + ' \u2014 ' : '') + c.label); }   
     if (c.alongside) words.push('positioned on the served axis, not shaping it \u2014 its fit from the ' + c.alongside + ' series, read alongside the board fit set');   
@@ -246,7 +245,6 @@ function buildChips() {
   var makeChip = function (i) {
     var c = D.shared.configs[i], b = document.createElement('button');
     b.className = 'chip'; if (c.think) { b.classList.add('think'); b.title = 'thinking mode \u2014 open marker on the chart'; }
-    if (c.one_answer) { b.classList.add('oneanswer'); b.title = (b.title ? b.title + ' \u00b7 ' : '') + 'one answer a task \u2014 D50 alone is read'; }   
     if (isPartial(i) || isWithheld(i)) b.classList.add('partial');
     if (c.run) { var Rc = runOf(i) || RUN; b.classList.add('run'); b.title = (c.display_name || Rc.name + ' \u2014 ' + c.label); }
     if (c.provisional) { b.classList.add('provisional'); }   
