@@ -968,11 +968,9 @@ function covOf(i) {
   if (dd && dd.fails) for (var t = 0; t < dd.fails.length; t++) if (dd.fails[t] != null) n++;
   return dd ? { tasks: n, of: of } : { tasks: null, of: of };   
 }
-function attemptsPartial(i) {   
-  var f = D.shared.frame || {}; var pa = f.partial_attempts; var c = D.shared.configs[i]; return !!(pa && c && pa[c.id]);
-}
-function isPartial(i) { var cv = covOf(i); return (cv.of > 0 && cv.tasks != null && cv.tasks / cv.of < PARTIAL_MIN) || attemptsPartial(i) || sidePartialOf(i); }   
-function sidePartialOf(i) { if (MERGED[i] == null) return false; var sb = sideBlock(); var a = sb && sb.arms ? sb.arms[MERGED[i]] : null; return !!(a && a.partial); }   
+function attemptsPartial(i) { return false; }   
+function isPartial(i) { var cv = covOf(i); return (cv.of > 0 && cv.tasks != null && cv.tasks / cv.of < PARTIAL_MIN); }   
+function sidePartialOf(i) { return false; }   
 
 
 
@@ -1072,18 +1070,18 @@ function entryCountsAtOpen() {
   if (!ready || !D || !D.shared || !D.shared.configs || state.partial === 'show' || ARMS === 'golden' || pinOn()) return;
   var bay = state.src === 'bayes'; if (!bay && state.src !== 'project') return;
   var sp = Kit.state.get('sel', null); if (sp !== null && sp !== '') return;
-  var n = D.shared.configs.length, hidP = 0, hidFit = 0, hidByAnswers = false, noFit = 0, offOpen = 0, offRun = 0, offNoFit = 0;
+  var n = D.shared.configs.length, hidP = 0, hidFit = 0, noFit = 0, offOpen = 0, offRun = 0, offNoFit = 0;
   for (var i = 0; i < n; i++) {
     var cE = D.shared.configs[i];
     if (notShown(i) || !goldenOk(cE)) continue;
-    if (isPartial(i)) { hidP++; if (!bay || hasBayes(i)) hidFit++; if (attemptsPartial(i)) hidByAnswers = true; continue; }
+    if (isPartial(i)) { hidP++; if (!bay || hasBayes(i)) hidFit++; continue; }
     if (!sel.has(i)) { offOpen++; if (cE.run) offRun++; if (bay && !hasBayes(i)) offNoFit++; continue; }   
     if (bay && MERGED[i] != null) continue;   
     var cvE = chainCurve(i); if ((bay && !hasBayes(i)) || (cvE && ((bay && cvE.houseOnly) || cvE.noCurve))) noFit++;
   }
   var dn = drawnCount();
   ENTRY_COUNTS[ds] = 'opens on the ' + (bay ? 'Bayesian' : 'local-logistic') + ' fit: ' + drawnCountWords(dn) + ' drawn'
-    + (hidP ? '; ' + hidP + ((bay && hidFit === hidP) ? ' fitted model' : ' model') + (hidP === 1 ? '' : 's') + ' hidden as partial (' + (hidByAnswers ? 'fewer tasks or answers a task than the set\u2019s standard' : 'attempts on under ' + Math.round(PARTIAL_MIN * 100) + '% of the tasks') + '; the Partial models switch shows ' + (hidP === 1 ? 'it' : 'them') + ')' : '')
+    + (hidP ? '; ' + hidP + ((bay && hidFit === hidP) ? ' fitted model' : ' model') + (hidP === 1 ? '' : 's') + ' hidden as partial (attempts on under ' + Math.round(PARTIAL_MIN * 100) + '% of the tasks; the Partial models switch shows ' + (hidP === 1 ? 'it' : 'them') + ')' : '')
     + (offOpen ? '; ' + offOpen + ' model' + (offOpen === 1 ? '' : 's') + ' off at the open (' + (offNoFit === offOpen ? 'no fit on this set under this estimator; ' : offRun === offOpen ? 'the final position' + (offOpen === 1 ? '' : 's') + ' of training runs; ' : '') + (offOpen === 1 ? 'its chip switches it on)' : 'their chips switch them on)') : '')
     + (noFit ? '; ' + noFit + ' model' + (noFit === 1 ? '' : 's') + ' with no fit under this estimator' : '');
   if (ENTRY_HEAD[ds] !== undefined) applyEntryCounts(ds);   
@@ -1117,7 +1115,6 @@ function noSpecTagsRaw(s) {
     .replace(/\s+([;,.])/g, '$1');
 }
 function covText(i) {
-  if (attemptsPartial(i)) { var pa = (D.shared.frame || {}).partial_attempts[D.shared.configs[i].id] || {}; var pc = Array.isArray(pa.per_cell) ? pa.per_cell.filter(function (v) { return typeof v === 'number'; }) : []; var cnt = (pa.declared_n != null) ? String(pa.declared_n) : (pc.length > 1 ? pc[0] + ' to ' + pc[pc.length - 1] : (pc.length === 1 ? String(pc[0]) : String(pa.per_cell || ''))); return 'partial: ' + cnt + ' answers a task' + (pa.standard ? ' against ' + pa.standard : ''); }   
   var cv = covOf(i); return 'attempts on ' + (cv.of && cv.tasks != null ? Math.round(100 * cv.tasks / cv.of) + '% of the tasks' : 'the tasks'); }   
 function hasOwnBayes(i) {
   var id = D.shared.configs[i].id;
@@ -1430,7 +1427,7 @@ function headingShort(sb) {
   if (/\(\s*[\d,]+\s+tasks?\)/.test(h) && sb && GROUP_HEADINGS_OF_RECORD[sb.pointer]) return GROUP_HEADINGS_OF_RECORD[sb.pointer];
   return h.split('; ')[0].replace(/\s*\(\s*[\d,]+\s+(?:tasks?|problems?)\)/g, '');   
 }
-function sideHidden(a) { return !!(a && a.partial) && state.partial !== 'show'; }   
+function sideHidden(a) { return false; }   
 function sideCurve(a) {   
   var src = state.def === 'average' ? a.bayes_avg : a.bayes_med;
   if (!src || !src.q) return null;
@@ -1494,7 +1491,6 @@ function renderSideBlock() {
     if (hiddenP) { b.classList.add('partial-hidden'); b.disabled = true; b.setAttribute('aria-disabled', 'true'); }   
     if (a) {
     var parts = [];
-    if (a.partial) parts.push('partial: ' + (Array.isArray(a.attempts_per_cell) ? a.attempts_per_cell.join(' / ') : String(a.attempts_per_cell || '')) + ' answers a task');   
     if (a.disclosure) parts.push(currentTruth(a.disclosure));
     if (a.set_label) parts.push('fitted on ' + a.set_label);
     if (a.gates_failed) parts.push(a.gate_face ? noSpecTags(String(a.gate_face)) : 'this fit failed its own check; drawn lighter, with its disclosure');   
