@@ -1,9 +1,9 @@
 {
- "fingerprint": "4f7cfe892a69",
+ "fingerprint": "c12015e0a9f7",
  "fingerprint_inputs": {
   "content": "c8bd82ff6609",
   "wave": "unified-live",
-  "body": "f2afd7c631d0"
+  "body": "07775a30d9f2"
  },
  "frame": {
   "dataset": "all",
@@ -36,8 +36,8 @@
   },
   "runs_fingerprint": "149d3e5d45ea",
   "axis_wave": "unified-live",
-  "build_date": "2026-10-21",
-  "stamp": "2026-10-21T20:58:31Z",
+  "build_date": "2026-10-22",
+  "stamp": "2026-10-22T04:58:45Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -127,7 +127,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-21T20:19:37Z",
+   "unified_built_at": "2026-10-22T04:18:21Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -1032,7 +1032,7 @@
    "named_here": false,
    "source": {
     "register": "research/training/post-training-lead/names_of_record.json",
-    "sha12": "e857658d1819",
+    "sha12": "07d54bf36e71",
     "built_at": "2026-10-19T11:12:52Z",
     "state_word": "stopped"
    }
@@ -1048,7 +1048,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-21T20:25:06Z",
+   "_stamp": "2026-10-22T04:25:19Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1213,20 +1213,20 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-21T18:15:26Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261021T181526Z.json",
-   "sha16": "9c1326af1d7b21fd",
-   "census_mtime": "2026-10-21T18:16:29Z",
+   "stamp": "2026-10-22T03:59:36Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261022T035936Z.json",
+   "sha16": "b5b08c612f90ed8b",
+   "census_mtime": "2026-10-22T04:00:35Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.4f7cfe892a69.json",
-  "chain_average": "chain_average.4f7cfe892a69.json",
-  "chain_median": "chain_median.4f7cfe892a69.json",
-  "dots": "dots.4f7cfe892a69.json",
-  "levels": "levels.4f7cfe892a69.json"
+  "shared": "shared.c12015e0a9f7.json",
+  "chain_average": "chain_average.c12015e0a9f7.json",
+  "chain_median": "chain_median.c12015e0a9f7.json",
+  "dots": "dots.c12015e0a9f7.json",
+  "levels": "levels.c12015e0a9f7.json"
  }
 }
