@@ -1,9 +1,9 @@
 {
- "fingerprint": "d0bfb909cfc9",
+ "fingerprint": "88a182194eae",
  "fingerprint_inputs": {
   "content": "afa956c1b554",
   "wave": "combined-20260910T2209Z",
-  "body": "64abc820e288"
+  "body": "897dcc1c2f09"
  },
  "frame": {
   "dataset": "board_top",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "149d3e5d45ea",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-22",
-  "stamp": "2026-10-22T04:43:51Z",
+  "stamp": "2026-10-22T05:03:04Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -496,13 +496,13 @@
    "served_not_drawn": null,
    "custody_dir": "definitions/fitting/waves/board_top-20260910T2111Z/results",
    "set_fingerprint": "030de536de92",
-   "pointer_updated_at": "2026-10-21T22:51:33Z",
-   "n_fits": 66,
+   "pointer_updated_at": "2026-10-22T04:47:43Z",
+   "n_fits": 69,
    "note": null,
    "gates": {
     "convention": "0.5%-of-draws convention",
-    "n_pass": 36,
-    "n_arms": 68,
+    "n_pass": 39,
+    "n_arms": 71,
     "max_divergence_share_pct": 0.03,
     "rhat_max": 1.148,
     "bulk_ess_min": 18,
@@ -576,6 +576,9 @@
     "Qwen/Qwen3-32B-Thinking",
     "Qwen/Qwen3-4B-Instruct-2507",
     "Qwen/Qwen3-Coder-30B-A3B-Instruct",
+    "Skywork/Skywork-OR1-7B",
+    "XiaomiMiMo/MiMo-7B-RL-Thinking",
+    "XiaomiMiMo/MiMo-7B-SFT-Thinking",
     "claude-haiku-4-5",
     "claude-haiku-5-5",
     "claude-haiku-5-5-thinking",
@@ -626,10 +629,10 @@
     "unclassified (no easy-third failures)": 1
    },
    "readings": null,
-   "drawn": 66,
+   "drawn": 69,
    "levels_file": {
     "file": "levels",
-    "configs": 68,
+    "configs": 71,
     "note": "the per-level crossing tables of every element of record (the median over the draws of each draw's crossing of each failure-rate level, its 10th to 90th band, the censored shares), thinned to every second level; read by the shell only under the drawing of the crossings' medians at each level"
    }
   },
@@ -1095,7 +1098,7 @@
    "named_here": true,
    "source": {
     "register": "research/training/post-training-lead/names_of_record.json",
-    "sha12": "e857658d1819",
+    "sha12": "07d54bf36e71",
     "built_at": "2026-10-19T11:12:52Z",
     "state_word": "stopped"
    }
@@ -1358,10 +1361,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.d0bfb909cfc9.json",
-  "chain_average": "chain_average.d0bfb909cfc9.json",
-  "chain_median": "chain_median.d0bfb909cfc9.json",
-  "dots": "dots.d0bfb909cfc9.json",
-  "levels": "levels.d0bfb909cfc9.json"
+  "shared": "shared.88a182194eae.json",
+  "chain_average": "chain_average.88a182194eae.json",
+  "chain_median": "chain_median.88a182194eae.json",
+  "dots": "dots.88a182194eae.json",
+  "levels": "levels.88a182194eae.json"
  }
 }
