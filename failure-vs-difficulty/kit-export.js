@@ -3,11 +3,14 @@
   'use strict';
   var Kit = global.Kit = global.Kit || {};
   var FONT = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif";
+  var LEGEND_FONT_PX = 17, LEGEND_ROW_H = 26;
+  Kit.setExportLegendFont = function (px) { px = Math.round(+px || 17); LEGEND_FONT_PX = px; LEGEND_ROW_H = Math.round(px * 1.5); return px; };
   var STYLE_PROPS = ['fill', 'fill-opacity', 'stroke', 'stroke-width', 'stroke-dasharray', 'stroke-linecap', 'stroke-linejoin', 'stroke-opacity',
     'opacity', 'font-family', 'font-size', 'font-weight', 'font-style', 'text-anchor', 'dominant-baseline', 'letter-spacing', 'visibility', 'display'];
   var NS = 'http://www.w3.org/2000/svg';
-  Kit.EXPORT_TEXT = { plotWidth: 900, axisTitle: 26, tick: 18, axisTitleScale: 2, tickScale: 1.5, margins: { left: 90, right: 30, top: 40, bottom: 62 } };
-  Kit.exportTextSizes = function (pageAxisTitlePx, pageTickPx) { return { axisTitle: Math.round(2 * pageAxisTitlePx), tick: Math.round(1.5 * pageTickPx) }; };
+  Kit.EXPORT_TEXT = { plotWidth: 1020, plotBox: 780, axisTitle: 52, axisTitleWeight: 700, tick: 36, axisTitleScale: 4, tickScale: 3, margins: { left: 200, right: 40, top: 50, bottom: 130 } };
+  Kit.EXPORT_TEXT_PANEL = { plotWidth: 900, axisTitle: 26, axisTitleWeight: 400, tick: 18, axisTitleScale: 2, tickScale: 1.5, margins: { left: 90, right: 30, top: 40, bottom: 62 } };
+  Kit.exportTextSizes = function (pageAxisTitlePx, pageTickPx) { return { axisTitle: Math.round(4 * pageAxisTitlePx), tick: Math.round(3 * pageTickPx) }; };
   var FAMILIES = Kit.FAMILIES = [
     ['Qwen2.5-Coder', /qwen[-\s]?2\.5[-\s]?coder/i],
     ['Qwen2.5', /qwen[-\s]?2\.5(?![-\s]?coder)/i],
@@ -101,32 +104,36 @@
     return '<circle class="kit-legend-dot" cx="' + cx + '" cy="' + cy + '" r="1.5" fill="' + esc(dotColor || (isOpen ? color : ground)) + '"/>';
   }
 
-  function legendPanel(legend, x, y, maxH, bg, title) {
-    var rowH = 18, colW = 0, probe = document.createElementNS(NS, 'svg'); probe.setAttribute('width', 10); probe.setAttribute('height', 10); probe.style.position = 'absolute'; probe.style.left = '-9999px';
-    var t = document.createElementNS(NS, 'text'); t.setAttribute('font-family', FONT); t.setAttribute('font-size', '12'); probe.appendChild(t); document.body.appendChild(probe);
+  function legendPanel(legend, x, y, maxH, bg, title, fontPx) {
+    var F = Math.round(+fontPx || LEGEND_FONT_PX), rowH = Math.round(F * 1.5), k = Math.round(F / 12 * 100) / 100;
+    var probe = document.createElementNS(NS, 'svg'); probe.setAttribute('width', 10); probe.setAttribute('height', 10); probe.style.position = 'absolute'; probe.style.left = '-9999px';
+    var t = document.createElementNS(NS, 'text'); t.setAttribute('font-family', FONT); t.setAttribute('font-size', String(F)); probe.appendChild(t); document.body.appendChild(probe);
     legend.forEach(function (m) { if (!m || !m.label) return; var l = String(m.label).trim(); if (/^(?:checkpoint\s?\d+|final(?:\s?(?:model|weights))?|start(?:\s?model)?|step\s?\d+)$/i.test(l) && (m.model || m.name || m.base)) m.label = String(m.model || m.name || m.base) + ' · ' + l; });
     var widths = legend.map(function (m) { t.textContent = m.label || ''; return t.getComputedTextLength(); });
     document.body.removeChild(probe);
-    colW = Math.ceil(Math.max.apply(null, widths.concat([60]))) + 44;
     var perCol = Math.max(20, Math.floor((maxH - 24) / rowH)), cols = Math.min(4, Math.ceil(legend.length / perCol)); perCol = Math.ceil(legend.length / cols);
-    var out = '<text class="kit-legend-title" x="' + x + '" y="' + (y + 12) + '" font-family="' + FONT + '" font-size="12" font-weight="600" fill="#1a1a1a">' + esc(title || 'Models') + '</text>';
+    var colWs = [], colX = [0];
+    for (var ci = 0; ci < cols; ci++) { var mx = 60; for (var ii = ci * perCol; ii < Math.min(legend.length, (ci + 1) * perCol); ii++) mx = Math.max(mx, widths[ii] || 0); colWs.push(Math.ceil(mx) + 44); if (ci) colX.push(colX[ci - 1] + colWs[ci - 1]); }
+    var mark = function (cx, cy, inner) { return k === 1 ? inner : '<g transform="translate(' + cx + ' ' + cy + ') scale(' + k + ') translate(' + (-cx) + ' ' + (-cy) + ')">' + inner + '</g>'; };
+    var ty = Math.round(F / 3);
+    var out = '<text class="kit-legend-title" x="' + x + '" y="' + (y + F) + '" font-family="' + FONT + '" font-size="' + F + '" font-weight="600" fill="#1a1a1a">' + esc(title || 'Models') + '</text>';
     legend.forEach(function (m, i) {
-      var c = Math.floor(i / perCol), r = i % perCol, lx = x + c * colW, ly = y + 30 + r * rowH, color = m.color || '#52514e';
+      var c = Math.floor(i / perCol), r = i % perCol, lx = x + colX[c], ly = y + F + 18 + r * rowH, color = m.color || '#52514e';
       if (m.ramp && m.ramp.length > 1) {
         var gid = 'kit-ramp-' + i + '-' + Math.random().toString(36).slice(2, 7);
-        out += '<defs><linearGradient id="' + gid + '" x1="0" y1="0" x2="1" y2="0">' + m.ramp.map(function (col, k) { return '<stop offset="' + (m.ramp.length === 1 ? 0 : k / (m.ramp.length - 1)) + '" stop-color="' + esc(col) + '"/>'; }).join('') + '</linearGradient></defs>';
+        out += '<defs><linearGradient id="' + gid + '" x1="0" y1="0" x2="1" y2="0">' + m.ramp.map(function (col, kk) { return '<stop offset="' + (m.ramp.length === 1 ? 0 : kk / (m.ramp.length - 1)) + '" stop-color="' + esc(col) + '"/>'; }).join('') + '</linearGradient></defs>';
         out += '<rect x="' + lx + '" y="' + (ly - 4) + '" width="26" height="8" rx="2" fill="url(#' + gid + ')"' + (m.dash ? ' stroke="' + esc(m.ramp[m.ramp.length - 1]) + '" stroke-dasharray="' + esc(m.dash) + '" stroke-width="1"' : '') + '/>';
-        if (m.marker && m.marker !== 'none') out += '<g stroke="' + esc(bg || '#fcfaf3') + '" stroke-width="0.8" paint-order="stroke">' + markerSvg(m.marker, lx + 13, ly, m.ramp[m.ramp.length - 1], bg) + '</g>';
-        if (m.dot) out += dotSvg(lx + 13, ly, m.marker, m.ramp[m.ramp.length - 1], bg, m.open, m.dotColor);
-        out += '<text class="kit-legend-row" data-family="' + esc(Kit.familyOf(m)) + '" x="' + (lx + 34) + '" y="' + (ly + 4) + '" font-family="' + FONT + '" font-size="12" fill="#1a1a1a">' + esc(m.label) + '</text>';
+        if (m.marker && m.marker !== 'none') out += mark(lx + 13, ly, '<g stroke="' + esc(bg || '#fcfaf3') + '" stroke-width="0.8" paint-order="stroke">' + markerSvg(m.marker, lx + 13, ly, m.ramp[m.ramp.length - 1], bg) + '</g>');
+        if (m.dot) out += mark(lx + 13, ly, dotSvg(lx + 13, ly, m.marker, m.ramp[m.ramp.length - 1], bg, m.open, m.dotColor));
+        out += '<text class="kit-legend-row" data-family="' + esc(Kit.familyOf(m)) + '" x="' + (lx + 34) + '" y="' + (ly + ty) + '" font-family="' + FONT + '" font-size="' + F + '" fill="#1a1a1a">' + esc(m.label) + '</text>';
         return;
       }
       if (m.line !== false && m.width !== 0) out += '<line x1="' + lx + '" y1="' + ly + '" x2="' + (lx + 26) + '" y2="' + ly + '" stroke="' + color + '" stroke-width="' + (m.width || 2) + '"' + (m.dash ? ' stroke-dasharray="' + esc(m.dash) + '"' : '') + '/>';
-      out += markerSvg(m.marker || 'circle', lx + 13, ly, color, bg);
-      if (m.dot) out += dotSvg(lx + 13, ly, m.marker || 'circle', color, bg, m.open, m.dotColor);
-      out += '<text class="kit-legend-row" data-family="' + esc(Kit.familyOf(m)) + '" x="' + (lx + 34) + '" y="' + (ly + 4) + '" font-family="' + FONT + '" font-size="12" fill="#1a1a1a">' + esc(m.label) + '</text>';
+      out += mark(lx + 13, ly, markerSvg(m.marker || 'circle', lx + 13, ly, color, bg));
+      if (m.dot) out += mark(lx + 13, ly, dotSvg(lx + 13, ly, m.marker || 'circle', color, bg, m.open, m.dotColor));
+      out += '<text class="kit-legend-row" data-family="' + esc(Kit.familyOf(m)) + '" x="' + (lx + 34) + '" y="' + (ly + ty) + '" font-family="' + FONT + '" font-size="' + F + '" fill="#1a1a1a">' + esc(m.label) + '</text>';
     });
-    return { svg: out, width: cols * colW, height: Math.min(legend.length, perCol) * rowH + 30 };
+    return { svg: out, width: colX[cols - 1] + colWs[cols - 1], height: Math.min(legend.length, perCol) * rowH + F + 18 };
   }
 
   Kit.composePlotExport = function (opts) {
@@ -136,19 +143,20 @@
     var vb = viewBoxOf(src), crop = opts.crop === 'data' ? (dataCrop(src, vb) || vb) : vb;
     var clone = src.cloneNode(true); inlineStyles(src, clone);
     Array.prototype.forEach.call(clone.querySelectorAll('[data-export="omit"]'), function (el) { el.parentNode && el.parentNode.removeChild(el); });
+    if (opts.boldAxisTitles === true) { var tw = String((Kit.EXPORT_TEXT && Kit.EXPORT_TEXT.axisTitleWeight) || 700);
+      Array.prototype.forEach.call(clone.querySelectorAll('text[data-role="axis-title"], [data-role="axis-title"] text, text.axis-title, text.axis-label'), function (t) { t.setAttribute('font-weight', tw); var st = t.getAttribute('style') || ''; if (/font-weight:/.test(st)) t.setAttribute('style', st.replace(/font-weight:[^;]*;?/, 'font-weight:' + tw + ';')); }); }
     clone.removeAttribute('width'); clone.removeAttribute('height'); clone.removeAttribute('style'); clone.removeAttribute('class'); clone.removeAttribute('id');
     clone.setAttribute('viewBox', crop.x + ' ' + crop.y + ' ' + crop.w + ' ' + crop.h);
-    var plotW = Math.round(crop.w), plotH = Math.round(crop.h), pad = 16, titleH = 0, stampH = 22;
+    var plotW = Math.round(crop.w), plotH = Math.round(crop.h), pad = 16, titleH = 0, stampH = 0;
     var legend = opts.legendOrder === 'given' ? (opts.legend || []) : Kit.legendByFamily(opts.legend || []);
-    var lg = legend.length ? legendPanel(legend, plotW + pad * 2, pad + titleH, plotH, opts.background || '#fcfaf3', opts.legendTitle) : { svg: '', width: 0, height: 0 };
+    var lg = legend.length ? legendPanel(legend, plotW + pad * 2, pad + titleH, plotH, opts.background || '#fcfaf3', opts.legendTitle, opts.legendFont) : { svg: '', width: 0, height: 0 };
     var W = plotW + pad * 2 + (lg.width ? lg.width + pad : 0), H = pad + titleH + Math.max(plotH, lg.height) + stampH + pad;
     clone.setAttribute('x', pad); clone.setAttribute('y', pad + titleH); clone.setAttribute('width', plotW); clone.setAttribute('height', plotH);
     var bg = opts.background || '#fcfaf3';
-    var head = '<svg xmlns="' + NS + '" width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '" font-family="' + FONT + '">' +
+    var head = '<svg xmlns="' + NS + '" width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '" font-family="' + FONT + '" data-kit-export="6.8">' +
       '<rect width="' + W + '" height="' + H + '" fill="' + bg + '"/>' +
       '';
-    var stamp = [opts.view, opts.stamp].filter(Boolean).join(' · ');
-    var foot = (stamp ? '<text x="' + pad + '" y="' + (H - pad) + '" font-size="11" fill="#6b675f">' + esc(stamp) + '</text>' : '') + '</svg>';
+    var foot = '</svg>';
     var svgText = head + new XMLSerializer().serializeToString(clone) + lg.svg + foot;
     return { svgText: svgText, width: W, height: H };
   };
@@ -203,7 +211,7 @@
   }
   Kit.composeCanvasExport = function (opts) {
     var cvs = (opts.canvases || []).filter(Boolean); if (!cvs.length) throw new Error('composeCanvasExport: no canvases');
-    var s = opts.scale || 2, pad = 16 * s, titleH = 0, stampH = 22 * s, rowH = 20 * s, font = FONT;
+    var s = opts.scale || 2, pad = 16 * s, titleH = 0, stampH = 0, rowH = LEGEND_ROW_H * s, font = FONT;
     var rows = legendRowsOf(opts.legend), legendH = rows.length ? rows.length * rowH + pad : 0;
     var drawW = 0, drawH = 0; cvs.forEach(function (c) { drawW = Math.max(drawW, c.width); drawH += c.height; });
     var W = Math.max(drawW + pad * 2, 400 * s), H = pad + titleH + drawH + legendH + stampH + pad;
@@ -211,10 +219,8 @@
     ctx.fillStyle = opts.background || '#faf6ec'; ctx.fillRect(0, 0, W, H);
     var y = pad;
     cvs.forEach(function (c) { ctx.drawImage(c, pad, y, c.width, c.height); y += c.height; });
-    if (rows.length) { y += pad / 2; ctx.font = (12 * s) + 'px ' + font; ctx.textBaseline = 'middle';
+    if (rows.length) { y += pad / 2; ctx.font = (LEGEND_FONT_PX * s) + 'px ' + font; ctx.textBaseline = 'middle';
       rows.forEach(function (r) { if (r.dash) { ctx.save(); ctx.strokeStyle = r.color; ctx.lineWidth = 2.5 * s; ctx.setLineDash(r.dash.map(function (d) { return d * s; })); ctx.beginPath(); ctx.moveTo(pad, y + rowH / 2); ctx.lineTo(pad + 14 * s, y + rowH / 2); ctx.stroke(); ctx.restore(); } else if (r.open) { ctx.save(); ctx.strokeStyle = r.color; ctx.lineWidth = 2 * s; ctx.strokeRect(pad + s, y + rowH / 2 - 4 * s, 12 * s, 8 * s); ctx.restore(); } else { ctx.fillStyle = r.color; ctx.fillRect(pad, y + rowH / 2 - 5 * s, 14 * s, 10 * s); } ctx.fillStyle = '#1a1a1a'; ctx.fillText(r.label, pad + 20 * s, y + rowH / 2); y += rowH; }); y += pad / 2; }
-    var stamp = [opts.view, opts.stamp].filter(Boolean).join(' · ');
-    if (stamp) { ctx.fillStyle = '#6b675f'; ctx.font = (11 * s) + 'px ' + font; ctx.textBaseline = 'bottom'; ctx.fillText(stamp, pad, H - pad); }
     return out;
   };
   Kit.exportCanvas = function (opts) {
