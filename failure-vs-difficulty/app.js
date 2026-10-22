@@ -58,6 +58,7 @@ function fitGeometry(chart) {
   chart.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
 }
 var LOGIT_TICKS = [0.5, 1, 2, 5, 10, 20, 50, 80, 90, 95, 98, 99, 99.5];
+var LOG_TICKS = [0.5, 1, 2, 5, 10, 20, 50, 100];   
 var YLIM = [logit(0.002), logit(0.998)];
 function logit(p) { return Math.log(p / (1 - p)); }
 function pct(z) { return 100 / (1 + Math.exp(-z)); }
@@ -443,7 +444,7 @@ function buildSrcSwitch() {
 function xt(z) {           
   return state.xs === 'raw' ? pct(z) / 100 : z;
 }
-function yt(z) { return state.ys === 'raw' ? pct(z) / 100 : z; }
+function yt(z) { return state.ys === 'raw' ? pct(z) / 100 : state.ys === 'log' ? Math.log10(pct(z) / 100) : z; }   
 
 
 
@@ -464,11 +465,12 @@ function xlimT() {
     : XLIM;
 }
 var Y_FLOOR_GAP = 0.15;   
+var YLIM_LOG = [Math.log10(0.002) - 0.05, 0];   
 function ylimT() {
-  if (pinOn()) return state.ys === 'raw' ? [-0.015, 1.015] : [YLIM[0] - Y_FLOOR_GAP, YLIM[1]];   
+  if (pinOn()) return state.ys === 'raw' ? [-0.015, 1.015] : state.ys === 'log' ? YLIM_LOG : [YLIM[0] - Y_FLOOR_GAP, YLIM[1]];   
   var c = commonLim();
   if (c) return state.ys === 'raw' ? c : [YLIM[0] - Y_FLOOR_GAP, c[1]];   
-  return state.ys === 'raw' ? [-0.015, 1.015] : YLIM;
+  return state.ys === 'raw' ? [-0.015, 1.015] : state.ys === 'log' ? YLIM_LOG : YLIM;   
 }
 function sx(z) {
   var L = xlimT();
@@ -674,6 +676,7 @@ function boot() {
     onchange: function (v) { state.xs = v; if (ready && !coercing) render(); } });
   Kit.switchControl({ mount: row, key: 'ys', label: 'Y scale',
     options: [{ value: 'logit', label: 'Logit' },
+              { value: 'log', label: 'Log' },   
               { value: 'raw', label: 'Raw' }],
     dflt: 'logit',
     onchange: function (v) { state.ys = v; if (ready && !coercing) render(); } });
@@ -1726,7 +1729,7 @@ function render() {
   var grid = '';
    
   var xticks = state.xs === 'raw' ? RAW_TICKS : LOGIT_TICKS;
-  var yticks = state.ys === 'raw' ? RAW_TICKS : LOGIT_TICKS;
+  var yticks = state.ys === 'raw' ? RAW_TICKS : state.ys === 'log' ? LOG_TICKS : LOGIT_TICKS;
   var zOf = function (v) {
     return logit(Math.min(0.9999, Math.max(0.0001, v / 100)));
   };
@@ -1770,7 +1773,7 @@ function render() {
     + 'data-chain-inv>' + (pinOn() ? 'difficulty, relative to the pin' + ((narrow || state.xs !== 'raw') ? '' : ' (percentage points)') : 'task difficulty' + ((narrow || state.xs !== 'raw') ? '' : ' (linear spacing)')) + '</text>'   
     + '<text data-role="axis-title" transform="rotate(-90)" x="' + (-(MT + PH / 2)) + '" y="'
     + (12 * K * TS) + '" text-anchor="middle" fill="#52514e" font-size="'
-    + (12 * K * TS) + '" data-chain-inv>failure rate' + ((narrow || state.ys !== 'raw') ? '' : ' (linear spacing)') + '</text>';
+    + (12 * K * TS) + '" data-chain-inv>failure rate' + (narrow ? '' : state.ys === 'raw' ? ' (linear spacing)' : state.ys === 'log' ? ' (log spacing)' : '') + '</text>';
 
   var dotsSvg = '', bands = '', curves = '';
   var nSeriesOn = 0; seriesRows().forEach(function (srN) { nSeriesOn += seriesSelFor(srN._row).size; });
@@ -2851,6 +2854,7 @@ function exportView(nDrawn) {
   if (state.dots === '1') parts.push('task dots');
   if (pinOn()) parts.push('pinned at ' + PIN_LEVEL + '% failure');
   if (state.xs === 'raw' || state.ys === 'raw') parts.push((state.xs === 'raw' ? 'x' : '') + (state.xs === 'raw' && state.ys === 'raw' ? ' and ' : '') + (state.ys === 'raw' ? 'y' : '') + ' in raw percent spacing');
+  if (state.ys === 'log') parts.push('y in log spacing');   
   parts.push(drawnCountWords(nDrawn) + ' drawn' + oneAnswerClause());   
   return parts.join(' \u00b7 ');
 }
