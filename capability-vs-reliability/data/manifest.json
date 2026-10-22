@@ -111,7 +111,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut as adopted: the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-22T04:19:11Z"
+   "updated_at": "2026-10-22T04:39:37Z"
   },
   "all": {
    "files": {
@@ -146,7 +146,7 @@
    },
    "source_stamp": "2026-10-21T20:58:31Z",
    "source_fp": "4f7cfe892a69",
-   "updated_at": "2026-10-22T03:31:00Z",
+   "updated_at": "2026-10-22T04:50:59Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -165,7 +165,7 @@
    "files": {
     "shared": "shared.board_top.fbae1aa22693.json",
     "chain_average": "chain_average.board_top.fbae1aa22693.json",
-    "bayes": "bayes.board_top.fbae1aa22693-d047569280ba.json"
+    "bayes": "bayes.board_top.fbae1aa22693-e7546bc5a3f6.json"
    },
    "label": "wave 1+2",
    "arms": "all",
@@ -194,13 +194,13 @@
    },
    "source_stamp": "2026-10-21T23:08:46Z",
    "source_fp": "929e9a1cff67",
-   "updated_at": "2026-10-22T03:32:50Z",
+   "updated_at": "2026-10-22T04:55:59Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
-    "unfitted": 6,
+    "unfitted": 3,
     "served_wave": "board_top-20260910T2111Z",
-    "served_arms": 66
+    "served_arms": 69
    },
    "missing": {
     "chain_median": "the median-task chain needs the cell matrix, which the curves bundle does not carry"
@@ -239,7 +239,7 @@
    },
    "source_stamp": "2026-10-21T21:09:41Z",
    "source_fp": "a3123d2898bd",
-   "updated_at": "2026-10-22T03:34:15Z",
+   "updated_at": "2026-10-22T04:57:37Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -580,7 +580,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-10-22T03:25:10Z",
+  "stamp": "2026-10-22T04:25:19Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,
