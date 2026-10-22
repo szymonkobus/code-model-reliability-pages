@@ -384,7 +384,7 @@ var sel = null;
 var XLIM = null, chips = [], crosshair = null, rearmCrosshair = null;
 var srcMount = null;
 var ready = false;      
-var DOTS_MAX = 24;      
+var DOTS_BUDGET = 32000, DOT_STRIDE = 1;   
 var coercing = false;   
 var bandCtl = null, dotsCtl = null, curveCtl = null, defCtl = null;   
 var EXPORTING = false;  
@@ -1716,14 +1716,11 @@ function render() {
   }
   if (state.src === 'bayes' && bandCtl && state.band !== 'off' && bayesLevels.indexOf(state.band) < 0)
     quietSet(bandCtl, bayesLevels[bayesLevels.length - 1]);
-  if (state.dots === '1' && visible.length > DOTS_MAX && dotsCtl)
-    quietSet(dotsCtl, '0');
   ['80', '90', '95'].forEach(function (lv) {
     setDisabled(bandCtl && bandCtl.element.querySelector('button[data-value="' + lv + '"]'),
       state.src === 'bayes' && bayesLevels.indexOf(lv) < 0, '');
   });
-  setDisabled(dotsCtl && dotsCtl.element.querySelector('button[data-value="1"]'),
-    visible.length > DOTS_MAX, '');   
+  setDisabled(dotsCtl && dotsCtl.element.querySelector('button[data-value="1"]'), false, '');   
   var unfitted = state.src === 'bayes'
     ? visible.filter(function (i) { return !hasBayes(i); }) : [];
   var grid = '';
@@ -1776,8 +1773,10 @@ function render() {
     + (12 * K * TS) + '" data-chain-inv>failure rate' + ((narrow || state.ys !== 'raw') ? '' : ' (linear spacing)') + '</text>';
 
   var dotsSvg = '', bands = '', curves = '';
-  var dotsOn = state.dots === '1' && visible.length > 0
-               && visible.length <= DOTS_MAX;
+  var nSeriesOn = 0; seriesRows().forEach(function (srN) { nSeriesOn += seriesSelFor(srN._row).size; });
+  var nDotArms = visible.length + (state.src === 'bayes' ? nSeriesOn : 0);   
+  DOT_STRIDE = Math.max(1, Math.ceil(nDotArms * D.shared.tasks.z.length / DOTS_BUDGET));   
+  var dotsOn = state.dots === '1' && nDotArms > 0;
   if (dotsOn) {
     var zs = D.shared.tasks.z;
     visible.forEach(function (i) {
@@ -1786,6 +1785,7 @@ function render() {
       var dd = D.dots && D.dots.configs ? D.dots.configs[id] : null; if (!dd || !dd.fails) return;   
       var shI = pinShift(chainCurve(i)); if (shI == null) return; PIN_DX = shI;   
       for (var t = 0; t < zs.length; t++) {
+        if (t % DOT_STRIDE) continue;   
         if (dd.fails[t] == null) continue;   
         var nT = Array.isArray(dd.n) ? dd.n[t] : dd.n;
         var rate = (dd.fails[t] + 0.5) / (nT + 1);
@@ -1796,15 +1796,15 @@ function render() {
       }
     });
   }
-  var nSeriesOn = 0; seriesRows().forEach(function (srN) { nSeriesOn += seriesSelFor(srN._row).size; });
   if (state.dots === '1' && state.src === 'bayes' && D.dots && D.dots.configs) seriesRows().forEach(function (srD) {   
-    if (seriesSelFor(srD._row).size > DOTS_MAX) return;   
+    
     var ssD = seriesSelFor(srD._row); var zsD = D.shared.tasks.z;
     srD.arms.forEach(function (a, k) {
       if (a._twin || !ssD.has(k)) return;
       var ddD = D.dots.configs[a.id]; if (!ddD || !ddD.fails) return;
       var shD = pinShift(sideCurve(a)); if (shD == null) return; PIN_DX = shD;
       for (var tD = 0; tD < zsD.length; tD++) {
+        if (tD % DOT_STRIDE) continue;   
         if (ddD.fails[tD] == null) continue;
         var nD = Array.isArray(ddD.n) ? ddD.n[tD] : ddD.n;
         var rateD = (ddD.fails[tD] + 0.5) / (nD + 1);
@@ -1995,9 +1995,7 @@ function narrate(visible, dotsOn, unfitted) {
     ? 'Bayesian curves'   
     : houseName().toLowerCase();
   var bandTxt = state.band === 'off' ? 'uncertainty bands off' : state.band + '% uncertainty bands';
-  var dotTxt = dotsOn ? 'task dots on'
-    : 'task dots off' + (visible.length > DOTS_MAX
-        ? ' (available for ' + DOTS_MAX + ' or fewer models)' : '');
+  var dotTxt = dotsOn ? 'task dots on' + (DOT_STRIDE > 1 ? ' (every ' + nthWord(DOT_STRIDE) + ' task)' : '') : 'task dots off';   
   var drawnN = drawnCount();   
   var narrateEl = document.getElementById('narrate'); narrateEl.textContent =
     defName + ' · ' + srcName + ' · ' + bandTxt + ' · '
@@ -2501,6 +2499,7 @@ function isExcluded(i) { return !!D.shared.configs[i].excluded; }
 
 
 var ONE_ANSWER_WORDS = 'one answer a task';
+function nthWord(k) { var r = k % 10, h = k % 100; return k + ((r === 1 && h !== 11) ? 'st' : (r === 2 && h !== 12) ? 'nd' : (r === 3 && h !== 13) ? 'rd' : 'th'); }   
 function isOneAnswer(i) { var c = D && D.shared && D.shared.configs[i]; return !!(c && c.one_answer); }
 function oneAnswerCurve(i) {   
   var c = D.shared.configs[i]; var a = D.avg && D.avg.configs ? D.avg.configs[c.id] : null; var b = a && a.bins; if (!b || state.def !== 'average') return null;
