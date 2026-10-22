@@ -572,9 +572,10 @@ function boot() {
         if (nk && !OFFICIAL) { var lb = Number(nk).toLocaleString('en-US') + ' tasks'; DATASETS[ds].label = lb; DATASETS[ds].short = lb; bt.textContent = lb; }
         if (ds === 'top' && nk) setTopCount(nk);
         ONE_ANSWER_CLAUSE[ds] = ds === 'board_top' ? oneAnswerSetClause(f) : '';   
-        var _full = (OFFICIAL ? OFFICIAL[ds].hover : (ds === 'board_top' ? 'wave 1 plus wave 2 on one axis' : 'wave 2 alone')) + ONE_ANSWER_CLAUSE[ds] + ' — '
-          + 'the tasks on the axis at this build'
-          + (b && (b.drawn || b.n_fits) ? '; opens on the Bayesian fit (' + (b.n_fits || 0) + ' served + ' + ((b.newer && b.newer.drawn_interim) || 0) + ' interim fits)' : '; opens on the local-logistic fit');
+        ENTRY_HEAD[ds] = (OFFICIAL ? OFFICIAL[ds].hover : (ds === 'board_top' ? 'wave 1 plus wave 2 on one axis' : 'wave 2 alone')) + ONE_ANSWER_CLAUSE[ds] + ' — '
+          + 'the tasks on the axis at this build';
+        ENTRY_OPENS[ds] = (b && (b.drawn || b.n_fits) ? '; opens on the Bayesian fit (' + (b.n_fits || 0) + ' fits served)' : '; opens on the local-logistic fit');   
+        var _full = ENTRY_HEAD[ds] + (ENTRY_COUNTS[ds] ? '; ' + ENTRY_COUNTS[ds] : ENTRY_OPENS[ds]);
         noteDataset(ds, _full); bt.title = oneSentence(_full);
       }).catch(function () {});
     });
@@ -594,7 +595,8 @@ function boot() {
       var b = m.frame && m.frame.bayes_fits;
       var nk = m.frame && (m.frame.tasks_kept || m.frame.tasks); var ab = dsEl('all');
       if (nk && ab && !OFFICIAL) { var lb = Number(nk).toLocaleString('en-US') + ' tasks'; DATASETS.all.label = lb; DATASETS.all.short = lb; ab.textContent = lb; }
-      setOpen('all', b && (b.drawn || b.n_fits) ? 'opens on the Bayesian fit (' + (b.n_fits || 0) + ' served + ' + ((b.newer && b.newer.drawn_interim) || 0) + ' interim fits drawn; the rest have no fit)' : 'opens on the local-logistic fit (no Bayesian fit set for this view)');
+      ENTRY_HEAD.all = ''; ENTRY_OPENS.all = (b && (b.drawn || b.n_fits) ? 'opens on the Bayesian fit (' + (b.n_fits || 0) + ' fits served)' : 'opens on the local-logistic fit (no Bayesian fit set for this view)');   
+      setOpen('all', ENTRY_COUNTS.all ? ENTRY_COUNTS.all : ENTRY_OPENS.all);
     }).catch(function () {});
     setOpen('wave-2-and-wave-2-parked', 'opens on the Bayesian fit where the pool wave serves a model; the rest have no fit');
     
@@ -1064,6 +1066,33 @@ function oneAnswerSetClause(f) {
   return ', with the ' + list + ' one-answer read' + (names.length === 1 ? '' : 's') + ' on this set';
 }
 var NOTES_REDRAW = null;
+var ENTRY_HEAD = {}, ENTRY_OPENS = {}, ENTRY_COUNTS = {};   
+function entryCountsAtOpen() {   
+  var ds = DATASET; if (!ds || ENTRY_COUNTS[ds] || !(ds === 'board_top' || ds === 'top' || ds === 'all')) return;
+  if (!ready || !D || !D.shared || !D.shared.configs || state.partial === 'show' || ARMS === 'golden' || pinOn()) return;
+  var bay = state.src === 'bayes'; if (!bay && state.src !== 'project') return;
+  var sp = Kit.state.get('sel', null); if (sp !== null && sp !== '') return;
+  var n = D.shared.configs.length, hidP = 0, hidFit = 0, hidByAnswers = false, noFit = 0, offOpen = 0, offRun = 0, offNoFit = 0;
+  for (var i = 0; i < n; i++) {
+    var cE = D.shared.configs[i];
+    if (notShown(i) || !goldenOk(cE)) continue;
+    if (isPartial(i)) { hidP++; if (!bay || hasBayes(i)) hidFit++; if (attemptsPartial(i)) hidByAnswers = true; continue; }
+    if (!sel.has(i)) { offOpen++; if (cE.run) offRun++; if (bay && !hasBayes(i)) offNoFit++; continue; }   
+    if (bay && MERGED[i] != null) continue;   
+    var cvE = chainCurve(i); if ((bay && !hasBayes(i)) || (cvE && ((bay && cvE.houseOnly) || cvE.noCurve))) noFit++;
+  }
+  var dn = drawnCount();
+  ENTRY_COUNTS[ds] = 'opens on the ' + (bay ? 'Bayesian' : 'local-logistic') + ' fit: ' + drawnCountWords(dn) + ' drawn'
+    + (hidP ? '; ' + hidP + ((bay && hidFit === hidP) ? ' fitted model' : ' model') + (hidP === 1 ? '' : 's') + ' hidden as partial (' + (hidByAnswers ? 'fewer tasks or answers a task than the set\u2019s standard' : 'attempts on under ' + Math.round(PARTIAL_MIN * 100) + '% of the tasks') + '; the Partial models switch shows ' + (hidP === 1 ? 'it' : 'them') + ')' : '')
+    + (offOpen ? '; ' + offOpen + ' model' + (offOpen === 1 ? '' : 's') + ' off at the open (' + (offNoFit === offOpen ? 'no fit on this set under this estimator; ' : offRun === offOpen ? 'the final position' + (offOpen === 1 ? '' : 's') + ' of training runs; ' : '') + (offOpen === 1 ? 'its chip switches it on)' : 'their chips switch them on)') : '')
+    + (noFit ? '; ' + noFit + ' model' + (noFit === 1 ? '' : 's') + ' with no fit under this estimator' : '');
+  if (ENTRY_HEAD[ds] !== undefined) applyEntryCounts(ds);   
+}
+function applyEntryCounts(ds) {   
+  var bt = dsEl(ds); if (!bt || !ENTRY_COUNTS[ds]) return;
+  var full = (ENTRY_HEAD[ds] ? ENTRY_HEAD[ds] + '; ' : '') + ENTRY_COUNTS[ds];
+  noteDataset(ds, full); bt.title = oneSentence((ds === 'all' && OFFICIAL && OFFICIAL[ds]) ? OFFICIAL[ds].hover : full);
+}
 function noteDataset(k, txt) {   
   if (!txt || DATASET_NOTES[k] === txt) return;   
   DATASET_NOTES[k] = txt;
@@ -1908,6 +1937,7 @@ function render() {
   
 
   narrate(allVisible, dotsOn, unfitted);
+  entryCountsAtOpen();   
   notes(allVisible, unfitted);
   crossingsTable(allVisible);   
   renderSideBlock();
