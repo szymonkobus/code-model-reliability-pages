@@ -364,7 +364,7 @@ var state = { def: 'average', src: 'project', band: '90', curve: 'rate',
 
 var PIN_LEVEL = 50, PIN_LEVEL_LAST = '50', PIN_DX = 0, PIN_R_RAW = 0.515, pinCtl = null, pinBox = null;
 function pinOn() { return state.pin === 'on'; }
-function pinR() { return state.xs === 'raw' ? PIN_R_RAW : (YLIM[1] - YLIM[0] + Y_FLOOR_GAP) / 2; }   
+function pinR() { return state.xs === 'linear' ? PIN_R_RAW : state.xs === 'log' ? (YLIM_LOG[1] - YLIM_LOG[0]) / 2 : (YLIM[1] - YLIM[0] + Y_FLOOR_GAP) / 2; }   
 function pinCross(cv) {   
   if (!cv || !cv.zs || !cv.mid) return null;
   var L = logit(PIN_LEVEL / 100), zs = cv.zs, ys = cv.mid;
@@ -375,9 +375,10 @@ function pinCross(cv) {
   return null;
 }
 function pinShift(cv) { if (!pinOn()) return 0; var zc = pinCross(cv); return zc == null ? null : xt(zc); }   
-function pinStepText(s) { var a = Math.abs(s), t = state.xs === 'raw' ? String(Math.round(a * 100)) : String(Math.round(a * 100) / 100); return s === 0 ? '0' : (s > 0 ? '+' : '\u2212') + t; }
+function pinStepText(s) { var a = Math.abs(s), t = state.xs === 'linear' ? String(Math.round(a * 100)) : String(Math.round(a * 100) / 100); return s === 0 ? '0' : (s > 0 ? '+' : '\u2212') + t; }
 function pinSecondText(s) {   
-  var p = state.xs === 'raw' ? Math.min(1, Math.max(0, PIN_LEVEL / 100 + s)) : 1 / (1 + Math.exp(-(logit(PIN_LEVEL / 100) + s)));
+  if (state.xs === 'log' && Math.log10(PIN_LEVEL / 100) + s > 1e-9) return '';   
+  var p = state.xs === 'linear' ? Math.min(1, Math.max(0, PIN_LEVEL / 100 + s)) : state.xs === 'log' ? Math.min(1, Math.pow(10, Math.log10(PIN_LEVEL / 100) + s)) : 1 / (1 + Math.exp(-(logit(PIN_LEVEL / 100) + s)));   
   var v = 100 * p; return ((v > 0 && v < 10) || (v > 90 && v < 100) ? (Math.round(v * 10) / 10).toString() : String(Math.round(v))) + '%';
 }
 var PARTIAL_MIN = 0.90;   
@@ -442,9 +443,10 @@ function buildSrcSwitch() {
 
 
 function xt(z) {           
-  return state.xs === 'raw' ? pct(z) / 100 : z;
+  return state.xs === 'linear' ? pct(z) / 100 : state.xs === 'log' ? Math.log10(pct(z) / 100) : z;   
 }
-function yt(z) { return state.ys === 'raw' ? pct(z) / 100 : state.ys === 'log' ? Math.log10(pct(z) / 100) : z; }   
+function xlimLog() { return [Math.log10(pct(XLIM[0]) / 100) - 0.05, Math.min(0, Math.log10(pct(XLIM[1]) / 100) + 0.05)]; }   
+function yt(z) { return state.ys === 'linear' ? pct(z) / 100 : state.ys === 'log' ? Math.log10(pct(z) / 100) : z; }   
 
 
 
@@ -452,14 +454,16 @@ function yt(z) { return state.ys === 'raw' ? pct(z) / 100 : state.ys === 'log' ?
 function sameUnits() { return state.xs === state.ys; }
 function commonLim() {
   if (!sameUnits()) return null;
-  if (state.xs === 'raw') return [-0.015, 1.015];
+  if (state.xs === 'linear') return [-0.015, 1.015];
+  if (state.xs === 'log') { var xl = xlimLog(); return [Math.min(xl[0], YLIM_LOG[0]), Math.max(xl[1], YLIM_LOG[1])]; }   
   return [Math.min(XLIM[0], YLIM[0]), Math.max(XLIM[1], YLIM[1])];
 }
 function xlimT() {
   if (pinOn()) { var rP = pinR(); return [-rP, rP]; }   
   var c = commonLim();
   if (c) return c;
-  return state.xs === 'raw'
+  if (state.xs === 'log') return xlimLog();   
+  return state.xs === 'linear'
     ? [Math.max(0, pct(XLIM[0]) / 100 - 0.02),
        Math.min(1, pct(XLIM[1]) / 100 + 0.02)]
     : XLIM;
@@ -467,10 +471,10 @@ function xlimT() {
 var Y_FLOOR_GAP = 0.15;   
 var YLIM_LOG = [Math.log10(0.002) - 0.05, 0];   
 function ylimT() {
-  if (pinOn()) return state.ys === 'raw' ? [-0.015, 1.015] : state.ys === 'log' ? YLIM_LOG : [YLIM[0] - Y_FLOOR_GAP, YLIM[1]];   
+  if (pinOn()) return state.ys === 'linear' ? [-0.015, 1.015] : state.ys === 'log' ? YLIM_LOG : [YLIM[0] - Y_FLOOR_GAP, YLIM[1]];   
   var c = commonLim();
-  if (c) return state.ys === 'raw' ? c : [YLIM[0] - Y_FLOOR_GAP, c[1]];   
-  return state.ys === 'raw' ? [-0.015, 1.015] : state.ys === 'log' ? YLIM_LOG : YLIM;   
+  if (c) return (state.ys === 'linear' || state.ys === 'log') ? c : [YLIM[0] - Y_FLOOR_GAP, c[1]];   
+  return state.ys === 'linear' ? [-0.015, 1.015] : state.ys === 'log' ? YLIM_LOG : YLIM;   
 }
 function sx(z) {
   var L = xlimT();
@@ -685,15 +689,17 @@ function boot() {
               { value: '95', label: '95%' }],
     dflt: '90',
     onchange: function (v) { state.band = v; if (ready && !coercing) render(); } });
+  ['xs', 'ys'].forEach(function (k) { if (Kit.state.get(k, 'logit') === 'raw') Kit.state.set(k, 'linear', 'logit'); });   
   Kit.switchControl({ mount: row, key: 'xs', label: 'X scale',
     options: [{ value: 'logit', label: 'Logit' },
-              { value: 'raw', label: 'Raw' }],
+              { value: 'log', label: 'Log' },   
+              { value: 'linear', label: 'Linear' }],
     dflt: 'logit',
     onchange: function (v) { state.xs = v; if (ready && !coercing) render(); } });
   Kit.switchControl({ mount: row, key: 'ys', label: 'Y scale',
     options: [{ value: 'logit', label: 'Logit' },
               { value: 'log', label: 'Log' },   
-              { value: 'raw', label: 'Raw' }],
+              { value: 'linear', label: 'Linear' }],   
     dflt: 'logit',
     onchange: function (v) { state.ys = v; if (ready && !coercing) render(); } });
   var pinMount = document.createElement('span'); pinMount.className = 'pin-group'; pinMount.style.display = 'inline-flex'; pinMount.style.flexWrap = 'wrap'; pinMount.style.alignItems = 'center'; pinMount.style.columnGap = '.75rem'; pinMount.style.rowGap = '.5rem'; row.appendChild(pinMount);   
@@ -1768,8 +1774,8 @@ function render() {
     ? visible.filter(function (i) { return !hasBayes(i); }) : [];
   var grid = '';
    
-  var xticks = state.xs === 'raw' ? RAW_TICKS : LOGIT_TICKS;
-  var yticks = state.ys === 'raw' ? RAW_TICKS : state.ys === 'log' ? LOG_TICKS : LOGIT_TICKS;
+  var xticks = state.xs === 'linear' ? RAW_TICKS : state.xs === 'log' ? LOG_TICKS : LOGIT_TICKS;   
+  var yticks = state.ys === 'linear' ? RAW_TICKS : state.ys === 'log' ? LOG_TICKS : LOGIT_TICKS;
   var zOf = function (v) {
     return logit(Math.min(0.9999, Math.max(0.0001, v / 100)));
   };
@@ -1778,7 +1784,7 @@ function render() {
   var keep = (narrow && span > 8) ? [1, 10, 50, 90, 99] : [1, 5, 10, 20, 50, 80, 90, 95, 99];
   var thin = function (v) { return (narrow || EXPORTING) && keep.indexOf(v) < 0; };   
   if (pinOn()) {   
-    var rT = pinR(), stepT = state.xs === 'raw' ? 0.1 : 1, nT = Math.floor(rT / stepT + 1e-9);
+    var rT = pinR(), stepT = state.xs === 'linear' ? 0.1 : state.xs === 'log' ? 0.5 : 1, nT = Math.floor(rT / stepT + 1e-9);   
     for (var qT = -nT; qT <= nT; qT++) {
       var sT = qT * stepT, LT = xlimT();
       if (sT <= LT[0] || sT >= LT[1]) continue;
@@ -1810,10 +1816,10 @@ function render() {
   });
   grid += '<text data-role="axis-title" x="' + (ML + PW / 2) + '" y="' + (H - 6)
     + '" text-anchor="middle" fill="#52514e" font-size="' + (12 * K * TS) + '" '
-    + 'data-chain-inv>' + (pinOn() ? 'difficulty, relative to the aligned failure rate' + ((narrow || state.xs !== 'raw') ? '' : ' (percentage points)') : 'task difficulty' + ((narrow || state.xs !== 'raw') ? '' : ' (linear spacing)')) + '</text>'   
+    + 'data-chain-inv>' + (pinOn() ? 'difficulty, relative to the aligned failure rate' + ((narrow || state.xs !== 'linear') ? '' : ' (percentage points)') : 'task difficulty' + (narrow ? '' : state.xs === 'linear' ? ' (linear spacing)' : state.xs === 'log' ? ' (log spacing)' : '')) + '</text>'   
     + '<text data-role="axis-title" transform="rotate(-90)" x="' + (-(MT + PH / 2)) + '" y="'
     + (12 * K * TS) + '" text-anchor="middle" fill="#52514e" font-size="'
-    + (12 * K * TS) + '" data-chain-inv>failure rate' + (narrow ? '' : state.ys === 'raw' ? ' (linear spacing)' : state.ys === 'log' ? ' (log spacing)' : '') + '</text>';
+    + (12 * K * TS) + '" data-chain-inv>failure rate' + (narrow ? '' : state.ys === 'linear' ? ' (linear spacing)' : state.ys === 'log' ? ' (log spacing)' : '') + '</text>';
 
   var dotsSvg = '', bands = '', curves = '';
   var nSeriesOn = 0; seriesRows().forEach(function (srN) { nSeriesOn += seriesSelFor(srN._row).size; });
@@ -2892,8 +2898,8 @@ function exportView(nDrawn) {
   if (state.src === 'bayes' && state.trend !== 'off') parts.push('straight-line trends');   
   if (state.dots === '1') parts.push('task dots');
   if (pinOn()) parts.push('curves aligned at ' + PIN_LEVEL + '% failure');   
-  if (state.xs === 'raw' || state.ys === 'raw') parts.push((state.xs === 'raw' ? 'x' : '') + (state.xs === 'raw' && state.ys === 'raw' ? ' and ' : '') + (state.ys === 'raw' ? 'y' : '') + ' in raw percent spacing');
-  if (state.ys === 'log') parts.push('y in log spacing');   
+  var linAx = [state.xs === 'linear' ? 'x' : null, state.ys === 'linear' ? 'y' : null].filter(Boolean); if (linAx.length) parts.push(linAx.join(' and ') + ' in linear spacing');   
+  var logAx = [state.xs === 'log' ? 'x' : null, state.ys === 'log' ? 'y' : null].filter(Boolean); if (logAx.length) parts.push(logAx.join(' and ') + ' in log spacing');
   parts.push(drawnCountWords(nDrawn) + ' drawn' + oneAnswerClause());   
   return parts.join(' \u00b7 ');
 }
@@ -2971,7 +2977,7 @@ function buildCrosshair() {
         var z = pinOn() ? null : D.avg.trend_zs[k], sP = pinOn() ? gridP[k] : null;
         var zFor = function (cv) {   
           if (!pinOn()) return z; var sh = pinShift(cv); if (sh == null) return null; var v = sP + sh;
-          return state.xs === 'raw' ? logit(Math.min(0.9999, Math.max(0.0001, v))) : v;
+          return state.xs === 'linear' ? logit(Math.min(0.9999, Math.max(0.0001, v))) : state.xs === 'log' ? logit(Math.min(0.9999, Math.max(0.0001, Math.pow(10, v)))) : v;   
         };
         var rows = [];
         var visible = Array.from(sel).filter(shownArm).sort(function (a, b) {
@@ -3005,7 +3011,7 @@ function buildCrosshair() {
                         label: String((a.run || headingShort(srH))) + ' \u00b7 ' + String(a.short_label || a.label) });
           });
         });
-        return { title: pinOn() ? 'from the aligned failure rate ' + pinStepText(sP) + (state.xs === 'raw' ? ' points' : '') : 'difficulty ' + fmtPct(z), rows: rows };
+        return { title: pinOn() ? 'from the aligned failure rate ' + pinStepText(sP) + (state.xs === 'linear' ? ' points' : '') : 'difficulty ' + fmtPct(z), rows: rows };
       },
     });
   }
