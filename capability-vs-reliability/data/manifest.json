@@ -108,7 +108,7 @@
     "bayes": "no Bayesian fit for this set until a new pool wave is cut as adopted: the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-22T13:42:12Z"
+   "updated_at": "2026-10-22T14:11:20Z"
   },
   "all": {
    "files": {
@@ -236,7 +236,7 @@
    },
    "source_stamp": "2026-10-22T11:34:27Z",
    "source_fp": "79cbfb600d41",
-   "updated_at": "2026-10-22T13:30:30Z",
+   "updated_at": "2026-10-22T14:00:52Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -469,21 +469,21 @@
   },
   "cruxeval_o": {
    "files": {
-    "shared": "shared.cruxeval_o.755a7a62d9f7.json",
-    "chain_average": "chain_average.cruxeval_o.755a7a62d9f7.json",
-    "bayes": "bayes.cruxeval_o.755a7a62d9f7-82fb754f764f.json",
+    "shared": "shared.cruxeval_o.77533ea95c59.json",
+    "chain_average": "chain_average.cruxeval_o.77533ea95c59.json",
+    "bayes": "bayes.cruxeval_o.77533ea95c59-82fb754f764f.json",
     "bayes_prev": "bayes.cruxeval_o.f622cb20231d-b8d5b88d30a4.json"
    },
    "label": "CRUXEval output",
    "arms": "all",
-   "fingerprint": "755a7a62d9f7",
+   "fingerprint": "77533ea95c59",
    "frame": {
-    "population_M": 50,
+    "population_M": 51,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
-    "runs_fingerprint": "3c65129f04ec",
+    "runs_fingerprint": "d3daad95293a",
     "build_date": "2026-10-22",
-    "build_ts": "2026-10-22T07:22:24Z",
+    "build_ts": "2026-10-22T13:48:14Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_o",
     "set_label": "CRUXEval output",
@@ -494,20 +494,20 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
     "tasks_used": "CRUXEval output \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_o fp 481fc80e6694 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-cruxeval_o fp a1b483de91fa (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "cd06528a4146",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-22T07:22:24Z",
-   "source_fp": "481fc80e6694",
-   "updated_at": "2026-10-22T07:38:55Z",
+   "source_stamp": "2026-10-22T13:48:14Z",
+   "source_fp": "a1b483de91fa",
+   "updated_at": "2026-10-22T14:12:15Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
     "unfitted": 0,
     "served_wave": "nb-cruxeval_o-20261005T1144Z",
-    "served_arms": 56
+    "served_arms": 57
    },
    "flip": {
     "from_wave": "nb-cruxeval_o-20261003T0522Z",
