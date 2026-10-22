@@ -112,20 +112,20 @@
   },
   "all": {
    "files": {
-    "shared": "shared.all.bc2747984053.json",
-    "chain_average": "chain_average.all.bc2747984053.json",
-    "bayes": "bayes.all.bc2747984053-f8ae7b9a5d60.json"
+    "shared": "shared.all.93b9b8cf17c7.json",
+    "chain_average": "chain_average.all.93b9b8cf17c7.json",
+    "bayes": "bayes.all.93b9b8cf17c7-f8ae7b9a5d60.json"
    },
    "label": "all waves",
    "arms": "all",
-   "fingerprint": "bc2747984053",
+   "fingerprint": "93b9b8cf17c7",
    "frame": {
-    "population_M": 72,
+    "population_M": 74,
     "tasks": 2167,
     "keep_set_hash": "60ede5d24001",
-    "runs_fingerprint": "eef2f0b0cce9",
+    "runs_fingerprint": "46c03116ee2d",
     "build_date": "2026-10-22",
-    "build_ts": "2026-10-22T17:34:57Z",
+    "build_ts": "2026-10-22T18:26:03Z",
     "vocab_ruled": "2026-08-27",
     "set": "all",
     "set_label": "all waves",
@@ -136,18 +136,18 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "60ede5d24001",
     "tasks_used": "all waves \u2014 2167 tasks, axis wave unified-live",
-    "source": "failure-vs-difficulty data-all fp 2116b561b154 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "9c537eae2119",
+    "source": "failure-vs-difficulty data-all fp 958ff2fea2de (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "820044b07e34",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-22T17:34:57Z",
-   "source_fp": "2116b561b154",
-   "updated_at": "2026-10-22T18:25:29Z",
+   "source_stamp": "2026-10-22T18:26:03Z",
+   "source_fp": "958ff2fea2de",
+   "updated_at": "2026-10-22T18:49:57Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
-    "unfitted": 17,
+    "unfitted": 19,
     "served_wave": "combined-20260903T1502Z",
     "served_arms": 55
    },
