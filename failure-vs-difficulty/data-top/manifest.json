@@ -1,9 +1,9 @@
 {
- "fingerprint": "4bbb90380c0d",
+ "fingerprint": "79cbfb600d41",
  "fingerprint_inputs": {
   "content": "e66aca9c7136",
   "wave": "pool-20260910T2244Z",
-  "body": "6e1b0f719584"
+  "body": "f913ef03020c"
  },
  "frame": {
   "dataset": "top",
@@ -17,9 +17,9 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 67,
-  "fitted_M": 67,
-  "complete_M": 67,
+  "population_M": 69,
+  "fitted_M": 69,
+  "complete_M": 69,
   "sampled_M": 69,
   "difficulty_population_M": 69,
   "tasks": 858,
@@ -34,17 +34,17 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "ae84674878a7",
+  "runs_fingerprint": "eef2f0b0cce9",
   "axis_wave": "pool-20260910T2244Z",
   "build_date": "2026-10-22",
-  "stamp": "2026-10-22T08:06:44Z",
+  "stamp": "2026-10-22T10:47:38Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-22T07:37:02Z",
+   "unified_built_at": "2026-10-22T09:33:37Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.top.csv"
@@ -158,6 +158,10 @@
     "tasks": 858,
     "of": 858
    },
+   "openai/gpt-6-astra": {
+    "tasks": 858,
+    "of": 858
+   },
    "google/gemini-3.5-flash-lite": {
     "tasks": 858,
     "of": 858
@@ -195,6 +199,10 @@
     "of": 858
    },
    "XiaomiMiMo/MiMo-7B-RL-Thinking": {
+    "tasks": 858,
+    "of": 858
+   },
+   "muse-wonder-1.0_meta": {
     "tasks": 858,
     "of": 858
    },
@@ -321,18 +329,9 @@
    "Skywork/Skywork-OR1-7B": {
     "tasks": 858,
     "of": 858
-   },
-   "muse-wonder-1.0_meta": {
-    "tasks": 858,
-    "of": 858
-   },
-   "openai/gpt-6-astra": {
-    "tasks": 858,
-    "of": 858
    }
   },
   "one_answer": {
-   "floor": 8,
    "arms": [
     "muse-wonder-1.0_meta",
     "openai/gpt-6-astra"
@@ -340,8 +339,7 @@
    "labels": {
     "muse-wonder-1.0_meta": "Muse Wonder (thinking)",
     "openai/gpt-6-astra": "GPT-6 Astra (thinking)"
-   },
-   "sentence": "two models are read at one answer a task and drawn as binned average failure rates, with no fit and no crossing: Muse Wonder (thinking), GPT-6 Astra (thinking)"
+   }
   },
   "scorer": "unified results: passes/n per configuration x task (board results under plus_status; pool results \u00a71b-valid), Definitions' unified frame",
   "estimators": "local-logistic trend with shipped bands (rho/deff), binned medians (15 bins) with bootstrap bands and crossings, raw running median; average-chain crossings read off the trend and its band (first upward crossing)",
@@ -980,7 +978,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-22T07:28:00Z",
+   "_stamp": "2026-10-22T09:34:53Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1145,20 +1143,20 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-22T05:23:26Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261022T052326Z.json",
-   "sha16": "0b33715e2475b43f",
-   "census_mtime": "2026-10-22T05:24:52Z",
+   "stamp": "2026-10-22T08:07:26Z",
+   "census": "runs/generate/screens/fleet/valid_cells.json",
+   "sha16": "4dd04a39045e6d61",
+   "census_mtime": "2026-10-22T08:09:03Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.4bbb90380c0d.json",
-  "chain_average": "chain_average.4bbb90380c0d.json",
-  "chain_median": "chain_median.4bbb90380c0d.json",
-  "dots": "dots.4bbb90380c0d.json",
-  "levels": "levels.4bbb90380c0d.json"
+  "shared": "shared.79cbfb600d41.json",
+  "chain_average": "chain_average.79cbfb600d41.json",
+  "chain_median": "chain_median.79cbfb600d41.json",
+  "dots": "dots.79cbfb600d41.json",
+  "levels": "levels.79cbfb600d41.json"
  }
 }
