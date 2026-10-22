@@ -1,5 +1,5 @@
 {
- "fingerprint": "0f8162aa58c2",
+ "fingerprint": "9344c9c59d96",
  "frame": {
   "population_M": 65,
   "tasks": 430,
@@ -279,8 +279,8 @@
   "axis_M": 64,
   "fitted_M": 65,
   "complete_M": 65,
-  "sampled_M": 68,
-  "frame_M": 68,
+  "sampled_M": 69,
+  "frame_M": 69,
   "off_panel_arms": [
    "dsc6.7b-rl-night1-s250",
    "dsc6.7b-rl-night1-s500",
@@ -384,13 +384,13 @@
   },
   "keep_set_hash": "c3f08ea1a903",
   "axis_order_hash": "e39ebe415615",
-  "runs_fingerprint": "ac7feb93b313",
+  "runs_fingerprint": "e143a0c6d340",
   "runs_fingerprint_rule": "sha1 over path:mtime_ns:size of the consumed *.eval_results.json files (since 2026-09-02; before: every file under runs/)",
   "inputs_content_sha": "f1eb54e5fc65",
   "scorer": "plus_status (a sample counts as solved if its plus run passed; difficulty adopted base AND plus on 2026-09-02 — the switch of served numbers waits for the project maintainers' gate; under base AND plus a result can read differently, e.g. Mbpp/274 for Qwen3-30B-A3B: 128 passes here vs 127)",
   "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\\t<task>\\t<passes>\\t<attempts>\\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column literal; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) — reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
   "build_date": "2026-10-22",
-  "built_at": "2026-10-22T14:47:43Z",
+  "built_at": "2026-10-22T15:21:43Z",
   "vocab_ruled": "2026-08-27",
   "counts_of_record": {
    "original_kept": 430,
@@ -660,13 +660,13 @@
    "openai/gpt-5-nano": "20260907T154051Z",
    "openai/gpt-5-mini": "20260907T154051Z"
   },
-  "newest_input_mtime": "2026-10-22T14:44:43Z"
+  "newest_input_mtime": "2026-10-22T15:21:07Z"
  },
  "files": {
-  "shared": "shared.0f8162aa58c2.json",
-  "chain_average": "chain_average.0f8162aa58c2.json",
-  "chain_median": "chain_median.0f8162aa58c2.json",
-  "dots": "dots.0f8162aa58c2.json",
-  "levels": "levels.0f8162aa58c2.json"
+  "shared": "shared.9344c9c59d96.json",
+  "chain_average": "chain_average.9344c9c59d96.json",
+  "chain_median": "chain_median.9344c9c59d96.json",
+  "dots": "dots.9344c9c59d96.json",
+  "levels": "levels.9344c9c59d96.json"
  }
 }
