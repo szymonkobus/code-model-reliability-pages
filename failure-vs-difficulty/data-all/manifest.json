@@ -1,9 +1,9 @@
 {
- "fingerprint": "87441f671b51",
+ "fingerprint": "2b007db81019",
  "fingerprint_inputs": {
   "content": "9c537eae2119",
   "wave": "unified-live",
-  "body": "47c2e7983b1e"
+  "body": "2e0e8b4ba208"
  },
  "frame": {
   "dataset": "all",
@@ -17,9 +17,9 @@
   "population": "all",
   "population_source": null,
   "population_label": "all models",
-  "population_M": 70,
-  "fitted_M": 70,
-  "complete_M": 70,
+  "population_M": 72,
+  "fitted_M": 72,
+  "complete_M": 72,
   "sampled_M": 72,
   "difficulty_population_M": 72,
   "tasks": 2167,
@@ -37,7 +37,7 @@
   "runs_fingerprint": "eef2f0b0cce9",
   "axis_wave": "unified-live",
   "build_date": "2026-10-22",
-  "stamp": "2026-10-22T09:49:14Z",
+  "stamp": "2026-10-22T10:19:46Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -252,6 +252,10 @@
     "tasks": 2167,
     "of": 2167
    },
+   "openai/gpt-6-astra": {
+    "tasks": 1288,
+    "of": 2167
+   },
    "google/gemini-3.5-flash-lite": {
     "tasks": 2167,
     "of": 2167
@@ -289,6 +293,10 @@
     "of": 2167
    },
    "XiaomiMiMo/MiMo-7B-RL-Thinking": {
+    "tasks": 1288,
+    "of": 2167
+   },
+   "muse-wonder-1.0_meta": {
     "tasks": 1288,
     "of": 2167
    },
@@ -419,18 +427,9 @@
    "Skywork/Skywork-OR1-7B": {
     "tasks": 1288,
     "of": 2167
-   },
-   "muse-wonder-1.0_meta": {
-    "tasks": 1288,
-    "of": 2167
-   },
-   "openai/gpt-6-astra": {
-    "tasks": 1288,
-    "of": 2167
    }
   },
   "one_answer": {
-   "floor": 8,
    "arms": [
     "muse-wonder-1.0_meta",
     "openai/gpt-6-astra"
@@ -438,8 +437,7 @@
    "labels": {
     "muse-wonder-1.0_meta": "Muse Wonder (thinking)",
     "openai/gpt-6-astra": "GPT-6 Astra (thinking)"
-   },
-   "sentence": "two models are read at one answer a task and drawn as binned average failure rates, with no fit and no crossing: Muse Wonder (thinking), GPT-6 Astra (thinking)"
+   }
   },
   "scorer": "unified results: passes/n per configuration x task (board results under plus_status; pool results \u00a71b-valid), Definitions' unified frame",
   "estimators": "local-logistic trend with shipped bands (rho/deff), binned medians (15 bins) with bootstrap bands and crossings, raw running median; average-chain crossings read off the trend and its band (first upward crossing)",
@@ -1241,10 +1239,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.87441f671b51.json",
-  "chain_average": "chain_average.87441f671b51.json",
-  "chain_median": "chain_median.87441f671b51.json",
-  "dots": "dots.87441f671b51.json",
-  "levels": "levels.87441f671b51.json"
+  "shared": "shared.2b007db81019.json",
+  "chain_average": "chain_average.2b007db81019.json",
+  "chain_median": "chain_median.2b007db81019.json",
+  "dots": "dots.2b007db81019.json",
+  "levels": "levels.2b007db81019.json"
  }
 }
