@@ -682,7 +682,8 @@ function boot() {
               { value: 'raw', label: 'Raw' }],
     dflt: 'logit',
     onchange: function (v) { state.ys = v; if (ready && !coercing) render(); } });
-  pinCtl = Kit.switchControl({ mount: row, key: 'pin', label: 'Pin',
+  var pinMount = document.createElement('span'); pinMount.className = 'pin-group'; pinMount.style.display = 'inline-flex'; pinMount.style.flexWrap = 'wrap'; pinMount.style.alignItems = 'center'; pinMount.style.columnGap = '.75rem'; pinMount.style.rowGap = '.5rem'; row.appendChild(pinMount);   
+  pinCtl = Kit.switchControl({ mount: pinMount, key: 'pin', label: 'Align curves at one failure rate',   
     options: [{ value: 'off', label: 'Off' }, { value: 'on', label: 'On' }],
     dflt: 'off',
     onchange: function (v) { state.pin = v; if (pinBox) pinBox.style.display = v === 'on' ? '' : 'none'; if (ready && !coercing) render(); } });
@@ -690,7 +691,7 @@ function boot() {
   pinBox = document.createElement('label'); pinBox.className = 'pinlevel'; pinBox.style.display = state.pin === 'on' ? '' : 'none';
   var pinIn = document.createElement('input'); pinIn.type = 'text'; pinIn.inputMode = 'decimal'; pinIn.value = PIN_LEVEL_LAST; pinIn.size = 4; pinIn.setAttribute('aria-label', 'pinned failure rate, percent');
   var pinUnit = document.createElement('span'); pinUnit.textContent = '%';
-  pinBox.appendChild(pinIn); pinBox.appendChild(pinUnit); row.appendChild(pinBox);
+  pinBox.appendChild(pinIn); pinBox.appendChild(pinUnit); pinMount.appendChild(pinBox);   
   var takeLevel = function () {   
     var v = Number(String(pinIn.value).replace(',', '.').replace('%', '').trim());
     if (isFinite(v) && v > 0 && v < 100) { PIN_LEVEL = v; PIN_LEVEL_LAST = pinIn.value; if (ready && pinOn()) render(); } else pinIn.value = PIN_LEVEL_LAST;
@@ -703,7 +704,7 @@ function boot() {
     dflt: '0',
     onchange: function (v) { state.dots = v; if (ready && !coercing) { if (v === '1' && !D.dots && D.dotsUrl) ensureDots().then(function () { render(); }); else render(); } } });   
   Kit.switchControl({ mount: row, key: 'rm',
-    label: 'Raw running median',
+    label: 'Plain median of the nearest tasks',   
     options: [{ value: '0', label: 'Off' },
               { value: '1', label: 'On' }],
     dflt: '0',
@@ -711,7 +712,7 @@ function boot() {
   
   
   var anyLinefit = Object.keys(D.avg.configs || {}).some(function (k) { var b = D.avg.configs[k] && D.avg.configs[k].bayes; return !!(b && b.linefit); });
-  var trendCtl = Kit.switchControl({ mount: row, key: 'trend', label: 'Trend',
+  var trendCtl = Kit.switchControl({ mount: row, key: 'trend', label: 'Straight-line trend',   
     
     options: [{ value: 'off', label: 'Off' }, { value: 'on', label: 'On' }],
     dflt: 'on',
@@ -1795,7 +1796,7 @@ function render() {
   });
   grid += '<text data-role="axis-title" x="' + (ML + PW / 2) + '" y="' + (H - 6)
     + '" text-anchor="middle" fill="#52514e" font-size="' + (12 * K * TS) + '" '
-    + 'data-chain-inv>' + (pinOn() ? 'difficulty, relative to the pin' + ((narrow || state.xs !== 'raw') ? '' : ' (percentage points)') : 'task difficulty' + ((narrow || state.xs !== 'raw') ? '' : ' (linear spacing)')) + '</text>'   
+    + 'data-chain-inv>' + (pinOn() ? 'difficulty, relative to the aligned failure rate' + ((narrow || state.xs !== 'raw') ? '' : ' (percentage points)') : 'task difficulty' + ((narrow || state.xs !== 'raw') ? '' : ' (linear spacing)')) + '</text>'   
     + '<text data-role="axis-title" transform="rotate(-90)" x="' + (-(MT + PH / 2)) + '" y="'
     + (12 * K * TS) + '" text-anchor="middle" fill="#52514e" font-size="'
     + (12 * K * TS) + '" data-chain-inv>failure rate' + (narrow ? '' : state.ys === 'raw' ? ' (linear spacing)' : state.ys === 'log' ? ' (log spacing)' : '') + '</text>';
@@ -1883,9 +1884,7 @@ function render() {
         var zsT = [], ysT = [];
         for (var tt = 0; tt <= 40; tt++) { var zzT = lfa.zrange[0] + (lfa.zrange[1] - lfa.zrange[0]) * tt / 40; zsT.push(zzT); ysT.push(icT + slT * (zzT - zmT)); }
         curves += '<path d="' + pathLine(zsT, ysT) + '" fill="none" stroke="' + c.color + '" stroke-width="1.2" opacity="0.9" stroke-dasharray="7 4" data-trend="1" data-i="' + i
-          + '" data-label="' + c.label + ' — linear trend (' + (state.def === 'average' ? 'average rate' : 'median task') + '): slope ' + slT + ' logit per z, 80% uncertainty band [' + lfk.slope_q10_q50_q90[0] + ', ' + lfk.slope_q10_q50_q90[2] + ']'
-          + (lfk.rms_dev_q50 != null ? ' · rms deviation of the curve from its own line ' + lfk.rms_dev_q50 + ' logit' : '')
-          + ' · fitted range z in [' + lfa.zrange[0] + ', ' + lfa.zrange[1] + ']' + (lfa.n_draws ? ' (' + lfa.n_draws + ' draws)' : '') + '"/>';
+          + '" data-label="' + c.label + ' — straight-line trend (' + (state.def === 'average' ? 'average rate' : 'median task') + '): slope ' + slT + ' logit per z, 80% uncertainty band [' + lfk.slope_q10_q50_q90[0] + ', ' + lfk.slope_q10_q50_q90[2] + ']"/>';   
       }
     }
     if (state.rm === '1' && state.def === 'median'
@@ -1897,7 +1896,7 @@ function render() {
           + '" stroke-width="0.9" opacity="0.5"'
           + (curveDash(c) ? ' stroke-dasharray="' + curveDash(c) + '"' : '')
           + ' data-i="' + i + '" data-label="' + c.label
-          + ' — raw running median"/>';
+          + ' — plain median of the nearest tasks"/>';   
     }
   });
   
@@ -2126,7 +2125,7 @@ function notes(visible, unfitted) {
     var wb = document.createElement('div');
     wb.textContent = 'Bins: the kept tasks split into '
       + 'equal-count difficulty bins (one shared binning for every model). '   
-      + 'The raw running median toggle overlays the plain median of '
+      + 'The switch Plain median of the nearest tasks overlays that median over '
       + 'the 31 nearest tasks — the data-side check; models '
       + 'whose trace sits at the floor almost everywhere ship no '
       + 'trace (a mostly-floored trace would read as a curve).';
@@ -2876,9 +2875,9 @@ function exportView(nDrawn) {
   parts.push(state.src === 'bayes' ? 'Bayesian curves' : houseName().toLowerCase());
   parts.push(state.band === 'off' ? 'uncertainty bands off' : state.band + '% uncertainty bands');
   if (DRAW_LEVELS && D.levels) parts.push('median difficulty');   
-  if (state.src === 'bayes' && state.trend !== 'off') parts.push('linear trends');
+  if (state.src === 'bayes' && state.trend !== 'off') parts.push('straight-line trends');   
   if (state.dots === '1') parts.push('task dots');
-  if (pinOn()) parts.push('pinned at ' + PIN_LEVEL + '% failure');
+  if (pinOn()) parts.push('curves aligned at ' + PIN_LEVEL + '% failure');   
   if (state.xs === 'raw' || state.ys === 'raw') parts.push((state.xs === 'raw' ? 'x' : '') + (state.xs === 'raw' && state.ys === 'raw' ? ' and ' : '') + (state.ys === 'raw' ? 'y' : '') + ' in raw percent spacing');
   if (state.ys === 'log') parts.push('y in log spacing');   
   parts.push(drawnCountWords(nDrawn) + ' drawn' + oneAnswerClause());   
@@ -2992,7 +2991,7 @@ function buildCrosshair() {
                         label: String((a.run || headingShort(srH))) + ' \u00b7 ' + String(a.short_label || a.label) });
           });
         });
-        return { title: pinOn() ? 'from the pin ' + pinStepText(sP) + (state.xs === 'raw' ? ' points' : '') : 'difficulty ' + fmtPct(z), rows: rows };
+        return { title: pinOn() ? 'from the aligned failure rate ' + pinStepText(sP) + (state.xs === 'raw' ? ' points' : '') : 'difficulty ' + fmtPct(z), rows: rows };
       },
     });
   }
