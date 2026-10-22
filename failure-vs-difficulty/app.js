@@ -569,7 +569,8 @@ function boot() {
         var nk = f.tasks_kept || f.tasks_manifest || f.tasks;
         if (nk && !OFFICIAL) { var lb = Number(nk).toLocaleString('en-US') + ' tasks'; DATASETS[ds].label = lb; DATASETS[ds].short = lb; bt.textContent = lb; }
         if (ds === 'top' && nk) setTopCount(nk);
-        var _full = (OFFICIAL ? OFFICIAL[ds].hover + ' — ' : (ds === 'board_top' ? 'wave 1 plus wave 2 on one axis — ' : 'wave 2 alone — '))
+        ONE_ANSWER_CLAUSE[ds] = ds === 'board_top' ? oneAnswerSetClause(f) : '';   
+        var _full = (OFFICIAL ? OFFICIAL[ds].hover : (ds === 'board_top' ? 'wave 1 plus wave 2 on one axis' : 'wave 2 alone')) + ONE_ANSWER_CLAUSE[ds] + ' — '
           + 'the tasks on the axis at this build'
           + (b && (b.drawn || b.n_fits) ? '; opens on the Bayesian fit (' + (b.n_fits || 0) + ' served + ' + ((b.newer && b.newer.drawn_interim) || 0) + ' interim fits)' : '; opens on the local-logistic fit');
         noteDataset(ds, _full); bt.title = oneSentence(_full);
@@ -1051,6 +1052,14 @@ function oneSentence(s) {
   return out.replace(/[,;:]$/, '');
 }
 var DATASET_NOTES = {};   
+var ONE_ANSWER_CLAUSE = {};   
+function oneAnswerSetClause(f) {   
+  var oa = f && f.one_answer; if (!oa || !oa.labels) return '';
+  var names = Object.keys(oa.labels).map(function (a) { return String(oa.labels[a] || '').trim(); }).filter(Boolean).sort();
+  if (!names.length) return '';
+  var list = names.length === 1 ? names[0] : names.slice(0, -1).join(', ') + ' and ' + names[names.length - 1];
+  return ', with the ' + list + ' one-answer read' + (names.length === 1 ? '' : 's') + ' on this set';
+}
 var NOTES_REDRAW = null;
 function noteDataset(k, txt) {   
   if (!txt || DATASET_NOTES[k] === txt) return;   
@@ -2457,7 +2466,7 @@ function relTime(iso) {
 function relabelDataset(f) {
   if (f && f.counts_of_record && applyOfficialNames(f.counts_of_record)) {   
     var nk = f.tasks_kept || f.tasks_manifest || f.tasks; var bt0 = dsEl(DATASET);
-    if (bt0) bt0.title = DATASETS[DATASET].hover || '';   
+    if (bt0) bt0.title = oneSentence((DATASETS[DATASET].hover || '') + (ONE_ANSWER_CLAUSE[DATASET] || ''));   
     return;
   }
   var n = f.tasks_kept || f.tasks_manifest || f.tasks;
