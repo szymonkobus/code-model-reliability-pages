@@ -143,7 +143,7 @@
    },
    "source_stamp": "2026-10-22T11:44:56Z",
    "source_fp": "2b007db81019",
-   "updated_at": "2026-10-22T13:15:03Z",
+   "updated_at": "2026-10-22T13:53:59Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -415,21 +415,21 @@
   },
   "cruxeval_i": {
    "files": {
-    "shared": "shared.cruxeval_i.f6f8ad88163b.json",
-    "chain_average": "chain_average.cruxeval_i.f6f8ad88163b.json",
-    "bayes": "bayes.cruxeval_i.f6f8ad88163b-22b1644a7dbe.json",
+    "shared": "shared.cruxeval_i.de4b03c971d3.json",
+    "chain_average": "chain_average.cruxeval_i.de4b03c971d3.json",
+    "bayes": "bayes.cruxeval_i.de4b03c971d3-22b1644a7dbe.json",
     "bayes_prev": "bayes.cruxeval_i.c1810984d98e-44e95b59c373.json"
    },
    "label": "CRUXEval input",
    "arms": "all",
-   "fingerprint": "f6f8ad88163b",
+   "fingerprint": "de4b03c971d3",
    "frame": {
-    "population_M": 40,
+    "population_M": 42,
     "tasks": 800,
     "keep_set_hash": "ceaae2d92751",
-    "runs_fingerprint": "98703b576183",
+    "runs_fingerprint": "6c8eac3da716",
     "build_date": "2026-10-22",
-    "build_ts": "2026-10-22T07:04:06Z",
+    "build_ts": "2026-10-22T13:34:30Z",
     "vocab_ruled": "2026-08-27",
     "set": "cruxeval_i",
     "set_label": "CRUXEval input",
@@ -440,20 +440,20 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "ceaae2d92751",
     "tasks_used": "CRUXEval input \u2014 800 tasks, Definitions' live per-set axis",
-    "source": "failure-vs-difficulty data-cruxeval_i fp 7dc7cf1b12c4 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "source": "failure-vs-difficulty data-cruxeval_i fp bcd7d083766b (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
     "inputs_content_sha": "d4ab72db4284",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-22T07:04:06Z",
-   "source_fp": "7dc7cf1b12c4",
-   "updated_at": "2026-10-22T07:26:25Z",
+   "source_stamp": "2026-10-22T13:34:30Z",
+   "source_fp": "bcd7d083766b",
+   "updated_at": "2026-10-22T13:55:01Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
     "unfitted": 0,
     "served_wave": "nb-cruxeval_i-20261005T1138Z",
-    "served_arms": 46
+    "served_arms": 48
    },
    "flip": {
     "from_wave": "nb-cruxeval_i-20261003T1353Z",
