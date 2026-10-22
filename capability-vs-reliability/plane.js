@@ -442,9 +442,9 @@ function relabel() {
 
 function coverageOf(c) { var cv = c && c.coverage; if (!cv || !cv.of) return null; return { tasks: Math.min(cv.tasks, cv.of), of: cv.of, share: Math.min(1, cv.tasks / cv.of) }; }
 
-function isPartial(i) { var c = D.shared.configs[i]; var cv = coverageOf(c); return (!!cv && cv.share < 0.9) || !!(c && c.partial_fit); }
+function isPartial(i) { var c = D.shared.configs[i]; var cv = coverageOf(c); return !!cv && cv.share < 0.9; }
 function partialShown() { return state.partial === 'show'; }
-function coverageText(c) { var cv = coverageOf(c); if (cv && cv.share < 0.9) return 'attempts on ' + Math.round(cv.share * 100) + '% of this set\u2019s tasks'; return (c && c.partial_fit && c.partial_note) ? c.partial_note : ''; }   
+function coverageText(c) { var cv = coverageOf(c); if (cv && cv.share < 0.9) return 'attempts on ' + Math.round(cv.share * 100) + '% of this set\u2019s tasks'; return (c && (c.attempts_note || c.partial_note)) ? (c.attempts_note || c.partial_note) : ''; }   
 function partialArms() { return D.shared.configs.map(function (c, i) { return i; }).filter(function (i) { return isPartial(i) && !isWithheld(i); }); }
 
 
