@@ -1931,8 +1931,13 @@ function exportLegend() {
       return '<path d="' + d.replace(/^M[-\d.]+ [-\d.]+/, 'M' + cx + ' ' + cy) + '" fill="' + fill + '" stroke="' + stroke + '" stroke-width="' + sw + '"' + (da ? ' stroke-dasharray="' + da + '"' : '') + (op && +op < 1 ? ' opacity="' + op + '"' : '') + '/>'
         + (dot ? '<circle cx="' + cx + '" cy="' + cy + '" r="1.7" fill="' + dotFill + '"/>' : '');
     };
-    rows.push({ label: ((c.run && c.shared_page_label) || c.display_name || c.label) + (grey ? ' (partial)' : '') + (c.provisional ? ' (provisional)' : ''), family: famLabel(c.fam), color: grey ? '#8b8477' : c.color, line: false, marker: mark });   
+    rows.push({ label: ((c.run && c.shared_page_label) || c.display_name || c.label) + (grey ? ' (partial)' : '') + (c.provisional ? ' (provisional)' : ''), family: famLabel(c.fam), color: grey ? '#8b8477' : c.color, line: false, marker: mark, bound: m.getAttribute('data-shape') === 'bound' });   
   });
+  
+  
+  var _root = PANEL && PANEL.svg ? PANEL.svg : document, _mk = '#marks' + (PANEL ? '-p' + PANEL.idx : '');
+  if (_root.querySelector(_mk + ' path[data-mark][data-shape="bound"]')) rows.push({ label: 'a crossing beyond the scale, on the side it points', family: '', color: '#52514e', line: false, form: true, marker: function (cx, cy) { return '<path d="M' + (cx - 4.5) + ' ' + (cy + 3) + 'l4.5 -6.5l4.5 6.5" fill="none" stroke="#52514e" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>'; } });
+  if (_root.querySelector((PANEL ? '' : '#plotg ') + '[data-fitline]')) rows.push({ label: 'the fitted line with its band', family: '', color: '#52514e', line: false, form: true, marker: function (cx, cy) { return '<rect x="' + (cx - 13) + '" y="' + (cy - 4) + '" width="26" height="8" fill="#e8dfc8" opacity="0.7"/><line x1="' + (cx - 13) + '" y1="' + cy + '" x2="' + (cx + 13) + '" y2="' + cy + '" stroke="#52514e" stroke-width="1.4"/>'; } });
   
   PLANE_HOOKS.legend.forEach(function (fn) { try { (fn() || []).forEach(function (r) { if (r && r.label) rows.push(r); }); } catch (e) { if (window.console) console.warn('plane legend hook', e); } });   
   return rows;

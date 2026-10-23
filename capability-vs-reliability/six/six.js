@@ -207,8 +207,11 @@ function exportPanels() {
     inner += '<text x="' + (x + pw / 2) + '" y="' + (y + EXPORT_TITLE_PX) + '" text-anchor="middle" font-size="' + EXPORT_TITLE_PX + '" font-weight="600" fill="#222">' + (DATASETS[d.c.key] ? String(DATASETS[d.c.key].label).replace(/\s*\([^)]*\)\s*$/, '') : d.c.key) + '</text>'
       + '<g transform="translate(' + x + ',' + (y + th) + ')">' + d.svg.innerHTML + '</g>'; });
   wrap.innerHTML = inner;
-  var legend = [], seen = {};
-  drawn.forEach(function (d) { PANEL = { svg: d.svg, idx: d.c.idx }; try { withPanel(d.c, function () { exportLegend().forEach(function (r) { if (!seen[r.label]) { seen[r.label] = 1; legend.push(r); } }); }); } finally { PANEL = null; } });
+  var legend = [], seen = {}, forms = [], formSeen = {};   
+  drawn.forEach(function (d) { PANEL = { svg: d.svg, idx: d.c.idx }; try { withPanel(d.c, function () { exportLegend().forEach(function (r) {
+    if (r.form) { if (!formSeen[r.label]) { formSeen[r.label] = 1; forms.push(r); } return; }
+    if (seen[r.label] === undefined) { seen[r.label] = legend.length; legend.push(r); } else if (legend[seen[r.label]].bound && !r.bound) legend[seen[r.label]] = r; }); }); } finally { PANEL = null; } });
+  legend = legend.concat(forms);
   setTimeout(function () { if (wrap.parentNode) wrap.parentNode.removeChild(wrap); if (hold.parentNode) hold.parentNode.removeChild(hold); }, 0);
   var parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date()); var pick = function (t) { return (parts.find(function (q) { return q.type === t; }) || {}).value || ''; };
   return { svg: wrap, legend: legend, title: '', page: '', view: 'side by side · ' + exportView().replace(/^[^·]*·\s*/, ''), stamp: '', fileBase: 'capability-vs-reliability_side-by-side_' + pick('year') + '-' + pick('month') + '-' + pick('day'), crop: null };
