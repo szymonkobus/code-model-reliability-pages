@@ -1,9 +1,9 @@
 {
- "fingerprint": "1846d8afc438",
+ "fingerprint": "99de66a772ca",
  "fingerprint_inputs": {
-  "content": "f3fcf69dc492",
+  "content": "792aacf626aa",
   "wave": "unified-live",
-  "body": "d3634d066dd7"
+  "body": "d3b09e0ad2ff"
  },
  "frame": {
   "dataset": "all",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 74,
   "tasks": 2167,
   "keep_set_hash": "60ede5d24001",
-  "inputs_content_sha": "f3fcf69dc492",
+  "inputs_content_sha": "792aacf626aa",
   "tasks_on_axis": 2167,
   "tasks_kept": 2167,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "3fa65ca634f8",
+  "runs_fingerprint": "adf5fbdbe198",
   "axis_wave": "unified-live",
   "build_date": "2026-10-23",
-  "stamp": "2026-10-23T16:38:44Z",
+  "stamp": "2026-10-23T18:28:05Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -173,13 +173,13 @@
     },
     "gemini-4-argon_batch": {
      "cells": 1,
-     "example": "ccplus/279_D: 1 attempts, 1 passes; the index None attempts, None passes, written None"
+     "example": "ccplus/279_D: 32 attempts, 24 passes; the index None attempts, None passes, written None"
     }
    }
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-23T15:24:43Z",
+   "unified_built_at": "2026-10-23T17:38:53Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -487,12 +487,8 @@
    }
   },
   "one_answer": {
-   "arms": [
-    "gemini-4-argon_gemini"
-   ],
-   "labels": {
-    "gemini-4-argon_gemini": "Gemini 4 Argon (thinking)"
-   }
+   "arms": [],
+   "labels": {}
   },
   "scorer": "unified results: passes/n per configuration x task (board results under plus_status; pool results \u00a71b-valid), Definitions' unified frame",
   "estimators": "local-logistic trend with shipped bands (rho/deff), binned medians (15 bins) with bootstrap bands and crossings, raw running median; average-chain crossings read off the trend and its band (first upward crossing)",
@@ -656,42 +652,42 @@
     {
      "id": "deepseek-coder-6.7b-rl-night2-step250",
      "arm_id": "dsc6.7b-rl-night2-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20137/8, fixed set \u00b7 250 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20137/8, fixed \u00b7 250 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night2-step500",
      "arm_id": "dsc6.7b-rl-night2-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20137/8, fixed set \u00b7 500 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20137/8, fixed \u00b7 500 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night3-step250",
      "arm_id": "dsc6.7b-rl-night3-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fixed set \u00b7 250 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fixed \u00b7 250 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night3-step500",
      "arm_id": "dsc6.7b-rl-night3-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fixed set \u00b7 500 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fixed \u00b7 500 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night4-step250",
      "arm_id": "dsc6.7b-rl-night4-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 6\u20137/8, fixed set \u00b7 250 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 6\u20137/8, fixed \u00b7 250 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night4-step500",
      "arm_id": "dsc6.7b-rl-night4-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 6\u20137/8, fixed set \u00b7 500 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 6\u20137/8, fixed \u00b7 500 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night5-step250",
      "arm_id": "dsc6.7b-rl-night5-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 3\u20135/8, fixed set \u00b7 250 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 3\u20135/8, fixed \u00b7 250 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night5-step500",
      "arm_id": "dsc6.7b-rl-night5-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 3\u20135/8, fixed set \u00b7 500 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 3\u20135/8, fixed \u00b7 500 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night6-step100",
@@ -826,27 +822,27 @@
     {
      "id": "r1d7b-rl-f17-kl-step0050-Thinking",
      "arm_id": "r1d7b-rl-f17-kl-s50",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed set, no H \u00b7 50 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, no H \u00b7 50 steps"
     },
     {
      "id": "r1d7b-rl-f17-kl-step0100-Thinking",
      "arm_id": "r1d7b-rl-f17-kl-s100",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed set, no H \u00b7 100 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, no H \u00b7 100 steps"
     },
     {
      "id": "r1d7b-rl-f17-kl-step0150-Thinking",
      "arm_id": "r1d7b-rl-f17-kl-s150",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed set, no H \u00b7 150 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, no H \u00b7 150 steps"
     },
     {
      "id": "r1d7b-rl-f17-kl-step0200-Thinking",
      "arm_id": "r1d7b-rl-f17-kl-s200",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed set, no H \u00b7 200 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, no H \u00b7 200 steps"
     },
     {
      "id": "r1d7b-rl-f17-kl-step0250-Thinking",
      "arm_id": "r1d7b-rl-f17-kl-s250",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed set, no H \u00b7 250 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, no H \u00b7 250 steps"
     },
     {
      "id": "r1d7b-rl-f12-redraw-kl-step0050-Thinking",
@@ -1099,16 +1095,16 @@
     "r1d7b-rl-f12-pen"
    ],
    "names": [
-    "R1-Distill Qwen 7B (thinking) \u00b7 RL, fixed set, no H, no KL",
+    "R1-Distill Qwen 7B (thinking) \u00b7 RL, fixed, no H, no KL",
     "R1-Distill Qwen 7B (thinking) \u00b7 RL, in-band redraw, no H",
-    "R1-Distill Qwen 7B (thinking) \u00b7 RL, fixed set, length penalty, no H, no KL"
+    "R1-Distill Qwen 7B (thinking) \u00b7 RL, fixed, length penalty, no H, no KL"
    ],
    "n_positions": 11,
    "line": "The three R1-Distill Qwen 7B (thinking) training courses stopped in the collapse of early October are not datapoints on this page.",
    "named_here": false,
    "source": {
     "register": "research/training/post-training-lead/names_of_record.json",
-    "sha12": "b2721e048cf2",
+    "sha12": "c847ce2536e1",
     "built_at": "2026-10-19T11:12:52Z",
     "state_word": "stopped"
    }
@@ -1124,7 +1120,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-23T16:29:30Z",
+   "_stamp": "2026-10-23T18:28:37Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1289,20 +1285,20 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-23T14:11:05Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261023T141105Z.json",
-   "sha16": "66df74a9d0d0bf0c",
-   "census_mtime": "2026-10-23T14:12:59Z",
+   "stamp": "2026-10-23T15:35:55Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261023T153555Z.json",
+   "sha16": "ed15faf51dbc3669",
+   "census_mtime": "2026-10-23T15:37:33Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.1846d8afc438.json",
-  "chain_average": "chain_average.1846d8afc438.json",
-  "chain_median": "chain_median.1846d8afc438.json",
-  "dots": "dots.1846d8afc438.json",
-  "levels": "levels.1846d8afc438.json"
+  "shared": "shared.99de66a772ca.json",
+  "chain_average": "chain_average.99de66a772ca.json",
+  "chain_median": "chain_median.99de66a772ca.json",
+  "dots": "dots.99de66a772ca.json",
+  "levels": "levels.99de66a772ca.json"
  }
 }
