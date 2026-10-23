@@ -1948,6 +1948,11 @@ function render() {
   if (rearmCrosshair) rearmCrosshair();   
 }
 
+function refusedStruckNote(rs) {   
+  var n = +rs.refused_attempts || 0, tk = +rs.tasks || 0, w = +rs.whole_cells || 0;
+  if (!n) return '';
+  return 'refused answers struck from the task dots: ' + n.toLocaleString('en-GB') + ' on ' + tk + (tk === 1 ? ' task' : ' tasks') + (w ? ' (' + (w === 1 ? 'one task refused on every answer draws no dot' : w + ' tasks refused on every answer draw no dot') + ')' : '') + ', neither failure nor success, as in the curve';
+}
 function renderArmStates() {   
   var fl = document.getElementById('flaglist'); if (!fl) return;
     var as = document.getElementById('armstates'); if (!as) { as = document.createElement('div'); as.id = 'armstates'; as.className = 'sub'; fl.parentNode.insertBefore(as, fl); }
@@ -2006,6 +2011,7 @@ function paintChips() {
     if (c.continuation_flag) parts.push(c.continuation_flag);   
     if (c.single_form_note) parts.push(String(c.single_form_note));   
     var covPart = covText(i) + (isPartial(i) ? (shownArm(i) ? ' — partial model' : ' — partial model, hidden; the Partial models switch shows it') : ''); parts.push(covPart);
+    if (c.refused_struck && c.refused_struck.refused_attempts) { var rsn = refusedStruckNote(c.refused_struck); if (rsn) parts.push(rsn); }   
     if (c.protocol) parts.push('read by ' + c.protocol + ': the base model continues the prompt, no chat turn');   
     var RWp = readingsBlock(); var ajP = (RWp && bb) ? ajRecordFor(bb, state.def === 'average') : null;   
     if (ajP) { var a50 = ajCell(ajP.d50), a1 = ajCell(ajP.d1); parts.push(RWp.beside.label + ': D50 ' + (a50 ? a50.num : '*') + ', D99 ' + (a1 ? a1.num : '*') + ' (difficulty %)' + (ajP.gate_flag ? '; ' + ajP.gate_flag : '')); }
