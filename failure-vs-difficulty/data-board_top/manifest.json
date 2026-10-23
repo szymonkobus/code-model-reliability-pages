@@ -1,9 +1,9 @@
 {
- "fingerprint": "7a0617858c44",
+ "fingerprint": "eb1be05236d2",
  "fingerprint_inputs": {
   "content": "44b5295b67fa",
   "wave": "combined-20260910T2209Z",
-  "body": "89d50b686417"
+  "body": "4765b844c36e"
  },
  "frame": {
   "dataset": "board_top",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "adf5fbdbe198",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-23",
-  "stamp": "2026-10-23T18:11:00Z",
+  "stamp": "2026-10-23T18:40:01Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -1159,15 +1159,14 @@
    "names": [
     "R1-Distill Qwen 7B (thinking) \u00b7 RL, fixed, no H, no KL",
     "R1-Distill Qwen 7B (thinking) \u00b7 RL, in-band redraw, no H",
-    "R1-Distill Qwen 7B (thinking) \u00b7 RL, in-band redraw, KL \u00d75, no H",
     "R1-Distill Qwen 7B (thinking) \u00b7 RL, fixed, length penalty, no H, no KL"
    ],
    "n_positions": 11,
-   "line": "The four R1-Distill Qwen 7B (thinking) training courses stopped in the collapse of early October are not datapoints on this page.",
+   "line": "The three R1-Distill Qwen 7B (thinking) training courses stopped in the collapse of early October are not datapoints on this page.",
    "named_here": true,
    "source": {
     "register": "research/training/post-training-lead/names_of_record.json",
-    "sha12": "57bcacb10440",
+    "sha12": "c847ce2536e1",
     "built_at": "2026-10-19T11:12:52Z",
     "state_word": "stopped"
    }
@@ -1420,10 +1419,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.7a0617858c44.json",
-  "chain_average": "chain_average.7a0617858c44.json",
-  "chain_median": "chain_median.7a0617858c44.json",
-  "dots": "dots.7a0617858c44.json",
-  "levels": "levels.7a0617858c44.json"
+  "shared": "shared.eb1be05236d2.json",
+  "chain_average": "chain_average.eb1be05236d2.json",
+  "chain_median": "chain_median.eb1be05236d2.json",
+  "dots": "dots.eb1be05236d2.json",
+  "levels": "levels.eb1be05236d2.json"
  }
 }

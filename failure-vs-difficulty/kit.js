@@ -366,7 +366,7 @@
     { mark: 'triangle', text: 'fails 6–7 of 8' },
     { mark: 'diamond', text: 'all tasks' },
     { mark: 'darker', text: 'later in training' },
-    { mark: 'dot', text: 'a control off, a fixed set or another cadence, a teacher’s answers, or another failure count', title: 'a minor departure from the default recipe (RL on the tasks it fails 1–2 of 8, every task eligible and re-drawn every 25 steps, H and KL on): a control off, a fixed set or another cadence, a teacher’s answers, or a failure count outside the four shapes; the row says which; a teacher’s answers give the dot the teacher’s colour' },
+    { mark: 'dot', text: 'a control off, the set fixed or another cadence, a teacher’s answers, or another failure count', title: 'a minor departure from the default recipe (RL on the tasks it fails 1–2 of 8, every task eligible and re-drawn every 25 steps, H and KL on): a control off, the set fixed or another cadence, a teacher’s answers, or a failure count outside the four shapes; the row says which; a teacher’s answers give the dot the teacher’s colour' },
     { mark: 'open', text: 'thinking' }
   ];
   Kit.runMarksKey = function (opts) {
