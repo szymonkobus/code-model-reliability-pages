@@ -526,16 +526,6 @@ function boot() {
 
   readCkpts();   
   var row = Kit.filterRow('#controls');   
-  row.style.alignItems = 'flex-start';   
-  function controlGroup() {   
-    var g = document.createElement('span'); g.className = 'ctl-group'; g.style.display = 'inline-flex'; g.style.flexDirection = 'column'; g.style.alignItems = 'flex-start'; g.style.rowGap = '.25rem'; g.style.maxWidth = '100%';
-    row.appendChild(g); return g;
-  }
-  function controlNote(key, sentence) {   
-    var n = document.createElement('span'); n.className = 'kit-switch-note'; n.setAttribute('role', 'note'); n.dataset.controlNote = key;
-    n.style.display = 'block'; n.style.width = '0'; n.style.minWidth = '100%'; n.style.fontSize = '.74rem'; n.style.lineHeight = '1.35'; n.style.color = 'var(--ink-2, #52514e)'; n.style.opacity = '.85';
-    n.textContent = sentence; return n;
-  }
   var shownRow = Kit.filterRow('#shown');   
   
   
@@ -658,8 +648,7 @@ function boot() {
     var tip = 'models with attempts on fewer than 90% of the dataset\'s tasks' + (pa.length ? ' — ' + pa.length + ' here, named in the notes below the chart' : '');
     partialCtl.element.title = tip;
   })();
-  var defMount = controlGroup();
-  defCtl = Kit.switchControl({ mount: defMount, key: 'def', label: 'Definition',
+  defCtl = Kit.switchControl({ mount: row, key: 'def', label: 'Definition',   
     options: [{ value: 'average', label: 'Average rate' },
               { value: 'median', label: 'Median task' }],
     dflt: 'average',
@@ -668,19 +657,16 @@ function boot() {
       if (srcMount) buildSrcSwitch();   
       if (ready && !coercing) { if (v === 'median' && !D.med && D.medUrl) ensureMed().then(function () { render(); }); else render(); }   
     } });
-  defMount.appendChild(controlNote('def', "How each curve is built from its tasks: the tasks' average failure rate at each difficulty, or the median task's."));   
   srcMount = document.createElement('span');
   row.appendChild(srcMount);
   buildSrcSwitch();
   medAvailability();   
-  var curveMount = controlGroup();
-  curveCtl = Kit.switchControl({ mount: curveMount, key: 'curve', label: 'View',   
+  curveCtl = Kit.switchControl({ mount: row, key: 'curve', label: 'View',   
     options: [{ value: 'rate', label: 'Median failure rate' },
               { value: 'difficulty', label: 'Median difficulty' }],   
     dflt: 'rate',
     onchange: function (v) { state.curve = v; DRAW_LEVELS = (v === 'difficulty'); if (!ready || coercing) return; if (DRAW_LEVELS && D.levels == null && D.levelsUrl) ensureLevels().then(function () { render(); }); else render(); } });
   curveCtl.element.title = 'at each difficulty the median of the draws\' failure rates, or at each failure-rate level the median of the draws\' crossings, through the printed D50 and D99';
-  curveMount.appendChild(controlNote('curve', "What the line is: at each difficulty the middle failure rate over the fit's draws, or at each failure rate the middle difficulty, through the printed D50 and D99."));   
   state.curve = DRAW_LEVELS ? 'difficulty' : 'rate';   
   bandCtl = Kit.switchControl({ mount: row, key: 'band', label: 'Uncertainty bands',
     options: [{ value: 'off', label: 'Off' },
