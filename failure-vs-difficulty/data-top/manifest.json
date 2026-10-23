@@ -1,9 +1,9 @@
 {
- "fingerprint": "a3be0653b8ef",
+ "fingerprint": "ff2420881c57",
  "fingerprint_inputs": {
-  "content": "2b5c4c6ceeee",
+  "content": "9fa7cf3345d6",
   "wave": "pool-20260910T2244Z",
-  "body": "715f7f2f1dab"
+  "body": "dd85f22c811b"
  },
  "frame": {
   "dataset": "top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 71,
   "tasks": 858,
   "keep_set_hash": "532d0efad8a5",
-  "inputs_content_sha": "2b5c4c6ceeee",
+  "inputs_content_sha": "9fa7cf3345d6",
   "tasks_on_axis": 858,
   "tasks_kept": 858,
   "tasks_awaiting_axis": 0,
@@ -34,18 +34,18 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "7f1b836562c1",
+  "runs_fingerprint": "a516510012e4",
   "axis_wave": "pool-20260910T2244Z",
   "build_date": "2026-10-23",
-  "stamp": "2026-10-23T19:50:42Z",
+  "stamp": "2026-10-23T22:21:32Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
   "census_wave1_cells_by_arm": null,
   "refusals_struck": {
    "rule": "a refused answer is neither a failure nor a success: the refused attempts leave the cell by identity and the written answers with their passes stand as the cell; a task with nothing written leaves the cells as it leaves the fit",
-   "index_sha16": "6db11556baa9b3bd",
-   "index_written_at": "2026-10-23T15:50:04Z",
+   "index_sha16": "0fefdc49194b978f",
+   "index_written_at": "2026-10-23T20:50:08Z",
    "index_path": "runs/judge/knowledge/refused_answers_index_of_record.json",
    "by_config": {
     "claude-fable-5-1-thinking_live": {
@@ -73,22 +73,22 @@
      "refused_attempts": 1025,
      "whole_cells": 3
     },
+    "gemini-4-argon_batch": {
+     "tasks": 1,
+     "refused_attempts": 1,
+     "whole_cells": 0
+    },
     "muse-wonder-1.0_meta": {
      "tasks": 2,
      "refused_attempts": 2,
      "whole_cells": 0
     }
    },
-   "held_as_drawn": {
-    "gemini-4-argon_batch": {
-     "cells": 1,
-     "example": "ccplus/279_D: 32 attempts, 24 passes; the index None attempts, None passes, written None"
-    }
-   }
+   "held_as_drawn": null
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-23T19:36:55Z",
+   "unified_built_at": "2026-10-23T22:18:09Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.top.csv"
@@ -239,7 +239,7 @@
     "of": 858
    },
    "moonshotai/Kimi-Dev-72B": {
-    "tasks": 846,
+    "tasks": 858,
     "of": 858
    },
    "moonshotai/Kimi-K2-Instruct": {
@@ -1023,7 +1023,7 @@
    "named_here": false,
    "source": {
     "register": "research/training/post-training-lead/names_of_record.json",
-    "sha12": "4e5cd2b3c301",
+    "sha12": "e29db1dbe9e9",
     "built_at": "2026-10-19T11:12:52Z",
     "state_word": "stopped"
    }
@@ -1039,7 +1039,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-23T19:27:38Z",
+   "_stamp": "2026-10-23T21:25:43Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1204,20 +1204,20 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-23T17:26:18Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261023T172618Z.json",
-   "sha16": "0731eca5b2775f68",
-   "census_mtime": "2026-10-23T17:28:44Z",
+   "stamp": "2026-10-23T20:20:38Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261023T202038Z.json",
+   "sha16": "1024105bccb45db4",
+   "census_mtime": "2026-10-23T20:22:24Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.a3be0653b8ef.json",
-  "chain_average": "chain_average.a3be0653b8ef.json",
-  "chain_median": "chain_median.a3be0653b8ef.json",
-  "dots": "dots.a3be0653b8ef.json",
-  "levels": "levels.a3be0653b8ef.json"
+  "shared": "shared.ff2420881c57.json",
+  "chain_average": "chain_average.ff2420881c57.json",
+  "chain_median": "chain_median.ff2420881c57.json",
+  "dots": "dots.ff2420881c57.json",
+  "levels": "levels.ff2420881c57.json"
  }
 }
