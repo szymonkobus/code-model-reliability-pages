@@ -1252,6 +1252,13 @@ function dName(axis) {
   return 'D' + fmtLev(100 - lev);
 }
 function fmtLev(v) { return String(+(+v).toFixed(2)); }
+function hoverLabel(axis) {   
+  if (axis === 'y' && SPAN && state.yq === 'ent') return 'Average outcome entropy';
+  if (axis === 'y' && SPAN) { var enn = spanEndNames(); return enn[1] + ' \u2212 ' + enn[0]; }
+  if (axis === 'x' && isCap()) return 'Capability C';
+  var lev = axis === 'x' ? +state.a : +state.c;
+  return (axis === 'x' ? 'Capability D' : 'Reliability D') + (100 - lev);
+}
 function axisName(axis) {
   if (axis === 'y' && SPAN && state.yq === 'ent') return 'Average outcome entropy: the Shannon entropy of the fitted failure rate, \u2212p ln p \u2212 (1 \u2212 p) ln(1 \u2212 p) in nats, integrated over the logit difficulty axis with the ' + edWord() + ' prior\u2019s density on the logit space as the weight (Uniform \u03c3(1 \u2212 \u03c3), Jeffreys \u221a(\u03c3(1 \u2212 \u03c3)), Haldane flat), over the difficulty scale 0 to 100%';
   if (axis === 'y' && SPAN) { var enn = spanEndNames(); return enn[1] + ' \u2212 ' + enn[0] + ': ' + (state.ys === 'raw' ? 'the distance in percentage points of the difficulty scale (0 to 100%) between the ' + fmtLev(state.c) + '% failure crossing (' + enn[0] + ') and the ' + fmtLev(state.u) + '% crossing (' + enn[1] + ')' : 'the difficulty span from the ' + fmtLev(state.c) + '% failure crossing (' + enn[0] + ') to the ' + fmtLev(state.u) + '% crossing (' + enn[1] + '), in logit units of the scale'); }
@@ -1491,6 +1498,7 @@ function renderScatter() {
     return lo ? MT + PH + Math.min(7, MB - DR - 1) : MT - Math.min(7, MT - DR - 1);
   }
   var moves = '', moveN = 0; D.moves = {};   
+  window.cvrMoves = D.moves;   
   visible.forEach(function (i) {
     var c = D.shared.configs[i];
     var part = isPartial(i), col = part ? '#8b8477' : c.color;   
@@ -2069,17 +2077,10 @@ function hoverWire() {
       var v = state.ys === 'raw' ? r.share.toFixed(1) + ' percentage points of the difficulty scale' : r.span.toFixed(2) + ' logit units' + (r.spanLo != null && r.spanHi != null ? ' [' + r.spanLo.toFixed(2) + ', ' + r.spanHi.toFixed(2) + ']' : '');
       return (r.kind === 'point' ? '' : '\u2265 ') + v;
     }
-    var fl = armFlag(i), fe = D.shared.fit_excluded && D.shared.fit_excluded[c.id];
-    var cf = D.bay && D.bay.disclosures && D.bay.disclosures.cut_flag && D.bay.disclosures.cut_flag[c.id];   
-    Kit.tooltip.show(ev.clientX, ev.clientY, [
-      { key: c.gates_failed ? '#b3261e' : c.color, value: fmt(rx), label: axisName('x') + (c.gates_failed ? ' \u00b7 flagged fit: ' + (c.gate_flag || 'the fit failed a sampler gate') : '') },
-      { key: c.color, value: SPAN ? fmtSpan(ry) : fmt(ry), label: axisName('y') },
-      { key: null, value: '', label: rx.extra },
-      { key: null, value: '', label: ry.extra === rx.extra ? '' : ry.extra },
-    ].concat(secondReadingLine(c)).concat(bandNoteLines(c)).concat(D.moves && D.moves[c.id] ? [{ key: '#8b8477', value: 'moved', label: 'from ' + prevFitName() + ': x ' + D.moves[c.id].dx + ', y ' + D.moves[c.id].dy + ' (percent of the scale)' }] : []).concat(coverageText(c) ? [{ key: null, value: isPartial(i) ? 'partial' : '', label: coverageText(c) }] : []).concat(armNote(c) ? [{ key: '#8b8477', value: 'note', label: armNote(c) }] : []).concat(cf ? [{ key: '#8b8477', value: 'cut flag', label: cf }] : []).concat(fl ? [{ key: '#b3261e', value: '\u2020 non-quotable',
-      label: fl.reason + ' \u2014 ends ' + fl.until
-        + ' (spec 2026-09-02a)' }] : []).concat(fe ? [{ key: '#8b8477', value: 'out of the fit population',
-      label: (fe.short || 'protocol defect under correction') + (fe.reversible_when ? ' \u2014 reversible when ' + fe.reversible_when : '') + ' (Definitions decision 2026-09-03: drawn greyed, out of the drawn fit and the difficulty axis)' }] : []), c.label);
+    Kit.tooltip.show(ev.clientX, ev.clientY, [   
+      { key: c.color, value: fmt(rx), label: hoverLabel('x') },
+      { key: c.color, value: SPAN ? fmtSpan(ry) : fmt(ry), label: hoverLabel('y') },
+    ], c.label);
   }
   box.addEventListener('pointermove', showFor);
   box.addEventListener('pointerdown', showFor);
