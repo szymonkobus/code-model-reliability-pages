@@ -1,9 +1,9 @@
 {
- "fingerprint": "5a6ab7047747",
+ "fingerprint": "129a5db105a3",
  "fingerprint_inputs": {
   "content": "18f59866b0c3",
   "wave": "unified-live",
-  "body": "a1aa3b75ba8b"
+  "body": "cedfdf0996b7"
  },
  "frame": {
   "dataset": "all",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "83d31860a028",
   "axis_wave": "unified-live",
   "build_date": "2026-10-23",
-  "stamp": "2026-10-23T12:57:11Z",
+  "stamp": "2026-10-23T14:05:07Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -175,7 +175,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-23T12:24:19Z",
+   "unified_built_at": "2026-10-23T13:36:55Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -484,13 +484,9 @@
   },
   "one_answer": {
    "arms": [
-    "claude-fable-5-1-thinking",
-    "claude-opus-5-5-thinking",
     "gemini-4-argon_gemini"
    ],
    "labels": {
-    "claude-fable-5-1-thinking": "Fable 5.1 (thinking)",
-    "claude-opus-5-5-thinking": "Opus 5.5 (thinking)",
     "gemini-4-argon_gemini": "Gemini 4 Argon (thinking)"
    }
   },
@@ -1124,7 +1120,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-23T12:26:12Z",
+   "_stamp": "2026-10-23T13:28:57Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1299,10 +1295,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.5a6ab7047747.json",
-  "chain_average": "chain_average.5a6ab7047747.json",
-  "chain_median": "chain_median.5a6ab7047747.json",
-  "dots": "dots.5a6ab7047747.json",
-  "levels": "levels.5a6ab7047747.json"
+  "shared": "shared.129a5db105a3.json",
+  "chain_average": "chain_average.129a5db105a3.json",
+  "chain_median": "chain_median.129a5db105a3.json",
+  "dots": "dots.129a5db105a3.json",
+  "levels": "levels.129a5db105a3.json"
  }
 }

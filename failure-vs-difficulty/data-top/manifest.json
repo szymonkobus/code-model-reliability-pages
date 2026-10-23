@@ -1,9 +1,9 @@
 {
- "fingerprint": "6398da5c6438",
+ "fingerprint": "041749d465ae",
  "fingerprint_inputs": {
   "content": "f4145659b56f",
   "wave": "pool-20260910T2244Z",
-  "body": "2194d2bf0161"
+  "body": "6fbba67082bd"
  },
  "frame": {
   "dataset": "top",
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "f5ae867c94f6",
+  "runs_fingerprint": "83d31860a028",
   "axis_wave": "pool-20260910T2244Z",
   "build_date": "2026-10-23",
-  "stamp": "2026-10-23T12:18:31Z",
+  "stamp": "2026-10-23T14:26:16Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -83,7 +83,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-23T10:37:45Z",
+   "unified_built_at": "2026-10-23T13:36:55Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.top.csv"
@@ -380,13 +380,9 @@
   },
   "one_answer": {
    "arms": [
-    "claude-fable-5-1-thinking",
-    "claude-opus-5-5-thinking",
     "gemini-4-argon_gemini"
    ],
    "labels": {
-    "claude-fable-5-1-thinking": "Fable 5.1 (thinking)",
-    "claude-opus-5-5-thinking": "Opus 5.5 (thinking)",
     "gemini-4-argon_gemini": "Gemini 4 Argon (thinking)"
    }
   },
@@ -1032,7 +1028,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-23T11:29:45Z",
+   "_stamp": "2026-10-23T14:27:43Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1197,20 +1193,20 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-23T08:42:37Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261023T084237Z.json",
-   "sha16": "2db0755b80e68d73",
-   "census_mtime": "2026-10-23T08:44:31Z",
+   "stamp": "2026-10-23T11:20:51Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261023T112051Z.json",
+   "sha16": "ac004eb7c1b36d0a",
+   "census_mtime": "2026-10-23T11:22:41Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.6398da5c6438.json",
-  "chain_average": "chain_average.6398da5c6438.json",
-  "chain_median": "chain_median.6398da5c6438.json",
-  "dots": "dots.6398da5c6438.json",
-  "levels": "levels.6398da5c6438.json"
+  "shared": "shared.041749d465ae.json",
+  "chain_average": "chain_average.041749d465ae.json",
+  "chain_median": "chain_median.041749d465ae.json",
+  "dots": "dots.041749d465ae.json",
+  "levels": "levels.041749d465ae.json"
  }
 }
