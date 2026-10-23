@@ -1317,28 +1317,19 @@ function levelTrack() {
   return '<g id="lvltrack">'
     + '<line x1="' + TRK.x0 + '" y1="' + TRK.y + '" x2="' + TRK.x1
     + '" y2="' + TRK.y + '" stroke="#cfc5ac" stroke-width="2"/>'
-    + '<text x="' + (TRK.x0 - 6) + '" y="' + (TRK.y + 4)
-    + '" text-anchor="end" font-size="' + FT + '" fill="#8b8477">levels'
-    + '</text>'
-    + '<circle data-handle="c" class="handle" cx="' + xc + '" cy="'
+    
+    + '<circle data-handle="c" class="handle" role="slider" aria-label="vertical level" aria-valuenow="' + state.c + '" cx="' + xc + '" cy="'
     + TRK.y + '" r="' + (NARROW ? 16 : 12) + '" fill="transparent"/>'
     + '<circle class="knob" data-knob="c" pointer-events="none" cx="' + xc
     + '" cy="' + TRK.y + '" r="5" fill="#fcfaf3" stroke="' + ink
     + '" stroke-width="1.6"/>' + (held('c') ? heldRing('c', xc, ink) : '')
-    + '<text data-handle="c" class="handle" x="' + xc + '" y="' + (TRK.y - 6)
-    + '" text-anchor="middle" font-size="' + FT + '" fill="' + ink + '">y '
-    + state.c + '%</text>'
     + (isCap()
-      ? '<text x="' + (TRK.x0 + 6) + '" y="' + (TRK.y + 6 + Math.ceil(FT * 0.9)) + '" font-size="' + FT + '" fill="#8b8477">' + (NARROW ? 'no horizontal level (level-free view)' : 'no horizontal level (the Capability view is level-free)') + '</text>'   
-      : '<circle data-handle="a" class="handle" cx="' + xa + '" cy="'
+      ? ''   
+      : '<circle data-handle="a" class="handle" role="slider" aria-label="horizontal level" aria-valuenow="' + state.a + '" cx="' + xa + '" cy="'
     + TRK.y + '" r="' + (NARROW ? 16 : 12) + '" fill="transparent"/>'
     + '<circle class="knob" data-knob="a" pointer-events="none" cx="' + xa
-    + '" cy="' + TRK.y + '" r="5" fill="#fcfaf3" stroke="' + ink + '" stroke-width="1.6"/>' + (held('a') ? heldRing('a', xa, ink) : '')
-    + '<text data-handle="a" class="handle" x="' + xa + '" y="' + (TRK.y + 6 + Math.ceil(FT * 0.9))
-    + '" text-anchor="middle" font-size="' + FT + '" fill="' + ink + '">x '
-    + state.a + '%</text>') + '</g>';
+    + '" cy="' + TRK.y + '" r="5" fill="#fcfaf3" stroke="' + ink + '" stroke-width="1.6"/>' + (held('a') ? heldRing('a', xa, ink) : '')) + '</g>';
 }
-
 
 
 
@@ -1357,14 +1348,7 @@ function updateTrack() {
   tg.querySelectorAll('[data-handle], [data-knob], [data-ring]').forEach(function (el) {
     var key = el.dataset.handle || el.dataset.knob || el.dataset.ring;
     el.setAttribute('cx', key === 'a' ? xa : xc);
-  });
-  tg.querySelectorAll('text').forEach(function (t) {
-    var txt = t.textContent;
-    if (txt.charAt(0) === 'y' && txt.indexOf('%') > 0) {
-      t.setAttribute('x', xc); t.textContent = 'y ' + state.c + '%';
-    } else if (txt.charAt(0) === 'x' && txt.indexOf('%') > 0) {
-      t.setAttribute('x', xa); t.textContent = 'x ' + state.a + '%';
-    }
+    if (el.dataset.handle) el.setAttribute('aria-valuenow', key === 'a' ? state.a : state.c);   
   });
 }
 
@@ -1754,11 +1738,11 @@ function renderScatter() {
     + '<text x="' + tyx + '" y="' + (MT + PH / 2) + '" text-anchor="middle" '
     + 'fill="#52514e" font-size="' + tfsY + '"' + (EXPORTING && !PANEL ? ' font-weight="700"' : '') + ' transform="rotate(-90 ' + tyx + ' '
     + (MT + PH / 2) + ')" data-role="axis-title" data-chain-val="def src">' + ytt + '</text>';
-  if (moveN) out += '<text x="' + (ML + 8) + '" y="' + (MT + PH - 8) + '" font-size="' + (NARROW ? 12 : 11) + '" fill="#52514e" data-chain-val="src move">arrows: moves from ' + prevFitName() + '</text>';
+  
   var pid = PANEL ? '-p' + PANEL.idx : '';   
   var body = (moveN ? '<g id="moves' + pid + '">' + moves + '</g>' : '') + '<g id="marks' + pid + '">' + marks + '</g>';
   if (PANEL) { out += '<text x="' + (ML + PW - 4) + '" y="' + (MT + 11) + '" text-anchor="end" font-size="' + (EXPORTING ? PANEL_EXPORT_TICK_PX : FT) + '" fill="#52514e" data-count>n = ' + drawnN + '</text>'; PANEL.drawn = drawnN; }
-  else if (EXPORTING) out += '<text x="' + (ML + PW - 6) + '" y="' + (MT + PH - 10) + '" text-anchor="end" font-size="' + EXPORT_TICK_PX + '" fill="#52514e" data-count>n = ' + drawnN + '</text>';   
+  else if (EXPORTING || state.view !== 'ridges') out += '<text x="' + (ML + PW - 6) + '" y="' + (MT + PH - 10) + '" text-anchor="end" font-size="' + (EXPORTING ? EXPORT_TICK_PX : FT) + '" fill="#52514e" data-count>n = ' + drawnN + '</text>';   
   (PANEL ? PANEL.g : document.getElementById('plotg')).innerHTML = out + (EXPORTING ? '<g clip-path="url(#expclip' + (PANEL ? '-p' + PANEL.idx : '') + ')">' + body + '</g>' : body);
   if (END_LABELS) runEndLabels(drawnArms, pid);   
   fireDrawn(drawnArms, la, lc);   

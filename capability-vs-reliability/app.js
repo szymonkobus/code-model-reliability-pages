@@ -340,10 +340,7 @@ function boot() {
   var mvSw = document.querySelector('#chartcontrols .kit-switch[data-key="move"]'); if (mvSw) sb.appendChild(mvSw);
   
   
-  var sn = document.createElement('p'); sn.id = 'spacenote'; sn.style.cssText = 'font-size:.85rem;color:#52514e;margin:.4rem 0 0;max-width:80ch';
   
-  sn.textContent = 'Straight scale by definition: ' + CAP_KEYS.capC_z.name() + ' \u2014 linear; ' + CAP_KEYS.capC.name() + ', ' + CAP_KEYS.capC_j.name() + ' and ' + dName('x') + ' \u2014 logit.';
-  sb.appendChild(sn);
 
   buildLevels();
   state.xdef = Kit.state.get('xdef', 'crossing'); if (/^D\d+$/.test(state.xdef)) state.xdef = 'crossing';   
@@ -785,6 +782,7 @@ function fitCaption(fit, n) {
   el.textContent = 'Both axes are positions on the difficulty scale. A task’s position is its failure rate averaged over the models that shape the scale (one vote per model), smoothed toward one half by the Jeffreys step on the total attempts, placed on the scale by its odds: one step on the scale multiplies the odds of failure by about 2.7, and positions print as shares (a difficulty of 70% is a task those models fail on 70% of their attempts on average). '
     + xn + ' is the difficulty at which a model’s fitted failure curve crosses ' + xl + ', ' + yn + ' the difficulty at which the same curve crosses ' + yl + '. A straight line is fitted through the models in scale steps ' + drawnTxt + ' (ordinary least squares, every dot equal; equal axes): it gives ' + yn + ' as an intercept a plus a slope b times ' + xn + '. The slope b is how many steps ' + yn + ' moves for each step of ' + xn + ' across models; with b near one the intercept a is a constant gap: every model’s ' + yn + ' sits a steps below its ' + xn + ' (the size of a), the same gap for every model, and the odds of failure at the ' + yn + ' position are e to the power a times those at the ' + xn + ' position. With b away from one the gap changes by (b − 1) steps per step of ' + xn + ', so the intercept alone is the gap at the scale’s 50% mark. '
     + 'A crossing that lies beyond the scale\u2019s end is drawn as an open chevron at the end, pointing to the side it lies beyond, with its band, and is kept out of the fitted line. '
+    + 'The line runs straight on the Normal scale for ' + CAP_KEYS.capC_z.name() + ' and on the Logit scale for ' + CAP_KEYS.capC.name() + ', ' + CAP_KEYS.capC_j.name() + ' and ' + dName('x') + '. '   
     + 'Today: slope ' + b.toFixed(2) + ' [' + fit.lo.toFixed(2) + ', ' + fit.hi.toFixed(2) + '], intercept ' + a.toFixed(2) + aRange + ' steps (e to the power ' + a.toFixed(2) + ', about ' + eaTxt + '), R ' + fit.r.toFixed(2) + ', ' + n + ' models on ' + set + '.';
 }
 function headline(nFit, fit, nFull, sweeping) {

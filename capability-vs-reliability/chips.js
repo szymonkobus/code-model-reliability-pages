@@ -3,26 +3,60 @@
 'use strict';
 
 function refreshPartialChips() {   
+  
+  
   chips.forEach(function (b) { var i = +b.dataset.idx, c = D.shared.configs[i]; if (!c) return;
-    var words = [];   
-    if (c.think) words.push('thinking mode \u2014 open marker on the chart');
-    if (typeof c.single_form_note === 'string' && c.single_form_note.trim()) words.push(c.single_form_note.trim());   
-    if (c.run) { var Rw = runOf(i) || RUN; words.push(c.shared_page_label || c.display_name || (Rw ? Rw.name + ' \u2014 ' : '') + c.label); }   
-    if (c.alongside) words.push('positioned on the served axis, not shaping it \u2014 its fit from the ' + c.alongside + ' series, read alongside the board fit set');   
-    if (c.provisional) words.push(c.provisional_note || 'provisional position: a fast estimate; the full fit replaces it');
-    if (c.gates_failed) words.push('flagged fit: ' + (c.gate_flag || 'the fit failed a sampler gate'));   
-    var base = words.join(' \u00b7 ');
-    if (isWithheld(i)) { b.disabled = true; b.setAttribute('aria-disabled', 'true'); b.classList.add('partial'); b.classList.remove('partialshown'); b.title = capTitle('not shown: ' + WITHHELD[c.id]); return; }
+    b.title = '';
+    if (isWithheld(i)) { b.disabled = true; b.setAttribute('aria-disabled', 'true'); b.classList.add('partial'); b.classList.remove('partialshown'); return; }
     if (isPartial(i)) {
-      if (partialShown()) { b.disabled = false; b.removeAttribute('aria-disabled'); b.classList.remove('partial'); b.classList.add('partialshown'); b.title = capTitle((base ? base + ' \u00b7 ' : '') + 'partial model, shown greyed'); }
-      else { b.disabled = true; b.setAttribute('aria-disabled', 'true'); b.classList.add('partial'); b.classList.remove('partialshown'); b.title = capTitle('partial model, hidden; the Partial models switch shows it'); }
-    } else if (base) { b.title = capTitle(base); } else { b.title = ''; }
+      if (partialShown()) { b.disabled = false; b.removeAttribute('aria-disabled'); b.classList.remove('partial'); b.classList.add('partialshown'); }
+      else { b.disabled = true; b.setAttribute('aria-disabled', 'true'); b.classList.add('partial'); b.classList.remove('partialshown'); }
+    }
   });
+  writeModelStates();
+}
+
+function writeModelStates() {   
+  var fold = document.getElementById('statefold'), el = document.getElementById('modelstates'); if (!fold || !el || !D.shared) return;
+  var byIdx = {}; chips.forEach(function (b) { byIdx[+b.dataset.idx] = b; });
+  var name = function (i) { var c = D.shared.configs[i]; return c.run ? (c.shared_page_label || c.display_name || c.label) : c.label; };
+  var lines = [], groups = { partialHidden: [], partialShown: [], withheld: [], nofit: [], runNofit: [], flagged: [], provisional: [], alongside: [], beyond: [], single: [] };
+  var B = {}; (typeof beyondArms !== 'undefined' ? beyondArms : []).forEach(function (i) { B[i] = true; });
+  D.shared.configs.forEach(function (c, i) {
+    var b = byIdx[i]; if (!b) return;
+    if (isWithheld(i)) groups.withheld.push(name(i) + (WITHHELD[c.id] ? ' (' + WITHHELD[c.id] + ')' : ''));
+    else if (isPartial(i)) (partialShown() ? groups.partialShown : groups.partialHidden).push(name(i));
+    if (b.dataset.nofit) (isRun(i) && state.src !== 'bayes' ? groups.runNofit : groups.nofit).push(name(i));
+    if (c.gates_failed) groups.flagged.push({ n: name(i), g: c.gate_flag || 'the fit did not pass its own check' });   
+    if (c.provisional) groups.provisional.push(name(i) + (c.provisional_note ? ' — ' + c.provisional_note : ''));
+    if (c.alongside) groups.alongside.push(name(i) + (String(c.alongside) === name(i) ? '' : ' — its fit from the ' + c.alongside + ' series'));
+    if (B[i]) groups.beyond.push(name(i));
+    if (typeof c.single_form_note === 'string' && c.single_form_note.trim()) groups.single.push(name(i) + ' — ' + c.single_form_note.trim().replace(/\.+$/, ''));
+  });
+  var seen = {}; var uniq = function (arr) { return arr.filter(function (x) { if (seen[x]) return false; seen[x] = true; return true; }); };
+  if (groups.partialHidden.length) lines.push('Partial models (attempts on under 90% of the set’s tasks), hidden; the Partial models switch shows them: ' + uniq(groups.partialHidden).join(', ') + '.');
+  seen = {}; if (groups.partialShown.length) lines.push('Partial models (attempts on under 90% of the set’s tasks), shown greyed and out of the fit: ' + uniq(groups.partialShown).join(', ') + '.');
+  seen = {}; if (groups.withheld.length) lines.push('Not shown: ' + uniq(groups.withheld).join('; ') + '.');
+  seen = {}; if (groups.nofit.length) lines.push('No Bayesian fit under this estimator (a dotted chip, no point): ' + uniq(groups.nofit).join(', ') + '.');
+  seen = {}; if (groups.runNofit.length) lines.push('A run’s checkpoints are Bayesian fits, not drawn under this estimator: ' + uniq(groups.runNofit).join(', ') + '.');
+  if (groups.flagged.length) {   
+    var fnames = [], fseen = {}, bySent = {}, order = [];
+    groups.flagged.forEach(function (f) { if (!fseen[f.n]) { fseen[f.n] = true; fnames.push(f.n); } var m = /^every attempt failed on (\d+)% of this model[’']s tasks(.*)$/.exec(f.g); var k = m ? 'PCT' + m[2] : f.g; if (!bySent[k]) { bySent[k] = { pcts: [], tail: m ? m[2] : null, text: f.g }; order.push(k); } if (m) bySent[k].pcts.push(+m[1]); });
+    var sents = order.map(function (k) { var e = bySent[k]; if (e.tail === null) return e.text; var lo = Math.min.apply(null, e.pcts), hi = Math.max.apply(null, e.pcts); return 'every attempt failed on ' + (lo === hi ? lo + '%' : lo + '–' + hi + '%') + ' of the model’s tasks' + e.tail; });
+    lines.push('Fits that did not pass their own checks (out of the fit): ' + fnames.join(', ') + ' — ' + sents.join(' ') + '.');
+  }
+  seen = {}; if (groups.provisional.length) lines.push('Provisional positions (a fast estimate the full fit replaces): ' + uniq(groups.provisional).join('; ') + '.');
+  seen = {}; if (groups.alongside.length) lines.push('Positioned on the served axis, not shaping it: ' + uniq(groups.alongside).join('; ') + '.');
+  seen = {}; if (groups.beyond.length) lines.push('Beyond the scale at these levels (an open chevron at the chart’s edge, out of the fit): ' + uniq(groups.beyond).join(', ') + '.');
+  seen = {}; if (groups.single.length) lines.push('Read in one mode: ' + uniq(groups.single).join('; ') + '.');
+  el.innerHTML = lines.map(function (t) { return '<span class="stateline">' + String(t).replace(/[&<>"]/g, function (ch) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]; }) + '</span>'; }).join('<br>');
+  fold.hidden = !lines.length;
 }
 
 function refreshBeyondChips() {   
   var B = {}; beyondArms.forEach(function (i) { B[i] = true; });
-  chips.forEach(function (b) { var i = +b.dataset.idx; if (B[i]) { b.dataset.beyondTitle = '1'; b.title = 'at the edge: its crossing lies beyond the hardest task at these levels'; } else if (b.dataset.beyondTitle) { b.classList.remove('beyond'); delete b.dataset.beyondTitle; b.title = ''; refreshPartialChips(); } });   
+  chips.forEach(function (b) { var i = +b.dataset.idx; if (B[i]) { b.dataset.beyondTitle = '1'; } else if (b.dataset.beyondTitle) { b.classList.remove('beyond'); delete b.dataset.beyondTitle; } });   
+  writeModelStates();   
 }
 
 function writeSel() {
@@ -234,7 +268,7 @@ function buildChips() {
   var isRunFam = function (f) { return f.members.length && isRun(f.members[0]); };
   fams.filter(function (f) { return !isRunFam(f); }).sort(function (p, q) { return famKey(p) - famKey(q); }).forEach(function (f) {   
     var nm = document.createElement('button');
-    nm.className = 'fam'; nm.style.color = D.shared.configs[f.members[0]].color; nm.textContent = famLabel(f.name); nm.title = 'select or clear every ' + famLabel(f.name) + ' model';
+    nm.className = 'fam'; nm.style.color = D.shared.configs[f.members[0]].color; nm.textContent = famLabel(f.name);   
     nm.onclick = function () {
       var anyOff = f.members.some(function (i) { return !sel.has(i) && (!isHidden(i)); });
       f.members.forEach(function (i) { if (anyOff) { if (!isHidden(i)) sel.add(i); } else sel.delete(i); });   
@@ -244,12 +278,12 @@ function buildChips() {
   });
   var makeChip = function (i) {
     var c = D.shared.configs[i], b = document.createElement('button');
-    b.className = 'chip'; if (c.think) { b.classList.add('think'); b.title = 'thinking mode \u2014 open marker on the chart'; }
+    b.className = 'chip'; if (c.think) { b.classList.add('think'); }   
     if (isPartial(i) || isWithheld(i)) b.classList.add('partial');
-    if (c.run) { var Rc = runOf(i) || RUN; b.classList.add('run'); b.title = (c.display_name || Rc.name + ' \u2014 ' + c.label); }
+    if (c.run) { b.classList.add('run'); }
     if (c.provisional) { b.classList.add('provisional'); }   
-    if (c.alongside) { b.title = capTitle((b.title ? b.title + ' \u00b7 ' : '') + 'positioned on the served axis, not shaping it \u2014 its fit from the ' + c.alongside + ' series, read alongside the board fit set'); }   
-    if (c.gates_failed) { b.classList.add('flagged'); var fg = document.createElement('span'); fg.className = 'flag'; fg.textContent = '\u2691'; fg.setAttribute('aria-label', 'flagged fit'); b.title = (b.title ? b.title + ' \u00b7 ' : '') + 'flagged fit: ' + (c.gate_flag || 'the fit failed a sampler gate'); b.appendChild(fg); }   
+    
+    if (c.gates_failed) { b.classList.add('flagged'); }   
     b.style.color = c.color; b.style.borderColor = c.color;
     b.insertBefore(document.createTextNode(c.label), b.firstChild); b.dataset.idx = i;
     b.onclick = function () { if (sel.has(i)) sel.delete(i); else sel.add(i); writeSel(); render(); };
@@ -264,11 +298,11 @@ function buildChips() {
     RUNS.forEach(function (R) {   
       if (!R.idx.length && !R.withheld.length) return;
       var line = document.createElement('div'); line.className = 'chips chips-run'; line.id = 'chips-run-' + R.key.replace(/[^a-z0-9]/gi, '-'); line.dataset.run = R.key; line.dataset.stateKey = R.stateKey;
-      var lab = document.createElement('span'); lab.className = 'runlabel'; lab.style.color = R.hue || (R.idx.length ? D.shared.configs[R.idx[0]].color : '#52514e'); lab.textContent = R.name; lab.title = R.clause; line.appendChild(lab);
+      var lab = document.createElement('span'); lab.className = 'runlabel'; lab.style.color = R.hue || (R.idx.length ? D.shared.configs[R.idx[0]].color : '#52514e'); lab.textContent = R.name; line.appendChild(lab);   
       if (R.idx.length) {
         var rAll = document.createElement('button'); rAll.className = 'util'; rAll.textContent = 'all'; rAll.onclick = function () { R.idx.forEach(function (i) { sel.add(i); }); writeSel(); render(); }; line.appendChild(rAll);
         var rNone = document.createElement('button'); rNone.className = 'util'; rNone.textContent = 'none'; rNone.onclick = function () { R.idx.forEach(function (i) { sel.delete(i); }); writeSel(); render(); }; line.appendChild(rNone);
-        R.idx.forEach(function (i) { var ch = makeChip(i); if (R.dual.indexOf(i) >= 0) { ch.classList.add('run'); ch.dataset.dual = '1'; var fl = ch.querySelector('.flag'); ch.textContent = (R.dualLabel || {})[i] || ch.textContent; if (fl) ch.appendChild(fl); ch.title = capTitle((D.shared.configs[i].display_name || D.shared.configs[i].label) + ' \u2014 a model of the all-models list, shown here as the run\u2019s final too'); } line.appendChild(ch); });
+        R.idx.forEach(function (i) { var ch = makeChip(i); if (R.dual.indexOf(i) >= 0) { ch.classList.add('run'); ch.dataset.dual = '1'; ch.textContent = (R.dualLabel || {})[i] || ch.textContent; } line.appendChild(ch); });   
       }
       
       line.hidden = !runOnPlane(R);
@@ -297,16 +331,17 @@ function runKeyHtml() {
   
   
   
-  var out = '<span data-row="bound" hidden title="' + (typeof capTitle === 'function' ? capTitle : String)('a crossing that lies beyond the scale\u2019s end is drawn as an open chevron at the end, pointing to the side it lies beyond, with its band, and is kept out of the fitted line') + '">' + svg('<path d="M2 10.5l5 -8l5 8" fill="none" stroke="' + ink + '" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>') + '<span>a crossing beyond the scale, on the side it points</span></span>';
-  if (typeof Kit.runMarksKey === 'function') out += Kit.runMarksKey().map(function (r) { return '<span data-row="' + r.mark + '" hidden' + (r.title ? ' title="' + (typeof capTitle === 'function' ? capTitle(String(r.title)) : String(r.title)).replace(/"/g, '&quot;') + '"' : '') + '>' + glyph(r.mark) + '<span>' + r.text + '</span></span>'; }).join('');   
+  var out = '<span data-row="bound" hidden>' + svg('<path d="M2 10.5l5 -8l5 8" fill="none" stroke="' + ink + '" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/>') + '<span>a crossing beyond the scale, on the side it points</span></span>';
+  if (typeof Kit.runMarksKey === 'function') out += Kit.runMarksKey().map(function (r) { return '<span data-row="' + r.mark + '" hidden>' + glyph(r.mark) + '<span>' + r.text + '</span></span>'; }).join('');   
+  out += '<span data-row="move" hidden>' + svg('<path d="M2 11l8 -8" fill="none" stroke="' + ink + '" stroke-width="1.4"/><path d="M6 3h4v4" fill="none" stroke="' + ink + '" stroke-width="1.4" stroke-linejoin="round"/>') + '<span>moved from the previous fit</span></span>';   
   return out;
 }
 function refreshRunKey() {   
   
   var keyEl = document.getElementById('runkey'); if (!keyEl) return;
-  var anyBound = !!document.querySelector('path[data-mark][data-shape="bound"]'), runsOn = runKeyWanted();   
-  keyEl.querySelectorAll(':scope > span').forEach(function (sp) { sp.hidden = sp.dataset.row === 'bound' ? !anyBound : !runsOn; });
-  keyEl.hidden = !(anyBound || runsOn);
+  var anyBound = !!document.querySelector('path[data-mark][data-shape="bound"]'), runsOn = runKeyWanted(), anyMove = !!document.querySelector('#moves line');   
+  keyEl.querySelectorAll(':scope > span').forEach(function (sp) { sp.hidden = sp.dataset.row === 'bound' ? !anyBound : sp.dataset.row === 'move' ? !anyMove : !runsOn; });
+  keyEl.hidden = !(anyBound || runsOn || anyMove);
 }
 function runKeyWanted() {   
   if (typeof runMarkOf !== 'function') return false;
@@ -334,10 +369,10 @@ function paintChips() {
     var nofit = (state.src === 'bayes' && !!D.bay && !D.bayById[cfgId]) || ((isRun(+b.dataset.idx) || !!(cfgC && cfgC.bayes_only)) && state.src !== 'bayes');   
     b.classList.toggle('nofit', nofit);
     var cfgC = D.shared.configs[+b.dataset.idx] || {};
-    if (nofit) { b.title = capTitle((isRun(+b.dataset.idx) && state.src !== 'bayes' ? 'a run\u2019s checkpoints are Bayesian fits \u2014 not drawn under the reference chain' : 'no Bayesian fit for this model \u2014 not drawn under the Bayesian estimator') + (cfgC.gates_failed ? ' \u00b7 flagged fit: ' + (cfgC.gate_flag || 'the fit failed a sampler gate') : '')); b.dataset.nofit = '1'; }   
-    else if (b.dataset.nofit) { b.title = ''; delete b.dataset.nofit; recompose = true; }
+    if (nofit) { b.dataset.nofit = '1'; }   
+    else if (b.dataset.nofit) { delete b.dataset.nofit; recompose = true; }
   });
-  if (recompose) refreshPartialChips();   
+  refreshPartialChips();   
 }
 
 
