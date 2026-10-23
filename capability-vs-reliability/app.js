@@ -337,6 +337,10 @@ function boot() {
     dflt: 'off',
     onchange: function (v) { state.resid = v === 'on' ? 'on' : 'off'; if (sel) render(); } });
   state.resid = Kit.state.get('resid', 'off') === 'on' ? 'on' : 'off';
+  if (window.PLANE_Y !== 'span') {   
+    Kit.switchControl({ mount: sb, key: 'zoom', label: CONTROL_WORDS.zoom.label, options: CONTROL_WORDS.onoff, dflt: 'off', onchange: function (v) { state.zoom = v === 'on' ? 'on' : 'off'; if (sel) render(); } });
+    state.zoom = Kit.state.get('zoom', 'off') === 'on' ? 'on' : 'off';
+  }
   var mvSw = document.querySelector('#chartcontrols .kit-switch[data-key="move"]'); if (mvSw) sb.appendChild(mvSw);
   
   

@@ -190,6 +190,7 @@ var CONTROL_WORDS = {
   xdef: { label: 'Capability axis', options: [{ value: 'crossing', label: 'D' }, { value: 'capC', label: 'Uniform' }, { value: 'capC_j', label: 'Jeffreys' }, { value: 'capC_z', label: 'Haldane' }] },
   onoff: [{ value: 'off', label: 'Off' }, { value: 'on', label: 'On' }],   
   kp: { label: 'K paths' }, lad: { label: 'K ladders' }, w: { label: 'Whiskers' }, resid: { label: 'Misses against the line' },
+  zoom: { label: 'Zoom into points' },   
   wd: { label: 'Whisker widths', options: [{ value: 'adj', label: 'Correlation-adjusted' }, { value: 'ind', label: 'Independence' }] },
   fitci: { label: 'Fit CI', options: [{ value: 'plain', label: '95%, dots exact' }, { value: 'honest', label: '80% with measurement error' }] },
   move: { label: 'Move from ' },   
@@ -1361,14 +1362,15 @@ function renderScatter() {
   chart.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
   if (SPAN && !PANEL) { if (state.yq !== 'ent' && (EXPORTING ? state.xs === state.ys : state.zoom !== 'fit')) chart.setAttribute('data-equal-scale', ''); else chart.removeAttribute('data-equal-scale'); }   
   var la = logit(state.a / 100), lc = logit(state.c / 100);
-  if (SPAN && !EXPORTING && !PANEL) {   
+  var zoomPts = !SPAN && state.zoom === 'on';   
+  if ((SPAN || zoomPts) && !EXPORTING && !PANEL) {   
     
     
     
     LIMX = null; LIMY = null;
     var pre = { x0: Infinity, x1: -Infinity, y0: Infinity, y1: -Infinity }, preAdd = function (ax, v) { if (v == null || !isFinite(v)) return; v = clampZ(v); if (ax === 'x') { if (v < pre.x0) pre.x0 = v; if (v > pre.x1) pre.x1 = v; } else { if (v < pre.y0) pre.y0 = v; if (v > pre.y1) pre.y1 = v; } };
     Array.from(sel).filter(function (i) { return !isHidden(i); }).forEach(function (i) {
-      var px = reading(i, la, 'x'), py = readingY(i);
+      var px = reading(i, la, 'x'), py = SPAN ? readingY(i) : reading(i, lc, 'y');
       if (px.z == null || py.z == null || px.unresolved || py.unresolved) return;
       preAdd('x', px.z); preAdd('y', py.z);
       if (state.w === 'on') { preAdd('x', px.lo); preAdd('x', px.hi); preAdd('y', py.lo); preAdd('y', py.hi); }
@@ -1376,7 +1378,7 @@ function renderScatter() {
     if (isFinite(pre.x0) && isFinite(pre.y0)) {
       var win = function (lo, hi, minW) { if (hi - lo < minW) { var m = (lo + hi) / 2; lo = m - minW / 2; hi = m + minW / 2; } var pd = (hi - lo) * 0.06; return [Math.max(LIM[0], lo - pd), Math.min(LIM[1], hi + pd)]; };
       var WX = win(pre.x0, pre.x1, 0.5), WY = win(pre.y0, pre.y1, state.yq === 'ent' ? 0.05 : 0.5);   
-      if (state.zoom !== 'fit' && state.yq !== 'ent') {   
+      if (!zoomPts && state.zoom !== 'fit' && state.yq !== 'ent') {   
         var ux = PW / (WX[1] - WX[0]), uy = PH / (WY[1] - WY[0]);
         var widen = function (B, want) { var m = (B[0] + B[1]) / 2, lo = m - want / 2, hi = m + want / 2; if (lo < LIM[0]) { hi += LIM[0] - lo; lo = LIM[0]; } if (hi > LIM[1]) { lo -= hi - LIM[1]; hi = LIM[1]; } return [Math.max(LIM[0], lo), Math.min(LIM[1], hi)]; };
         if (ux < uy) WY = widen(WY, PH / ux); else if (uy < ux) WX = widen(WX, PW / uy);
@@ -1390,7 +1392,7 @@ function renderScatter() {
   var dg = '', GX = LIMX || LIM, GY = LIMY || LIM, G0 = Math.max(GX[0], GY[0]), G1 = Math.min(GX[1], GY[1]);
   
   var zoomedExport = EXPORTING && LIMX && LIMY;
-  for (var t = 0; t <= 40 && G1 > G0 && !zoomedExport && !SPAN; t++) {
+  for (var t = 0; t <= 40 && G1 > G0 && !zoomedExport && !SPAN && !zoomPts; t++) {   
     var z = G0 + (G1 - G0) * t / 40;
     dg += (t ? 'L' : 'M') + sx(z).toFixed(1) + ' ' + sy(z).toFixed(1);
   }
