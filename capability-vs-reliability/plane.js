@@ -1255,7 +1255,7 @@ function fmtLev(v) { return String(+(+v).toFixed(2)); }
 function hoverLabel(axis) {   
   if (axis === 'y' && SPAN && state.yq === 'ent') return 'Average outcome entropy';
   if (axis === 'y' && SPAN) { var enn = spanEndNames(); return enn[1] + ' \u2212 ' + enn[0]; }
-  if (axis === 'x' && isCap()) return 'Capability C';
+  if (axis === 'x' && isCap()) return CAP_KEYS[state.xdef].name();   
   var lev = axis === 'x' ? +state.a : +state.c;
   return (axis === 'x' ? 'Capability D' : 'Reliability D') + (100 - lev);
 }

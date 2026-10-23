@@ -93,3 +93,4 @@ a { color:#0b57d0; }
 #armsbar .kit-switch { display:flex; flex-direction:column; align-items:flex-start; gap:.15rem; } #morecontrols .kit-filter-row { margin:.3rem 0; }
  
 .kit-switch[data-key="src"] { display:none; }    
+.kit-run-key > span[hidden] { display: none; }    

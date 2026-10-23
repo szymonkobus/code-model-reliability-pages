@@ -192,7 +192,7 @@ function drawPanel(key, panelEl, size) {
     var h = document.getElementById('headline'); if (h) h.textContent = PANELS.length + ' sets side by side: ' + axisShort('y') + ' against ' + axisShort('x') + ' on each set’s own difficulty axis; ' + total + ' points drawn.'; }
 }
 function exportPanels() {   
-  var live = PANELS.filter(function (c) { return !c.held; }), n = live.length, cols = Math.min(3, n), rows = Math.ceil(n / cols), pw = 900, gap = 24, th = 36;
+  var live = PANELS.filter(function (c) { return !c.held; }), n = live.length, cols = Math.min(3, n), rows = Math.ceil(n / cols), pw = 900, gap = 24, th = EXPORT_TITLE_PX + 16;   
   var hold = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); hold.style.position = 'absolute'; hold.style.left = '-99999px'; hold.setAttribute('width', pw); document.body.appendChild(hold);
   var drawn = [], ph = 0;
   EXPORTING = true;
@@ -204,7 +204,7 @@ function exportPanels() {
   var wrap = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); wrap.setAttribute('viewBox', '0 0 ' + W + ' ' + H); wrap.setAttribute('width', W); wrap.setAttribute('height', H); wrap.style.position = 'absolute'; wrap.style.left = '-99999px'; document.body.appendChild(wrap);
   var inner = '';
   drawn.forEach(function (d, i) { var x = (i % cols) * (pw + gap), y = Math.floor(i / cols) * (ph + th + gap);
-    inner += '<text x="' + (x + pw / 2) + '" y="' + (y + 26) + '" text-anchor="middle" font-size="' + EXPORT_TITLE_PX + '" font-weight="600" fill="#222">' + (DATASETS[d.c.key] ? String(DATASETS[d.c.key].label).replace(/\s*\([^)]*\)\s*$/, '') : d.c.key) + '</text>'
+    inner += '<text x="' + (x + pw / 2) + '" y="' + (y + EXPORT_TITLE_PX) + '" text-anchor="middle" font-size="' + EXPORT_TITLE_PX + '" font-weight="600" fill="#222">' + (DATASETS[d.c.key] ? String(DATASETS[d.c.key].label).replace(/\s*\([^)]*\)\s*$/, '') : d.c.key) + '</text>'
       + '<g transform="translate(' + x + ',' + (y + th) + ')">' + d.svg.innerHTML + '</g>'; });
   wrap.innerHTML = inner;
   var legend = [], seen = {};
