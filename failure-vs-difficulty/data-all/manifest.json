@@ -1,9 +1,9 @@
 {
- "fingerprint": "8536f1cc2d1b",
+ "fingerprint": "431da00e8905",
  "fingerprint_inputs": {
-  "content": "792aacf626aa",
+  "content": "edffe64865be",
   "wave": "unified-live",
-  "body": "7146041bf0cb"
+  "body": "5cd3ca38d999"
  },
  "frame": {
   "dataset": "all",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 74,
   "tasks": 2167,
   "keep_set_hash": "60ede5d24001",
-  "inputs_content_sha": "792aacf626aa",
+  "inputs_content_sha": "edffe64865be",
   "tasks_on_axis": 2167,
   "tasks_kept": 2167,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "adf5fbdbe198",
+  "runs_fingerprint": "7f1b836562c1",
   "axis_wave": "unified-live",
   "build_date": "2026-10-23",
-  "stamp": "2026-10-23T19:22:42Z",
+  "stamp": "2026-10-23T20:01:21Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -112,6 +112,8 @@
    "r1d7b-rl-f12-alltasks-ent-kl-step0091-Thinking": 430,
    "r1d7b-rl-f12-alltasks-ent-kl-step0100-Thinking": 430,
    "r1d7b-rl-f12-alltasks-ent-kl-step0150-Thinking": 430,
+   "r1d7b-rl-f12-alltasks-ent-kl-step0200-Thinking": 430,
+   "r1d7b-rl-f12-alltasks-ent-kl-step0250-Thinking": 430,
    "r1d7b-rl-f12-alltasks-kl-step0050-Thinking": 430,
    "r1d7b-rl-f12-alltasks-kl-step0100-Thinking": 430,
    "r1d7b-rl-f12-alltasks-kl-step0250-Thinking": 430,
@@ -179,7 +181,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-23T17:38:53Z",
+   "unified_built_at": "2026-10-23T19:36:55Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -338,7 +340,7 @@
     "of": 2167
    },
    "moonshotai/Kimi-Dev-72B": {
-    "tasks": 1431,
+    "tasks": 1452,
     "of": 2167
    },
    "moonshotai/Kimi-K2-Instruct": {
@@ -637,7 +639,7 @@
   "interim": "kernel fits on all results available at build; refit hourly as results land",
   "partial_attempts": null,
   "off_panel": {
-   "n_with_cells": 90,
+   "n_with_cells": 92,
    "arms": [
     {
      "id": "deepseek-coder-6.7b-rl-night1-step250",
@@ -920,6 +922,16 @@
      "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL \u00b7 150 steps"
     },
     {
+     "id": "r1d7b-rl-f12-alltasks-ent-kl-step0200-Thinking",
+     "arm_id": "r1d7b-rl-f12-alltasks-ent-kl-s200",
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL \u00b7 200 steps"
+    },
+    {
+     "id": "r1d7b-rl-f12-alltasks-ent-kl-step0250-Thinking",
+     "arm_id": "r1d7b-rl-f12-alltasks-ent-kl-s250",
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL \u00b7 250 steps"
+    },
+    {
      "id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
      "arm_id": "olmo3.1-7b-rlzc-s0050",
      "label": "Olmo 3.1 7B RL-Zero Code \u00b7 checkpoint 0"
@@ -1085,7 +1097,7 @@
    "unregistered": [],
    "in_side_block": [],
    "panel_conflicts": [],
-   "line": "79 study models with results are off the panel; the models with a fit appear in their own block"
+   "line": "81 study models with results are off the panel; the models with a fit appear in their own block"
   },
   "struck_runs": {
    "keys": [
@@ -1285,20 +1297,20 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-23T15:35:55Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261023T153555Z.json",
-   "sha16": "ed15faf51dbc3669",
-   "census_mtime": "2026-10-23T15:37:33Z",
+   "stamp": "2026-10-23T17:26:18Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261023T172618Z.json",
+   "sha16": "0731eca5b2775f68",
+   "census_mtime": "2026-10-23T17:28:44Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.8536f1cc2d1b.json",
-  "chain_average": "chain_average.8536f1cc2d1b.json",
-  "chain_median": "chain_median.8536f1cc2d1b.json",
-  "dots": "dots.8536f1cc2d1b.json",
-  "levels": "levels.8536f1cc2d1b.json"
+  "shared": "shared.431da00e8905.json",
+  "chain_average": "chain_average.431da00e8905.json",
+  "chain_median": "chain_median.431da00e8905.json",
+  "dots": "dots.431da00e8905.json",
+  "levels": "levels.431da00e8905.json"
  }
 }
