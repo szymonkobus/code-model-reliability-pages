@@ -1,9 +1,9 @@
 {
- "fingerprint": "b2cbc8f32473",
+ "fingerprint": "90b66a30485a",
  "fingerprint_inputs": {
   "content": "cd06528a4146",
   "wave": "cruxeval_o-live",
-  "body": "f751698bcd22"
+  "body": "aaeaa467fdb2"
  },
  "frame": {
   "dataset": "cruxeval_o",
@@ -30,15 +30,23 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ceaae2d92751",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "668bf6d2aa94",
+  "runs_fingerprint": "a73289d8b9bc",
   "axis_wave": "cruxeval_o-live",
-  "build_date": "2026-10-22",
-  "stamp": "2026-10-22T19:43:35Z",
+  "build_date": "2026-10-23",
+  "stamp": "2026-10-23T14:56:40Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
+  "refusals_struck": {
+   "rule": "a refused answer is neither a failure nor a success: the refused attempts leave the cell by identity and the written answers with their passes stand as the cell; a task with nothing written leaves the cells as it leaves the fit",
+   "index_sha16": "0b7dbe0c0958961b",
+   "index_written_at": "2026-10-23T11:02:26Z",
+   "index_path": "runs/judge/knowledge/refused_answers_index_of_record.json",
+   "by_config": null,
+   "held_as_drawn": null
+  },
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/cruxeval_o",
-   "unified_built_at": "2026-10-22T19:18:09Z",
+   "unified_built_at": "2026-10-23T13:08:05Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.cruxeval_o.csv"
@@ -278,12 +286,8 @@
    }
   },
   "one_answer": {
-   "arms": [
-    "claude-opus-5-thinking"
-   ],
-   "labels": {
-    "claude-opus-5-thinking": "Opus 5 (thinking)"
-   }
+   "arms": [],
+   "labels": {}
   },
   "scorer": "unified results: passes/n per configuration x task (board results under plus_status; pool results \u00a71b-valid), Definitions' unified frame",
   "estimators": "local-logistic trend with shipped bands (rho/deff), binned medians (15 bins) with bootstrap bands and crossings, raw running median; average-chain crossings read off the trend and its band (first upward crossing)",
@@ -481,7 +485,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-22T19:26:15Z",
+   "_stamp": "2026-10-23T14:27:43Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -646,10 +650,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-22T17:38:14Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261022T173814Z.json",
-   "sha16": "e4088bd8ca34928e",
-   "census_mtime": "2026-10-22T17:40:06Z",
+   "stamp": "2026-10-23T11:20:51Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261023T112051Z.json",
+   "sha16": "ac004eb7c1b36d0a",
+   "census_mtime": "2026-10-23T11:22:41Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
@@ -666,10 +670,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.b2cbc8f32473.json",
-  "chain_average": "chain_average.b2cbc8f32473.json",
-  "chain_median": "chain_median.b2cbc8f32473.json",
-  "dots": "dots.b2cbc8f32473.json",
-  "levels": "levels.b2cbc8f32473.json"
+  "shared": "shared.90b66a30485a.json",
+  "chain_average": "chain_average.90b66a30485a.json",
+  "chain_median": "chain_median.90b66a30485a.json",
+  "dots": "dots.90b66a30485a.json",
+  "levels": "levels.90b66a30485a.json"
  }
 }
