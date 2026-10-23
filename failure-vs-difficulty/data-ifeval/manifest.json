@@ -1,9 +1,9 @@
 {
- "fingerprint": "24c3e8c54e71",
+ "fingerprint": "add8d5bd74bc",
  "fingerprint_inputs": {
   "content": "f598763f0d98",
   "wave": "ifeval-live",
-  "body": "4fd273f2f5e9"
+  "body": "539c2e3b0b2e"
  },
  "frame": {
   "dataset": "ifeval",
@@ -30,15 +30,23 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "ea009d5c6cd1",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "668bf6d2aa94",
+  "runs_fingerprint": "ee93a9b036a3",
   "axis_wave": "ifeval-live",
-  "build_date": "2026-10-22",
-  "stamp": "2026-10-22T19:56:07Z",
+  "build_date": "2026-10-23",
+  "stamp": "2026-10-23T15:09:32Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
+  "refusals_struck": {
+   "rule": "a refused answer is neither a failure nor a success: the refused attempts leave the cell by identity and the written answers with their passes stand as the cell; a task with nothing written leaves the cells as it leaves the fit",
+   "index_sha16": "0b7dbe0c0958961b",
+   "index_written_at": "2026-10-23T11:02:26Z",
+   "index_path": "runs/judge/knowledge/refused_answers_index_of_record.json",
+   "by_config": null,
+   "held_as_drawn": null
+  },
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/ifeval",
-   "unified_built_at": "2026-10-22T19:18:09Z",
+   "unified_built_at": "2026-10-23T15:03:48Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.ifeval.csv"
@@ -466,7 +474,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-22T19:26:15Z",
+   "_stamp": "2026-10-23T14:27:43Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -631,10 +639,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-22T17:38:14Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261022T173814Z.json",
-   "sha16": "e4088bd8ca34928e",
-   "census_mtime": "2026-10-22T17:40:06Z",
+   "stamp": "2026-10-23T11:20:51Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261023T112051Z.json",
+   "sha16": "ac004eb7c1b36d0a",
+   "census_mtime": "2026-10-23T11:22:41Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
@@ -651,10 +659,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.24c3e8c54e71.json",
-  "chain_average": "chain_average.24c3e8c54e71.json",
-  "chain_median": "chain_median.24c3e8c54e71.json",
-  "dots": "dots.24c3e8c54e71.json",
-  "levels": "levels.24c3e8c54e71.json"
+  "shared": "shared.add8d5bd74bc.json",
+  "chain_average": "chain_average.add8d5bd74bc.json",
+  "chain_median": "chain_median.add8d5bd74bc.json",
+  "dots": "dots.add8d5bd74bc.json",
+  "levels": "levels.add8d5bd74bc.json"
  }
 }
