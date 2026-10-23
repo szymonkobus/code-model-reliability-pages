@@ -1,9 +1,9 @@
 {
- "fingerprint": "431da00e8905",
+ "fingerprint": "3b10e12ac994",
  "fingerprint_inputs": {
-  "content": "edffe64865be",
+  "content": "e007c5cb0ca1",
   "wave": "unified-live",
-  "body": "5cd3ca38d999"
+  "body": "e7774a0fa234"
  },
  "frame": {
   "dataset": "all",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 74,
   "tasks": 2167,
   "keep_set_hash": "60ede5d24001",
-  "inputs_content_sha": "edffe64865be",
+  "inputs_content_sha": "e007c5cb0ca1",
   "tasks_on_axis": 2167,
   "tasks_kept": 2167,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "7f1b836562c1",
+  "runs_fingerprint": "a516510012e4",
   "axis_wave": "unified-live",
   "build_date": "2026-10-23",
-  "stamp": "2026-10-23T20:01:21Z",
+  "stamp": "2026-10-23T21:45:10Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -133,8 +133,8 @@
   },
   "refusals_struck": {
    "rule": "a refused answer is neither a failure nor a success: the refused attempts leave the cell by identity and the written answers with their passes stand as the cell; a task with nothing written leaves the cells as it leaves the fit",
-   "index_sha16": "6db11556baa9b3bd",
-   "index_written_at": "2026-10-23T15:50:04Z",
+   "index_sha16": "0fefdc49194b978f",
+   "index_written_at": "2026-10-23T20:50:08Z",
    "index_path": "runs/judge/knowledge/refused_answers_index_of_record.json",
    "by_config": {
     "claude-fable-5-1-thinking_live": {
@@ -162,6 +162,11 @@
      "refused_attempts": 1025,
      "whole_cells": 3
     },
+    "gemini-4-argon_batch": {
+     "tasks": 1,
+     "refused_attempts": 1,
+     "whole_cells": 0
+    },
     "muse-wonder-1.0_meta": {
      "tasks": 2,
      "refused_attempts": 2,
@@ -172,16 +177,12 @@
     "claude-sonnet-5-thinking_batch": {
      "cells": 2,
      "example": "HumanEval/93~twin1: 128 attempts, 123 passes; the index None attempts, None passes, written None"
-    },
-    "gemini-4-argon_batch": {
-     "cells": 1,
-     "example": "ccplus/279_D: 32 attempts, 24 passes; the index None attempts, None passes, written None"
     }
    }
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-23T19:36:55Z",
+   "unified_built_at": "2026-10-23T21:18:35Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -340,7 +341,7 @@
     "of": 2167
    },
    "moonshotai/Kimi-Dev-72B": {
-    "tasks": 1452,
+    "tasks": 1464,
     "of": 2167
    },
    "moonshotai/Kimi-K2-Instruct": {
@@ -1132,7 +1133,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-23T19:27:38Z",
+   "_stamp": "2026-10-23T21:25:43Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1297,20 +1298,20 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-23T17:26:18Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261023T172618Z.json",
-   "sha16": "0731eca5b2775f68",
-   "census_mtime": "2026-10-23T17:28:44Z",
+   "stamp": "2026-10-23T20:20:38Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261023T202038Z.json",
+   "sha16": "1024105bccb45db4",
+   "census_mtime": "2026-10-23T20:22:24Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.431da00e8905.json",
-  "chain_average": "chain_average.431da00e8905.json",
-  "chain_median": "chain_median.431da00e8905.json",
-  "dots": "dots.431da00e8905.json",
-  "levels": "levels.431da00e8905.json"
+  "shared": "shared.3b10e12ac994.json",
+  "chain_average": "chain_average.3b10e12ac994.json",
+  "chain_median": "chain_median.3b10e12ac994.json",
+  "dots": "dots.3b10e12ac994.json",
+  "levels": "levels.3b10e12ac994.json"
  }
 }
