@@ -564,7 +564,7 @@ function boot() {
       var f = m.frame || {}; if (!bt || !f.dataset_label) return;
       var nm = String(f.dataset_label).split(':')[0]; if (!DS_LEAF_LABELS[ds]) { DATASETS[ds].label = nm; DATASETS[ds].short = nm; bt.textContent = setWord(nm); }   
       var hv = DATASETS[ds].hover ? String(f.dataset_label) + ' — ' + DATASETS[ds].hover : String(f.dataset_label);
-      noteDataset(ds, hv); bt.title = oneSentence(hv);
+      noteDataset(ds, hv); bt.removeAttribute('title');   
     }).catch(function () {});
   });
   (function () {   
@@ -580,14 +580,14 @@ function boot() {
           + 'the tasks on the axis at this build';
         ENTRY_OPENS[ds] = (b && (b.drawn || b.n_fits) ? '; opens on the Bayesian fit (' + (b.n_fits || 0) + ' fits served)' : '; opens on the local-logistic fit');   
         var _full = ENTRY_HEAD[ds] + (ENTRY_COUNTS[ds] ? '; ' + ENTRY_COUNTS[ds] : ENTRY_OPENS[ds]);
-        noteDataset(ds, _full); bt.title = oneSentence(_full);
+        noteDataset(ds, _full); bt.removeAttribute('title');
       }).catch(function () {});
     });
   })();
   
   
   (function () {
-    function setOpen(ds, txt) { var bt = dsEl(ds); if (bt && !bt.disabled) { noteDataset(ds, txt); bt.title = oneSentence((OFFICIAL && OFFICIAL[ds]) ? OFFICIAL[ds].hover : txt); } }
+    function setOpen(ds, txt) { var bt = dsEl(ds); if (bt && !bt.disabled) { noteDataset(ds, txt); bt.removeAttribute('title'); } }
     if (DATASETS.board) fetch('data/manifest.json').then(function (r) { return r.json(); }).then(function (m) {   
       var b = m.frame && m.frame.bayes_fits;
       if (m.frame && m.frame.tasks) setBoardCount(m.frame.tasks);   
@@ -638,7 +638,7 @@ function boot() {
       if (v !== ARMS) window.location.reload();
     } });
   if (MIRROR) armsRow.style.display = 'none';   
-  if (ARMS === 'golden') { var _g = armsCtl.element.querySelector('button[data-value="golden"]'); if (_g) _g.title = 'golden set: the twelve golden models on the same difficulty scale as every other view; the other controls as they are'; }   
+  if (ARMS === 'golden') { var _g = armsCtl.element.querySelector('button[data-value="golden"]'); if (_g) _g.removeAttribute('title'); }   
   var partialCtl = Kit.switchControl({ mount: armsRow, key: 'partial',   
     options: [{ value: 'hide', label: 'hidden' }, { value: 'show', label: 'show partial models' }],
     dflt: 'hide',
@@ -646,7 +646,7 @@ function boot() {
   (function () {
     var pa = partialArms();
     var tip = 'models with attempts on fewer than 90% of the dataset\'s tasks' + (pa.length ? ' — ' + pa.length + ' here, named in the notes below the chart' : '');
-    partialCtl.element.title = tip;
+    partialCtl.element.removeAttribute('title');
   })();
   defCtl = Kit.switchControl({ mount: row, key: 'def', label: 'Definition',   
     options: [{ value: 'average', label: 'Average rate' },
@@ -666,7 +666,7 @@ function boot() {
               { value: 'difficulty', label: 'Median difficulty' }],   
     dflt: 'rate',
     onchange: function (v) { state.curve = v; DRAW_LEVELS = (v === 'difficulty'); if (!ready || coercing) return; if (DRAW_LEVELS && D.levels == null && D.levelsUrl) ensureLevels().then(function () { render(); }); else render(); } });
-  curveCtl.element.title = 'at each difficulty the median of the draws\' failure rates, or at each failure-rate level the median of the draws\' crossings, through the printed D50 and D99';
+  curveCtl.element.removeAttribute('title');   
   state.curve = DRAW_LEVELS ? 'difficulty' : 'rate';   
   bandCtl = Kit.switchControl({ mount: row, key: 'band', label: 'Uncertainty bands',
     options: [{ value: 'off', label: 'Off' },
@@ -877,11 +877,11 @@ function buildChips() {
   
   runs.forEach(function (r) {
     var br = document.createElement('div'); br.className = 'runrow'; br.style.flexBasis = '100%'; box.appendChild(br);
-    var nm = document.createElement('span'); nm.className = 'fam'; nm.textContent = r.name; nm.title = 'the checkpoints of one training run, positioned on this scale; the bulk buttons leave this run\'s block alone';
+    var nm = document.createElement('span'); nm.className = 'fam'; nm.textContent = r.name;
     var sbHead = null; seriesRows().forEach(function (sbH) { if (!sbHead && sbH && (((sbH.arms[0] && sbH.arms[0].run) || headingShort(sbH)) === r.name)) sbHead = sbH; });   
     var colR = r.members.length ? D.shared.configs[r.members[0]].color : (sbHead && sbHead.arms[0] ? sbHead.arms[0].color : null);
     if (colR) nm.style.color = colR;
-    if (sbHead && sbHead.heading_hover) nm.title = oneSentence(noSpecTags(String(sbHead.heading_hover)));   
+    nm.removeAttribute('title');   
     box.appendChild(nm);
     
     
@@ -922,7 +922,7 @@ function buildChips() {
         var parts = []; if (a.disclosure) parts.push(currentTruth(a.disclosure)); if (a.set_label) parts.push('fitted on ' + a.set_label);
         if (a.gates_failed) parts.push(a.gate_face ? noSpecTags(String(a.gate_face)) : 'this fit failed its own check; drawn lighter, with its disclosure');
         if (a.protocol) parts.push('read by ' + a.protocol + ': the base model continues the prompt, no chat turn');
-        b.dataset.state = noSpecTags(parts.join(' · ')); b.title = (a.withheld && a.disclosure) ? noSpecTags(currentTruth(String(a.disclosure))) : oneSentence(noSpecTags(parts[0] || a.label)); if (a.gates_failed) { if (!(a.withheld && a.disclosure)) b.title = 'this fit failed its own check and is drawn lighter'; b.classList.add('gated'); b.style.borderStyle = 'dashed'; }       
+        b.dataset.state = noSpecTags(parts.join(' · ')); b.removeAttribute('title'); if (a.gates_failed) b.classList.add('gated');   
         if (a.comparator && !a.withheld) { var cz50 = state.def === 'average' ? a.comparator.d50_z : a.comparator.d50_med_z, cz1 = state.def === 'average' ? a.comparator.d1_z : a.comparator.d1_med_z; if (cz50 != null || cz1 != null) b.title += ' · checkpoint 0 at ' + a.comparator.depth + ' answers: ' + (cz50 != null ? 'D50 ' + fmtPct(cz50) : '') + (cz50 != null && cz1 != null ? ', ' : '') + (cz1 != null ? 'D99 ' + fmtPct(cz1) : ''); }   
         b.onclick = tiK >= 0 ? function () { if (sel.has(tiK)) sel.delete(tiK); else sel.add(tiK); writeSel(); render(); } : function () { if (seriesSel.has(k)) seriesSel.delete(k); else seriesSel.add(k); writeSel(); render(); };   
         seriesChips.push(b); box.appendChild(b);
@@ -1096,7 +1096,7 @@ function entryCountsAtOpen() {
 function applyEntryCounts(ds) {   
   var bt = dsEl(ds); if (!bt || !ENTRY_COUNTS[ds]) return;
   var full = (ENTRY_HEAD[ds] ? ENTRY_HEAD[ds] + '; ' : '') + ENTRY_COUNTS[ds];
-  noteDataset(ds, full); bt.title = oneSentence((ds === 'all' && OFFICIAL && OFFICIAL[ds]) ? OFFICIAL[ds].hover : full);
+  noteDataset(ds, full); bt.removeAttribute('title');
 }
 function noteDataset(k, txt) {   
   if (!txt || DATASET_NOTES[k] === txt) return;   
@@ -1332,7 +1332,7 @@ function toggleSeriesAll(sb, ri, merged, members) {
 }
 function paintSeriesToggle(tb) {
   var on = seriesAllFor(+tb.dataset.row); tb.setAttribute('aria-pressed', String(on)); tb.style.fontWeight = on ? '700' : '';
-  tb.title = on ? 'every checkpoint of the run is a chip; off, the block keeps checkpoint 0 and each run\'s last position' : 'the block shows checkpoint 0 and each run\'s last position; on, every checkpoint is a chip, selected and drawn';
+  tb.removeAttribute('title');
 }
 function paintSeriesToggles() { Array.prototype.forEach.call(document.querySelectorAll('button[data-series-toggle]'), paintSeriesToggle); }
 function seriesAllButton(sb, ri, merged, members) {
@@ -1468,7 +1468,7 @@ function renderSideBlock() {
   if (!sc) { sc = document.createElement('div'); sc.id = 'sidechips'; sc.className = 'chips'; chipsBox.parentNode.insertBefore(sc, chipsBox.nextSibling); }
   sc.textContent = '';
   var head = document.createElement('span'); head.className = 'fam'; head.textContent = TRAINED_HEADING;
-  if (sb && sb.membership) head.title = oneSentence(noSpecTags(sb.membership));
+  head.removeAttribute('title');
   sc.appendChild(head);
   var entries = [];
   sideArms.forEach(function (a, k) { if (MERGED_REV[k] != null && !isTrainedConfig(D.shared.configs[MERGED_REV[k]])) return;   
@@ -1485,7 +1485,7 @@ function renderSideBlock() {
   var lastBase = null;
   entries.forEach(function (e) {
     if (e.base !== lastBase) {
-      var gh = document.createElement('button'); gh.className = 'fam'; gh.textContent = e.base; gh.style.color = e.color; gh.title = 'the base model; its trained models follow';
+      var gh = document.createElement('button'); gh.className = 'fam'; gh.textContent = e.base; gh.style.color = e.color;
       var members = entries.filter(function (x) { return x.base === e.base; });
       gh.onclick = function () { var anyOff = members.some(function (x) { return !isHidden(x) && !isOn(x); }); members.forEach(function (x) { if (!isHidden(x)) setOn(x, anyOff); }); writeSel(); render(); };
       sc.appendChild(gh); lastBase = e.base;
@@ -1503,12 +1503,12 @@ function renderSideBlock() {
     if (a.gates_failed) parts.push(a.gate_face ? noSpecTags(String(a.gate_face)) : 'this fit failed its own check; drawn lighter, with its disclosure');   
     if (a.protocol) parts.push('read by ' + a.protocol + ': the base model continues the prompt, no chat turn');
     b.dataset.state = noSpecTags(parts.join(' · '));
-    b.title = oneSentence(noSpecTags(parts[0] || e.label)) + ((a.protocol && !/^read by /.test(parts[0] || '')) ? ' (read by ' + a.protocol + ')' : '');   if (a.gates_failed) { b.title = 'this fit failed its own check and is drawn lighter' + (a.protocol ? ' (read by ' + a.protocol + ')' : ''); b.classList.add('gated'); b.style.borderStyle = 'dashed'; }   
+    if (a.gates_failed) b.classList.add('gated');   
     } else {
       var cc = D.shared.configs[e.cfg]; var parts = [];
       if (e.cfg != null && isPartial(e.cfg)) parts.push('partial: fewer answers a task than the set\'s standard');
       if (cc && cc.disclosure) parts.push(currentTruth(cc.disclosure));
-      b.dataset.state = noSpecTags(parts.join(' · ')); b.title = oneSentence(noSpecTags(parts[0] || e.label));
+      b.dataset.state = noSpecTags(parts.join(' · '));
     }
     b.onclick = function () { if (hiddenP) return; setOn(e, !isOn(e)); writeSel(); render(); };
     sc.appendChild(b);
@@ -1523,7 +1523,7 @@ function renderSideBlock() {
   var isAvg = state.def === 'average';
   var sideUnresolved = false;   
   var t = document.createElement('table');
-  t.innerHTML = '<tr><th>model</th><th title="' + crossingHover('50', isAvg).replace(/"/g, '&quot;') + '">D50</th><th title="' + crossingHover('1', isAvg).replace(/"/g, '&quot;') + '">D99</th></tr>';   
+  t.innerHTML = '<tr><th>model</th><th>D50</th><th>D99</th></tr>';   
   var nRowsT = 0, nFirstT = 0;   
   sb.arms.forEach(function (a, k) {
     if (!sideOn(k) || sideHidden(a)) return;
@@ -1553,7 +1553,7 @@ function renderSideBlock() {
     });
     t.appendChild(tr);
   });
-  (function () { var thT = t.querySelectorAll('th'); if (thT.length >= 3 && tableRule(nRowsT, nFirstT) === 'first') { thT[1].title = crossingHover('50', isAvg, 'first'); thT[2].title = crossingHover('1', isAvg, 'first'); } })();   
+  
   if (t.querySelectorAll('tr').length <= 1) { st.remove(); return; }   
   st.appendChild(t);
   if (sideUnresolved) {   
@@ -1596,7 +1596,7 @@ function renderMarksKey(rows) {
     return svg(Kit.runMarkSvg(7, 7, R, { shape: mark, color: ink, bg: bg }));
   };
   var html = Kit.runMarksKey().filter(function (r) { return !!present[r.mark]; }).map(function (r) {
-    return '<span data-row="' + r.mark + '"' + (r.title ? ' title="' + oneSentence(String(r.title)).replace(/"/g, '&quot;') + '"' : '') + '>' + glyph(r.mark) + '<span>' + String(r.text).replace(/</g, '&lt;') + '</span></span>';   
+    return '<span data-row="' + r.mark + '"' + '' + '>' + glyph(r.mark) + '<span>' + String(r.text).replace(/</g, '&lt;') + '</span></span>';   
   }).join('');
   if (!html) { if (old) old.remove(); return; }
   if (!old) { old = document.createElement('div'); old.id = 'markskey'; old.className = 'kit-run-key'; }
@@ -1615,8 +1615,7 @@ function renderSeriesRow(sb, ri) {
   if (!sc) { sc = document.createElement('div'); sc.id = 'serieschips' + sfx; sc.className = 'chips'; var after = (ri ? document.getElementById('serieschips' + (ri - 1)) || document.getElementById('serieschips') : null) || document.getElementById('sidechips') || chipsBox;   after.parentNode.insertBefore(sc, after.nextSibling); }   
   sc.textContent = '';
   var head = document.createElement('span'); head.className = 'fam'; head.textContent = (sb.arms[0] && sb.arms[0].run) || headingShort(sb);   
-  if (sb.heading_hover) head.title = oneSentence(noSpecTags(String(sb.heading_hover)));   
-  else if (sb.membership) head.title = oneSentence(noSpecTags(sb.membership));
+  head.removeAttribute('title');   
   sc.appendChild(head);
   
   ['all', 'none'].forEach(function (w) { var ab = document.createElement('button'); ab.className = 'util'; ab.textContent = w; ab.onclick = function () { seriesSel.clear(); sb.arms.forEach(function (a, k) { if (a._twin) { var ti = panelIndexOf(a._twin_id || a.id); if (ti >= 0) { if (w === 'all') sel.add(ti); else sel.delete(ti); } } else if (w === 'all' && seriesChipShown(sb, ri, k, false)) seriesSel.add(k); }); writeSel(); render(); }; sc.appendChild(ab); });   
@@ -1642,7 +1641,7 @@ function renderSeriesRow(sb, ri) {
     if (a.gates_failed) parts.push(a.gate_face ? noSpecTags(String(a.gate_face)) : 'this fit failed its own check; drawn lighter, with its disclosure');   
     if (a.protocol) parts.push('read by ' + a.protocol + ': the base model continues the prompt, no chat turn');
     b.dataset.state = noSpecTags(parts.join(' · '));
-    b.title = (a.withheld && a.disclosure ? noSpecTags(currentTruth(String(a.disclosure))) : oneSentence(noSpecTags(parts[0] || a.label))) + ((a.protocol && !/^read by /.test(parts[0] || '')) ? ' (read by ' + a.protocol + ')' : ''); if (a.gates_failed) { if (!(a.withheld && a.disclosure)) b.title = 'this fit failed its own check and is drawn lighter' + (a.protocol ? ' (read by ' + a.protocol + ')' : ''); b.classList.add('gated'); b.style.borderStyle = 'dashed'; }   
+    if (a.gates_failed) b.classList.add('gated');   
     if (a.comparator && !a.withheld) { var cz50 = state.def === 'average' ? a.comparator.d50_z : a.comparator.d50_med_z, cz1 = state.def === 'average' ? a.comparator.d1_z : a.comparator.d1_med_z; if (cz50 != null || cz1 != null) b.title += ' \u00b7 checkpoint 0 at ' + a.comparator.depth + ' answers: ' + (cz50 != null ? 'D50 ' + fmtPct(cz50) : '') + (cz50 != null && cz1 != null ? ', ' : '') + (cz1 != null ? 'D99 ' + fmtPct(cz1) : ''); }   
     b.onclick = tiK >= 0 ? function () { if (sel.has(tiK)) sel.delete(tiK); else sel.add(tiK); writeSel(); render(); } : function () { if (seriesSel.has(k)) seriesSel.delete(k); else seriesSel.add(k); writeSel(); render(); };   
     if (!seriesChipShown(sb, ri, k, false)) b.style.display = 'none';   
@@ -1659,7 +1658,7 @@ function renderSeriesRow(sb, ri) {
   var isAvg = state.def === 'average';
   var sideUnresolved = false;   
   var t = document.createElement('table');
-  t.innerHTML = '<tr><th>model</th><th title="' + crossingHover('50', isAvg).replace(/"/g, '&quot;') + '">D50</th><th title="' + crossingHover('1', isAvg).replace(/"/g, '&quot;') + '">D99</th></tr>';   
+  t.innerHTML = '<tr><th>model</th><th>D50</th><th>D99</th></tr>';   
   var nRowsT = 0, nFirstT = 0;   
   sb.arms.forEach(function (a, k) {
     if (!seriesSel.has(k)) return;
@@ -1688,7 +1687,7 @@ function renderSeriesRow(sb, ri) {
     });
     t.appendChild(tr);
   });
-  (function () { var thT = t.querySelectorAll('th'); if (thT.length >= 3 && tableRule(nRowsT, nFirstT) === 'first') { thT[1].title = crossingHover('50', isAvg, 'first'); thT[2].title = crossingHover('1', isAvg, 'first'); } })();   
+  
   if (t.querySelectorAll('tr').length <= 1) { st.remove(); return; }   
   st.appendChild(t);
   if (sideUnresolved) {   
@@ -2022,7 +2021,7 @@ function paintChips() {
       var pri = parts.filter(function (t) { return /^one answer a task|^not shown:|^\d+ tasks? refused|^interim fit|^this fit did not pass|^R-hat|^out of the fit|^gpt-5 arms|^for the Claude|^Bayesian curve fitted|^outside the Bayesian/.test(t) || (c.disclosure && t === String(c.disclosure)); });   
       if (pri.length) lead = pri[0];
       if (hiddenPartial) lead = bayesOnlyHidden(i) ? BAYES_ONLY_WORDS : covPart;   
-      b.title = oneSentence(noSpecTags) + ((c.protocol && !/^read by /.test) ? ' (read by ' + c.protocol + ')' : '');   
+      b.removeAttribute('title');   
     } else b.removeAttribute('title');   
   });
   renderArmStates();
@@ -2198,16 +2197,24 @@ function crossingWords(lvl, isAvg, rule, form) {
        : form === 'equal_tailed' ? '; its uncertainty band the 10th to 90th percentiles of those crossings.'
        : '; its uncertainty band holds 80% of those crossings.');   
 }
+function printedWords(rule, form50, form1) {   
+  var form = form50 === form1 ? form50 : (!form50 ? form1 : (!form1 ? form50 : 'mixed'));
+  return 'The printed D50 and D99 are the median over the fit\'s draws of each draw\'s ' + (rule === 'first' ? 'first upward crossing' : 'own crossing, the middle one where a draw crosses the level several times')
+    + (form === 'shortest80' ? '; their uncertainty bands the shortest range holding 80% of those crossings.'
+       : form === 'mixed' ? '; their uncertainty bands the shortest range holding 80% of those crossings, or their 10th to 90th percentiles where a fifth or more of the draws are censored on one side (the cell\'s hover says which).'
+       : form === 'equal_tailed' ? '; their uncertainty bands the 10th to 90th percentiles of those crossings.'
+       : '; their uncertainty bands holding 80% of those crossings.');
+}
 function tableBandForm(nShort, nEq) { return nShort && nEq ? 'mixed' : nShort ? 'shortest80' : nEq ? 'equal_tailed' : null; }   
 function crossingHover(lvl, isAvg, rule) {   
   return crossingName(lvl) + ' \u2014 where the fitted ' + crossingRate(isAvg) + ' crosses ' + (lvl === '1' ? '1%' : '50%')
     + (rule === 'first' ? ': the median of the draws\' first upward crossings' : ': the median of the draws\' own crossings, the middle one where a draw crosses several times');
 }
-var BAND_WORDS = ', holding 80% of the draws\' crossings';   
-var BAND_WORDS_SHORTEST = ', the shortest range holding 80% of the draws\' crossings';   
-var BAND_WORDS_EQUAL = ', the 10th to 90th percentiles of the draws\' crossings';   
+var BAND_WORDS = '';   
+var BAND_WORDS_SHORTEST = ', the shortest 80% range';   
+var BAND_WORDS_EQUAL = ', the 10th to 90th percentiles';   
 function bandWords(r) { var f = r && r.band_form; return f === 'shortest80' ? BAND_WORDS_SHORTEST : f === 'equal_tailed' ? BAND_WORDS_EQUAL : BAND_WORDS; }   
-function bandWordsShort(r) { var f = r && r.band_form; return f === 'shortest80' ? ', the shortest 80% range of the draws\' crossings' : f === 'equal_tailed' ? ', the 10th to 90th percentiles' : BAND_WORDS; }   
+function bandWordsShort(r) { return bandWords(r); }   
 
 
 
@@ -2365,10 +2372,10 @@ function crossingsTable(visible) {
     var tr = tableRule(nRowsR, nFirstR);
     if (isB) { hov50 = crossingHover('50', isAvg, tr); hov1 = crossingHover('1', isAvg, tr); }
     h.innerHTML = isB
-      ? '<span data-chain-val>' + crossingWords('50', isAvg, tr, tableBandForm(nShort50, nEq50)) + '</span> ' + crossingWords('1', isAvg, tr, tableBandForm(nShort1, nEq1))   
+      ? '<span data-chain-val>' + printedWords(tr, tableBandForm(nShort50, nEq50), tableBandForm(nShort1, nEq1)) + '</span>'   
         + (tr === 'middle' && nFirstR ? ' On ' + nFirstR + ' of these curves each draw\'s first upward crossing is taken rather than the middle one; their hovers say so.' : '')
         + (nLevR ? ' The drawn curve passes through the printed numbers: at each failure-rate level it is the median over the fit\'s draws of each draw\'s crossing of that level, its drawn band the 10th to 90th percentiles of those crossings, and it ends where a level\'s median is censored.'
-                   + ((nShort50 || nShort1) ? ' The printed D50 and D99 bands are the shortest range holding 80% of the crossings at those two levels, so there the drawn band\'s edges differ from the printed band\'s.' : '')   
+                   + ((nShort50 || nShort1) ? ' Where a printed band is the shortest 80% range, the drawn band\'s edges at that level differ from it.' : '')   
                    + (nNoLevR ? ' For ' + nNoLevR + ' of these curves no such table exists and the drawn curve is the median of the draws\' curves at each difficulty.' : '') + ' '
                  : ' The drawn curve is the median of the draws\' curves at each difficulty, so where it crosses a level can differ from the printed number. ')   
         + (nAjR ? readingsSentence(nAjR) + ' ' : '')   
@@ -2380,11 +2387,10 @@ function crossingsTable(visible) {
         + '. Positions in difficulty %, from the ' + houseName().toLowerCase() + ' for the source picked'
         + '; each cell\'s hover carries the 95% uncertainty band of the trend (the Uncertainty bands switch changes the drawn bands, not this table); '
         + 'the Bayesian crossings live on Capability vs reliability.';
-    var ths = t.querySelectorAll('th'); if (ths.length >= 3) { ths[1].title = hov50; ths[2].title = hov1; }
   };
   box.appendChild(h);
   var t = document.createElement('table');
-  t.innerHTML = '<tr><th>model</th><th title="' + hov50.replace(/"/g, '&quot;') + '">' + n50 + '</th><th title="' + hov1.replace(/"/g, '&quot;') + '">'
+  t.innerHTML = '<tr><th>model</th><th>' + n50 + '</th><th>'   
     + n1 + '</th></tr>';
   visible.forEach(function (i) {
     if (isOneAnswer(i)) return;   
@@ -2504,7 +2510,7 @@ function relTime(iso) {
 function relabelDataset(f) {
   if (f && f.counts_of_record && applyOfficialNames(f.counts_of_record)) {   
     var nk = f.tasks_kept || f.tasks_manifest || f.tasks; var bt0 = dsEl(DATASET);
-    if (bt0) bt0.title = oneSentence((DATASETS[DATASET].hover || '') + (ONE_ANSWER_CLAUSE[DATASET] || ''));   
+    if (bt0) bt0.removeAttribute('title');   
     return;
   }
   var n = f.tasks_kept || f.tasks_manifest || f.tasks;
