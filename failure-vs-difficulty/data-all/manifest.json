@@ -1,9 +1,9 @@
 {
- "fingerprint": "d86cac2cc78d",
+ "fingerprint": "b727161465c1",
  "fingerprint_inputs": {
-  "content": "bcab844bf54e",
+  "content": "db55e2a1d505",
   "wave": "unified-live",
-  "body": "7dbe0016cde2"
+  "body": "388350bf2d78"
  },
  "frame": {
   "dataset": "all",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 74,
   "tasks": 2167,
   "keep_set_hash": "60ede5d24001",
-  "inputs_content_sha": "bcab844bf54e",
+  "inputs_content_sha": "db55e2a1d505",
   "tasks_on_axis": 2167,
   "tasks_kept": 2167,
   "tasks_awaiting_axis": 0,
@@ -37,7 +37,7 @@
   "runs_fingerprint": "f5ae867c94f6",
   "axis_wave": "unified-live",
   "build_date": "2026-10-23",
-  "stamp": "2026-10-23T09:25:11Z",
+  "stamp": "2026-10-23T11:16:18Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -129,9 +129,51 @@
    "r1d7b-rl-f17-kl-step0200-Thinking": 430,
    "r1d7b-rl-f17-kl-step0250-Thinking": 430
   },
+  "refusals_struck": {
+   "rule": "a refused answer is neither a failure nor a success: it leaves the task's count of answers, and a task refused on every answer leaves the cells as it leaves the fit",
+   "index_sha16": "0b7dbe0c0958961b",
+   "index_generated_at": null,
+   "index_path": "runs/judge/knowledge/refused_answers_index_of_record.json",
+   "by_config": {
+    "claude-fable-5-1-thinking_live": {
+     "tasks": 14,
+     "answers": 169,
+     "whole_cells": 3
+    },
+    "claude-opus-5_batch": {
+     "tasks": 1,
+     "answers": 1,
+     "whole_cells": 0
+    },
+    "claude-sonnet-5-thinking_batch": {
+     "tasks": 2,
+     "answers": 2,
+     "whole_cells": 0
+    },
+    "muse-wonder-1.0_meta": {
+     "tasks": 2,
+     "answers": 2,
+     "whole_cells": 0
+    }
+   },
+   "held": {
+    "claude-opus-5-5-thinking_batch": {
+     "cells": 5,
+     "example": "EasyTail/E1/payroll_overtime_count: 128 answers, 128 passes, 2 refused in the index"
+    },
+    "claude-sonnet-5-5-thinking_batch": {
+     "cells": 1,
+     "example": "EasyTail/E1/shipping_heavy_value: 128 answers, 70 passes, 68 refused in the index"
+    },
+    "claude-sonnet-5-5_batch": {
+     "cells": 8,
+     "example": "EasyTail/E1/shipping_heavy_value: 128 answers, 94 passes, 43 refused in the index"
+    }
+   }
+  },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-23T09:22:33Z",
+   "unified_built_at": "2026-10-23T10:37:45Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -186,7 +228,7 @@
     "of": 2167
    },
    "claude-fable-5-1-thinking": {
-    "tasks": 1288,
+    "tasks": 1285,
     "of": 2167
    },
    "deepseek-ai/deepseek-coder-1.3b-instruct": {
@@ -440,9 +482,11 @@
   },
   "one_answer": {
    "arms": [
+    "claude-fable-5-1-thinking",
     "gemini-4-argon_gemini"
    ],
    "labels": {
+    "claude-fable-5-1-thinking": "Fable 5.1 (thinking)",
     "gemini-4-argon_gemini": "Gemini 4 Argon (thinking)"
    }
   },
@@ -1076,7 +1120,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-23T09:25:53Z",
+   "_stamp": "2026-10-23T10:29:31Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1251,10 +1295,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.d86cac2cc78d.json",
-  "chain_average": "chain_average.d86cac2cc78d.json",
-  "chain_median": "chain_median.d86cac2cc78d.json",
-  "dots": "dots.d86cac2cc78d.json",
-  "levels": "levels.d86cac2cc78d.json"
+  "shared": "shared.b727161465c1.json",
+  "chain_average": "chain_average.b727161465c1.json",
+  "chain_median": "chain_median.b727161465c1.json",
+  "dots": "dots.b727161465c1.json",
+  "levels": "levels.b727161465c1.json"
  }
 }
