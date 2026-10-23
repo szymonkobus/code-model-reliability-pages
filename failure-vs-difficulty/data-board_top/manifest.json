@@ -1,9 +1,9 @@
 {
- "fingerprint": "1792f4368c94",
+ "fingerprint": "f8b1e2fa0955",
  "fingerprint_inputs": {
-  "content": "68a26ff4a4ab",
+  "content": "19ce98208fbf",
   "wave": "combined-20260910T2209Z",
-  "body": "1b8b763cf1ef"
+  "body": "f1e81ba55f85"
  },
  "frame": {
   "dataset": "board_top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 74,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "68a26ff4a4ab",
+  "inputs_content_sha": "19ce98208fbf",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -37,7 +37,7 @@
   "runs_fingerprint": "f5ae867c94f6",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-23",
-  "stamp": "2026-10-23T11:24:38Z",
+  "stamp": "2026-10-23T12:06:43Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -130,41 +130,43 @@
    "r1d7b-rl-f17-kl-step0250-Thinking": 430
   },
   "refusals_struck": {
-   "rule": "a refused answer is neither a failure nor a success: it leaves the task's count of answers, and a task refused on every answer leaves the cells as it leaves the fit",
+   "rule": "a refused answer is neither a failure nor a success: the refused attempts leave the cell by identity and the written answers with their passes stand as the cell; a task with nothing written leaves the cells as it leaves the fit",
    "index_sha16": "0b7dbe0c0958961b",
-   "index_generated_at": null,
+   "index_written_at": "2026-10-23T11:02:26Z",
    "index_path": "runs/judge/knowledge/refused_answers_index_of_record.json",
    "by_config": {
     "claude-fable-5-1-thinking_live": {
      "tasks": 14,
-     "answers": 169,
+     "refused_attempts": 169,
      "whole_cells": 3
+    },
+    "claude-opus-5-5-thinking_batch": {
+     "tasks": 21,
+     "refused_attempts": 780,
+     "whole_cells": 2
     },
     "claude-opus-5_batch": {
      "tasks": 1,
-     "answers": 1,
+     "refused_attempts": 1,
      "whole_cells": 0
+    },
+    "claude-sonnet-5-5-thinking_batch": {
+     "tasks": 18,
+     "refused_attempts": 559,
+     "whole_cells": 1
+    },
+    "claude-sonnet-5-5_batch": {
+     "tasks": 18,
+     "refused_attempts": 1025,
+     "whole_cells": 3
     },
     "muse-wonder-1.0_meta": {
      "tasks": 2,
-     "answers": 2,
+     "refused_attempts": 2,
      "whole_cells": 0
     }
    },
-   "held": {
-    "claude-opus-5-5-thinking_batch": {
-     "cells": 5,
-     "example": "EasyTail/E1/payroll_overtime_count: 128 answers, 128 passes, 2 refused in the index"
-    },
-    "claude-sonnet-5-5-thinking_batch": {
-     "cells": 1,
-     "example": "EasyTail/E1/shipping_heavy_value: 128 answers, 70 passes, 68 refused in the index"
-    },
-    "claude-sonnet-5-5_batch": {
-     "cells": 8,
-     "example": "EasyTail/E1/shipping_heavy_value: 128 answers, 94 passes, 43 refused in the index"
-    }
-   }
+   "held_as_drawn": null
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
@@ -203,11 +205,11 @@
     "of": 1288
    },
    "claude-sonnet-5-5": {
-    "tasks": 1288,
+    "tasks": 1285,
     "of": 1288
    },
    "claude-sonnet-5-5-thinking": {
-    "tasks": 1288,
+    "tasks": 1287,
     "of": 1288
    },
    "claude-opus-5": {
@@ -219,7 +221,7 @@
     "of": 1288
    },
    "claude-opus-5-5-thinking": {
-    "tasks": 1288,
+    "tasks": 1286,
     "of": 1288
    },
    "claude-fable-5-1-thinking": {
@@ -478,10 +480,12 @@
   "one_answer": {
    "arms": [
     "claude-fable-5-1-thinking",
+    "claude-opus-5-5-thinking",
     "gemini-4-argon_gemini"
    ],
    "labels": {
     "claude-fable-5-1-thinking": "Fable 5.1 (thinking)",
+    "claude-opus-5-5-thinking": "Opus 5.5 (thinking)",
     "gemini-4-argon_gemini": "Gemini 4 Argon (thinking)"
    }
   },
@@ -1418,10 +1422,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.1792f4368c94.json",
-  "chain_average": "chain_average.1792f4368c94.json",
-  "chain_median": "chain_median.1792f4368c94.json",
-  "dots": "dots.1792f4368c94.json",
-  "levels": "levels.1792f4368c94.json"
+  "shared": "shared.f8b1e2fa0955.json",
+  "chain_average": "chain_average.f8b1e2fa0955.json",
+  "chain_median": "chain_median.f8b1e2fa0955.json",
+  "dots": "dots.f8b1e2fa0955.json",
+  "levels": "levels.f8b1e2fa0955.json"
  }
 }
