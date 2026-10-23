@@ -1,9 +1,9 @@
 {
- "fingerprint": "dde3b07cebac",
+ "fingerprint": "02a811da2893",
  "fingerprint_inputs": {
   "content": "74c587eeaa46",
   "wave": "combined-20260910T2209Z",
-  "body": "34536bb6bade"
+  "body": "57d8567c19f2"
  },
  "frame": {
   "dataset": "board_top",
@@ -37,7 +37,7 @@
   "runs_fingerprint": "3fa65ca634f8",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-23",
-  "stamp": "2026-10-23T15:48:08Z",
+  "stamp": "2026-10-23T16:04:34Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -131,8 +131,8 @@
   },
   "refusals_struck": {
    "rule": "a refused answer is neither a failure nor a success: the refused attempts leave the cell by identity and the written answers with their passes stand as the cell; a task with nothing written leaves the cells as it leaves the fit",
-   "index_sha16": "0b7dbe0c0958961b",
-   "index_written_at": "2026-10-23T11:02:26Z",
+   "index_sha16": "6db11556baa9b3bd",
+   "index_written_at": "2026-10-23T15:50:04Z",
    "index_path": "runs/judge/knowledge/refused_answers_index_of_record.json",
    "by_config": {
     "claude-fable-5-1-thinking_live": {
@@ -166,7 +166,12 @@
      "whole_cells": 0
     }
    },
-   "held_as_drawn": null
+   "held_as_drawn": {
+    "gemini-4-argon_batch": {
+     "cells": 1,
+     "example": "ccplus/279_D: 1 attempts, 1 passes; the index None attempts, None passes, written None"
+    }
+   }
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
@@ -702,42 +707,42 @@
     {
      "id": "deepseek-coder-6.7b-rl-night2-step250",
      "arm_id": "dsc6.7b-rl-night2-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20137/8, fixed \u00b7 250 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20137/8, fixed set \u00b7 250 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night2-step500",
      "arm_id": "dsc6.7b-rl-night2-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20137/8, fixed \u00b7 500 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20137/8, fixed set \u00b7 500 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night3-step250",
      "arm_id": "dsc6.7b-rl-night3-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20132/8, fixed \u00b7 250 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fixed set \u00b7 250 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night3-step500",
      "arm_id": "dsc6.7b-rl-night3-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20132/8, fixed \u00b7 500 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fixed set \u00b7 500 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night4-step250",
      "arm_id": "dsc6.7b-rl-night4-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 6\u20137/8, fixed \u00b7 250 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 6\u20137/8, fixed set \u00b7 250 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night4-step500",
      "arm_id": "dsc6.7b-rl-night4-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 6\u20137/8, fixed \u00b7 500 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 6\u20137/8, fixed set \u00b7 500 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night5-step250",
      "arm_id": "dsc6.7b-rl-night5-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 3\u20135/8, fixed \u00b7 250 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 3\u20135/8, fixed set \u00b7 250 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night5-step500",
      "arm_id": "dsc6.7b-rl-night5-s500",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 3\u20135/8, fixed \u00b7 500 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 3\u20135/8, fixed set \u00b7 500 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-night6-step100",
@@ -752,7 +757,7 @@
     {
      "id": "deepseek-coder-6.7b-rl-redraw-a-step250",
      "arm_id": "dsc6.7b-rl-redraw-a-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20132/8, 2 redraws \u00b7 250 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL, 2 redraws \u00b7 250 steps"
     },
     {
      "id": "deepseek-coder-6.7b-rl-redraw-b-step250",
@@ -767,207 +772,207 @@
     {
      "id": "deepseek-coder-6.7b-rl-redraw25-a-step250",
      "arm_id": "dsc6.7b-rl-redraw25-a-s250",
-     "label": "DeepSeek-Coder 6.7B \u00b7 RL, fails 1\u20132/8, redraw every 25 \u00b7 250 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 RL \u00b7 250 steps"
     },
     {
      "id": "dsc6.7b-sft-qwen3-14b-step0025",
      "arm_id": "dsc6.7b-sft-qwen3-14b-s25",
-     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, fails 1\u20132/8, Qwen3 14B \u00b7 25 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, Qwen3 14B \u00b7 25 steps"
     },
     {
      "id": "dsc6.7b-sft-qwen3-14b-step0050",
      "arm_id": "dsc6.7b-sft-qwen3-14b-s50",
-     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, fails 1\u20132/8, Qwen3 14B \u00b7 50 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, Qwen3 14B \u00b7 50 steps"
     },
     {
      "id": "dsc6.7b-sft-qwen3-14b-step0075",
      "arm_id": "dsc6.7b-sft-qwen3-14b-s75",
-     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, fails 1\u20132/8, Qwen3 14B \u00b7 75 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, Qwen3 14B \u00b7 75 steps"
     },
     {
      "id": "dsc6.7b-sft-qwen3-14b-step0100",
      "arm_id": "dsc6.7b-sft-qwen3-14b-s100",
-     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, fails 1\u20132/8, Qwen3 14B \u00b7 100 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, Qwen3 14B \u00b7 100 steps"
     },
     {
      "id": "dsc6.7b-sft-qwen3-14b-step0125",
      "arm_id": "dsc6.7b-sft-qwen3-14b-s125",
-     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, fails 1\u20132/8, Qwen3 14B \u00b7 125 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, Qwen3 14B \u00b7 125 steps"
     },
     {
      "id": "dsc6.7b-sft-qwen3-14b-step0150",
      "arm_id": "dsc6.7b-sft-qwen3-14b-s150",
-     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, fails 1\u20132/8, Qwen3 14B \u00b7 150 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, Qwen3 14B \u00b7 150 steps"
     },
     {
      "id": "dsc6.7b-sft-qwen3-14b-step0175",
      "arm_id": "dsc6.7b-sft-qwen3-14b-s175",
-     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, fails 1\u20132/8, Qwen3 14B \u00b7 175 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, Qwen3 14B \u00b7 175 steps"
     },
     {
      "id": "dsc6.7b-sft-qwen3-14b-step0200",
      "arm_id": "dsc6.7b-sft-qwen3-14b-s200",
-     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, fails 1\u20132/8, Qwen3 14B \u00b7 200 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, Qwen3 14B \u00b7 200 steps"
     },
     {
      "id": "dsc6.7b-sft-qwen3-14b-step0225",
      "arm_id": "dsc6.7b-sft-qwen3-14b-s225",
-     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, fails 1\u20132/8, Qwen3 14B \u00b7 225 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, Qwen3 14B \u00b7 225 steps"
     },
     {
      "id": "dsc6.7b-sft-qwen3-14b-step0240",
      "arm_id": "dsc6.7b-sft-qwen3-14b-s240",
-     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, fails 1\u20132/8, Qwen3 14B \u00b7 240 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, Qwen3 14B \u00b7 240 steps"
     },
     {
      "id": "dsc6.7b-sft-gemma-4-12b-step0025",
      "arm_id": "dsc6.7b-sft-gemma-4-12b-s25",
-     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, fails 1\u20132/8, Gemma 4 12B \u00b7 25 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, Gemma 4 12B \u00b7 25 steps"
     },
     {
      "id": "dsc6.7b-sft-gemma-4-12b-step0050",
      "arm_id": "dsc6.7b-sft-gemma-4-12b-s50",
-     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, fails 1\u20132/8, Gemma 4 12B \u00b7 50 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, Gemma 4 12B \u00b7 50 steps"
     },
     {
      "id": "dsc6.7b-sft-gemma-4-12b-step0075",
      "arm_id": "dsc6.7b-sft-gemma-4-12b-s75",
-     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, fails 1\u20132/8, Gemma 4 12B \u00b7 75 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, Gemma 4 12B \u00b7 75 steps"
     },
     {
      "id": "dsc6.7b-sft-gemma-4-12b-step0100",
      "arm_id": "dsc6.7b-sft-gemma-4-12b-s100",
-     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, fails 1\u20132/8, Gemma 4 12B \u00b7 100 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, Gemma 4 12B \u00b7 100 steps"
     },
     {
      "id": "dsc6.7b-sft-gemma-4-12b-step0125",
      "arm_id": "dsc6.7b-sft-gemma-4-12b-s125",
-     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, fails 1\u20132/8, Gemma 4 12B \u00b7 125 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, Gemma 4 12B \u00b7 125 steps"
     },
     {
      "id": "dsc6.7b-sft-gemma-4-12b-step0150",
      "arm_id": "dsc6.7b-sft-gemma-4-12b-s150",
-     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, fails 1\u20132/8, Gemma 4 12B \u00b7 150 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, Gemma 4 12B \u00b7 150 steps"
     },
     {
      "id": "dsc6.7b-sft-gemma-4-12b-step0175",
      "arm_id": "dsc6.7b-sft-gemma-4-12b-s175",
-     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, fails 1\u20132/8, Gemma 4 12B \u00b7 175 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, Gemma 4 12B \u00b7 175 steps"
     },
     {
      "id": "dsc6.7b-sft-gemma-4-12b-step0200",
      "arm_id": "dsc6.7b-sft-gemma-4-12b-s200",
-     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, fails 1\u20132/8, Gemma 4 12B \u00b7 200 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, Gemma 4 12B \u00b7 200 steps"
     },
     {
      "id": "dsc6.7b-sft-gemma-4-12b-step0225",
      "arm_id": "dsc6.7b-sft-gemma-4-12b-s225",
-     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, fails 1\u20132/8, Gemma 4 12B \u00b7 225 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, Gemma 4 12B \u00b7 225 steps"
     },
     {
      "id": "dsc6.7b-sft-gemma-4-12b-step0240",
      "arm_id": "dsc6.7b-sft-gemma-4-12b-s240",
-     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, fails 1\u20132/8, Gemma 4 12B \u00b7 240 steps"
+     "label": "DeepSeek-Coder 6.7B \u00b7 fine-tune, Gemma 4 12B \u00b7 240 steps"
     },
     {
      "id": "r1d7b-rl-f17-kl-step0050-Thinking",
      "arm_id": "r1d7b-rl-f17-kl-s50",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL \u00b7 50 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed set, no H \u00b7 50 steps"
     },
     {
      "id": "r1d7b-rl-f17-kl-step0100-Thinking",
      "arm_id": "r1d7b-rl-f17-kl-s100",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL \u00b7 100 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed set, no H \u00b7 100 steps"
     },
     {
      "id": "r1d7b-rl-f17-kl-step0150-Thinking",
      "arm_id": "r1d7b-rl-f17-kl-s150",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL \u00b7 150 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed set, no H \u00b7 150 steps"
     },
     {
      "id": "r1d7b-rl-f17-kl-step0200-Thinking",
      "arm_id": "r1d7b-rl-f17-kl-s200",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL \u00b7 200 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed set, no H \u00b7 200 steps"
     },
     {
      "id": "r1d7b-rl-f17-kl-step0250-Thinking",
      "arm_id": "r1d7b-rl-f17-kl-s250",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed, KL \u00b7 250 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, fixed set, no H \u00b7 250 steps"
     },
     {
      "id": "r1d7b-rl-f12-redraw-kl-step0050-Thinking",
      "arm_id": "r1d7b-rl-f12-redraw-kl-s50",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, redraw every 50, KL \u00b7 50 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, redraw every 50, no H \u00b7 50 steps"
     },
     {
      "id": "r1d7b-rl-f12-redraw-kl-step0100-Thinking",
      "arm_id": "r1d7b-rl-f12-redraw-kl-s100",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, redraw every 50, KL \u00b7 100 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, redraw every 50, no H \u00b7 100 steps"
     },
     {
      "id": "r1d7b-rl-f12-redraw-kl-step0250-Thinking",
      "arm_id": "r1d7b-rl-f12-redraw-kl-s250",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, redraw every 50, KL \u00b7 250 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, redraw every 50, no H \u00b7 250 steps"
     },
     {
      "id": "r1d7b-rl-f12-alltasks-kl-step0050-Thinking",
      "arm_id": "r1d7b-rl-f12-alltasks-kl-s50",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, KL \u00b7 50 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, no H \u00b7 50 steps"
     },
     {
      "id": "r1d7b-rl-f12-alltasks-kl-step0100-Thinking",
      "arm_id": "r1d7b-rl-f12-alltasks-kl-s100",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, KL \u00b7 100 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, no H \u00b7 100 steps"
     },
     {
      "id": "r1d7b-rl-f12-alltasks-kl-step0250-Thinking",
      "arm_id": "r1d7b-rl-f12-alltasks-kl-s250",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, KL \u00b7 250 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, no H \u00b7 250 steps"
     },
     {
      "id": "r1d7b-rl-f17-alltasks-ent-kl-step0050-Thinking",
      "arm_id": "r1d7b-rl-f17-alltasks-ent-kl-s50",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, H, KL \u00b7 50 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8 \u00b7 50 steps"
     },
     {
      "id": "r1d7b-rl-f17-alltasks-ent-kl-step0100-Thinking",
      "arm_id": "r1d7b-rl-f17-alltasks-ent-kl-s100",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, H, KL \u00b7 100 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8 \u00b7 100 steps"
     },
     {
      "id": "r1d7b-rl-f17-alltasks-ent-kl-step0150-Thinking",
      "arm_id": "r1d7b-rl-f17-alltasks-ent-kl-s150",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, H, KL \u00b7 150 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8 \u00b7 150 steps"
     },
     {
      "id": "r1d7b-rl-f17-alltasks-ent-kl-step0200-Thinking",
      "arm_id": "r1d7b-rl-f17-alltasks-ent-kl-s200",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, H, KL \u00b7 200 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8 \u00b7 200 steps"
     },
     {
      "id": "r1d7b-rl-f17-alltasks-ent-kl-step0250-Thinking",
      "arm_id": "r1d7b-rl-f17-alltasks-ent-kl-s250",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8, H, KL \u00b7 250 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20137/8 \u00b7 250 steps"
     },
     {
      "id": "r1d7b-rl-f12-alltasks-ent-kl-step0050-Thinking",
      "arm_id": "r1d7b-rl-f12-alltasks-ent-kl-s50",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, H, KL \u00b7 50 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL \u00b7 50 steps"
     },
     {
      "id": "r1d7b-rl-f12-alltasks-ent-kl-step0091-Thinking",
      "arm_id": "r1d7b-rl-f12-alltasks-ent-kl-s91",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, H, KL \u00b7 91 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL \u00b7 91 steps"
     },
     {
      "id": "r1d7b-rl-f12-alltasks-ent-kl-step0100-Thinking",
      "arm_id": "r1d7b-rl-f12-alltasks-ent-kl-s100",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, H, KL \u00b7 100 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL \u00b7 100 steps"
     },
     {
      "id": "r1d7b-rl-f12-alltasks-ent-kl-step0150-Thinking",
      "arm_id": "r1d7b-rl-f12-alltasks-ent-kl-s150",
-     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, H, KL \u00b7 150 steps"
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL \u00b7 150 steps"
     },
     {
      "id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
@@ -1156,16 +1161,16 @@
     "r1d7b-rl-f12-pen"
    ],
    "names": [
-    "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, fixed",
-    "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, redraw every 25, KL",
-    "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, fixed, length penalty"
+    "R1-Distill Qwen 7B (thinking) \u00b7 RL, fixed set, no H, no KL",
+    "R1-Distill Qwen 7B (thinking) \u00b7 RL, in-band redraw, no H",
+    "R1-Distill Qwen 7B (thinking) \u00b7 RL, fixed set, length penalty, no H, no KL"
    ],
    "n_positions": 11,
    "line": "The three R1-Distill Qwen 7B (thinking) training courses stopped in the collapse of early October are not datapoints on this page.",
    "named_here": true,
    "source": {
     "register": "research/training/post-training-lead/names_of_record.json",
-    "sha12": "07d54bf36e71",
+    "sha12": "eb61ef146ddd",
     "built_at": "2026-10-19T11:12:52Z",
     "state_word": "stopped"
    }
@@ -1418,10 +1423,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.dde3b07cebac.json",
-  "chain_average": "chain_average.dde3b07cebac.json",
-  "chain_median": "chain_median.dde3b07cebac.json",
-  "dots": "dots.dde3b07cebac.json",
-  "levels": "levels.dde3b07cebac.json"
+  "shared": "shared.02a811da2893.json",
+  "chain_average": "chain_average.02a811da2893.json",
+  "chain_median": "chain_median.02a811da2893.json",
+  "dots": "dots.02a811da2893.json",
+  "levels": "levels.02a811da2893.json"
  }
 }

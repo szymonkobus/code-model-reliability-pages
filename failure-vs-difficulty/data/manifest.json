@@ -1,5 +1,5 @@
 {
- "fingerprint": "363cb051ffba",
+ "fingerprint": "979e172ed040",
  "frame": {
   "population_M": 67,
   "tasks": 430,
@@ -288,6 +288,16 @@
   "sampled_M": 69,
   "frame_M": 69,
   "off_panel_arms": [
+   "d99start-r1d7b-f12-s100",
+   "d99start-r1d7b-f12-s125",
+   "d99start-r1d7b-f12-s150",
+   "d99start-r1d7b-f12-s175",
+   "d99start-r1d7b-f12-s200",
+   "d99start-r1d7b-f12-s225",
+   "d99start-r1d7b-f12-s25",
+   "d99start-r1d7b-f12-s250",
+   "d99start-r1d7b-f12-s50",
+   "d99start-r1d7b-f12-s75",
    "dsc6.7b-rl-night1-s250",
    "dsc6.7b-rl-night1-s500",
    "dsc6.7b-rl-night2-s250",
@@ -362,16 +372,16 @@
     "r1d7b-rl-f12-pen"
    ],
    "names": [
-    "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, fixed",
-    "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, redraw every 25, KL",
-    "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, fixed, length penalty"
+    "R1-Distill Qwen 7B (thinking) \u00b7 RL, fixed set, no H, no KL",
+    "R1-Distill Qwen 7B (thinking) \u00b7 RL, in-band redraw, no H",
+    "R1-Distill Qwen 7B (thinking) \u00b7 RL, fixed set, length penalty, no H, no KL"
    ],
    "n_positions": 11,
    "line": "The three R1-Distill Qwen 7B (thinking) training courses stopped in the collapse of early October are not datapoints on this page.",
    "named_here": false,
    "source": {
     "register": "research/training/post-training-lead/names_of_record.json",
-    "sha12": "07d54bf36e71",
+    "sha12": "b2721e048cf2",
     "built_at": "2026-10-19T11:12:52Z",
     "state_word": "stopped"
    }
@@ -390,13 +400,13 @@
   },
   "keep_set_hash": "c3f08ea1a903",
   "axis_order_hash": "c56362b92c0f",
-  "runs_fingerprint": "e143a0c6d340",
+  "runs_fingerprint": "570ba024cb5f",
   "runs_fingerprint_rule": "sha1 over path:mtime_ns:size of the consumed *.eval_results.json files (since 2026-09-02; before: every file under runs/)",
   "inputs_content_sha": "d86f88495e3a",
   "scorer": "plus_status (a sample counts as solved if its plus run passed; difficulty adopted base AND plus on 2026-09-02 — the switch of served numbers waits for the project maintainers' gate; under base AND plus a result can read differently, e.g. Mbpp/274 for Qwen3-30B-A3B: 128 passes here vs 127)",
   "inputs_content_rule": "sha256 (first 12 hex) of the UTF-8 bytes of lines `<arm>\\t<task>\\t<passes>\\t<attempts>\\n` for every consumed cell (every sampled arm, kept tasks only; arm = the fail matrix's `model` column literal; passes = attempts - fails, fails counted under plus_status), lines sorted as plain strings by (arm, task) — reproducible from artifacts/fail_counts_matrix.csv; reference script data/inputs_content_sha.py",
   "build_date": "2026-10-23",
-  "built_at": "2026-10-23T14:00:03Z",
+  "built_at": "2026-10-23T16:24:08Z",
   "vocab_ruled": "2026-08-27",
   "counts_of_record": {
    "original_kept": 430,
@@ -405,7 +415,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-23T13:28:57Z",
+   "_stamp": "2026-10-23T16:29:30Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -666,13 +676,13 @@
    "openai/gpt-5-nano": "20260907T154051Z",
    "openai/gpt-5-mini": "20260907T154051Z"
   },
-  "newest_input_mtime": "2026-10-23T13:41:58Z"
+  "newest_input_mtime": "2026-10-23T16:30:12Z"
  },
  "files": {
-  "shared": "shared.363cb051ffba.json",
-  "chain_average": "chain_average.363cb051ffba.json",
-  "chain_median": "chain_median.363cb051ffba.json",
-  "dots": "dots.363cb051ffba.json",
-  "levels": "levels.363cb051ffba.json"
+  "shared": "shared.979e172ed040.json",
+  "chain_average": "chain_average.979e172ed040.json",
+  "chain_median": "chain_median.979e172ed040.json",
+  "dots": "dots.979e172ed040.json",
+  "levels": "levels.979e172ed040.json"
  }
 }
