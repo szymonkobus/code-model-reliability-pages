@@ -1,9 +1,9 @@
 {
- "fingerprint": "9813d67ca805",
+ "fingerprint": "368b220bd737",
  "fingerprint_inputs": {
   "content": "85c7ea8c65d2",
   "wave": "aime-live",
-  "body": "d11d490da934"
+  "body": "abdf537f1310"
  },
  "frame": {
   "dataset": "aime",
@@ -30,23 +30,23 @@
   "tasks_awaiting_axis": 0,
   "axis_set_hash": "dc5cbadfe267",
   "on_axis_by_wave": {},
-  "runs_fingerprint": "a73289d8b9bc",
+  "runs_fingerprint": "76f51584a720",
   "axis_wave": "aime-live",
   "build_date": "2026-10-23",
-  "stamp": "2026-10-23T14:41:00Z",
+  "stamp": "2026-10-23T21:15:10Z",
   "unified_sources_not_taken": null,
   "census_wave1_cells_by_arm": null,
   "refusals_struck": {
    "rule": "a refused answer is neither a failure nor a success: the refused attempts leave the cell by identity and the written answers with their passes stand as the cell; a task with nothing written leaves the cells as it leaves the fit",
-   "index_sha16": "0b7dbe0c0958961b",
-   "index_written_at": "2026-10-23T11:02:26Z",
+   "index_sha16": "0fefdc49194b978f",
+   "index_written_at": "2026-10-23T20:50:08Z",
    "index_path": "runs/judge/knowledge/refused_answers_index_of_record.json",
    "by_config": null,
    "held_as_drawn": null
   },
   "inputs": {
    "unified_cells": "side-projects/newbench/site/data/aime",
-   "unified_built_at": "2026-10-23T13:08:05Z",
+   "unified_built_at": "2026-10-23T19:14:17Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.aime.csv"
@@ -388,16 +388,16 @@
     "r1d7b-rl-f12-pen"
    ],
    "names": [
-    "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, fixed",
-    "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, redraw every 25, KL",
-    "R1-Distill Qwen 7B (thinking) \u00b7 RL, fails 1\u20132/8, fixed, length penalty"
+    "R1-Distill Qwen 7B (thinking) \u00b7 RL, fixed, no H, no KL",
+    "R1-Distill Qwen 7B (thinking) \u00b7 RL, in-band redraw, no H",
+    "R1-Distill Qwen 7B (thinking) \u00b7 RL, fixed, length penalty, no H, no KL"
    ],
    "n_positions": 11,
    "line": "The three R1-Distill Qwen 7B (thinking) training courses stopped in the collapse of early October are not datapoints on this page.",
    "named_here": false,
    "source": {
     "register": "research/training/post-training-lead/names_of_record.json",
-    "sha12": "07d54bf36e71",
+    "sha12": "4e5cd2b3c301",
     "built_at": "2026-10-19T11:12:52Z",
     "state_word": "stopped"
    }
@@ -454,7 +454,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-23T14:27:43Z",
+   "_stamp": "2026-10-23T20:25:54Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -619,10 +619,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-23T11:20:51Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261023T112051Z.json",
-   "sha16": "ac004eb7c1b36d0a",
-   "census_mtime": "2026-10-23T11:22:41Z",
+   "stamp": "2026-10-23T17:26:18Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261023T172618Z.json",
+   "sha16": "0731eca5b2775f68",
+   "census_mtime": "2026-10-23T17:28:44Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": false,
@@ -639,10 +639,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.9813d67ca805.json",
-  "chain_average": "chain_average.9813d67ca805.json",
-  "chain_median": "chain_median.9813d67ca805.json",
-  "dots": "dots.9813d67ca805.json",
-  "levels": "levels.9813d67ca805.json"
+  "shared": "shared.368b220bd737.json",
+  "chain_average": "chain_average.368b220bd737.json",
+  "chain_median": "chain_median.368b220bd737.json",
+  "dots": "dots.368b220bd737.json",
+  "levels": "levels.368b220bd737.json"
  }
 }
