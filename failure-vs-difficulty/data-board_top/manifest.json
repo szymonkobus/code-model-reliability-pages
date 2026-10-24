@@ -1,9 +1,9 @@
 {
- "fingerprint": "e10cc074d1c7",
+ "fingerprint": "a0109be7bc61",
  "fingerprint_inputs": {
-  "content": "1050d6c454bb",
+  "content": "701d5e5b9842",
   "wave": "combined-20260910T2209Z",
-  "body": "1ea3e9f71556"
+  "body": "3922d3303ef0"
  },
  "frame": {
   "dataset": "board_top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 74,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "1050d6c454bb",
+  "inputs_content_sha": "701d5e5b9842",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "8f1fe7a2b018",
+  "runs_fingerprint": "f9ffe61d7242",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-24",
-  "stamp": "2026-10-24T20:32:46Z",
+  "stamp": "2026-10-24T21:34:48Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -49,7 +49,7 @@
    "d99start-r1d7b-f12-step0025-Thinking": 430,
    "d99start-r1d7b-f12-step0050-Thinking": 430,
    "d99start-r1d7b-f12-step0075-Thinking": 430,
-   "d99start-r1d7b-f12-step0100-Thinking": 189,
+   "d99start-r1d7b-f12-step0100-Thinking": 430,
    "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B": 430,
    "deepseek-coder-6.7b-rl-night1-step250": 430,
    "deepseek-coder-6.7b-rl-night1-step500": 430,
@@ -181,7 +181,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-24T20:17:33Z",
+   "unified_built_at": "2026-10-24T21:18:32Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -1218,7 +1218,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-24T20:26:52Z",
+   "_stamp": "2026-10-24T21:26:20Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1383,10 +1383,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-24T17:53:20Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261024T175320Z.json",
-   "sha16": "0038af34ee6e07b7",
-   "census_mtime": "2026-10-24T17:54:41Z",
+   "stamp": "2026-10-24T20:09:31Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261024T200931Z.json",
+   "sha16": "d1cdb41b7ddad2d9",
+   "census_mtime": "2026-10-24T20:10:46Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
@@ -1455,10 +1455,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.e10cc074d1c7.json",
-  "chain_average": "chain_average.e10cc074d1c7.json",
-  "chain_median": "chain_median.e10cc074d1c7.json",
-  "dots": "dots.e10cc074d1c7.json",
-  "levels": "levels.e10cc074d1c7.json"
+  "shared": "shared.a0109be7bc61.json",
+  "chain_average": "chain_average.a0109be7bc61.json",
+  "chain_median": "chain_median.a0109be7bc61.json",
+  "dots": "dots.a0109be7bc61.json",
+  "levels": "levels.a0109be7bc61.json"
  }
 }
