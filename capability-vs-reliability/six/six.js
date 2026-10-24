@@ -102,6 +102,7 @@ function buildControls(ctxs) {
   sw(moreRow, 'line', CONTROL_WORDS.line.label, CONTROL_WORDS.line.options, 'steps', function (v) { state.line = (v === 'off' || v === 'axes') ? v : 'steps'; });
   sw(moreRow, 'lw', CONTROL_WORDS.lw.label, CONTROL_WORDS.lw.options, 'equal', function (v) { state.lw = v === 'bands' ? 'bands' : 'equal'; });
   sw(moreRow, 'resid', CONTROL_WORDS.resid.label, CONTROL_WORDS.onoff, 'off', function (v) { state.resid = v === 'on' ? 'on' : 'off'; });
+  sw(moreRow, 'zoom', CONTROL_WORDS.zoom.label, CONTROL_WORDS.onoff, 'off', function (v) { state.zoom = v === 'on' ? 'on' : 'off'; });   
   var withPrevs = live.filter(function (c) { return !!c.D.bayPrev; });   
   if (withPrevs.length) { var names = withPrevs.map(function (c) { return withPanel(c, prevFitName); }), dates = names.map(function (nm) { var m = /^the (.+) cut of /.exec(nm); return m ? m[1] : null; });
     var oneDate = dates.length === names.length && dates.every(function (d) { return d && d === dates[0]; }) ? dates[0] : null;
@@ -140,7 +141,7 @@ function init(ctxs) {
   state.view = Kit.state.get('view', 'scatter') === 'ridges' ? 'ridges' : 'scatter';
   state.xdef = Kit.state.get('xdef', 'crossing'); if (!CAP_KEYS[state.xdef]) state.xdef = 'crossing';   
   state.kp = Kit.state.get('kp', 'off') === 'on' ? 'on' : 'off'; state.lad = Kit.state.get('lad', 'off') === 'on' ? 'on' : 'off'; state.w = Kit.state.get('w', 'on') === 'off' ? 'off' : 'on'; state.wd = Kit.state.get('wd', 'adj') === 'ind' ? 'ind' : 'adj';
-  state.fitci = Kit.state.get('fitci', 'honest') === 'plain' ? 'plain' : 'honest'; state.move = Kit.state.get('move', 'off') === 'on' ? 'on' : 'off'; var lv = Kit.state.get('line', 'steps'); state.line = (lv === 'off' || lv === 'axes') ? lv : 'steps';
+  state.fitci = Kit.state.get('fitci', 'honest') === 'plain' ? 'plain' : 'honest'; state.move = Kit.state.get('move', 'off') === 'on' ? 'on' : 'off'; state.zoom = Kit.state.get('zoom', 'off') === 'on' ? 'on' : 'off'; var lv = Kit.state.get('line', 'steps'); state.line = (lv === 'off' || lv === 'axes') ? lv : 'steps';
   state.lw = Kit.state.get('lw', 'equal') === 'bands' ? 'bands' : 'equal'; state.resid = Kit.state.get('resid', 'off') === 'on' ? 'on' : 'off';
   buildControls(ctxs); syncChains(ctxs);
   buildLevels(); foldSweepTools();

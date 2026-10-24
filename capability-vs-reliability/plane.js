@@ -1363,7 +1363,8 @@ function renderScatter() {
   if (SPAN && !PANEL) { if (state.yq !== 'ent' && (EXPORTING ? state.xs === state.ys : state.zoom !== 'fit')) chart.setAttribute('data-equal-scale', ''); else chart.removeAttribute('data-equal-scale'); }   
   var la = logit(state.a / 100), lc = logit(state.c / 100);
   var zoomPts = !SPAN && state.zoom === 'on';   
-  if ((SPAN || zoomPts) && !EXPORTING && !PANEL) {   
+  
+  if (((SPAN && !PANEL) || zoomPts) && !EXPORTING) {   
     
     
     
