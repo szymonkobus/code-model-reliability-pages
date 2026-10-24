@@ -1,9 +1,9 @@
 {
- "fingerprint": "c931f1727544",
+ "fingerprint": "e10cc074d1c7",
  "fingerprint_inputs": {
-  "content": "963121ecd6fd",
+  "content": "1050d6c454bb",
   "wave": "combined-20260910T2209Z",
-  "body": "50eb7e806b22"
+  "body": "1ea3e9f71556"
  },
  "frame": {
   "dataset": "board_top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 74,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "963121ecd6fd",
+  "inputs_content_sha": "1050d6c454bb",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "8abcb3ed44ac",
+  "runs_fingerprint": "8f1fe7a2b018",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-24",
-  "stamp": "2026-10-24T18:47:04Z",
+  "stamp": "2026-10-24T20:32:46Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -49,6 +49,7 @@
    "d99start-r1d7b-f12-step0025-Thinking": 430,
    "d99start-r1d7b-f12-step0050-Thinking": 430,
    "d99start-r1d7b-f12-step0075-Thinking": 430,
+   "d99start-r1d7b-f12-step0100-Thinking": 189,
    "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B": 430,
    "deepseek-coder-6.7b-rl-night1-step250": 430,
    "deepseek-coder-6.7b-rl-night1-step500": 430,
@@ -180,7 +181,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-24T18:18:33Z",
+   "unified_built_at": "2026-10-24T20:17:33Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -693,7 +694,7 @@
   "interim": "kernel fits on all results available at build; refit hourly as results land",
   "partial_attempts": null,
   "off_panel": {
-   "n_with_cells": 95,
+   "n_with_cells": 96,
    "arms": [
     {
      "id": "deepseek-coder-6.7b-rl-night1-step250",
@@ -1001,6 +1002,11 @@
      "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, rare-failure weight \u00b7 75 steps"
     },
     {
+     "id": "d99start-r1d7b-f12-step0100-Thinking",
+     "arm_id": "d99start-r1d7b-f12-s100",
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, rare-failure weight \u00b7 100 steps"
+    },
+    {
      "id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
      "arm_id": "olmo3.1-7b-rlzc-s0050",
      "label": "Olmo 3.1 7B RL-Zero Code \u00b7 checkpoint 0"
@@ -1177,7 +1183,7 @@
     "qwen35_9b_base_sft_maths_completion"
    ],
    "panel_conflicts": [],
-   "line": "74 study models with results are off the panel; the models with a fit appear in their own block"
+   "line": "75 study models with results are off the panel; the models with a fit appear in their own block"
   },
   "struck_runs": {
    "keys": [
@@ -1196,7 +1202,7 @@
    "named_here": true,
    "source": {
     "register": "research/training/post-training-lead/names_of_record.json",
-    "sha12": "ab7a4681a84f",
+    "sha12": "3188f0d77d31",
     "built_at": "2026-10-19T11:12:52Z",
     "state_word": "stopped"
    }
@@ -1212,7 +1218,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-24T18:25:23Z",
+   "_stamp": "2026-10-24T20:26:52Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1416,7 +1422,7 @@
     "arms_in": "shared"
    },
    {
-    "updated_at": "2026-10-23T18:31:06Z+2026-10-23T18:00:14Z+2026-10-23T18:31:15Z+2026-10-23T18:31:23Z+2026-10-24T04:31:22Z+2026-10-24T17:17:46Z",
+    "updated_at": "2026-10-23T18:31:06Z+2026-10-23T18:00:14Z+2026-10-23T18:31:15Z+2026-10-23T18:31:23Z+2026-10-24T04:31:22Z+2026-10-24T20:17:55Z",
     "pointer": "definitions/fitting/serving_series_r1d7b-rl-f17-kl.json",
     "row": 3,
     "served": true,
@@ -1449,10 +1455,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.c931f1727544.json",
-  "chain_average": "chain_average.c931f1727544.json",
-  "chain_median": "chain_median.c931f1727544.json",
-  "dots": "dots.c931f1727544.json",
-  "levels": "levels.c931f1727544.json"
+  "shared": "shared.e10cc074d1c7.json",
+  "chain_average": "chain_average.e10cc074d1c7.json",
+  "chain_median": "chain_median.e10cc074d1c7.json",
+  "dots": "dots.e10cc074d1c7.json",
+  "levels": "levels.e10cc074d1c7.json"
  }
 }
