@@ -1,9 +1,9 @@
 {
- "fingerprint": "0c5e83ac1d0d",
+ "fingerprint": "314e5a464951",
  "fingerprint_inputs": {
-  "content": "01953f293a97",
+  "content": "d1e05b015fb5",
   "wave": "unified-live",
-  "body": "e75f1a3fae6b"
+  "body": "9eb776b181b9"
  },
  "frame": {
   "dataset": "all",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 74,
   "tasks": 2167,
   "keep_set_hash": "60ede5d24001",
-  "inputs_content_sha": "01953f293a97",
+  "inputs_content_sha": "d1e05b015fb5",
   "tasks_on_axis": 2167,
   "tasks_kept": 2167,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 879
   },
-  "runs_fingerprint": "0da17ee0e9ed",
+  "runs_fingerprint": "92910b094e71",
   "axis_wave": "unified-live",
   "build_date": "2026-10-24",
-  "stamp": "2026-10-24T08:56:40Z",
+  "stamp": "2026-10-24T09:52:50Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -46,6 +46,7 @@
    "Skywork/Skywork-OR1-7B": 430,
    "XiaomiMiMo/MiMo-7B-RL-Thinking": 430,
    "XiaomiMiMo/MiMo-7B-SFT-Thinking": 430,
+   "d99start-r1d7b-f12-step0025-Thinking": 430,
    "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B": 430,
    "deepseek-coder-6.7b-rl-night1-step250": 430,
    "deepseek-coder-6.7b-rl-night1-step500": 430,
@@ -182,7 +183,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-24T08:19:18Z",
+   "unified_built_at": "2026-10-24T09:18:45Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.all.csv"
@@ -640,7 +641,7 @@
   "interim": "kernel fits on all results available at build; refit hourly as results land",
   "partial_attempts": null,
   "off_panel": {
-   "n_with_cells": 92,
+   "n_with_cells": 93,
    "arms": [
     {
      "id": "deepseek-coder-6.7b-rl-night1-step250",
@@ -933,6 +934,11 @@
      "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL \u00b7 250 steps"
     },
     {
+     "id": "d99start-r1d7b-f12-step0025-Thinking",
+     "arm_id": "d99start-r1d7b-f12-s25",
+     "label": "R1-Distill Qwen 7B (thinking) \u00b7 RL, rare-failure weight \u00b7 25 steps"
+    },
+    {
      "id": "olmo-3.1-7b-rl-zero-code-step0050_completion",
      "arm_id": "olmo3.1-7b-rlzc-s0050",
      "label": "Olmo 3.1 7B RL-Zero Code \u00b7 checkpoint 0"
@@ -1098,7 +1104,7 @@
    "unregistered": [],
    "in_side_block": [],
    "panel_conflicts": [],
-   "line": "81 study models with results are off the panel; the models with a fit appear in their own block"
+   "line": "82 study models with results are off the panel; the models with a fit appear in their own block"
   },
   "struck_runs": {
    "keys": [
@@ -1133,7 +1139,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-24T08:25:49Z",
+   "_stamp": "2026-10-24T09:26:03Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1308,10 +1314,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.0c5e83ac1d0d.json",
-  "chain_average": "chain_average.0c5e83ac1d0d.json",
-  "chain_median": "chain_median.0c5e83ac1d0d.json",
-  "dots": "dots.0c5e83ac1d0d.json",
-  "levels": "levels.0c5e83ac1d0d.json"
+  "shared": "shared.314e5a464951.json",
+  "chain_average": "chain_average.314e5a464951.json",
+  "chain_median": "chain_median.314e5a464951.json",
+  "dots": "dots.314e5a464951.json",
+  "levels": "levels.314e5a464951.json"
  }
 }
