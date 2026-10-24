@@ -82,33 +82,33 @@
   },
   "new": {
    "files": {
-    "shared": "shared.new.17223b505162.json",
-    "chain_average": "chain_average.new.17223b505162.json"
+    "shared": "shared.new.dd26938775ca.json",
+    "chain_average": "chain_average.new.dd26938775ca.json"
    },
    "label": "wave 2 and wave 2 parked",
-   "fingerprint": "17223b505162",
+   "fingerprint": "dd26938775ca",
    "frame": {
     "population_M": 67,
     "tasks": 1737,
     "keep_set_hash": "abc6c6e65227",
-    "runs_fingerprint": "17223b505162",
+    "runs_fingerprint": "dd26938775ca",
     "runs_window": "2026-10-23T23:01:46Z",
-    "build_date": "2026-10-23",
-    "build_ts": "2026-10-23T23:19:22Z",
+    "build_date": "2026-10-24",
+    "build_ts": "2026-10-24T00:10:35Z",
     "vocab_ruled": "2026-08-27",
     "set": "new",
     "set_label": "wave 2 and wave 2 parked",
     "tasks_used": "wave 2 and wave 2 parked \u2014 1737 tasks, axis wave combined-20260903T1502Z",
-    "source": "the maintainers build_pool_curves.py stamp 2026-10-23T23:19:22+00:00 · cross_rows on lev_grid f3d40b6fb872",
+    "source": "the maintainers build_pool_curves.py stamp 2026-10-24T00:10:35+00:00 · cross_rows on lev_grid f3d40b6fb872",
     "skipped_no_rows": []
    },
-   "source_stamp": "2026-10-23T23:19:22+00:00",
+   "source_stamp": "2026-10-24T00:10:35+00:00",
    "missing": {
     "chain_median": "the median-task chain needs the pool's per-task results, which the pool bundle does not carry",
     "bayes": "no Bayesian fit for this set until a new pool wave is cut as adopted: the earlier pool fit predates the continuation credit and the later cut was cancelled before it completed"
    },
    "bayes_interim": null,
-   "updated_at": "2026-10-24T00:12:05Z"
+   "updated_at": "2026-10-24T00:52:38Z"
   },
   "all": {
    "files": {
@@ -143,7 +143,7 @@
    },
    "source_stamp": "2026-10-23T23:44:49Z",
    "source_fp": "23c32be3fcaa",
-   "updated_at": "2026-10-24T00:20:10Z",
+   "updated_at": "2026-10-24T00:40:54Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -191,7 +191,7 @@
    },
    "source_stamp": "2026-10-24T00:10:00Z",
    "source_fp": "315b6ec84c38",
-   "updated_at": "2026-10-24T00:22:55Z",
+   "updated_at": "2026-10-24T00:42:56Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -205,20 +205,20 @@
   },
   "top": {
    "files": {
-    "shared": "shared.top.2bed3b5899ea.json",
-    "chain_average": "chain_average.top.2bed3b5899ea.json",
-    "bayes": "bayes.top.2bed3b5899ea-5cc418c051a8.json"
+    "shared": "shared.top.c928667f19c6.json",
+    "chain_average": "chain_average.top.c928667f19c6.json",
+    "bayes": "bayes.top.c928667f19c6-5cc418c051a8.json"
    },
    "label": "wave 2",
    "arms": "all",
-   "fingerprint": "2bed3b5899ea",
+   "fingerprint": "c928667f19c6",
    "frame": {
     "population_M": 71,
     "tasks": 858,
     "keep_set_hash": "532d0efad8a5",
-    "runs_fingerprint": "a516510012e4",
-    "build_date": "2026-10-23",
-    "build_ts": "2026-10-23T23:06:21Z",
+    "runs_fingerprint": "780e5f05ac6b",
+    "build_date": "2026-10-24",
+    "build_ts": "2026-10-24T00:19:44Z",
     "vocab_ruled": "2026-08-27",
     "set": "top",
     "set_label": "wave 2",
@@ -229,14 +229,14 @@
     "tasks_awaiting_axis": 0,
     "axis_set_hash": "532d0efad8a5",
     "tasks_used": "wave 2 \u2014 858 tasks, axis wave pool-20260910T2244Z",
-    "source": "failure-vs-difficulty data-top fp ff2420881c57 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
-    "inputs_content_sha": "9fa7cf3345d6",
+    "source": "failure-vs-difficulty data-top fp 3c551da160f1 (read-only) \u00b7 crossing_rows on lev_grid f3d40b6fb872",
+    "inputs_content_sha": "e1f32df7f10f",
     "withheld_configs": [],
     "withdrawn": {}
    },
-   "source_stamp": "2026-10-23T23:06:21Z",
-   "source_fp": "ff2420881c57",
-   "updated_at": "2026-10-24T00:24:35Z",
+   "source_stamp": "2026-10-24T00:19:44Z",
+   "source_fp": "3c551da160f1",
+   "updated_at": "2026-10-24T00:44:11Z",
    "bayes_interim": {
     "wave": null,
     "n": 0,
@@ -577,7 +577,7 @@
   }
  },
  "counts_of_record": {
-  "stamp": "2026-10-23T23:25:26Z",
+  "stamp": "2026-10-24T00:25:24Z",
   "wave1": 430,
   "wave2": 869,
   "wave2_parked": 893,
