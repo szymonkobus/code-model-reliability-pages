@@ -1,9 +1,9 @@
 {
- "fingerprint": "12d472bf7aff",
+ "fingerprint": "996baaf3bf7a",
  "fingerprint_inputs": {
-  "content": "1297cba38eec",
+  "content": "b6e7c6777c75",
   "wave": "combined-20260910T2209Z",
-  "body": "e3e4979e1803"
+  "body": "a5a063593eee"
  },
  "frame": {
   "dataset": "board_top",
@@ -24,7 +24,7 @@
   "difficulty_population_M": 74,
   "tasks": 1288,
   "keep_set_hash": "ba4c3eb57ad5",
-  "inputs_content_sha": "1297cba38eec",
+  "inputs_content_sha": "b6e7c6777c75",
   "tasks_on_axis": 1288,
   "tasks_kept": 1288,
   "tasks_awaiting_axis": 0,
@@ -34,10 +34,10 @@
    "wave_2": 858,
    "wave_2_parked": 0
   },
-  "runs_fingerprint": "3fa4f2338998",
+  "runs_fingerprint": "f968ec2ef536",
   "axis_wave": "combined-20260910T2209Z",
   "build_date": "2026-10-24",
-  "stamp": "2026-10-24T13:43:20Z",
+  "stamp": "2026-10-24T14:47:19Z",
   "unified_sources_not_taken": {
    "pilot": 1496
   },
@@ -47,7 +47,7 @@
    "XiaomiMiMo/MiMo-7B-RL-Thinking": 430,
    "XiaomiMiMo/MiMo-7B-SFT-Thinking": 430,
    "d99start-r1d7b-f12-step0025-Thinking": 430,
-   "d99start-r1d7b-f12-step0050-Thinking": 362,
+   "d99start-r1d7b-f12-step0050-Thinking": 430,
    "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B": 430,
    "deepseek-coder-6.7b-rl-night1-step250": 430,
    "deepseek-coder-6.7b-rl-night1-step500": 430,
@@ -179,7 +179,7 @@
   },
   "inputs": {
    "unified_cells": "definitions/difficulty/analysis/pool-intake/out/unified/unified_cells.csv",
-   "unified_built_at": "2026-10-24T13:18:56Z",
+   "unified_built_at": "2026-10-24T14:25:07Z",
    "board_cells_source": null,
    "board_landing_id": null,
    "axis_mirror": "definitions/difficulty/html/datasets/task_difficulty.board_top.csv"
@@ -1206,7 +1206,7 @@
    "new_total": 1762,
    "new_focused_kept": 858,
    "new_parked_kept": 879,
-   "_stamp": "2026-10-24T13:25:56Z",
+   "_stamp": "2026-10-24T14:26:21Z",
    "waves": {
     "wave_1": {
      "name": "wave 1",
@@ -1371,10 +1371,10 @@
    }
   },
   "census_pinned": {
-   "stamp": "2026-10-24T10:34:33Z",
-   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261024T103433Z.json",
-   "sha16": "bd3a147d0edb319d",
-   "census_mtime": "2026-10-24T10:35:50Z",
+   "stamp": "2026-10-24T13:11:49Z",
+   "census": "definitions/difficulty/analysis/pool-intake/out/inputs/census/bound.20261024T131149Z.json",
+   "sha16": "70703e7278ac4c12",
+   "census_mtime": "2026-10-24T13:13:11Z",
    "rule": "the census stamp the unified store's cells were cut from at this build; the curves page's void check reads it against the word's history and the store's held list and held_stamp"
   },
   "median_curves": true,
@@ -1443,10 +1443,10 @@
   "frame_blocks_in": "shared"
  },
  "files": {
-  "shared": "shared.12d472bf7aff.json",
-  "chain_average": "chain_average.12d472bf7aff.json",
-  "chain_median": "chain_median.12d472bf7aff.json",
-  "dots": "dots.12d472bf7aff.json",
-  "levels": "levels.12d472bf7aff.json"
+  "shared": "shared.996baaf3bf7a.json",
+  "chain_average": "chain_average.996baaf3bf7a.json",
+  "chain_median": "chain_median.996baaf3bf7a.json",
+  "dots": "dots.996baaf3bf7a.json",
+  "levels": "levels.996baaf3bf7a.json"
  }
 }
